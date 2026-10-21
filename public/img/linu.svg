@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" width="1024" height="1024"><rect width="1024" height="1024" fill="#2563EB"/><g transform="translate(512 540) scale(1) translate(-512 -540)">
+    <!-- ombros e barriga -->
+    <ellipse cx="512" cy="790" rx="384" ry="461" fill="#1F2A44"/>
+    <ellipse cx="512" cy="930" rx="269" ry="326" fill="#F8FAFC"/>
+    <!-- cabeça com o «boné» preto e o rosto branco -->
+    <circle cx="512" cy="464" r="317" fill="#1F2A44"/>
+    <ellipse cx="400" cy="250" rx="120" ry="60" fill="#FFFFFF" opacity="0.10" transform="rotate(-24 400 250)"/>
+    <path d="M214 522 Q224 368 358 368 Q512 406 666 368 Q800 368 810 522 Q829 752 704 867 Q512 944 320 867 Q195 752 214 522 Z" fill="#F8FAFC"/>
+    <!-- a barbicha -->
+    <path d="M234 406 Q224 656 339 733 Q512 829 685 733 Q800 656 790 406" stroke="#1F2A44" stroke-width="18" fill="none" stroke-linecap="round"/>
+    <!-- olhos grandes, íris castanho-avermelhada como na espécie -->
+    <circle cx="388" cy="500" r="66" fill="#7C2D12"/><circle cx="636" cy="500" r="66" fill="#7C2D12"/>
+    <circle cx="392" cy="506" r="42" fill="#1F2A44"/><circle cx="640" cy="506" r="42" fill="#1F2A44"/>
+    <circle cx="410" cy="478" r="19" fill="#FFFFFF"/><circle cx="658" cy="478" r="19" fill="#FFFFFF"/>
+    <circle cx="376" cy="526" r="8" fill="#FFFFFF" opacity="0.8"/><circle cx="624" cy="526" r="8" fill="#FFFFFF" opacity="0.8"/>
+    <!-- bochechas -->
+    <ellipse cx="300" cy="612" rx="44" ry="30" fill="#FB7185" opacity="0.45"/>
+    <ellipse cx="724" cy="612" rx="44" ry="30" fill="#FB7185" opacity="0.45"/>
+    <!-- bico -->
+    <path d="M440 572 Q512 560 584 572 Q556 640 512 668 Q468 640 440 572 Z" fill="#111827"/>
+  </g></svg>
