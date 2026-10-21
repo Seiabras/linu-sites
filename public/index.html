@@ -13,7 +13,16 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/estilo.css?v=1">
+  <link rel="canonical" href="https://sites.linupedia.com.br/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sites.linupedia.com.br/">
+  <meta property="og:locale" content="pt_BR">
+  <script>
+    /* Tema escolhido pela pessoa (botão da luz); sem escolha, segue o sistema. Roda antes de pintar. */
+    try { var t = localStorage.getItem("tema"); if (t === "dark" || t === "light") document.documentElement.dataset.theme = t; } catch (e) {}
+  </script>
+  <link rel="stylesheet" href="css/estilo.css?v=2">
+  <script src="js/tema.js?v=2" defer></script>
 </head>
 <body>
   <header class="topo">
@@ -26,7 +35,14 @@
         <a href="#servicos">O que fazemos</a>
         <a href="#projetos">Projetos</a>
         <a href="#como">Como funciona</a>
-        <a class="botao botao-pequeno" href="#contato">Pedir orçamento</a>
+        <button class="luz" type="button" data-luz aria-label="Apagar a luz (modo escuro)" title="Apagar a luz">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+            <path class="luz-raios" d="M12 1.5v2M4.6 4.6l1.4 1.4M1.5 12h2M20.5 12h2M19.4 4.6 18 6" />
+            <path class="luz-bulbo" d="M12 6a5.5 5.5 0 0 0-3.2 10c.5.4.8.9.8 1.5v.5h4.8v-.5c0-.6.3-1.1.8-1.5A5.5 5.5 0 0 0 12 6Z" />
+            <path class="luz-base" d="M9.8 20.5h4.4M10.5 22.5h3" />
+          </svg>
+        </button>
+        <a class="botao botao-pequeno" href="#contato"><span class="so-largo">Pedir o</span><span class="so-estreito">O</span>rçamento</a>
       </nav>
     </div>
   </header>
@@ -44,10 +60,16 @@
           </div>
         </div>
         <figure class="janela">
-          <picture>
-            <source srcset="img/abrigo-estacao-noite.png" media="(prefers-color-scheme: dark)">
-            <img class="pixel" src="img/abrigo-estacao-dia.png" alt="Ilustração em pixel art de uma estação de pesquisa na Antártica, com mesa, computador e mapas na parede" width="344" height="192">
-          </picture>
+          <div class="cena" data-cena>
+            <img class="pixel cena-dia" src="img/abrigo-estacao-dia.png" alt="Ilustração em pixel art de uma estação de pesquisa na Antártica, com mesa, computador e mapas na parede" width="344" height="192">
+            <img class="pixel cena-acesa" src="img/abrigo-estacao-noite.png" alt="" width="344" height="192">
+            <img class="pixel cena-apagada" src="img/abrigo-estacao-apagada.png" alt="" width="344" height="192">
+            <span class="cena-linu" data-pose="frente">
+              <img class="pixel linu-frente" src="img/linu/linu-frente.png" alt="" width="52" height="61">
+              <span class="linu-lado"><img class="pixel" src="img/linu/linu-lado.png" alt="" width="208" height="61"></span>
+              <img class="pixel linu-costas" src="img/linu/linu-costas.png" alt="" width="52" height="61">
+            </span>
+          </div>
           <figcaption>A estação do Linu, onde os sites são feitos.</figcaption>
         </figure>
       </div>
