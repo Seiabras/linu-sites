@@ -1,0 +1,46 @@
+name: Publicar na Oracle Cloud
+
+# A cada push na main, entrega a pasta public/ na VM da Oracle (a mesma da LinuPedia, do v²tech, da
+# Marginalia e do Los Vega). A chave do segredo ORACLE_SSH_KEY entra como o usuário "linusites", que NÃO
+# tem sudo, e só consegue rodar /opt/linu-sites/receber.sh (comando forçado): só troca o Linu Sites.
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: oracle
+  cancel-in-progress: false
+
+env:
+  VM_HOST: 168.138.155.95
+  SITE: https://sites.linupedia.com.br
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Conferir o segredo
+        id: check
+        run: |
+          if [ -z "${{ secrets.ORACLE_SSH_KEY }}" ]; then
+            echo "tem=nao" >> "$GITHUB_OUTPUT"
+            echo "::notice::O segredo ORACLE_SSH_KEY ainda não existe. Nada foi publicado."
+          else
+            echo "tem=sim" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/checkout@v5
+      - name: Conferir a página
+        run: test -f public/index.html
+      - name: Entregar na VM
+        if: steps.check.outputs.tem == 'sim'
+        env:
+          KEY: ${{ secrets.ORACLE_SSH_KEY }}
+        run: |
+          mkdir -p ~/.ssh && chmod 700 ~/.ssh
+          printf '%s\n' "$KEY" > ~/.ssh/id_ed25519 && chmod 600 ~/.ssh/id_ed25519
+          ssh-keyscan -T 15 "$VM_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+          tar czf - -C public . | ssh -o BatchMode=yes "linusites@$VM_HOST"
+      - name: Conferir o site
+        if: steps.check.outputs.tem == 'sim'
+        run: curl -fsS --max-time 20 -o /dev/null "$SITE/" && echo "$SITE no ar"
