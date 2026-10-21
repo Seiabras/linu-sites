@@ -21,8 +21,10 @@ cd public && python3 -m http.server 8000
 - **Projetos no ar:** LinuPedia, V²Tech COMBUSTÍVEL, Los Vega na Estrada e Marginalia, com capturas em
   `public/img/projetos/` (960×600, WebP). O NeuroSim fica de fora por enquanto, até sair do começo.
 - **Como funciona** e **contato**: WhatsApp (61) 99667-2610 e `contato@linupedia.com.br`.
-- **Preços de referência** nos cartões de “O que fazemos” e **depoimentos**: prontos no HTML, mas
-  escondidos (`hidden`) até os valores serem confirmados e chegarem frases de verdade.
+- **Preços de referência** nos cartões de “O que fazemos”: site de apresentação a partir de R$ 1.800,
+  ferramentas e painéis a partir de R$ 6.000, apps que instalam a partir de R$ 9.000 e hospedagem e
+  cuidado por R$ 120 por mês.
+- **Depoimentos:** a seção está pronta no HTML, mas escondida (`hidden`) até chegarem frases de verdade.
 - **Celular:** os links vão para um menu que abre no botão ☰ (`public/js/menu.js`).
 - **Compartilhar:** `img/compartilhar.png` (1200 × 630) e os ícones em PNG, gerados por
   `ferramentas/gerar-imagens.mjs`; `sitemap.xml` e `robots.txt` apontando para ele.
