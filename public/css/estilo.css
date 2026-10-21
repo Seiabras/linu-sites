@@ -54,12 +54,33 @@ a { color: var(--azul); }
 .menu a { color: #E2E8F0; text-decoration: none; font-weight: 700; font-size: .95rem; }
 .menu a:hover { color: #FFFFFF; }
 @media (max-width: 760px) { .menu a:not(.botao) { display: none; } }
+/* botão claro/escuro no topo: lua no claro, sol no escuro */
+.tema { flex: none; display: inline-grid; place-items: center; width: 38px; height: 38px; padding: 0; border: 1px solid rgba(255, 255, 255, .25); border-radius: 50%; background: transparent; color: #E2E8F0; cursor: pointer; }
+.tema:hover { background: rgba(255, 255, 255, .1); color: #FFFFFF; }
+.tema svg { width: 18px; height: 18px; fill: currentColor; }
+.tema .sol { display: none; }
+:root[data-theme="dark"] .tema .lua { display: none; }
+:root[data-theme="dark"] .tema .sol { display: block; }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .tema .lua { display: none; }
+  :root:not([data-theme="light"]) .tema .sol { display: block; }
+}
+@media (max-width: 420px) {
+  .topo-dentro { gap: 10px; }
+  .marca { font-size: 1.1rem; gap: 8px; white-space: nowrap; }
+  .marca img { width: 34px; height: 34px; }
+  .menu { gap: 10px; }
+  .menu .botao-pequeno { padding: 7px 14px; font-size: .85rem; white-space: nowrap; }
+  .tema { width: 34px; height: 34px; }
+}
 
 /* Botões */
 .botao { display: inline-block; background: var(--azul); color: #FFFFFF; font-weight: 800; text-decoration: none; padding: 13px 24px; border-radius: 999px; border: 2px solid var(--azul); transition: transform .15s, background .15s; }
 .botao:hover { transform: translateY(-2px); background: var(--azul-escuro); border-color: var(--azul-escuro); }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .botao { color: #0B1220; } }
 :root[data-theme="dark"] .botao { color: #0B1220; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .botao-linha { color: var(--azul); } }
+:root[data-theme="dark"] .botao-linha { color: var(--azul); }
 .menu .botao, .menu .botao:hover { color: #FFFFFF; background: #2563EB; border-color: #2563EB; }
 .botao-pequeno { padding: 8px 18px; font-size: .92rem; }
 .botao-linha { background: transparent; color: var(--azul); }
