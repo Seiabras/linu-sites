@@ -13,8 +13,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/estilo.css?v=2">
+  <link rel="stylesheet" href="css/estilo.css?v=3">
   <script src="js/tema.js?v=1"></script>
+  <script src="js/movimento.js?v=1" defer></script>
 </head>
 <body>
   <header class="topo">
@@ -146,8 +147,21 @@
         <img class="pixel contato-linu" src="img/linu-pixel.png" alt="" width="139" height="190">
         <div>
           <h2>Conte sobre o seu site</h2>
-          <p>Escreva o que você faz e o que imagina para o site. Pode ser só uma ideia: a resposta vem com perguntas e próximos passos.</p>
-          <a class="botao botao-grande" href="mailto:contato@linupedia.com.br?subject=Quero%20um%20site">contato@linupedia.com.br</a>
+          <p>Marque o que o seu site precisa ter e mande. Pode ser só uma ideia: a resposta vem com perguntas e próximos passos.</p>
+          <fieldset class="monte">
+            <legend class="monte-resumo">Escolha o que o site precisa ter</legend>
+            <div class="monte-opcoes">
+              <label><input type="checkbox" value="Apresentação do negócio"><span>Apresentação do negócio</span></label>
+              <label><input type="checkbox" value="Formulário de pedido ou orçamento"><span>Formulário de pedido</span></label>
+              <label><input type="checkbox" value="Painel com login"><span>Painel com login</span></label>
+              <label><input type="checkbox" value="Cálculo ou simulador"><span>Cálculo ou simulador</span></label>
+              <label><input type="checkbox" value="App que instala no celular"><span>App que instala</span></label>
+              <label><input type="checkbox" value="Blog ou publicação"><span>Blog ou publicação</span></label>
+              <label><input type="checkbox" value="Aviso por WhatsApp ou e-mail"><span>Aviso por WhatsApp ou e-mail</span></label>
+              <label><input type="checkbox" value="Domínio e servidor cuidados por vocês"><span>Domínio e servidor</span></label>
+            </div>
+          </fieldset>
+          <a class="botao botao-grande monte-enviar" href="mailto:contato@linupedia.com.br?subject=Quero%20um%20site">Mandar para contato@linupedia.com.br</a>
         </div>
       </div>
     </section>
