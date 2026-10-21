@@ -73,7 +73,7 @@ a { color: var(--azul); }
   .menu.aberto .menu-links { display: flex; }
   .menu-links a:not(.botao) { padding: 14px 4px; font-size: 1.05rem; border-bottom: 1px solid rgba(255, 255, 255, .08); }
   .menu .menu-links-orcamento { display: block; text-align: center; margin-top: 16px; }
-  .menu .menu-links-orcamento { color: #FFFFFF; background: #2563EB; border-color: #2563EB; }
+  :root .menu .menu-links-orcamento { color: #FFFFFF; background: #2563EB; border-color: #2563EB; }
 }
 @media (max-width: 380px) {
   .botao-grande { font-size: 1rem; padding: 14px 22px; }
@@ -88,7 +88,7 @@ a { color: var(--azul); }
 :root[data-theme="dark"] .botao { color: #0B1220; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .botao-linha { color: var(--azul); } }
 :root[data-theme="dark"] .botao-linha { color: var(--azul); }
-.menu .botao, .menu .botao:hover { color: #FFFFFF; background: #2563EB; border-color: #2563EB; }
+:root .menu .botao, :root .menu .botao:hover { color: #FFFFFF; background: #2563EB; border-color: #2563EB; }
 .botao-pequeno { padding: 8px 18px; font-size: .92rem; }
 .botao-linha { background: transparent; color: var(--azul); }
 .botao-linha:hover { background: var(--azul-claro); border-color: var(--azul); color: var(--azul); }
@@ -177,6 +177,26 @@ h3 { margin: 0 0 6px; font-size: 1.2rem; font-weight: 800; }
 .projeto-link::after { content: " →"; }
 .projeto-link:hover { text-decoration: underline; }
 
+.projeto-links { margin-top: auto; display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.projeto-links .projeto-link { margin-top: 0; }
+
+/* Página de cada projeto */
+.caso-abertura { padding-bottom: 56px; }
+.caso-voltar { display: inline-block; margin-bottom: 20px; font-weight: 800; text-decoration: none; }
+.caso-voltar:hover { text-decoration: underline; }
+.caso-abertura .etiqueta { display: inline-block; margin-bottom: 14px !important; }
+.caso-abertura .abertura-sub { max-width: 40em; }
+.caso-imagem { margin-top: 36px; width: 100%; max-width: 960px; border-radius: var(--raio); border: 1px solid var(--linha); box-shadow: 0 18px 40px -20px rgba(15, 23, 42, .35); }
+.caso-texto { max-width: 820px; }
+.caso-texto h2 { margin-top: 40px; }
+.caso-texto h2:first-child { margin-top: 0; }
+.caso-desafio { font-size: 1.15rem; color: var(--tinta-suave); margin: 12px 0 0; }
+.caso-lista { margin: 16px 0 0; padding: 0; list-style: none; display: grid; gap: 12px; }
+.caso-lista li { position: relative; padding: 14px 18px 14px 46px; background: var(--cartao); border: 1px solid var(--linha); border-radius: 14px; }
+.caso-lista li::before { content: "✓"; position: absolute; left: 16px; top: 13px; width: 20px; height: 20px; border-radius: 50%; background: var(--aurora-claro); color: var(--aurora); font-weight: 900; font-size: .8rem; display: flex; align-items: center; justify-content: center; }
+.caso-lista-dentro li { background: var(--pergaminho); border-color: transparent; }
+.caso-lista-dentro li::before { content: "⚙"; background: transparent; color: var(--fogo); font-size: 1rem; }
+
 /* Como funciona */
 .passos { list-style: none; counter-reset: passo; margin: 32px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
 .passos li { counter-increment: passo; background: var(--pergaminho); border-radius: var(--raio); padding: 24px; display: flex; flex-direction: column; gap: 6px; }
@@ -189,15 +209,15 @@ h3 { margin: 0 0 6px; font-size: 1.2rem; font-weight: 800; }
 .contato-dentro { display: flex; align-items: center; gap: 40px; }
 .contato h2 { color: #FFFFFF; }
 .contato p { color: #CBD5E1; font-size: 1.1rem; max-width: 34em; margin: 10px 0 26px; }
-.contato .botao { color: #FFFFFF; background: #2563EB; border-color: #2563EB; }
-.contato .botao:hover { background: #1D4ED8; border-color: #1D4ED8; }
+:root .contato .botao { color: #FFFFFF; background: #2563EB; border-color: #2563EB; }
+:root .contato .botao:hover { background: #1D4ED8; border-color: #1D4ED8; }
 .contato-botoes { margin-top: 0; }
-.contato .botao-whatsapp { display: inline-flex; align-items: center; gap: 10px; background: #15803D; border-color: #15803D; }
-.contato .botao-whatsapp:hover { background: #166534; border-color: #166534; }
+:root .contato .botao-whatsapp { display: inline-flex; align-items: center; gap: 10px; background: #15803D; border-color: #15803D; }
+:root .contato .botao-whatsapp:hover { background: #166534; border-color: #166534; }
 .botao-whatsapp svg { fill: currentColor; flex: none; }
 .sem-quebra { white-space: nowrap; }
-.contato .botao-contorno-claro { background: transparent; border-color: rgba(255, 255, 255, .45); }
-.contato .botao-contorno-claro:hover { background: rgba(255, 255, 255, .08); border-color: #FFFFFF; }
+:root .contato .botao-contorno-claro { background: transparent; border-color: rgba(255, 255, 255, .45); }
+:root .contato .botao-contorno-claro:hover { background: rgba(255, 255, 255, .08); border-color: #FFFFFF; }
 
 /* Depoimentos (a seção fica escondida até chegarem as frases) */
 .depoimentos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 18px; margin-top: 32px; }

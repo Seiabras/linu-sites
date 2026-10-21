@@ -22,6 +22,8 @@ def conferir(origem, ref):
     alvo = (PUBLIC / caminho.lstrip('/')) if caminho.startswith('/') else (origem.parent / caminho)
     if alvo.is_dir():
         alvo = alvo / 'index.html'
+    elif not alvo.exists():
+        alvo = alvo.with_name(alvo.name + '.html')  # como o try_files do Caddy: /projetos/x serve x.html
     if not alvo.resolve().is_file():
         faltando.append(f'{origem.relative_to(PUBLIC)}: {ref}')
 
