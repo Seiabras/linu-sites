@@ -16,20 +16,16 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Linu Sites: sites e aplicativos web sob medida, com o Linu na estação de pesquisa">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <link rel="preload" href="fontes/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="canonical" href="https://sites.linupedia.com.br/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://sites.linupedia.com.br/">
   <meta property="og:locale" content="pt_BR">
-  <script>
-    /* Tema escolhido pela pessoa (botão da luz); sem escolha, segue o sistema. Roda antes de pintar. */
-    try { var t = localStorage.getItem("tema"); if (t === "dark" || t === "light") document.documentElement.dataset.theme = t; } catch (e) {}
-  </script>
-  <link rel="stylesheet" href="css/estilo.css?v=3">
-  <script src="js/tema.js?v=3" defer></script>
-  <script src="js/menu.js?v=3" defer></script>
+  <script src="js/tema-inicio.js?v=4"></script>
+  <link rel="stylesheet" href="css/estilo.css?v=4">
+  <script src="js/tema.js?v=4" defer></script>
+  <script src="js/menu.js?v=4" defer></script>
 </head>
 <body>
   <header class="topo">
