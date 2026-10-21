@@ -30,17 +30,32 @@ jobs:
             echo "tem=sim" >> "$GITHUB_OUTPUT"
           fi
       - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
       - name: Conferir a página
-        run: test -f public/index.html
+        run: |
+          test -f public/index.html
+          npx --yes html-validate@10.1.2 public/*.html
+          python3 deploy/conferir-pagina.py
       - name: Entregar na VM
         if: steps.check.outputs.tem == 'sim'
         env:
           KEY: ${{ secrets.ORACLE_SSH_KEY }}
+          HOST_KEY: ${{ secrets.ORACLE_HOST_KEY }}
         run: |
           mkdir -p ~/.ssh && chmod 700 ~/.ssh
           printf '%s\n' "$KEY" > ~/.ssh/id_ed25519 && chmod 600 ~/.ssh/id_ed25519
-          ssh-keyscan -T 15 "$VM_HOST" >> ~/.ssh/known_hosts 2>/dev/null
-          tar czf - -C public . | ssh -o BatchMode=yes "linusites@$VM_HOST"
+          # A chave da VM fica fixada no segredo ORACLE_HOST_KEY (ver deploy/ORACLE.md): assim ninguém no
+          # caminho consegue se passar pela VM. Sem o segredo, aceita a que a VM mostrar, com um aviso.
+          if [ -n "$HOST_KEY" ]; then
+            printf '%s\n' "$HOST_KEY" > ~/.ssh/known_hosts
+          else
+            echo "::warning::O segredo ORACLE_HOST_KEY não existe: a chave da VM foi aceita sem conferir."
+            ssh-keyscan -T 15 "$VM_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+          fi
+          chmod 600 ~/.ssh/known_hosts
+          tar czf - -C public . | ssh -o BatchMode=yes -o StrictHostKeyChecking=yes "linusites@$VM_HOST"
       - name: Conferir o site
         if: steps.check.outputs.tem == 'sim'
         run: curl -fsS --max-time 20 -o /dev/null "$SITE/" && echo "$SITE no ar"

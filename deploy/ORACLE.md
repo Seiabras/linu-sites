@@ -1,7 +1,7 @@
 # Linu Sites na Oracle Cloud
 
 Endereço: **https://sites.linupedia.com.br**. Mesma VM da LinuPedia (Ubuntu, IP 168.138.155.95).
-O site é só arquivos: o Caddy entrega a pasta `/srv/linu-sites` direto, sem serviço Node.
+O site é só arquivos: o Caddy entrega a pasta `/opt/linu-sites/app` direto, sem serviço Node.
 
 ## 1. DNS (Registro.br, uma vez)
 
@@ -40,3 +40,23 @@ A cada push na `main`, o GitHub Actions ([`oracle.yml`](../.github/workflows/ora
 Preparação (uma vez, já feita em 21/10/2026): `sudo bash deploy/instalar-uma-vez.sh "<chave pública>"`
 na VM, e a chave privada correspondente no segredo `ORACLE_SSH_KEY` do repositório (Settings → Secrets
 and variables → Actions). **Para cortar o acesso do GitHub:** apagar `/home/linusites/.ssh/authorized_keys`.
+
+### A chave da VM fixada (segredo `ORACLE_HOST_KEY`)
+
+Para o GitHub ter certeza de que está falando com a VM de verdade, e não com alguém no caminho, a chave
+pública do servidor fica num segredo. Sem ele, a publicação continua funcionando, com um aviso.
+
+Na VM (pelo seu acesso de sempre), rode:
+
+```bash
+echo "168.138.155.95 $(cut -d' ' -f1,2 /etc/ssh/ssh_host_ed25519_key.pub)"
+```
+
+e cole a linha inteira no segredo `ORACLE_HOST_KEY` do repositório (Settings → Secrets and variables →
+Actions). Se a VM for recriada, a chave muda: é só rodar de novo e trocar o segredo.
+
+### Conferências antes de publicar
+
+Antes de mandar para a VM, o Actions valida o HTML (`html-validate`) e confere que toda imagem, CSS e JS
+que a página usa existe (`deploy/conferir-pagina.py`). Se algo falhar, nada é publicado. Para rodar no
+computador: `npx html-validate@10.1.2 public/*.html && python3 deploy/conferir-pagina.py`.
