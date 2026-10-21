@@ -51,22 +51,29 @@ a { color: var(--azul); }
 .marca img { border-radius: 12px; }
 .marca b { color: #7DD3FC; font-weight: 900; }
 .menu { display: flex; align-items: center; gap: 22px; }
-.menu a { color: #E2E8F0; text-decoration: none; font-weight: 700; font-size: .95rem; }
-.menu a:hover { color: #FFFFFF; }
-@media (max-width: 760px) { .menu a:not(.botao) { display: none; } }
+.menu-links { display: flex; align-items: center; gap: 22px; }
+.menu a:not(.botao) { color: #E2E8F0; text-decoration: none; font-weight: 700; font-size: .95rem; }
+.menu a:not(.botao):hover { color: #FFFFFF; }
 .marca, .menu .botao { white-space: nowrap; }
-@media (max-width: 420px) {
-  .topo-dentro { gap: 10px; }
+.menu .menu-links-orcamento, .menu-abrir { display: none; }
+.menu-abrir { align-items: center; justify-content: center; width: 40px; height: 40px; padding: 0; border-radius: 12px; border: 2px solid rgba(255, 255, 255, .25); background: transparent; color: #FFFFFF; cursor: pointer; }
+.menu-abrir svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+.menu-abrir[aria-expanded="true"] { background: rgba(255, 255, 255, .12); }
+/* no celular, os links e o orçamento vão para um painel que abre embaixo do topo */
+@media (max-width: 760px) {
   .menu { gap: 10px; }
+  .menu .menu-orcamento { display: none; }
+  .menu-abrir { display: inline-flex; }
+  .menu-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; padding: 8px 20px 20px; background: var(--grafite); border-top: 1px solid rgba(255, 255, 255, .1); box-shadow: 0 18px 30px -18px rgba(0, 0, 0, .6); }
+  .menu.aberto .menu-links { display: flex; }
+  .menu-links a:not(.botao) { padding: 14px 4px; font-size: 1.05rem; border-bottom: 1px solid rgba(255, 255, 255, .08); }
+  .menu .menu-links-orcamento { display: block; text-align: center; margin-top: 16px; }
+  .menu .menu-links-orcamento { color: #FFFFFF; background: #2563EB; border-color: #2563EB; }
+}
+@media (max-width: 380px) {
+  .botao-grande { font-size: 1rem; padding: 14px 22px; }
   .marca { font-size: 1.1rem; gap: 8px; }
   .marca img { width: 34px; height: 34px; }
-  .menu .botao-pequeno { padding: 7px 14px; font-size: .85rem; }
-}
-.so-estreito { display: none; }
-@media (max-width: 360px) {
-  .so-largo { display: none; }
-  .so-estreito { display: inline; }
-  .luz { width: 36px; height: 36px; }
 }
 
 /* Botões */
@@ -145,7 +152,11 @@ h3 { margin: 0 0 6px; font-size: 1.2rem; font-weight: 800; }
 
 .cartoes { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; }
 .cartao { background: var(--cartao); border: 1px solid var(--linha); border-radius: var(--raio); padding: 24px; }
+.cartao { display: flex; flex-direction: column; }
 .cartao p { margin: 0; color: var(--tinta-suave); }
+.cartao .cartao-preco { margin-top: auto; padding-top: 14px; color: var(--tinta); font-size: .95rem; }
+.cartao-preco b { color: var(--azul); font-size: 1.15rem; font-weight: 900; }
+.precos-nota { margin: 18px 0 0; color: var(--tinta-suave); font-size: .92rem; }
 .cartao-icone { display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 16px; background: var(--azul-claro); font-size: 1.6rem; margin-bottom: 14px; }
 
 /* Projetos */
@@ -175,6 +186,20 @@ h3 { margin: 0 0 6px; font-size: 1.2rem; font-weight: 800; }
 .contato p { color: #CBD5E1; font-size: 1.1rem; max-width: 34em; margin: 10px 0 26px; }
 .contato .botao { color: #FFFFFF; background: #2563EB; border-color: #2563EB; }
 .contato .botao:hover { background: #1D4ED8; border-color: #1D4ED8; }
+.contato-botoes { margin-top: 0; }
+.contato .botao-whatsapp { display: inline-flex; align-items: center; gap: 10px; background: #15803D; border-color: #15803D; }
+.contato .botao-whatsapp:hover { background: #166534; border-color: #166534; }
+.botao-whatsapp svg { fill: currentColor; flex: none; }
+.sem-quebra { white-space: nowrap; }
+.contato .botao-contorno-claro { background: transparent; border-color: rgba(255, 255, 255, .45); }
+.contato .botao-contorno-claro:hover { background: rgba(255, 255, 255, .08); border-color: #FFFFFF; }
+
+/* Depoimentos (a seção fica escondida até chegarem as frases) */
+.depoimentos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 18px; margin-top: 32px; }
+.depoimento { margin: 0; background: var(--cartao); border: 1px solid var(--linha); border-radius: var(--raio); padding: 24px; }
+.depoimento blockquote { margin: 0 0 14px; font-size: 1.08rem; }
+.depoimento blockquote p { margin: 0; }
+.depoimento figcaption { color: var(--tinta-suave); font-size: .95rem; }
 .contato-linu { width: 160px; flex: none; }
 @media (max-width: 760px) {
   .contato-dentro { flex-direction: column; align-items: flex-start; gap: 16px; }

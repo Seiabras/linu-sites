@@ -20,7 +20,12 @@ cd public && python3 -m http.server 8000
 - **O que fazemos:** sites de apresentação, ferramentas e painéis, apps que instalam, hospedagem.
 - **Projetos no ar:** LinuPedia, V²Tech COMBUSTÍVEL, Los Vega na Estrada e Marginalia, com capturas em
   `public/img/projetos/` (960×600, WebP). O NeuroSim fica de fora por enquanto, até sair do começo.
-- **Como funciona** e **contato** (`contato@linupedia.com.br`).
+- **Como funciona** e **contato**: WhatsApp (61) 99667-2610 e `contato@linupedia.com.br`.
+- **Preços de referência** nos cartões de “O que fazemos” e **depoimentos**: prontos no HTML, mas
+  escondidos (`hidden`) até os valores serem confirmados e chegarem frases de verdade.
+- **Celular:** os links vão para um menu que abre no botão ☰ (`public/js/menu.js`).
+- **Compartilhar:** `img/compartilhar.png` (1200 × 630) e os ícones em PNG, gerados por
+  `ferramentas/gerar-imagens.mjs`; `sitemap.xml` e `robots.txt` apontando para ele.
 - **Modo claro e escuro:** o botão da lâmpada, no topo. O Linu entra no quarto pela porta, vai até o
   lampião e apaga (modo escuro) ou acende (modo claro); a página troca de cor junto. A escolha fica
   guardada no navegador; sem escolha, vale a do sistema. Com “reduzir movimento” ligado, troca na hora.
