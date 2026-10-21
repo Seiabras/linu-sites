@@ -18,6 +18,10 @@ cd public && python3 -m http.server 8000
 
 - **Abertura:** o que o estúdio faz e o botão de orçamento.
 - **O que fazemos:** sites de apresentação, ferramentas e painéis, apps que instalam, hospedagem.
+- **Página de cada projeto** (`/projetos/linupedia`, `/v2tech`, `/losvega`, `/marginalia`): o desafio, o
+  que foi feito e como funciona por dentro, com os fatos dos READMEs de cada repositório. Geradas por
+  `ferramentas/gerar-projetos.py`: mude o texto lá e rode o script. No computador, o `python3 -m
+  http.server` não completa o `.html` como o Caddy; abra `projetos/<nome>.html`.
 - **Projetos no ar:** LinuPedia, V²Tech COMBUSTÍVEL, Los Vega na Estrada e Marginalia, com capturas em
   `public/img/projetos/` (960×600, WebP). O NeuroSim fica de fora por enquanto, até sair do começo.
 - **Como funciona** e **contato**: WhatsApp (61) 99667-2610 e `contato@linupedia.com.br`.
@@ -33,6 +37,12 @@ cd public && python3 -m http.server 8000
   guardada no navegador; sem escolha, vale a do sistema. Com “reduzir movimento” ligado, troca na hora.
   Se a cena do topo estiver fora da tela, a animação aparece num cartão no canto. Código em
   `public/js/tema.js`.
+
+## Fonte e segurança
+
+A Nunito fica em `public/fontes` (licença OFL), sem Google Fonts. A página leva uma CSP numa `<meta>` (só
+carrega o que é do próprio site); o `deploy/Caddyfile-bloco` traz os cabeçalhos completos, para aplicar
+na VM (ver `deploy/ORACLE.md`).
 
 ## Imagens da cena
 
