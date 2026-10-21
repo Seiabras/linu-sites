@@ -21,6 +21,20 @@ cd public && python3 -m http.server 8000
 - **Projetos no ar:** LinuPedia, V²Tech COMBUSTÍVEL, Los Vega na Estrada e Marginalia, com capturas em
   `public/img/projetos/` (960×600, WebP). O NeuroSim fica de fora por enquanto, até sair do começo.
 - **Como funciona** e **contato** (`contato@linupedia.com.br`).
+- **Modo claro e escuro:** o botão da lâmpada, no topo. O Linu entra no quarto pela porta, vai até o
+  lampião e apaga (modo escuro) ou acende (modo claro); a página troca de cor junto. A escolha fica
+  guardada no navegador; sem escolha, vale a do sistema. Com “reduzir movimento” ligado, troca na hora.
+  Se a cena do topo estiver fora da tela, a animação aparece num cartão no canto. Código em
+  `public/js/tema.js`.
+
+## Imagens da cena
+
+As imagens da estação e do Linu vêm do app (LinuLingo, `assets/pixel/`), na mesma grade de 344 × 192.
+O que é só do site fica em `ferramentas/`:
+
+- `cena-apagada.py` gera `img/abrigo-estacao-apagada.png`, a noite com o lampião apagado (o modo escuro).
+- `desenhar-linu-lado.py` desenha o Linu de lado andando (4 quadros, `img/linu/linu-lado.png`).
+- `corrigir-porta-estacao.py` tirou o retângulo da porta e da escotilha nas imagens de noite.
 
 ## Publicar
 
