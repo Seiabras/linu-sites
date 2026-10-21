@@ -20,8 +20,8 @@ recarregue. O `mudar-para-linupedia.sh` do repositório da LinuPedia só troca o
 não é apagado.
 
 ```bash
-scp deploy/Caddyfile-bloco ubuntu@168.138.155.95:
-ssh ubuntu@168.138.155.95
+scp -i ~/.ssh/id_ed25519_linulingo deploy/Caddyfile-bloco ubuntu@168.138.155.95:
+ssh -i ~/.ssh/id_ed25519_linulingo ubuntu@168.138.155.95
 sudo mkdir -p /srv/linu-sites && sudo chown ubuntu: /srv/linu-sites
 sudo cp /etc/caddy/Caddyfile /etc/caddy/Caddyfile.antes-linu-sites
 cat Caddyfile-bloco | sudo tee -a /etc/caddy/Caddyfile
@@ -33,7 +33,8 @@ Se o `validate` der erro, volte o arquivo: `sudo cp /etc/caddy/Caddyfile.antes-l
 ## 3. Publicar uma versão nova
 
 ```bash
-rsync -av --delete public/ ubuntu@168.138.155.95:/srv/linu-sites/
+cd public && tar czf - . | ssh -i ~/.ssh/id_ed25519_linulingo ubuntu@168.138.155.95 \
+  'rm -rf /srv/linu-sites/* && tar xzf - -C /srv/linu-sites && chmod -R a+rX /srv/linu-sites'
 ```
 
 O certificado HTTPS o Caddy tira sozinho na primeira visita, depois que o DNS apontar para a VM.
