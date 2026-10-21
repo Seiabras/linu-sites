@@ -60,3 +60,21 @@ Actions). Se a VM for recriada, a chave muda: é só rodar de novo e trocar o se
 Antes de mandar para a VM, o Actions valida o HTML (`html-validate`) e confere que toda imagem, CSS e JS
 que a página usa existe (`deploy/conferir-pagina.py`). Se algo falhar, nada é publicado. Para rodar no
 computador: `npx html-validate@10.1.2 public/*.html && python3 deploy/conferir-pagina.py`.
+
+### Cabeçalhos de segurança (aplicar à mão, com sudo)
+
+O `Caddyfile-bloco` traz os cabeçalhos de segurança: a política de conteúdo (CSP), a proibição de pôr a
+página dentro de outro site e o HTTPS obrigatório (HSTS). A publicação automática não mexe no Caddy (o
+usuário `linusites` não tem sudo), então, quando o bloco mudar, troque o bloco antigo pelo novo em
+`/etc/caddy/Caddyfile` e recarregue:
+
+```bash
+scp -i ~/.ssh/id_ed25519_linulingo deploy/Caddyfile-bloco ubuntu@168.138.155.95:
+ssh -i ~/.ssh/id_ed25519_linulingo ubuntu@168.138.155.95
+sudo cp /etc/caddy/Caddyfile /etc/caddy/Caddyfile.antes-cabecalhos
+sudo nano /etc/caddy/Caddyfile   # apague o bloco "sites.linupedia.com.br { … }" e cole o de Caddyfile-bloco
+sudo caddy validate --config /etc/caddy/Caddyfile && sudo systemctl reload caddy
+```
+
+Enquanto isso não for feito, a página já leva a mesma CSP numa `<meta>` do `index.html` (menos o
+`frame-ancestors`, que só funciona como cabeçalho).
