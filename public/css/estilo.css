@@ -1,0 +1,136 @@
+/* Linu Sites: as cores da LinuPedia (azul do app, gelo, pergaminho e aurora da expedição) */
+:root {
+  --azul: #2563EB;
+  --azul-escuro: #1D4ED8;
+  --azul-claro: #DBEAFE;
+  --grafite: #1F2A44;
+  --aurora: #0F766E;
+  --aurora-claro: #CCFBF1;
+  --fogo: #EA580C;
+  --fundo: #F8FAFC;
+  --gelo: #EFF8FF;
+  --pergaminho: #FBF3E3;
+  --cartao: #FFFFFF;
+  --tinta: #0F172A;
+  --tinta-suave: #475569;
+  --linha: #E2E8F0;
+  --raio: 20px;
+  --texto: "Nunito", system-ui, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --azul: #60A5FA; --azul-escuro: #93C5FD; --azul-claro: #172554;
+    --aurora: #5EEAD4; --aurora-claro: #134E4A;
+    --fundo: #0B1220; --gelo: #0B1E33; --pergaminho: #2A2113; --cartao: #111B2E;
+    --tinta: #E2E8F0; --tinta-suave: #94A3B8; --linha: #1E2B42;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --azul: #60A5FA; --azul-escuro: #93C5FD; --azul-claro: #172554;
+  --aurora: #5EEAD4; --aurora-claro: #134E4A;
+  --fundo: #0B1220; --gelo: #0B1E33; --pergaminho: #2A2113; --cartao: #111B2E;
+  --tinta: #E2E8F0; --tinta-suave: #94A3B8; --linha: #1E2B42;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--fundo); color: var(--tinta); font-family: var(--texto); font-size: 17px; line-height: 1.6; }
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--azul); }
+:focus-visible { outline: 3px solid var(--azul); outline-offset: 3px; border-radius: 6px; }
+.dentro { max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+.pixel { image-rendering: pixelated; }
+
+/* Topo */
+.topo { background: var(--grafite); color: #FFFFFF; position: sticky; top: 0; z-index: 10; }
+.topo-dentro { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-top: 12px; padding-bottom: 12px; }
+.marca { display: flex; align-items: center; gap: 10px; color: #FFFFFF; text-decoration: none; font-weight: 800; font-size: 1.25rem; }
+.marca img { border-radius: 12px; }
+.marca b { color: #7DD3FC; font-weight: 900; }
+.menu { display: flex; align-items: center; gap: 22px; }
+.menu a { color: #E2E8F0; text-decoration: none; font-weight: 700; font-size: .95rem; }
+.menu a:hover { color: #FFFFFF; }
+@media (max-width: 760px) { .menu a:not(.botao) { display: none; } }
+
+/* Botões */
+.botao { display: inline-block; background: var(--azul); color: #FFFFFF; font-weight: 800; text-decoration: none; padding: 13px 24px; border-radius: 999px; border: 2px solid var(--azul); transition: transform .15s, background .15s; }
+.botao:hover { transform: translateY(-2px); background: var(--azul-escuro); border-color: var(--azul-escuro); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .botao { color: #0B1220; } }
+:root[data-theme="dark"] .botao { color: #0B1220; }
+.menu .botao, .menu .botao:hover { color: #FFFFFF; background: #2563EB; border-color: #2563EB; }
+.botao-pequeno { padding: 8px 18px; font-size: .92rem; }
+.botao-linha { background: transparent; color: var(--azul); }
+.botao-linha:hover { background: var(--azul-claro); border-color: var(--azul); color: var(--azul); }
+.botao-grande { font-size: 1.15rem; padding: 16px 30px; overflow-wrap: anywhere; }
+.botoes { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 28px; }
+
+/* Abertura */
+.abertura { background: var(--gelo); padding: 64px 0 72px; border-bottom: 1px solid var(--linha); }
+.abertura-dentro { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 48px; align-items: center; }
+.sobretitulo { margin: 0 0 12px; color: var(--aurora); font-weight: 800; text-transform: uppercase; letter-spacing: .08em; font-size: .85rem; }
+h1 { margin: 0; font-size: clamp(2.3rem, 5.5vw, 3.8rem); line-height: 1.05; font-weight: 900; letter-spacing: -.02em; }
+.marca-texto { color: var(--azul); }
+.abertura-sub { margin: 20px 0 0; font-size: 1.15rem; color: var(--tinta-suave); max-width: 32em; }
+.janela { margin: 0; background: var(--cartao); border: 1px solid var(--linha); border-radius: var(--raio); padding: 12px; box-shadow: 0 18px 40px -20px rgba(15, 23, 42, .35); transform: rotate(1.5deg); }
+.janela img { width: 100%; border-radius: 12px; }
+.janela figcaption { text-align: center; color: var(--tinta-suave); font-size: .9rem; padding: 10px 4px 2px; }
+@media (max-width: 820px) {
+  .abertura { padding: 40px 0 48px; }
+  .abertura-dentro { grid-template-columns: 1fr; gap: 32px; }
+  .janela { transform: none; }
+}
+
+/* Seções */
+.secao { padding: 72px 0; }
+.secao-gelo { background: var(--gelo); border-top: 1px solid var(--linha); border-bottom: 1px solid var(--linha); }
+h2 { margin: 0; font-size: clamp(1.8rem, 3.6vw, 2.4rem); font-weight: 900; letter-spacing: -.01em; }
+.secao-sub { margin: 8px 0 32px; color: var(--tinta-suave); font-size: 1.08rem; }
+h3 { margin: 0 0 6px; font-size: 1.2rem; font-weight: 800; }
+
+.cartoes { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; }
+.cartao { background: var(--cartao); border: 1px solid var(--linha); border-radius: var(--raio); padding: 24px; }
+.cartao p { margin: 0; color: var(--tinta-suave); }
+.cartao-icone { display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 16px; background: var(--azul-claro); font-size: 1.6rem; margin-bottom: 14px; }
+
+/* Projetos */
+.projetos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 24px; }
+.projeto { background: var(--cartao); border: 1px solid var(--linha); border-radius: var(--raio); overflow: hidden; display: flex; flex-direction: column; }
+.projeto > a { display: block; border-bottom: 1px solid var(--linha); overflow: hidden; }
+.projeto > a img { transition: transform .3s; }
+.projeto > a:hover img { transform: scale(1.03); }
+.projeto-texto { padding: 20px 22px 24px; display: flex; flex-direction: column; flex: 1; }
+.projeto-texto p { margin: 0 0 14px; color: var(--tinta-suave); }
+.etiqueta { align-self: flex-start; background: var(--aurora-claro); color: var(--aurora) !important; font-weight: 800; font-size: .78rem; text-transform: uppercase; letter-spacing: .06em; padding: 3px 10px; border-radius: 999px; margin-bottom: 10px !important; }
+.projeto-link { margin-top: auto; font-weight: 800; text-decoration: none; }
+.projeto-link::after { content: " →"; }
+.projeto-link:hover { text-decoration: underline; }
+
+/* Como funciona */
+.passos { list-style: none; counter-reset: passo; margin: 32px 0 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 18px; }
+.passos li { counter-increment: passo; background: var(--pergaminho); border-radius: var(--raio); padding: 24px; display: flex; flex-direction: column; gap: 6px; }
+.passos li::before { content: counter(passo); display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; border-radius: 50%; background: var(--fogo); color: #FFFFFF; font-weight: 900; margin-bottom: 6px; }
+.passos b { font-size: 1.15rem; font-weight: 800; }
+.passos span { color: var(--tinta-suave); }
+
+/* Contato */
+.contato { background: var(--grafite); color: #FFFFFF; }
+.contato-dentro { display: flex; align-items: center; gap: 40px; }
+.contato h2 { color: #FFFFFF; }
+.contato p { color: #CBD5E1; font-size: 1.1rem; max-width: 34em; margin: 10px 0 26px; }
+.contato .botao { color: #FFFFFF; background: #2563EB; border-color: #2563EB; }
+.contato .botao:hover { background: #1D4ED8; border-color: #1D4ED8; }
+.contato-linu { width: 160px; flex: none; }
+@media (max-width: 760px) {
+  .contato-dentro { flex-direction: column; align-items: flex-start; gap: 16px; }
+  .contato-linu { width: 120px; }
+}
+
+/* Rodapé */
+.rodape { background: #141C2F; color: #94A3B8; font-size: .92rem; }
+.rodape-dentro { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px 24px; padding-top: 22px; padding-bottom: 22px; }
+.rodape p { margin: 0; }
+.rodape b { color: #FFFFFF; }
+.rodape a { color: #7DD3FC; }

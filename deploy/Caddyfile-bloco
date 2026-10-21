@@ -1,0 +1,14 @@
+
+# Linu Sites (repositório linu-sites): só arquivos, em /srv/linu-sites
+sites.linupedia.com.br {
+	encode zstd gzip
+	header {
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+	}
+	@img path /img/*
+	header @img Cache-Control "public, max-age=604800"
+	root * /srv/linu-sites
+	try_files {path} {path}.html {path}/index.html
+	file_server
+}
