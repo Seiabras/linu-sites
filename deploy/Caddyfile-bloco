@@ -1,5 +1,5 @@
 
-# Linu Sites (repositório linu-sites): só arquivos, em /srv/linu-sites
+# Linu Sites (repositório linu-sites): só arquivos, em /opt/linu-sites/app
 sites.linupedia.com.br {
 	encode zstd gzip
 	header {
@@ -8,7 +8,7 @@ sites.linupedia.com.br {
 	}
 	@img path /img/*
 	header @img Cache-Control "public, max-age=604800"
-	root * /srv/linu-sites
+	root * /opt/linu-sites/app
 	try_files {path} {path}.html {path}/index.html
 	file_server
 }

@@ -30,11 +30,13 @@ sudo caddy validate --config /etc/caddy/Caddyfile && sudo systemctl reload caddy
 
 Se o `validate` der erro, volte o arquivo: `sudo cp /etc/caddy/Caddyfile.antes-linu-sites /etc/caddy/Caddyfile`.
 
-## 3. Publicar uma versão nova
+## 3. Publicação automática
 
-```bash
-cd public && tar czf - . | ssh -i ~/.ssh/id_ed25519_linulingo ubuntu@168.138.155.95 \
-  'rm -rf /srv/linu-sites/* && tar xzf - -C /srv/linu-sites && chmod -R a+rX /srv/linu-sites'
-```
+A cada push na `main`, o GitHub Actions ([`oracle.yml`](../.github/workflows/oracle.yml)) manda a pasta
+`public/` para a VM. Ele entra como o usuário `linusites`, **sem sudo**, com uma chave presa ao comando
+`/opt/linu-sites/receber.sh`: ela só consegue trocar `/opt/linu-sites/app` (a versão anterior fica em
+`app.anterior`). O Caddy serve `/opt/linu-sites/app`.
 
-O certificado HTTPS o Caddy tira sozinho na primeira visita, depois que o DNS apontar para a VM.
+Preparação (uma vez, já feita em 21/10/2026): `sudo bash deploy/instalar-uma-vez.sh "<chave pública>"`
+na VM, e a chave privada correspondente no segredo `ORACLE_SSH_KEY` do repositório (Settings → Secrets
+and variables → Actions). **Para cortar o acesso do GitHub:** apagar `/home/linusites/.ssh/authorized_keys`.
