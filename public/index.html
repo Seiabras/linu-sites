@@ -13,7 +13,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="css/estilo.css?v=1">
+  <link rel="stylesheet" href="css/estilo.css?v=2">
+  <script src="js/tema.js?v=1"></script>
 </head>
 <body>
   <header class="topo">
@@ -27,6 +28,7 @@
         <a href="#projetos">Projetos</a>
         <a href="#como">Como funciona</a>
         <a class="botao botao-pequeno" href="#contato">Pedir orçamento</a>
+        <button class="tema" id="tema" type="button" aria-pressed="false" aria-label="Mudar para o modo escuro"><svg class="lua" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3a9 9 0 1 0 9 9c0-.46-.04-.92-.1-1.36a5.39 5.39 0 0 1-4.4 2.26 5.4 5.4 0 0 1-3.14-9.8A9 9 0 0 0 12 3z"/></svg><svg class="sol" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1" stroke="currentColor" stroke-width="2" stroke-linecap="round" fill="none"/></svg></button>
       </nav>
     </div>
   </header>
@@ -45,7 +47,7 @@
         </div>
         <figure class="janela">
           <picture>
-            <source srcset="img/abrigo-estacao-noite.png" media="(prefers-color-scheme: dark)">
+            <source data-escuro srcset="img/abrigo-estacao-noite.png" media="(prefers-color-scheme: dark)">
             <img class="pixel" src="img/abrigo-estacao-dia.png" alt="Ilustração em pixel art de uma estação de pesquisa na Antártica, com mesa, computador e mapas na parede" width="344" height="192">
           </picture>
           <figcaption>A estação do Linu, onde os sites são feitos.</figcaption>
