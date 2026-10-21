@@ -23,9 +23,10 @@
   <meta property="og:url" content="https://sites.linupedia.com.br/">
   <meta property="og:locale" content="pt_BR">
   <script src="js/tema-inicio.js?v=5"></script>
-  <link rel="stylesheet" href="css/estilo.css?v=5">
+  <link rel="stylesheet" href="css/estilo.css?v=6">
   <script src="js/tema.js?v=5" defer></script>
   <script src="js/menu.js?v=5" defer></script>
+  <script src="js/movimento.js?v=2" defer></script>
 </head>
 <body>
   <header class="topo">
@@ -205,13 +206,26 @@
         <img class="pixel contato-linu" src="img/linu-pixel.png" alt="" width="139" height="190">
         <div>
           <h2>Conte sobre o seu site</h2>
-          <p>Mande uma mensagem ou um e-mail contando o que você faz e o que imagina para o site. Pode ser só uma ideia: a resposta vem com perguntas e próximos passos.</p>
+          <p>Marque o que o seu site precisa ter e mande por WhatsApp ou e-mail: a mensagem já sai escrita. Pode ser só uma ideia: a resposta vem com perguntas e próximos passos.</p>
+          <fieldset class="monte">
+            <legend class="monte-resumo">Escolha o que o site precisa ter</legend>
+            <div class="monte-opcoes">
+              <label><input type="checkbox" value="Apresentação do negócio"><span>Apresentação do negócio</span></label>
+              <label><input type="checkbox" value="Formulário de pedido ou orçamento"><span>Formulário de pedido</span></label>
+              <label><input type="checkbox" value="Painel com login"><span>Painel com login</span></label>
+              <label><input type="checkbox" value="Cálculo ou simulador"><span>Cálculo ou simulador</span></label>
+              <label><input type="checkbox" value="App que instala no celular"><span>App que instala</span></label>
+              <label><input type="checkbox" value="Blog ou publicação"><span>Blog ou publicação</span></label>
+              <label><input type="checkbox" value="Aviso por WhatsApp ou e-mail"><span>Aviso por WhatsApp ou e-mail</span></label>
+              <label><input type="checkbox" value="Domínio e servidor cuidados por vocês"><span>Domínio e servidor</span></label>
+            </div>
+          </fieldset>
           <div class="botoes contato-botoes">
-            <a class="botao botao-grande botao-whatsapp" href="https://wa.me/5561996672610?text=Ol%C3%A1!%20Quero%20conversar%20sobre%20um%20site." target="_blank" rel="noopener">
+            <a class="botao botao-grande botao-whatsapp monte-whats" href="https://wa.me/5561996672610?text=Ol%C3%A1!%20Quero%20conversar%20sobre%20um%20site." target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z" /></svg>
               <span>WhatsApp <span class="sem-quebra">(61) 99667-2610</span></span>
             </a>
-            <a class="botao botao-grande botao-contorno-claro" href="mailto:contato@linupedia.com.br?subject=Quero%20um%20site">contato@linupedia.com.br</a>
+            <a class="botao botao-grande botao-contorno-claro monte-enviar" href="mailto:contato@linupedia.com.br?subject=Quero%20um%20site">contato@linupedia.com.br</a>
           </div>
         </div>
       </div>
