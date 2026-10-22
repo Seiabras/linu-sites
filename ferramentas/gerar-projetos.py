@@ -45,7 +45,7 @@ PROJETOS = [
         'endereco': 'v2tech.app.br',
         'imagem': 'v2tech.webp',
         'alt': 'Página inicial do V²Tech COMBUSTÍVEL com o preço justo do diesel',
-        'resumo': 'Para empresas de ônibus, transportadoras e prefeituras conferirem se o preço do diesel, da gasolina ou do etanol cobrado pela distribuidora faz sentido.',
+        'resumo': 'Para empresas de ônibus, transportadoras e frotas conferirem se o preço do diesel, da gasolina ou do etanol cobrado pela distribuidora faz sentido.',
         'desafio': 'Quando chega um preço novo de combustível, saber se ele é justo depende de uma conta longa: preço da Petrobras, impostos, biodiesel, frete, margem da distribuidora e juros do prazo. Essa conta vivia numa planilha.',
         'feito': [
             'O cliente informa onde recebe o combustível, o que diz o contrato e o preço proposto; o site responde se o preço faz sentido, qual seria o preço justo e quanto a diferença representa por mês.',
@@ -58,7 +58,6 @@ PROJETOS = [
         'dentro': [
             'O cálculo fica no servidor: o navegador do cliente recebe só o resultado.',
             'Os dados de mercado (Petrobras, Banco Central, ANP) são atualizados todo dia por um robô, que recusa valores fora do plausível.',
-            'Um teste reproduz uma linha real da planilha do contrato e impede a publicação se a fórmula deixar de bater.',
             'Cópia de segurança diária, criptografada.',
         ],
     },
