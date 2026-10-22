@@ -52,7 +52,8 @@ cd public && python3 -m http.server 8000
   mensais: **No ar** (R$ 60: servidor, HTTPS, domínio e cópias) e **Cuidado** (R$ 120: tudo isso, mais
   atualizações e pequenos ajustes); pagando o ano, são 10 meses.
 - **Dúvidas frequentes** (`#duvidas`, acordeão em `<details>`): prazo estimado por tipo, pagamento
-  (50/50, ou 40/30/30 a partir de R$ 6.000), mensal obrigatório, domínio no nome do cliente, conteúdo e
+  (50/50, ou 40/30/30 a partir de R$ 6.000), mensal obrigatório, painel para o cliente editar (extra de R$ 1.200 no site de apresentação,
+  incluído em ferramentas e apps), domínio no nome do cliente, conteúdo e
   dados do cliente (código, layout e visual do Linu Sites) e saída (exportação e compra do código pelo
   valor do projeto). Decidido em 22/10/2026; os termos completos estão em rascunho no `Seiabras/linuhub`.
 - **Depoimentos:** a seção está pronta no HTML, mas escondida (`hidden`) até chegarem frases de verdade.
