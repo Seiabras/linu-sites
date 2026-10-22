@@ -21,19 +21,20 @@ PROJETOS = [
         'endereco': 'linupedia.com.br',
         'imagem': 'linupedia.webp',
         'alt': 'Tela da LinuPedia com o Linu e a trilha de italiano',
-        'resumo': 'Um app de idiomas que virou uma enciclopédia jogável: 197 idiomas e 17 áreas do conhecimento, no celular e no computador, funcionando até sem internet.',
-        'desafio': 'Ensinar idiomas, e depois ciências, artes e lazer, para quem fala português: sem conta, sem anúncios, sem depender de internet e sem inventar nada. Cada fato e cada exemplo precisa vir com a fonte.',
+        'resumo': 'Um app de idiomas que virou uma enciclopédia jogável: 197 idiomas e 19 áreas do conhecimento, no celular e no computador, funcionando até sem internet.',
+        'desafio': 'Ensinar idiomas, e depois ciências, artes e lazer, para quem fala português: de graça para todos, sem anúncios, sem depender de internet e sem inventar nada. Cada fato e cada exemplo precisa vir com a fonte.',
         'feito': [
             'A trilha é uma aventura: um mapa que sai da Antártica e chega ao país do idioma, com travessias por rádio, decisões e conversa por voz.',
             'O abrigo do Linu em pixel art, com a luz seguindo o relógio (dia, sol da meia-noite e noite com aurora), onde cada objeto é um atalho.',
             'Voz em todo idioma: gravações de falantes nativos, a voz do aparelho e uma voz neural que funciona offline.',
             'Muito para praticar: histórias com escolhas, diário com corretor, ditado, álbum de figurinhas e 77 jogos.',
             'Acessível: tema claro e escuro, “reduzir movimento” e leitores de tela.',
+            'Conteúdo livre: as lições podem ser copiadas e adaptadas por professores e escolas (CC BY-NC-SA 4.0).',
         ],
         'dentro': [
             'Um código só para Android, iOS e web (React Native e Expo).',
             'Instala na tela do celular como app e abre sem internet; o progresso fica num banco no próprio aparelho.',
-            'O servidor publica sozinho a versão nova, mas só se todos os testes passarem.',
+            'O servidor publica sozinho a versão nova, mas só se todos os testes passarem; quem tem o app instalado recebe o aviso “Versão nova” ao voltar para ele.',
         ],
     },
     {
