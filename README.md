@@ -48,8 +48,13 @@ cd public && python3 -m http.server 8000
   `public/img/projetos/` (960×600, WebP). O NeuroSim fica de fora por enquanto, até sair do começo.
 - **Como funciona** e **contato**: WhatsApp (61) 99667-2610 e `contato@linupedia.com.br`.
 - **Preços de referência** nos cartões de “O que fazemos”: site de apresentação a partir de R$ 1.800,
-  ferramentas e painéis a partir de R$ 6.000, apps que instalam a partir de R$ 9.000 e hospedagem e
-  cuidado por R$ 120 por mês.
+  ferramentas e painéis a partir de R$ 6.000, apps que instalam a partir de R$ 9.000 e dois planos
+  mensais: **No ar** (R$ 60: servidor, HTTPS, domínio e cópias) e **Cuidado** (R$ 120: tudo isso, mais
+  atualizações e pequenos ajustes); pagando o ano, são 10 meses.
+- **Dúvidas frequentes** (`#duvidas`, acordeão em `<details>`): prazo estimado por tipo, pagamento
+  (50/50, ou 40/30/30 a partir de R$ 6.000), mensal obrigatório, domínio no nome do cliente, conteúdo e
+  dados do cliente (código, layout e visual do Linu Sites) e saída (exportação e compra do código pelo
+  valor do projeto). Decidido em 22/10/2026; os termos completos estão em rascunho no `Seiabras/linuhub`.
 - **Depoimentos:** a seção está pronta no HTML, mas escondida (`hidden`) até chegarem frases de verdade.
 - **Celular:** os links vão para um menu que abre no botão ☰ (`public/js/menu.js`).
 - **Compartilhar:** `img/compartilhar.png` (1200 × 630) e os ícones em PNG, gerados por
