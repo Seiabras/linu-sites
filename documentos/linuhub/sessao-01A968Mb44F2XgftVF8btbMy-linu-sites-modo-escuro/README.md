@@ -10,6 +10,14 @@
 Tudo está commitado e no branch principal dos dois repositórios. A última publicação do linu-sites na
 Oracle (commit `cdb0dd6`) terminou com sucesso. Nada está rodando.
 
+## Atenção: outra sessão mexeu no mesmo site
+
+A sessão `session_01H4UgJuHdxPD4jM2LHdUqXX` também trabalhou no linu-sites em 21/10/2026: fez um botão de
+tema próprio (commit `4eada1b`), diretrizes de UX (`DIRETRIZES-UX.md`), animações (`public/js/movimento.js`)
+e o “monte o seu pedido”, e juntou isso com o trabalho desta sessão (commit `edbbc2c`). Na `main` de agora
+existe um botão de tema só, o do Linu e do lampião. Se for revisar, vale conferir se sobrou CSS do botão
+antigo (chave `linu-sites-tema`) sem uso.
+
 ## O que foi feito
 
 ### linu-sites (https://sites.linupedia.com.br), tudo publicado
