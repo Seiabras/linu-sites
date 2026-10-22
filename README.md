@@ -6,6 +6,28 @@ Uma página só (`public/index.html`), sem dependências e sem servidor próprio
 (a mesma da LinuPedia, do v²tech, da Marginalia e do Los Vega) entrega os arquivos de `public/`.
 O visual segue a LinuPedia: o azul do app, o gelo e o pergaminho da expedição e o Linu em pixel art.
 
+- **No ar:** https://sites.linupedia.com.br
+- **Repositório:** `Seiabras/linu-sites` (**público**: nada de senha, chave ou relatório interno aqui; isso vai
+  para o `Seiabras/linuhub`, que é privado), branch `main`
+- **Contato do estúdio:** contato@linupedia.com.br (Zoho Mail, caixa linu@linupedia.com.br) e WhatsApp
+  (61) 99667-2610
+- **Crédito nos projetos:** todo site feito pelo estúdio leva "Site feito por Linu Sites" no rodapé, com
+  link para cá (V²Tech, Los Vega, Marginalia e, no Perfil, a LinuPedia).
+
+## Como está organizado
+
+| Pasta / arquivo | O que tem |
+|---|---|
+| `public/index.html` | A página inicial (uma página só). |
+| `public/projetos/*.html` | Página de cada projeto, gerada por `ferramentas/gerar-projetos.py`. |
+| `public/css/estilo.css` | Visual (cores da LinuPedia, modo claro e escuro). |
+| `public/js/` | `tema-inicio.js` (aplica o tema antes de pintar), `tema.js` (o Linu e o lampião), `menu.js` (menu do celular), `movimento.js` (animações). |
+| `public/img/` | Cena da estação, o Linu, capturas dos projetos (`projetos/`), ícones e imagem de compartilhar. |
+| `public/fontes/` | Nunito (licença OFL), servida pelo próprio site. |
+| `ferramentas/` | Geradores: páginas de projeto, imagens de compartilhar e ícones, cena noturna e o Linu de lado. |
+| `deploy/` | Instalação na VM (`instalar-uma-vez.sh`), recebimento (`receber.sh`), conferência antes de publicar (`conferir-pagina.py`), bloco do Caddy e o manual `ORACLE.md`. |
+| `.github/workflows/oracle.yml` | Publicação automática (confere a página, entrega e testa se o site respondeu). |
+
 ## Ver no computador
 
 Abra `public/index.html` no navegador, ou, para ver como no servidor:
@@ -55,4 +77,13 @@ O que é só do site fica em `ferramentas/`:
 
 ## Publicar
 
-Ver [deploy/ORACLE.md](deploy/ORACLE.md).
+Todo push na `main` publica sozinho: o GitHub Actions confere a página (`deploy/conferir-pagina.py`: HTML
+válido e todo arquivo usado existe), manda `public/` para a VM pela chave do usuário `linusites` (segredo
+`ORACLE_SSH_KEY`, refeito em 22/10/2026; a chave só pode rodar o `deploy/receber.sh`) e confere se o site
+respondeu. A versão anterior fica em `/opt/linu-sites/app.anterior`. Detalhes em
+[deploy/ORACLE.md](deploy/ORACLE.md).
+
+## Documentos relacionados
+
+- [`deploy/ORACLE.md`](deploy/ORACLE.md): DNS, Caddy, instalação e publicação.
+- [`DIRETRIZES-UX.md`](DIRETRIZES-UX.md): regras de interface e desempenho (iguais em todos os projetos).
