@@ -15,7 +15,7 @@
       obs.unobserve(el);
       setTimeout(() => { el.classList.remove('revelar', 'visto'); el.style.removeProperty('--atraso'); }, 900);
     }), { rootMargin: '0px 0px -8% 0px' });
-    $$('.secao h2, .secao-sub, .cartao, .projeto, .passos li, .monte, .contato-linu').forEach((el) => {
+    $$('.secao h2, .secao-sub, .cartao, .projeto, .passos li, .faq details, .monte, .contato-linu').forEach((el) => {
       if (el.getBoundingClientRect().top < innerHeight) return;
       el.style.setProperty('--atraso', Math.min([...el.parentElement.children].indexOf(el), 5) * 70 + 'ms');
       el.classList.add('revelar');
