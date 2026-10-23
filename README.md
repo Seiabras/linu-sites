@@ -19,6 +19,7 @@ O visual segue a LinuPedia: o azul do app, o gelo e o pergaminho da expedição 
 | Pasta / arquivo | O que tem |
 |---|---|
 | `public/index.html` | A página inicial (uma página só). |
+| `public/404.html` | Página de erro com o código E404, mostrada pelo Caddy em qualquer endereço que não existe (`handle_errors` no `deploy/Caddyfile-bloco`; liga no servidor pelo `endurecer.sh` do linuhub). |
 | `public/projetos/*.html` | Página de cada projeto, gerada por `ferramentas/gerar-projetos.py`. |
 | `public/css/estilo.css` | Visual (cores da LinuPedia, modo claro e escuro). |
 | `public/js/` | `tema-inicio.js` (aplica o tema antes de pintar), `tema.js` (o Linu e o lampião; com “menos movimento” ligado ele não anda, só aparece embaixo do lampião), `menu.js` (menu do celular), `movimento.js` (animações). |
