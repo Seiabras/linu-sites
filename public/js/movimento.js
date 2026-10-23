@@ -64,7 +64,7 @@
       const tipo = monte.querySelector('input[name="tipo"]:checked');
       const plano = monte.querySelector('input[name="plano"]:checked');
       const anual = monte.querySelector('input[name="anual"]').checked;
-      const itens = $$('input[name="item"]:checked', monte);
+      const itens = $$('input[name="item[]"]:checked', monte);
       const linhas = [];
       let valor = 0;
       let extra = '';
