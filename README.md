@@ -80,7 +80,7 @@ na VM (ver `deploy/ORACLE.md`).
 
 ## Imagens da cena
 
-As imagens da estação e do Linu vêm do app (LinuLingo, `assets/pixel/`), na mesma grade de 344 × 192.
+As imagens da estação e do Linu vêm do app (linupedia, `assets/pixel/`), na mesma grade de 344 × 192.
 O que é só do site fica em `ferramentas/`:
 
 - `cena-apagada.py` gera `img/abrigo-estacao-apagada.png`, a noite com o lampião apagado (o modo escuro).
