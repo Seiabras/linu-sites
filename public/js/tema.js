@@ -1,6 +1,7 @@
 /* Modo claro e escuro com o Linu: ao tocar no botão da luz, o Linu entra no quarto pela porta, vai até o
    lampião, apaga (modo escuro) ou acende (modo claro) e sai. A página troca de cor no instante em que a
    luz da cena muda. A escolha fica guardada no navegador; sem escolha, vale a do sistema.
+   Com "menos movimento" no aparelho, o Linu não anda: aparece embaixo do lampião e some.
    As coordenadas são as da imagem da cena (344 × 192), como no abrigo do app. */
 (function () {
   "use strict";
@@ -114,15 +115,36 @@
     }
   }
 
+  /* com "menos movimento" no aparelho (comum em computador de faculdade ou de trabalho), o Linu não anda:
+     ele aparece embaixo do lampião, a luz troca e ele some, só com opacidade */
+  async function animarParado(tema) {
+    var linu = cena.querySelector(".cena-linu");
+    linu.getAnimations().forEach(function (a) { a.cancel(); });
+    linu.style.left = posicao(LAMPIAO);
+    linu.dataset.pose = "costas";
+    await linu.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 200, fill: "forwards" }).finished;
+    await esperar(250);
+    aplicarTema(tema, true);
+    await esperar(650);
+    linu.dataset.pose = "frente";
+    await esperar(300);
+    await linu.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 200, easing: "ease-in", fill: "forwards" }).finished;
+    linu.getAnimations().forEach(function (a) { a.cancel(); });
+    linu.style.left = "";
+  }
+
   botao.addEventListener("click", function () {
     if (ocupado) return;
     var tema = temaAtual() === "dark" ? "light" : "dark";
-    if (poucoMovimento.matches || !cena || !Element.prototype.animate) {
+    if (!cena || !Element.prototype.animate) {
       aplicarTema(tema, false);
       return;
     }
     ocupado = true;
-    animar(tema).catch(function () { aplicarTema(tema, false); }).then(function () { ocupado = false; });
+    var feito = poucoMovimento.matches
+      ? (cenaVisivel() ? animarParado(tema) : Promise.resolve(aplicarTema(tema, true)))
+      : animar(tema);
+    feito.catch(function () { aplicarTema(tema, false); }).then(function () { ocupado = false; });
   });
 
   // sem escolha guardada, o tema acompanha o sistema

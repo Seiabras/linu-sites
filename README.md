@@ -21,7 +21,7 @@ O visual segue a LinuPedia: o azul do app, o gelo e o pergaminho da expedição 
 | `public/index.html` | A página inicial (uma página só). |
 | `public/projetos/*.html` | Página de cada projeto, gerada por `ferramentas/gerar-projetos.py`. |
 | `public/css/estilo.css` | Visual (cores da LinuPedia, modo claro e escuro). |
-| `public/js/` | `tema-inicio.js` (aplica o tema antes de pintar), `tema.js` (o Linu e o lampião), `menu.js` (menu do celular), `movimento.js` (animações). |
+| `public/js/` | `tema-inicio.js` (aplica o tema antes de pintar), `tema.js` (o Linu e o lampião; com “menos movimento” ligado ele não anda, só aparece embaixo do lampião), `menu.js` (menu do celular), `movimento.js` (animações). |
 | `public/img/` | Cena da estação, o Linu, capturas dos projetos (`projetos/`), ícones e imagem de compartilhar. |
 | `public/fontes/` | Nunito (licença OFL), servida pelo próprio site. |
 | `ferramentas/` | Geradores: páginas de projeto, imagens de compartilhar e ícones, cena noturna e o Linu de lado. |
