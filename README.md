@@ -47,6 +47,11 @@ cd public && python3 -m http.server 8000
 - **Projetos no ar:** LinuPedia, V²Tech COMBUSTÍVEL, Los Vega na Estrada e Marginalia, com capturas em
   `public/img/projetos/` (960×600, WebP). O NeuroSim fica de fora por enquanto, até sair do começo.
 - **Como funciona** e **contato**: WhatsApp (61) 99667-2610 e `contato@linupedia.com.br`.
+- **Monte o seu site** (no contato, 22/10/2026): a pessoa escolhe o tipo, o que o site precisa ter e o plano
+  mensal, e vê na hora a estimativa (a partir de), o prazo e o mensal; a mensagem do WhatsApp e do e-mail já sai
+  com tudo. Os preços são os mesmos dos cartões e das dúvidas (o painel é extra de R$ 1.200 só no site de
+  apresentação); o que não tem preço fixo aparece como “na proposta”. Mudou um preço na página, mude também os
+  `data-preco` do formulário em `public/index.html`.
 - **Preços de referência** nos cartões de “O que fazemos”: site de apresentação a partir de R$ 1.800,
   ferramentas e painéis a partir de R$ 6.000, apps que instalam a partir de R$ 9.000 e dois planos
   mensais: **No ar** (R$ 60: servidor, HTTPS, domínio e cópias) e **Cuidado** (R$ 120: tudo isso, mais
