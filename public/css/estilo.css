@@ -287,9 +287,24 @@ h3 { margin: 0 0 6px; font-size: 1.2rem; font-weight: 800; }
 .menu a:not(.botao):hover::after, .menu a[aria-current]::after { transform: scaleX(1); }
 .menu a[aria-current] { color: #FFFFFF; }
 
-/* Monte o seu pedido */
-.monte { border: 0; padding: 0; margin: 0 0 22px; min-width: 0; }
-.monte-resumo { padding: 0; margin-bottom: 10px; font-weight: 800; color: #FFFFFF; }
+/* Monte o seu site */
+.monte { margin: 0 0 22px; }
+.monte-grupo { border: 0; padding: 0; margin: 0 0 16px; min-width: 0; }
+.monte-titulo { padding: 0; margin-bottom: 8px; font-weight: 800; color: #FFFFFF; }
+.monte-opcoes.monte-unico span::before { content: none; }
+.monte-opcoes.monte-unico input:checked + span::before { content: "✓"; transform: none; }
+.monte-ano { display: inline-flex; align-items: center; gap: 10px; margin-top: 10px; min-height: 44px; color: #E2E8F0; font-weight: 700; cursor: pointer; }
+.monte-ano input { width: 20px; height: 20px; accent-color: #2563EB; }
+.monte-total { background: rgba(15, 23, 42, .45); border: 1px solid rgba(255, 255, 255, .14); border-radius: var(--raio); padding: 14px 16px; }
+.contato .monte-resumo { margin: 0 0 6px; max-width: none; font-weight: 800; font-size: 1.05rem; color: #FFFFFF; }
+.monte-numeros { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 6px 0 8px; }
+.monte-numeros dt { font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; color: #94A3B8; font-weight: 800; }
+.monte-numeros dd { margin: 2px 0 0; font-weight: 900; color: #FFFFFF; font-variant-numeric: tabular-nums; }
+.monte-numeros[hidden] { display: none; }
+.monte-numeros:not([hidden]) { animation: entra .22s ease-out; }
+@keyframes entra { from { opacity: 0; transform: translateY(8px); } }
+.contato p.monte-nota { margin: 0; font-size: .85rem; color: #CBD5E1; }
+@media (max-width: 420px) { .monte-numeros { grid-template-columns: 1fr 1fr; } .monte-numeros div:first-child { grid-column: 1 / -1; } }
 .monte-resumo.pulso { animation: pulso .35s ease-out; }
 @keyframes pulso { 50% { transform: scale(1.06); } }
 .monte-opcoes { display: flex; flex-wrap: wrap; gap: 8px; }
@@ -319,6 +334,6 @@ h3 { margin: 0 0 6px; font-size: 1.2rem; font-weight: 800; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .revelar { opacity: 1; transform: none; }
-  .janela, .abertura-texto > *, .monte-resumo.pulso, .faq details[open] .faq-resposta { animation: none; }
+  .janela, .abertura-texto > *, .monte-resumo.pulso, .monte-numeros, .faq details[open] .faq-resposta { animation: none; }
   .janela, .cartao, .projeto, .passos li, .cartao-icone, .menu a::after, .monte-opcoes span, .monte-opcoes span::before, .faq details, .faq summary::after { transition: none; }
 }
