@@ -1,6 +1,6 @@
 """Desenha o Linu de lado, andando para a direita, em pixel art: 4 quadros de 52 × 61 numa folha só
 (public/img/linu/linu-lado.png, 208 × 61). A grade, a paleta e o olho feliz são os do Linu de frente
-do app (LinuLingo, assets/pixel/linu/). Cada pixel é decidido no centro dele (sem suavizar), depois
+do app (linupedia, assets/pixel/linu/). Cada pixel é decidido no centro dele (sem suavizar), depois
 vem o sombreado em faixas e o contorno.
 
     python3 ferramentas/desenhar-linu-lado.py

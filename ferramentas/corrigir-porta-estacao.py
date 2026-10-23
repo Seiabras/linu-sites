@@ -1,5 +1,5 @@
 # Uso: python3 ferramentas/corrigir-porta-estacao.py <dia.png> <noite.png> <saida.png>
-# (feito para assets/pixel/abrigo-estacao-{noite,sol-da-meia-noite}.png do LinuLingo; a noite do site é a mesma do app)
+# (feito para assets/pixel/abrigo-estacao-{noite,sol-da-meia-noite}.png do linupedia; a noite do site é a mesma do app)
 """Tira o retângulo da porta e da escotilha nas versões de noite e de sol da meia-noite da estação.
 O recolorido pintou a paisagem de fora num retângulo inteiro, por cima da cortina e do batente: aqui,
 dentro desses retângulos, o que na imagem de dia não é paisagem volta a ser a imagem de dia recolorida
