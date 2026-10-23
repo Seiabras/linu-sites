@@ -15,4 +15,9 @@ sites.linupedia.com.br {
 	root * /opt/linu-sites/app
 	try_files {path} {path}.html {path}/index.html
 	file_server
+	handle_errors {
+		@nao_achei expression {err.status_code} == 404
+		rewrite @nao_achei /404.html
+		file_server
+	}
 }
