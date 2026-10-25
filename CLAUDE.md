@@ -11,6 +11,6 @@ Antes de mexer em qualquer tela, leia e siga as diretrizes de UI/UX e desempenho
 2. **Conferir o portfólio do Linu Sites:** quando mudar um dos sites do portfólio (LinuPedia, V²Tech, Los Vega, Marginalia), confira se o
    cartão em `public/index.html`, a página em `public/projetos/` (texto em `ferramentas/gerar-projetos.py`)
    e a captura em `public/img/projetos/` continuam verdadeiros, e atualize.
-3. **Atualizar o linuhub** (`Seiabras/linuhub`, em `~/Documentos/projetos/linuhub`): `PROJETOS.md`,
+3. **Atualizar o linuarquivos** (`Seiabras/linuarquivos`, até 23/10/2026 chamado `linuhub`, em `~/Documentos/projetos/linuarquivos`): `PROJETOS.md`,
    `PENDENTES.md` e `REFERENCIA.md` refletem o que mudou (o que ficou pronto, o que falta, servidor,
    domínio, e-mail).

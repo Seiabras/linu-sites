@@ -20,11 +20,12 @@ PROJETOS = [
         'url': 'https://linupedia.com.br',
         'endereco': 'linupedia.com.br',
         'imagem': 'linupedia.webp',
-        'alt': 'Tela da LinuPedia com o Linu e a trilha de italiano',
+        'alt': 'O linuhub da LinuPedia: o acampamento do Linu em pixel art, à noite, com a fogueira e os amigos dele',
         'resumo': 'Um app de idiomas que virou uma enciclopédia jogável: 197 idiomas e 20 áreas do conhecimento, no celular e no computador, funcionando até sem internet.',
         'desafio': 'Ensinar idiomas, e depois ciências, artes e lazer, para quem fala português: de graça para todos, sem anúncios, sem depender de internet e sem inventar nada. Cada fato e cada exemplo precisa vir com a fonte.',
         'feito': [
             'A trilha é uma aventura: um mapa que sai da Antártica e chega ao país do idioma, com travessias por rádio, decisões e conversa por voz.',
+            'O linuhub, a casa do app: um acampamento em pixel art na Antártica, onde o Linu anda (tocando, no joystick ou no teclado) até as áreas, com o mapa da ilha e os pinguins de outras pessoas.',
             'O abrigo do Linu em pixel art, com a luz seguindo o relógio (dia, sol da meia-noite e noite com aurora), onde cada objeto é um atalho.',
             'Voz em todo idioma: gravações de falantes nativos, a voz do aparelho e uma voz neural que funciona offline.',
             'Muito para praticar: histórias com escolhas, diário com corretor, ditado, álbum de figurinhas e 77 jogos.',
