@@ -21,7 +21,7 @@ PROJETOS = [
         'endereco': 'linupedia.com.br',
         'imagem': 'linupedia.webp',
         'alt': 'O linuhub da LinuPedia: o acampamento do Linu em pixel art, à noite, com a fogueira e os amigos dele',
-        'resumo': 'Um app de idiomas que virou uma enciclopédia jogável: 197 idiomas e 20 áreas do conhecimento, no celular e no computador, funcionando até sem internet.',
+        'resumo': 'Um app de idiomas que virou uma enciclopédia jogável: 197 idiomas e 37 áreas do conhecimento, no celular e no computador, funcionando até sem internet.',
         'desafio': 'Ensinar idiomas, e depois ciências, artes e lazer, para quem fala português: de graça para todos, sem anúncios, sem depender de internet e sem inventar nada. Cada fato e cada exemplo precisa vir com a fonte.',
         'feito': [
             'A trilha é uma aventura: um mapa que sai da Antártica e chega ao país do idioma, com travessias por rádio, decisões e conversa por voz.',
