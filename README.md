@@ -84,8 +84,9 @@ cd public && python3 -m http.server 8000
 A Nunito fica em `public/fontes` (licença OFL), sem Google Fonts. A página leva uma CSP numa `<meta>` (só
 carrega o que é do próprio site); o `deploy/Caddyfile-bloco` traz os cabeçalhos completos, para aplicar
 na VM (ver `deploy/ORACLE.md`). Desde 29/10/2026 o bloco deixa o próprio site pôr uma página dele num quadro
-(`frame-ancestors 'self'` e `X-Frame-Options SAMEORIGIN`), por causa do simulador; **enquanto o bloco novo não for
-aplicado na VM, o Café Aurora aparece em branco dentro do simulador no ar** (no computador funciona).
+(`frame-ancestors 'self'` e `X-Frame-Options SAMEORIGIN`), por causa do simulador; aplicado na VM em 29/10/2026 (a
+cópia anterior ficou em `/etc/caddy/Caddyfile.antes-quadro`). A porta 22 é bloqueada em algumas redes: para mexer na
+VM, use outra (a do celular serviu).
 
 ## Imagens da cena
 
