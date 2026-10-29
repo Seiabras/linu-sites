@@ -347,3 +347,51 @@ h3 { margin: 0 0 6px; font-size: 1.2rem; font-weight: 800; }
 .erro-pagina .erro-codigo a { display: inline-block; min-height: 44px; line-height: 44px; }
 .erro-pagina img { animation: entra .25s ease-out; }
 @media (prefers-reduced-motion: reduce) { .erro-pagina img { animation: none; } }
+
+/* Simulador (seção "Exemplo", js/simulador.js): o Café Aurora embutido, as partes e o preço */
+.simulador { display: grid; grid-template-columns: minmax(0, 340px) minmax(0, 1fr); gap: 24px; align-items: start; }
+.simulador-lado { display: grid; gap: 14px; position: sticky; top: 84px; }
+.simulador-opcoes { border: 1px solid var(--linha); border-radius: var(--raio); background: var(--cartao); padding: 14px 16px 10px; margin: 0; min-width: 0; }
+.simulador-titulo { padding: 0 6px; font-weight: 900; }
+.simulador-opcoes label { display: flex; align-items: center; gap: 10px; min-height: 44px; padding: 4px 0; border-bottom: 1px solid var(--linha); cursor: pointer; transition: color .15s ease-out; }
+.simulador-opcoes label:last-child { border-bottom: 0; }
+.simulador-opcoes input { width: 20px; height: 20px; flex: none; accent-color: var(--azul); cursor: pointer; }
+.simulador-opcoes span { flex: 1; font-weight: 700; line-height: 1.25; }
+.simulador-opcoes b { font-weight: 900; font-variant-numeric: tabular-nums; white-space: nowrap; color: var(--azul); }
+.simulador-opcoes label:has(input:not(:checked)) { color: var(--tinta-suave); }
+.simulador-opcoes label:has(input:not(:checked)) b { color: var(--tinta-suave); text-decoration: line-through; }
+.simulador-opcoes .simulador-base { cursor: default; }
+.simulador-total { border-radius: var(--raio); background: var(--grafite); color: #FFFFFF; padding: 16px 18px; }
+.simulador-total p { margin: 0; }
+.simulador-total p:first-child { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; font-weight: 800; }
+.simulador-total b { font-size: 1.6rem; font-weight: 900; font-variant-numeric: tabular-nums; }
+.simulador-nota { font-size: .85rem; color: #CBD5E1; margin: 6px 0 14px !important; }
+:root .simulador-total .botao { color: #FFFFFF; background: #2563EB; border-color: #2563EB; }
+:root .simulador-total .botao:hover { background: #1D4ED8; border-color: #1D4ED8; }
+.simulador-tela { border-radius: 14px; overflow: hidden; border: 1px solid var(--linha); background: #05030A; box-shadow: 0 24px 48px -28px rgba(15, 23, 42, .55); }
+.simulador-barra { display: flex; align-items: center; gap: 6px; margin: 0; padding: 9px 14px; background: #1E1B2E; color: #A5A1C2; font-size: .8rem; font-weight: 700; }
+.simulador-barra i { width: 10px; height: 10px; border-radius: 50%; background: #3F3A5A; }
+.simulador-barra span { margin-left: 8px; }
+.simulador-tela iframe { display: block; width: 100%; height: 640px; border: 0; }
+.simulador-credito { margin: 16px 0 0; color: var(--tinta-suave); font-size: .92rem; }
+.simulador-credito a { font-weight: 800; }
+@media (max-width: 900px) {
+  /* No celular, as partes viram uma faixa de botões que desliza para o lado, para o site caber junto na tela */
+  .simulador { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .simulador-lado { position: static; gap: 10px; }
+  .simulador-opcoes { display: flex; gap: 8px; overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none; border: 0; background: none; padding: 4px 0 6px; margin: 0 -20px; padding-inline: 20px; }
+  .simulador-opcoes::-webkit-scrollbar { display: none; }
+  .simulador-titulo { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .simulador-opcoes label { flex: none; scroll-snap-align: start; gap: 8px; padding: 6px 14px 6px 10px; border: 1.5px solid var(--linha); border-radius: 999px; background: var(--cartao); white-space: nowrap; }
+  .simulador-opcoes label:last-child { border-bottom: 1.5px solid var(--linha); }
+  .simulador-opcoes label:has(input:checked) { border-color: var(--azul); }
+  .simulador-opcoes span { font-size: .92rem; }
+  .simulador-opcoes b { font-size: .88rem; }
+  .simulador-total { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 14px; padding: 10px 14px; }
+  .simulador-total p:first-child { flex: 1; }
+  .simulador-total b { font-size: 1.3rem; }
+  .simulador-nota { order: 3; flex-basis: 100%; margin: 0 !important; }
+  .simulador-total .botao { padding: 8px 16px; font-size: .92rem; }
+  .simulador-tela iframe { height: min(68vh, 560px); }
+  #exemplo .secao-sub::after { content: " Deslize as partes para o lado →"; white-space: nowrap; }
+}

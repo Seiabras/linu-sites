@@ -27,6 +27,7 @@
   <script src="js/tema.js?v=5" defer></script>
   <script src="js/menu.js?v=5" defer></script>
   <script src="js/movimento.js?v=4" defer></script>
+  <script src="js/simulador.js?v=1" defer></script>
 </head>
 <body>
   <header class="topo">
@@ -39,6 +40,7 @@
         <div class="menu-links" id="menu-links">
           <a href="#servicos">O que fazemos</a>
           <a href="#projetos">Projetos</a>
+          <a href="#exemplo">Exemplo</a>
           <a href="#como">Como funciona</a>
           <a href="#duvidas">Dúvidas</a>
           <a class="botao menu-links-orcamento" href="#contato">Pedir orçamento</a>
@@ -178,6 +180,39 @@
             </div>
           </article>
         </div>
+      </div>
+    </section>
+
+    <!-- Simulador: o Café Aurora (cafeteria fictícia) embutido, com as partes que ligam e desligam e o preço.
+         Os preços ficam aqui, nos data-preco (e a base no data-base); o js/simulador.js só soma. -->
+    <section class="secao" id="exemplo">
+      <div class="dentro">
+        <h2>Ligue e desligue, veja o preço</h2>
+        <p class="secao-sub">O Café Aurora é uma cafeteria que não existe, de outra dimensão. Ligue e desligue as partes do site dela: ele muda na hora, e o preço também.</p>
+        <div class="simulador" data-base="1800">
+          <div class="simulador-lado">
+            <fieldset class="simulador-opcoes" aria-describedby="simulador-nota">
+              <legend class="simulador-titulo">O que o site tem</legend>
+              <label class="simulador-base"><input type="checkbox" checked disabled><span>Início, sobre, cardápio e contato</span><b>R$ 1.800</b></label>
+              <label><input type="checkbox" name="modulo[]" value="depoimentos" data-preco="200" checked><span>Depoimentos</span><b>+ R$ 200</b></label>
+              <label><input type="checkbox" name="modulo[]" value="efeitos" data-preco="400" checked><span>Efeitos: fundo animado, neon e cursor</span><b>+ R$ 400</b></label>
+              <label><input type="checkbox" name="modulo[]" value="cores" data-preco="200" checked><span>Botão de trocar as cores</span><b>+ R$ 200</b></label>
+              <label><input type="checkbox" name="modulo[]" value="laboratorio" data-preco="600" checked><span>Monte sua bebida (simulador)</span><b>+ R$ 600</b></label>
+              <label><input type="checkbox" name="modulo[]" value="assinatura" data-preco="400" checked><span>Assinatura por e-mail</span><b>+ R$ 400</b></label>
+              <label><input type="checkbox" name="modulo[]" value="painel" data-preco="1200"><span>Painel para mexer sozinho</span><b>+ R$ 1.200</b></label>
+            </fieldset>
+            <div class="simulador-total" aria-live="polite">
+              <p><span>Projeto, a partir de</span> <b data-simulador-total>R$ 3.600</b></p>
+              <p class="simulador-nota" id="simulador-nota">Valores de referência, como no “Monte o seu site”. O mensal (a partir de R$ 60) é à parte.</p>
+              <a class="botao" href="#contato">Quero um site assim</a>
+            </div>
+          </div>
+          <div class="simulador-tela">
+            <p class="simulador-barra" aria-hidden="true"><i></i><i></i><i></i><span>Café Aurora · site fictício</span></p>
+            <iframe src="demos/cafe-aurora/" title="Café Aurora, site de exemplo de uma cafeteria fictícia" width="960" height="640" loading="lazy"></iframe>
+          </div>
+        </div>
+        <p class="simulador-credito">O Café Aurora nasceu num trabalho de faculdade, na disciplina Desenvolvimento de Interfaces. <a href="demos/cafe-aurora/">Abrir em tela cheia</a></p>
       </div>
     </section>
 

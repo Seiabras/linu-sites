@@ -4,9 +4,9 @@ sites.linupedia.com.br {
 	header {
 		X-Content-Type-Options nosniff
 		Referrer-Policy strict-origin-when-cross-origin
-		# o site só carrega o que é dele; ninguém pode pôr a página dentro de outro site
-		Content-Security-Policy "default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"
-		X-Frame-Options DENY
+		# o site só carrega o que é dele; só ele mesmo pode pôr uma página dentro de outra (o Café Aurora embutido no simulador)
+		Content-Security-Policy "default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'"
+		X-Frame-Options SAMEORIGIN
 		Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
 		Strict-Transport-Security "max-age=31536000"
 	}

@@ -14,7 +14,8 @@ faltando = []
 
 def conferir(origem, ref):
     partes = urlsplit(ref)
-    if partes.scheme or partes.netloc or ref.startswith(('#', 'mailto:', 'tel:', 'data:')):
+    # '%23' é o '#' escrito dentro de um SVG embutido no CSS (o filter='url(#n)' do Café Aurora)
+    if partes.scheme or partes.netloc or ref.startswith(('#', '%23', 'mailto:', 'tel:', 'data:')):
         return
     caminho = unquote(partes.path)
     if not caminho or caminho in ('.', './'):
