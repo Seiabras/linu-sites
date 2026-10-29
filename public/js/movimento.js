@@ -33,6 +33,35 @@
     links.forEach((a) => { const s = document.querySelector(a.getAttribute('href')); if (s) spy.observe(s); });
   }
 
+  // ---- O Linu do contato: acena quando aparece e pula de alegria no toque ----
+  // Uma vez por visita, sem ficar repetindo; com "menos movimento", só troca a pose, sem pular.
+  const linu = document.querySelector('span.contato-linu');
+  if (linu) {
+    let fila = [];
+    const pose = (p) => { linu.dataset.pose = p; };
+    const sequencia = (passos) => {
+      fila.forEach(clearTimeout);
+      fila = passos.map(([ms, p]) => setTimeout(() => pose(p), ms));
+    };
+    if (!calmo && 'IntersectionObserver' in window) {
+      const viu = new IntersectionObserver((es) => {
+        if (!es.some((e) => e.isIntersecting)) return;
+        viu.disconnect();
+        sequencia([[0, 'feliz'], [240, 'acenando'], [480, 'feliz'], [720, 'acenando'], [1700, 'acenando-piscando'], [1860, 'acenando']]);
+      }, { threshold: 0.6 });
+      viu.observe(linu);
+    }
+    const comemorar = () => {
+      sequencia([[0, 'comemorando'], [900, 'acenando']]);
+      if (calmo) return;
+      linu.classList.remove('pulo');
+      void linu.offsetWidth; // reinicia o pulo
+      linu.classList.add('pulo');
+    };
+    linu.addEventListener('click', comemorar);
+    linu.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') comemorar(); });
+  }
+
   // ---- Monte o seu site: estimativa na hora e a mensagem pronta ----
   // Os preços são os mesmos dos cartões e das dúvidas da página (a partir de; o painel é extra só no site de
   // apresentação). O resto entra na proposta, e a estimativa diz isso em vez de inventar valor.

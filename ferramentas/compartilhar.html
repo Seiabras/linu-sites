@@ -19,6 +19,7 @@
   .cena img { position: absolute; image-rendering: pixelated; }
   .fundo { inset: 0; width: 100%; height: 100%; }
   .linu { left: calc((150 - 27.6) / 344 * 100%); top: 63.02%; width: 16.05%; height: 31.77%; }
+  .sombra { position: absolute; left: calc((150 - 27.6) / 344 * 100% + 16.05% * .18); width: calc(16.05% * .64); top: calc(63.02% + 31.77% * .92); height: calc(31.77% * .11); border-radius: 50%; background: rgba(15, 23, 42, .42); }
 </style>
 </head>
 <body>
@@ -30,6 +31,7 @@
   </div>
   <div class="cena">
     <img class="fundo" src="../public/img/abrigo-estacao-dia.png" alt="">
+    <span class="sombra"></span>
     <img class="linu" src="../public/img/linu/linu-frente.png" alt="">
   </div>
 </body>
