@@ -42,12 +42,15 @@ cd public && python3 -m http.server 8000
 
 - **Abertura:** o que o estúdio faz e o botão de orçamento.
 - **O que fazemos:** sites de apresentação, ferramentas e painéis, apps que instalam, hospedagem.
-- **Página de cada projeto** (`/projetos/linupedia`, `/v2tech`, `/losvega`, `/marginalia`): o desafio, o
-  que foi feito e como funciona por dentro, com os fatos dos READMEs de cada repositório. Geradas por
+- **Página de cada projeto** (`/projetos/linupedia`, `/v2tech`, `/losvega`, `/marginalia`, `/iconvet`,
+  `/ajoriente`, `/dojo-legacy`, `/omega`): o desafio, o que foi feito e como funciona por dentro, com os fatos
+  dos READMEs de cada repositório (nos quatro de clientes, do que o próprio site mostra no ar). Geradas por
   `ferramentas/gerar-projetos.py`: mude o texto lá e rode o script. No computador, o `python3 -m
   http.server` não completa o `.html` como o Caddy; abra `projetos/<nome>.html`.
-- **Projetos no ar:** LinuPedia, V²Tech COMBUSTÍVEL, Los Vega na Estrada e Marginalia, com capturas em
-  `public/img/projetos/` (960×600, WebP). O NeuroSim fica de fora por enquanto, até sair do começo.
+- **Projetos no ar:** LinuPedia, V²Tech COMBUSTÍVEL, Los Vega na Estrada e Marginalia; desde 29/10/2026 também
+  Iconvet (iconvet.com.br), Administração Judicial Oriente (ajoriente.com), Dojo Legacy (bjj-link.com) e Ômega
+  Imóveis (omega-site-vert.vercel.app, ainda sem domínio). Capturas em `public/img/projetos/` (960×600, WebP).
+  O NeuroSim fica de fora por enquanto, até sair do começo.
 - **Projetos de estudo** (`#estudo`, 29/10/2026): os sites que fiz na disciplina Desenvolvimento de Interfaces, com
   empresas fictícias: Café Aurora, Fotografia do Cerrado e Abelhas sem Ferrão. Cada cartão leva ao subdomínio e ao
   código no GitHub; as capturas também ficam em `public/img/projetos/`.

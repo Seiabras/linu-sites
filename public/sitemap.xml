@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://sites.linupedia.com.br/</loc>
-    <lastmod>2026-10-21</lastmod>
+    <lastmod>2026-10-29</lastmod>
   </url>
   <url>
     <loc>https://sites.linupedia.com.br/projetos/linupedia</loc>
@@ -19,5 +19,21 @@
   <url>
     <loc>https://sites.linupedia.com.br/projetos/marginalia</loc>
     <lastmod>2026-10-21</lastmod>
+  </url>
+  <url>
+    <loc>https://sites.linupedia.com.br/projetos/iconvet</loc>
+    <lastmod>2026-10-29</lastmod>
+  </url>
+  <url>
+    <loc>https://sites.linupedia.com.br/projetos/ajoriente</loc>
+    <lastmod>2026-10-29</lastmod>
+  </url>
+  <url>
+    <loc>https://sites.linupedia.com.br/projetos/dojo-legacy</loc>
+    <lastmod>2026-10-29</lastmod>
+  </url>
+  <url>
+    <loc>https://sites.linupedia.com.br/projetos/omega</loc>
+    <lastmod>2026-10-29</lastmod>
   </url>
 </urlset>

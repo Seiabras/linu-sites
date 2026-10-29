@@ -108,6 +108,96 @@ PROJETOS = [
             'Cópia diária criptografada dos textos, páginas e imagens, guardada por 90 dias.',
         ],
     },
+    {
+        'id': 'iconvet',
+        'nome': 'Iconvet',
+        'etiqueta': 'Site institucional',
+        'url': 'https://iconvet.com.br',
+        'endereco': 'iconvet.com.br',
+        'imagem': 'iconvet.webp',
+        'alt': 'Página inicial da Iconvet, clínica veterinária em Salvador, com o destaque do setor de exames de imagem',
+        'resumo': 'Site da Iconvet, clínica veterinária geral e especializada no Rio Vermelho, em Salvador.',
+        'desafio': 'Uma clínica com muitos setores (clínico, cirúrgico, laboratório, exames de imagem, internamento) e dezenas de serviços e especialidades precisava de um site novo no próprio domínio, em que o tutor achasse rápido o que procura e chegasse ao WhatsApp em um toque.',
+        'feito': [
+            'Página inicial com destaques que passam (como o setor novo de exames de imagem), as áreas de atendimento, os serviços, os princípios da clínica e o internamento.',
+            'Uma página para cada setor, exame, procedimento, serviço e área de atendimento: 74 páginas no mapa do site.',
+            'Páginas da clínica: história, estrutura, equipe, valores, gestão de qualidade, setor jurídico, SCIH, programa de estágio, orientações para pacientes e visitantes e a galeria.',
+            'Endereço, telefones, horário e WhatsApp sempre à mão: na barra do topo, no botão flutuante e no rodapé, com a rota pelo mapa.',
+            'Botão “Área do Cliente”, que leva ao sistema da clínica (SimplesPet).',
+        ],
+        'dentro': [
+            'Feito em Next.js e publicado na Vercel, com o domínio da clínica apontando para o site novo.',
+            'Cada página com título e descrição próprios, mais o mapa do site e o robots.txt para os buscadores.',
+        ],
+    },
+    {
+        'id': 'ajoriente',
+        'nome': 'Administração Judicial Oriente',
+        'etiqueta': 'Site com consulta de processos',
+        'url': 'https://ajoriente.com',
+        'endereco': 'ajoriente.com',
+        'imagem': 'ajoriente.webp',
+        'alt': 'Página inicial da Administração Judicial Oriente: “Orientando empresas para novos começos”',
+        'resumo': 'Site da Administração Judicial Oriente, do Rio de Janeiro: recuperação judicial e extrajudicial, falências, insolvência civil e liquidação judicial.',
+        'desafio': 'Credores, empresas e o juízo precisam achar rápido as informações de cada processo e os modelos de documento. O site tinha de passar seriedade e deixar essa consulta a poucos cliques.',
+        'feito': [
+            'Apresentação da Oriente e das cinco áreas de atuação, com página própria para recuperação judicial e para falência.',
+            'Consulta de processos por categoria (falências e recuperação judicial), com uma página por empresa: número do processo, documentos e comunicados.',
+            'Os quatro modelos de documento (habilitação e impugnação de crédito, procuração para a assembleia de credores) para abrir ou baixar.',
+            'Formulário de contato com o assunto escolhido numa lista, o consentimento para o tratamento dos dados e a política de privacidade.',
+            'E-mail, telefone e WhatsApp em todas as páginas.',
+        ],
+        'dentro': [
+            'Feito em Next.js e publicado na Vercel, no domínio próprio.',
+            'O formulário tem um campo-armadilha contra robôs de spam.',
+            'Link “Pular para o conteúdo” para quem navega pelo teclado ou com leitor de tela.',
+        ],
+    },
+    {
+        'id': 'dojo-legacy',
+        'nome': 'Dojo Legacy',
+        'etiqueta': 'Jogo no navegador e no celular',
+        'url': 'https://www.bjj-link.com',
+        'endereco': 'bjj-link.com',
+        'imagem': 'dojo-legacy.webp',
+        'alt': 'Página inicial do Dojo Legacy: “Da faixa branca à lenda do tatame”, com o jogo no computador e no celular',
+        'resumo': 'Jogo de carreira de Jiu-Jitsu e MMA: começa na faixa branca e termina em lenda. Grátis no navegador, no iPhone e no Android.',
+        'desafio': 'Um jogo de luta por turnos com uma carreira inteira, dentro e fora do tatame, que roda igual no navegador e no celular, guarda o progresso na nuvem e junta os jogadores em rankings, ligas e PVP.',
+        'feito': [
+            'Lutas lance a lance: posição, gás e momentum, com 165 técnicas de Jiu-Jitsu e 61 de striking no MMA.',
+            'Carreira completa: graduação de faixa, academia própria com alunos, empresário, patrocínios e contratos, e um herdeiro que continua o legado.',
+            'PVP online por turnos, torneios ao vivo e a Liga de Equipes, com cinco divisões, da Liga dos Novatos à Grande Liga.',
+            'Rankings ao vivo e Hall da Fama, só com jogadores reais, atualizados a cada hora.',
+            'Guia do jogo com uma página por técnica e por campeonato, em português e em inglês: 566 páginas no mapa do site.',
+            'Dá para jogar sem conta; com a conta grátis, a carreira fica salva na nuvem e continua em outro aparelho.',
+        ],
+        'dentro': [
+            'Site em Next.js na Vercel; o mesmo jogo no navegador e nos apps de iPhone e Android.',
+            'As carreiras ficam salvas na nuvem, e as logos das equipes no Supabase.',
+            'Português e inglês, com o idioma escolhido no topo.',
+        ],
+    },
+    {
+        'id': 'omega',
+        'nome': 'Ômega Imóveis',
+        'etiqueta': 'Site de apresentação',
+        'url': 'https://omega-site-vert.vercel.app/',
+        'endereco': 'omega-site-vert.vercel.app',
+        'imagem': 'omega.webp',
+        'alt': 'Página inicial da Ômega Imóveis: “O lugar certo muda tudo”, sobre a Zona Sul do Rio ao entardecer',
+        'resumo': 'Site da Ômega Imóveis, imobiliária da Zona Sul do Rio de Janeiro, com atendimento próximo, elegante e estratégico.',
+        'desafio': 'Apresentar uma imobiliária nova para um público exigente: menos vitrine de anúncios e mais a forma de trabalhar e os bairros onde ela atua, levando a conversa para o WhatsApp.',
+        'feito': [
+            'Página única que se lê como uma revista: a abertura, a essência (patrimônio, localização e escolhas), o manifesto, os bairros e a abordagem.',
+            'Os bairros da Zona Sul com identidade própria: Ipanema, Leblon, Lagoa e Copacabana em destaque, e ainda Gávea, Jardim Botânico, São Conrado e Botafogo.',
+            'O método em três passos: escuta antes de tudo, visão de mercado e relações que permanecem.',
+            'Chamada para a conversa no topo e no fim da página, e o CRECI da empresa e do responsável técnico no rodapé.',
+        ],
+        'dentro': [
+            'Publicado na Vercel, por enquanto sem domínio próprio.',
+            'Página leve, com link “Pular para o conteúdo” para quem navega pelo teclado.',
+        ],
+    },
 ]
 
 PAGINA = '''<!DOCTYPE html>
@@ -132,7 +222,7 @@ PAGINA = '''<!DOCTYPE html>
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="../fontes/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
   <script src="../js/tema-inicio.js?v=5"></script>
-  <link rel="stylesheet" href="../css/estilo.css?v=10">
+  <link rel="stylesheet" href="../css/estilo.css?v=11">
   <script src="../js/tema.js?v=6" defer></script>
   <script src="../js/menu.js?v=5" defer></script>
 </head>
