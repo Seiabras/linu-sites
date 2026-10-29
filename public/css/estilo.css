@@ -164,13 +164,36 @@ h3 { margin: 0 0 6px; font-size: 1.2rem; font-weight: 800; }
 .cartao p { margin: 0; color: var(--tinta-suave); }
 .cartao .cartao-preco { margin-top: auto; padding-top: 14px; color: var(--tinta); font-size: .95rem; }
 .cartao-preco b { color: var(--azul); font-size: 1.15rem; font-weight: 900; }
-/* Os preços levam ao “Monte o seu site” com a opção marcada */
-.cartao-preco a, .planos a { color: inherit; text-decoration: none; display: flex; align-items: baseline; gap: 6px; border-radius: 8px; }
-.cartao-preco a { display: inline; }
-.cartao-preco a:hover b, .planos a:hover b, .cartao-preco a:focus-visible b, .planos a:focus-visible b { text-decoration: underline; text-underline-offset: 3px; }
+/* Os planos levam ao “Conte sobre o seu site” com a opção marcada */
+.planos a { color: inherit; text-decoration: none; display: flex; align-items: baseline; gap: 6px; border-radius: 8px; }
+.planos a:hover b, .planos a:focus-visible b { text-decoration: underline; text-underline-offset: 3px; }
 .planos li a { flex: 1; }
+/* Os três primeiros cartões inteiros são o link (o título se estica por cima do cartão) */
+.cartao { position: relative; }
+.cartao-link { color: inherit; text-decoration: none; }
+.cartao-link::after { content: ""; position: absolute; inset: 0; border-radius: var(--raio); }
+.cartao-link:focus-visible { outline: none; }
+.cartao:has(.cartao-link:focus-visible) { outline: 3px solid var(--azul); outline-offset: 3px; }
+.cartao-seta { display: inline-block; color: var(--azul); font-weight: 900; transition: transform .2s ease-out; }
+.cartao:hover .cartao-seta, .cartao:has(.cartao-link:focus-visible) .cartao-seta { transform: translateX(4px); }
+.so-leitor { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .precos-nota { margin: 18px 0 0; color: var(--tinta-suave); font-size: .92rem; }
 .cartao-icone { display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 16px; background: var(--azul-claro); font-size: 1.6rem; margin-bottom: 14px; }
+
+/* Projetos: "No ar" e "De estudo" em abas (js/movimento.js). Sem JavaScript, as abas ficam escondidas e as duas
+   listas aparecem com o título de cada uma. */
+.abas[hidden] { display: none; }
+.abas { display: inline-flex; gap: 4px; padding: 5px; margin: 18px 0 4px; background: var(--cartao); border: 1px solid var(--linha); border-radius: 999px; }
+.aba { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 8px 20px; border: 0; border-radius: 999px; background: transparent; color: var(--tinta-suave); font: inherit; font-weight: 800; cursor: pointer; transition: background-color .2s ease-out, color .2s ease-out; }
+.aba:hover { color: var(--tinta); }
+.aba[aria-selected="true"] { background: var(--azul); color: #FFFFFF; }
+:root[data-theme="dark"] .aba[aria-selected="true"] { color: #0B1220; }
+.aba-conta { padding: 1px 8px; border-radius: 999px; background: var(--azul-claro); color: var(--azul); font-size: .8rem; transition: background-color .2s ease-out, color .2s ease-out; }
+.aba[aria-selected="true"] .aba-conta { background: rgba(255, 255, 255, .24); color: inherit; }
+.painel-titulo { margin: 32px 0 0; font-size: 1.35rem; }
+.abas:not([hidden]) ~ .painel .painel-titulo { display: none; }
+.painel[hidden] { display: none; }
+.painel.entrando { animation: subir .22s ease-out both; }
 
 /* Projetos */
 .projetos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 24px; }
@@ -350,8 +373,8 @@ span.contato-linu { display: block; position: relative; aspect-ratio: 138 / 190;
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   .revelar { opacity: 1; transform: none; }
-  .janela, .abertura-texto > *, .monte-resumo.pulso, .monte-numeros, .faq details[open] .faq-resposta { animation: none; }
-  .janela, .cartao, .projeto, .passos li, .cartao-icone, .menu a::after, .monte-opcoes span, .monte-opcoes span::before, .faq details, .faq summary::after { transition: none; }
+  .janela, .abertura-texto > *, .monte-resumo.pulso, .monte-numeros, .faq details[open] .faq-resposta, .painel.entrando { animation: none; }
+  .aba, .aba-conta, .cartao-seta, .janela, .cartao, .projeto, .passos li, .cartao-icone, .menu a::after, .monte-opcoes span, .monte-opcoes span::before, .faq details, .faq summary::after { transition: none; }
 }
 
 /* Página de erro (404.html) */

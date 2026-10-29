@@ -1,10 +1,49 @@
-// Movimento e interação da página: seções que entram ao rolar, menu que marca a seção atual
+// Movimento e interação da página: as abas dos projetos, seções que entram ao rolar, menu que marca a seção atual
 // e o "monte o seu site", que mostra a estimativa na hora e já escreve a mensagem do WhatsApp e o e-mail.
 // Sem JavaScript, ou com "menos movimento" no aparelho, tudo continua lá: só não anima.
 (() => {
   'use strict';
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
   const calmo = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ---- Projetos: "No ar" e "De estudo" em abas, com setas, Home e End; o #estudo no endereço abre a segunda ----
+  // (vem antes das seções que entram ao rolar, para os cartões da aba escondida não ficarem esperando a rolagem)
+  const abas = document.querySelector('.abas');
+  if (abas) {
+    const botoes = $$('[role="tab"]', abas);
+    const painel = (b) => document.getElementById(b.getAttribute('aria-controls'));
+    const escolher = (b, animar = true) => {
+      botoes.forEach((x) => {
+        const ativo = x === b;
+        const p = painel(x);
+        x.setAttribute('aria-selected', String(ativo));
+        x.tabIndex = ativo ? 0 : -1;
+        if (!ativo) { p.hidden = true; return; }
+        if (!p.hidden) return;
+        p.hidden = false;
+        if (animar && !calmo) { p.classList.remove('entrando'); void p.offsetWidth; p.classList.add('entrando'); }
+      });
+    };
+    // o endereço acompanha a aba (#estudo), sem rolar a página, para dar para mandar o link
+    const marcar = (b) => history.replaceState(null, '', b === botoes[0] ? location.pathname + location.search : '#' + b.getAttribute('aria-controls'));
+    const pelaUrl = () => botoes.find((b) => '#' + b.getAttribute('aria-controls') === location.hash);
+    const irPara = (suave = !calmo) => document.getElementById('projetos').scrollIntoView({ behavior: suave ? 'smooth' : 'auto' });
+    abas.hidden = false;
+    escolher(pelaUrl() || botoes[0], false);
+    // ao abrir com #estudo, o navegador rolou até o painel antes das abas existirem: volta ao começo da seção, sem
+    // animar, e de novo quando as imagens de cima terminam de carregar (elas mudam a altura do que vem antes)
+    if (pelaUrl()) { irPara(false); addEventListener('load', () => irPara(false), { once: true }); }
+    botoes.forEach((b) => b.addEventListener('click', () => { escolher(b); marcar(b); }));
+    abas.addEventListener('keydown', (e) => {
+      const i = botoes.indexOf(document.activeElement);
+      const n = { ArrowRight: i + 1, ArrowLeft: i - 1, Home: 0, End: botoes.length - 1 }[e.key];
+      if (i < 0 || n === undefined) return;
+      e.preventDefault();
+      const b = botoes[(n + botoes.length) % botoes.length];
+      escolher(b); marcar(b); b.focus();
+    });
+    window.addEventListener('hashchange', () => { const b = pelaUrl(); if (b) { escolher(b); irPara(); } });
+  }
 
   // ---- Seções que entram ao rolar (um observer só, cada elemento uma vez) ----
   if (!calmo && 'IntersectionObserver' in window) {

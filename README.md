@@ -47,11 +47,13 @@ cd public && python3 -m http.server 8000
   dos READMEs de cada repositório (nos quatro de clientes, do que o próprio site mostra no ar). Geradas por
   `ferramentas/gerar-projetos.py`: mude o texto lá e rode o script. No computador, o `python3 -m
   http.server` não completa o `.html` como o Caddy; abra `projetos/<nome>.html`.
-- **Projetos no ar:** LinuPedia, V²Tech COMBUSTÍVEL, Los Vega na Estrada e Marginalia; desde 29/10/2026 também
+- **Projetos** (`#projetos`): duas abas lado a lado, “No ar” e “De estudo” (`js/movimento.js`, com setas, Home e
+  End). O endereço com `#estudo` abre a segunda; sem JavaScript, as duas listas aparecem uma embaixo da outra.
+- **No ar:** LinuPedia, V²Tech COMBUSTÍVEL, Los Vega na Estrada e Marginalia; desde 29/10/2026 também
   Iconvet (iconvet.com.br), Administração Judicial Oriente (ajoriente.com), Dojo Legacy (bjj-link.com) e Ômega
   Imóveis (omega-site-vert.vercel.app, ainda sem domínio). Capturas em `public/img/projetos/` (960×600, WebP).
   O NeuroSim fica de fora por enquanto, até sair do começo.
-- **Projetos de estudo** (`#estudo`, 29/10/2026): os sites que fiz na disciplina Desenvolvimento de Interfaces, com
+- **De estudo** (`#estudo`, 29/10/2026): os sites que fiz na disciplina Desenvolvimento de Interfaces, com
   empresas fictícias: Café Aurora, Fotografia do Cerrado e Abelhas sem Ferrão. Cada cartão leva ao subdomínio e ao
   código no GitHub; as capturas também ficam em `public/img/projetos/`.
 - **Como funciona** e **contato**: WhatsApp (61) 99667-2610 e `contato@linupedia.com.br`.
@@ -69,8 +71,9 @@ cd public && python3 -m http.server 8000
 - **Preços de referência** nos cartões de “O que fazemos”: site de apresentação a partir de R$ 1.800,
   ferramentas e painéis a partir de R$ 6.000, apps que instalam a partir de R$ 9.000 e dois planos
   mensais: **No ar** (R$ 60: servidor, HTTPS, domínio e cópias) e **Cuidado** (R$ 120: tudo isso, mais
-  atualizações e pequenos ajustes); pagando o ano, são 10 meses. Clicar num desses preços leva ao “Monte o seu
-  site” com a opção já marcada (atributo `data-escolher="tipo=…"` ou `"plano=…"`, tratado no `js/movimento.js`).
+  atualizações e pequenos ajustes); pagando o ano, são 10 meses. Clicar num dos três primeiros cartões (o cartão
+  inteiro é o link do título) ou num dos planos leva ao “Conte sobre o seu site” com a opção já marcada (atributo
+  `data-escolher="tipo=…"` ou `"plano=…"`, tratado no `js/movimento.js`).
 - **Dúvidas frequentes** (`#duvidas`, acordeão em `<details>`): prazo estimado por tipo, pagamento
   (50/50, ou 40/30/30 a partir de R$ 6.000), mensal obrigatório, painel para o cliente editar (extra de R$ 1.200 no site de apresentação,
   incluído em ferramentas e apps), domínio no nome do cliente, conteúdo e
