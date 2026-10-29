@@ -92,3 +92,7 @@ subpasta, e o `sites.linupedia.com.br` responde 404 para `/_sitios`, para os sit
 O Café Aurora pode ser embutido só pelo `sites.linupedia.com.br` (o simulador): `frame-ancestors` no bloco do Café e
 `frame-src https://cafe.linupedia.com.br` no do Linu Sites (e na `<meta>` do `index.html`). Os outros dois não podem
 ser embutidos em lugar nenhum.
+
+Os mesmos quatro nomes no `linopedia.com.br` (`sites`, `cafe`, `cerrado` e `abelhas`, registros A para
+`168.138.155.95` na zona dele) só redirecionam para o endereço certo no `linupedia.com.br`, mantendo o caminho, como
+o `linopedia.com.br` faz com o `linupedia.com.br`.

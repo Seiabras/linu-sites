@@ -77,3 +77,17 @@ abelhas.linupedia.com.br {
 	try_files {path} {path}.html {path}/index.html
 	file_server
 }
+
+# Os mesmos endereços com o nome escrito “linopedia” levam ao certo, como o linopedia.com.br leva ao linupedia.com.br
+sites.linopedia.com.br {
+	redir https://sites.linupedia.com.br{uri} permanent
+}
+cafe.linopedia.com.br {
+	redir https://cafe.linupedia.com.br{uri} permanent
+}
+cerrado.linopedia.com.br {
+	redir https://cerrado.linupedia.com.br{uri} permanent
+}
+abelhas.linopedia.com.br {
+	redir https://abelhas.linupedia.com.br{uri} permanent
+}
