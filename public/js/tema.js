@@ -14,7 +14,7 @@
   if (!botao) return;
 
   var CENA_W = 344;
-  var LINU_W = 52;
+  var LINU_W = 55.2;   // o quadro do Linu novo (172 × 190) com 61 de altura
   var PORTA = 50;      // x dos pés na soleira da porta
   var LAMPIAO = 185;   // embaixo do lampião
   var MS_POR_PIXEL = 7;

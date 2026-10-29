@@ -24,9 +24,9 @@ O visual segue a LinuPedia: o azul do app, o gelo e o pergaminho da expedição 
 | `public/css/estilo.css` | Visual (cores da LinuPedia, modo claro e escuro). |
 | `public/js/` | `tema-inicio.js` (aplica o tema antes de pintar), `tema.js` (o Linu e o lampião; com “menos movimento” ligado ele não anda, só aparece embaixo do lampião), `menu.js` (menu do celular), `movimento.js` (animações), `simulador.js` (o simulador do Café Aurora). |
 | `public/demos/cafe-aurora/` | O Café Aurora, cafeteria fictícia que aparece embutida no simulador: `index.html`, `estilo.css`, `script.js`, `inicio.js` e as fontes Orbitron e Rajdhani (OFL) em `fontes/`. Leva `noindex` e não entra no `sitemap.xml`. |
-| `public/img/` | Cena da estação, o Linu, capturas dos projetos (`projetos/`), ícones e imagem de compartilhar. |
+| `public/img/` | Cena da estação, o Linu (`linu/`, `linu-pixel.png`), a logo (`linu-logo.png`), capturas dos projetos (`projetos/`), ícones e imagem de compartilhar. |
 | `public/fontes/` | Nunito (licença OFL), servida pelo próprio site. |
-| `ferramentas/` | Geradores: páginas de projeto, imagens de compartilhar e ícones, cena noturna e o Linu de lado. |
+| `ferramentas/` | Geradores: páginas de projeto, imagem de compartilhar, cena noturna e o Linu trazido do app (`linu-do-app.py`). |
 | `deploy/` | Instalação na VM (`instalar-uma-vez.sh`), recebimento (`receber.sh`), conferência antes de publicar (`conferir-pagina.py`), bloco do Caddy e o manual `ORACLE.md`. |
 | `.github/workflows/oracle.yml` | Publicação automática (confere a página, entrega e testa se o site respondeu). |
 
@@ -71,8 +71,8 @@ cd public && python3 -m http.server 8000
   valor do projeto). Decidido em 22/10/2026; os termos completos estão em rascunho no `Seiabras/linuhub`.
 - **Depoimentos:** a seção está pronta no HTML, mas escondida (`hidden`) até chegarem frases de verdade.
 - **Celular:** os links vão para um menu que abre no botão ☰ (`public/js/menu.js`).
-- **Compartilhar:** `img/compartilhar.png` (1200 × 630) e os ícones em PNG, gerados por
-  `ferramentas/gerar-imagens.mjs`; `sitemap.xml` e `robots.txt` apontando para ele.
+- **Compartilhar:** `img/compartilhar.png` (1200 × 630), gerada por `ferramentas/gerar-imagens.mjs`, e os ícones e a
+  logo (`img/linu-logo.png`), que vêm do app pelo `ferramentas/linu-do-app.py`; `sitemap.xml` e `robots.txt` apontando para ele.
 - **Modo claro e escuro:** o botão da lâmpada, no topo. O Linu entra no quarto pela porta, vai até o
   lampião e apaga (modo escuro) ou acende (modo claro); a página troca de cor junto. A escolha fica
   guardada no navegador; sem escolha, vale a do sistema. Com “reduzir movimento” ligado, troca na hora.
@@ -90,10 +90,12 @@ aplicado na VM, o Café Aurora aparece em branco dentro do simulador no ar** (no
 ## Imagens da cena
 
 As imagens da estação e do Linu vêm do app (linupedia, `assets/pixel/`), na mesma grade de 344 × 192.
-O que é só do site fica em `ferramentas/`:
+Desde 29/10/2026 o Linu é o novo do app em todo o site (o app trocou em 24/10): a logo e os ícones, o Linu que anda
+na cena (frente, costas e os 4 passos de lado do mapa do linuhub, 172 × 190, com 61 de altura na cena) e o Linu
+acenando do contato e da página de erro. `ferramentas/linu-do-app.py` copia tudo do app de novo; depois, o
+`ferramentas/gerar-imagens.mjs` refaz a imagem de compartilhar. O que é só do site fica em `ferramentas/`:
 
 - `cena-apagada.py` gera `img/abrigo-estacao-apagada.png`, a noite com o lampião apagado (o modo escuro).
-- `desenhar-linu-lado.py` desenha o Linu de lado andando (4 quadros, `img/linu/linu-lado.png`).
 - `corrigir-porta-estacao.py` tirou o retângulo da porta e da escotilha nas imagens de noite.
 
 ## Publicar

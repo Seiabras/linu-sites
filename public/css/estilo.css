@@ -105,26 +105,27 @@ h1 { margin: 0; font-size: clamp(2.3rem, 5.5vw, 3.8rem); line-height: 1.05; font
 .janela { margin: 0; background: var(--cartao); border: 1px solid var(--linha); border-radius: var(--raio); padding: 12px; box-shadow: 0 18px 40px -20px rgba(15, 23, 42, .35); transform: rotate(1.5deg); }
 
 /* A cena do quarto do Linu (344 × 192, como no app): o dia, o lampião aceso e o lampião apagado
-   empilhados, e o Linu (52 × 61, pés na linha 182) que entra para trocar a luz. */
+   empilhados, e o Linu que entra para trocar a luz: 61 de altura, pés na linha 182, e o quadro do Linu novo
+   (172 × 190, ferramentas/linu-do-app.py) na mesma proporção, 55,2 de largura. */
 .cena { position: relative; aspect-ratio: 344 / 192; border-radius: 12px; overflow: hidden; background: #0B1220; }
 .cena > img { position: absolute; inset: 0; width: 100%; height: 100%; }
 .cena-acesa, .cena-apagada { opacity: 0; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .cena-apagada { opacity: 1; } }
 :root[data-theme="dark"] .cena-apagada { opacity: 1; }
-.cena-linu { position: absolute; top: 63.02%; left: 0; width: 15.12%; height: 31.77%; opacity: 0; pointer-events: none; }
+.cena-linu { position: absolute; top: 63.02%; left: 0; width: 16.05%; height: 31.77%; opacity: 0; pointer-events: none; }
 .linu-frente, .linu-costas, .linu-lado { position: absolute; inset: 0; width: 100%; height: 100%; display: none; }
 .cena-linu[data-pose="frente"] .linu-frente,
 .cena-linu[data-pose="costas"] .linu-costas,
 .cena-linu[data-pose="direita"] .linu-lado,
 .cena-linu[data-pose="esquerda"] .linu-lado { display: block; }
-/* de lado é uma folha com 4 quadros de caminhada (ferramentas/desenhar-linu-lado.py), desenhados para a direita */
+/* de lado é uma folha com os 4 passos do linuhub (ferramentas/linu-do-app.py), desenhados para a direita */
 .linu-lado { overflow: hidden; }
 .linu-lado img { width: 400%; max-width: none; height: 100%; }
 .cena-linu[data-pose="esquerda"] .linu-lado { transform: scaleX(-1); }
 /* com a luz apagada, o Linu também fica no escuro */
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .cena-linu { filter: brightness(.72); } }
 :root[data-theme="dark"] .cena-linu { filter: brightness(.72); }
-.cena-linu[data-andando] .linu-lado img { animation: linu-anda .5s steps(4) infinite; }
+.cena-linu[data-andando] .linu-lado img { animation: linu-anda .6s steps(4) infinite; }
 @keyframes linu-anda { to { transform: translateX(-100%); } }
 /* quando a cena do topo está fora da tela, a troca de luz aparece num cartão no canto */
 .cena-flutuante { position: fixed; right: 16px; bottom: 16px; z-index: 20; width: min(340px, calc(100vw - 32px)); background: var(--cartao); border: 1px solid var(--linha); border-radius: var(--raio); padding: 8px; box-shadow: 0 18px 40px -16px rgba(15, 23, 42, .5); }

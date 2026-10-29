@@ -21,7 +21,7 @@ PROJETOS = [
         'endereco': 'linupedia.com.br',
         'imagem': 'linupedia.webp',
         'alt': 'O linuhub da LinuPedia: o acampamento do Linu em pixel art, à noite, com a fogueira e os amigos dele',
-        'resumo': 'Um app de idiomas que virou uma enciclopédia jogável: 197 idiomas e 37 áreas do conhecimento, no celular e no computador, funcionando até sem internet.',
+        'resumo': 'Um app de idiomas que virou uma enciclopédia jogável: 197 idiomas e 39 áreas do conhecimento, no celular e no computador, funcionando até sem internet.',
         'desafio': 'Ensinar idiomas, e depois ciências, artes e lazer, para quem fala português: de graça para todos, sem anúncios, sem depender de internet e sem inventar nada. Cada fato e cada exemplo precisa vir com a fonte.',
         'feito': [
             'A trilha é uma aventura: um mapa que sai da Antártica e chega ao país do idioma, com travessias por rádio, decisões e conversa por voz.',
@@ -119,7 +119,7 @@ PAGINA = '''<!DOCTYPE html>
   <meta name="description" content="{resumo}">
   <meta name="theme-color" content="#1F2A44">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
-  <link rel="icon" href="../img/linu.svg" type="image/svg+xml">
+  <link rel="icon" href="../img/linu-logo.png" type="image/png" sizes="128x128">
   <link rel="icon" href="../img/icone-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="../img/icone-180.png">
   <link rel="canonical" href="{site}/projetos/{id}">
@@ -140,7 +140,7 @@ PAGINA = '''<!DOCTYPE html>
   <header class="topo">
     <div class="dentro topo-dentro">
       <a class="marca" href="../" aria-label="Linu Sites, início">
-        <img src="../img/linu.svg" alt="" width="40" height="40">
+        <img src="../img/linu-logo.png" alt="" width="40" height="40">
         <span>Linu <b>Sites</b></span>
       </a>
       <nav class="menu" aria-label="Seções">
@@ -198,7 +198,7 @@ PAGINA = '''<!DOCTYPE html>
 
     <section class="secao contato" id="contato">
       <div class="dentro contato-dentro">
-        <img class="pixel contato-linu" src="../img/linu-pixel.png" alt="" width="139" height="190">
+        <img class="pixel contato-linu" src="../img/linu-pixel.png" alt="" width="138" height="190">
         <div>
           <h2>Quer algo assim para o seu negócio?</h2>
           <p>Conte o que você faz e o que imagina. Pode ser só uma ideia: a resposta vem com perguntas e próximos passos.</p>
