@@ -94,7 +94,7 @@ Desde 29/10/2026 o Linu é o novo do app em todo o site (o app trocou em 24/10):
 na cena (frente, costas e os 4 passos de lado do mapa do linuhub, 172 × 190, com 61 de altura na cena) e o Linu
 acenando da página de erro. O Linu do contato acena quando aparece na tela e pula quando alguém toca nele
 (`js/movimento.js`, uma folha com 4 poses em `img/linu/linu-contato.png`). Os quadros do app vêm sem a sombra do
-chão, que lá muda de cor entre as poses; o site desenha uma sombra só (`.cena-linu::before`). `ferramentas/linu-do-app.py` copia tudo do app de novo; depois, o
+chão, que lá muda de cor entre as poses; o site desenha uma sombra só (`.cena-linu::before`), na cor da do app desde 29/10: (40, 48, 66) com alfa 120. `ferramentas/linu-do-app.py` copia tudo do app de novo; depois, o
 `ferramentas/gerar-imagens.mjs` refaz a imagem de compartilhar. O que é só do site fica em `ferramentas/`:
 
 - `cena-apagada.py` gera `img/abrigo-estacao-apagada.png`, a noite com o lampião apagado (o modo escuro).
