@@ -125,5 +125,18 @@
     };
     monte.addEventListener('change', atualizar);
     atualizar();
+
+    // Os preços de “O que fazemos” levam até aqui com a opção já marcada (tipo=… ou plano=…)
+    $$('[data-escolher]').forEach((link) => {
+      link.addEventListener('click', () => {
+        const [nome, valor] = link.dataset.escolher.split('=');
+        const opcao = monte.querySelector(`input[name="${nome}"][value="${valor}"]`);
+        if (!opcao) return;
+        opcao.checked = true;
+        opcao.dispatchEvent(new Event('change', { bubbles: true }));
+        // o link já rola até #contato; o foco vai para a opção marcada, para quem usa teclado ou leitor de tela
+        setTimeout(() => opcao.focus({ preventScroll: true }), calmo ? 0 : 400);
+      });
+    });
   }
 })();

@@ -16,18 +16,18 @@
   <meta property="og:image:height" content="630">
   <meta property="og:image:alt" content="Linu Sites: sites e aplicativos web sob medida, com o Linu na estação de pesquisa">
   <meta name="twitter:card" content="summary_large_image">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self'; frame-src https://cafe.linupedia.com.br; object-src 'none'; base-uri 'self'; form-action 'self'">
   <link rel="preload" href="fontes/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="canonical" href="https://sites.linupedia.com.br/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://sites.linupedia.com.br/">
   <meta property="og:locale" content="pt_BR">
   <script src="js/tema-inicio.js?v=5"></script>
-  <link rel="stylesheet" href="css/estilo.css?v=10">
+  <link rel="stylesheet" href="css/estilo.css?v=11">
   <script src="js/tema.js?v=6" defer></script>
   <script src="js/menu.js?v=5" defer></script>
-  <script src="js/movimento.js?v=5" defer></script>
-  <script src="js/simulador.js?v=1" defer></script>
+  <script src="js/movimento.js?v=6" defer></script>
+  <script src="js/simulador.js?v=2" defer></script>
 </head>
 <body>
   <header class="topo">
@@ -97,27 +97,27 @@
             <span class="cartao-icone" aria-hidden="true">🧭</span>
             <h3>Sites de apresentação</h3>
             <p>Para contar quem você é, o que oferece e como falar com você. Rápidos, bonitos no celular e fáceis de achar no Google.</p>
-            <p class="cartao-preco">a partir de <b>R$ 1.800</b></p>
+            <p class="cartao-preco"><a href="#contato" data-escolher="tipo=apresentacao" aria-label="Site de apresentação, a partir de R$ 1.800: montar o orçamento">a partir de <b>R$ 1.800</b></a></p>
           </article>
           <article class="cartao">
             <span class="cartao-icone" aria-hidden="true">🛠️</span>
             <h3>Ferramentas e painéis</h3>
             <p>Formulários de pedido, cálculos, área com login e painel para acompanhar tudo. O site deixa de ser vitrine e passa a fazer parte do trabalho.</p>
-            <p class="cartao-preco">a partir de <b>R$ 6.000</b></p>
+            <p class="cartao-preco"><a href="#contato" data-escolher="tipo=ferramenta" aria-label="Ferramenta com painel, a partir de R$ 6.000: montar o orçamento">a partir de <b>R$ 6.000</b></a></p>
           </article>
           <article class="cartao">
             <span class="cartao-icone" aria-hidden="true">📱</span>
             <h3>Apps que instalam</h3>
             <p>Aplicativos web que ficam na tela do celular como um app comum e abrem até sem internet, sem passar por loja.</p>
-            <p class="cartao-preco">a partir de <b>R$ 9.000</b></p>
+            <p class="cartao-preco"><a href="#contato" data-escolher="tipo=app" aria-label="App que instala, a partir de R$ 9.000: montar o orçamento">a partir de <b>R$ 9.000</b></a></p>
           </article>
           <article class="cartao">
             <span class="cartao-icone" aria-hidden="true">🛰️</span>
             <h3>No ar e cuidado</h3>
             <p>Domínio, cadeado de segurança (HTTPS), servidor e cópias de segurança. Você não precisa entender de nada disso.</p>
             <ul class="planos">
-              <li><span>No ar</span><b>R$ 60</b>/mês</li>
-              <li><span>Cuidado</span><b>R$ 120</b>/mês</li>
+              <li><a href="#contato" data-escolher="plano=60" aria-label="Plano No ar, R$ 60 por mês: montar o orçamento"><span>No ar</span><b>R$ 60</b>/mês</a></li>
+              <li><a href="#contato" data-escolher="plano=120" aria-label="Plano Cuidado, R$ 120 por mês: montar o orçamento"><span>Cuidado</span><b>R$ 120</b>/mês</a></li>
             </ul>
             <p class="planos-nota">O Cuidado inclui atualizações e pequenos ajustes de texto e foto. Pagando o ano, são 10 meses.</p>
           </article>
@@ -183,6 +183,51 @@
       </div>
     </section>
 
+    <section class="secao" id="estudo">
+      <div class="dentro">
+        <h2>Projetos de estudo</h2>
+        <p class="secao-sub">Sites que fiz na faculdade, na disciplina Desenvolvimento de Interfaces. As empresas são fictícias; o código é aberto.</p>
+        <div class="projetos">
+          <article class="projeto">
+            <a href="https://cafe.linupedia.com.br" target="_blank" rel="noopener"><img src="img/projetos/cafe-aurora.webp" alt="Página inicial do Café Aurora: o nome em neon azul e rosa sobre uma cidade cyberpunk à noite" width="960" height="600" loading="lazy"></a>
+            <div class="projeto-texto">
+              <p class="etiqueta">Site com efeitos</p>
+              <h3>Café Aurora</h3>
+              <p>Cafeteria cyberpunk que não existe, com tela de abertura, fundo animado, cardápio e um laboratório para montar a bebida. É o site do simulador aqui de cima, também em versões com Bootstrap e Tailwind.</p>
+              <p class="projeto-links">
+                <a class="projeto-link" href="https://cafe.linupedia.com.br" target="_blank" rel="noopener">cafe.linupedia.com.br</a>
+                <a class="projeto-link" href="https://github.com/Seiabras/cafe-aurora" target="_blank" rel="noopener">Código no GitHub</a>
+              </p>
+            </div>
+          </article>
+          <article class="projeto">
+            <a href="https://cerrado.linupedia.com.br" target="_blank" rel="noopener"><img src="img/projetos/fotografia-do-cerrado.webp" alt="Página inicial da Fotografia do Cerrado: uma seriema no capim dourado, com um ipê-rosa florido ao fundo" width="960" height="600" loading="lazy"></a>
+            <div class="projeto-texto">
+              <p class="etiqueta">Site de apresentação</p>
+              <h3>Fotografia do Cerrado</h3>
+              <p>Empresa de fotografia de fauna, com galeria filtrável, expedições e contato. A paleta saiu do próprio bioma e cada cor foi medida pela regra de contraste da WCAG.</p>
+              <p class="projeto-links">
+                <a class="projeto-link" href="https://cerrado.linupedia.com.br" target="_blank" rel="noopener">cerrado.linupedia.com.br</a>
+                <a class="projeto-link" href="https://github.com/Seiabras/fotografia-do-cerrado" target="_blank" rel="noopener">Código no GitHub</a>
+              </p>
+            </div>
+          </article>
+          <article class="projeto">
+            <a href="https://abelhas.linupedia.com.br" target="_blank" rel="noopener"><img src="img/projetos/abelhas-sem-ferrao.webp" alt="Página inicial do Abelhas sem Ferrão: a pergunta sobre as 250 espécies ao lado das fotos da jataí, da uruçu e da mandaçaia" width="960" height="600" loading="lazy"></a>
+            <div class="projeto-texto">
+              <p class="etiqueta">Site educativo</p>
+              <h3>Abelhas sem Ferrão</h3>
+              <p>Para quem nunca ouviu falar das abelhas nativas: percurso de 3 minutos, o que fazer ao achar um ninho e um teste rápido. Nasceu de um exercício de Design Thinking.</p>
+              <p class="projeto-links">
+                <a class="projeto-link" href="https://abelhas.linupedia.com.br" target="_blank" rel="noopener">abelhas.linupedia.com.br</a>
+                <a class="projeto-link" href="https://github.com/Seiabras/abelhas-sem-ferrao" target="_blank" rel="noopener">Código no GitHub</a>
+              </p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
     <!-- Simulador: o Café Aurora (cafeteria fictícia) embutido, com as partes que ligam e desligam e o preço.
          Os preços ficam aqui, nos data-preco (e a base no data-base); o js/simulador.js só soma. -->
     <section class="secao" id="exemplo">
@@ -209,10 +254,10 @@
           </div>
           <div class="simulador-tela">
             <p class="simulador-barra" aria-hidden="true"><i></i><i></i><i></i><span>Café Aurora · site fictício</span></p>
-            <iframe src="demos/cafe-aurora/" title="Café Aurora, site de exemplo de uma cafeteria fictícia" width="960" height="640" loading="lazy"></iframe>
+            <iframe src="https://cafe.linupedia.com.br/" title="Café Aurora, site de exemplo de uma cafeteria fictícia" width="960" height="640" loading="lazy"></iframe>
           </div>
         </div>
-        <p class="simulador-credito">O Café Aurora nasceu num trabalho de faculdade, na disciplina Desenvolvimento de Interfaces. <a href="demos/cafe-aurora/">Abrir em tela cheia</a></p>
+        <p class="simulador-credito">O Café Aurora nasceu num trabalho de faculdade, na disciplina Desenvolvimento de Interfaces. <a href="https://cafe.linupedia.com.br/" target="_blank" rel="noopener">Abrir em tela cheia</a></p>
       </div>
     </section>
 

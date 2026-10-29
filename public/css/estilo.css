@@ -164,6 +164,11 @@ h3 { margin: 0 0 6px; font-size: 1.2rem; font-weight: 800; }
 .cartao p { margin: 0; color: var(--tinta-suave); }
 .cartao .cartao-preco { margin-top: auto; padding-top: 14px; color: var(--tinta); font-size: .95rem; }
 .cartao-preco b { color: var(--azul); font-size: 1.15rem; font-weight: 900; }
+/* Os preços levam ao “Monte o seu site” com a opção marcada */
+.cartao-preco a, .planos a { color: inherit; text-decoration: none; display: flex; align-items: baseline; gap: 6px; border-radius: 8px; }
+.cartao-preco a { display: inline; }
+.cartao-preco a:hover b, .planos a:hover b, .cartao-preco a:focus-visible b, .planos a:focus-visible b { text-decoration: underline; text-underline-offset: 3px; }
+.planos li a { flex: 1; }
 .precos-nota { margin: 18px 0 0; color: var(--tinta-suave); font-size: .92rem; }
 .cartao-icone { display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 16px; background: var(--azul-claro); font-size: 1.6rem; margin-bottom: 14px; }
 

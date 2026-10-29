@@ -10,6 +10,9 @@ No Registro.br → linupedia.com.br → DNS → Editar zona, acrescente:
 | Tipo | Nome | Valor |
 |---|---|---|
 | A | `sites` | `168.138.155.95` |
+| A | `cafe` | `168.138.155.95` |
+| A | `cerrado` | `168.138.155.95` |
+| A | `abelhas` | `168.138.155.95` |
 
 Os registros que já existem (os da LinuPedia) ficam como estão.
 
@@ -78,3 +81,14 @@ sudo caddy validate --config /etc/caddy/Caddyfile && sudo systemctl reload caddy
 
 Enquanto isso não for feito, a página já leva a mesma CSP numa `<meta>` do `index.html` (menos o
 `frame-ancestors`, que só funciona como cabeçalho).
+
+## Os subdomínios dos sites de estudo (29/10/2026)
+
+`cafe`, `cerrado` e `abelhas` (`.linupedia.com.br`) vêm da pasta `sitios/` do repositório. A publicação automática
+copia `sitios/` para `public/_sitios/` antes de empacotar, então eles chegam à VM em `/opt/linu-sites/app/_sitios/`
+junto com o resto, pelo mesmo `receber.sh`. No `Caddyfile-bloco`, cada subdomínio tem o seu bloco, com a raiz na sua
+subpasta, e o `sites.linupedia.com.br` responde 404 para `/_sitios`, para os sites só abrirem pelo próprio endereço.
+
+O Café Aurora pode ser embutido só pelo `sites.linupedia.com.br` (o simulador): `frame-ancestors` no bloco do Café e
+`frame-src https://cafe.linupedia.com.br` no do Linu Sites (e na `<meta>` do `index.html`). Os outros dois não podem
+ser embutidos em lugar nenhum.

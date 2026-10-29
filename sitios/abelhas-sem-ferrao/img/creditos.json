@@ -1,0 +1,46 @@
+[
+ {
+  "arquivo": "img/jatai.jpg",
+  "titulo": "Tetragonisca angustula (Jataí) (51826346548).jpg",
+  "autor": "Carlos Eduardo Joos",
+  "licenca": "CC BY 2.0",
+  "licenca_url": "https://creativecommons.org/licenses/by/2.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Tetragonisca_angustula_(Jata%C3%AD)_(51826346548).jpg",
+  "w": 1000,
+  "h": 667,
+  "kb": 48
+ },
+ {
+  "arquivo": "img/mandacaia.jpg",
+  "titulo": "Melipona quadrifasciata quadrifasciata Brasil-ftsautter-.jpg",
+  "autor": "Frank Thomas Sautter",
+  "licenca": "CC0",
+  "licenca_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Melipona_quadrifasciata_quadrifasciata_Brasil-ftsautter-.jpg",
+  "w": 1000,
+  "h": 667,
+  "kb": 75
+ },
+ {
+  "arquivo": "img/ninho-jatai.jpg",
+  "titulo": "Tetragonisca angustula.JPG",
+  "autor": "Bibafu",
+  "licenca": "CC BY-SA 3.0",
+  "licenca_url": "https://creativecommons.org/licenses/by-sa/3.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Tetragonisca_angustula.JPG",
+  "w": 1000,
+  "h": 663,
+  "kb": 42
+ },
+ {
+  "arquivo": "img/ninho-urucu.jpg",
+  "titulo": "M. scutellaris Hive.jpg",
+  "autor": "Cícero R. C. Omena",
+  "licenca": "CC BY 2.0",
+  "licenca_url": "https://creativecommons.org/licenses/by/2.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:M._scutellaris_Hive.jpg",
+  "w": 1000,
+  "h": 669,
+  "kb": 128
+ }
+]

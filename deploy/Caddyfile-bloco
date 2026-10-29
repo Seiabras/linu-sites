@@ -4,14 +4,17 @@ sites.linupedia.com.br {
 	header {
 		X-Content-Type-Options nosniff
 		Referrer-Policy strict-origin-when-cross-origin
-		# o site só carrega o que é dele; só ele mesmo pode pôr uma página dentro de outra (o Café Aurora embutido no simulador)
-		Content-Security-Policy "default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'"
+		# o site só carrega o que é dele, mais o Café Aurora (cafe.linupedia.com.br) embutido no simulador
+		Content-Security-Policy "default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self'; frame-src https://cafe.linupedia.com.br; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'"
 		X-Frame-Options SAMEORIGIN
 		Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
 		Strict-Transport-Security "max-age=31536000"
 	}
 	@img path /img/* /fontes/*
 	header @img Cache-Control "public, max-age=604800"
+	# os sites dos subdomínios chegam junto, em _sitios/, mas só abrem pelo próprio endereço
+	@sitios path /_sitios /_sitios/*
+	error @sitios 404
 	root * /opt/linu-sites/app
 	try_files {path} {path}.html {path}/index.html
 	file_server
@@ -20,4 +23,57 @@ sites.linupedia.com.br {
 		rewrite @nao_achei /404.html
 		file_server
 	}
+}
+
+# Café Aurora (sitios/cafe-aurora): pode ser embutido só pelo simulador do Linu Sites
+cafe.linupedia.com.br {
+	encode zstd gzip
+	header {
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+		Content-Security-Policy "default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'self' https://sites.linupedia.com.br"
+		Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+		Strict-Transport-Security "max-age=31536000"
+	}
+	@arquivos path /img/* /fontes/* /css/* /js/* /vendor/*
+	header @arquivos Cache-Control "public, max-age=604800"
+	root * /opt/linu-sites/app/_sitios/cafe-aurora
+	try_files {path} {path}.html {path}/index.html
+	file_server
+}
+
+# Fotografia do Cerrado (sitios/fotografia-do-cerrado)
+cerrado.linupedia.com.br {
+	encode zstd gzip
+	header {
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+		Content-Security-Policy "default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"
+		X-Frame-Options DENY
+		Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+		Strict-Transport-Security "max-age=31536000"
+	}
+	@arquivos path /img/* /fontes/* /css/* /js/* /vendor/*
+	header @arquivos Cache-Control "public, max-age=604800"
+	root * /opt/linu-sites/app/_sitios/fotografia-do-cerrado
+	try_files {path} {path}.html {path}/index.html
+	file_server
+}
+
+# Abelhas sem Ferrão (sitios/abelhas-sem-ferrao)
+abelhas.linupedia.com.br {
+	encode zstd gzip
+	header {
+		X-Content-Type-Options nosniff
+		Referrer-Policy strict-origin-when-cross-origin
+		Content-Security-Policy "default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"
+		X-Frame-Options DENY
+		Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+		Strict-Transport-Security "max-age=31536000"
+	}
+	@arquivos path /img/* /fontes/* /css/* /js/* /vendor/*
+	header @arquivos Cache-Control "public, max-age=604800"
+	root * /opt/linu-sites/app/_sitios/abelhas-sem-ferrao
+	try_files {path} {path}.html {path}/index.html
+	file_server
 }

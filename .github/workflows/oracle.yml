@@ -55,6 +55,9 @@ jobs:
             ssh-keyscan -T 15 "$VM_HOST" >> ~/.ssh/known_hosts 2>/dev/null
           fi
           chmod 600 ~/.ssh/known_hosts
+          # Os sites dos subdomínios (cafe, cerrado, abelhas) vão no mesmo pacote, em _sitios/; o Caddy esconde
+          # essa pasta em sites.linupedia.com.br e serve cada subdomínio da sua subpasta.
+          cp -r sitios public/_sitios
           tar czf - -C public . | ssh -o BatchMode=yes -o StrictHostKeyChecking=yes "linusites@$VM_HOST"
       - name: Conferir o site
         if: steps.check.outputs.tem == 'sim'

@@ -465,9 +465,11 @@
   /* ----------------------------------------------------------
      13. LINU SITES — MÓDULOS DO SIMULADOR
      A página principal manda {cafeAurora: {modulos, visivel}} por
-     postMessage (só do mesmo endereço). Cada módulo desligado vira
+     postMessage (só de sites.linupedia.com.br). Cada módulo desligado vira
      uma classe "sem-..." no <html> (ver o bloco 16 do CSS).
      ---------------------------------------------------------- */
+  // O simulador fica no Linu Sites, num endereço diferente do Café: só ele pode ligar e desligar as partes
+  const ORIGEM_SIMULADOR = 'https://sites.linupedia.com.br';
   const MODULOS = ['depoimentos', 'efeitos', 'cores', 'laboratorio', 'assinatura'];
   const painel = $('#painelDemo');
   const painelBotao = $('#painelBotao');
@@ -490,7 +492,7 @@
   painelBotao.addEventListener('click', () => editar(!raiz.classList.contains('editando')));
 
   addEventListener('message', e => {
-    if (e.origin !== location.origin || !e.data || !e.data.cafeAurora) return;
+    if (e.origin !== ORIGEM_SIMULADOR || !e.data || !e.data.cafeAurora) return;
     const { modulos, visivel: v } = e.data.cafeAurora;
     if (Array.isArray(modulos)) {
       MODULOS.forEach(m => raiz.classList.toggle('sem-' + m, !modulos.includes(m)));
@@ -502,6 +504,6 @@
     if (typeof v === 'boolean') visivel = v;
     conferirQuadro();
   });
-  if (embutido) parent.postMessage({ cafeAurora: 'pronto' }, location.origin);
+  if (embutido) parent.postMessage({ cafeAurora: 'pronto' }, ORIGEM_SIMULADOR);
 
 })();

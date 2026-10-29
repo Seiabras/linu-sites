@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato — Fotografia do Cerrado</title>
+    <meta name="description" content="Fale com a Fotografia do Cerrado sobre expedições e fotos.">
+    <meta name="theme-color" content="#814F12">
+    <link rel="stylesheet" href="css/estilo.css">
+    <script src="js/menu.js" defer></script>
+    <script src="js/contato.js" defer></script>
+</head>
+<body>
+    <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+    <header class="topo">
+        <div class="container">
+            <a class="marca" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#C8985A"/><circle cx="16" cy="16" r="8" fill="#5E3A0D"/><circle cx="16" cy="16" r="4" fill="#FBF7F1"/></svg> Fotografia do Cerrado</a>
+            <button class="botao-menu" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+            <nav aria-label="Navegação principal">
+                <ul class="menu" id="menu"><li><a href="index.html">Início</a></li><li><a href="galeria.html">Galeria</a></li><li><a href="expedicoes.html">Expedições</a></li><li><a href="sobre.html">Sobre</a></li><li><a href="contato.html" aria-current="page">Contato</a></li></ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="conteudo">
+        <section class="titulo-pagina">
+            <div class="container">
+                <h1>Contato</h1>
+                <p>Quer participar de uma expedição ou usar uma foto? Escreva para a gente.</p>
+            </div>
+        </section>
+        <section class="secao">
+            <div class="container">
+                <form class="contato" novalidate>
+                    <div><label for="nome">Nome</label><input id="nome" name="nome" type="text" autocomplete="name" required></div>
+                    <div><label for="email">E-mail</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+                    <div><label for="assunto">Assunto</label>
+                        <select id="assunto" name="assunto">
+                            <option>Expedição na Chapada dos Veadeiros</option>
+                            <option>Expedição no Parque Nacional das Emas</option>
+                            <option>Saída no Parque Nacional de Brasília</option>
+                            <option>Uso de uma foto</option>
+                            <option>Outro assunto</option>
+                        </select></div>
+                    <div><label for="mensagem">Mensagem</label><textarea id="mensagem" name="mensagem" rows="5" required></textarea></div>
+                    <div><button class="botao" type="submit">Enviar</button></div>
+                    <p class="aviso" id="aviso" role="status" tabindex="-1" hidden></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="rodape">
+        <div class="container">
+            <p>© 2026 Fotografia do Cerrado · empresa fictícia, projeto de estudo de Luiz Matheus Moraes Vega</p>
+            <p><a href="creditos.html">Créditos das fotos</a></p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria — Fotografia do Cerrado</title>
+    <meta name="description" content="Galeria de fotos de animais do cerrado: lobo-guará, tamanduá-bandeira, arara-canindé, seriema e tucano-toco.">
+    <meta name="theme-color" content="#814F12">
+    <link rel="stylesheet" href="css/estilo.css">
+    <script src="js/menu.js" defer></script>
+    <script src="js/galeria.js" defer></script>
+</head>
+<body>
+    <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+    <header class="topo">
+        <div class="container">
+            <a class="marca" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#C8985A"/><circle cx="16" cy="16" r="8" fill="#5E3A0D"/><circle cx="16" cy="16" r="4" fill="#FBF7F1"/></svg> Fotografia do Cerrado</a>
+            <button class="botao-menu" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+            <nav aria-label="Navegação principal">
+                <ul class="menu" id="menu"><li><a href="index.html">Início</a></li><li><a href="galeria.html" aria-current="page">Galeria</a></li><li><a href="expedicoes.html">Expedições</a></li><li><a href="sobre.html">Sobre</a></li><li><a href="contato.html">Contato</a></li></ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="conteudo">
+        <section class="titulo-pagina">
+            <div class="container">
+                <h1>Galeria</h1>
+                <p>Clique numa foto para ampliar. O selo indica as espécies ameaçadas segundo a lista do ICMBio.</p>
+            </div>
+        </section>
+        <section class="secao">
+            <div class="container">
+                <div class="filtros" role="group" aria-label="Filtrar fotos">
+                    <button type="button" data-filtro="todos" aria-pressed="true">Todos</button>
+                    <button type="button" data-filtro="mamiferos" aria-pressed="false">Mamíferos</button>
+                    <button type="button" data-filtro="aves" aria-pressed="false">Aves</button>
+                </div>
+                <div class="grade">
+                <article class="foto" data-grupo="mamiferos">
+                    <button type="button" aria-label="Ampliar a foto: Lobo-guará"><img src="img/lobo-guara.jpg" alt="Lobo-guará de pelagem laranja e pernas pretas andando na grama" width="1000" height="647" loading="lazy"></button>
+                    <div class="legenda">
+                        <h3>Lobo-guará</h3>
+                        <p class="cientifico">Chrysocyon brachyurus</p>
+                        <p>O maior canídeo da América do Sul. Caça à noite e come também muitos frutos, como a lobeira, ajudando a espalhar as sementes.</p>
+                        <span class="selo">Vulnerável (ICMBio)</span>
+                    </div>
+                </article>
+                <article class="foto" data-grupo="mamiferos">
+                    <button type="button" aria-label="Ampliar a foto: Tamanduá-bandeira"><img src="img/tamandua-bandeira.jpg" alt="Tamanduá-bandeira cinza, com a faixa preta no ombro, procurando alimento no capim" width="1000" height="667" loading="lazy"></button>
+                    <div class="legenda">
+                        <h3>Tamanduá-bandeira</h3>
+                        <p class="cientifico">Myrmecophaga tridactyla</p>
+                        <p>Usa a língua comprida, de até 60 cm, para comer formigas e cupins. Não tem dentes.</p>
+                        <span class="selo">Vulnerável (ICMBio)</span>
+                    </div>
+                </article>
+                <article class="foto" data-grupo="aves">
+                    <button type="button" aria-label="Ampliar a foto: Arara-canindé"><img src="img/arara-caninde.jpg" alt="Arara-canindé azul e amarela voando de asas abertas sobre a mata" width="1000" height="772" loading="lazy"></button>
+                    <div class="legenda">
+                        <h3>Arara-canindé</h3>
+                        <p class="cientifico">Ara ararauna</p>
+                        <p>Vive em casais e faz ninho em ocos de palmeiras mortas, como o buriti.</p>
+                        
+                    </div>
+                </article>
+                <article class="foto" data-grupo="aves">
+                    <button type="button" aria-label="Ampliar a foto: Seriema"><img src="img/seriema.jpg" alt="Seriema de pernas vermelhas caminhando no chão de terra" width="1000" height="729" loading="lazy"></button>
+                    <div class="legenda">
+                        <h3>Seriema</h3>
+                        <p class="cientifico">Cariama cristata</p>
+                        <p>O canto alto, ouvido de longe ao amanhecer, é um dos sons mais típicos do cerrado.</p>
+                        
+                    </div>
+                </article>
+                <article class="foto" data-grupo="aves">
+                    <button type="button" aria-label="Ampliar a foto: Tucano-toco"><img src="img/tucano-toco.jpg" alt="Tucano-toco de bico laranja com a ponta preta, visto de perfil" width="1000" height="589" loading="lazy"></button>
+                    <div class="legenda">
+                        <h3>Tucano-toco</h3>
+                        <p class="cientifico">Ramphastos toco</p>
+                        <p>O maior dos tucanos. O bico, apesar do tamanho, é leve e ajuda a controlar a temperatura do corpo.</p>
+                        
+                    </div>
+                </article>
+                </div>
+            </div>
+        </section>
+        <dialog class="ampliada" id="ampliada" aria-label="Foto ampliada">
+            <img src="" alt="">
+            <div class="rodape-foto"><strong class="titulo"></strong><button type="button" class="fechar">Fechar</button></div>
+        </dialog>
+    </main>
+
+    <footer class="rodape">
+        <div class="container">
+            <p>© 2026 Fotografia do Cerrado · empresa fictícia, projeto de estudo de Luiz Matheus Moraes Vega</p>
+            <p><a href="creditos.html">Créditos das fotos</a></p>
+        </div>
+    </footer>
+</body>
+</html>

@@ -23,9 +23,9 @@ O visual segue a LinuPedia: o azul do app, o gelo e o pergaminho da expedição 
 | `public/projetos/*.html` | Página de cada projeto, gerada por `ferramentas/gerar-projetos.py`. |
 | `public/css/estilo.css` | Visual (cores da LinuPedia, modo claro e escuro). |
 | `public/js/` | `tema-inicio.js` (aplica o tema antes de pintar), `tema.js` (o Linu e o lampião; com “menos movimento” ligado ele não anda, só aparece embaixo do lampião), `menu.js` (menu do celular), `movimento.js` (animações), `simulador.js` (o simulador do Café Aurora). |
-| `public/demos/cafe-aurora/` | O Café Aurora, cafeteria fictícia que aparece embutida no simulador: `index.html`, `estilo.css`, `script.js`, `inicio.js` e as fontes Orbitron e Rajdhani (OFL) em `fontes/`. Leva `noindex` e não entra no `sitemap.xml`. |
 | `public/img/` | Cena da estação, o Linu (`linu/`, `linu-pixel.png`), a logo (`linu-logo.png`), capturas dos projetos (`projetos/`), ícones e imagem de compartilhar. |
 | `public/fontes/` | Nunito (licença OFL), servida pelo próprio site. |
+| `sitios/` | Os sites dos subdomínios, fora de `public/`: `cafe-aurora/` (cafe.linupedia.com.br, também com `/bootstrap/` e `/tailwind/`), `fotografia-do-cerrado/` (cerrado.linupedia.com.br) e `abelhas-sem-ferrao/` (abelhas.linupedia.com.br). Cada um tem o seu repositório público no GitHub (`Seiabras/cafe-aurora`, `Seiabras/fotografia-do-cerrado`, `Seiabras/abelhas-sem-ferrao`); mudou aqui, leve a mudança para lá. |
 | `ferramentas/` | Geradores: páginas de projeto, imagem de compartilhar, cena noturna e o Linu trazido do app (`linu-do-app.py`). |
 | `deploy/` | Instalação na VM (`instalar-uma-vez.sh`), recebimento (`receber.sh`), conferência antes de publicar (`conferir-pagina.py`), bloco do Caddy e o manual `ORACLE.md`. |
 | `.github/workflows/oracle.yml` | Publicação automática (confere a página, entrega e testa se o site respondeu). |
@@ -48,6 +48,9 @@ cd public && python3 -m http.server 8000
   http.server` não completa o `.html` como o Caddy; abra `projetos/<nome>.html`.
 - **Projetos no ar:** LinuPedia, V²Tech COMBUSTÍVEL, Los Vega na Estrada e Marginalia, com capturas em
   `public/img/projetos/` (960×600, WebP). O NeuroSim fica de fora por enquanto, até sair do começo.
+- **Projetos de estudo** (`#estudo`, 29/10/2026): os sites que fiz na disciplina Desenvolvimento de Interfaces, com
+  empresas fictícias: Café Aurora, Fotografia do Cerrado e Abelhas sem Ferrão. Cada cartão leva ao subdomínio e ao
+  código no GitHub; as capturas também ficam em `public/img/projetos/`.
 - **Como funciona** e **contato**: WhatsApp (61) 99667-2610 e `contato@linupedia.com.br`.
 - **Monte o seu site** (no contato, 22/10/2026): a pessoa escolhe o tipo, o que o site precisa ter e o plano
   mensal, e vê na hora a estimativa (a partir de), o prazo e o mensal; a mensagem do WhatsApp e do e-mail já sai
@@ -55,15 +58,16 @@ cd public && python3 -m http.server 8000
   apresentação); o que não tem preço fixo aparece como “na proposta”. Mudou um preço na página, mude também os
   `data-preco` do formulário em `public/index.html`.
 - **Simulador** (`#exemplo`, 29/10/2026): o Café Aurora, uma cafeteria que não existe, embutido num `<iframe>`
-  (`demos/cafe-aurora/`). A pessoa liga e desliga as partes do site (depoimentos, efeitos, troca de cores, monte sua
+  (`https://cafe.linupedia.com.br/`, que mora em `sitios/cafe-aurora/`). A pessoa liga e desliga as partes do site (depoimentos, efeitos, troca de cores, monte sua
   bebida, assinatura por e-mail, painel) e vê o site e o preço mudarem na hora: base de R$ 1.800 e cada parte com o
   seu valor nos `data-preco` da seção, em `public/index.html`. A página manda as partes ligadas por `postMessage`
-  (só no mesmo endereço) e avisa quando o quadro sai da tela, para as animações dele pararem. No celular, as partes
+  (só para o endereço do Café, que só aceita mensagens de `https://sites.linupedia.com.br`) e avisa quando o quadro sai da tela, para as animações dele pararem. No celular, as partes
   viram uma faixa que desliza para o lado.
 - **Preços de referência** nos cartões de “O que fazemos”: site de apresentação a partir de R$ 1.800,
   ferramentas e painéis a partir de R$ 6.000, apps que instalam a partir de R$ 9.000 e dois planos
   mensais: **No ar** (R$ 60: servidor, HTTPS, domínio e cópias) e **Cuidado** (R$ 120: tudo isso, mais
-  atualizações e pequenos ajustes); pagando o ano, são 10 meses.
+  atualizações e pequenos ajustes); pagando o ano, são 10 meses. Clicar num desses preços leva ao “Monte o seu
+  site” com a opção já marcada (atributo `data-escolher="tipo=…"` ou `"plano=…"`, tratado no `js/movimento.js`).
 - **Dúvidas frequentes** (`#duvidas`, acordeão em `<details>`): prazo estimado por tipo, pagamento
   (50/50, ou 40/30/30 a partir de R$ 6.000), mensal obrigatório, painel para o cliente editar (extra de R$ 1.200 no site de apresentação,
   incluído em ferramentas e apps), domínio no nome do cliente, conteúdo e

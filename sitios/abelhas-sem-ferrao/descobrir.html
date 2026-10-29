@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Descobrir em 3 minutos — Abelhas sem Ferrão</title>
+    <meta name="description" content="Três telas para conhecer as abelhas sem ferrão.">
+    <meta name="theme-color" content="#E9A23B">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐝%3C/text%3E%3C/svg%3E">
+    <link rel="stylesheet" href="css/estilo.css">
+    <script src="js/percurso.js" defer></script>
+</head>
+<body>
+    <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+    <header class="topo">
+        <div class="container">
+            <a class="marca" href="index.html"><span aria-hidden="true">🐝</span> Abelhas sem Ferrão</a>
+            <nav aria-label="Navegação principal"><ul class="menu"><li><a href="index.html">Início</a></li><li><a href="descobrir.html" aria-current="page">Descobrir</a></li><li><a href="achei-um-ninho.html">Achei um ninho!</a></li><li><a href="teste.html">Teste rápido</a></li></ul></nav>
+        </div>
+    </header>
+    <main id="conteudo">
+        <div class="etapa">
+            <p id="contador" aria-live="polite">Tela 1 de 3</p>
+            <div class="progresso" aria-hidden="true"><span class="feito"></span><span></span><span></span></div>
+                <section class="tela" aria-labelledby="t0">
+                    <img src="img/jatai.jpg" alt="Jataí pousada numa flor" width="1000" height="667" loading="lazy">
+                    <div><h2 id="t0" tabindex="-1">Elas não picam</h2><p>As abelhas sem ferrão (meliponíneos) têm o ferrão atrofiado, que não funciona. Para defender o ninho, algumas espécies mordem ou se enroscam no cabelo, e só.</p></div>
+                </section>
+                <section class="tela" hidden aria-labelledby="t1">
+                    <img src="img/ninho-jatai.jpg" alt="Operárias de jataí voando na entrada do ninho" width="1000" height="663" loading="lazy">
+                    <div><h2 id="t1" tabindex="-1">Elas moram perto de você</h2><p>Muitas vivem em ocos de árvores, mas também em frestas de muros, postes e caixas de luz. A jataí é a mais comum nas cidades: a entrada do ninho é um tubinho de cera.</p></div>
+                </section>
+                <section class="tela" hidden aria-labelledby="t2">
+                    <img src="img/mandacaia.jpg" alt="Mandaçaia pousada numa folha" width="1000" height="667" loading="lazy">
+                    <div><h2 id="t2" tabindex="-1">Elas precisam de você</h2><p>Elas polinizam plantas nativas e cultivadas. Achou um ninho? Não destrua nem use veneno: um meliponicultor pode resgatar as abelhas com segurança.</p></div>
+                </section>
+            <div class="acoes">
+                <button class="botao contorno" type="button" id="voltar">← Voltar</button>
+                <button class="botao mel" type="button" id="avancar">Próxima →</button>
+            </div>
+        </div>
+    </main>
+    <footer class="rodape">
+        <div class="container">
+            <p>Abelhas sem ferrão são nativas, não picam e polinizam nossas plantas. Proteja os ninhos!</p>
+            <p><a href="creditos.html">Créditos das fotos</a> · Projeto de estudo de Luiz Matheus Moraes Vega</p>
+        </div>
+    </footer>
+</body>
+</html>
