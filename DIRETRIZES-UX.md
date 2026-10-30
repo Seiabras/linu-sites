@@ -1,14 +1,16 @@
 # Diretrizes de UI/UX e desempenho
 
 Vale para **todos os sites e apps** dos projetos (V²Tech COMBUSTÍVEL, Marginalia, Linu Sites, Los Vega na Estrada,
-LinuPedia/LinuLingo, NeuroSim). Decidido em 21/10/2026. O mesmo texto está na raiz de cada repositório; mudou aqui, muda
-em todos.
+LinuPedia/LinuLingo, NeuroSim, Trupe). Decidido em 21/10/2026; a regra do celular e do computador entrou em 30/10/2026.
+O mesmo texto está na raiz de cada repositório e no `modelos/linu-modelo/` do linuarquivos; mudou aqui, muda em todos.
 
-Três regras resumem tudo:
+Quatro regras resumem tudo:
 
 1. **A melhor UI/UX possível:** bonito, claro e com resposta a cada toque.
 2. **Nunca chato de mexer:** a pessoa não pode ter só a rolagem para baixo como opção.
-3. **Sempre otimizado:** leve na rede, na memória e na bateria, mesmo num celular simples.
+3. **Celular e computador, cada um do melhor jeito:** o layout muda o que for preciso para ficar o melhor possível em
+   cada tela; nunca o celular esticado nem o computador espremido.
+4. **Sempre otimizado:** leve na rede, na memória e na bateria, mesmo num celular simples.
 
 Toda entrega que mexe em tela passa pelo checklist do fim deste arquivo antes de ir para a `main`.
 
@@ -55,7 +57,31 @@ E em toda tela:
 - **Acessível:** contraste AA nos modos claro e escuro (o botão de tema é padrão em todos os projetos), foco visível,
   rótulos em botões só com ícone.
 
-## 3. Sempre otimizado
+## 3. Celular e computador, cada um do melhor jeito
+
+O celular não é o computador encolhido, e o computador não é o celular esticado. Cada tela tem o layout que fica
+melhor nela, **mesmo que isso mude a arrumação da página**. O conteúdo e as funções são os mesmos nos dois; o que muda é
+onde cada coisa fica.
+
+- **Pensar e conferir em três larguras:** 390 px (celular), 820 px (tablet) e 1280 × 800 (notebook), nos modos claro
+  e escuro. Nenhuma pode parecer sobra da outra.
+- **No celular:** uma coluna, na ordem de leitura. A ação principal ao alcance do polegar (presa embaixo quando é a
+  ação da tela); filtros e índices num painel que abre ou numa faixa que rola de lado.
+- **No computador, usar a largura:** o que é de consulta (filtros, índice, foto, dados de um grupo) fica parado numa
+  coluna ao lado (`position: sticky`) e o conteúdo rola junto; painéis que no celular abrem com um botão ficam
+  abertos; listas de cartões em 2 ou 3 colunas. Nada de uma coluna estreita no meio com metade da tela vazia, nem de
+  linhas de texto com mais de uns 75 caracteres.
+- **No tablet:** o meio-termo que ficar melhor (em geral, duas colunas onde o computador tem três).
+- **No notebook de tela baixa (800 px de altura):** a ação principal da tela aparece sem rolar, ou fica presa à vista.
+- **Mudar o layout é permitido, e esperado:** reordenar, abrir painéis, juntar ou separar colunas, trocar uma faixa
+  horizontal por uma grade. Uma página só (o mesmo HTML), com `@media` no CSS e, se precisar, um pouco de JS; nada de
+  duas versões do site.
+- **No app (Expo):** o mesmo vale para telefone e tablet, e para a versão web aberta no computador.
+- **Exemplo:** a Trupe (30/10/2026). No computador, o Explorar tem os filtros sempre abertos numa coluna e o cartão
+  deitado; o perfil deixa a foto parada à esquerda; o formulário longo tem o índice em pé ao lado. No celular, tudo
+  em uma coluna, com os botões presos acima das abas.
+
+## 4. Sempre otimizado
 
 Orçamento por página, medido no celular (390 × 844) com o cache vazio:
 
@@ -85,20 +111,21 @@ Regras que mantêm isso:
 - **No app (Expo):** listas longas sempre virtualizadas, imagens com cache, telas que não estão visíveis não ficam
   animando nem buscando dados.
 
-## 4. Como conferir
+## 5. Como conferir
 
 - **Rápido:** no Chrome, DevTools → Lighthouse, modo celular. Desempenho, acessibilidade e boas práticas acima de 90.
 - **Memória:** DevTools → Memory → tirar um retrato antes e depois de usar a página por um minuto. Se cresceu e não volta,
   tem vazamento.
 - **Movimento:** DevTools → Rendering → "Emulate CSS prefers-reduced-motion" e conferir que tudo continua funcionando.
-- **Celular de verdade:** abrir no celular, no 4G, ao menos uma vez por entrega grande.
+- **Celular e computador de verdade:** abrir no celular, no 4G, e num notebook, ao menos uma vez por entrega grande.
+- **Larguras:** DevTools → modo dispositivo em 390, 820 e 1280 px (e 1280 × 800 para o notebook de tela baixa).
 
-## 5. Checklist antes de publicar
+## 6. Checklist antes de publicar
 
 - [ ] Toda mudança de estado nova tem transição de 150 a 250 ms e respeita `prefers-reduced-motion`.
 - [ ] Nenhuma página nova passa de 6 telas no celular sem índice, abas, acordeão ou faixa horizontal.
 - [ ] A página tem ao menos uma interação além de ler e rolar.
-- [ ] Testado em 390 px, nos modos claro e escuro.
-- [ ] Dentro do orçamento da seção 3 (peso, requisições, memória, DOM).
+- [ ] Testado em 390, 820 e 1280 px, nos modos claro e escuro: cada largura com o melhor layout para ela (seção 3).
+- [ ] Dentro do orçamento da seção 4 (peso, requisições, memória, DOM).
 - [ ] Imagens novas com `width`, `height`, `lazy` e formato leve.
 - [ ] Nenhum intervalo, observer ou listener fica vivo depois de a tela sair.

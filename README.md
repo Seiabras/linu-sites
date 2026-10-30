@@ -8,7 +8,7 @@ O visual segue a LinuPedia: o azul do app, o gelo e o pergaminho da expedição 
 
 - **No ar:** https://sites.linupedia.com.br
 - **Repositório:** `Seiabras/linu-sites` (**público**: nada de senha, chave ou relatório interno aqui; isso vai
-  para o `Seiabras/linuhub`, que é privado), branch `main`
+  para o `Seiabras/linuarquivos`, que é privado), branch `main`
 - **Contato do estúdio:** contato@linupedia.com.br (Zoho Mail, caixa linu@linupedia.com.br) e WhatsApp
   (61) 99667-2610
 - **Crédito nos projetos:** todo site feito pelo estúdio leva "Site feito por Linu Sites" no rodapé, com
@@ -20,7 +20,7 @@ O visual segue a LinuPedia: o azul do app, o gelo e o pergaminho da expedição 
 |---|---|
 | `public/index.html` | A página inicial em pt-BR, **gerada** por `ferramentas/gerar-idiomas.mjs` (não edite à mão). |
 | `public/<idioma>/index.html` | A mesma página em `pt-pt`, `es`, `ca`, `nl`, `en`, `fr`, `de` e `it`, também gerada. |
-| `public/404.html` | Página de erro com o código E404, mostrada pelo Caddy em qualquer endereço que não existe (`handle_errors` no `deploy/Caddyfile-bloco`; liga no servidor pelo `endurecer.sh` do linuhub). |
+| `public/404.html` | Página de erro com o código E404, mostrada pelo Caddy em qualquer endereço que não existe (`handle_errors` no `deploy/Caddyfile-bloco`; liga no servidor pelo `endurecer.sh` do linuarquivos). |
 | `public/projetos/*.html` | Página de cada projeto em português; nos outros idiomas, em `public/<pasta>/projetos/`. Geradas pelo `ferramentas/gerar-idiomas.mjs`. |
 | `public/css/estilo.css` | Visual (cores da LinuPedia, modo claro e escuro). |
 | `public/js/` | `tema-inicio.js` (aplica o tema antes de pintar), `tema.js` (o Linu e o lampião; com “menos movimento” ligado ele não anda, só aparece embaixo do lampião), `menu.js` (menu do celular), `movimento.js` (animações), `simulador.js` (o simulador do Café Aurora). |
@@ -187,7 +187,7 @@ node ferramentas/gerar-estudo.mjs abelhas-sem-ferrao
   (50/50, ou 40/30/30 a partir de R$ 6.000), mensal obrigatório, painel para o cliente editar (extra de R$ 1.200 no site de apresentação,
   incluído em ferramentas e apps), domínio no nome do cliente, conteúdo e
   dados do cliente (código, layout e visual do Linu Sites) e saída (exportação e compra do código pelo
-  valor do projeto). Decidido em 22/10/2026; os termos completos estão em rascunho no `Seiabras/linuhub`.
+  valor do projeto). Decidido em 22/10/2026; os termos completos estão em rascunho no `Seiabras/linuarquivos`.
 - **Depoimentos:** a seção está pronta no HTML, mas escondida (`hidden`) até chegarem frases de verdade.
 - **Celular:** os links vão para um menu que abre no botão ☰ (`public/js/menu.js`).
 - **Compartilhar:** `img/compartilhar.png` (1200 × 630), gerada por `ferramentas/gerar-imagens.mjs`, e os ícones e a
