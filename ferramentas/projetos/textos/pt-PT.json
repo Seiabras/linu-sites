@@ -144,6 +144,23 @@
       "Página leve, com link “Saltar para o conteúdo” para quem navega pelo teclado."
     ]
   },
+  "barreto": {
+    "etiqueta": "Site de apresentação",
+    "alt": "Página inicial da Barreto Jiu-Jitsu: o nome em letras grandes sobre uma fotografia de cintos pretos no tatami",
+    "resumo": "Site da Barreto Jiu-Jitsu, equipa de Jiu-Jitsu para adultos na 507 Sul, em Brasília, com linhagem direta da primeira turma de Hélio Gracie.",
+    "desafio": "Contar uma história de três gerações e mostrar uma equipa séria, sem franchising, só para adultos, levando quem chega à aula experimental gratuita pelo WhatsApp.",
+    "feito": [
+      "Página única com movimento de revista: a abertura com o nome em letras grandes, a equipa, os treinos, as instalações, os professores, a história e o contacto.",
+      "Os treinos por horário (manhã, almoço, almoço sem kimono e noite), com os dias, o professor e o nível, e a turma de fundamentos para quem nunca treinou.",
+      "A cronologia da equipa, do Rio de Janeiro dos irmãos Barreto à sede da 507 Sul, inaugurada em 2016.",
+      "Os professores com nome, turma e graduação, o vídeo das instalações por dentro e, no fim, o mapa e o WhatsApp."
+    ],
+    "dentro": [
+      "HTML, CSS e JavaScript puros, sem framework; as animações e o deslocamento suave vêm do próprio site, sem CDN.",
+      "Com “reduzir movimento” ativado no aparelho, tudo aparece logo no lugar e o vídeo não arranca sozinho.",
+      "Publicado na Vercel, por enquanto em pré-visualização e sem domínio próprio."
+    ]
+  },
   "minhocao": {
     "etiqueta": "Jogo de terror no navegador",
     "alt": "Ecrã inicial do Minhocão: o título sobre o corredor escuro do ICC, o campo do nome na chamada e o botão de entrar",

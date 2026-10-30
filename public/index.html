@@ -56,7 +56,7 @@
   <!-- Os textos que os scripts escrevem (menu, luz, Monte o seu site), no idioma da página -->
   <script type="application/json" id="textos-js">{"menu_abrir":"Abrir o menu","menu_fechar":"Fechar o menu","luz_apagar_aria":"Apagar a luz (modo escuro)","luz_acender_aria":"Acender a luz (modo claro)","luz_apagar":"Apagar a luz","luz_acender":"Acender a luz","fechar":"Fechar","escolha":"Escolha o tipo para ver uma estimativa","sem_tipo":"Sem problema: a conversa ajuda a escolher o tipo.","um_item":"um item","n_itens":"{n} itens","extra":" + {itens} na proposta","por_ano":"{valor} por ano","por_mes":"{valor} por mês","estimativa":"Estimativa: a partir de {valor}{extra}","linha_tipo":"Tipo: {nome}","linha_itens":"Precisa ter:","linha_depois":"Depois de pronto: {nome}{anual}","anual":", pagando o ano","linha_estimativa":"Estimativa do site: a partir de {valor}{extra}","ola":"Olá! Quero um site.","sobre":"Sobre o meu negócio: ","assunto":"Quero um site","ola_conversa":"Olá! Quero conversar sobre um site.","area_vazia":"Nenhum projeto desta área aqui.","conversa_aberta":"Agora dá para conversar, até {fim} na sua hora.","conversa_fechada":"Agora estamos fora do horário. A próxima janela abre {inicio} na sua hora."}</script>
   <script src="js/tema-inicio.js?v=6"></script>
-  <link rel="stylesheet" href="css/estilo.css?v=21">
+  <link rel="stylesheet" href="css/estilo.css?v=22">
   <script src="js/tema.js?v=8" defer></script>
   <script src="js/menu.js?v=7" defer></script>
   <script src="js/movimento.js?v=10" defer></script>
@@ -201,7 +201,7 @@
           <button class="area" type="button" data-area="jogos" aria-pressed="false">Jogos</button>
         </div>
         <div class="abas" role="tablist" aria-label="Que projetos mostrar" hidden>
-          <button class="aba" type="button" role="tab" id="aba-no-ar" aria-controls="no-ar" aria-selected="true">No ar <span class="aba-conta">10</span></button>
+          <button class="aba" type="button" role="tab" id="aba-no-ar" aria-controls="no-ar" aria-selected="true">No ar <span class="aba-conta">11</span></button>
           <button class="aba" type="button" role="tab" id="aba-estudo" aria-controls="estudo" aria-selected="false" tabindex="-1">De estudo <span class="aba-conta">3</span></button>
         </div>
         <div class="painel" id="no-ar" role="tabpanel" aria-labelledby="aba-no-ar">
@@ -301,6 +301,18 @@
                 <p class="projeto-links">
                   <a class="projeto-link" href="projetos/omega">Como foi feito</a>
                   <a class="projeto-link" href="https://omega-site-vert.vercel.app/" target="_blank" rel="noopener">omega-site-vert.vercel.app</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="servicos">
+              <a href="https://barreto-site-ashy.vercel.app/" target="_blank" rel="noopener"><img src="img/projetos/barreto.webp" alt="Página inicial da Barreto Jiu-Jitsu: o nome em letras grandes sobre uma foto de faixas pretas no tatame" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">Site de apresentação</p>
+                <h3>Barreto Jiu-Jitsu</h3>
+                <p>Equipe de Jiu-Jitsu para adultos na 507 Sul, em Brasília, num site de página única que conta três gerações de história e leva à aula experimental.</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="projetos/barreto">Como foi feito</a>
+                  <a class="projeto-link" href="https://barreto-site-ashy.vercel.app/" target="_blank" rel="noopener">barreto-site-ashy.vercel.app</a>
                 </p>
               </div>
             </article>

@@ -208,8 +208,8 @@ node ferramentas/gerar-estudo.mjs abelhas-sem-ferrao
 - **Abertura:** o que o estúdio faz e o botão de orçamento.
 - **O que fazemos:** sites de apresentação, ferramentas e painéis, apps que instalam, hospedagem.
 - **Página de cada projeto** (`/projetos/linupedia`, `/v2tech`, `/losvega`, `/marginalia`, `/minhocao`, `/trupe`, `/iconvet`,
-  `/ajoriente`, `/dojo-legacy`, `/omega`): o desafio, o que foi feito e como funciona por dentro, com os fatos
-  dos READMEs de cada repositório (nos quatro de clientes, do que o próprio site mostra no ar). Em todos os idiomas da página
+  `/ajoriente`, `/dojo-legacy`, `/omega`, `/barreto`): o desafio, o que foi feito e como funciona por dentro, com os fatos
+  dos READMEs de cada repositório (nos cinco de clientes, do que o próprio site mostra no ar). Em todos os idiomas da página
   (`/<pasta>/projetos/<nome>`), geradas pelo `ferramentas/gerar-idiomas.mjs` junto com a inicial: o modelo é o
   `ferramentas/projetos/modelo.html`, o nome, o endereço e a captura ficam no `ferramentas/projetos/projetos.json` e
   o texto de cada idioma no `ferramentas/projetos/textos/<código>.json`. No computador, o `python3 -m
@@ -221,7 +221,8 @@ node ferramentas/gerar-estudo.mjs abelhas-sem-ferrao
   áreas de cada projeto ficam no `data-areas` do `ferramentas/pagina/modelo.html` (pode ter mais de uma).
 - **No ar:** LinuPedia, V²Tech COMBUSTÍVEL, Los Vega na Estrada e Marginalia; desde 29/10/2026 também
   Iconvet (iconvet.com.br), Administração Judicial Oriente (ajoriente.com), Dojo Legacy (bjj-link.com) e Ômega
-  Imóveis (omega-site-vert.vercel.app, ainda sem domínio); desde 30/10/2026, o Minhocão (minhocao.linupedia.com.br) e a Trupe (em prévia, ainda sem domínio).
+  Imóveis (omega-site-vert.vercel.app, ainda sem domínio); desde 30/10/2026, o Minhocão (minhocao.linupedia.com.br) e a Trupe (em prévia, ainda sem domínio); e a Barreto Jiu-Jitsu (barreto-site-ashy.vercel.app, em prévia, ainda sem domínio), na área
+  Saúde e serviços.
   Capturas em `public/img/projetos/` (960×600, WebP).
   O NeuroSim fica de fora por enquanto, até sair do começo.
 - **De estudo** (`#estudo`, 29/10/2026): os sites que fiz na disciplina Desenvolvimento de Interfaces, com

@@ -144,6 +144,23 @@
       "A lightweight page, with a “Skip to content” link for keyboard users."
     ]
   },
+  "barreto": {
+    "etiqueta": "Business website",
+    "alt": "Barreto Jiu-Jitsu home page: the name in large letters over a photo of black belts on the mat",
+    "resumo": "Website for Barreto Jiu-Jitsu, a Jiu-Jitsu team for adults in Brasília's 507 Sul, with a direct lineage from Hélio Gracie's first group of students.",
+    "desafio": "Tell a three-generation story and show a serious team, not a franchise and for adults only, taking visitors to the free trial class on WhatsApp.",
+    "feito": [
+      "A single page that moves like a magazine: the opening with the name in large letters, the team, the classes, the facilities, the instructors, the history and contact.",
+      "Classes by time slot (morning, lunchtime, no-gi lunchtime and evening), with the days, the instructor and the level, plus the fundamentals class for complete beginners.",
+      "The team's timeline, from the Barreto brothers' Rio de Janeiro to the 507 Sul headquarters, opened in 2016.",
+      "The instructors with name, class and rank, the video tour of the facilities and, at the end, the map and WhatsApp."
+    ],
+    "dentro": [
+      "Plain HTML, CSS and JavaScript, no framework; the animations and smooth scrolling are served by the site itself, with no CDN.",
+      "With “reduce motion” switched on, everything appears in place straight away and the video doesn't play by itself.",
+      "Hosted on Vercel, for now as a preview without its own domain."
+    ]
+  },
   "minhocao": {
     "etiqueta": "Browser horror game",
     "alt": "The Minhocão start screen: the title over the dark ICC corridor, the name field for the roll call and the button to enter",

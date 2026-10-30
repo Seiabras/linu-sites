@@ -144,6 +144,23 @@
       "Pàgina lleugera, amb enllaç “Salta al contingut” per a qui navega amb el teclat."
     ]
   },
+  "barreto": {
+    "etiqueta": "Web de presentació",
+    "alt": "Pàgina d'inici de Barreto Jiu-Jitsu: el nom en lletres grans sobre una foto de cinturons negres al tatami",
+    "resumo": "Web de Barreto Jiu-Jitsu, equip de Jiu-Jitsu per a adults a la 507 Sul de Brasília, amb llinatge directe del primer grup d'alumnes d'Hélio Gracie.",
+    "desafio": "Explicar una història de tres generacions i mostrar un equip seriós, sense franquícia i només per a adults, portant qui hi arriba a la classe de prova gratuïta per WhatsApp.",
+    "feito": [
+      "Una sola pàgina amb ritme de revista: la portada amb el nom en lletres grans, l'equip, els entrenaments, les instal·lacions, els professors, la història i el contacte.",
+      "Els entrenaments per horari (matí, migdia, migdia sense kimono i vespre), amb els dies, el professor i el nivell, i el grup de fonaments per a qui no ha entrenat mai.",
+      "La cronologia de l'equip, del Rio de Janeiro dels germans Barreto a la seu de la 507 Sul, inaugurada el 2016.",
+      "Els professors amb nom, grup i grau, el vídeo de les instal·lacions per dins i, al final, el mapa i el WhatsApp."
+    ],
+    "dentro": [
+      "HTML, CSS i JavaScript purs, sense framework; les animacions i el desplaçament suau surten de la mateixa web, sense CDN.",
+      "Amb «reduir el moviment» activat al dispositiu, tot apareix directament al seu lloc i el vídeo no es reprodueix sol.",
+      "Publicada a Vercel, de moment en previsualització i sense domini propi."
+    ]
+  },
   "minhocao": {
     "etiqueta": "Joc de terror al navegador",
     "alt": "Pantalla d'inici del Minhocão: el títol sobre el passadís fosc de l'ICC, el camp del nom per passar llista i el botó d'entrar",

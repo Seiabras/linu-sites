@@ -8,6 +8,7 @@
     "ajoriente",
     "dojo-legacy",
     "omega",
+    "barreto",
     "minhocao",
     "trupe"
   ],
@@ -59,6 +60,12 @@
       "url": "https://omega-site-vert.vercel.app/",
       "endereco": "omega-site-vert.vercel.app",
       "imagem": "omega.webp"
+    },
+    "barreto": {
+      "nome": "Barreto Jiu-Jitsu",
+      "url": "https://barreto-site-ashy.vercel.app/",
+      "endereco": "barreto-site-ashy.vercel.app",
+      "imagem": "barreto.webp"
     },
     "minhocao": {
       "nome": "Minhocão",
