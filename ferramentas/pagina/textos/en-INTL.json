@@ -159,7 +159,7 @@
     "faq_prazo_p": "How long does it take?",
     "faq_prazo_r": "A rough guide: a business website takes 2 to 3 weeks, a tool with a dashboard 1 to 2 months and an installable app 2 to 3 months. The exact timeline, agreed for your project, comes in the proposal.",
     "faq_pagamento_p": "How does payment work?",
-    "faq_pagamento_r": "Half when you accept the proposal and half before the website goes onto your domain, by international bank transfer (Wise) or PayPal, in US dollars. For projects from {{p.ferramenta}}, you can split it into three: 40% at the start, 30% when the preview is approved and 30% at launch.",
+    "faq_pagamento_r": "Half when you accept the proposal and half before the website goes onto your domain, by international transfer through Wise, in US dollars. For projects from {{p.ferramenta}}, you can split it into three: 40% at the start, 30% when the preview is approved and 30% at launch.",
     "faq_mensal_p": "Do I have to pay every month?",
     "faq_mensal_r": "Yes: the website runs on our server, and the monthly plan keeps it online. There are two plans. <b>Online</b> ({{p.plano_no_ar}} a month) covers the server, security padlock, domain setup and backups. <b>Care</b> ({{p.plano_cuidado}} a month) has all that plus updates and small text and photo changes. Pay for the year up front and get 2 months free.",
     "faq_painel_p": "Can I edit the website myself?",

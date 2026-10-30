@@ -145,7 +145,7 @@
     "faq_prazo_p": "Quant de temps triga?",
     "faq_prazo_r": "Una estimació per començar: una web de presentació triga de 2 a 3 setmanes, una eina amb tauler d'1 a 2 mesos i una app que s'instal·la de 2 a 3 mesos. El termini exacte, acordat per al teu projecte, ve a la proposta.",
     "faq_pagamento_p": "Com es paga?",
-    "faq_pagamento_r": "La meitat en acceptar la proposta i l'altra meitat abans que la web passi al teu domini, per transferència bancària (SEPA). En projectes des de {{p.ferramenta}}, ho pots dividir en tres: 40 % en començar, 30 % amb la previsualització aprovada i 30 % a la publicació.",
+    "faq_pagamento_r": "La meitat en acceptar la proposta i l'altra meitat abans que la web passi al teu domini. En projectes des de {{p.ferramenta}}, ho pots dividir en tres: 40 % en començar, 30 % amb la previsualització aprovada i 30 % a la publicació. Reps una factura en euros i pagues per transferència SEPA, a través de Wise. Entre empreses, quan correspon, l'IVA va per inversió del subjecte passiu: el declara qui compra, al seu país.",
     "faq_mensal_p": "He de pagar cada mes?",
     "faq_mensal_r": "Sí: la web és al nostre servidor, i la quota mensual és el que la manté en línia. Hi ha dos plans. <b>En línia</b> ({{p.plano_no_ar}} al mes) cobreix servidor, cadenat de seguretat, domini configurat i còpies de seguretat. <b>Cura</b> ({{p.plano_cuidado}} al mes) inclou tot això i, a més, les actualitzacions i petits canvis de text i fotos. Pagant l'any per avançat, són 10 mesos.",
     "faq_painel_p": "Puc editar la web jo mateix?",

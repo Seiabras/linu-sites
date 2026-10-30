@@ -85,7 +85,11 @@ node ferramentas/gerar-idiomas.mjs
   outro que o site tem (sem trocar de página sozinho). A escolha fica guardada no navegador (`js/menu.js`).
 - **Para o Google:** cada página leva o `hreflang` de todas (o `x-default` é o inglês), os `og:locale`, os dados
   estruturados (`ProfessionalService`) e o `sitemap.xml` com as alternativas; o gerador refaz o sitemap.
-- Na Europa: preço em euro, pagamento por transferência SEPA, domínio do país (.pt, .es, .de…) e o WhatsApp com +55.
+- Na Europa: preço em euro, domínio do país (.pt, .es, .de…) e o WhatsApp com +55.
+- **Pagamento em cada região (`faq_pagamento_r`, 30/10/2026):** o Brasil segue com Pix ou transferência. A Europa tem
+  fatura em euro, transferência SEPA pela Wise e, entre empresas, IVA em autoliquidação quando se aplicar, com o nome de
+  cada país (inversión del sujeto pasivo, btw verlegd, Reverse-Charge, reverse charge). A Ásia e o `/intl/` têm só a
+  Wise, em dólar: o PayPal saiu desses textos. A divisão (50/50 ou 40/30/30) é a mesma em todas.
   As páginas “Como foi feito” e o Café Aurora do simulador também estão nesses idiomas.
 
 ## O que a Europa lê (30/10/2026)

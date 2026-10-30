@@ -146,7 +146,7 @@
     "faq_prazo_p": "Combien de temps faut-il ?",
     "faq_prazo_r": "Une estimation pour commencer : un site vitrine prend 2 à 3 semaines, un outil avec tableau de bord 1 à 2 mois et une application installable 2 à 3 mois. Le délai exact, convenu pour votre projet, figure dans la proposition.",
     "faq_pagamento_p": "Comment se passe le paiement ?",
-    "faq_pagamento_r": "La moitié à l’acceptation de la proposition et la moitié avant la mise en ligne sur votre domaine, par virement bancaire (SEPA). Pour les projets à partir de {{p.ferramenta}}, vous pouvez payer en trois fois : 40 % au début, 30 % à la validation de l’aperçu et 30 % à la mise en ligne.",
+    "faq_pagamento_r": "La moitié à l’acceptation de la proposition et la moitié avant la mise en ligne sur votre domaine. Pour les projets à partir de {{p.ferramenta}}, vous pouvez payer en trois fois : 40 % au début, 30 % à la validation de l’aperçu et 30 % à la mise en ligne. Vous recevez une facture en euros et payez par virement SEPA, via Wise. Entre entreprises, le cas échéant, la TVA est en autoliquidation : l’acheteur la déclare dans son pays.",
     "faq_mensal_p": "Faut-il payer chaque mois ?",
     "faq_mensal_r": "Oui : le site est hébergé sur notre serveur, et l’abonnement mensuel le maintient en ligne. Il y a deux formules. <b>En ligne</b> ({{p.plano_no_ar}} par mois) couvre le serveur, le cadenas de sécurité, la configuration du domaine et les sauvegardes. <b>Sérénité</b> ({{p.plano_cuidado}} par mois) comprend tout cela, plus les mises à jour et les petites retouches de texte et de photo. En payant l’année d’avance, vous payez 10 mois.",
     "faq_painel_p": "Puis-je modifier le site moi-même ?",

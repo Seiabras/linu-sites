@@ -146,7 +146,7 @@
     "faq_prazo_p": "Wie lange dauert es?",
     "faq_prazo_r": "Eine erste Schätzung: Eine Firmenwebsite dauert 2 bis 3 Wochen, ein Tool mit Dashboard 1 bis 2 Monate und eine installierbare App 2 bis 3 Monate. Den genauen Zeitplan für Ihr Projekt finden Sie im Angebot.",
     "faq_pagamento_p": "Wie wird bezahlt?",
-    "faq_pagamento_r": "Die Hälfte bei Annahme des Angebots und die Hälfte, bevor die Website auf Ihre Domain geht, per Banküberweisung (SEPA). Bei Projekten ab {{p.ferramenta}} sind drei Raten möglich: 40 % zu Beginn, 30 % nach Freigabe der Vorschau und 30 % bei Veröffentlichung.",
+    "faq_pagamento_r": "Die Hälfte bei Annahme des Angebots und die Hälfte, bevor die Website auf Ihre Domain geht. Bei Projekten ab {{p.ferramenta}} sind drei Raten möglich: 40 % zu Beginn, 30 % nach Freigabe der Vorschau und 30 % bei Veröffentlichung. Sie erhalten eine Rechnung in Euro und zahlen per SEPA-Überweisung über Wise. Zwischen Unternehmen gilt, wo anwendbar, das Reverse-Charge-Verfahren: Die Umsatzsteuer meldet der Käufer in seinem Land.",
     "faq_mensal_p": "Muss ich jeden Monat zahlen?",
     "faq_mensal_r": "Ja: Die Website läuft auf unserem Server, und das Monatspaket hält sie online. Es gibt zwei Pakete. <b>Online</b> ({{p.plano_no_ar}} pro Monat) umfasst Server, Sicherheitsschloss, eingerichtete Domain und Backups. <b>Rundum</b> ({{p.plano_cuidado}} pro Monat) bietet all das plus Updates und kleine Text- und Bildänderungen. Bei Vorauszahlung für das Jahr zahlen Sie 10 Monate.",
     "faq_painel_p": "Kann ich die Website selbst bearbeiten?",

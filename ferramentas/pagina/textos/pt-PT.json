@@ -142,7 +142,7 @@
     "faq_prazo_p": "Quanto tempo demora?",
     "faq_prazo_r": "Uma estimativa para começar: um site de apresentação demora 2 a 3 semanas, uma ferramenta com painel 1 a 2 meses e uma aplicação que se instala 2 a 3 meses. O prazo certo, combinado para o seu projeto, vem na proposta.",
     "faq_pagamento_p": "Como é o pagamento?",
-    "faq_pagamento_r": "Metade quando a proposta é aceite e metade antes de o site ir para o seu domínio, por transferência bancária (SEPA). Em projetos a partir de {{p.ferramenta}}, pode dividir em três: 40% no início, 30% com a pré-visualização aprovada e 30% na publicação.",
+    "faq_pagamento_r": "Metade quando a proposta é aceite e metade antes de o site ir para o seu domínio. Em projetos a partir de {{p.ferramenta}}, pode dividir em três: 40% no início, 30% com a pré-visualização aprovada e 30% na publicação. Recebe fatura em euros e paga por transferência SEPA, pela Wise. Entre empresas, quando se aplica, o IVA é em autoliquidação: quem compra declara-o no seu país.",
     "faq_mensal_p": "Tenho de pagar todos os meses?",
     "faq_mensal_r": "Sim: o site fica no nosso servidor, e a mensalidade é o que o mantém online. Há dois planos. O <b>Online</b> ({{p.plano_no_ar}} por mês) cobre servidor, cadeado de segurança, domínio configurado e cópias de segurança. O <b>Cuidado</b> ({{p.plano_cuidado}} por mês) tem tudo isso e ainda as atualizações e pequenos ajustes de texto e fotografia. Pagando o ano adiantado, são 10 meses.",
     "faq_painel_p": "Posso editar o site sozinho?",

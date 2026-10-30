@@ -146,7 +146,7 @@
     "faq_prazo_p": "Quanto tempo ci vuole?",
     "faq_prazo_r": "Una stima per iniziare: un sito di presentazione richiede da 2 a 3 settimane, uno strumento con pannello da 1 a 2 mesi e un’app installabile da 2 a 3 mesi. I tempi esatti, concordati per il tuo progetto, sono nella proposta.",
     "faq_pagamento_p": "Come si paga?",
-    "faq_pagamento_r": "Metà all’accettazione della proposta e metà prima che il sito vada sul tuo dominio, con bonifico bancario (SEPA). Per progetti da {{p.ferramenta}} si può dividere in tre: 40% all’inizio, 30% all’approvazione dell’anteprima e 30% alla pubblicazione.",
+    "faq_pagamento_r": "Metà all’accettazione della proposta e metà prima che il sito vada sul tuo dominio. Per progetti da {{p.ferramenta}} si può dividere in tre: 40% all’inizio, 30% all’approvazione dell’anteprima e 30% alla pubblicazione. Ricevi una fattura in euro e paghi con bonifico SEPA tramite Wise. Tra aziende, quando si applica, l’IVA è in inversione contabile (reverse charge): la versa chi acquista, nel proprio Paese.",
     "faq_mensal_p": "Devo pagare ogni mese?",
     "faq_mensal_r": "Sì: il sito sta sul nostro server, e il canone mensile lo mantiene online. Ci sono due piani. <b>Online</b> ({{p.plano_no_ar}} al mese) copre server, lucchetto di sicurezza, dominio configurato e backup. <b>Cura</b> ({{p.plano_cuidado}} al mese) include tutto questo più aggiornamenti e piccole modifiche a testi e foto. Pagando l’anno in anticipo, paghi 10 mesi.",
     "faq_painel_p": "Posso modificare il sito da solo?",

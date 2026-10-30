@@ -142,7 +142,7 @@
     "faq_prazo_p": "¿Cuánto tarda?",
     "faq_prazo_r": "Una estimación para empezar: una web de presentación tarda de 2 a 3 semanas, una herramienta con panel de 1 a 2 meses y una app que se instala de 2 a 3 meses. El plazo exacto, acordado para tu proyecto, viene en la propuesta.",
     "faq_pagamento_p": "¿Cómo se paga?",
-    "faq_pagamento_r": "La mitad al aceptar la propuesta y la otra mitad antes de que la web pase a tu dominio, por transferencia bancaria (SEPA). En proyectos desde {{p.ferramenta}}, puedes dividirlo en tres: 40 % al empezar, 30 % con la vista previa aprobada y 30 % en la publicación.",
+    "faq_pagamento_r": "La mitad al aceptar la propuesta y la otra mitad antes de que la web pase a tu dominio. En proyectos desde {{p.ferramenta}}, puedes dividirlo en tres: 40 % al empezar, 30 % con la vista previa aprobada y 30 % en la publicación. Recibes factura en euros y pagas por transferencia SEPA, a través de Wise. Entre empresas, cuando corresponde, el IVA va por inversión del sujeto pasivo: lo declara quien compra, en su país.",
     "faq_mensal_p": "¿Tengo que pagar cada mes?",
     "faq_mensal_r": "Sí: la web está en nuestro servidor, y la cuota mensual es lo que la mantiene online. Hay dos planes. <b>Online</b> ({{p.plano_no_ar}} al mes) cubre servidor, candado de seguridad, dominio configurado y copias de seguridad. <b>Cuidado</b> ({{p.plano_cuidado}} al mes) incluye todo eso más las actualizaciones y pequeños cambios de texto y fotos. Pagando el año por adelantado, son 10 meses.",
     "faq_painel_p": "¿Puedo editar la web yo mismo?",

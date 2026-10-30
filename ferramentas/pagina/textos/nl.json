@@ -145,7 +145,7 @@
     "faq_prazo_p": "Hoe lang duurt het?",
     "faq_prazo_r": "Een eerste inschatting: een bedrijfswebsite duurt 2 tot 3 weken, een tool met dashboard 1 tot 2 maanden en een installeerbare app 2 tot 3 maanden. De precieze planning, afgesproken voor jouw project, staat in het voorstel.",
     "faq_pagamento_p": "Hoe werkt de betaling?",
-    "faq_pagamento_r": "De helft bij akkoord op het voorstel en de helft voordat de website naar jouw domein gaat, per bankoverschrijving (SEPA). Bij projecten vanaf {{p.ferramenta}} kun je in drie delen betalen: 40% bij de start, 30% bij een goedgekeurde preview en 30% bij publicatie.",
+    "faq_pagamento_r": "De helft bij akkoord op het voorstel en de helft voordat de website naar jouw domein gaat. Bij projecten vanaf {{p.ferramenta}} kun je in drie delen betalen: 40% bij de start, 30% bij een goedgekeurde preview en 30% bij publicatie. Je krijgt een factuur in euro en betaalt per SEPA-overboeking via Wise. Tussen bedrijven wordt de btw, als dat van toepassing is, verlegd: de koper geeft die aan in het eigen land.",
     "faq_mensal_p": "Moet ik elke maand betalen?",
     "faq_mensal_r": "Ja: de website draait op onze server en het maandpakket houdt hem online. Er zijn twee pakketten. <b>Online</b> ({{p.plano_no_ar}} per maand) dekt server, beveiligingsslotje, domeininstellingen en back-ups. <b>Zorg</b> ({{p.plano_cuidado}} per maand) heeft dat allemaal, plus updates en kleine aanpassingen in tekst en foto's. Betaal je het jaar vooruit, dan betaal je 10 maanden.",
     "faq_painel_p": "Kan ik de website zelf aanpassen?",
