@@ -1,5 +1,8 @@
 # Linu Sites
 
+> **In English:** the site of Linu Sites, a studio for custom websites and web apps: 13 languages generated from one
+> template, no dependencies and no server of its own, served by Caddy. Live: https://sites.linupedia.com.br
+
 Site do **Linu Sites**, o estúdio de sites e aplicativos web da LinuPedia: **https://sites.linupedia.com.br**.
 
 Uma página só (`public/index.html`), sem dependências e sem servidor próprio: o Caddy da VM da Oracle
