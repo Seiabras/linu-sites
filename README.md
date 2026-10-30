@@ -72,6 +72,9 @@ node ferramentas/gerar-idiomas.mjs
   coreano (`/ko/`) e o chinês tradicional (`/zh-hant/`), com as fontes do sistema para esses três (a Nunito não tem os
   caracteres) e a quebra de linha de cada língua.
   Um idioma com `"rascunho": true` fica fora do site, do seletor e do sitemap.
+- **Blocos só de algumas páginas (30/10/2026):** `{{?nome}}` … `{{/nome}}`, cada um na sua linha do modelo, entra só nas
+  páginas daquela região (`europa`, `asia`, `brasil`), daquele idioma ou, com `cjk`, em japonês, coreano e chinês. As
+  chaves do bloco ficam com `""` nos outros idiomas, e o gerador recusa um bloco que entra com chave vazia.
 - **O aviso de outra versão** (`js/menu.js`) junta a região, que vem do fuso horário do aparelho (sem consultar IP), com
   o idioma do navegador: Tóquio com o navegador em inglês vai para o `/intl/`, Lisboa para o `/pt-pt/`, e fora da
   Europa as páginas em euro são o último recurso. Nunca troca de página sozinho.
@@ -84,6 +87,23 @@ node ferramentas/gerar-idiomas.mjs
   estruturados (`ProfessionalService`) e o `sitemap.xml` com as alternativas; o gerador refaz o sitemap.
 - Na Europa: preço em euro, pagamento por transferência SEPA, domínio do país (.pt, .es, .de…) e o WhatsApp com +55.
   As páginas “Como foi feito” e o Café Aurora do simulador também estão nesses idiomas.
+
+## O que a Europa lê (30/10/2026)
+
+As páginas com região `europa` levam, no fim do “Como funciona”, os cartões do bloco `{{?europa}}` do modelo. O bloco é
+condicional: as chaves `europa_*` existem nos 13 idiomas (é a regra das chaves iguais), vazias fora da Europa. Uma chave
+vazia dentro de um bloco que entra faz o gerador recusar a gravação.
+
+- **Acessibilidade** (`europa_acess_titulo`, `europa_acess_texto`): cita o European Accessibility Act e a WCAG 2.2 e diz
+  só o que esta página faz. Sem promessa de conformidade legal nem de certificação, e o texto diz isso. O que foi
+  medido no Chrome em 30/10/2026, em 390 e 1280 px, claro e escuro, na inicial e na página de um projeto: contraste de
+  texto AA (4,5:1, ou 3:1 no texto grande), anel de foco em toda parada do Tab, tudo alcançável por teclado sem ficar
+  preso, alvos de pelo menos 24 × 24 px e nenhuma animação com “menos movimento”. Para isso, em 30/10 subiram os
+  contrastes das abas e das áreas e do número dos passos, o anel de foco ficou azul-claro nas partes escuras e por
+  dentro da captura dos projetos, e o topo preso não cobre mais o que recebe foco (`scroll-padding-top`).
+- **O Café Aurora fica de fora** e o texto diz isso: é um site à parte, e ali o rodapé tem contraste de 3,7:1 e há alvos
+  menores que 24 px. Se o Café for acertado, tire a frase. Mudou a página a ponto de um item deixar de valer, tire o
+  item do texto nos 8 idiomas.
 
 ## O Café Aurora em cada idioma (30/10/2026)
 

@@ -141,6 +141,8 @@
     "passo3_texto": "You follow a live preview from day one and ask for changes along the way.",
     "passo4_titulo": "Live",
     "passo4_texto": "The website goes onto your domain, securely, and keeps being looked after.",
+    "europa_acess_titulo": "Accessibility",
+    "europa_acess_texto": "The European Accessibility Act has applied since June 2025, and WCAG 2.2 is the current version of the web accessibility guidelines. What this page already does: AA-level contrast in light and dark modes, visible focus, everything reachable by keyboard and, with “reduce motion” on, the animations stop. The Café Aurora in the simulator is left out: it's a separate example site. This isn't a certification or a guarantee of legal compliance.",
     "duvidas_titulo": "Frequently asked questions",
     "duvidas_sub": "What everyone asks before starting. Whatever applies to your project comes in writing in the proposal.",
     "faq_prazo_p": "How long does it take?",

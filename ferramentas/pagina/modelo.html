@@ -29,7 +29,7 @@
   <!-- Os textos que os scripts escrevem (menu, luz, Monte o seu site), no idioma da página -->
   <script type="application/json" id="textos-js">{{textos_js}}</script>
   <script src="{{raiz}}js/tema-inicio.js?v=6"></script>
-  <link rel="stylesheet" href="{{raiz}}css/estilo.css?v=17">
+  <link rel="stylesheet" href="{{raiz}}css/estilo.css?v=18">
   <script src="{{raiz}}js/tema.js?v=8" defer></script>
   <script src="{{raiz}}js/menu.js?v=7" defer></script>
   <script src="{{raiz}}js/movimento.js?v=10" defer></script>
@@ -377,6 +377,15 @@
           <li><b>{{passo3_titulo}}</b><span>{{passo3_texto}}</span></li>
           <li><b>{{passo4_titulo}}</b><span>{{passo4_texto}}</span></li>
         </ol>
+        <!-- Só nas páginas da Europa (o que cada texto pode afirmar está no README, em “O que a Europa lê”) -->
+        {{?europa}}
+        <div class="garantias">
+          <article class="garantia">
+            <h3>{{europa_acess_titulo}}</h3>
+            <p>{{europa_acess_texto}}</p>
+          </article>
+        </div>
+        {{/europa}}
       </div>
     </section>
 

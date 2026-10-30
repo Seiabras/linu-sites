@@ -7,6 +7,8 @@
 // - textos/<código>.json: a região ("regiao"; "padrao": true na página que a representa), outros hreflang que a página
 //   atende ("hreflang_extra") e os textos de cada idioma ("textos" vão no HTML; "js" vão para os scripts, no
 //   <script type="application/json" id="textos-js">, e também podem aparecer no HTML). Todo idioma tem todas as chaves.
+//   {{?nome}} ... {{/nome}}, em linhas próprias no modelo, só entra nas páginas daquela região, daquele idioma ou, com
+//   "cjk", em japonês, coreano e chinês; as chaves desse bloco ficam vazias ("") nos outros idiomas.
 // - precos.json: os preços de cada moeda. Uma moeda com "pendente" ainda gera as páginas, mas não publica; com
 //   "provisorio", publica e só avisa.
 // Também gera as páginas “Como foi feito” de cada projeto em cada idioma (ferramentas/projetos/) e refaz o sitemap.xml,
@@ -92,6 +94,15 @@ const alternativasPara = (sufixo) => [
   `  <link rel="alternate" hreflang="x-default" href="${urlDe(padrao, sufixo)}">`,
 ].join('\n');
 
+// Os blocos que só entram em algumas páginas. As chaves de texto deles existem em todos os idiomas, vazias onde o bloco
+// não entra; uma chave vazia dentro de um bloco que entra recusa a gravação, para o bloco não sair sem texto.
+const CJK = ['ja', 'ko', 'zh-Hant'];
+const CONDICOES = new Set([...REGIOES, ...ORDEM, 'cjk']);
+const soNestas = (modelo, i) => modelo.replace(/^[ \t]*\{\{\?([A-Za-z0-9_-]+)\}\}\n([\s\S]*?)^[ \t]*\{\{\/\1\}\}\n/gm, (_, nome, dentro) => {
+  if (!CONDICOES.has(nome)) erros.push(`bloco {{?${nome}}} não existe`);
+  return nome === i.regiao || nome === i.codigo || (nome === 'cjk' && CJK.includes(i.codigo)) ? dentro : '';
+});
+
 const avisos = new Set();
 const saidas = [];  // [arquivo dentro de public/, html, sufixo do endereço, idioma]
 for (const i of idiomas) {
@@ -114,10 +125,10 @@ for (const i of idiomas) {
   const js = Object.fromEntries(Object.entries(i.js).map(([k, v]) => [k, precosNo(v, 'js.' + k)]));
 
   // no HTML, os textos entram como estão (alguns têm <b>), só com as aspas retas escapadas para caber em atributo
-  const preencher = (modelo, extras, onde) => precosNo(modelo, onde).replace(/\{\{([a-z0-9_]+)\}\}/g, (_, k, pos, todo) => {
+  const preencher = (modelo, extras, onde) => precosNo(soNestas(modelo, i), onde).replace(/\{\{([a-z0-9_]+)\}\}/g, (_, k, pos, todo) => {
     if (k in extras) return extras[k];
     const v = k in i.textos ? i.textos[k] : js[k];
-    if (v === undefined) { erros.push(`${i.codigo}: {{${k}}} sem texto (${onde})`); return ''; }
+    if (!v) { erros.push(`${i.codigo}: {{${k}}} sem texto (${onde})`); return ''; }
     // dentro de um atributo (número ímpar de aspas desde o último <), o texto entra com as aspas escapadas
     const tag = todo.slice(todo.lastIndexOf('<', pos), pos);
     const texto = eComercial(precosNo(v, k));
