@@ -1,7 +1,7 @@
 {
   "linupedia": {
     "etiqueta": "App que se instala",
-    "alt": "El linuhub de LinuPedia: el campamento de Linu en pixel art, de noche, con la hoguera y sus amigos",
+    "alt": "Pantalla principal de la LinuPedia: la lista del linuhub, con la hoguera, la tienda de Linu y las áreas de estudio de la carpa principal",
     "resumo": "Una app de idiomas que se convirtió en una enciclopedia jugable: 197 idiomas y 39 áreas del conocimiento, en el móvil y en el ordenador, y funciona incluso sin conexión.",
     "desafio": "Enseñar idiomas, y después ciencias, artes y ocio, a hablantes de portugués: gratis para todos, sin anuncios, sin depender de internet y sin inventar nada. Cada dato y cada ejemplo tiene que llevar su fuente.",
     "feito": [
@@ -146,7 +146,7 @@
   },
   "minhocao": {
     "etiqueta": "Juego de terror en el navegador",
-    "alt": "Pasillo del Minhocão de noche en el juego, con el forjado de hormigón, las lámparas y los carteles en las paredes",
+    "alt": "Pantalla de inicio del Minhocão: el título sobre el pasillo oscuro del ICC, el campo del nombre para pasar lista y el botón de entrar",
     "resumo": "Juego de terror en primera persona en el Minhocão, el edificio central de la Universidad de Brasilia, con la historia real de la universidad durante la dictadura.",
     "desafio": "Hacer que quien conoce el ICC se sienta dentro, en un juego que se abre directamente en el navegador, en ordenador y móvil, y contar la historia de la universidad en la dictadura sin mezclar hechos y ficción.",
     "feito": [

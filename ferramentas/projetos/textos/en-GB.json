@@ -1,7 +1,7 @@
 {
   "linupedia": {
     "etiqueta": "Installable app",
-    "alt": "LinuPedia's linuhub: Linu's camp in pixel art, at night, with the campfire and his friends",
+    "alt": "LinuPedia's main screen: the linuhub list, with the campfire, Linu's tent and the study areas of the main tent",
     "resumo": "A language app that became a playable encyclopedia: 197 languages and 39 areas of knowledge, on phones and computers, working even offline.",
     "desafio": "Teach languages, and then science, arts and hobbies, to Portuguese speakers: free for everyone, with no ads, no need for internet and nothing made up. Every fact and every example must come with its source.",
     "feito": [
@@ -146,7 +146,7 @@
   },
   "minhocao": {
     "etiqueta": "Browser horror game",
-    "alt": "A corridor of the Minhocão at night in the game, with the concrete ceiling, the lamps and the posters on the walls",
+    "alt": "The Minhocão start screen: the title over the dark ICC corridor, the name field for the roll call and the button to enter",
     "resumo": "First-person horror game set in the Minhocão, the main building of the University of Brasília, with the university’s real history under the dictatorship.",
     "desafio": "To make anyone who knows the ICC feel they are inside it, in a game that opens straight in the browser on computer and phone, and to tell the story of the university under the dictatorship without mixing fact and fiction.",
     "feito": [

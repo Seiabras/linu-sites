@@ -60,14 +60,17 @@ node ferramentas/gerar-idiomas.mjs
 - **Mudar um preço:** no `ferramentas/pagina/precos.json` (real para o Brasil, euro para a Europa, dólar para a Ásia e
   o resto do mundo). Os cartões, o simulador, o Monte o seu site e as dúvidas mudam juntos. Uma moeda com
   `"pendente"` gera as páginas, mas o `deploy/conferir-pagina.py` não deixa publicar se alguma página no ar usar essa
-  moeda; com `"provisorio"`, publica e só avisa. **O euro foi ao ar em 30/10/2026 com os valores provisórios**, para
-  eu ver; falta aprovar a tabela.
+  moeda; com `"provisorio"`, publica e só avisa. As tabelas em euro e em dólar foram aprovadas em 30/10/2026, com o
+  euro também no Reino Unido e o recebimento pela Wise.
+- **Capturas do portfólio:** toda captura mostra a tela principal ou o menu do site, nunca uma cena de dentro (regra de
+  30/10/2026; a LinuPedia entra pela Lista, o Minhocão pela tela inicial). Tamanho 960 × 600, em WebP, em
+  `public/img/projetos/`.
 - **Regiões (30/10/2026):** cada idioma diz a sua região no JSON (`"regiao"`: `brasil`, `europa` ou `asia`, e
   `"padrao": true` na página que representa a região; `"hreflang_extra"` para outros códigos que a página atende, como
   `en-IE` no inglês europeu e `zh-TW`/`zh-HK` no chinês). O seletor agrupa por região. A **Ásia-Pacífico e
   internacional** tem o inglês internacional (`/intl/`, em dólar, que também é o `x-default`), o japonês (`/ja/`), o
   coreano (`/ko/`) e o chinês tradicional (`/zh-hant/`), com as fontes do sistema para esses três (a Nunito não tem os
-  caracteres) e a quebra de linha de cada língua. **O dólar está pendente**: enquanto estiver, nenhum push publica.
+  caracteres) e a quebra de linha de cada língua.
   Um idioma com `"rascunho": true` fica fora do site, do seletor e do sitemap.
 - **O aviso de outra versão** (`js/menu.js`) junta a região, que vem do fuso horário do aparelho (sem consultar IP), com
   o idioma do navegador: Tóquio com o navegador em inglês vai para o `/intl/`, Lisboa para o `/pt-pt/`, e fora da

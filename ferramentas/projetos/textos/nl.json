@@ -1,7 +1,7 @@
 {
   "linupedia": {
     "etiqueta": "Installeerbare app",
-    "alt": "De linuhub van LinuPedia: het kamp van Linu in pixelart, 's nachts, met het kampvuur en zijn vrienden",
+    "alt": "Hoofdscherm van LinuPedia: de lijst van de linuhub, met het kampvuur, de tent van Linu en de studiegebieden in de hoofdtent",
     "resumo": "Een taalapp die een speelbare encyclopedie werd: 197 talen en 39 kennisgebieden, op telefoon en computer, en hij werkt zelfs offline.",
     "desafio": "Talen leren, en daarna wetenschap, kunst en vrije tijd, aan Portugeestaligen: gratis voor iedereen, zonder reclame, zonder internet nodig en zonder iets te verzinnen. Elk feit en elk voorbeeld moet een bron hebben.",
     "feito": [
@@ -146,7 +146,7 @@
   },
   "minhocao": {
     "etiqueta": "Horrorspel in de browser",
-    "alt": "Gang van de Minhocão bij nacht in het spel, met het betonnen plafond, de lampen en de affiches aan de muren",
+    "alt": "Startscherm van Minhocão: de titel boven de donkere gang van het ICC, het naamveld voor de presentielijst en de knop om naar binnen te gaan",
     "resumo": "Horrorspel in de eerste persoon in de Minhocão, het hoofdgebouw van de Universiteit van Brasília, met de echte geschiedenis van de universiteit tijdens de dictatuur.",
     "desafio": "Zorgen dat wie het ICC kent zich er echt binnen voelt, in een spel dat meteen in de browser opent op computer en telefoon, en de geschiedenis van de universiteit tijdens de dictatuur vertellen zonder feiten en fictie te vermengen.",
     "feito": [

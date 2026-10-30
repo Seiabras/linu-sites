@@ -1,7 +1,7 @@
 {
   "linupedia": {
     "etiqueta": "App que instala",
-    "alt": "O linuhub da LinuPedia: o acampamento do Linu em pixel art, à noite, com a fogueira e os amigos dele",
+    "alt": "Tela principal da LinuPedia: a lista do linuhub, com a Fogueira, a Barraca do Linu e as áreas da Tenda principal",
     "resumo": "Um app de idiomas que virou uma enciclopédia jogável: 197 idiomas e 39 áreas do conhecimento, no celular e no computador, funcionando até sem internet.",
     "desafio": "Ensinar idiomas, e depois ciências, artes e lazer, para quem fala português: de graça para todos, sem anúncios, sem depender de internet e sem inventar nada. Cada fato e cada exemplo precisa vir com a fonte.",
     "feito": [
@@ -146,7 +146,7 @@
   },
   "minhocao": {
     "etiqueta": "Jogo de terror no navegador",
-    "alt": "Corredor do Minhocão à noite no jogo, com a laje de concreto, as lâmpadas e os cartazes nas paredes",
+    "alt": "Tela inicial do Minhocão: o título sobre o corredor escuro do ICC, o campo do nome na chamada e o botão de entrar",
     "resumo": "Jogo de terror em primeira pessoa no Minhocão, o prédio central da UnB, com a história real da universidade na ditadura.",
     "desafio": "Fazer quem conhece o ICC se sentir lá dentro, num jogo que abre direto no navegador, no computador e no celular, e contar a história da UnB na ditadura sem misturar fato com ficção.",
     "feito": [

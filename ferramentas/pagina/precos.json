@@ -15,7 +15,6 @@
     "assinatura": 400
   },
   "EUR": {
-    "provisorio": "Publicados em 30/10/2026 com os valores provisórios, para ver no ar; falta aprovar a tabela em euro e a forma de pagamento.",
     "apresentacao": 1500,
     "ferramenta": 5000,
     "app": 7500,
@@ -30,7 +29,6 @@
     "assinatura": 300
   },
   "USD": {
-    "provisorio": "Publicados em 30/10/2026 com os valores provisórios, para ver no ar; falta aprovar a tabela em dólar e a forma de pagamento (Wise, PayPal).",
     "apresentacao": 1600,
     "ferramenta": 5500,
     "app": 8000,
