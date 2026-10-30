@@ -1,0 +1,147 @@
+{
+  "linupedia": {
+    "etiqueta": "Installierbare App",
+    "alt": "Der linuhub der LinuPedia: Linus Lager in Pixel-Art, bei Nacht, mit dem Lagerfeuer und seinen Freunden",
+    "resumo": "Eine Sprach-App, die zur spielbaren Enzyklopädie wurde: 197 Sprachen und 39 Wissensgebiete, auf Handy und Computer, und sie funktioniert sogar offline.",
+    "desafio": "Sprachen lehren, und danach Naturwissenschaften, Kunst und Freizeit, für Menschen, die Portugiesisch sprechen: kostenlos für alle, ohne Werbung, ohne Internetzwang und ohne etwas zu erfinden. Jede Tatsache und jedes Beispiel braucht eine Quelle.",
+    "feito": [
+      "Der Kurs ist ein Abenteuer: eine Karte, die in der Antarktis beginnt und im Land der Sprache endet, mit Funkverbindungen, Entscheidungen und Gesprächen per Stimme.",
+      "Der linuhub, das Zuhause der App: ein Pixel-Art-Lager in der Antarktis, in dem Linu (per Tippen, Joystick oder Tastatur) zu jedem Bereich läuft, mit der Inselkarte und den Pinguinen anderer Leute.",
+      "Linus Unterschlupf in Pixel-Art, mit Licht, das der Uhrzeit folgt (Tag, Mitternachtssonne und Nacht mit Polarlicht), in dem jeder Gegenstand eine Abkürzung ist.",
+      "Stimme in jeder Sprache: Aufnahmen von Muttersprachlern, die Stimme des Geräts und eine neuronale Stimme, die offline funktioniert.",
+      "Viel zum Üben: Geschichten mit Entscheidungen, ein Tagebuch mit Korrektur, Diktate, ein Stickeralbum und 77 Spiele.",
+      "Barrierearm: helles und dunkles Design, „Bewegung reduzieren“ und Screenreader.",
+      "Freie Inhalte: Lehrkräfte und Schulen dürfen die Lektionen kopieren und anpassen (CC BY-NC-SA 4.0)."
+    ],
+    "dentro": [
+      "Eine Codebasis für Android, iOS und Web (React Native und Expo).",
+      "Sie lässt sich wie eine App auf dem Startbildschirm installieren und öffnet offline; der Fortschritt liegt in einer Datenbank auf dem Gerät selbst.",
+      "Der Server veröffentlicht jede neue Version selbst, aber nur, wenn alle Tests bestehen; wer die App installiert hat, sieht beim Zurückkehren den Hinweis „Neue Version“."
+    ]
+  },
+  "v2tech": {
+    "etiqueta": "Tool für Unternehmen",
+    "alt": "Startseite von V²Tech COMBUSTÍVEL mit dem fairen Dieselpreis",
+    "resumo": "Damit Busunternehmen, Speditionen und Fuhrparks in Brasilien prüfen können, ob der vom Händler verlangte Preis für Diesel, Benzin oder Ethanol plausibel ist.",
+    "desafio": "Wenn ein neuer Kraftstoffpreis kommt, braucht es eine lange Rechnung, um zu wissen, ob er fair ist: der Petrobras-Preis, Steuern, Biodiesel, Fracht, die Marge des Händlers und Zinsen auf das Zahlungsziel. Diese Rechnung lebte in einer Tabelle.",
+    "feito": [
+      "Die Kundschaft gibt an, wo der Kraftstoff geliefert wird, was im Vertrag steht und welcher Preis angeboten wurde; die Seite sagt, ob der Preis plausibel ist, wie hoch der faire Preis wäre und was die Differenz pro Monat ausmacht.",
+      "Konten pro Unternehmen, mit Team: Alle sehen dieselben Verträge und Berechnungen.",
+      "Gespeicherte Verträge werden täglich neu berechnet, mit einer E-Mail, wenn der gezahlte Preis aus dem Rahmen fällt oder eine Preisänderung bevorsteht.",
+      "Ein einseitiger PDF-Bericht und, wenn der Preis zu hoch ist, ein fertiger Brief an den Händler.",
+      "Eine öffentliche Karte des fairen Preises nach Bundesstaat, ein Szenario-Simulator und ein Kalender der Preisänderungen.",
+      "Eine API, über die Fuhrparksysteme den fairen Preis selbst abfragen."
+    ],
+    "dentro": [
+      "Die Berechnung läuft auf dem Server: Der Browser der Kundschaft erhält nur das Ergebnis.",
+      "Die Marktdaten (Petrobras, die brasilianische Zentralbank, die Aufsicht ANP) aktualisiert täglich ein Bot, der unplausible Werte ablehnt.",
+      "Tägliche verschlüsselte Sicherung."
+    ]
+  },
+  "losvega": {
+    "etiqueta": "Verkaufswebsite mit Dashboard",
+    "alt": "Startseite von Los Vega na Estrada, individuelle Reiserouten",
+    "resumo": "Individuelle Reiserouten, auf einer Website, die als Link in der Instagram-Bio gedacht ist.",
+    "desafio": "Menschen, die über Instagram kommen, zu Anfragen machen, mit dem Preis von Anfang an, und die Anfragen ohne Tabelle und ohne verlorene Nachrichten organisieren.",
+    "feito": [
+      "Eine Website mit Ablauf, Leistungen, Preisen, Zielgruppe, häufigen Fragen und Reiseführern.",
+      "Das Formular „Erzählen Sie von Ihrer Reise“ zeigt sofort den Preis der Route, je nach Art und Zahl der Ziele.",
+      "Ein Dashboard mit den Anfragen, dem Stand jeder Anfrage (neu, im Gespräch, abgeschlossen, geliefert), Notizen und einem Knopf, um per WhatsApp mit fertiger Nachricht zu antworten.",
+      "Ein Instagram-Tab im Dashboard: ein Bio-Link, der Anfragen von dort markiert, eine vorgeschlagene Bio, Bildtexte und Hashtags zum Kopieren.",
+      "Lässt sich wie eine App auf dem Handy installieren."
+    ],
+    "dentro": [
+      "Die Preise stehen in einer Datei und ändern sich, ohne etwas neu zu starten.",
+      "Besucherzählung ohne Cookies und ohne Speicherung von IP-Adressen, direkt im Dashboard.",
+      "Tägliche Sicherung der Anfragen, die letzten 30 bleiben erhalten."
+    ]
+  },
+  "marginalia": {
+    "etiqueta": "Digitale Publikation",
+    "alt": "Startseite von Marginalia, einer Publikation für Geschichte und Geisteswissenschaften",
+    "resumo": "Eine unabhängige digitale Publikation für Geschichte und Geisteswissenschaften, von Íris Chermont.",
+    "desafio": "Forschungstexte mit Anmerkungen, Quellen und Magazin-Charakter veröffentlichen, ohne von einer Blog-Plattform abzuhängen und ohne dass die Autorin Code anfassen muss.",
+    "feito": [
+      "Drei Reiter: das Projekt, das Inhaltsverzeichnis (mit Suche und Filter nach Kategorie) und die Seite über die Autorin.",
+      "Jeder Text hat Kategorie, Thema, Datum, Lesezeit, Randnotizen, Quellen und eine kopierfertige Quellenangabe im brasilianischen ABNT-Format.",
+      "E-Mail-Abo mit Bestätigung und Abmeldung per Klick.",
+      "Das Dashboard der Autorin: Der Editor übernimmt aus Word und Google Docs eingefügten Text samt Fußnoten und hat Knöpfe für Randnotizen und Fußnoten.",
+      "Im Editor ein fertiges Instagram-Bild mit dem Titel des Textes."
+    ],
+    "dentro": [
+      "Ein eigener Server, ohne externe Abhängigkeiten.",
+      "Lesezählung ohne Cookies und ohne Speicherung von IP-Adressen.",
+      "Tägliche verschlüsselte Sicherung von Texten, Seiten und Bildern, 90 Tage aufbewahrt."
+    ]
+  },
+  "iconvet": {
+    "etiqueta": "Unternehmenswebsite",
+    "alt": "Startseite von Iconvet, einer Tierklinik in Salvador, mit hervorgehobener Bildgebung",
+    "resumo": "Die Website von Iconvet, einer allgemeinen und spezialisierten Tierklinik in Rio Vermelho, Salvador (Brasilien).",
+    "desafio": "Eine Klinik mit vielen Abteilungen (Innere, Chirurgie, Labor, Bildgebung, Station) und Dutzenden Leistungen und Fachgebieten brauchte eine neue Website auf der eigenen Domain, auf der Tierhalter schnell finden, was sie suchen, und mit einem Tipp bei WhatsApp landen.",
+    "feito": [
+      "Eine Startseite mit wechselnden Schwerpunkten (etwa der neuen Bildgebung), den Behandlungsbereichen, den Leistungen, den Grundsätzen der Klinik und der Station.",
+      "Eine Seite für jede Abteilung, jede Untersuchung, jeden Eingriff, jede Leistung und jeden Bereich: 74 Seiten in der Sitemap.",
+      "Seiten über die Klinik: Geschichte, Ausstattung, Team, Werte, Qualitätsmanagement, Rechtsabteilung, Hygiene, Praktikumsprogramm, Hinweise für Patienten und Besucher sowie die Galerie.",
+      "Adresse, Telefonnummern, Öffnungszeiten und WhatsApp immer griffbereit: in der oberen Leiste, im schwebenden Knopf und in der Fußzeile, mit Route auf der Karte.",
+      "Ein Knopf „Kundenbereich“, der ins System der Klinik (SimplesPet) führt."
+    ],
+    "dentro": [
+      "Mit Next.js gebaut und auf Vercel gehostet, mit der Domain der Klinik auf die neue Seite.",
+      "Jede Seite mit eigenem Titel und eigener Beschreibung, dazu Sitemap und robots.txt für Suchmaschinen."
+    ]
+  },
+  "ajoriente": {
+    "etiqueta": "Website mit Verfahrensabfrage",
+    "alt": "Startseite von Administração Judicial Oriente: „Unternehmen zu einem Neuanfang führen“",
+    "resumo": "Die Website von Administração Judicial Oriente in Rio de Janeiro: gerichtliche und außergerichtliche Sanierung, Insolvenzen, Privatinsolvenz und gerichtliche Liquidation.",
+    "desafio": "Gläubiger, Unternehmen und Gericht müssen die Informationen zu jedem Verfahren und die Dokumentvorlagen schnell finden. Die Website sollte seriös wirken und diese Abfrage wenige Klicks entfernt halten.",
+    "feito": [
+      "Die Vorstellung von Oriente und seinen fünf Tätigkeitsbereichen, mit eigenen Seiten für gerichtliche Sanierung und Insolvenz.",
+      "Verfahrensabfrage nach Kategorie (Insolvenzen und gerichtliche Sanierung), mit einer Seite pro Unternehmen: Aktenzeichen, Dokumente und Mitteilungen.",
+      "Die vier Dokumentvorlagen (Forderungsanmeldung und -widerspruch, Vollmacht für die Gläubigerversammlung) zum Öffnen oder Herunterladen.",
+      "Ein Kontaktformular mit Betreff aus einer Liste, Einwilligung in die Datenverarbeitung und Datenschutzerklärung.",
+      "E-Mail, Telefon und WhatsApp auf jeder Seite."
+    ],
+    "dentro": [
+      "Mit Next.js gebaut und auf Vercel gehostet, auf eigener Domain.",
+      "Das Formular hat ein Fallenfeld gegen Spam-Bots.",
+      "Ein Link „Zum Inhalt springen“ für die Bedienung per Tastatur oder Screenreader."
+    ]
+  },
+  "dojo-legacy": {
+    "etiqueta": "Spiel im Browser und auf dem Handy",
+    "alt": "Startseite von Dojo Legacy: „Vom weißen Gürtel zur Legende der Matte“, mit dem Spiel auf Computer und Handy",
+    "resumo": "Ein Karrierespiel rund um Jiu-Jitsu und MMA: Man beginnt mit dem weißen Gürtel und endet als Legende. Kostenlos im Browser, auf dem iPhone und auf Android.",
+    "desafio": "Ein rundenbasiertes Kampfspiel mit einer ganzen Karriere, auf und neben der Matte, das im Browser und auf dem Handy gleich läuft, den Fortschritt in der Cloud speichert und die Spieler in Ranglisten, Ligen und PvP zusammenbringt.",
+    "feito": [
+      "Kämpfe Zug um Zug: Position, Ausdauer und Momentum, mit 165 Jiu-Jitsu-Techniken und 61 Schlagtechniken im MMA.",
+      "Eine komplette Karriere: Gürtelprüfungen, eine eigene Schule mit Schülern, ein Manager, Sponsoren und Verträge, und ein Erbe, der das Vermächtnis fortführt.",
+      "Rundenbasiertes Online-PvP, Live-Turniere und die Team-Liga mit fünf Divisionen, von der Anfängerliga bis zur Großen Liga.",
+      "Live-Ranglisten und eine Ruhmeshalle, nur mit echten Spielern, stündlich aktualisiert.",
+      "Ein Spielführer mit einer Seite pro Technik und pro Meisterschaft, auf Portugiesisch und Englisch: 566 Seiten in der Sitemap.",
+      "Man kann ohne Konto spielen; mit dem kostenlosen Konto wird die Karriere in der Cloud gespeichert und geht auf einem anderen Gerät weiter."
+    ],
+    "dentro": [
+      "Eine Next.js-Website auf Vercel; dasselbe Spiel im Browser und in den Apps für iPhone und Android.",
+      "Die Karrieren werden in der Cloud gespeichert, die Team-Logos in Supabase.",
+      "Portugiesisch und Englisch, mit der Sprachwahl oben."
+    ]
+  },
+  "omega": {
+    "etiqueta": "Firmenwebsite",
+    "alt": "Startseite von Ômega Imóveis: „Der richtige Ort verändert alles“, über der Zona Sul von Rio bei Sonnenuntergang",
+    "resumo": "Die Website von Ômega Imóveis, einem Immobilienbüro in der Zona Sul von Rio de Janeiro, mit persönlicher, eleganter und strategischer Betreuung.",
+    "desafio": "Ein neues Immobilienbüro einem anspruchsvollen Publikum vorstellen: weniger ein Schaufenster voller Inserate, mehr die Arbeitsweise und die Viertel, in denen es tätig ist, mit dem Gespräch über WhatsApp.",
+    "feito": [
+      "Eine einzige Seite, die sich wie ein Magazin liest: der Auftakt, das Wesentliche (Vermögen, Lage und Entscheidungen), das Manifest, die Viertel und der Ansatz.",
+      "Die Viertel der Zona Sul mit eigenem Charakter: Ipanema, Leblon, Lagoa und Copacabana im Mittelpunkt, dazu Gávea, Jardim Botânico, São Conrado und Botafogo.",
+      "Die Methode in drei Schritten: zuerst zuhören, Marktkenntnis und Beziehungen, die bleiben.",
+      "Ein Gesprächsangebot oben und am Ende der Seite, und die CRECI-Registernummern der Firma und des verantwortlichen Maklers in der Fußzeile."
+    ],
+    "dentro": [
+      "Auf Vercel gehostet, vorerst ohne eigene Domain.",
+      "Eine leichte Seite, mit einem Link „Zum Inhalt springen“ für die Tastaturbedienung."
+    ]
+  }
+}

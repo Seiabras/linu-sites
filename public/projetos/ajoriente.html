@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-moeda="BRL">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,6 +11,17 @@
   <link rel="icon" href="../img/icone-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="../img/icone-180.png">
   <link rel="canonical" href="https://sites.linupedia.com.br/projetos/ajoriente">
+  <link rel="alternate" hreflang="pt-BR" href="https://sites.linupedia.com.br/projetos/ajoriente">
+  <link rel="alternate" hreflang="pt-PT" href="https://sites.linupedia.com.br/pt-pt/projetos/ajoriente">
+  <link rel="alternate" hreflang="es-ES" href="https://sites.linupedia.com.br/es/projetos/ajoriente">
+  <link rel="alternate" hreflang="ca" href="https://sites.linupedia.com.br/ca/projetos/ajoriente">
+  <link rel="alternate" hreflang="nl" href="https://sites.linupedia.com.br/nl/projetos/ajoriente">
+  <link rel="alternate" hreflang="en-GB" href="https://sites.linupedia.com.br/en/projetos/ajoriente">
+  <link rel="alternate" hreflang="en-IE" href="https://sites.linupedia.com.br/en/projetos/ajoriente">
+  <link rel="alternate" hreflang="fr-FR" href="https://sites.linupedia.com.br/fr/projetos/ajoriente">
+  <link rel="alternate" hreflang="de-DE" href="https://sites.linupedia.com.br/de/projetos/ajoriente">
+  <link rel="alternate" hreflang="it-IT" href="https://sites.linupedia.com.br/it/projetos/ajoriente">
+  <link rel="alternate" hreflang="x-default" href="https://sites.linupedia.com.br/en/projetos/ajoriente">
   <meta property="og:title" content="Administração Judicial Oriente, por Linu Sites">
   <meta property="og:description" content="Site da Administração Judicial Oriente, do Rio de Janeiro: recuperação judicial e extrajudicial, falências, insolvência civil e liquidação judicial.">
   <meta property="og:type" content="article">
@@ -19,10 +30,12 @@
   <meta property="og:image" content="https://sites.linupedia.com.br/img/projetos/ajoriente.webp">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="preload" href="../fontes/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <!-- Os textos que os scripts escrevem (menu, luz), no idioma da página -->
+  <script type="application/json" id="textos-js">{"menu_abrir":"Abrir o menu","menu_fechar":"Fechar o menu","luz_apagar_aria":"Apagar a luz (modo escuro)","luz_acender_aria":"Acender a luz (modo claro)","luz_apagar":"Apagar a luz","luz_acender":"Acender a luz","fechar":"Fechar","escolha":"Escolha o tipo para ver uma estimativa","sem_tipo":"Sem problema: a conversa ajuda a escolher o tipo.","um_item":"um item","n_itens":"{n} itens","extra":" + {itens} na proposta","por_ano":"{valor} por ano","por_mes":"{valor} por mês","estimativa":"Estimativa: a partir de {valor}{extra}","linha_tipo":"Tipo: {nome}","linha_itens":"Precisa ter:","linha_depois":"Depois de pronto: {nome}{anual}","anual":", pagando o ano","linha_estimativa":"Estimativa do site: a partir de {valor}{extra}","ola":"Olá! Quero um site.","sobre":"Sobre o meu negócio: ","assunto":"Quero um site","ola_conversa":"Olá! Quero conversar sobre um site.","area_vazia":"Nenhum projeto desta área aqui."}</script>
   <script src="../js/tema-inicio.js?v=5"></script>
-  <link rel="stylesheet" href="../css/estilo.css?v=14">
+  <link rel="stylesheet" href="../css/estilo.css?v=15">
   <script src="../js/tema.js?v=7" defer></script>
-  <script src="../js/menu.js?v=6" defer></script>
+  <script src="../js/menu.js?v=7" defer></script>
 </head>
 <body>
   <header class="topo">
@@ -38,6 +51,26 @@
           <a href="../#como">Como funciona</a>
           <a class="botao menu-links-orcamento" href="#contato">Pedir orçamento</a>
         </div>
+        <details class="idiomas">
+          <summary title="Região e idioma"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3c2.5 2.6 3.7 5.6 3.7 9s-1.2 6.4-3.7 9c-2.5-2.6-3.7-5.6-3.7-9S9.5 5.6 12 3Z" /></svg><span class="idiomas-codigo">PT-BR</span><span class="so-leitor">: Região e idioma, Português (Brasil)</span></summary>
+          <div class="idiomas-lista">
+            <p class="idiomas-regiao" id="regiao-brasil">Brasil</p>
+            <ul aria-labelledby="regiao-brasil">
+              <li><a href="../projetos/ajoriente" hreflang="pt-BR" lang="pt-BR" data-regiao="brasil" data-padrao data-sugestao="Ver esta página em português do Brasil" data-fechar="Fechar" aria-current="true">Português (Brasil)</a></li>
+            </ul>
+            <p class="idiomas-regiao" id="regiao-europa">Europa</p>
+            <ul aria-labelledby="regiao-europa">
+              <li><a href="../pt-pt/projetos/ajoriente" hreflang="pt-PT" lang="pt-PT" data-regiao="europa" data-sugestao="Ver esta página em português de Portugal" data-fechar="Fechar">Português (Portugal)</a></li>
+              <li><a href="../es/projetos/ajoriente" hreflang="es-ES" lang="es-ES" data-regiao="europa" data-sugestao="Ver esta página en español" data-fechar="Cerrar">Español</a></li>
+              <li><a href="../ca/projetos/ajoriente" hreflang="ca" lang="ca" data-regiao="europa" data-sugestao="Llegeix aquesta pàgina en català" data-fechar="Tancar">Català</a></li>
+              <li><a href="../nl/projetos/ajoriente" hreflang="nl" lang="nl" data-regiao="europa" data-sugestao="Lees deze pagina in het Nederlands" data-fechar="Sluiten">Nederlands</a></li>
+              <li><a href="../en/projetos/ajoriente" hreflang="en-GB" lang="en-GB" data-regiao="europa" data-padrao data-sugestao="See the page for the UK and Europe, in English (prices in €)" data-fechar="Close">English (UK &amp; Europe)</a></li>
+              <li><a href="../fr/projetos/ajoriente" hreflang="fr-FR" lang="fr-FR" data-regiao="europa" data-sugestao="Lire cette page en français" data-fechar="Fermer">Français</a></li>
+              <li><a href="../de/projetos/ajoriente" hreflang="de-DE" lang="de-DE" data-regiao="europa" data-sugestao="Diese Seite auf Deutsch lesen" data-fechar="Schließen">Deutsch</a></li>
+              <li><a href="../it/projetos/ajoriente" hreflang="it-IT" lang="it-IT" data-regiao="europa" data-sugestao="Leggi questa pagina in italiano" data-fechar="Chiudi">Italiano</a></li>
+            </ul>
+          </div>
+        </details>
         <button class="luz" type="button" data-luz aria-label="Apagar a luz (modo escuro)" title="Apagar a luz">
           <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
             <path class="luz-raios" d="M12 1.5v2M4.6 4.6l1.4 1.4M1.5 12h2M20.5 12h2M19.4 4.6 18 6" />
@@ -97,7 +130,7 @@
           <h2>Quer algo assim para o seu negócio?</h2>
           <p>Conte o que você faz e o que imagina. Pode ser só uma ideia: a resposta vem com perguntas e próximos passos.</p>
           <div class="botoes contato-botoes">
-            <a class="botao botao-grande botao-whatsapp" href="https://wa.me/5561996672610?text=Ol%C3%A1%21%20Vi%20o%20projeto%20Administra%C3%A7%C3%A3o%20Judicial%20Oriente%20e%20quero%20conversar%20sobre%20um%20site." target="_blank" rel="noopener">
+            <a class="botao botao-grande botao-whatsapp" href="https://wa.me/5561996672610?text=Ol%C3%A1!%20Vi%20o%20projeto%20Administra%C3%A7%C3%A3o%20Judicial%20Oriente%20e%20quero%20conversar%20sobre%20um%20site." target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z" /></svg>
               <span>WhatsApp <span class="sem-quebra">(61) 99667-2610</span></span>
             </a>

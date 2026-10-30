@@ -21,12 +21,13 @@ O visual segue a LinuPedia: o azul do app, o gelo e o pergaminho da expedição 
 | `public/index.html` | A página inicial em pt-BR, **gerada** por `ferramentas/gerar-idiomas.mjs` (não edite à mão). |
 | `public/<idioma>/index.html` | A mesma página em `pt-pt`, `es`, `ca`, `nl`, `en`, `fr`, `de` e `it`, também gerada. |
 | `public/404.html` | Página de erro com o código E404, mostrada pelo Caddy em qualquer endereço que não existe (`handle_errors` no `deploy/Caddyfile-bloco`; liga no servidor pelo `endurecer.sh` do linuhub). |
-| `public/projetos/*.html` | Página de cada projeto, gerada por `ferramentas/gerar-projetos.py`. |
+| `public/projetos/*.html` | Página de cada projeto em português; nos outros idiomas, em `public/<pasta>/projetos/`. Geradas pelo `ferramentas/gerar-idiomas.mjs`. |
 | `public/css/estilo.css` | Visual (cores da LinuPedia, modo claro e escuro). |
 | `public/js/` | `tema-inicio.js` (aplica o tema antes de pintar), `tema.js` (o Linu e o lampião; com “menos movimento” ligado ele não anda, só aparece embaixo do lampião), `menu.js` (menu do celular), `movimento.js` (animações), `simulador.js` (o simulador do Café Aurora). |
 | `public/img/` | Cena da estação, o Linu (`linu/`, `linu-pixel.png`), a logo (`linu-logo.png`), capturas dos projetos (`projetos/`), ícones e imagem de compartilhar. |
 | `public/fontes/` | Nunito (licença OFL), servida pelo próprio site. |
 | `sitios/` | Os sites dos subdomínios, fora de `public/`: `cafe-aurora/` (cafe.linupedia.com.br, também com `/bootstrap/` e `/tailwind/`), `fotografia-do-cerrado/` (cerrado.linupedia.com.br) e `abelhas-sem-ferrao/` (abelhas.linupedia.com.br). Cada um tem o seu repositório público no GitHub (`Seiabras/cafe-aurora`, `Seiabras/fotografia-do-cerrado`, `Seiabras/abelhas-sem-ferrao`); mudou aqui, leve a mudança para lá. |
+| `ferramentas/cafe/` | O modelo do Café Aurora (`modelo.html`) e os textos dele em cada idioma (`textos/<código>.json`), para o `gerar-cafe.mjs`. |
 | `ferramentas/pagina/` | O modelo da página inicial (`modelo.html`), os textos de cada idioma (`textos/<código>.json`) e os preços de cada moeda (`precos.json`). |
 | `ferramentas/` | Geradores: a página em cada idioma (`gerar-idiomas.mjs`), páginas de projeto, imagem de compartilhar, cena noturna e o Linu trazido do app (`linu-do-app.py`). |
 | `deploy/` | Instalação na VM (`instalar-uma-vez.sh`), recebimento (`receber.sh`), conferência antes de publicar (`conferir-pagina.py`), bloco do Caddy e o manual `ORACLE.md`. |
@@ -59,13 +60,18 @@ node ferramentas/gerar-idiomas.mjs
   moeda; com `"provisorio"`, publica e só avisa. **O euro foi ao ar em 30/10/2026 com os valores provisórios**, para
   eu ver; falta aprovar a tabela.
 - **Regiões (30/10/2026):** cada idioma diz a sua região no JSON (`"regiao"`: `brasil`, `europa` ou `asia`, e
-  `"padrao": true` na página que representa a região). O seletor agrupa por região. A **Ásia-Pacífico e
-  internacional** está em preparação: o inglês internacional (`/intl/`, em dólar) e o japonês têm textos, mas com
-  `"rascunho": true` (ficam fora do site, do seletor e do sitemap); faltam o coreano, o chinês tradicional, a sugestão
-  da região pelo fuso horário e as fontes do sistema para japonês, coreano e chinês. O dólar está pendente.
+  `"padrao": true` na página que representa a região; `"hreflang_extra"` para outros códigos que a página atende, como
+  `en-IE` no inglês europeu e `zh-TW`/`zh-HK` no chinês). O seletor agrupa por região. A **Ásia-Pacífico e
+  internacional** tem o inglês internacional (`/intl/`, em dólar, que também é o `x-default`), o japonês (`/ja/`), o
+  coreano (`/ko/`) e o chinês tradicional (`/zh-hant/`), com as fontes do sistema para esses três (a Nunito não tem os
+  caracteres) e a quebra de linha de cada língua. **O dólar está pendente**: enquanto estiver, nenhum push publica.
+  Um idioma com `"rascunho": true` fica fora do site, do seletor e do sitemap.
+- **O aviso de outra versão** (`js/menu.js`) junta a região, que vem do fuso horário do aparelho (sem consultar IP), com
+  o idioma do navegador: Tóquio com o navegador em inglês vai para o `/intl/`, Lisboa para o `/pt-pt/`, e fora da
+  Europa as páginas em euro são o último recurso. Nunca troca de página sozinho.
 - **Os textos dos scripts** (menu, luz, mensagem do WhatsApp e do e-mail) vão no `<script type="application/json"
   id="textos-js">` de cada página; a moeda e o formato do número vêm do `<html lang data-moeda>`. As páginas dos
-  projetos não têm o bloco e ficam em português.
+  projetos também têm o bloco.
 - **Seletor de idioma** no topo (o globo) e, uma vez por visitante, um aviso discreto quando o idioma do navegador é
   outro que o site tem (sem trocar de página sozinho). A escolha fica guardada no navegador (`js/menu.js`).
 - **Para o Google:** cada página leva o `hreflang` de todas (o `x-default` é o inglês), os `og:locale`, os dados
@@ -73,14 +79,55 @@ node ferramentas/gerar-idiomas.mjs
 - Na Europa: preço em euro, pagamento por transferência SEPA, domínio do país (.pt, .es, .de…) e o WhatsApp com +55.
   As páginas “Como foi feito” e o Café Aurora do simulador ainda estão em português, e os links avisam isso.
 
+## O Café Aurora em cada idioma (30/10/2026)
+
+O Café do simulador fala a língua da página: `cafe.linupedia.com.br/` em pt-BR e `/pt-pt/`, `/es/`, `/ca/`, `/nl/`,
+`/en/`, `/fr/`, `/de/`, `/it/`, `/intl/`, `/ja/`, `/ko/` e `/zh-hant/`, e o simulador, o “Abrir em tela cheia” e o cartão
+de estudo de cada idioma apontam para o Café no mesmo idioma. Tudo sai de um modelo só:
+
+```bash
+node ferramentas/gerar-cafe.mjs
+```
+
+- O texto do Café muda no `ferramentas/cafe/textos/<código>.json` (o gerador recusa se faltar ou sobrar chave), e o HTML,
+  no `ferramentas/cafe/modelo.html`. Os idiomas são os mesmos da página principal (um em rascunho fica de fora).
+- As frases que o script escreve (a abertura, os nomes das bebidas, a assinatura, o painel) vão no
+  `<script type="application/json" id="textos-cafe">`; sem o bloco, o `script.js` usa o português. O preço da bebida
+  segue o formato de número de cada língua.
+- As versões `/bootstrap/` e `/tailwind/` continuam só em português. O repositório `Seiabras/cafe-aurora` ainda não tem
+  os idiomas (o gerador e os textos moram aqui).
+
+## O Cerrado e as Abelhas em cada idioma, com modo claro e escuro (30/10/2026)
+
+Os outros dois sites de estudo também falam os 13 idiomas (`cerrado.linupedia.com.br/<idioma>/…` e
+`abelhas.linupedia.com.br/<idioma>/…`), com os idiomas no rodapé, e os cartões da página principal levam à versão no
+mesmo idioma. Tudo sai de um modelo por página:
+
+```bash
+node ferramentas/gerar-estudo.mjs fotografia-do-cerrado
+node ferramentas/gerar-estudo.mjs abelhas-sem-ferrao
+```
+
+- O texto muda no `ferramentas/estudo/<site>/textos/<código>.json`. O HTML em português foi transformado em modelo pelo
+  `ferramentas/estudo/extrair.py` (cada bloco de texto vira uma chave inteira, com a marcação de dentro da frase); se
+  mudar o HTML de uma página, mude no `ferramentas/estudo/<site>/modelo/`.
+- As frases dos scripts (o formulário do Cerrado; o percurso e as 5 perguntas do teste das Abelhas) vão no
+  `<script type="application/json" id="textos-estudo">`; sem o bloco, os scripts usam o português.
+- **Modo claro e escuro**: botão no cabeçalho (`js/tema.js`, e `js/tema-inicio.js` no `<head>` para não piscar), com as
+  cores por função no CSS. No escuro, os contrastes passam do AAA (medidos: texto do Cerrado 16,1:1, do teste das
+  Abelhas acima de 7,5:1). Os CSS e scripts levam `?v=2`: mudou um deles, suba o número no modelo.
+- Os repositórios `Seiabras/fotografia-do-cerrado` e `Seiabras/abelhas-sem-ferrao` ainda não têm nada disso.
+
 ## O que tem na página
 
 - **Abertura:** o que o estúdio faz e o botão de orçamento.
 - **O que fazemos:** sites de apresentação, ferramentas e painéis, apps que instalam, hospedagem.
 - **Página de cada projeto** (`/projetos/linupedia`, `/v2tech`, `/losvega`, `/marginalia`, `/iconvet`,
   `/ajoriente`, `/dojo-legacy`, `/omega`): o desafio, o que foi feito e como funciona por dentro, com os fatos
-  dos READMEs de cada repositório (nos quatro de clientes, do que o próprio site mostra no ar). Geradas por
-  `ferramentas/gerar-projetos.py`: mude o texto lá e rode o script. No computador, o `python3 -m
+  dos READMEs de cada repositório (nos quatro de clientes, do que o próprio site mostra no ar). Em todos os idiomas da página
+  (`/<pasta>/projetos/<nome>`), geradas pelo `ferramentas/gerar-idiomas.mjs` junto com a inicial: o modelo é o
+  `ferramentas/projetos/modelo.html`, o nome, o endereço e a captura ficam no `ferramentas/projetos/projetos.json` e
+  o texto de cada idioma no `ferramentas/projetos/textos/<código>.json`. No computador, o `python3 -m
   http.server` não completa o `.html` como o Caddy; abra `projetos/<nome>.html`.
 - **Projetos** (`#projetos`): duas abas lado a lado, “No ar” e “De estudo” (`js/movimento.js`, com setas, Home e
   End). O endereço com `#estudo` abre a segunda; sem JavaScript, as duas listas aparecem uma embaixo da outra.

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Café Aurora — Een Cyberpunkcafé in een Andere Dimensie</title>
+<meta name="description" content="Café Aurora, een fictief cyberpunkcafé: voorbeeldwebsite van Linu Sites.">
+<meta name="theme-color" content="#05030a">
+<link rel="canonical" href="https://cafe.linupedia.com.br/nl/">
+<link rel="alternate" hreflang="pt-BR" href="https://cafe.linupedia.com.br/">
+<link rel="alternate" hreflang="pt-PT" href="https://cafe.linupedia.com.br/pt-pt/">
+<link rel="alternate" hreflang="es-ES" href="https://cafe.linupedia.com.br/es/">
+<link rel="alternate" hreflang="ca" href="https://cafe.linupedia.com.br/ca/">
+<link rel="alternate" hreflang="nl" href="https://cafe.linupedia.com.br/nl/">
+<link rel="alternate" hreflang="en-GB" href="https://cafe.linupedia.com.br/en/">
+<link rel="alternate" hreflang="fr-FR" href="https://cafe.linupedia.com.br/fr/">
+<link rel="alternate" hreflang="de-DE" href="https://cafe.linupedia.com.br/de/">
+<link rel="alternate" hreflang="it-IT" href="https://cafe.linupedia.com.br/it/">
+<!-- Os textos que o script escreve (abertura, bebidas, assinatura, painel), no idioma da página -->
+<script type="application/json" id="textos-cafe">{"boot":["Portaal opstarten…","Kwantummaling kalibreren…","Bonen uit Ω-11 synchroniseren…","Stoomreactor opwarmen…","Welkom in de scheur."],"news_erro":"Ongeldig signaal. Controleer de coördinaten van je e-mail.","news_ok":"Signaal ontvangen. Je wordt benaderd vanuit een andere dimensie.","terminar":"✓ Klaar","painel_aviso":"Klik op een tekst en typ. In het echte dashboard wordt wat je wijzigt opgeslagen.","expresso":"Kwantumespresso","coldbrew":"Neurale Cold Brew","matcha":"Matcha uit de Leegte","estelar":"Sterrenmelk","nivel":"Niveau","editar":"✎ Teksten bewerken"}</script>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<link rel="icon" href="../icone.png" type="image/png" sizes="128x128">
+<link rel="preload" href="../fontes/orbitron.woff2" as="font" type="font/woff2" crossorigin>
+<!-- Site de exemplo do Linu Sites: o Café Aurora não existe. Na página principal, ele aparece embutido
+     (iframe) no simulador de preço, que liga e desliga as partes dele (ver script.js, "módulos"). -->
+<script src="../inicio.js"></script>
+<link rel="stylesheet" href="../estilo.css?v=2">
+<script src="../script.js?v=3" defer></script>
+</head>
+
+<body>
+<a class="skip" href="#conteudo">Naar de inhoud</a>
+
+<!-- BOOT -->
+<div class="boot" id="boot" role="status" aria-live="polite">
+  <div class="boot__logo">CAFÉ AURORA</div>
+  <div class="boot__bar"><div class="boot__fill" id="bootFill"></div></div>
+  <div class="boot__log" id="bootLog">Portaal opstarten…</div>
+</div>
+
+<!-- CURSOR -->
+<div class="cur" id="cur" aria-hidden="true"></div>
+<div class="cur-dot" id="curDot" aria-hidden="true"></div>
+
+<!-- FUNDO -->
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="bg-veil" aria-hidden="true"></div>
+<div class="noise" aria-hidden="true"></div>
+<div class="scanlines" aria-hidden="true"></div>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <a href="#inicio" class="brand" aria-label="Café Aurora — home">
+    <span class="brand__orb" aria-hidden="true"></span>
+    CAFÉ&nbsp;AURORA
+  </a>
+
+  <nav class="nav__links" id="navLinks" aria-label="Hoofdnavigatie">
+    <a href="#inicio" class="active">Home</a>
+    <a href="#sobre">Oorsprong</a>
+    <a href="#menu">Menukaart</a>
+    <a href="#laboratorio">Lab</a>
+    <a href="#transmissoes">Transmissies</a>
+  </nav>
+
+  <div class="nav__right">
+    <a href="#laboratorio" class="btn btn--magenta magnetic">Nu bestellen</a>
+    <button type="button" class="burger" id="burger" aria-label="Menu openen" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero__halo" aria-hidden="true"></div>
+    <div class="hero__rings" aria-hidden="true"><i></i><i></i><i></i></div>
+
+    <div>
+      <span class="hero__tag reveal">☕ <b>OPEN</b> 24U · SECTOR NEON-07 · DIMENSIE Ω</span>
+
+      <h1 class="glitch" data-text="CAFÉ&#10;AURORA">
+        <span>CAFÉ</span>
+        <span>AURORA</span>
+      </h1>
+
+      <p class="hero__sub reveal" data-d="1">
+        Wij branden bonen geoogst in <b>parallelle werkelijkheden</b>. Elk kopje is een kleine kwantuminstorting — en jouw smaak de enige constante.
+      </p>
+
+      <div class="hero__cta reveal" data-d="2">
+        <a href="#menu" class="btn magnetic">Bekijk de menukaart</a>
+        <a href="#sobre" class="btn btn--ghost magnetic">Stap door het portaal</a>
+      </div>
+
+      <div class="hero__stats reveal" data-d="3">
+        <div><b>12</b>Actieve dimensies</div>
+        <div><b>98,4%</b>Kwantumprecisie</div>
+        <div><b>∞</b>Droomrefills</div>
+      </div>
+    </div>
+
+    <div class="scroll-hint" aria-hidden="true">
+      <span>Scroll</span>
+      <i></i>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>Kwantumespresso</span><span>Plasmalatte</span><span>Neurale Cold Brew</span>
+      <span>Matcha uit de Leegte</span><span>Sterrenmelk</span><span>Komeetstof</span>
+      <span>Kwantumespresso</span><span>Plasmalatte</span><span>Neurale Cold Brew</span>
+      <span>Matcha uit de Leegte</span><span>Sterrenmelk</span><span>Komeetstof</span>
+    </div>
+  </div>
+
+  <!-- SOBRE -->
+  <section class="section" id="sobre">
+    <div class="about">
+      <div class="about__text">
+        <span class="eyebrow reveal">Oorsprong</span>
+        <h2 class="reveal" data-d="1">Wij ontstonden uit een <em>kortsluiting</em> tussen twee werelden</h2>
+
+        <div class="reveal" data-d="2">
+          <p class="lead">
+            In 2087 morste een barista genaamd <strong>Aurora Vex</strong> koffie op een warpreactor. Het resultaat was geen explosie — het was een aroma.
+          </p>
+          <p>
+            Het aroma opende een scheur. Aan de andere kant lag een stad net als de onze, maar met lichten die dachten en regen die zich dingen herinnerde. Daar vonden we de bonen die we nu schenken.
+          </p>
+          <p>
+            <strong>Café Aurora</strong> is het enige ontmoetingspunt tussen de twee steden. Hier stijgt de stoom langzaam op en laat de tijd zich een paar minuten onderbreken — zolang je een tweede kopje bestelt.
+          </p>
+        </div>
+      </div>
+
+      <div class="portal reveal" data-d="3" aria-hidden="true">
+        <div class="portal__ring"></div>
+        <div class="portal__ring"></div>
+        <div class="portal__ring"></div>
+        <div class="portal__core"></div>
+        <span class="portal__label">Stabiele scheur · 3.2 nm</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="section" id="menu">
+    <span class="eyebrow reveal">Menukaart</span>
+    <h2 class="reveal" data-d="1">Melanges die <em>nergens anders</em> bestaan</h2>
+    <p class="lead reveal" data-d="2">
+      Zes recepten afgestemd op verschillende hersengolven. Allemaal geserveerd in zelfherstellende kopjes.
+    </p>
+
+    <div class="menu-grid">
+      <article class="card reveal tilt" data-d="1">
+        <div class="card__top">
+          <div class="card__icon" aria-hidden="true">⚡</div>
+          <span class="card__id">LX-001</span>
+        </div>
+        <h3>Kwantumespresso</h3>
+        <p>Twee gelijktijdige extracties in verschillende universa. Je proeft het gemiddelde van beide.</p>
+        <div class="card__foot">
+          <span class="card__price">₡ 18</span>
+          <span class="card__tag">Intens</span>
+        </div>
+      </article>
+
+      <article class="card card--m reveal tilt" data-d="2">
+        <div class="card__top">
+          <div class="card__icon" aria-hidden="true">🌌</div>
+          <span class="card__id">LX-014</span>
+        </div>
+        <h3>Plasmalatte</h3>
+        <p>Melk opgeschuimd op 340 °C in een magnetisch veld. Licht zacht op als je roert.</p>
+        <div class="card__foot">
+          <span class="card__price">₡ 24</span>
+          <span class="card__tag">Stralend</span>
+        </div>
+      </article>
+
+      <article class="card card--v reveal tilt" data-d="3">
+        <div class="card__top">
+          <div class="card__icon" aria-hidden="true">❄️</div>
+          <span class="card__id">LX-027</span>
+        </div>
+        <h3>Neurale Cold Brew</h3>
+        <p>72 uur gezet in een kamer zonder prikkels. Stemt zich af op jouw concentratieritme.</p>
+        <div class="card__foot">
+          <span class="card__price">₡ 22</span>
+          <span class="card__tag">Helder</span>
+        </div>
+      </article>
+
+      <article class="card card--a reveal tilt" data-d="4">
+        <div class="card__top">
+          <div class="card__icon" aria-hidden="true">🍃</div>
+          <span class="card__id">LX-033</span>
+        </div>
+        <h3>Matcha uit de Leegte</h3>
+        <p>Blaadjes geteeld waar geen licht is. De smaak komt vóór het aroma — vraag niet hoe.</p>
+        <div class="card__foot">
+          <span class="card__price">₡ 26</span>
+          <span class="card__tag">Etherisch</span>
+        </div>
+      </article>
+
+      <article class="card card--m reveal tilt" data-d="5">
+        <div class="card__top">
+          <div class="card__icon" aria-hidden="true">✨</div>
+          <span class="card__id">LX-042</span>
+        </div>
+        <h3>Sterrenmelk</h3>
+        <p>Cafeïnevrij. Gemaakt van verdicht sterrenstof en een beetje heimwee.</p>
+        <div class="card__foot">
+          <span class="card__price">₡ 20</span>
+          <span class="card__tag">Zacht</span>
+        </div>
+      </article>
+
+      <article class="card card--v reveal tilt" data-d="5">
+        <div class="card__top">
+          <div class="card__icon" aria-hidden="true">☄️</div>
+          <span class="card__id">LX-050</span>
+        </div>
+        <h3>Komeetstof</h3>
+        <p>Een triple shot met splinters orbitaal ijs. Het ijs smelt nooit — het geeft het gewoon op.</p>
+        <div class="card__foot">
+          <span class="card__price">₡ 31</span>
+          <span class="card__tag">Zeldzaam</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- LABORATÓRIO -->
+  <section class="section" id="laboratorio">
+    <span class="eyebrow reveal">Lab</span>
+    <h2 class="reveal" data-d="1">Stel je <em>eigen</em> kopje samen</h2>
+    <p class="lead reveal" data-d="2">
+      Pas de instellingen aan. Het drankje rekent zich meteen opnieuw uit — zoals alles hier.
+    </p>
+
+    <div class="lab">
+      <!-- Painel -->
+      <div class="lab__panel reveal" data-d="2" id="labForm" role="group" aria-label="Stel je drankje samen">
+        <div class="lab__group">
+          <div class="lab__label"><span>01 · Moleculaire basis</span></div>
+          <div class="chips" role="radiogroup" aria-label="Moleculaire basis">
+            <label class="chip">
+              <input type="radio" name="base" value="expresso" checked>
+              <span>Espresso</span>
+            </label>
+            <label class="chip">
+              <input type="radio" name="base" value="coldbrew">
+              <span>Cold Brew</span>
+            </label>
+            <label class="chip">
+              <input type="radio" name="base" value="matcha">
+              <span>Matcha</span>
+            </label>
+            <label class="chip">
+              <input type="radio" name="base" value="estelar">
+              <span>Sterrenmelk</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="lab__group">
+          <div class="lab__label">
+            <span>02 · Kwantumintensiteit</span>
+            <b id="intVal">7</b>
+          </div>
+          <input type="range" id="intensity" min="1" max="10" value="7"
+                 aria-label="Kwantumintensiteit, van 1 tot 10">
+        </div>
+
+        <div class="lab__group">
+          <div class="lab__label"><span>03 · Toevoegingen</span></div>
+          <div class="chips">
+            <label class="chip">
+              <input type="checkbox" name="top[]" value="Komeetstof">
+              <span>Komeetstof</span>
+            </label>
+            <label class="chip">
+              <input type="checkbox" name="top[]" value="Plasmaschuim">
+              <span>Plasmaschuim</span>
+            </label>
+            <label class="chip">
+              <input type="checkbox" name="top[]" value="Suikerkristal">
+              <span>Suikerkristal</span>
+            </label>
+            <label class="chip">
+              <input type="checkbox" name="top[]" value="Neonbloem">
+              <span>Neonbloem</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="lab__result">
+          <small>Uitvoer van de synthesizer</small>
+          <div id="drinkName">Kwantumespresso · Niveau VII</div>
+          <span id="drinkPrice">₡ 21,50</span>
+        </div>
+      </div>
+
+      <!-- Xícara -->
+      <div class="cup-stage reveal" data-d="3">
+        <div class="cup-wrap">
+          <div class="cup-glow" id="cupGlow" aria-hidden="true"></div>
+          <div class="steam" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="cup">
+            <div class="liquid" id="liquid"></div>
+          </div>
+          <div class="saucer" aria-hidden="true"></div>
+
+          <span class="badge-float">temp · 68 °C</span>
+          <span class="badge-float">ph · 5.4</span>
+          <span class="badge-float">dim · Ω-07</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANSMISSÕES -->
+  <section class="section" id="transmissoes">
+    <span class="eyebrow reveal">Transmissies</span>
+    <h2 class="reveal" data-d="1">Stemmen opgevangen uit <em>andere</em> dimensies</h2>
+
+    <div class="trans-grid">
+      <blockquote class="trans reveal" data-d="1">
+        <q>Ik bestelde een Kwantumespresso en begon me een jeugd te herinneren die ik nooit had. Aanrader. Ik kom morgen terug — of gisteren.</q>
+        <footer><b>Kira-09</b>Sector Neon-07</footer>
+      </blockquote>
+
+      <blockquote class="trans reveal" data-d="2">
+        <q>De Plasmalatte gloeide toen ik huilde. Ongemakkelijk voor ons allebei, maar de smaak was perfect.</q>
+        <footer><b>Dr. Halven</b>Herinneringskliniek</footer>
+      </blockquote>
+
+      <blockquote class="trans reveal" data-d="3">
+        <q>Ik kwam alleen koffie halen. Ik vertrok met een theorie over de tijd en een beker die weigert leeg te raken.</q>
+        <footer><b>Anoniem</b>Dimensie Ω-11</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2 class="reveal">De scheur is open <em>tot laat</em></h2>
+    <p class="reveal" data-d="1">
+      Reserveren hoeft niet. Alleen de moed om door de verkeerde deur te gaan.
+    </p>
+    <div class="hero__cta reveal" data-d="2">
+      <a href="#menu" class="btn btn--magenta magnetic">Bekijk de hele menukaart</a>
+      <a href="#inicio" class="btn btn--ghost magnetic">Terug naar boven</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="foot">
+    <div>
+      <div class="brand">
+        <span class="brand__orb" aria-hidden="true"></span>CAFÉ AURORA
+      </div>
+      <p>Interdimensionale branderij sinds 2087. Bonen ethisch geoogst in universa die toestemming gaven.</p>
+
+      <form class="newsletter" id="newsForm" novalidate>
+        <label class="sr-only" for="email">Je e-mail om signalen te ontvangen</label>
+        <input type="email" id="email" placeholder="jij@email.dim" autocomplete="email" required>
+        <button type="submit" class="btn magnetic">Inschrijven</button>
+      </form>
+      <p id="newsMsg" role="status" aria-live="polite" class="news-msg"></p>
+    </div>
+
+    <div>
+      <h4>Coördinaten</h4>
+      <ul>
+        <li>Vexstraat 2087 — Sector Neon-07</li>
+        <li>Benedenstad · Kelder 3</li>
+        <li>Ingang via de deur die er eerst niet was</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Openingstijden</h4>
+      <ul>
+        <li>Ma–Vr · 06:00 — 04:00</li>
+        <li>Za–Zo · altijd</li>
+        <li>Dimensionale feestdagen · gesloten</li>
+      </ul>
+      <h4 class="foot__h4-espaco">Signaal</h4>
+      <ul>
+        <li><a href="#inicio">@cafeaurora.omega</a></li>
+        <li><a href="#inicio">+Ω 07 2087-0000</a></li>
+      </ul>
+    </div>
+
+    <div class="foot__bottom">
+      <span>© <span id="year"></span> Café Aurora <span class="dot">◆</span> Alle universa voorbehouden</span>
+      <span>Fictief café · voorbeeldwebsite door <a href="https://sites.linupedia.com.br/nl/" target="_top">Linu Sites</a></span>
+    </div>
+  </footer>
+</main>
+
+<!-- PAINEL DE DIMENSÃO -->
+<aside class="dim" id="dim" aria-label="Instelling van de kleurdimensie">
+  <button type="button" class="dim__head" id="dimHead" aria-expanded="true" aria-controls="dimBody">
+    <span class="dim__titulo"><i aria-hidden="true"></i>Dimensie afstemmen</span>
+    <span aria-hidden="true" id="dimChevron">▾</span>
+  </button>
+  <div class="dim__body" id="dimBody">
+    <label for="hue">Kleurverschuiving · <span id="hueVal">0°</span></label>
+    <input type="range" id="hue" min="-70" max="70" value="0" aria-label="Kleurverschuiving in graden">
+    <p class="dim__hint">Sleep om het spectrum van het café te verschuiven. Er gaat niets kapot — waarschijnlijk.</p>
+  </div>
+</aside>
+
+<!-- PAINEL (módulo "painel para mexer sozinho"): só aparece quando o simulador liga o módulo -->
+<div class="painel-demo" id="painelDemo" hidden>
+  <button type="button" class="painel-demo__botao" id="painelBotao" aria-pressed="false">✎ Teksten bewerken</button>
+  <p class="painel-demo__aviso" id="painelAviso" role="status" aria-live="polite"></p>
+</div>
+
+</body>
+</html>

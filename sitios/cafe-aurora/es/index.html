@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="es-ES">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Café Aurora — Una Cafetería Cyberpunk en Otra Dimensión</title>
+<meta name="description" content="Café Aurora, una cafetería cyberpunk ficticia: web de ejemplo de Linu Sites.">
+<meta name="theme-color" content="#05030a">
+<link rel="canonical" href="https://cafe.linupedia.com.br/es/">
+<link rel="alternate" hreflang="pt-BR" href="https://cafe.linupedia.com.br/">
+<link rel="alternate" hreflang="pt-PT" href="https://cafe.linupedia.com.br/pt-pt/">
+<link rel="alternate" hreflang="es-ES" href="https://cafe.linupedia.com.br/es/">
+<link rel="alternate" hreflang="ca" href="https://cafe.linupedia.com.br/ca/">
+<link rel="alternate" hreflang="nl" href="https://cafe.linupedia.com.br/nl/">
+<link rel="alternate" hreflang="en-GB" href="https://cafe.linupedia.com.br/en/">
+<link rel="alternate" hreflang="fr-FR" href="https://cafe.linupedia.com.br/fr/">
+<link rel="alternate" hreflang="de-DE" href="https://cafe.linupedia.com.br/de/">
+<link rel="alternate" hreflang="it-IT" href="https://cafe.linupedia.com.br/it/">
+<!-- Os textos que o script escreve (abertura, bebidas, assinatura, painel), no idioma da página -->
+<script type="application/json" id="textos-cafe">{"boot":["Iniciando portal…","Calibrando molienda cuántica…","Sincronizando granos de Ω-11…","Calentando el reactor de vapor…","Bienvenido a la grieta."],"news_erro":"Señal no válida. Revisa las coordenadas de tu email.","news_ok":"Señal recibida. Te contactarán desde otra dimensión.","terminar":"✓ Terminar","painel_aviso":"Haz clic en un texto y escribe. En el panel real, lo que cambias se guarda.","expresso":"Expreso Cuántico","coldbrew":"Cold Brew Neural","matcha":"Matcha del Vacío","estelar":"Leche de Estrella","nivel":"Nivel","editar":"✎ Editar textos"}</script>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<link rel="icon" href="../icone.png" type="image/png" sizes="128x128">
+<link rel="preload" href="../fontes/orbitron.woff2" as="font" type="font/woff2" crossorigin>
+<!-- Site de exemplo do Linu Sites: o Café Aurora não existe. Na página principal, ele aparece embutido
+     (iframe) no simulador de preço, que liga e desliga as partes dele (ver script.js, "módulos"). -->
+<script src="../inicio.js"></script>
+<link rel="stylesheet" href="../estilo.css?v=2">
+<script src="../script.js?v=3" defer></script>
+</head>
+
+<body>
+<a class="skip" href="#conteudo">Saltar al contenido</a>
+
+<!-- BOOT -->
+<div class="boot" id="boot" role="status" aria-live="polite">
+  <div class="boot__logo">CAFÉ AURORA</div>
+  <div class="boot__bar"><div class="boot__fill" id="bootFill"></div></div>
+  <div class="boot__log" id="bootLog">Iniciando portal…</div>
+</div>
+
+<!-- CURSOR -->
+<div class="cur" id="cur" aria-hidden="true"></div>
+<div class="cur-dot" id="curDot" aria-hidden="true"></div>
+
+<!-- FUNDO -->
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="bg-veil" aria-hidden="true"></div>
+<div class="noise" aria-hidden="true"></div>
+<div class="scanlines" aria-hidden="true"></div>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <a href="#inicio" class="brand" aria-label="Café Aurora — inicio">
+    <span class="brand__orb" aria-hidden="true"></span>
+    CAFÉ&nbsp;AURORA
+  </a>
+
+  <nav class="nav__links" id="navLinks" aria-label="Navegación principal">
+    <a href="#inicio" class="active">Inicio</a>
+    <a href="#sobre">Origen</a>
+    <a href="#menu">Carta</a>
+    <a href="#laboratorio">Laboratorio</a>
+    <a href="#transmissoes">Transmisiones</a>
+  </nav>
+
+  <div class="nav__right">
+    <a href="#laboratorio" class="btn btn--magenta magnetic">Pedir ahora</a>
+    <button type="button" class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero__halo" aria-hidden="true"></div>
+    <div class="hero__rings" aria-hidden="true"><i></i><i></i><i></i></div>
+
+    <div>
+      <span class="hero__tag reveal">☕ <b>ABIERTO</b> 24H · SECTOR NEÓN-07 · DIMENSIÓN Ω</span>
+
+      <h1 class="glitch" data-text="CAFÉ&#10;AURORA">
+        <span>CAFÉ</span>
+        <span>AURORA</span>
+      </h1>
+
+      <p class="hero__sub reveal" data-d="1">
+        Tostamos granos cosechados en <b>realidades paralelas</b>. Cada taza es un pequeño colapso cuántico — y tu paladar, la única constante.
+      </p>
+
+      <div class="hero__cta reveal" data-d="2">
+        <a href="#menu" class="btn magnetic">Explorar la carta</a>
+        <a href="#sobre" class="btn btn--ghost magnetic">Cruzar el portal</a>
+      </div>
+
+      <div class="hero__stats reveal" data-d="3">
+        <div><b>12</b>Dimensiones activas</div>
+        <div><b>98,4 %</b>Precisión cuántica</div>
+        <div><b>∞</b>Recargas de sueño</div>
+      </div>
+    </div>
+
+    <div class="scroll-hint" aria-hidden="true">
+      <span>Desliza</span>
+      <i></i>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>Expreso Cuántico</span><span>Latte de Plasma</span><span>Cold Brew Neural</span>
+      <span>Matcha del Vacío</span><span>Leche de Estrella</span><span>Polvo de Cometa</span>
+      <span>Expreso Cuántico</span><span>Latte de Plasma</span><span>Cold Brew Neural</span>
+      <span>Matcha del Vacío</span><span>Leche de Estrella</span><span>Polvo de Cometa</span>
+    </div>
+  </div>
+
+  <!-- SOBRE -->
+  <section class="section" id="sobre">
+    <div class="about">
+      <div class="about__text">
+        <span class="eyebrow reveal">Origen</span>
+        <h2 class="reveal" data-d="1">Nacimos de un <em>cortocircuito</em> entre dos mundos</h2>
+
+        <div class="reveal" data-d="2">
+          <p class="lead">
+            En 2087, una barista llamada <strong>Aurora Vex</strong> derramó café sobre un reactor de curvatura. El resultado no fue una explosión — fue un aroma.
+          </p>
+          <p>
+            El aroma abrió una grieta. Al otro lado había una ciudad igual a la nuestra, pero con luces que pensaban y lluvia que recordaba. Allí encontramos los granos que hoy servimos.
+          </p>
+          <p>
+            <strong>Café Aurora</strong> es el único punto de encuentro entre las dos metrópolis. Aquí el vapor sube despacio y el tiempo acepta detenerse unos minutos — siempre que pidas la segunda taza.
+          </p>
+        </div>
+      </div>
+
+      <div class="portal reveal" data-d="3" aria-hidden="true">
+        <div class="portal__ring"></div>
+        <div class="portal__ring"></div>
+        <div class="portal__ring"></div>
+        <div class="portal__core"></div>
+        <span class="portal__label">Grieta estable · 3.2 nm</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="section" id="menu">
+    <span class="eyebrow reveal">Carta</span>
+    <h2 class="reveal" data-d="1">Mezclas que <em>no existen</em> en ningún otro sitio</h2>
+    <p class="lead reveal" data-d="2">
+      Seis recetas calibradas para distintas frecuencias cerebrales. Todas servidas en tazas autorregenerativas.
+    </p>
+
+    <div class="menu-grid">
+      <article class="card reveal tilt" data-d="1">
+        <div class="card__top">
+          <div class="card__icon" aria-hidden="true">⚡</div>
+          <span class="card__id">LX-001</span>
+        </div>
+        <h3>Expreso Cuántico</h3>
+        <p>Dos extracciones simultáneas en universos distintos. Pruebas la media entre ambas.</p>
+        <div class="card__foot">
+          <span class="card__price">₡ 18</span>
+          <span class="card__tag">Intenso</span>
+        </div>
+      </article>
+
+      <article class="card card--m reveal tilt" data-d="2">
+        <div class="card__top">
+          <div class="card__icon" aria-hidden="true">🌌</div>
+          <span class="card__id">LX-014</span>
+        </div>
+        <h3>Latte de Plasma</h3>
+        <p>Leche vaporizada a 340 °C en un campo magnético. Brilla un poco cuando la remueves.</p>
+        <div class="card__foot">
+          <span class="card__price">₡ 24</span>
+          <span class="card__tag">Brillante</span>
+        </div>
+      </article>
+
+      <article class="card card--v reveal tilt" data-d="3">
+        <div class="card__top">
+          <div class="card__icon" aria-hidden="true">❄️</div>
+          <span class="card__id">LX-027</span>
+        </div>
+        <h3>Cold Brew Neural</h3>
+        <p>Fermentado durante 72 h en una cámara de privación sensorial. Se sincroniza con tu ritmo de concentración.</p>
+        <div class="card__foot">
+          <span class="card__price">₡ 22</span>
+          <span class="card__tag">Lúcido</span>
+        </div>
+      </article>
+
+      <article class="card card--a reveal tilt" data-d="4">
+        <div class="card__top">
+          <div class="card__icon" aria-hidden="true">🍃</div>
+          <span class="card__id">LX-033</span>
+        </div>
+        <h3>Matcha del Vacío</h3>
+        <p>Hojas cultivadas donde no hay luz. El sabor llega antes que el aroma — no preguntes cómo.</p>
+        <div class="card__foot">
+          <span class="card__price">₡ 26</span>
+          <span class="card__tag">Etéreo</span>
+        </div>
+      </article>
+
+      <article class="card card--m reveal tilt" data-d="5">
+        <div class="card__top">
+          <div class="card__icon" aria-hidden="true">✨</div>
+          <span class="card__id">LX-042</span>
+        </div>
+        <h3>Leche de Estrella</h3>
+        <p>Sin cafeína. Hecho de polvo estelar condensado y un poco de nostalgia.</p>
+        <div class="card__foot">
+          <span class="card__price">₡ 20</span>
+          <span class="card__tag">Suave</span>
+        </div>
+      </article>
+
+      <article class="card card--v reveal tilt" data-d="5">
+        <div class="card__top">
+          <div class="card__icon" aria-hidden="true">☄️</div>
+          <span class="card__id">LX-050</span>
+        </div>
+        <h3>Polvo de Cometa</h3>
+        <p>Un triple shot con astillas de hielo orbital. El hielo nunca se derrite — solo se rinde.</p>
+        <div class="card__foot">
+          <span class="card__price">₡ 31</span>
+          <span class="card__tag">Raro</span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- LABORATÓRIO -->
+  <section class="section" id="laboratorio">
+    <span class="eyebrow reveal">Laboratorio</span>
+    <h2 class="reveal" data-d="1">Sintetiza tu <em>propia</em> taza</h2>
+    <p class="lead reveal" data-d="2">
+      Ajusta los parámetros. La bebida se recalcula en tiempo real — como todo por aquí.
+    </p>
+
+    <div class="lab">
+      <!-- Painel -->
+      <div class="lab__panel reveal" data-d="2" id="labForm" role="group" aria-label="Crea tu bebida">
+        <div class="lab__group">
+          <div class="lab__label"><span>01 · Base molecular</span></div>
+          <div class="chips" role="radiogroup" aria-label="Base molecular">
+            <label class="chip">
+              <input type="radio" name="base" value="expresso" checked>
+              <span>Expreso</span>
+            </label>
+            <label class="chip">
+              <input type="radio" name="base" value="coldbrew">
+              <span>Cold Brew</span>
+            </label>
+            <label class="chip">
+              <input type="radio" name="base" value="matcha">
+              <span>Matcha</span>
+            </label>
+            <label class="chip">
+              <input type="radio" name="base" value="estelar">
+              <span>Leche Estelar</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="lab__group">
+          <div class="lab__label">
+            <span>02 · Intensidad cuántica</span>
+            <b id="intVal">7</b>
+          </div>
+          <input type="range" id="intensity" min="1" max="10" value="7"
+                 aria-label="Intensidad cuántica, de 1 a 10">
+        </div>
+
+        <div class="lab__group">
+          <div class="lab__label"><span>03 · Modificadores</span></div>
+          <div class="chips">
+            <label class="chip">
+              <input type="checkbox" name="top[]" value="Polvo de Cometa">
+              <span>Polvo de Cometa</span>
+            </label>
+            <label class="chip">
+              <input type="checkbox" name="top[]" value="Espuma de Plasma">
+              <span>Espuma de Plasma</span>
+            </label>
+            <label class="chip">
+              <input type="checkbox" name="top[]" value="Cristal de Azúcar">
+              <span>Cristal de Azúcar</span>
+            </label>
+            <label class="chip">
+              <input type="checkbox" name="top[]" value="Flor de Neón">
+              <span>Flor de Neón</span>
+            </label>
+          </div>
+        </div>
+
+        <div class="lab__result">
+          <small>Salida del sintetizador</small>
+          <div id="drinkName">Expreso Cuántico · Nivel VII</div>
+          <span id="drinkPrice">₡ 21,50</span>
+        </div>
+      </div>
+
+      <!-- Xícara -->
+      <div class="cup-stage reveal" data-d="3">
+        <div class="cup-wrap">
+          <div class="cup-glow" id="cupGlow" aria-hidden="true"></div>
+          <div class="steam" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="cup">
+            <div class="liquid" id="liquid"></div>
+          </div>
+          <div class="saucer" aria-hidden="true"></div>
+
+          <span class="badge-float">temp · 68 °C</span>
+          <span class="badge-float">ph · 5.4</span>
+          <span class="badge-float">dim · Ω-07</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANSMISSÕES -->
+  <section class="section" id="transmissoes">
+    <span class="eyebrow reveal">Transmisiones</span>
+    <h2 class="reveal" data-d="1">Voces captadas de <em>otras</em> dimensiones</h2>
+
+    <div class="trans-grid">
+      <blockquote class="trans reveal" data-d="1">
+        <q>Pedí un Expreso Cuántico y empecé a recordar una infancia que nunca tuve. Lo recomiendo. Vuelvo mañana — o ayer.</q>
+        <footer><b>Kira-09</b>Sector Neón-07</footer>
+      </blockquote>
+
+      <blockquote class="trans reveal" data-d="2">
+        <q>El Latte de Plasma brilló cuando lloré. Fue incómodo para los dos, pero el sabor era impecable.</q>
+        <footer><b>Dr. Halven</b>Clínica de Recuerdos</footer>
+      </blockquote>
+
+      <blockquote class="trans reveal" data-d="3">
+        <q>Solo vine a comprar café. Salí con una teoría sobre el tiempo y un vaso que se niega a vaciarse.</q>
+        <footer><b>Anónima</b>Dimensión Ω-11</footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2 class="reveal">La grieta está abierta <em>hasta tarde</em></h2>
+    <p class="reveal" data-d="1">
+      No hace falta reservar. Solo valor para cruzar la puerta equivocada.
+    </p>
+    <div class="hero__cta reveal" data-d="2">
+      <a href="#menu" class="btn btn--magenta magnetic">Ver la carta completa</a>
+      <a href="#inicio" class="btn btn--ghost magnetic">Volver al inicio</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="foot">
+    <div>
+      <div class="brand">
+        <span class="brand__orb" aria-hidden="true"></span>CAFÉ AURORA
+      </div>
+      <p>Tueste interdimensional desde 2087. Granos cosechados con ética en universos que dieron su consentimiento.</p>
+
+      <form class="newsletter" id="newsForm" novalidate>
+        <label class="sr-only" for="email">Tu email para recibir señales</label>
+        <input type="email" id="email" placeholder="tu@email.dim" autocomplete="email" required>
+        <button type="submit" class="btn magnetic">Suscribirme</button>
+      </form>
+      <p id="newsMsg" role="status" aria-live="polite" class="news-msg"></p>
+    </div>
+
+    <div>
+      <h4>Coordenadas</h4>
+      <ul>
+        <li>Calle Vex, 2087 — Sector Neón-07</li>
+        <li>Metrópolis Baja · Sótano 3</li>
+        <li>Entrada por la puerta que no estaba ahí</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>Horario</h4>
+      <ul>
+        <li>Lun–Vie · 06h — 04h</li>
+        <li>Sáb–Dom · siempre</li>
+        <li>Festivos dimensionales · cerrado</li>
+      </ul>
+      <h4 class="foot__h4-espaco">Señal</h4>
+      <ul>
+        <li><a href="#inicio">@cafeaurora.omega</a></li>
+        <li><a href="#inicio">+Ω 07 2087-0000</a></li>
+      </ul>
+    </div>
+
+    <div class="foot__bottom">
+      <span>© <span id="year"></span> Café Aurora <span class="dot">◆</span> Todos los universos reservados</span>
+      <span>Cafetería ficticia · web de ejemplo hecha por <a href="https://sites.linupedia.com.br/es/" target="_top">Linu Sites</a></span>
+    </div>
+  </footer>
+</main>
+
+<!-- PAINEL DE DIMENSÃO -->
+<aside class="dim" id="dim" aria-label="Ajuste de dimensión cromática">
+  <button type="button" class="dim__head" id="dimHead" aria-expanded="true" aria-controls="dimBody">
+    <span class="dim__titulo"><i aria-hidden="true"></i>Sintonizar dimensión</span>
+    <span aria-hidden="true" id="dimChevron">▾</span>
+  </button>
+  <div class="dim__body" id="dimBody">
+    <label for="hue">Desvío cromático · <span id="hueVal">0°</span></label>
+    <input type="range" id="hue" min="-70" max="70" value="0" aria-label="Desvío cromático en grados">
+    <p class="dim__hint">Arrastra para desplazar el espectro de la cafetería. Nada se rompe — probablemente.</p>
+  </div>
+</aside>
+
+<!-- PAINEL (módulo "painel para mexer sozinho"): só aparece quando o simulador liga o módulo -->
+<div class="painel-demo" id="painelDemo" hidden>
+  <button type="button" class="painel-demo__botao" id="painelBotao" aria-pressed="false">✎ Editar textos</button>
+  <p class="painel-demo__aviso" id="painelAviso" role="status" aria-live="polite"></p>
+</div>
+
+</body>
+</html>

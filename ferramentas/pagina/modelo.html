@@ -29,9 +29,9 @@
   <!-- Os textos que os scripts escrevem (menu, luz, Monte o seu site), no idioma da página -->
   <script type="application/json" id="textos-js">{{textos_js}}</script>
   <script src="{{raiz}}js/tema-inicio.js?v=5"></script>
-  <link rel="stylesheet" href="{{raiz}}css/estilo.css?v=14">
+  <link rel="stylesheet" href="{{raiz}}css/estilo.css?v=15">
   <script src="{{raiz}}js/tema.js?v=7" defer></script>
-  <script src="{{raiz}}js/menu.js?v=6" defer></script>
+  <script src="{{raiz}}js/menu.js?v=7" defer></script>
   <script src="{{raiz}}js/movimento.js?v=9" defer></script>
   <script src="{{raiz}}js/simulador.js?v=3" defer></script>
 </head>
@@ -162,7 +162,7 @@
                 <h3>LinuPedia</h3>
                 <p>{{linupedia_texto}}</p>
                 <p class="projeto-links">
-                  <a class="projeto-link" href="{{raiz}}projetos/linupedia"{{como_foi_feito_lang}}>{{como_foi_feito}}</a>
+                  <a class="projeto-link" href="projetos/linupedia">{{como_foi_feito}}</a>
                   <a class="projeto-link" href="https://linupedia.com.br" target="_blank" rel="noopener">linupedia.com.br</a>
                 </p>
               </div>
@@ -174,7 +174,7 @@
                 <h3>V²Tech COMBUSTÍVEL</h3>
                 <p>{{v2tech_texto}}</p>
                 <p class="projeto-links">
-                  <a class="projeto-link" href="{{raiz}}projetos/v2tech"{{como_foi_feito_lang}}>{{como_foi_feito}}</a>
+                  <a class="projeto-link" href="projetos/v2tech">{{como_foi_feito}}</a>
                   <a class="projeto-link" href="https://v2tech.app.br" target="_blank" rel="noopener">v2tech.app.br</a>
                 </p>
               </div>
@@ -186,7 +186,7 @@
                 <h3>Los Vega na Estrada</h3>
                 <p>{{losvega_texto}}</p>
                 <p class="projeto-links">
-                  <a class="projeto-link" href="{{raiz}}projetos/losvega"{{como_foi_feito_lang}}>{{como_foi_feito}}</a>
+                  <a class="projeto-link" href="projetos/losvega">{{como_foi_feito}}</a>
                   <a class="projeto-link" href="https://losveganaestrada.com.br" target="_blank" rel="noopener">losveganaestrada.com.br</a>
                 </p>
               </div>
@@ -198,7 +198,7 @@
                 <h3>Marginalia</h3>
                 <p>{{marginalia_texto}}</p>
                 <p class="projeto-links">
-                  <a class="projeto-link" href="{{raiz}}projetos/marginalia"{{como_foi_feito_lang}}>{{como_foi_feito}}</a>
+                  <a class="projeto-link" href="projetos/marginalia">{{como_foi_feito}}</a>
                   <a class="projeto-link" href="https://marginalia.blog.br" target="_blank" rel="noopener">marginalia.blog.br</a>
                 </p>
               </div>
@@ -210,7 +210,7 @@
                 <h3>Iconvet</h3>
                 <p>{{iconvet_texto}}</p>
                 <p class="projeto-links">
-                  <a class="projeto-link" href="{{raiz}}projetos/iconvet"{{como_foi_feito_lang}}>{{como_foi_feito}}</a>
+                  <a class="projeto-link" href="projetos/iconvet">{{como_foi_feito}}</a>
                   <a class="projeto-link" href="https://iconvet.com.br" target="_blank" rel="noopener">iconvet.com.br</a>
                 </p>
               </div>
@@ -222,7 +222,7 @@
                 <h3>Administração Judicial Oriente</h3>
                 <p>{{ajoriente_texto}}</p>
                 <p class="projeto-links">
-                  <a class="projeto-link" href="{{raiz}}projetos/ajoriente"{{como_foi_feito_lang}}>{{como_foi_feito}}</a>
+                  <a class="projeto-link" href="projetos/ajoriente">{{como_foi_feito}}</a>
                   <a class="projeto-link" href="https://ajoriente.com" target="_blank" rel="noopener">ajoriente.com</a>
                 </p>
               </div>
@@ -234,7 +234,7 @@
                 <h3>Dojo Legacy</h3>
                 <p>{{dojo_texto}}</p>
                 <p class="projeto-links">
-                  <a class="projeto-link" href="{{raiz}}projetos/dojo-legacy"{{como_foi_feito_lang}}>{{como_foi_feito}}</a>
+                  <a class="projeto-link" href="projetos/dojo-legacy">{{como_foi_feito}}</a>
                   <a class="projeto-link" href="https://www.bjj-link.com" target="_blank" rel="noopener">bjj-link.com</a>
                 </p>
               </div>
@@ -246,7 +246,7 @@
                 <h3>Ômega Imóveis</h3>
                 <p>{{omega_texto}}</p>
                 <p class="projeto-links">
-                  <a class="projeto-link" href="{{raiz}}projetos/omega"{{como_foi_feito_lang}}>{{como_foi_feito}}</a>
+                  <a class="projeto-link" href="projetos/omega">{{como_foi_feito}}</a>
                   <a class="projeto-link" href="https://omega-site-vert.vercel.app/" target="_blank" rel="noopener">omega-site-vert.vercel.app</a>
                 </p>
               </div>
@@ -258,37 +258,37 @@
           <p class="secao-sub">{{estudo_sub}}</p>
           <div class="projetos">
             <article class="projeto" data-areas="comercio">
-              <a href="https://cafe.linupedia.com.br" target="_blank" rel="noopener"><img src="{{raiz}}img/projetos/cafe-aurora.webp" alt="{{cafe_alt}}" width="960" height="600" loading="lazy"></a>
+              <a href="{{cafe_url}}" target="_blank" rel="noopener"><img src="{{raiz}}img/projetos/cafe-aurora.webp" alt="{{cafe_alt}}" width="960" height="600" loading="lazy"></a>
               <div class="projeto-texto">
                 <p class="etiqueta">{{cafe_etiqueta}}</p>
                 <h3>Café Aurora</h3>
                 <p>{{cafe_texto}}</p>
                 <p class="projeto-links">
-                  <a class="projeto-link" href="https://cafe.linupedia.com.br" target="_blank" rel="noopener">cafe.linupedia.com.br</a>
+                  <a class="projeto-link" href="{{cafe_url}}" target="_blank" rel="noopener">cafe.linupedia.com.br</a>
                   <a class="projeto-link" href="https://github.com/Seiabras/cafe-aurora" target="_blank" rel="noopener">{{codigo_github}}</a>
                 </p>
               </div>
             </article>
             <article class="projeto" data-areas="servicos">
-              <a href="https://cerrado.linupedia.com.br" target="_blank" rel="noopener"><img src="{{raiz}}img/projetos/fotografia-do-cerrado.webp" alt="{{cerrado_alt}}" width="960" height="600" loading="lazy"></a>
+              <a href="{{cerrado_url}}" target="_blank" rel="noopener"><img src="{{raiz}}img/projetos/fotografia-do-cerrado.webp" alt="{{cerrado_alt}}" width="960" height="600" loading="lazy"></a>
               <div class="projeto-texto">
                 <p class="etiqueta">{{cerrado_etiqueta}}</p>
                 <h3>Fotografia do Cerrado</h3>
                 <p>{{cerrado_texto}}</p>
                 <p class="projeto-links">
-                  <a class="projeto-link" href="https://cerrado.linupedia.com.br" target="_blank" rel="noopener">cerrado.linupedia.com.br</a>
+                  <a class="projeto-link" href="{{cerrado_url}}" target="_blank" rel="noopener">cerrado.linupedia.com.br</a>
                   <a class="projeto-link" href="https://github.com/Seiabras/fotografia-do-cerrado" target="_blank" rel="noopener">{{codigo_github}}</a>
                 </p>
               </div>
             </article>
             <article class="projeto" data-areas="educacao">
-              <a href="https://abelhas.linupedia.com.br" target="_blank" rel="noopener"><img src="{{raiz}}img/projetos/abelhas-sem-ferrao.webp" alt="{{abelhas_alt}}" width="960" height="600" loading="lazy"></a>
+              <a href="{{abelhas_url}}" target="_blank" rel="noopener"><img src="{{raiz}}img/projetos/abelhas-sem-ferrao.webp" alt="{{abelhas_alt}}" width="960" height="600" loading="lazy"></a>
               <div class="projeto-texto">
                 <p class="etiqueta">{{abelhas_etiqueta}}</p>
                 <h3>Abelhas sem Ferrão</h3>
                 <p>{{abelhas_texto}}</p>
                 <p class="projeto-links">
-                  <a class="projeto-link" href="https://abelhas.linupedia.com.br" target="_blank" rel="noopener">abelhas.linupedia.com.br</a>
+                  <a class="projeto-link" href="{{abelhas_url}}" target="_blank" rel="noopener">abelhas.linupedia.com.br</a>
                   <a class="projeto-link" href="https://github.com/Seiabras/abelhas-sem-ferrao" target="_blank" rel="noopener">{{codigo_github}}</a>
                 </p>
               </div>
@@ -324,10 +324,10 @@
           </div>
           <div class="simulador-tela">
             <p class="simulador-barra" aria-hidden="true"><i></i><i></i><i></i><span>{{simulador_barra}}</span></p>
-            <iframe src="https://cafe.linupedia.com.br/" title="{{simulador_iframe}}" width="960" height="640" loading="lazy"></iframe>
+            <iframe src="{{cafe_url}}" title="{{simulador_iframe}}" width="960" height="640" loading="lazy"></iframe>
           </div>
         </div>
-        <p class="simulador-credito">{{simulador_credito}} <a href="https://cafe.linupedia.com.br/" target="_blank" rel="noopener">{{simulador_tela_cheia}}</a></p>
+        <p class="simulador-credito">{{simulador_credito}} <a href="{{cafe_url}}" target="_blank" rel="noopener">{{simulador_tela_cheia}}</a></p>
       </div>
     </section>
 

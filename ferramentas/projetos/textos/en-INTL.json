@@ -1,0 +1,147 @@
+{
+  "linupedia": {
+    "etiqueta": "Installable app",
+    "alt": "LinuPedia's linuhub: Linu's camp in pixel art, at night, with the campfire and his friends",
+    "resumo": "A language app that became a playable encyclopedia: 197 languages and 39 areas of knowledge, on phones and computers, working even offline.",
+    "desafio": "Teach languages, and then science, arts and hobbies, to Portuguese speakers: free for everyone, with no ads, no need for internet and nothing made up. Every fact and every example must come with its source.",
+    "feito": [
+      "The course is an adventure: a map that leaves Antarctica and reaches the country of the language, with radio crossings, decisions and voice conversations.",
+      "The linuhub, the app's home: a pixel art camp in Antarctica where Linu walks (by tapping, joystick or keyboard) to each area, with the island map and other people's penguins.",
+      "Linu's shelter in pixel art, with light that follows the clock (day, midnight sun and a night with the aurora), where every object is a shortcut.",
+      "Voice in every language: recordings by native speakers, the device's voice and a neural voice that works offline.",
+      "Plenty to practice: branching stories, a diary with a corrector, dictation, a sticker album and 77 games.",
+      "Accessible: light and dark themes, “reduce motion” and screen readers.",
+      "Open content: lessons can be copied and adapted by teachers and schools (CC BY-NC-SA 4.0)."
+    ],
+    "dentro": [
+      "One codebase for Android, iOS and the web (React Native and Expo).",
+      "It installs on the phone's home screen like an app and opens offline; progress is stored in a database on the device itself.",
+      "The server publishes each new version on its own, but only if every test passes; people with the app installed see a “New version” notice when they come back to it."
+    ]
+  },
+  "v2tech": {
+    "etiqueta": "Business tool",
+    "alt": "V²Tech COMBUSTÍVEL home page showing the fair price of diesel",
+    "resumo": "For bus companies, trucking companies and fleets in Brazil to check whether the price of diesel, gasoline or ethanol charged by the distributor makes sense.",
+    "desafio": "When a new fuel price arrives, knowing whether it is fair takes a long calculation: the Petrobras price, taxes, biodiesel, freight, the distributor's margin and interest on payment terms. That calculation lived in a spreadsheet.",
+    "feito": [
+      "The customer enters where they receive the fuel, what the contract says and the proposed price; the site answers whether the price makes sense, what the fair price would be and how much the difference represents per month.",
+      "Company accounts with teams: everyone sees the same contracts and queries.",
+      "Saved contracts are recalculated every day, with an email alert when the price paid leaves the range or a price change is coming.",
+      "A one-page PDF report and, when the price is high, a ready-made letter to the distributor.",
+      "A public map of the fair price by state, a scenario simulator and a calendar of price changes.",
+      "An API so fleet systems can look up the fair price on their own."
+    ],
+    "dentro": [
+      "The calculation runs on the server: the customer's browser only receives the result.",
+      "Market data (Petrobras, the Central Bank of Brazil, the fuel regulator ANP) is updated every day by a bot that rejects implausible values.",
+      "Daily encrypted backups."
+    ]
+  },
+  "losvega": {
+    "etiqueta": "Sales website with dashboard",
+    "alt": "Los Vega na Estrada home page, tailor-made travel itineraries",
+    "resumo": "Tailor-made travel itineraries, on a website built to be the link in the Instagram bio.",
+    "desafio": "Turn people arriving from Instagram into orders, showing the price from the start, and organize the orders with no spreadsheet and no lost messages.",
+    "feito": [
+      "A website with how it works, what's included, prices, who it's for, FAQ and travel guides.",
+      "The “Tell us about your trip” form shows the itinerary price straight away, based on the type and number of destinations.",
+      "A dashboard with the orders, the status of each one (new, in conversation, closed, delivered), notes and a button to reply on WhatsApp with a ready-made message.",
+      "An Instagram tab in the dashboard: a bio link that tags orders coming from there, a suggested bio, captions and hashtags to copy.",
+      "It installs on the phone like an app."
+    ],
+    "dentro": [
+      "Prices live in a file and change without restarting anything.",
+      "Visit counting without cookies and without storing IPs, shown in the dashboard itself.",
+      "Daily backup of the orders, keeping the last 30."
+    ]
+  },
+  "marginalia": {
+    "etiqueta": "Digital publication",
+    "alt": "Marginalia home page, a History and humanities publication",
+    "resumo": "An independent digital publication of History and humanities, by Íris Chermont.",
+    "desafio": "Publish research texts with notes, references and the feel of a magazine, without depending on a blogging platform and without the author having to touch code.",
+    "feito": [
+      "Three tabs: the project, the contents (with search and category filter) and the page about the author.",
+      "Each text has a category, topic, date, reading time, notes in the margin, references and a ready-to-copy citation in the Brazilian ABNT style.",
+      "Email subscription, with confirmation and one-click unsubscribe.",
+      "The author's dashboard: the editor accepts text pasted from Word and Google Docs while keeping the footnotes, and has buttons for margin notes and footnotes.",
+      "In the editor, a ready-made Instagram image with the title of the text."
+    ],
+    "dentro": [
+      "Its own server, with no external dependencies.",
+      "Read counting without cookies and without storing IPs.",
+      "Daily encrypted backup of texts, pages and images, kept for 90 days."
+    ]
+  },
+  "iconvet": {
+    "etiqueta": "Company website",
+    "alt": "Iconvet home page, a veterinary clinic in Salvador, featuring its imaging department",
+    "resumo": "The website of Iconvet, a general and specialist veterinary clinic in Rio Vermelho, Salvador, Brazil.",
+    "desafio": "A clinic with many departments (clinical, surgical, laboratory, imaging, inpatient care) and dozens of services and specialties needed a new website on its own domain, where pet owners could quickly find what they need and reach WhatsApp in one tap.",
+    "feito": [
+      "A home page with rotating highlights (such as the new imaging department), the areas of care, the services, the clinic's principles and inpatient care.",
+      "A page for each department, test, procedure, service and area of care: 74 pages in the sitemap.",
+      "Pages about the clinic: history, facilities, team, values, quality management, legal department, infection control, the internship program, guidance for patients and visitors, and the gallery.",
+      "Address, phone numbers, opening hours and WhatsApp always at hand: in the top bar, in the floating button and in the footer, with directions on the map.",
+      "A “Client Area” button that leads to the clinic's system (SimplesPet)."
+    ],
+    "dentro": [
+      "Built with Next.js and hosted on Vercel, with the clinic's domain pointing to the new site.",
+      "Every page has its own title and description, plus the sitemap and robots.txt for search engines."
+    ]
+  },
+  "ajoriente": {
+    "etiqueta": "Website with case lookup",
+    "alt": "Administração Judicial Oriente home page: “Guiding companies to new beginnings”",
+    "resumo": "The website of Administração Judicial Oriente, in Rio de Janeiro: judicial and out-of-court reorganization, bankruptcy, personal insolvency and judicial liquidation.",
+    "desafio": "Creditors, companies and the court need to quickly find the information about each case and the document templates. The website had to convey seriousness and keep that lookup a few clicks away.",
+    "feito": [
+      "An introduction to Oriente and its five practice areas, with dedicated pages for judicial reorganization and bankruptcy.",
+      "Case lookup by category (bankruptcy and judicial reorganization), with a page per company: case number, documents and announcements.",
+      "The four document templates (proof of claim, claim objection, proxy for the creditors' meeting) to open or download.",
+      "A contact form with the subject chosen from a list, consent to data processing and the privacy policy.",
+      "Email, phone and WhatsApp on every page."
+    ],
+    "dentro": [
+      "Built with Next.js and hosted on Vercel, on its own domain.",
+      "The form has a honeypot field against spam bots.",
+      "A “Skip to content” link for people using a keyboard or a screen reader."
+    ]
+  },
+  "dojo-legacy": {
+    "etiqueta": "Browser and mobile game",
+    "alt": "Dojo Legacy home page: “From white belt to mat legend”, with the game on a computer and a phone",
+    "resumo": "A Jiu-Jitsu and MMA career game: you start at white belt and end as a legend. Free in the browser, on iPhone and on Android.",
+    "desafio": "A turn-based fighting game with a whole career, on and off the mat, that runs the same in the browser and on the phone, saves progress in the cloud and brings players together in rankings, leagues and PvP.",
+    "feito": [
+      "Move-by-move fights: position, stamina and momentum, with 165 Jiu-Jitsu techniques and 61 MMA striking techniques.",
+      "A full career: belt promotions, your own gym with students, a manager, sponsorships and contracts, and an heir who carries on the legacy.",
+      "Turn-based online PvP, live tournaments and the Team League, with five divisions, from the Rookie League to the Grand League.",
+      "Live rankings and a Hall of Fame, with real players only, updated every hour.",
+      "A game guide with a page per technique and per championship, in Portuguese and English: 566 pages in the sitemap.",
+      "You can play without an account; with the free account, your career is saved in the cloud and continues on another device."
+    ],
+    "dentro": [
+      "A Next.js website on Vercel; the same game in the browser and in the iPhone and Android apps.",
+      "Careers are saved in the cloud, and team logos in Supabase.",
+      "Portuguese and English, with the language chosen at the top."
+    ]
+  },
+  "omega": {
+    "etiqueta": "Business website",
+    "alt": "Ômega Imóveis home page: “The right place changes everything”, over Rio's South Zone at sunset",
+    "resumo": "The website of Ômega Imóveis, an real estate agency in Rio de Janeiro's South Zone, with close, elegant and strategic service.",
+    "desafio": "Present a new real estate agency to a demanding audience: less a window of listings and more about how it works and the neighborhoods it covers, taking the conversation to WhatsApp.",
+    "feito": [
+      "A single page that reads like a magazine: the opening, the essence (property, location and choices), the manifesto, the neighborhoods and the approach.",
+      "The South Zone neighborhoods, each with its own identity: Ipanema, Leblon, Lagoa and Copacabana in the spotlight, plus Gávea, Jardim Botânico, São Conrado and Botafogo.",
+      "The method in three steps: listening first, market insight and lasting relationships.",
+      "A call to talk at the top and at the end of the page, and the company's and the responsible broker's CRECI license numbers in the footer."
+    ],
+    "dentro": [
+      "Hosted on Vercel, for now without its own domain.",
+      "A lightweight page, with a “Skip to content” link for keyboard users."
+    ]
+  }
+}

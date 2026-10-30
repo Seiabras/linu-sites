@@ -1,0 +1,147 @@
+{
+  "linupedia": {
+    "etiqueta": "Application installable",
+    "alt": "Le linuhub de LinuPedia : le campement de Linu en pixel art, la nuit, avec le feu de camp et ses amis",
+    "resumo": "Une application de langues devenue une encyclopédie jouable : 197 langues et 39 domaines du savoir, sur téléphone et ordinateur, qui fonctionne même hors ligne.",
+    "desafio": "Enseigner les langues, puis les sciences, les arts et les loisirs, aux lusophones : gratuitement pour tous, sans publicité, sans dépendre d’internet et sans rien inventer. Chaque fait et chaque exemple doit avoir sa source.",
+    "feito": [
+      "Le parcours est une aventure : une carte qui part de l’Antarctique et arrive dans le pays de la langue, avec des traversées par radio, des choix et des conversations à voix haute.",
+      "Le linuhub, la maison de l’application : un campement en pixel art en Antarctique, où Linu marche (au toucher, au joystick ou au clavier) jusqu’à chaque espace, avec la carte de l’île et les manchots des autres.",
+      "L’abri de Linu en pixel art, avec une lumière qui suit l’horloge (jour, soleil de minuit et nuit avec aurore), où chaque objet est un raccourci.",
+      "La voix dans toutes les langues : des enregistrements de locuteurs natifs, la voix de l’appareil et une voix neuronale qui fonctionne hors ligne.",
+      "De quoi s’entraîner : des histoires à choix, un journal avec correcteur, des dictées, un album d’images et 77 jeux.",
+      "Accessible : thème clair et sombre, « réduire les animations » et lecteurs d’écran.",
+      "Contenu libre : les leçons peuvent être copiées et adaptées par les enseignants et les écoles (CC BY-NC-SA 4.0)."
+    ],
+    "dentro": [
+      "Un seul code pour Android, iOS et le web (React Native et Expo).",
+      "Elle s’installe sur l’écran d’accueil comme une application et s’ouvre hors ligne ; la progression est stockée dans une base sur l’appareil.",
+      "Le serveur publie seul chaque nouvelle version, mais seulement si tous les tests passent ; ceux qui ont l’application installée voient l’avis « Nouvelle version » en y revenant."
+    ]
+  },
+  "v2tech": {
+    "etiqueta": "Outil pour les entreprises",
+    "alt": "Page d’accueil de V²Tech COMBUSTÍVEL avec le juste prix du gazole",
+    "resumo": "Pour que les sociétés de bus, les transporteurs et les flottes au Brésil vérifient si le prix du gazole, de l’essence ou de l’éthanol facturé par le distributeur est cohérent.",
+    "desafio": "Quand un nouveau prix de carburant arrive, savoir s’il est juste demande un long calcul : le prix de Petrobras, les taxes, le biodiesel, le fret, la marge du distributeur et les intérêts du délai de paiement. Ce calcul vivait dans un tableur.",
+    "feito": [
+      "Le client indique où il reçoit le carburant, ce que dit le contrat et le prix proposé ; le site répond si le prix est cohérent, quel serait le juste prix et ce que l’écart représente par mois.",
+      "Des comptes par entreprise, avec une équipe : tout le monde voit les mêmes contrats et calculs.",
+      "Les contrats enregistrés sont recalculés chaque jour, avec une alerte par e-mail quand le prix payé sort de la fourchette ou qu’une hausse arrive.",
+      "Un rapport PDF d’une page et, quand le prix est élevé, une lettre prête pour le distributeur.",
+      "Une carte publique du juste prix par État, un simulateur de scénarios et un calendrier des hausses.",
+      "Une API pour que les systèmes de flotte consultent le juste prix tout seuls."
+    ],
+    "dentro": [
+      "Le calcul se fait sur le serveur : le navigateur du client ne reçoit que le résultat.",
+      "Les données de marché (Petrobras, la Banque centrale du Brésil, le régulateur ANP) sont mises à jour chaque jour par un robot qui refuse les valeurs invraisemblables.",
+      "Sauvegarde quotidienne chiffrée."
+    ]
+  },
+  "losvega": {
+    "etiqueta": "Site de vente avec tableau de bord",
+    "alt": "Page d’accueil de Los Vega na Estrada, itinéraires de voyage personnalisés",
+    "resumo": "Des itinéraires de voyage personnalisés, sur un site pensé pour être le lien de la bio Instagram.",
+    "desafio": "Transformer les visiteurs venus d’Instagram en demandes, en montrant le prix dès le départ, et organiser les demandes sans tableur ni message perdu.",
+    "feito": [
+      "Un site avec le fonctionnement, ce qui est inclus, les prix, à qui il s’adresse, une FAQ et des guides de voyage.",
+      "Le formulaire « Parlez-nous de votre voyage » affiche aussitôt le prix de l’itinéraire selon le type et le nombre de destinations.",
+      "Un tableau de bord avec les demandes, le statut de chacune (nouvelle, en discussion, conclue, livrée), des notes et un bouton pour répondre sur WhatsApp avec un message prêt.",
+      "Un onglet Instagram dans le tableau de bord : un lien de bio qui marque les demandes venues de là, une bio suggérée, des légendes et des hashtags à copier.",
+      "Il s’installe sur le téléphone comme une application."
+    ],
+    "dentro": [
+      "Les prix sont dans un fichier et changent sans rien redémarrer.",
+      "Comptage des visites sans cookies et sans conserver les adresses IP, affiché dans le tableau de bord.",
+      "Sauvegarde quotidienne des demandes, en gardant les 30 dernières."
+    ]
+  },
+  "marginalia": {
+    "etiqueta": "Publication numérique",
+    "alt": "Page d’accueil de Marginalia, publication d’Histoire et de sciences humaines",
+    "resumo": "Une publication numérique indépendante d’Histoire et de sciences humaines, d’Íris Chermont.",
+    "desafio": "Publier des textes de recherche avec notes, références et une allure de revue, sans dépendre d’une plateforme de blog et sans que l’autrice ait à toucher au code.",
+    "feito": [
+      "Trois onglets : le projet, le sommaire (avec recherche et filtre par catégorie) et la page sur l’autrice.",
+      "Chaque texte a une catégorie, un thème, une date, un temps de lecture, des notes en marge, des références et la citation au format brésilien ABNT prête à copier.",
+      "Abonnement par e-mail, avec confirmation et désinscription en un clic.",
+      "Le tableau de bord de l’autrice : l’éditeur accepte le texte collé depuis Word et Google Docs en gardant les notes de bas de page, avec des boutons pour les notes en marge et de bas de page.",
+      "Dans l’éditeur, une image prête pour Instagram avec le titre du texte."
+    ],
+    "dentro": [
+      "Un serveur propre, sans dépendances externes.",
+      "Comptage des lectures sans cookies et sans conserver les adresses IP.",
+      "Sauvegarde quotidienne chiffrée des textes, pages et images, conservée 90 jours."
+    ]
+  },
+  "iconvet": {
+    "etiqueta": "Site institutionnel",
+    "alt": "Page d’accueil d’Iconvet, clinique vétérinaire à Salvador, avec le service d’imagerie mis en avant",
+    "resumo": "Le site d’Iconvet, clinique vétérinaire généraliste et spécialisée à Rio Vermelho, Salvador (Brésil).",
+    "desafio": "Une clinique avec de nombreux services (médecine, chirurgie, laboratoire, imagerie, hospitalisation) et des dizaines de prestations et de spécialités avait besoin d’un nouveau site sur son propre domaine, où les propriétaires d’animaux trouvent vite ce qu’ils cherchent et arrivent à WhatsApp en un geste.",
+    "feito": [
+      "Une page d’accueil avec des mises en avant qui défilent (comme le nouveau service d’imagerie), les domaines de soins, les prestations, les principes de la clinique et l’hospitalisation.",
+      "Une page pour chaque service, examen, intervention, prestation et domaine de soins : 74 pages dans le plan du site.",
+      "Les pages de la clinique : histoire, installations, équipe, valeurs, gestion de la qualité, service juridique, hygiène hospitalière, programme de stages, conseils aux patients et aux visiteurs, et la galerie.",
+      "Adresse, téléphones, horaires et WhatsApp toujours à portée de main : dans la barre du haut, dans le bouton flottant et dans le pied de page, avec l’itinéraire sur la carte.",
+      "Un bouton « Espace client » qui mène au logiciel de la clinique (SimplesPet)."
+    ],
+    "dentro": [
+      "Réalisé avec Next.js et hébergé sur Vercel, avec le domaine de la clinique pointant vers le nouveau site.",
+      "Chaque page a son titre et sa description, plus le plan du site et le robots.txt pour les moteurs de recherche."
+    ]
+  },
+  "ajoriente": {
+    "etiqueta": "Site avec consultation de dossiers",
+    "alt": "Page d’accueil d’Administração Judicial Oriente : « Orienter les entreprises vers un nouveau départ »",
+    "resumo": "Le site d’Administração Judicial Oriente, à Rio de Janeiro : redressement judiciaire et amiable, faillites, surendettement et liquidation judiciaire.",
+    "desafio": "Créanciers, entreprises et tribunal doivent trouver vite les informations de chaque dossier et les modèles de documents. Le site devait inspirer le sérieux et garder cette consultation à quelques clics.",
+    "feito": [
+      "La présentation d’Oriente et de ses cinq domaines d’intervention, avec une page dédiée au redressement judiciaire et à la faillite.",
+      "Consultation des dossiers par catégorie (faillites et redressement judiciaire), avec une page par entreprise : numéro du dossier, documents et communiqués.",
+      "Les quatre modèles de documents (déclaration et contestation de créance, procuration pour l’assemblée des créanciers) à ouvrir ou télécharger.",
+      "Un formulaire de contact avec l’objet choisi dans une liste, le consentement au traitement des données et la politique de confidentialité.",
+      "E-mail, téléphone et WhatsApp sur toutes les pages."
+    ],
+    "dentro": [
+      "Réalisé avec Next.js et hébergé sur Vercel, sur son propre domaine.",
+      "Le formulaire a un champ piège contre les robots de spam.",
+      "Un lien « Aller au contenu » pour la navigation au clavier ou avec un lecteur d’écran."
+    ]
+  },
+  "dojo-legacy": {
+    "etiqueta": "Jeu sur navigateur et mobile",
+    "alt": "Page d’accueil de Dojo Legacy : « De la ceinture blanche à la légende du tatami », avec le jeu sur ordinateur et téléphone",
+    "resumo": "Un jeu de carrière de Jiu-Jitsu et de MMA : on commence ceinture blanche et on finit légende. Gratuit sur navigateur, iPhone et Android.",
+    "desafio": "Un jeu de combat au tour par tour avec toute une carrière, sur le tatami et en dehors, qui fonctionne de la même façon sur navigateur et sur téléphone, sauvegarde la progression dans le cloud et réunit les joueurs dans des classements, des ligues et du PvP.",
+    "feito": [
+      "Des combats coup par coup : position, endurance et dynamique, avec 165 techniques de Jiu-Jitsu et 61 techniques de frappe en MMA.",
+      "Une carrière complète : passages de ceinture, son propre club avec des élèves, un agent, des sponsors et des contrats, et un héritier qui poursuit l’héritage.",
+      "PvP en ligne au tour par tour, tournois en direct et la Ligue des équipes, avec cinq divisions, de la Ligue des débutants à la Grande Ligue.",
+      "Classements en direct et Panthéon, uniquement avec de vrais joueurs, mis à jour toutes les heures.",
+      "Un guide du jeu avec une page par technique et par championnat, en portugais et en anglais : 566 pages dans le plan du site.",
+      "On peut jouer sans compte ; avec le compte gratuit, la carrière est sauvegardée dans le cloud et se poursuit sur un autre appareil."
+    ],
+    "dentro": [
+      "Un site Next.js sur Vercel ; le même jeu sur navigateur et dans les applications iPhone et Android.",
+      "Les carrières sont sauvegardées dans le cloud, et les logos des équipes dans Supabase.",
+      "Portugais et anglais, avec la langue choisie en haut."
+    ]
+  },
+  "omega": {
+    "etiqueta": "Site vitrine",
+    "alt": "Page d’accueil d’Ômega Imóveis : « Le bon endroit change tout », sur la Zone Sud de Rio au coucher du soleil",
+    "resumo": "Le site d’Ômega Imóveis, agence immobilière de la Zone Sud de Rio de Janeiro, au service proche, élégant et stratégique.",
+    "desafio": "Présenter une nouvelle agence à un public exigeant : moins une vitrine d’annonces que sa façon de travailler et les quartiers où elle intervient, en menant la conversation vers WhatsApp.",
+    "feito": [
+      "Une page unique qui se lit comme un magazine : l’ouverture, l’essence (patrimoine, emplacement et choix), le manifeste, les quartiers et l’approche.",
+      "Les quartiers de la Zone Sud, chacun avec son identité : Ipanema, Leblon, Lagoa et Copacabana à l’honneur, puis Gávea, Jardim Botânico, São Conrado et Botafogo.",
+      "La méthode en trois étapes : l’écoute avant tout, la vision du marché et des relations qui durent.",
+      "Une invitation à échanger en haut et en bas de la page, et les numéros CRECI de l’agence et du responsable technique dans le pied de page."
+    ],
+    "dentro": [
+      "Hébergé sur Vercel, pour l’instant sans domaine propre.",
+      "Une page légère, avec un lien « Aller au contenu » pour la navigation au clavier."
+    ]
+  }
+}

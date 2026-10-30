@@ -1,0 +1,62 @@
+{
+  "ordem": [
+    "linupedia",
+    "v2tech",
+    "losvega",
+    "marginalia",
+    "iconvet",
+    "ajoriente",
+    "dojo-legacy",
+    "omega"
+  ],
+  "fixos": {
+    "linupedia": {
+      "nome": "LinuPedia",
+      "url": "https://linupedia.com.br",
+      "endereco": "linupedia.com.br",
+      "imagem": "linupedia.webp"
+    },
+    "v2tech": {
+      "nome": "V²Tech COMBUSTÍVEL",
+      "url": "https://v2tech.app.br",
+      "endereco": "v2tech.app.br",
+      "imagem": "v2tech.webp"
+    },
+    "losvega": {
+      "nome": "Los Vega na Estrada",
+      "url": "https://losveganaestrada.com.br",
+      "endereco": "losveganaestrada.com.br",
+      "imagem": "losvega.webp"
+    },
+    "marginalia": {
+      "nome": "Marginalia",
+      "url": "https://marginalia.blog.br",
+      "endereco": "marginalia.blog.br",
+      "imagem": "marginalia.webp"
+    },
+    "iconvet": {
+      "nome": "Iconvet",
+      "url": "https://iconvet.com.br",
+      "endereco": "iconvet.com.br",
+      "imagem": "iconvet.webp"
+    },
+    "ajoriente": {
+      "nome": "Administração Judicial Oriente",
+      "url": "https://ajoriente.com",
+      "endereco": "ajoriente.com",
+      "imagem": "ajoriente.webp"
+    },
+    "dojo-legacy": {
+      "nome": "Dojo Legacy",
+      "url": "https://www.bjj-link.com",
+      "endereco": "bjj-link.com",
+      "imagem": "dojo-legacy.webp"
+    },
+    "omega": {
+      "nome": "Ômega Imóveis",
+      "url": "https://omega-site-vert.vercel.app/",
+      "endereco": "omega-site-vert.vercel.app",
+      "imagem": "omega.webp"
+    }
+  }
+}

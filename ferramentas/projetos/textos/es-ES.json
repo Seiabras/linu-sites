@@ -1,0 +1,147 @@
+{
+  "linupedia": {
+    "etiqueta": "App que se instala",
+    "alt": "El linuhub de LinuPedia: el campamento de Linu en pixel art, de noche, con la hoguera y sus amigos",
+    "resumo": "Una app de idiomas que se convirtió en una enciclopedia jugable: 197 idiomas y 39 áreas del conocimiento, en el móvil y en el ordenador, y funciona incluso sin conexión.",
+    "desafio": "Enseñar idiomas, y después ciencias, artes y ocio, a hablantes de portugués: gratis para todos, sin anuncios, sin depender de internet y sin inventar nada. Cada dato y cada ejemplo tiene que llevar su fuente.",
+    "feito": [
+      "El curso es una aventura: un mapa que sale de la Antártida y llega al país del idioma, con travesías por radio, decisiones y conversación por voz.",
+      "El linuhub, la casa de la app: un campamento en pixel art en la Antártida, donde Linu camina (tocando, con joystick o con el teclado) hasta cada área, con el mapa de la isla y los pingüinos de otras personas.",
+      "El refugio de Linu en pixel art, con la luz que sigue el reloj (día, sol de medianoche y noche con aurora), donde cada objeto es un atajo.",
+      "Voz en todos los idiomas: grabaciones de hablantes nativos, la voz del dispositivo y una voz neuronal que funciona sin conexión.",
+      "Mucho para practicar: historias con decisiones, diario con corrector, dictado, álbum de cromos y 77 juegos.",
+      "Accesible: tema claro y oscuro, “reducir movimiento” y lectores de pantalla.",
+      "Contenido libre: las lecciones pueden copiarlas y adaptarlas profesores y escuelas (CC BY-NC-SA 4.0)."
+    ],
+    "dentro": [
+      "Un solo código para Android, iOS y web (React Native y Expo).",
+      "Se instala en la pantalla del móvil como una app y abre sin conexión; el progreso se guarda en una base de datos en el propio dispositivo.",
+      "El servidor publica solo la versión nueva, pero únicamente si pasan todas las pruebas; quien tiene la app instalada ve el aviso “Versión nueva” al volver a ella."
+    ]
+  },
+  "v2tech": {
+    "etiqueta": "Herramienta para empresas",
+    "alt": "Página de inicio de V²Tech COMBUSTÍVEL con el precio justo del gasóleo",
+    "resumo": "Para que empresas de autobuses, transportistas y flotas de Brasil comprueben si el precio del gasóleo, la gasolina o el etanol que cobra la distribuidora tiene sentido.",
+    "desafio": "Cuando llega un precio nuevo de combustible, saber si es justo exige una cuenta larga: el precio de Petrobras, impuestos, biodiésel, flete, margen de la distribuidora e intereses del plazo. Esa cuenta vivía en una hoja de cálculo.",
+    "feito": [
+      "El cliente indica dónde recibe el combustible, qué dice el contrato y el precio propuesto; la web responde si el precio tiene sentido, cuál sería el precio justo y cuánto supone la diferencia al mes.",
+      "Cuentas por empresa, con equipo: todos ven los mismos contratos y consultas.",
+      "Los contratos guardados se recalculan cada día, con aviso por email cuando el precio pagado se sale del rango o se acerca una subida.",
+      "Informe en PDF de una página y, cuando el precio viene alto, una carta lista para la distribuidora.",
+      "Mapa público del precio justo por estado, simulador de escenarios y calendario de subidas.",
+      "API para que los sistemas de flota consulten el precio justo por su cuenta."
+    ],
+    "dentro": [
+      "El cálculo se hace en el servidor: el navegador del cliente solo recibe el resultado.",
+      "Los datos de mercado (Petrobras, el Banco Central de Brasil, el regulador ANP) los actualiza cada día un robot que rechaza los valores poco plausibles.",
+      "Copia de seguridad diaria y cifrada."
+    ]
+  },
+  "losvega": {
+    "etiqueta": "Web de ventas con panel",
+    "alt": "Página de inicio de Los Vega na Estrada, itinerarios de viaje personalizados",
+    "resumo": "Itinerarios de viaje personalizados, en una web pensada para ser el enlace de la bio de Instagram.",
+    "desafio": "Convertir en pedidos a quienes llegan desde Instagram, mostrando el precio desde el principio, y organizar los pedidos sin hojas de cálculo ni mensajes perdidos.",
+    "feito": [
+      "Web con cómo funciona, qué incluye, precios, para quién es, preguntas frecuentes y guías de viaje.",
+      "El formulario “Cuéntanos tu viaje” ya muestra el precio del itinerario según el tipo y el número de destinos.",
+      "Panel con los pedidos, el estado de cada uno (nuevo, en conversación, cerrado, entregado), notas y un botón para responder por WhatsApp con el mensaje listo.",
+      "Pestaña de Instagram en el panel: enlace para la bio que marca los pedidos que llegan de allí, bio sugerida, textos y hashtags para copiar.",
+      "Se instala en el móvil como una app."
+    ],
+    "dentro": [
+      "Los precios están en un archivo y cambian sin reiniciar nada.",
+      "Recuento de visitas sin cookies y sin guardar la IP, mostrado en el propio panel.",
+      "Copia diaria de los pedidos, guardando las últimas 30."
+    ]
+  },
+  "marginalia": {
+    "etiqueta": "Publicación digital",
+    "alt": "Página de inicio de Marginalia, publicación de Historia y humanidades",
+    "resumo": "Publicación digital independiente de Historia y humanidades, de Íris Chermont.",
+    "desafio": "Publicar textos de investigación con notas, referencias y aire de revista, sin depender de una plataforma de blogs y sin que la autora tenga que tocar código.",
+    "feito": [
+      "Tres pestañas: el proyecto, el índice (con buscador y filtro por categoría) y la página sobre la autora.",
+      "Cada texto tiene categoría, tema, fecha, tiempo de lectura, notas al margen, referencias y la cita en formato ABNT brasileño lista para copiar.",
+      "Suscripción por email, con confirmación y baja en un clic.",
+      "Panel de la autora: el editor acepta texto pegado desde Word y Google Docs conservando las notas al pie, y tiene botones de nota al margen y de nota al pie.",
+      "En el editor, una imagen lista para Instagram con el título del texto."
+    ],
+    "dentro": [
+      "Servidor propio, sin dependencias externas.",
+      "Recuento de lecturas sin cookies y sin guardar la IP.",
+      "Copia diaria cifrada de textos, páginas e imágenes, guardada durante 90 días."
+    ]
+  },
+  "iconvet": {
+    "etiqueta": "Web corporativa",
+    "alt": "Página de inicio de Iconvet, clínica veterinaria en Salvador, con el área de diagnóstico por imagen destacada",
+    "resumo": "Web de Iconvet, clínica veterinaria general y especializada en Rio Vermelho, Salvador (Brasil).",
+    "desafio": "Una clínica con muchas áreas (clínica, cirugía, laboratorio, diagnóstico por imagen, hospitalización) y decenas de servicios y especialidades necesitaba una web nueva en su propio dominio, donde los dueños de mascotas encontraran rápido lo que buscan y llegaran a WhatsApp con un toque.",
+    "feito": [
+      "Página de inicio con destacados que van pasando (como la nueva área de diagnóstico por imagen), las áreas de atención, los servicios, los principios de la clínica y la hospitalización.",
+      "Una página para cada área, prueba, procedimiento, servicio y especialidad: 74 páginas en el mapa del sitio.",
+      "Páginas de la clínica: historia, instalaciones, equipo, valores, gestión de calidad, área jurídica, control de infecciones, programa de prácticas, orientaciones para pacientes y visitantes y la galería.",
+      "Dirección, teléfonos, horario y WhatsApp siempre a mano: en la barra superior, en el botón flotante y en el pie, con la ruta en el mapa.",
+      "Botón “Área de clientes”, que lleva al sistema de la clínica (SimplesPet)."
+    ],
+    "dentro": [
+      "Hecha en Next.js y publicada en Vercel, con el dominio de la clínica apuntando a la web nueva.",
+      "Cada página con su propio título y descripción, además del mapa del sitio y el robots.txt para los buscadores."
+    ]
+  },
+  "ajoriente": {
+    "etiqueta": "Web con consulta de procesos",
+    "alt": "Página de inicio de Administração Judicial Oriente: “Orientando empresas hacia nuevos comienzos”",
+    "resumo": "Web de Administração Judicial Oriente, de Río de Janeiro: reestructuración judicial y extrajudicial, quiebras, insolvencia civil y liquidación judicial.",
+    "desafio": "Acreedores, empresas y el juzgado necesitan encontrar rápido la información de cada proceso y los modelos de documento. La web tenía que transmitir seriedad y dejar esa consulta a pocos clics.",
+    "feito": [
+      "Presentación de Oriente y de sus cinco áreas de actuación, con página propia para la reestructuración judicial y para la quiebra.",
+      "Consulta de procesos por categoría (quiebras y reestructuración judicial), con una página por empresa: número del proceso, documentos y comunicados.",
+      "Los cuatro modelos de documento (comunicación e impugnación de créditos, poder para la junta de acreedores) para abrir o descargar.",
+      "Formulario de contacto con el asunto elegido de una lista, el consentimiento para el tratamiento de datos y la política de privacidad.",
+      "Email, teléfono y WhatsApp en todas las páginas."
+    ],
+    "dentro": [
+      "Hecha en Next.js y publicada en Vercel, en su propio dominio.",
+      "El formulario tiene un campo trampa contra los robots de spam.",
+      "Enlace “Saltar al contenido” para quien navega con el teclado o con lector de pantalla."
+    ]
+  },
+  "dojo-legacy": {
+    "etiqueta": "Juego en el navegador y el móvil",
+    "alt": "Página de inicio de Dojo Legacy: “De cinturón blanco a leyenda del tatami”, con el juego en el ordenador y en el móvil",
+    "resumo": "Juego de carrera de Jiu-Jitsu y MMA: empiezas en cinturón blanco y acabas siendo una leyenda. Gratis en el navegador, en iPhone y en Android.",
+    "desafio": "Un juego de lucha por turnos con una carrera entera, dentro y fuera del tatami, que funcione igual en el navegador y en el móvil, guarde el progreso en la nube y reúna a los jugadores en rankings, ligas y PvP.",
+    "feito": [
+      "Combates movimiento a movimiento: posición, resistencia e impulso, con 165 técnicas de Jiu-Jitsu y 61 de golpeo en MMA.",
+      "Carrera completa: cambio de cinturón, academia propia con alumnos, representante, patrocinios y contratos, y un heredero que continúa el legado.",
+      "PvP en línea por turnos, torneos en directo y la Liga de Equipos, con cinco divisiones, de la Liga de Novatos a la Gran Liga.",
+      "Rankings en directo y Salón de la Fama, solo con jugadores reales, actualizados cada hora.",
+      "Guía del juego con una página por técnica y por campeonato, en portugués e inglés: 566 páginas en el mapa del sitio.",
+      "Se puede jugar sin cuenta; con la cuenta gratuita, la carrera se guarda en la nube y sigue en otro dispositivo."
+    ],
+    "dentro": [
+      "Web en Next.js en Vercel; el mismo juego en el navegador y en las apps de iPhone y Android.",
+      "Las carreras se guardan en la nube, y los logos de los equipos en Supabase.",
+      "Portugués e inglés, con el idioma elegido arriba."
+    ]
+  },
+  "omega": {
+    "etiqueta": "Web de presentación",
+    "alt": "Página de inicio de Ômega Imóveis: “El lugar adecuado lo cambia todo”, sobre la Zona Sur de Río al atardecer",
+    "resumo": "Web de Ômega Imóveis, inmobiliaria de la Zona Sur de Río de Janeiro, con una atención cercana, elegante y estratégica.",
+    "desafio": "Presentar una inmobiliaria nueva a un público exigente: menos escaparate de anuncios y más su forma de trabajar y los barrios donde opera, llevando la conversación a WhatsApp.",
+    "feito": [
+      "Una sola página que se lee como una revista: la apertura, la esencia (patrimonio, ubicación y elecciones), el manifiesto, los barrios y el enfoque.",
+      "Los barrios de la Zona Sur con identidad propia: Ipanema, Leblon, Lagoa y Copacabana destacados, y además Gávea, Jardim Botânico, São Conrado y Botafogo.",
+      "El método en tres pasos: escuchar antes que nada, visión de mercado y relaciones que perduran.",
+      "Llamada a conversar arriba y al final de la página, y el número de colegiado (CRECI) de la empresa y del responsable técnico en el pie."
+    ],
+    "dentro": [
+      "Publicada en Vercel, por ahora sin dominio propio.",
+      "Página ligera, con enlace “Saltar al contenido” para quien navega con el teclado."
+    ]
+  }
+}

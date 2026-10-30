@@ -14,6 +14,18 @@
   const $$ = (s, c = document) => [...c.querySelectorAll(s)];
   const raiz = document.documentElement;
   const embutido = raiz.classList.contains('embutido');
+  // Os textos no idioma da página: o ferramentas/gerar-cafe.mjs do linu-sites escreve o bloco #textos-cafe em cada
+  // versão (pt-BR na raiz, as outras em /<idioma>/); sem o bloco, ficam estes, em português
+  const bloco = $('#textos-cafe');
+  const T = Object.assign({
+    boot: ['Inicializando portal…', 'Calibrando moagem quântica…', 'Sincronizando grãos de Ω-11…', 'Aquecendo reator de vapor…', 'Bem-vindo à fenda.'],
+    expresso: 'Expresso Quântico', coldbrew: 'Cold Brew Neural', matcha: 'Matcha do Vazio', estelar: 'Leite de Estrela',
+    nivel: 'Nível',
+    news_erro: 'Sinal inválido. Verifique as coordenadas do seu e-mail.',
+    news_ok: 'Sinal recebido. Você será contactado de outra dimensão.',
+    editar: '✎ Editar textos', terminar: '✓ Terminar',
+    painel_aviso: 'Clique num texto e escreva. No painel de verdade, o que você muda fica salvo.'
+  }, bloco ? JSON.parse(bloco.textContent) : {});
 
   // Um quadro só para todas as animações contínuas; para quando não tem ninguém vendo
   const passos = [];
@@ -33,13 +45,7 @@
   const bootFill = $('#bootFill');
   const bootLog  = $('#bootLog');
 
-  const steps = [
-    'Inicializando portal…',
-    'Calibrando moagem quântica…',
-    'Sincronizando grãos de Ω-11…',
-    'Aquecendo reator de vapor…',
-    'Bem-vindo à fenda.'
-  ];
+  const steps = T.boot;
 
   let p = 0, si = 0;
   const bootTimer = embutido ? 0 : setInterval(() => {
@@ -330,25 +336,25 @@
      ---------------------------------------------------------- */
   const BASES = {
     expresso: {
-      name: 'Expresso Quântico',
+      name: T.expresso,
       h: 26, s: 62, l: 24,
       foam: 'rgba(214, 178, 130, .45)',
       glow: 'hsla(28, 90%, 55%, .35)'
     },
     coldbrew: {
-      name: 'Cold Brew Neural',
+      name: T.coldbrew,
       h: 20, s: 46, l: 14,
       foam: 'rgba(150, 110, 80, .32)',
       glow: 'hsla(200, 95%, 60%, .32)'
     },
     matcha: {
-      name: 'Matcha do Vazio',
+      name: T.matcha,
       h: 148, s: 62, l: 40,
       foam: 'rgba(200, 255, 210, .40)',
       glow: 'hsla(148, 90%, 55%, .34)'
     },
     estelar: {
-      name: 'Leite de Estrela',
+      name: T.estelar,
       h: 268, s: 82, l: 72,
       foam: 'rgba(255, 255, 255, .55)',
       glow: 'hsla(268, 95%, 70%, .40)'
@@ -387,13 +393,13 @@
 
     // Nome
     const roman = ['I','II','III','IV','V','VI','VII','VIII','IX','X'][intensity - 1];
-    let name = `${base.name} · Nível ${roman}`;
+    let name = `${base.name} · ${T.nivel} ${roman}`;
     if (tops.length) name += ` + ${tops.join(' + ')}`;
     nameOut.textContent = name;
 
     // Preço
     const price = BASE_PRICE[baseKey] + intensity * 0.55 + tops.length * TOP_PRICE;
-    priceOut.textContent = '₡ ' + price.toFixed(2).replace('.', ',');
+    priceOut.textContent = '₡ ' + price.toLocaleString(raiz.lang, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
   }
 
   form.addEventListener('input', updateDrink);
@@ -446,13 +452,13 @@
 
     if (!ok) {
       newsMsg.style.color = 'hsl(315 100% 68%)';
-      newsMsg.textContent = 'Sinal inválido. Verifique as coordenadas do seu e-mail.';
+      newsMsg.textContent = T.news_erro;
       emailIn.focus();
       return;
     }
 
     newsMsg.style.color = 'hsl(185 100% 65%)';
-    newsMsg.textContent = 'Sinal recebido. Você será contactado de outra dimensão.';
+    newsMsg.textContent = T.news_ok;
     emailIn.value = '';
   });
 
@@ -505,10 +511,8 @@
       else el.removeAttribute('contenteditable');
     });
     painelBotao.setAttribute('aria-pressed', String(ligar));
-    painelBotao.textContent = ligar ? '✓ Terminar' : '✎ Editar textos';
-    painelAviso.textContent = ligar
-      ? 'Clique num texto e escreva. No painel de verdade, o que você muda fica salvo.'
-      : '';
+    painelBotao.textContent = ligar ? T.terminar : T.editar;
+    painelAviso.textContent = ligar ? T.painel_aviso : '';
   }
   painelBotao.addEventListener('click', () => editar(!raiz.classList.contains('editando')));
 

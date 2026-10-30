@@ -1,0 +1,147 @@
+{
+  "linupedia": {
+    "etiqueta": "Installeerbare app",
+    "alt": "De linuhub van LinuPedia: het kamp van Linu in pixelart, 's nachts, met het kampvuur en zijn vrienden",
+    "resumo": "Een taalapp die een speelbare encyclopedie werd: 197 talen en 39 kennisgebieden, op telefoon en computer, en hij werkt zelfs offline.",
+    "desafio": "Talen leren, en daarna wetenschap, kunst en vrije tijd, aan Portugeestaligen: gratis voor iedereen, zonder reclame, zonder internet nodig en zonder iets te verzinnen. Elk feit en elk voorbeeld moet een bron hebben.",
+    "feito": [
+      "De cursus is een avontuur: een kaart die vertrekt vanaf Antarctica en eindigt in het land van de taal, met oversteken via de radio, keuzes en gesprekken met spraak.",
+      "De linuhub, het thuis van de app: een kamp in pixelart op Antarctica, waar Linu (met tikken, joystick of toetsenbord) naar elk onderdeel loopt, met de kaart van het eiland en de pinguïns van anderen.",
+      "De schuilplaats van Linu in pixelart, met licht dat de klok volgt (dag, middernachtzon en een nacht met noorderlicht), waar elk voorwerp een snelkoppeling is.",
+      "Spraak in elke taal: opnames van moedertaalsprekers, de stem van het apparaat en een neurale stem die offline werkt.",
+      "Veel om te oefenen: verhalen met keuzes, een dagboek met correctie, dictees, een plaatjesalbum en 77 spellen.",
+      "Toegankelijk: licht en donker thema, “minder beweging” en schermlezers.",
+      "Vrije inhoud: docenten en scholen mogen de lessen kopiëren en aanpassen (CC BY-NC-SA 4.0)."
+    ],
+    "dentro": [
+      "Eén codebase voor Android, iOS en web (React Native en Expo).",
+      "Installeert zich als app op het startscherm en opent offline; de voortgang staat in een database op het apparaat zelf.",
+      "De server publiceert elke nieuwe versie zelf, maar alleen als alle tests slagen; wie de app geïnstalleerd heeft, ziet de melding “Nieuwe versie” bij terugkeer."
+    ]
+  },
+  "v2tech": {
+    "etiqueta": "Tool voor bedrijven",
+    "alt": "Homepage van V²Tech COMBUSTÍVEL met de eerlijke dieselprijs",
+    "resumo": "Voor busbedrijven, vervoerders en wagenparken in Brazilië, om te controleren of de prijs van diesel, benzine of ethanol van de distributeur klopt.",
+    "desafio": "Als er een nieuwe brandstofprijs binnenkomt, is het een lange berekening om te weten of die eerlijk is: de prijs van Petrobras, belastingen, biodiesel, vracht, de marge van de distributeur en rente op de betaaltermijn. Die berekening stond in een spreadsheet.",
+    "feito": [
+      "De klant vult in waar de brandstof wordt geleverd, wat het contract zegt en de voorgestelde prijs; de site zegt of de prijs klopt, wat de eerlijke prijs zou zijn en wat het verschil per maand betekent.",
+      "Accounts per bedrijf, met een team: iedereen ziet dezelfde contracten en berekeningen.",
+      "Opgeslagen contracten worden elke dag opnieuw berekend, met een e-mail als de betaalde prijs buiten de marge valt of er een prijswijziging aankomt.",
+      "Een pdf-rapport van één pagina en, als de prijs te hoog is, een kant-en-klare brief aan de distributeur.",
+      "Een openbare kaart van de eerlijke prijs per staat, een scenariosimulator en een kalender van prijswijzigingen.",
+      "Een API zodat wagenparksystemen de eerlijke prijs zelf kunnen opvragen."
+    ],
+    "dentro": [
+      "De berekening gebeurt op de server: de browser van de klant krijgt alleen het resultaat.",
+      "De marktgegevens (Petrobras, de Centrale Bank van Brazilië, toezichthouder ANP) worden elke dag bijgewerkt door een robot die onwaarschijnlijke waarden weigert.",
+      "Dagelijkse versleutelde back-up."
+    ]
+  },
+  "losvega": {
+    "etiqueta": "Verkoopwebsite met dashboard",
+    "alt": "Homepage van Los Vega na Estrada, reisroutes op maat",
+    "resumo": "Reisroutes op maat, op een website die gemaakt is om de link in de Instagram-bio te zijn.",
+    "desafio": "Bezoekers die via Instagram binnenkomen omzetten in aanvragen, met de prijs vanaf het begin zichtbaar, en de aanvragen bijhouden zonder spreadsheet en zonder verloren berichten.",
+    "feito": [
+      "Een website met hoe het werkt, wat erbij zit, prijzen, voor wie het is, veelgestelde vragen en reisgidsen.",
+      "Het formulier “Vertel over je reis” toont meteen de prijs van de route, op basis van het type en het aantal bestemmingen.",
+      "Een dashboard met de aanvragen, de status van elke aanvraag (nieuw, in gesprek, afgesloten, geleverd), notities en een knop om via WhatsApp te antwoorden met een kant-en-klaar bericht.",
+      "Een Instagram-tab in het dashboard: een bio-link die aanvragen van daar markeert, een voorgestelde bio, bijschriften en hashtags om te kopiëren.",
+      "Installeert zich als app op de telefoon."
+    ],
+    "dentro": [
+      "De prijzen staan in een bestand en veranderen zonder iets te herstarten.",
+      "Bezoekers tellen zonder cookies en zonder IP-adressen op te slaan, zichtbaar in het dashboard zelf.",
+      "Dagelijkse back-up van de aanvragen, de laatste 30 worden bewaard."
+    ]
+  },
+  "marginalia": {
+    "etiqueta": "Digitale publicatie",
+    "alt": "Homepage van Marginalia, een publicatie over geschiedenis en geesteswetenschappen",
+    "resumo": "Een onafhankelijke digitale publicatie over geschiedenis en geesteswetenschappen, van Íris Chermont.",
+    "desafio": "Onderzoeksteksten publiceren met noten, bronnen en de uitstraling van een tijdschrift, zonder afhankelijk te zijn van een blogplatform en zonder dat de auteur aan code hoeft te komen.",
+    "feito": [
+      "Drie tabbladen: het project, de inhoudsopgave (met zoeken en filteren op categorie) en de pagina over de auteur.",
+      "Elke tekst heeft een categorie, thema, datum, leestijd, kanttekeningen, bronnen en een kant-en-klare bronvermelding in de Braziliaanse ABNT-stijl.",
+      "Abonneren per e-mail, met bevestiging en afmelden met één klik.",
+      "Het dashboard van de auteur: de editor accepteert tekst geplakt uit Word en Google Docs met behoud van voetnoten, en heeft knoppen voor kanttekeningen en voetnoten.",
+      "In de editor een kant-en-klare Instagram-afbeelding met de titel van de tekst."
+    ],
+    "dentro": [
+      "Een eigen server, zonder externe afhankelijkheden.",
+      "Lezers tellen zonder cookies en zonder IP-adressen op te slaan.",
+      "Dagelijkse versleutelde back-up van teksten, pagina's en afbeeldingen, 90 dagen bewaard."
+    ]
+  },
+  "iconvet": {
+    "etiqueta": "Bedrijfswebsite",
+    "alt": "Homepage van Iconvet, dierenkliniek in Salvador, met de afdeling beeldvorming uitgelicht",
+    "resumo": "De website van Iconvet, een algemene en gespecialiseerde dierenkliniek in Rio Vermelho, Salvador (Brazilië).",
+    "desafio": "Een kliniek met veel afdelingen (algemene zorg, chirurgie, laboratorium, beeldvorming, opname) en tientallen diensten en specialismen had een nieuwe website nodig op het eigen domein, waar baasjes snel vinden wat ze zoeken en met één tik bij WhatsApp komen.",
+    "feito": [
+      "Een homepage met wisselende uitlichtingen (zoals de nieuwe afdeling beeldvorming), de zorggebieden, de diensten, de principes van de kliniek en de opname.",
+      "Een pagina voor elke afdeling, elk onderzoek, elke ingreep, dienst en elk zorggebied: 74 pagina's in de sitemap.",
+      "Pagina's over de kliniek: geschiedenis, faciliteiten, team, waarden, kwaliteitsbeheer, juridische afdeling, infectiepreventie, stageprogramma, informatie voor patiënten en bezoekers, en de galerij.",
+      "Adres, telefoonnummers, openingstijden en WhatsApp altijd bij de hand: in de bovenbalk, in de zwevende knop en in de footer, met de route op de kaart.",
+      "Een knop “Klantenportaal” die naar het systeem van de kliniek (SimplesPet) leidt."
+    ],
+    "dentro": [
+      "Gebouwd met Next.js en gehost op Vercel, met het domein van de kliniek naar de nieuwe site.",
+      "Elke pagina met een eigen titel en beschrijving, plus de sitemap en robots.txt voor zoekmachines."
+    ]
+  },
+  "ajoriente": {
+    "etiqueta": "Website met dossieropzoeking",
+    "alt": "Homepage van Administração Judicial Oriente: “Bedrijven begeleiden naar een nieuw begin”",
+    "resumo": "De website van Administração Judicial Oriente, in Rio de Janeiro: gerechtelijke en buitengerechtelijke herstructurering, faillissementen, schuldsanering en gerechtelijke vereffening.",
+    "desafio": "Schuldeisers, bedrijven en de rechtbank moeten de informatie over elk dossier en de documentsjablonen snel kunnen vinden. De website moest betrouwbaar overkomen en dat opzoeken binnen een paar klikken houden.",
+    "feito": [
+      "Een presentatie van Oriente en de vijf werkgebieden, met eigen pagina's voor gerechtelijke herstructurering en faillissement.",
+      "Dossiers opzoeken per categorie (faillissementen en gerechtelijke herstructurering), met een pagina per bedrijf: dossiernummer, documenten en mededelingen.",
+      "De vier documentsjablonen (indiening en betwisting van vorderingen, volmacht voor de schuldeisersvergadering) om te openen of te downloaden.",
+      "Een contactformulier met het onderwerp uit een lijst, toestemming voor de verwerking van gegevens en het privacybeleid.",
+      "E-mail, telefoon en WhatsApp op elke pagina."
+    ],
+    "dentro": [
+      "Gebouwd met Next.js en gehost op Vercel, op een eigen domein.",
+      "Het formulier heeft een lokveld tegen spamrobots.",
+      "Een link “Naar de inhoud” voor wie met het toetsenbord of een schermlezer navigeert."
+    ]
+  },
+  "dojo-legacy": {
+    "etiqueta": "Game in de browser en op mobiel",
+    "alt": "Homepage van Dojo Legacy: “Van witte band tot legende van de mat”, met de game op computer en telefoon",
+    "resumo": "Een carrièregame over Jiu-Jitsu en MMA: je begint met de witte band en eindigt als legende. Gratis in de browser, op iPhone en op Android.",
+    "desafio": "Een beurtgebaseerde vechtgame met een hele carrière, op en naast de mat, die hetzelfde werkt in de browser en op de telefoon, de voortgang in de cloud bewaart en spelers samenbrengt in ranglijsten, competities en PvP.",
+    "feito": [
+      "Gevechten zet voor zet: positie, conditie en momentum, met 165 Jiu-Jitsu-technieken en 61 slagtechnieken voor MMA.",
+      "Een complete carrière: bandpromoties, een eigen school met leerlingen, een manager, sponsors en contracten, en een erfgenaam die de nalatenschap voortzet.",
+      "Online PvP in beurten, live toernooien en de Teamcompetitie, met vijf divisies, van de Beginnerscompetitie tot de Grote Competitie.",
+      "Live ranglijsten en een Hall of Fame, alleen met echte spelers, elk uur bijgewerkt.",
+      "Een spelgids met een pagina per techniek en per kampioenschap, in het Portugees en Engels: 566 pagina's in de sitemap.",
+      "Je kunt zonder account spelen; met het gratis account wordt je carrière in de cloud bewaard en ga je verder op een ander apparaat."
+    ],
+    "dentro": [
+      "Een Next.js-website op Vercel; dezelfde game in de browser en in de apps voor iPhone en Android.",
+      "Carrières worden in de cloud bewaard, en de teamlogo's in Supabase.",
+      "Portugees en Engels, met de taal bovenaan te kiezen."
+    ]
+  },
+  "omega": {
+    "etiqueta": "Bedrijfswebsite",
+    "alt": "Homepage van Ômega Imóveis: “De juiste plek verandert alles”, boven de Zona Sul van Rio bij zonsondergang",
+    "resumo": "De website van Ômega Imóveis, een makelaar in de Zona Sul van Rio de Janeiro, met persoonlijke, stijlvolle en strategische service.",
+    "desafio": "Een nieuwe makelaar voorstellen aan een veeleisend publiek: minder een etalage van aanbod en meer de werkwijze en de wijken waar ze actief zijn, met het gesprek via WhatsApp.",
+    "feito": [
+      "Eén pagina die leest als een tijdschrift: de opening, de essentie (vermogen, ligging en keuzes), het manifest, de wijken en de aanpak.",
+      "De wijken van de Zona Sul elk met een eigen karakter: Ipanema, Leblon, Lagoa en Copacabana uitgelicht, en daarnaast Gávea, Jardim Botânico, São Conrado en Botafogo.",
+      "De methode in drie stappen: eerst luisteren, marktkennis en relaties die blijven.",
+      "Een uitnodiging tot gesprek bovenaan en onderaan de pagina, en de CRECI-registratienummers van het bedrijf en de verantwoordelijke makelaar in de footer."
+    ],
+    "dentro": [
+      "Gehost op Vercel, voorlopig zonder eigen domein.",
+      "Een lichte pagina, met een link “Naar de inhoud” voor wie met het toetsenbord navigeert."
+    ]
+  }
+}

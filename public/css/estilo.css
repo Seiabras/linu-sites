@@ -64,6 +64,16 @@ a { color: var(--azul); }
 .menu-abrir { align-items: center; justify-content: center; width: 40px; height: 40px; padding: 0; border-radius: 12px; border: 2px solid rgba(255, 255, 255, .25); background: transparent; color: #FFFFFF; cursor: pointer; }
 .menu-abrir svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
 .menu-abrir[aria-expanded="true"] { background: rgba(255, 255, 255, .12); }
+/* Japonês, coreano e chinês: a Nunito não tem esses caracteres, então vão as fontes do próprio sistema (uma fonte
+   com eles pesaria vários megabytes); títulos sem o aperto das letras e com mais entrelinha, e a quebra de linha de
+   cada língua (o coreano quebra entre palavras; japonês e chinês não começam linha com pontuação) */
+:root:lang(ja) { --texto: "Nunito", "Hiragino Sans", "Hiragino Kaku Gothic ProN", "Noto Sans JP", "Yu Gothic UI", "Yu Gothic", Meiryo, system-ui, sans-serif; }
+:root:lang(ko) { --texto: "Nunito", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", system-ui, sans-serif; }
+:root:lang(zh-Hant) { --texto: "Nunito", "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", system-ui, sans-serif; }
+:root:lang(ja) body, :root:lang(zh-Hant) body { line-break: strict; }
+:root:lang(ko) body { word-break: keep-all; overflow-wrap: anywhere; }
+:root:lang(ja) h1, :root:lang(ko) h1, :root:lang(zh-Hant) h1 { letter-spacing: 0; line-height: 1.25; }
+:root:lang(ja) h2, :root:lang(ko) h2, :root:lang(zh-Hant) h2 { letter-spacing: 0; }
 /* seletor de idioma: o globo com o código; a lista abre embaixo, como o menu (ferramentas/gerar-idiomas.mjs) */
 .idiomas { position: relative; }
 .idiomas summary { display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 0 12px; border-radius: 20px; border: 2px solid rgba(255, 255, 255, .25); color: #E2E8F0; font-weight: 800; font-size: .85rem; cursor: pointer; list-style: none; white-space: nowrap; transition: background .15s, border-color .15s; }

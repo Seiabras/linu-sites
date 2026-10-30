@@ -13,22 +13,50 @@
     --branco: #FFFFFF;
     --raio: 10px;
     --largura: 1100px;
+    /* as cores por função, que o modo escuro troca (30/10/2026) */
+    --fundo: var(--branco);
+    --fundo-alt: var(--creme);
+    --superficie: var(--branco);
+    --texto: var(--preto);
+    --texto-suave: var(--cinza);
+    --borda: var(--terra);
+    --link: var(--primaria);
+    --destaque: var(--primaria);
+    --oliva-texto: var(--oliva);
+    --faixa: var(--terra);
+    --faixa-texto: var(--preto);
+}
+
+/* Modo escuro: o do sistema, ou o escolhido no botão (js/tema.js). Os contrastes também passam na WCAG (medidos): texto
+   16,1:1 e texto suave 10,4:1 sobre o fundo; os links em areia, 10,4:1, e os números nos cartões, 9,1:1. O cabeçalho marrom, o rodapé, os selos e os
+   cartões em areia e terra (com texto preto) ficam como no claro. */
+@media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+        --fundo: #16110C; --fundo-alt: #1F1811; --superficie: #271E15; --texto: #F4EDE3; --texto-suave: #CDBFAE;
+        --borda: #4D3B28; --link: #E6B984; --destaque: #E6B984; --oliva-texto: #CFC596; --faixa: #33261A; --faixa-texto: #F4EDE3;
+        color-scheme: dark;
+    }
+}
+:root[data-theme="dark"] {
+    --fundo: #16110C; --fundo-alt: #1F1811; --superficie: #271E15; --texto: #F4EDE3; --texto-suave: #CDBFAE;
+    --borda: #4D3B28; --link: #E6B984; --destaque: #E6B984; --oliva-texto: #CFC596; --faixa: #33261A; --faixa-texto: #F4EDE3;
+    color-scheme: dark;
 }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    background: var(--branco);
-    color: var(--preto);
+    background: var(--fundo);
+    color: var(--texto);
     line-height: 1.6;
 }
 
 img { max-width: 100%; height: auto; display: block; }
 [hidden] { display: none !important; }
-a { color: var(--primaria); }
+a { color: var(--link); }
 a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible, select:focus-visible {
-    outline: 3px solid var(--preto);
+    outline: 3px solid var(--texto);
     outline-offset: 2px;
 }
 
@@ -47,6 +75,15 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .menu a:hover { background: var(--primaria-escura); }
 .menu a[aria-current="page"] { background: var(--primaria-escura); text-decoration: underline; text-underline-offset: 4px; }
 .botao-menu { display: none; background: none; border: 2px solid var(--branco); color: var(--branco); border-radius: 6px; padding: .35rem .7rem; font: inherit; font-weight: 600; cursor: pointer; }
+
+/* Botão de tema, no cabeçalho: a lua leva ao escuro, o sol volta ao claro */
+.botao-tema { margin-left: auto; display: inline-grid; place-items: center; width: 40px; height: 36px; background: none; border: 2px solid var(--branco); color: var(--branco); border-radius: 6px; cursor: pointer; }
+.botao-tema:hover { background: var(--primaria-escura); }
+.botao-tema svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.botao-tema .sol { display: none; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .botao-tema .lua { display: none; } :root:not([data-theme="light"]) .botao-tema .sol { display: block; } }
+:root[data-theme="dark"] .botao-tema .lua { display: none; }
+:root[data-theme="dark"] .botao-tema .sol { display: block; }
 
 @media (max-width: 760px) {
     .botao-menu { display: block; }
@@ -68,31 +105,31 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 
 /* Seções */
 .secao { padding: 4rem 0; }
-.secao.creme { background: var(--creme); }
-.secao.terra { background: var(--terra); }
+.secao.creme { background: var(--fundo-alt); }
+.secao.terra { background: var(--faixa); color: var(--faixa-texto); }
 .secao h2 { font-size: clamp(1.6rem, 3.5vw, 2.2rem); margin-bottom: .5rem; }
-.secao .intro { color: var(--cinza); max-width: 60ch; margin-bottom: 2rem; }
-.secao.terra .intro { color: var(--preto); }
-.titulo-pagina { background: var(--creme); padding: 3rem 0 2rem; }
+.secao .intro { color: var(--texto-suave); max-width: 60ch; margin-bottom: 2rem; }
+.secao.terra .intro { color: var(--faixa-texto); }
+.titulo-pagina { background: var(--fundo-alt); padding: 3rem 0 2rem; }
 .titulo-pagina h1 { font-size: clamp(1.8rem, 4vw, 2.6rem); }
-.titulo-pagina p { color: var(--cinza); max-width: 60ch; }
+.titulo-pagina p { color: var(--texto-suave); max-width: 60ch; }
 
 .grade { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.5rem; }
 
 /* Cartões de foto */
-.foto { background: var(--branco); border: 1px solid var(--terra); border-radius: var(--raio); overflow: hidden; display: flex; flex-direction: column; }
+.foto { background: var(--superficie); border: 1px solid var(--borda); border-radius: var(--raio); overflow: hidden; display: flex; flex-direction: column; }
 .foto button { border: none; padding: 0; background: none; cursor: zoom-in; display: block; }
 .foto img { aspect-ratio: 3 / 2; object-fit: cover; width: 100%; }
 .foto .legenda { padding: 1rem 1.1rem 1.2rem; }
 .foto h3 { font-size: 1.15rem; }
-.foto .cientifico { color: var(--cinza); font-style: italic; font-size: .92rem; }
+.foto .cientifico { color: var(--texto-suave); font-style: italic; font-size: .92rem; }
 .foto p { font-size: .95rem; margin-top: .4rem; }
 .selo { display: inline-block; background: var(--areia); color: var(--preto); font-size: .78rem; font-weight: 700; padding: .15rem .55rem; border-radius: 4px; margin-top: .6rem; }
 
 /* Números */
 .numeros { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 1rem; }
-.numeros div { background: var(--branco); border-radius: var(--raio); padding: 1.2rem; border-left: 5px solid var(--primaria); }
-.numeros strong { display: block; font-size: 1.8rem; color: var(--primaria); }
+.numeros div { background: var(--superficie); border-radius: var(--raio); padding: 1.2rem; border-left: 5px solid var(--primaria); }
+.numeros strong { display: block; font-size: 1.8rem; color: var(--destaque); }
 
 .mais { margin-top: 1.5rem; }
 .sub { font-size: 1.4rem; }
@@ -100,14 +137,14 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .lista { margin: .6rem 0 0 1.2rem; }
 .numeros .cor-primaria { border-color: var(--primaria); }
 .numeros .cor-oliva { border-color: var(--oliva); }
-.numeros .cor-oliva strong { color: var(--oliva); }
+.numeros .cor-oliva strong { color: var(--oliva-texto); }
 .numeros .cor-areia { border-color: var(--areia); background: var(--areia); }
 .numeros .cor-terra { border-color: var(--terra); background: var(--terra); }
 .numeros .cor-areia strong, .numeros .cor-terra strong { color: var(--preto); }
 
 /* Filtro da galeria */
 .filtros { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.5rem; }
-.filtros button { background: var(--branco); color: var(--preto); border: 2px solid var(--primaria); padding: .45rem 1rem; border-radius: 999px; font: inherit; font-weight: 600; cursor: pointer; }
+.filtros button { background: var(--superficie); color: var(--texto); border: 2px solid var(--primaria); padding: .45rem 1rem; border-radius: 999px; font: inherit; font-weight: 600; cursor: pointer; }
 .filtros button[aria-pressed="true"] { background: var(--primaria); color: var(--branco); }
 
 /* Foto ampliada */
@@ -118,7 +155,7 @@ dialog.ampliada .rodape-foto { display: flex; justify-content: space-between; al
 dialog.ampliada button { background: var(--branco); color: var(--preto); border: none; border-radius: 6px; padding: .4rem .9rem; font: inherit; font-weight: 700; cursor: pointer; }
 
 /* Expedições */
-.expedicao { display: grid; grid-template-columns: 1fr 1.3fr; gap: 1.5rem; background: var(--branco); border: 1px solid var(--terra); border-radius: var(--raio); overflow: hidden; margin-bottom: 1.5rem; }
+.expedicao { display: grid; grid-template-columns: 1fr 1.3fr; gap: 1.5rem; background: var(--superficie); border: 1px solid var(--borda); border-radius: var(--raio); overflow: hidden; margin-bottom: 1.5rem; }
 .expedicao img { height: 100%; object-fit: cover; }
 .expedicao .texto { padding: 1.4rem 1.4rem 1.4rem 0; }
 .expedicao dl { display: grid; grid-template-columns: auto 1fr; gap: .2rem 1rem; margin: .8rem 0; }
@@ -128,12 +165,12 @@ dialog.ampliada button { background: var(--branco); color: var(--preto); border:
 /* Formulário */
 form.contato { display: grid; gap: 1rem; max-width: 560px; }
 form.contato label { font-weight: 600; display: block; margin-bottom: .3rem; }
-form.contato input, form.contato textarea, form.contato select { width: 100%; padding: .7rem .8rem; border: 2px solid var(--cinza); border-radius: 6px; font: inherit; background: var(--branco); }
+form.contato input, form.contato textarea, form.contato select { width: 100%; padding: .7rem .8rem; border: 2px solid var(--cinza); border-radius: 6px; font: inherit; background: var(--superficie); color: var(--texto); }
 .aviso { padding: 1rem; border-radius: 8px; background: var(--terra); color: var(--preto); font-weight: 600; }
 
 /* Créditos */
 .creditos { list-style: none; display: grid; gap: .8rem; }
-.creditos li { display: grid; grid-template-columns: 120px 1fr; gap: 1rem; align-items: center; background: var(--branco); border: 1px solid var(--terra); border-radius: var(--raio); padding: .6rem; }
+.creditos li { display: grid; grid-template-columns: 120px 1fr; gap: 1rem; align-items: center; background: var(--superficie); border: 1px solid var(--borda); border-radius: var(--raio); padding: .6rem; }
 .creditos img { border-radius: 6px; aspect-ratio: 3/2; object-fit: cover; }
 
 /* Rodapé */
@@ -145,3 +182,8 @@ form.contato input, form.contato textarea, form.contato select { width: 100%; pa
     .foto { transition: transform .2s; }
     .foto:hover { transform: translateY(-3px); }
 }
+
+/* Os idiomas do site, no rodapé (ferramentas/gerar-estudo.mjs do linu-sites) */
+.idiomas-rodape { width: 100%; font-size: .85rem; line-height: 1.9; }
+.idiomas-rodape a { white-space: nowrap; }
+.idiomas-rodape a[aria-current] { font-weight: 700; text-decoration: none; }

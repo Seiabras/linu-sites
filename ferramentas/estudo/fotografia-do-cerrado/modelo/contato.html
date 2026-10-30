@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{contato_022}}</title>
+    <meta name="description" content="{{contato_026}}">
+    <meta name="theme-color" content="#814F12">
+    <script src="{{raiz}}js/tema-inicio.js?v=2"></script>
+    <link rel="stylesheet" href="{{raiz}}css/estilo.css?v=2">
+    <script src="{{raiz}}js/tema.js?v=2" defer></script>
+    <script src="{{raiz}}js/menu.js?v=2" defer></script>
+    <script src="{{raiz}}js/contato.js?v=2" defer></script>
+{{alternativas}}
+<script type="application/json" id="textos-estudo">{{textos_js}}</script>
+</head>
+<body>
+    <a class="pular" href="#conteudo">{{contato_021}}</a>
+    <header class="topo">
+        <div class="container">
+            <a class="marca" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#C8985A"/><circle cx="16" cy="16" r="8" fill="#5E3A0D"/><circle cx="16" cy="16" r="4" fill="#FBF7F1"/></svg> Fotografia do Cerrado</a>
+            <button class="botao-tema" type="button" data-escuro="{{contato_023}}" data-claro="{{contato_024}}" aria-label="{{contato_023}}"><svg class="lua" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg><svg class="sol" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1"/></svg></button>
+            <button class="botao-menu" type="button" aria-expanded="false" aria-controls="menu">{{contato_020}}</button>
+            <nav aria-label="{{contato_025}}">
+                <ul class="menu" id="menu"><li>{{contato_019}}</li><li>{{contato_018}}</li><li>{{contato_017}}</li><li>{{contato_016}}</li><li>{{contato_015}}</li></ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="conteudo">
+        <section class="titulo-pagina">
+            <div class="container">
+                <h1>{{contato_014}}</h1>
+                <p>{{contato_013}}</p>
+            </div>
+        </section>
+        <section class="secao">
+            <div class="container">
+                <form class="contato" novalidate>
+                    <div><label for="nome">{{contato_012}}</label><input id="nome" name="nome" type="text" autocomplete="name" required></div>
+                    <div><label for="email">{{contato_011}}</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+                    <div><label for="assunto">{{contato_010}}</label>
+                        <select id="assunto" name="assunto">
+                            <option>{{contato_009}}</option>
+                            <option>{{contato_008}}</option>
+                            <option>{{contato_007}}</option>
+                            <option>{{contato_006}}</option>
+                            <option>{{contato_005}}</option>
+                        </select></div>
+                    <div><label for="mensagem">{{contato_004}}</label><textarea id="mensagem" name="mensagem" rows="5" required></textarea></div>
+                    <div><button class="botao" type="submit">{{contato_003}}</button></div>
+                    <p class="aviso" id="aviso" role="status" tabindex="-1" hidden></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="rodape">
+        <div class="container">
+            {{idiomas}}
+            <p>{{contato_002}}</p>
+            <p>{{contato_001}}</p>
+        </div>
+    </footer>
+</body>
+</html>

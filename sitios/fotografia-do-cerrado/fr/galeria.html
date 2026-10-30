@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galerie — Fotografia do Cerrado</title>
+    <meta name="description" content="Galerie de photos d’animaux du Cerrado : loup à crinière, fourmilier géant, ara bleu, cariama huppé et toucan toco.">
+    <meta name="theme-color" content="#814F12">
+    <script src="../js/tema-inicio.js?v=2"></script>
+    <link rel="stylesheet" href="../css/estilo.css?v=2">
+    <script src="../js/tema.js?v=2" defer></script>
+    <script src="../js/menu.js?v=2" defer></script>
+    <script src="../js/galeria.js?v=2" defer></script>
+    <link rel="alternate" hreflang="pt-BR" href="https://cerrado.linupedia.com.br/galeria">
+    <link rel="alternate" hreflang="pt-PT" href="https://cerrado.linupedia.com.br/pt-pt/galeria">
+    <link rel="alternate" hreflang="es-ES" href="https://cerrado.linupedia.com.br/es/galeria">
+    <link rel="alternate" hreflang="ca" href="https://cerrado.linupedia.com.br/ca/galeria">
+    <link rel="alternate" hreflang="nl" href="https://cerrado.linupedia.com.br/nl/galeria">
+    <link rel="alternate" hreflang="en-GB" href="https://cerrado.linupedia.com.br/en/galeria">
+    <link rel="alternate" hreflang="fr-FR" href="https://cerrado.linupedia.com.br/fr/galeria">
+    <link rel="alternate" hreflang="de-DE" href="https://cerrado.linupedia.com.br/de/galeria">
+    <link rel="alternate" hreflang="it-IT" href="https://cerrado.linupedia.com.br/it/galeria">
+<script type="application/json" id="textos-estudo">{"obrigado":"Merci, {nome} ! Ceci est une page de démonstration : votre message n’a pas vraiment été envoyé."}</script>
+</head>
+<body>
+    <a class="pular" href="#conteudo">Aller au contenu</a>
+    <header class="topo">
+        <div class="container">
+            <a class="marca" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#C8985A"/><circle cx="16" cy="16" r="8" fill="#5E3A0D"/><circle cx="16" cy="16" r="4" fill="#FBF7F1"/></svg> Fotografia do Cerrado</a>
+            <button class="botao-tema" type="button" data-escuro="Passer en mode sombre" data-claro="Passer en mode clair" aria-label="Passer en mode sombre"><svg class="lua" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg><svg class="sol" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1"/></svg></button>
+            <button class="botao-menu" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
+            <nav aria-label="Navigation principale">
+                <ul class="menu" id="menu"><li><a href="index.html">Accueil</a></li><li><a href="galeria.html" aria-current="page">Galerie</a></li><li><a href="expedicoes.html">Expéditions</a></li><li><a href="sobre.html">À propos</a></li><li><a href="contato.html">Contact</a></li></ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="conteudo">
+        <section class="titulo-pagina">
+            <div class="container">
+                <h1>Galerie</h1>
+                <p>Cliquez sur une photo pour l’agrandir. Le badge signale les espèces menacées selon la liste de l’ICMBio, l’organisme brésilien de la faune.</p>
+            </div>
+        </section>
+        <section class="secao">
+            <div class="container">
+                <div class="filtros" role="group" aria-label="Filtrer les photos">
+                    <button type="button" data-filtro="todos" aria-pressed="true">Tous</button>
+                    <button type="button" data-filtro="mamiferos" aria-pressed="false">Mammifères</button>
+                    <button type="button" data-filtro="aves" aria-pressed="false">Oiseaux</button>
+                </div>
+                <div class="grade">
+                <article class="foto" data-grupo="mamiferos">
+                    <button type="button" aria-label="Agrandir la photo : Loup à crinière"><img src="../img/lobo-guara.jpg" alt="Loup à crinière au pelage orange et aux pattes noires marchant dans l’herbe" width="1000" height="647" loading="lazy"></button>
+                    <div class="legenda">
+                        <h3>Loup à crinière</h3>
+                        <p class="cientifico">Chrysocyon brachyurus</p>
+                        <p>Le plus grand canidé d’Amérique du Sud. Il chasse la nuit et mange aussi beaucoup de fruits, comme la pomme-du-loup, ce qui disperse les graines.</p>
+                        <span class="selo">Vulnérable (ICMBio)</span>
+                    </div>
+                </article>
+                <article class="foto" data-grupo="mamiferos">
+                    <button type="button" aria-label="Agrandir la photo : Fourmilier géant"><img src="../img/tamandua-bandeira.jpg" alt="Fourmilier géant gris, avec la bande noire sur l’épaule, cherchant à manger dans les herbes" width="1000" height="667" loading="lazy"></button>
+                    <div class="legenda">
+                        <h3>Fourmilier géant</h3>
+                        <p class="cientifico">Myrmecophaga tridactyla</p>
+                        <p>Utilise sa longue langue, jusqu’à 60 cm, pour manger fourmis et termites. Il n’a pas de dents.</p>
+                        <span class="selo">Vulnérable (ICMBio)</span>
+                    </div>
+                </article>
+                <article class="foto" data-grupo="aves">
+                    <button type="button" aria-label="Agrandir la photo : Ara bleu"><img src="../img/arara-caninde.jpg" alt="Ara bleu et jaune volant ailes déployées au-dessus de la forêt" width="1000" height="772" loading="lazy"></button>
+                    <div class="legenda">
+                        <h3>Ara bleu</h3>
+                        <p class="cientifico">Ara ararauna</p>
+                        <p>Vit en couple et niche dans les cavités des palmiers morts, comme le buriti.</p>
+
+                    </div>
+                </article>
+                <article class="foto" data-grupo="aves">
+                    <button type="button" aria-label="Agrandir la photo : Cariama huppé"><img src="../img/seriema.jpg" alt="Cariama huppé marchant sur la terre nue" width="1000" height="729" loading="lazy"></button>
+                    <div class="legenda">
+                        <h3>Cariama huppé</h3>
+                        <p class="cientifico">Cariama cristata</p>
+                        <p>Son chant puissant, entendu de loin à l’aube, est l’un des sons les plus typiques du Cerrado.</p>
+
+                    </div>
+                </article>
+                <article class="foto" data-grupo="aves">
+                    <button type="button" aria-label="Agrandir la photo : Toucan toco"><img src="../img/tucano-toco.jpg" alt="Toucan toco au bec orange à pointe noire, vu de profil" width="1000" height="589" loading="lazy"></button>
+                    <div class="legenda">
+                        <h3>Toucan toco</h3>
+                        <p class="cientifico">Ramphastos toco</p>
+                        <p>Le plus grand des toucans. Malgré sa taille, son bec est léger et l’aide à réguler sa température.</p>
+
+                    </div>
+                </article>
+                </div>
+            </div>
+        </section>
+        <dialog class="ampliada" id="ampliada" aria-label="Photo agrandie">
+            <img src="../img/lobo-guara.jpg" alt="">
+            <div class="rodape-foto"><strong class="titulo"></strong><button type="button" class="fechar">Fermer</button></div>
+        </dialog>
+    </main>
+
+    <footer class="rodape">
+        <div class="container">
+            <nav class="idiomas-rodape" aria-label="Région et langue"><a href="../galeria.html" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a> · <a href="../pt-pt/galeria.html" hreflang="pt-PT" lang="pt-PT">Português (Portugal)</a> · <a href="../es/galeria.html" hreflang="es-ES" lang="es-ES">Español</a> · <a href="../ca/galeria.html" hreflang="ca" lang="ca">Català</a> · <a href="../nl/galeria.html" hreflang="nl" lang="nl">Nederlands</a> · <a href="../en/galeria.html" hreflang="en-GB" lang="en-GB">English (UK &amp; Europe)</a> · <a href="../fr/galeria.html" hreflang="fr-FR" lang="fr-FR" aria-current="true">Français</a> · <a href="../de/galeria.html" hreflang="de-DE" lang="de-DE">Deutsch</a> · <a href="../it/galeria.html" hreflang="it-IT" lang="it-IT">Italiano</a></nav>
+            <p>© 2026 Fotografia do Cerrado · entreprise fictive, projet d’études de Luiz Matheus Moraes Vega</p>
+            <p><a href="creditos.html">Crédits photo</a></p>
+        </div>
+    </footer>
+</body>
+</html>

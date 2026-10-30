@@ -1,0 +1,147 @@
+{
+  "linupedia": {
+    "etiqueta": "App que s’instal·la",
+    "alt": "El linuhub de la LinuPedia: el campament del Linu en pixel art, de nit, amb la foguera i els seus amics",
+    "resumo": "Una app d’idiomes que es va convertir en una enciclopèdia jugable: 197 idiomes i 39 àrees del coneixement, al mòbil i a l’ordinador, i funciona fins i tot sense connexió.",
+    "desafio": "Ensenyar idiomes, i després ciències, arts i lleure, a qui parla portuguès: gratis per a tothom, sense anuncis, sense dependre d’internet i sense inventar res. Cada dada i cada exemple ha de portar la font.",
+    "feito": [
+      "El curs és una aventura: un mapa que surt de l’Antàrtida i arriba al país de l’idioma, amb travessies per ràdio, decisions i conversa per veu.",
+      "El linuhub, la casa de l’app: un campament en pixel art a l’Antàrtida, on el Linu camina (tocant, amb joystick o amb el teclat) fins a cada àrea, amb el mapa de l’illa i els pingüins d’altres persones.",
+      "El refugi del Linu en pixel art, amb la llum que segueix el rellotge (dia, sol de mitjanit i nit amb aurora), on cada objecte és una drecera.",
+      "Veu en tots els idiomes: gravacions de parlants nadius, la veu del dispositiu i una veu neuronal que funciona sense connexió.",
+      "Molt per practicar: històries amb decisions, diari amb corrector, dictat, àlbum de cromos i 77 jocs.",
+      "Accessible: tema clar i fosc, “reduir el moviment” i lectors de pantalla.",
+      "Contingut lliure: el professorat i les escoles poden copiar i adaptar les lliçons (CC BY-NC-SA 4.0)."
+    ],
+    "dentro": [
+      "Un sol codi per a Android, iOS i web (React Native i Expo).",
+      "S’instal·la a la pantalla del mòbil com una app i s’obre sense connexió; el progrés es desa en una base de dades al mateix dispositiu.",
+      "El servidor publica sol la versió nova, però només si passen totes les proves; qui té l’app instal·lada veu l’avís “Versió nova” quan hi torna."
+    ]
+  },
+  "v2tech": {
+    "etiqueta": "Eina per a empreses",
+    "alt": "Pàgina d’inici de V²Tech COMBUSTÍVEL amb el preu just del gasoil",
+    "resumo": "Perquè empreses d’autobusos, transportistes i flotes del Brasil comprovin si el preu del gasoil, la gasolina o l’etanol que cobra la distribuïdora té sentit.",
+    "desafio": "Quan arriba un preu nou de combustible, saber si és just demana un càlcul llarg: el preu de Petrobras, impostos, biodièsel, transport, marge de la distribuïdora i interessos del termini. Aquest càlcul vivia en un full de càlcul.",
+    "feito": [
+      "El client indica on rep el combustible, què diu el contracte i el preu proposat; la web respon si el preu té sentit, quin seria el preu just i quant representa la diferència cada mes.",
+      "Comptes per empresa, amb equip: tothom veu els mateixos contractes i consultes.",
+      "Els contractes desats es recalculen cada dia, amb avís per correu quan el preu pagat surt del marge o s’acosta un augment.",
+      "Informe en PDF d’una pàgina i, quan el preu és alt, una carta llesta per a la distribuïdora.",
+      "Mapa públic del preu just per estat, simulador d’escenaris i calendari d’augments.",
+      "API perquè els sistemes de flota consultin el preu just pel seu compte."
+    ],
+    "dentro": [
+      "El càlcul es fa al servidor: el navegador del client només rep el resultat.",
+      "Les dades de mercat (Petrobras, el Banc Central del Brasil, el regulador ANP) les actualitza cada dia un robot que rebutja els valors poc plausibles.",
+      "Còpia de seguretat diària i xifrada."
+    ]
+  },
+  "losvega": {
+    "etiqueta": "Web de vendes amb tauler",
+    "alt": "Pàgina d’inici de Los Vega na Estrada, itineraris de viatge personalitzats",
+    "resumo": "Itineraris de viatge personalitzats, en una web pensada per ser l’enllaç de la bio d’Instagram.",
+    "desafio": "Convertir en comandes qui arriba des d’Instagram, mostrant el preu des del principi, i organitzar les comandes sense fulls de càlcul ni missatges perduts.",
+    "feito": [
+      "Web amb com funciona, què inclou, preus, per a qui és, preguntes freqüents i guies de viatge.",
+      "El formulari “Explica’ns el teu viatge” ja mostra el preu de l’itinerari segons el tipus i el nombre de destinacions.",
+      "Tauler amb les comandes, l’estat de cadascuna (nova, en conversa, tancada, lliurada), notes i un botó per respondre per WhatsApp amb el missatge preparat.",
+      "Pestanya d’Instagram al tauler: enllaç per a la bio que marca les comandes que arriben d’allà, bio suggerida, textos i etiquetes per copiar.",
+      "S’instal·la al mòbil com una app."
+    ],
+    "dentro": [
+      "Els preus són en un fitxer i canvien sense reiniciar res.",
+      "Recompte de visites sense galetes i sense desar la IP, mostrat al mateix tauler.",
+      "Còpia diària de les comandes, desant les últimes 30."
+    ]
+  },
+  "marginalia": {
+    "etiqueta": "Publicació digital",
+    "alt": "Pàgina d’inici de Marginalia, publicació d’Història i humanitats",
+    "resumo": "Publicació digital independent d’Història i humanitats, d’Íris Chermont.",
+    "desafio": "Publicar textos de recerca amb notes, referències i aire de revista, sense dependre d’una plataforma de blogs i sense que l’autora hagi de tocar codi.",
+    "feito": [
+      "Tres pestanyes: el projecte, l’índex (amb cercador i filtre per categoria) i la pàgina sobre l’autora.",
+      "Cada text té categoria, tema, data, temps de lectura, notes al marge, referències i la citació en format ABNT brasiler a punt per copiar.",
+      "Subscripció per correu, amb confirmació i baixa en un clic.",
+      "Tauler de l’autora: l’editor accepta text enganxat des de Word i Google Docs conservant les notes al peu, i té botons de nota al marge i de nota al peu.",
+      "A l’editor, una imatge a punt per a Instagram amb el títol del text."
+    ],
+    "dentro": [
+      "Servidor propi, sense dependències externes.",
+      "Recompte de lectures sense galetes i sense desar la IP.",
+      "Còpia diària xifrada de textos, pàgines i imatges, desada durant 90 dies."
+    ]
+  },
+  "iconvet": {
+    "etiqueta": "Web corporativa",
+    "alt": "Pàgina d’inici d’Iconvet, clínica veterinària a Salvador, amb l’àrea de diagnòstic per la imatge destacada",
+    "resumo": "Web d’Iconvet, clínica veterinària general i especialitzada a Rio Vermelho, Salvador (Brasil).",
+    "desafio": "Una clínica amb moltes àrees (clínica, cirurgia, laboratori, diagnòstic per la imatge, hospitalització) i desenes de serveis i especialitats necessitava una web nova al seu propi domini, on els propietaris de mascotes trobessin ràpid el que busquen i arribessin a WhatsApp amb un toc.",
+    "feito": [
+      "Pàgina d’inici amb destacats que van passant (com la nova àrea de diagnòstic per la imatge), les àrees d’atenció, els serveis, els principis de la clínica i l’hospitalització.",
+      "Una pàgina per a cada àrea, prova, procediment, servei i especialitat: 74 pàgines al mapa del lloc.",
+      "Pàgines de la clínica: història, instal·lacions, equip, valors, gestió de la qualitat, àrea jurídica, control d’infeccions, programa de pràctiques, orientacions per a pacients i visitants i la galeria.",
+      "Adreça, telèfons, horari i WhatsApp sempre a mà: a la barra superior, al botó flotant i al peu, amb la ruta al mapa.",
+      "Botó “Àrea de clients”, que porta al sistema de la clínica (SimplesPet)."
+    ],
+    "dentro": [
+      "Feta amb Next.js i publicada a Vercel, amb el domini de la clínica apuntant a la web nova.",
+      "Cada pàgina amb títol i descripció propis, a més del mapa del lloc i el robots.txt per als cercadors."
+    ]
+  },
+  "ajoriente": {
+    "etiqueta": "Web amb consulta de processos",
+    "alt": "Pàgina d’inici d’Administração Judicial Oriente: “Orientant empreses cap a nous començaments”",
+    "resumo": "Web d’Administração Judicial Oriente, de Rio de Janeiro: reestructuració judicial i extrajudicial, fallides, insolvència civil i liquidació judicial.",
+    "desafio": "Creditors, empreses i el jutjat han de trobar ràpid la informació de cada procés i els models de document. La web havia de transmetre serietat i deixar aquesta consulta a pocs clics.",
+    "feito": [
+      "Presentació d’Oriente i de les seves cinc àrees d’actuació, amb pàgina pròpia per a la reestructuració judicial i per a la fallida.",
+      "Consulta de processos per categoria (fallides i reestructuració judicial), amb una pàgina per empresa: número del procés, documents i comunicats.",
+      "Els quatre models de document (comunicació i impugnació de crèdits, poder per a la junta de creditors) per obrir o baixar.",
+      "Formulari de contacte amb l’assumpte triat d’una llista, el consentiment per al tractament de dades i la política de privadesa.",
+      "Correu, telèfon i WhatsApp a totes les pàgines."
+    ],
+    "dentro": [
+      "Feta amb Next.js i publicada a Vercel, al seu propi domini.",
+      "El formulari té un camp parany contra els robots de correu brossa.",
+      "Enllaç “Salta al contingut” per a qui navega amb el teclat o amb lector de pantalla."
+    ]
+  },
+  "dojo-legacy": {
+    "etiqueta": "Joc al navegador i al mòbil",
+    "alt": "Pàgina d’inici de Dojo Legacy: “De cinturó blanc a llegenda del tatami”, amb el joc a l’ordinador i al mòbil",
+    "resumo": "Joc de carrera de Jiu-Jitsu i MMA: comences amb cinturó blanc i acabes sent una llegenda. Gratuït al navegador, a l’iPhone i a l’Android.",
+    "desafio": "Un joc de lluita per torns amb una carrera sencera, dins i fora del tatami, que funcioni igual al navegador i al mòbil, desi el progrés al núvol i reuneixi els jugadors en rànquings, lligues i PvP.",
+    "feito": [
+      "Combats moviment a moviment: posició, resistència i impuls, amb 165 tècniques de Jiu-Jitsu i 61 de cops a l’MMA.",
+      "Carrera completa: canvi de cinturó, acadèmia pròpia amb alumnes, representant, patrocinis i contractes, i un hereu que continua el llegat.",
+      "PvP en línia per torns, tornejos en directe i la Lliga d’Equips, amb cinc divisions, de la Lliga de Novells a la Gran Lliga.",
+      "Rànquings en directe i Saló de la Fama, només amb jugadors reals, actualitzats cada hora.",
+      "Guia del joc amb una pàgina per tècnica i per campionat, en portuguès i anglès: 566 pàgines al mapa del lloc.",
+      "Es pot jugar sense compte; amb el compte gratuït, la carrera es desa al núvol i continua en un altre dispositiu."
+    ],
+    "dentro": [
+      "Web amb Next.js a Vercel; el mateix joc al navegador i a les apps d’iPhone i Android.",
+      "Les carreres es desen al núvol, i els logos dels equips a Supabase.",
+      "Portuguès i anglès, amb l’idioma triat a dalt."
+    ]
+  },
+  "omega": {
+    "etiqueta": "Web de presentació",
+    "alt": "Pàgina d’inici d’Ômega Imóveis: “El lloc adequat ho canvia tot”, sobre la Zona Sud de Rio al capvespre",
+    "resumo": "Web d’Ômega Imóveis, immobiliària de la Zona Sud de Rio de Janeiro, amb una atenció propera, elegant i estratègica.",
+    "desafio": "Presentar una immobiliària nova a un públic exigent: menys aparador d’anuncis i més la seva manera de treballar i els barris on actua, portant la conversa a WhatsApp.",
+    "feito": [
+      "Una sola pàgina que es llegeix com una revista: l’obertura, l’essència (patrimoni, ubicació i eleccions), el manifest, els barris i l’enfocament.",
+      "Els barris de la Zona Sud amb identitat pròpia: Ipanema, Leblon, Lagoa i Copacabana destacats, i a més Gávea, Jardim Botânico, São Conrado i Botafogo.",
+      "El mètode en tres passos: escoltar abans de res, visió de mercat i relacions que perduren.",
+      "Crida a conversar a dalt i al final de la pàgina, i el número de col·legiat (CRECI) de l’empresa i del responsable tècnic al peu."
+    ],
+    "dentro": [
+      "Publicada a Vercel, de moment sense domini propi.",
+      "Pàgina lleugera, amb enllaç “Salta al contingut” per a qui navega amb el teclat."
+    ]
+  }
+}

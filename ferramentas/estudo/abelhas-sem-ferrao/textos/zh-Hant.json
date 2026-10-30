@@ -1,0 +1,146 @@
+{
+  "textos": {
+    "achei_um_ninho_001": "<a href=\"creditos.html\">照片來源</a> · 路易斯·馬特烏斯·莫賴斯·維加的學習作品",
+    "achei_um_ninho_002": "無螫蜂是巴西原生種，不會螫人，還會為植物授粉。請保護牠們的巢！",
+    "achei_um_ninho_003": "沒有技術就移除蜂巢，通常會讓整個蜂群死亡。",
+    "achei_um_ninho_004": "牠們為附近的植物授粉，包括菜園和果樹。",
+    "achei_um_ninho_005": "牠們不會傷害人，也不會傷害寵物。",
+    "achei_um_ninho_006": "如果蜂巢不礙事，就讓它留在原地",
+    "achei_um_ninho_007": "蜂巢入口的 jataí 工蜂。",
+    "achei_um_ninho_008": "<strong>請求救援。</strong><br>聯絡當地的無螫蜂養蜂人或養蜂協會，傳送照片和地點。",
+    "achei_um_ninho_009": "<strong>記下地點。</strong><br>地址、蜂巢的位置（牆、樹、電線桿）以及高度。",
+    "achei_um_ninho_010": "<strong>拍張照片。</strong><br>拍下蜂巢入口，可以的話也近拍蜜蜂，有助於辨認種類。",
+    "achei_um_ninho_011": "<strong>不要動蜂巢。</strong><br>不要堵住入口，也不要用水、火或殺蟲劑。",
+    "achei_um_ninho_012": "<strong>保持冷靜。</strong><br>無螫蜂不會螫人，你沒有危險。",
+    "achei_um_ninho_013": "一步一步該怎麼做",
+    "achei_um_ninho_014": "還好你來到這裡。只要幾個簡單的步驟，就能救下這些蜜蜂。",
+    "achei_um_ninho_015": "我發現一個蜂巢！",
+    "achei_um_ninho_016": "<a href=\"teste.html\">小測驗</a>",
+    "achei_um_ninho_017": "<a href=\"achei-um-ninho.html\" aria-current=\"page\">發現蜂巢！</a>",
+    "achei_um_ninho_018": "<a href=\"descobrir.html\">認識牠們</a>",
+    "achei_um_ninho_019": "<a href=\"index.html\">首頁</a>",
+    "achei_um_ninho_020": "<span aria-hidden=\"true\">🐝</span> 無螫蜂",
+    "achei_um_ninho_021": "跳到主要內容",
+    "achei_um_ninho_022": "發現蜂巢！該怎麼做 — 無螫蜂",
+    "achei_um_ninho_023": "主選單",
+    "achei_um_ninho_024": "切換到深色模式",
+    "achei_um_ninho_025": "切換到淺色模式",
+    "achei_um_ninho_026": "在蜂巢入口附近飛行的 jataí 工蜂",
+    "achei_um_ninho_027": "發現無螫蜂的巢時該怎麼做，以及如何請求救援。",
+    "creditos_028": "<strong>M. scutellaris Hive.jpg</strong><br> 攝影: Cícero R. C. Omena · 授權 <a href=\"https://creativecommons.org/licenses/by/2.0\">CC BY 2.0</a> · <a href=\"https://commons.wikimedia.org/wiki/File:M._scutellaris_Hive.jpg\">Wikimedia Commons</a>",
+    "creditos_029": "<strong>Tetragonisca angustula.JPG</strong><br> 攝影: Bibafu · 授權 <a href=\"https://creativecommons.org/licenses/by-sa/3.0\">CC BY-SA 3.0</a> · <a href=\"https://commons.wikimedia.org/wiki/File:Tetragonisca_angustula.JPG\">Wikimedia Commons</a>",
+    "creditos_030": "<strong>Melipona quadrifasciata quadrifasciata Brasil-ftsautter-.jpg</strong><br> 攝影: Frank Thomas Sautter · 授權 <a href=\"http://creativecommons.org/publicdomain/zero/1.0/deed.en\">CC0</a> · <a href=\"https://commons.wikimedia.org/wiki/File:Melipona_quadrifasciata_quadrifasciata_Brasil-ftsautter-.jpg\">Wikimedia Commons</a>",
+    "creditos_031": "<strong>Tetragonisca angustula (Jataí) (51826346548).jpg</strong><br> 攝影: Carlos Eduardo Joos · 授權 <a href=\"https://creativecommons.org/licenses/by/2.0\">CC BY 2.0</a> · <a href=\"https://commons.wikimedia.org/wiki/File:Tetragonisca_angustula_(Jata%C3%AD)_(51826346548).jpg\">Wikimedia Commons</a>",
+    "creditos_032": "所有照片皆來自維基共享資源，採自由授權，僅調整了尺寸。",
+    "creditos_033": "照片來源",
+    "creditos_034": "<a href=\"achei-um-ninho.html\">發現蜂巢！</a>",
+    "creditos_035": "照片來源 — 無螫蜂",
+    "creditos_036": "照片的來源與授權。",
+    "descobrir_037": "下一步 →",
+    "descobrir_038": "← 上一步",
+    "descobrir_039": "牠們為野生與栽培的植物授粉。發現蜂巢了嗎？不要破壞，也不要用殺蟲劑：養蜂人可以安全地救援這些蜜蜂。",
+    "descobrir_040": "牠們需要你",
+    "descobrir_041": "很多住在樹洞裡，也會住在牆縫、電線桿和電箱裡。jataí 是城市裡最常見的一種：巢的入口是一根蠟做的小管子。",
+    "descobrir_042": "牠們就住在你身邊",
+    "descobrir_043": "無螫蜂（麥蜂族）的螫針已經退化，無法使用。為了保護蜂巢，有些種類會咬人或纏進頭髮裡，僅此而已。",
+    "descobrir_044": "牠們不會螫人",
+    "descobrir_045": "第 1 頁，共 3 頁",
+    "descobrir_046": "<a href=\"descobrir.html\" aria-current=\"page\">認識牠們</a>",
+    "descobrir_047": "3 分鐘認識牠們 — 無螫蜂",
+    "descobrir_048": "停在花上的 jataí",
+    "descobrir_049": "在蜂巢入口飛行的 jataí 工蜂",
+    "descobrir_050": "停在葉子上的 mandaçaia",
+    "descobrir_051": "三個畫面，認識無螫蜂。",
+    "index_052": "看看該怎麼做，以及如何請求救援。",
+    "index_053": "可以，只要小心並遵守無螫蜂養殖的規定。",
+    "index_054": "可以養嗎？",
+    "index_055": "樹洞、牆壁，甚至電線桿裡，在城市裡也有。",
+    "index_056": "牠們住在哪裡？",
+    "index_057": "不會！牠們的螫針已經退化。",
+    "index_058": "牠們會螫人嗎？",
+    "index_059": "從這裡開始",
+    "index_060": "Mandaçaia <span>Melipona quadrifasciata</span>",
+    "index_061": "Uruçu <span>Melipona scutellaris</span>",
+    "index_062": "Jataí <span>Tetragonisca angustula</span>",
+    "index_063": "3 分鐘認識牠們 →",
+    "index_064": "牠們是原生種，不會螫人，還會幫水果和花朵授粉。很多人發現蜂巢後，不知情就把它破壞了。一起改變這件事吧？",
+    "index_065": "巴西有超過 <mark>250 種</mark>無螫蜂。你認識哪一種嗎？",
+    "index_066": "<a href=\"index.html\" aria-current=\"page\">首頁</a>",
+    "index_067": "無螫蜂 — 認識巴西的原生蜜蜂",
+    "index_068": "停在白花上、小小的淡黃色 jataí 蜂",
+    "index_069": "在蜂巢育幼巢脾上、深色帶條紋的 uruçu 蜂",
+    "index_070": "停在葉子上、深色帶淡黃條紋的 mandaçaia 蜂",
+    "index_071": "巴西有超過 250 種無螫蜂。學會辨認、保護，甚至飼養原生蜜蜂。",
+    "teste_072": "測驗需要開啟 JavaScript。",
+    "teste_073": "<a href=\"teste.html\" aria-current=\"page\">小測驗</a>",
+    "teste_074": "小測驗 — 無螫蜂",
+    "teste_075": "五個問題，學會辨認原生蜜蜂。"
+  },
+  "js": {
+    "perguntas": [
+      {
+        "p": "無螫蜂會螫人嗎？",
+        "o": [
+          "會，而且很痛",
+          "不會：牠們的螫針已經退化",
+          "只有晚上會"
+        ],
+        "c": 1,
+        "e": "螫針已經退化，無法使用。為了保護自己，有些種類會咬人或纏進頭髮裡。"
+      },
+      {
+        "p": "下列哪一種是巴西的原生蜜蜂？",
+        "o": [
+          "西方蜜蜂",
+          "Jataí",
+          "非洲化蜜蜂"
+        ],
+        "c": 1,
+        "e": "Jataí（Tetragonisca angustula）是原生種。常見有螫針的蜜蜂，是引進巴西的歐洲與非洲品種的混種。"
+      },
+      {
+        "p": "怎麼辨認 jataí 巢的入口？",
+        "o": [
+          "一個大洞，周圍有很多蜜蜂",
+          "從牆或樹幹伸出的一根蠟做小管子",
+          "一顆掛著的紙球"
+        ],
+        "c": 1,
+        "e": "Jataí 會在入口蓋一根蠟做的小管子，幾隻工蜂靜靜站在那裡站崗。"
+      },
+      {
+        "p": "你在家裡的牆上發現一個蜂巢。該怎麼做？",
+        "o": [
+          "噴殺蟲劑",
+          "把入口堵起來",
+          "不要打擾，需要的話請養蜂人來"
+        ],
+        "c": 2,
+        "e": "牠們不會螫人，還會為植物授粉。如果蜂巢的位置不好，養蜂人可以救援。"
+      },
+      {
+        "p": "在巴西可以在家養無螫蜂嗎？",
+        "o": [
+          "可以，只要遵守 CONAMA 第 496/2020 號決議的規定",
+          "絕對不行",
+          "只能養其他國家的蜜蜂"
+        ],
+        "c": 0,
+        "e": "無螫蜂養殖是允許的；CONAMA 第 496/2020 號決議訂定了規定，例如只養本地區的種類。"
+      }
+    ],
+    "contador": "第 {n} 題，共 {total} 題",
+    "proxima": "下一題 →",
+    "ver_resultado": "看結果 →",
+    "certo": "答對了！",
+    "nao_e": "不是這個。",
+    "frase_todas": "你已經是原生蜜蜂的好朋友了！",
+    "frase_boa": "很棒！再一點點就全懂了。",
+    "frase_fraca": "值得看看 3 分鐘的導覽。",
+    "resultado": "{total} 題答對 {n} 題",
+    "fazer_percurso": "看導覽",
+    "tentar": "再試一次",
+    "tela": "第 {n} 頁，共 {total} 頁",
+    "ir_teste": "做小測驗 →"
+  }
+}

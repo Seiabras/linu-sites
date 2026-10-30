@@ -1,0 +1,147 @@
+{
+  "linupedia": {
+    "etiqueta": "App installabile",
+    "alt": "Il linuhub di LinuPedia: l’accampamento di Linu in pixel art, di notte, con il falò e i suoi amici",
+    "resumo": "Un’app di lingue diventata un’enciclopedia giocabile: 197 lingue e 39 aree del sapere, su telefono e computer, e funziona anche offline.",
+    "desafio": "Insegnare le lingue, e poi scienze, arti e tempo libero, a chi parla portoghese: gratis per tutti, senza pubblicità, senza dipendere da internet e senza inventare nulla. Ogni fatto e ogni esempio deve avere la sua fonte.",
+    "feito": [
+      "Il percorso è un’avventura: una mappa che parte dall’Antartide e arriva nel paese della lingua, con traversate via radio, scelte e conversazioni a voce.",
+      "Il linuhub, la casa dell’app: un accampamento in pixel art in Antartide, dove Linu cammina (toccando, con il joystick o con la tastiera) fino a ogni area, con la mappa dell’isola e i pinguini delle altre persone.",
+      "Il rifugio di Linu in pixel art, con la luce che segue l’orologio (giorno, sole di mezzanotte e notte con l’aurora), dove ogni oggetto è una scorciatoia.",
+      "Voce in ogni lingua: registrazioni di madrelingua, la voce del dispositivo e una voce neurale che funziona offline.",
+      "Tanto per esercitarsi: storie a scelte, diario con correttore, dettati, album di figurine e 77 giochi.",
+      "Accessibile: tema chiaro e scuro, “riduci movimento” e lettori di schermo.",
+      "Contenuti liberi: insegnanti e scuole possono copiare e adattare le lezioni (CC BY-NC-SA 4.0)."
+    ],
+    "dentro": [
+      "Un solo codice per Android, iOS e web (React Native ed Expo).",
+      "Si installa sulla schermata del telefono come un’app e si apre offline; i progressi stanno in un database sul dispositivo stesso.",
+      "Il server pubblica da solo ogni nuova versione, ma solo se tutti i test passano; chi ha l’app installata vede l’avviso “Nuova versione” quando ci torna."
+    ]
+  },
+  "v2tech": {
+    "etiqueta": "Strumento per aziende",
+    "alt": "Pagina iniziale di V²Tech COMBUSTÍVEL con il prezzo giusto del gasolio",
+    "resumo": "Per aziende di autobus, autotrasportatori e flotte in Brasile, per verificare se il prezzo di gasolio, benzina o etanolo chiesto dal distributore ha senso.",
+    "desafio": "Quando arriva un nuovo prezzo del carburante, capire se è giusto richiede un calcolo lungo: il prezzo di Petrobras, le tasse, il biodiesel, il trasporto, il margine del distributore e gli interessi della dilazione. Quel calcolo viveva in un foglio di calcolo.",
+    "feito": [
+      "Il cliente indica dove riceve il carburante, cosa dice il contratto e il prezzo proposto; il sito risponde se il prezzo ha senso, quale sarebbe il prezzo giusto e quanto vale la differenza al mese.",
+      "Account per azienda, con il team: tutti vedono gli stessi contratti e calcoli.",
+      "I contratti salvati vengono ricalcolati ogni giorno, con un avviso via e-mail quando il prezzo pagato esce dalla fascia o sta per arrivare un aumento.",
+      "Un report PDF di una pagina e, quando il prezzo è alto, una lettera pronta per il distributore.",
+      "Una mappa pubblica del prezzo giusto per stato, un simulatore di scenari e un calendario degli aumenti.",
+      "Un’API perché i sistemi di gestione flotte consultino il prezzo giusto da soli."
+    ],
+    "dentro": [
+      "Il calcolo avviene sul server: il browser del cliente riceve solo il risultato.",
+      "I dati di mercato (Petrobras, la Banca Centrale del Brasile, l’ente regolatore ANP) sono aggiornati ogni giorno da un robot che scarta i valori poco plausibili.",
+      "Backup giornaliero cifrato."
+    ]
+  },
+  "losvega": {
+    "etiqueta": "Sito di vendita con pannello",
+    "alt": "Pagina iniziale di Los Vega na Estrada, itinerari di viaggio personalizzati",
+    "resumo": "Itinerari di viaggio personalizzati, su un sito pensato per essere il link nella bio di Instagram.",
+    "desafio": "Trasformare chi arriva da Instagram in richieste, mostrando il prezzo fin dall’inizio, e organizzare le richieste senza fogli di calcolo né messaggi persi.",
+    "feito": [
+      "Un sito con come funziona, cosa è incluso, prezzi, a chi si rivolge, domande frequenti e guide di viaggio.",
+      "Il modulo “Raccontaci il tuo viaggio” mostra subito il prezzo dell’itinerario in base al tipo e al numero di destinazioni.",
+      "Un pannello con le richieste, lo stato di ognuna (nuova, in conversazione, chiusa, consegnata), note e un pulsante per rispondere su WhatsApp con il messaggio pronto.",
+      "Una scheda Instagram nel pannello: un link per la bio che segna le richieste arrivate da lì, una bio suggerita, didascalie e hashtag da copiare.",
+      "Si installa sul telefono come un’app."
+    ],
+    "dentro": [
+      "I prezzi stanno in un file e cambiano senza riavviare nulla.",
+      "Conteggio delle visite senza cookie e senza salvare l’IP, mostrato nel pannello stesso.",
+      "Backup giornaliero delle richieste, conservando gli ultimi 30."
+    ]
+  },
+  "marginalia": {
+    "etiqueta": "Pubblicazione digitale",
+    "alt": "Pagina iniziale di Marginalia, pubblicazione di Storia e scienze umane",
+    "resumo": "Una pubblicazione digitale indipendente di Storia e scienze umane, di Íris Chermont.",
+    "desafio": "Pubblicare testi di ricerca con note, riferimenti e l’aspetto di una rivista, senza dipendere da una piattaforma di blog e senza che l’autrice debba toccare il codice.",
+    "feito": [
+      "Tre schede: il progetto, il sommario (con ricerca e filtro per categoria) e la pagina sull’autrice.",
+      "Ogni testo ha categoria, tema, data, tempo di lettura, note a margine, riferimenti e la citazione in formato brasiliano ABNT pronta da copiare.",
+      "Iscrizione via e-mail, con conferma e cancellazione in un clic.",
+      "Il pannello dell’autrice: l’editor accetta testo incollato da Word e Google Docs mantenendo le note a piè di pagina, e ha pulsanti per le note a margine e a piè di pagina.",
+      "Nell’editor, un’immagine pronta per Instagram con il titolo del testo."
+    ],
+    "dentro": [
+      "Un server proprio, senza dipendenze esterne.",
+      "Conteggio delle letture senza cookie e senza salvare l’IP.",
+      "Backup giornaliero cifrato di testi, pagine e immagini, conservato per 90 giorni."
+    ]
+  },
+  "iconvet": {
+    "etiqueta": "Sito aziendale",
+    "alt": "Pagina iniziale di Iconvet, clinica veterinaria a Salvador, con in evidenza il reparto di diagnostica per immagini",
+    "resumo": "Il sito di Iconvet, clinica veterinaria generale e specialistica a Rio Vermelho, Salvador (Brasile).",
+    "desafio": "Una clinica con molti reparti (medicina, chirurgia, laboratorio, diagnostica per immagini, degenza) e decine di servizi e specialità aveva bisogno di un nuovo sito sul proprio dominio, dove i proprietari degli animali trovassero subito ciò che cercano e arrivassero a WhatsApp con un tocco.",
+    "feito": [
+      "Una pagina iniziale con contenuti in evidenza a rotazione (come il nuovo reparto di diagnostica per immagini), le aree di cura, i servizi, i principi della clinica e la degenza.",
+      "Una pagina per ogni reparto, esame, intervento, servizio e area di cura: 74 pagine nella mappa del sito.",
+      "Le pagine della clinica: storia, struttura, team, valori, gestione della qualità, ufficio legale, controllo delle infezioni, programma di tirocinio, indicazioni per pazienti e visitatori e la galleria.",
+      "Indirizzo, telefoni, orari e WhatsApp sempre a portata di mano: nella barra in alto, nel pulsante fluttuante e nel piè di pagina, con il percorso sulla mappa.",
+      "Un pulsante “Area clienti” che porta al gestionale della clinica (SimplesPet)."
+    ],
+    "dentro": [
+      "Realizzato con Next.js e pubblicato su Vercel, con il dominio della clinica che punta al nuovo sito.",
+      "Ogni pagina con titolo e descrizione propri, più la mappa del sito e il robots.txt per i motori di ricerca."
+    ]
+  },
+  "ajoriente": {
+    "etiqueta": "Sito con consultazione delle procedure",
+    "alt": "Pagina iniziale di Administração Judicial Oriente: “Guidare le aziende verso nuovi inizi”",
+    "resumo": "Il sito di Administração Judicial Oriente, a Rio de Janeiro: ristrutturazione giudiziale e stragiudiziale, fallimenti, sovraindebitamento e liquidazione giudiziale.",
+    "desafio": "Creditori, aziende e tribunale devono trovare subito le informazioni di ogni procedura e i modelli di documento. Il sito doveva trasmettere serietà e tenere questa consultazione a pochi clic.",
+    "feito": [
+      "La presentazione di Oriente e delle sue cinque aree di attività, con pagine dedicate alla ristrutturazione giudiziale e al fallimento.",
+      "Consultazione delle procedure per categoria (fallimenti e ristrutturazione giudiziale), con una pagina per azienda: numero della procedura, documenti e comunicazioni.",
+      "I quattro modelli di documento (insinuazione e opposizione al credito, procura per l’assemblea dei creditori) da aprire o scaricare.",
+      "Un modulo di contatto con l’oggetto scelto da un elenco, il consenso al trattamento dei dati e l’informativa sulla privacy.",
+      "E-mail, telefono e WhatsApp in ogni pagina."
+    ],
+    "dentro": [
+      "Realizzato con Next.js e pubblicato su Vercel, sul proprio dominio.",
+      "Il modulo ha un campo trappola contro i robot di spam.",
+      "Un link “Vai al contenuto” per chi naviga con la tastiera o con un lettore di schermo."
+    ]
+  },
+  "dojo-legacy": {
+    "etiqueta": "Gioco nel browser e su mobile",
+    "alt": "Pagina iniziale di Dojo Legacy: “Dalla cintura bianca alla leggenda del tatami”, con il gioco su computer e telefono",
+    "resumo": "Un gioco di carriera di Jiu-Jitsu e MMA: si parte da cintura bianca e si finisce leggenda. Gratis nel browser, su iPhone e su Android.",
+    "desafio": "Un gioco di lotta a turni con un’intera carriera, dentro e fuori dal tatami, che funzioni allo stesso modo nel browser e sul telefono, salvi i progressi nel cloud e riunisca i giocatori in classifiche, leghe e PvP.",
+    "feito": [
+      "Combattimenti mossa per mossa: posizione, fiato e slancio, con 165 tecniche di Jiu-Jitsu e 61 di colpi nell’MMA.",
+      "Una carriera completa: passaggi di cintura, una palestra propria con allievi, un manager, sponsor e contratti, e un erede che porta avanti l’eredità.",
+      "PvP online a turni, tornei dal vivo e la Lega a Squadre, con cinque divisioni, dalla Lega dei Principianti alla Grande Lega.",
+      "Classifiche dal vivo e Hall of Fame, solo con giocatori veri, aggiornate ogni ora.",
+      "Una guida del gioco con una pagina per tecnica e per campionato, in portoghese e in inglese: 566 pagine nella mappa del sito.",
+      "Si può giocare senza account; con l’account gratuito, la carriera resta salvata nel cloud e continua su un altro dispositivo."
+    ],
+    "dentro": [
+      "Un sito in Next.js su Vercel; lo stesso gioco nel browser e nelle app per iPhone e Android.",
+      "Le carriere sono salvate nel cloud, e i loghi delle squadre su Supabase.",
+      "Portoghese e inglese, con la lingua scelta in alto."
+    ]
+  },
+  "omega": {
+    "etiqueta": "Sito di presentazione",
+    "alt": "Pagina iniziale di Ômega Imóveis: “Il posto giusto cambia tutto”, sulla Zona Sul di Rio al tramonto",
+    "resumo": "Il sito di Ômega Imóveis, agenzia immobiliare della Zona Sul di Rio de Janeiro, con un servizio vicino, elegante e strategico.",
+    "desafio": "Presentare una nuova agenzia a un pubblico esigente: meno vetrina di annunci e più il modo di lavorare e i quartieri in cui opera, portando la conversazione su WhatsApp.",
+    "feito": [
+      "Un’unica pagina che si legge come una rivista: l’apertura, l’essenza (patrimonio, posizione e scelte), il manifesto, i quartieri e l’approccio.",
+      "I quartieri della Zona Sul, ognuno con la sua identità: Ipanema, Leblon, Lagoa e Copacabana in primo piano, e poi Gávea, Jardim Botânico, São Conrado e Botafogo.",
+      "Il metodo in tre passi: prima di tutto ascoltare, visione del mercato e rapporti che durano.",
+      "Un invito al dialogo in alto e in fondo alla pagina, e i numeri CRECI dell’agenzia e del responsabile tecnico nel piè di pagina."
+    ],
+    "dentro": [
+      "Pubblicato su Vercel, per ora senza dominio proprio.",
+      "Una pagina leggera, con un link “Vai al contenuto” per chi naviga con la tastiera."
+    ]
+  }
+}

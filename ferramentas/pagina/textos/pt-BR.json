@@ -181,7 +181,16 @@
     "monte_nota": "Valor de referência, “a partir de”. O que tiver mais coisa entra na proposta, por escrito, com o valor certo. O domínio (cerca de {{p.dominio_ano}} por ano) é à parte.",
     "telefone": "(61) 99667-2610",
     "rodape_slogan": "sites e aplicativos web sob medida",
-    "rodape_estudio": "Um estúdio da"
+    "rodape_estudio": "Um estúdio da",
+    "proj_voltar": "← Todos os projetos",
+    "proj_abrir": "Abrir {endereco}",
+    "proj_desafio": "O desafio",
+    "proj_feito": "O que foi feito",
+    "proj_dentro": "Por dentro",
+    "proj_cta_titulo": "Quer algo assim para o seu negócio?",
+    "proj_cta_texto": "Conte o que você faz e o que imagina. Pode ser só uma ideia: a resposta vem com perguntas e próximos passos.",
+    "proj_og_titulo": "{nome}, por Linu Sites",
+    "proj_whats": "Olá! Vi o projeto {nome} e quero conversar sobre um site."
   },
   "js": {
     "menu_abrir": "Abrir o menu",

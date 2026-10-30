@@ -1,0 +1,146 @@
+{
+  "textos": {
+    "achei_um_ninho_001": "<a href=\"creditos.html\">Crèdits de les fotos</a> · Projecte d’estudi de Luiz Matheus Moraes Vega",
+    "achei_um_ninho_002": "Les abelles sense fibló són natives del Brasil, no piquen i pol·linitzen les nostres plantes. Protegeix-ne els nius!",
+    "achei_um_ninho_003": "Treure un niu sense tècnica sol matar la colònia.",
+    "achei_um_ninho_004": "Pol·linitzen les plantes del barri, també els horts i els arbres fruiters.",
+    "achei_um_ninho_005": "No fan mal ni a les persones ni a les mascotes.",
+    "achei_um_ninho_006": "Si el niu no molesta, deixa’l on és",
+    "achei_um_ninho_007": "Obreres de jataí a l’entrada del niu.",
+    "achei_um_ninho_008": "<strong>Demana el rescat.</strong><br>Busca un meliponicultor o una associació de meliponicultors de la teva zona i envia’ls la foto i el lloc.",
+    "achei_um_ninho_009": "<strong>Apunta el lloc.</strong><br>L’adreça, on és el niu (paret, arbre, pal) i a quina alçada.",
+    "achei_um_ninho_010": "<strong>Fes una foto.</strong><br>Fotografia l’entrada del niu i, si pots, les abelles de prop. Ajuda a saber l’espècie.",
+    "achei_um_ninho_011": "<strong>No toquis el niu.</strong><br>No en tapis l’entrada ni hi tiris aigua, foc o verí.",
+    "achei_um_ninho_012": "<strong>Mantén la calma.</strong><br>Les abelles sense fibló no piquen. No corres cap perill.",
+    "achei_um_ninho_013": "Què has de fer, pas a pas",
+    "achei_um_ninho_014": "Quina sort que hagis arribat aquí. Amb uns quants passos senzills, les abelles es poden salvar.",
+    "achei_um_ninho_015": "He trobat un niu!",
+    "achei_um_ninho_016": "<a href=\"teste.html\">Test ràpid</a>",
+    "achei_um_ninho_017": "<a href=\"achei-um-ninho.html\" aria-current=\"page\">He trobat un niu!</a>",
+    "achei_um_ninho_018": "<a href=\"descobrir.html\">Descobreix</a>",
+    "achei_um_ninho_019": "<a href=\"index.html\">Inici</a>",
+    "achei_um_ninho_020": "<span aria-hidden=\"true\">🐝</span> Abelles sense Fibló",
+    "achei_um_ninho_021": "Salta al contingut",
+    "achei_um_ninho_022": "He trobat un niu! Què he de fer — Abelles sense Fibló",
+    "achei_um_ninho_023": "Navegació principal",
+    "achei_um_ninho_024": "Canvia al mode fosc",
+    "achei_um_ninho_025": "Canvia al mode clar",
+    "achei_um_ninho_026": "Obreres de jataí volant a prop de l’entrada del niu",
+    "achei_um_ninho_027": "Què has de fer quan trobes un niu d’abelles sense fibló i com demanar-ne el rescat.",
+    "creditos_028": "<strong>M. scutellaris Hive.jpg</strong><br> Foto: Cícero R. C. Omena · Llicència <a href=\"https://creativecommons.org/licenses/by/2.0\">CC BY 2.0</a> · <a href=\"https://commons.wikimedia.org/wiki/File:M._scutellaris_Hive.jpg\">Wikimedia Commons</a>",
+    "creditos_029": "<strong>Tetragonisca angustula.JPG</strong><br> Foto: Bibafu · Llicència <a href=\"https://creativecommons.org/licenses/by-sa/3.0\">CC BY-SA 3.0</a> · <a href=\"https://commons.wikimedia.org/wiki/File:Tetragonisca_angustula.JPG\">Wikimedia Commons</a>",
+    "creditos_030": "<strong>Melipona quadrifasciata quadrifasciata Brasil-ftsautter-.jpg</strong><br> Foto: Frank Thomas Sautter · Llicència <a href=\"http://creativecommons.org/publicdomain/zero/1.0/deed.en\">CC0</a> · <a href=\"https://commons.wikimedia.org/wiki/File:Melipona_quadrifasciata_quadrifasciata_Brasil-ftsautter-.jpg\">Wikimedia Commons</a>",
+    "creditos_031": "<strong>Tetragonisca angustula (Jataí) (51826346548).jpg</strong><br> Foto: Carlos Eduardo Joos · Llicència <a href=\"https://creativecommons.org/licenses/by/2.0\">CC BY 2.0</a> · <a href=\"https://commons.wikimedia.org/wiki/File:Tetragonisca_angustula_(Jata%C3%AD)_(51826346548).jpg\">Wikimedia Commons</a>",
+    "creditos_032": "Totes les fotos són de Wikimedia Commons, amb llicència lliure, i només s’han redimensionat.",
+    "creditos_033": "Crèdits de les fotos",
+    "creditos_034": "<a href=\"achei-um-ninho.html\">He trobat un niu!</a>",
+    "creditos_035": "Crèdits — Abelles sense Fibló",
+    "creditos_036": "Crèdits i llicències de les fotos.",
+    "descobrir_037": "Següent →",
+    "descobrir_038": "← Enrere",
+    "descobrir_039": "Pol·linitzen plantes natives i cultivades. Has trobat un niu? No el destrueixis ni facis servir verí: un meliponicultor pot rescatar les abelles amb seguretat.",
+    "descobrir_040": "Et necessiten",
+    "descobrir_041": "Moltes viuen en forats d’arbres, però també en escletxes de parets, pals i caixes de llum. La jataí és la més comuna a les ciutats: l’entrada del niu és un tubet de cera.",
+    "descobrir_042": "Viuen a prop teu",
+    "descobrir_043": "Les abelles sense fibló (meliponins) tenen el fibló atrofiat, que no funciona. Per defensar el niu, algunes espècies mosseguen o s’embullen als cabells, i prou.",
+    "descobrir_044": "No piquen",
+    "descobrir_045": "Pantalla 1 de 3",
+    "descobrir_046": "<a href=\"descobrir.html\" aria-current=\"page\">Descobreix</a>",
+    "descobrir_047": "Descobreix-les en 3 minuts — Abelles sense Fibló",
+    "descobrir_048": "Jataí posada en una flor",
+    "descobrir_049": "Obreres de jataí volant a l’entrada del niu",
+    "descobrir_050": "Mandaçaia posada en una fulla",
+    "descobrir_051": "Tres pantalles per conèixer les abelles sense fibló.",
+    "index_052": "Mira què has de fer i com demanar el rescat.",
+    "index_053": "Sí, amb cura i seguint les normes de la meliponicultura.",
+    "index_054": "Les puc criar?",
+    "index_055": "En forats d’arbres, parets i fins i tot pals, també a les ciutats.",
+    "index_056": "On viuen?",
+    "index_057": "No! El seu fibló està atrofiat.",
+    "index_058": "Piquen?",
+    "index_059": "Comença per aquí",
+    "index_060": "Mandaçaia <span>Melipona quadrifasciata</span>",
+    "index_061": "Uruçu <span>Melipona scutellaris</span>",
+    "index_062": "Jataí <span>Tetragonisca angustula</span>",
+    "index_063": "Descobreix-les en 3 minuts →",
+    "index_064": "Són natives, no piquen i ajuden a pol·linitzar fruites i flors. Molta gent troba un niu i el destrueix sense saber-ho. Ho canviem?",
+    "index_065": "El Brasil té més de <mark>250 espècies</mark> d’abelles sense fibló. En coneixes alguna?",
+    "index_066": "<a href=\"index.html\" aria-current=\"page\">Inici</a>",
+    "index_067": "Abelles sense Fibló — coneix les abelles natives del Brasil",
+    "index_068": "Abella jataí, petita i groguenca, posada en una flor blanca",
+    "index_069": "Abelles uruçu, fosques i ratllades, sobre les bresques de cria del niu",
+    "index_070": "Abella mandaçaia, fosca amb ratlles groguenques, posada en una fulla",
+    "index_071": "El Brasil té més de 250 espècies d’abelles sense fibló. Aprèn a reconèixer-les, protegir-les i fins i tot criar-les.",
+    "teste_072": "El test necessita el JavaScript activat.",
+    "teste_073": "<a href=\"teste.html\" aria-current=\"page\">Test ràpid</a>",
+    "teste_074": "Test ràpid — Abelles sense Fibló",
+    "teste_075": "Cinc preguntes per reconèixer les abelles natives."
+  },
+  "js": {
+    "perguntas": [
+      {
+        "p": "Les abelles sense fibló poden picar?",
+        "o": [
+          "Sí, i fa molt de mal",
+          "No: el seu fibló està atrofiat",
+          "Només de nit"
+        ],
+        "c": 1,
+        "e": "El fibló està atrofiat i no funciona. Per defensar-se, algunes espècies mosseguen o s’embullen als cabells."
+      },
+      {
+        "p": "Quina d’aquestes abelles és nativa del Brasil?",
+        "o": [
+          "Abella europea",
+          "Jataí",
+          "Abella africanitzada"
+        ],
+        "c": 1,
+        "e": "La jataí (Tetragonisca angustula) és nativa. L’abella comuna, amb fibló, és una barreja de races europees i africanes portades al Brasil."
+      },
+      {
+        "p": "Com es reconeix l’entrada d’un niu de jataí?",
+        "o": [
+          "Un forat gran amb moltes abelles al voltant",
+          "Un tubet de cera que surt de la paret o del tronc",
+          "Una bola de paper penjada"
+        ],
+        "c": 1,
+        "e": "La jataí construeix un tubet de cera a l’entrada, i algunes obreres s’hi queden quietes, fent guàrdia."
+      },
+      {
+        "p": "Has trobat un niu a la paret de casa. Què fas?",
+        "o": [
+          "Tirar-hi verí",
+          "Tapar l’entrada",
+          "Deixar-lo en pau i, si cal, trucar a un meliponicultor"
+        ],
+        "c": 2,
+        "e": "No piquen i pol·linitzen les plantes. Si el niu és en un mal lloc, un meliponicultor el pot rescatar."
+      },
+      {
+        "p": "Es poden criar abelles sense fibló a casa al Brasil?",
+        "o": [
+          "Sí, seguint les normes de la Resolució CONAMA núm. 496/2020",
+          "Mai",
+          "Només amb abelles d’un altre país"
+        ],
+        "c": 0,
+        "e": "La meliponicultura està permesa; la Resolució CONAMA núm. 496/2020 en fixa les normes, com criar espècies de la mateixa regió."
+      }
+    ],
+    "contador": "Pregunta {n} de {total}",
+    "proxima": "Següent →",
+    "ver_resultado": "Veure el resultat →",
+    "certo": "Correcte!",
+    "nao_e": "No és aquesta.",
+    "frase_todas": "Ja ets amic de les abelles natives!",
+    "frase_boa": "Molt bé! Et falta poc per saber-ho tot.",
+    "frase_fraca": "Val la pena fer el recorregut de 3 minuts.",
+    "resultado": "Has encertat {n} de {total}",
+    "fazer_percurso": "Fer el recorregut",
+    "tentar": "Torna-ho a provar",
+    "tela": "Pantalla {n} de {total}",
+    "ir_teste": "Fer el test ràpid →"
+  }
+}
