@@ -1,0 +1,47 @@
+{
+  "_leia": "Preços de referência (a partir de) de cada moeda. Os cartões, o simulador, o Monte o seu site e as dúvidas saem daqui pelo ferramentas/gerar-idiomas.mjs. Enquanto uma moeda usada por alguma página tiver \"pendente\", o deploy/conferir-pagina.py não deixa publicar; \"provisorio\" publica e só avisa.",
+  "BRL": {
+    "apresentacao": 1800,
+    "ferramenta": 6000,
+    "app": 9000,
+    "painel": 1200,
+    "plano_no_ar": 60,
+    "plano_cuidado": 120,
+    "dominio_ano": 40,
+    "depoimentos": 200,
+    "efeitos": 400,
+    "cores": 200,
+    "laboratorio": 600,
+    "assinatura": 400
+  },
+  "EUR": {
+    "provisorio": "Publicados em 30/10/2026 com os valores provisórios, para ver no ar; falta aprovar a tabela em euro e a forma de pagamento.",
+    "apresentacao": 1500,
+    "ferramenta": 5000,
+    "app": 7500,
+    "painel": 600,
+    "plano_no_ar": 25,
+    "plano_cuidado": 50,
+    "dominio_ano": 15,
+    "depoimentos": 150,
+    "efeitos": 300,
+    "cores": 150,
+    "laboratorio": 450,
+    "assinatura": 300
+  },
+  "USD": {
+    "pendente": "Valores provisórios, ainda não aprovados: definir a tabela em dólar (e a forma de pagamento: Wise, PayPal) antes de publicar.",
+    "apresentacao": 1600,
+    "ferramenta": 5500,
+    "app": 8000,
+    "painel": 650,
+    "plano_no_ar": 29,
+    "plano_cuidado": 59,
+    "dominio_ano": 15,
+    "depoimentos": 160,
+    "efeitos": 330,
+    "cores": 160,
+    "laboratorio": 500,
+    "assinatura": 330
+  }
+}

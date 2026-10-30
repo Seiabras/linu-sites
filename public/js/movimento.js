@@ -5,6 +5,10 @@
   'use strict';
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
   const calmo = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Os textos no idioma da página (o gerar-idiomas.mjs escreve o bloco); {nome} é trocado pelo valor
+  const bloco = document.getElementById('textos-js');
+  const T = bloco ? JSON.parse(bloco.textContent) : {};
+  const t = (chave, valores = {}) => (T[chave] || '').replace(/\{(\w+)\}/g, (_, k) => valores[k] ?? '');
 
   // ---- Projetos: "No ar" e "De estudo" em abas, com setas, Home e End; o #estudo no endereço abre a segunda ----
   // (vem antes das seções que entram ao rolar, para os cartões da aba escondida não ficarem esperando a rolagem)
@@ -43,6 +47,38 @@
       escolher(b); marcar(b); b.focus();
     });
     window.addEventListener('hashchange', () => { const b = pelaUrl(); if (b) { escolher(b); irPara(); } });
+
+    // ---- Áreas: filtram as duas listas; a conta de cada aba acompanha e, se a aba aberta ficar vazia, vai para a
+    // outra (o data-areas de cada projeto pode ter mais de uma área) ----
+    const areas = document.querySelector('.areas');
+    if (areas) {
+      const chips = $$('[data-area]', areas);
+      const filtrar = (chip) => {
+        const area = chip.dataset.area;
+        chips.forEach((c) => c.setAttribute('aria-pressed', String(c === chip)));
+        const contas = botoes.map((b) => {
+          const p = painel(b);
+          const cartoes = $$('.projeto', p);
+          cartoes.forEach((c) => { c.hidden = !!area && !c.dataset.areas.split(' ').includes(area); });
+          const n = cartoes.filter((c) => !c.hidden).length;
+          b.querySelector('.aba-conta').textContent = n;
+          let vazio = p.querySelector('.area-vazia');
+          if (!n && !vazio) {
+            vazio = document.createElement('p');
+            vazio.className = 'area-vazia';
+            vazio.textContent = t('area_vazia');
+            p.appendChild(vazio);
+          }
+          if (vazio) vazio.hidden = n > 0;
+          return n;
+        });
+        const aberta = botoes.findIndex((b) => b.getAttribute('aria-selected') === 'true');
+        const outra = contas.findIndex((n) => n > 0);
+        if (!contas[aberta] && outra >= 0) { escolher(botoes[outra]); marcar(botoes[outra]); }
+      };
+      areas.hidden = false;
+      chips.forEach((c) => c.addEventListener('click', () => filtrar(c)));
+    }
   }
 
   // ---- Seções que entram ao rolar (um observer só, cada elemento uma vez) ----
@@ -113,7 +149,9 @@
     const total = monte.querySelector('[data-total]');
     const prazo = monte.querySelector('dd[data-prazo]');
     const mensal = monte.querySelector('[data-mensal]');
-    const reais = (v) => 'R$ ' + v.toLocaleString('pt-BR');
+    const raiz = document.documentElement;
+    const dinheiro = new Intl.NumberFormat(raiz.lang, { style: 'currency', currency: raiz.dataset.moeda || 'BRL', maximumFractionDigits: 0 });
+    const reais = (v) => dinheiro.format(v);
     let mostrado = 0;
     let quadro = 0;
     const contar = (alvo) => {
@@ -140,24 +178,25 @@
         valor = Number(tipo.dataset.preco);
         itens.forEach((i) => { if (tipo.value === 'apresentacao' && i.dataset.precoApresentacao) valor += Number(i.dataset.precoApresentacao); });
         const semPreco = itens.filter((i) => !(tipo.value === 'apresentacao' && i.dataset.precoApresentacao) && !(tipo.value !== 'apresentacao' && i.dataset.precoApresentacao));
-        if (semPreco.length) extra = ` + ${semPreco.length === 1 ? 'um item' : semPreco.length + ' itens'} na proposta`;
+        if (semPreco.length) extra = t('extra', { itens: semPreco.length === 1 ? t('um_item') : t('n_itens', { n: semPreco.length }) });
         const vez = plano ? Number(plano.value) : 0;
         numeros.hidden = false;
         contar(valor);
         prazo.textContent = tipo.dataset.prazo;
-        mensal.textContent = anual ? reais(vez * 10) + ' por ano' : reais(vez) + ' por mês';
-        resumo.textContent = 'Estimativa: a partir de ' + reais(valor) + extra;
+        mensal.textContent = anual ? t('por_ano', { valor: reais(vez * 10) }) : t('por_mes', { valor: reais(vez) });
+        resumo.textContent = t('estimativa', { valor: reais(valor), extra });
       } else {
         numeros.hidden = true;
-        resumo.textContent = tipo ? 'Sem problema: a conversa ajuda a escolher o tipo.' : 'Escolha o tipo para ver uma estimativa';
+        resumo.textContent = tipo ? t('sem_tipo') : t('escolha');
       }
-      if (tipo) linhas.push('Tipo: ' + tipo.dataset.nome);
-      if (itens.length) linhas.push('Precisa ter:\n' + itens.map((i) => '- ' + i.value).join('\n'));
-      if (plano) linhas.push('Depois de pronto: ' + plano.dataset.nome + (anual ? ', pagando o ano' : ''));
-      if (valor) linhas.push('Estimativa do site: a partir de ' + reais(valor) + extra);
-      const corpo = 'Olá! Quero um site.' + (linhas.length ? '\n\n' + linhas.join('\n') : '') + '\n\nSobre o meu negócio: ';
-      if (enviar) enviar.href = 'mailto:contato@linupedia.com.br?subject=' + encodeURIComponent('Quero um site') + '&body=' + encodeURIComponent(corpo);
-      if (whats) whats.href = whats.href.split('?')[0] + '?text=' + encodeURIComponent(corpo.replace(/\n\nSobre o meu negócio: $/, ''));
+      if (tipo) linhas.push(t('linha_tipo', { nome: tipo.dataset.nome }));
+      if (itens.length) linhas.push(t('linha_itens') + '\n' + itens.map((i) => '- ' + i.value).join('\n'));
+      if (plano) linhas.push(t('linha_depois', { nome: plano.dataset.nome, anual: anual ? t('anual') : '' }));
+      if (valor) linhas.push(t('linha_estimativa', { valor: reais(valor), extra }));
+      const inicio = t('ola') + (linhas.length ? '\n\n' + linhas.join('\n') : '');
+      const corpo = inicio + '\n\n' + t('sobre');
+      if (enviar) enviar.href = 'mailto:contato@linupedia.com.br?subject=' + encodeURIComponent(t('assunto')) + '&body=' + encodeURIComponent(corpo);
+      if (whats) whats.href = whats.href.split('?')[0] + '?text=' + encodeURIComponent(inicio);
       resumo.classList.remove('pulso');
       void resumo.offsetWidth; // reinicia a animação
       if (tipo) resumo.classList.add('pulso');

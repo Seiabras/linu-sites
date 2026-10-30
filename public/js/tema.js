@@ -7,6 +7,8 @@
   "use strict";
 
   var raiz = document.documentElement;
+  var bloco = document.getElementById("textos-js");
+  var T = bloco ? JSON.parse(bloco.textContent) : {};
   var botao = document.querySelector("[data-luz]");
   var cena = document.querySelector("[data-cena]");
   var sistemaEscuro = window.matchMedia("(prefers-color-scheme: dark)");
@@ -26,9 +28,9 @@
 
   function atualizarBotao() {
     var escuro = temaAtual() === "dark";
-    var texto = escuro ? "Acender a luz (modo claro)" : "Apagar a luz (modo escuro)";
+    var texto = escuro ? T.luz_acender_aria || "Acender a luz (modo claro)" : T.luz_apagar_aria || "Apagar a luz (modo escuro)";
     botao.setAttribute("aria-label", texto);
-    botao.title = escuro ? "Acender a luz" : "Apagar a luz";
+    botao.title = escuro ? T.luz_acender || "Acender a luz" : T.luz_apagar || "Apagar a luz";
   }
 
   function aplicarTema(tema, suave) {
@@ -63,18 +65,34 @@
     });
   }
 
-  /* a luz da cena muda, e a página junto */
-  function trocarLuz(alvo, tema) {
+  /* a luz da cena muda, e a página junto, no instante em que o lampião fica apagado (ou aceso) de vez.
+     As camadas: o dia, a noite com o lampião aceso e, por cima, a noite com ele apagado. */
+  async function trocarLuz(alvo, tema) {
     var acesa = alvo.querySelector(".cena-acesa");
     var apagada = alvo.querySelector(".cena-apagada");
-    aplicarTema(tema, true);
+    var segura = { fill: "forwards" };
     if (tema === "dark") {
-      // o lampião pisca e apaga
-      return apagada.animate([{ opacity: 0 }, { opacity: 1, offset: 0.2 }, { opacity: 0.25, offset: 0.4 }, { opacity: 1 }], { duration: 380 }).finished;
+      // o dia vira a noite com o lampião aceso; ele falha algumas vezes e apaga
+      await acesa.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 420, easing: "ease-out", fill: "forwards" }).finished;
+      await esperar(120);
+      await apagada.animate([
+        { opacity: 0 }, { opacity: 0.85, offset: 0.12 }, { opacity: 0.1, offset: 0.22 }, { opacity: 0.9, offset: 0.4 },
+        { opacity: 0.45, offset: 0.52 }, { opacity: 1, offset: 0.68 }, { opacity: 1 }
+      ], { duration: 900, fill: "forwards" }).finished;
+      aplicarTema(tema, true);
+    } else {
+      // no escuro, o lampião falha, acende e fica; a página clareia e o dia volta devagar
+      acesa.animate([{ opacity: 1 }, { opacity: 1 }], segura);
+      await apagada.animate([
+        { opacity: 1 }, { opacity: 0.2, offset: 0.15 }, { opacity: 0.9, offset: 0.28 }, { opacity: 0, offset: 0.45 },
+        { opacity: 0.5, offset: 0.55 }, { opacity: 0 }
+      ], { duration: 760, fill: "forwards" }).finished;
+      aplicarTema(tema, true);
+      await esperar(380);
+      await acesa.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 900, easing: "ease-in-out", fill: "forwards" }).finished;
     }
-    // o lampião acende no escuro e o quarto clareia
-    apagada.animate([{ opacity: 1 }, { opacity: 0, offset: 0.08 }, { opacity: 0 }], { duration: 1300 });
-    return acesa.animate([{ opacity: 0 }, { opacity: 1, offset: 0.08 }, { opacity: 1, offset: 0.4 }, { opacity: 0 }], { duration: 1300, easing: "ease-in" }).finished;
+    // o CSS do tema novo já mostra a camada certa: as animações saem sem pular
+    acesa.getAnimations().concat(apagada.getAnimations()).forEach(function (a) { a.cancel(); });
   }
 
   function cenaVisivel() {
@@ -101,7 +119,11 @@
     var linu = alvo.querySelector(".cena-linu");
     await andar(linu, PORTA, LAMPIAO, true, false);
     linu.dataset.pose = "costas";
-    await esperar(300);
+    await esperar(220);
+    // um pulinho para puxar a cordinha do lampião
+    await linu.animate([
+      { transform: "none" }, { transform: "translateY(-9%) scaleY(1.04)", offset: 0.4 }, { transform: "translateY(1%) scaleY(.96)", offset: 0.8 }, { transform: "none" }
+    ], { duration: 340, easing: "ease-out" }).finished;
     await trocarLuz(alvo, tema);
     await esperar(250);
     linu.dataset.pose = "frente";

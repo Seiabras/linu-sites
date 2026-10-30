@@ -10,12 +10,18 @@ fez em 24/10/2026 (“O Linu novo em todo lugar”). Rode de novo quando o Linu 
 - img/linu-pixel.png: o Linu acenando (138 × 190), na página de erro e nas páginas de projeto;
 - img/linu-logo.png (128 px), icone-180.png e icone-32.png: a logo e os ícones do app.
 Tudo na cor padrão. Depois, rode o ferramentas/gerar-imagens.mjs para refazer a imagem de compartilhar.
+
+Os quadros do Linu saem sem a sobra do fundo antigo na borda (sem_halo). Para só limpar as imagens que já estão no
+site, sem trazer nada do app:
+
+    python3 ferramentas/linu-do-app.py --so-limpar
 """
 import sys
 from pathlib import Path
 from PIL import Image
 
-APP = Path(sys.argv[1]) if len(sys.argv) > 1 else Path.home() / 'Documentos/projetos/LinuPedia/meu-app-idiomas'
+argumentos = [a for a in sys.argv[1:] if not a.startswith('--')]
+APP = Path(argumentos[0]) if argumentos else Path.home() / 'Documentos/projetos/LinuPedia/meu-app-idiomas'
 IMG = Path(__file__).resolve().parent.parent / 'public/img'
 HUB = APP / 'assets/pixel/linuhub/linu-novo'
 
@@ -48,6 +54,36 @@ def sem_sombra(im):
     return im
 
 
+def sem_halo(im, escuro=70, voltas=3):
+    """Tira a sobra do fundo antigo que ficou por fora do contorno (30/10): pixels da borda, encostados no
+    transparente, mais claros que o contorno preto, que não são o laranja dos pés e encostam num pixel escuro do
+    contorno. Em até 3 voltas, de fora para dentro; o contorno, a barriga e os pés ficam como estão."""
+    px = im.load()
+    w, h = im.size
+    luz = lambda p: (p[0] * 299 + p[1] * 587 + p[2] * 114) / 1000
+    pe = lambda p: p[0] - p[2] > 60 and p[0] > 120
+    for _ in range(voltas):
+        sobra = []
+        for y in range(h):
+            for x in range(w):
+                p = px[x, y]
+                if not p[3] or luz(p) <= escuro or pe(p):
+                    continue
+                if not any(not (0 <= a < w and 0 <= b < h) or not px[a, b][3] for a, b in ((x + 1, y), (x - 1, y), (x, y + 1), (x, y - 1))):
+                    continue
+                if any(0 <= x + dx < w and 0 <= y + dy < h and px[x + dx, y + dy][3] and luz(px[x + dx, y + dy]) <= escuro
+                       for dx in (-1, 0, 1) for dy in (-1, 0, 1)):
+                    sobra.append((x, y))
+        if not sobra:
+            break
+        for x, y in sobra:
+            px[x, y] = (0, 0, 0, 0)
+    return im
+
+
+QUADROS = ['linu/linu-frente.png', 'linu/linu-costas.png', 'linu/linu-lado.png', 'linu/linu-contato.png', 'linu-pixel.png']
+
+
 def no_quadro(im, largura):
     """Põe um desenho de 138 de largura no meio do quadro do linuhub (172), como o app faz."""
     quadro = Image.new('RGBA', (largura, im.height))
@@ -56,10 +92,17 @@ def no_quadro(im, largura):
 
 
 def salvar(im, destino):
+    if str(destino.relative_to(IMG)) in QUADROS:
+        im = sem_halo(im)
     destino.parent.mkdir(parents=True, exist_ok=True)
     im.save(destino, optimize=True)
     print(destino.relative_to(IMG.parent), im.size)
 
+
+if '--so-limpar' in sys.argv:
+    for nome in QUADROS:
+        salvar(abrir(IMG / nome), IMG / nome)
+    sys.exit()
 
 # de frente, o app usa o Linu “olhando” com a sombra por cima: aqui vai o “olhando”, sem ela
 salvar(no_quadro(abrir(APP / 'assets/pixel/linu-novo/olhando-padrao.png'), abrir(HUB / 'frente-padrao.png').width), IMG / 'linu/linu-frente.png')

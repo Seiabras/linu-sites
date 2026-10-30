@@ -70,7 +70,9 @@
       dot.style.transform = `translate3d(${mx}px, ${my}px, 0)`;
     }, { passive: true });
 
+    // parado no lugar, não regrava o estilo (antes regravava a cada quadro)
     passos.push(() => {
+      if (Math.abs(mx - cx) < 0.1 && Math.abs(my - cy) < 0.1) return;
       cx += (mx - cx) * 0.16;
       cy += (my - cy) * 0.16;
       cur.style.transform = `translate3d(${cx}px, ${cy}px, 0)`;
@@ -96,12 +98,37 @@
   const particles = [];
   const PARTICLE_COUNT = reduced ? 0 : (innerWidth < 700 ? 34 : 70);
 
+  // O fundo é suave (linhas finas e brilhos): na resolução da página fica igual e desenha até 9× menos pixels num
+  // celular de tela densa. Os brilhos das partículas vão pré-desenhados (um por cor), e o fundo anda a 30 quadros.
+  let brilhoHorizonte = null;
+  const sprites = {};
+  function sprite(hue) {
+    const tam = 32, c = document.createElement('canvas');
+    c.width = c.height = tam;
+    const g = c.getContext('2d');
+    const r = g.createRadialGradient(tam / 2, tam / 2, 0, tam / 2, tam / 2, tam / 2);
+    r.addColorStop(0, `hsla(${hue}, 100%, 70%, 1)`);
+    r.addColorStop(0.25, `hsla(${hue}, 100%, 70%, 1)`);
+    r.addColorStop(0.26, `hsla(${hue}, 100%, 70%, .12)`);
+    r.addColorStop(1, `hsla(${hue}, 100%, 70%, 0)`);
+    g.fillStyle = r;
+    g.fillRect(0, 0, tam, tam);
+    return c;
+  }
+  sprites[185] = sprite(185);
+  sprites[315] = sprite(315);
+
   function resize() {
-    DPR = Math.min(window.devicePixelRatio || 1, 2);
+    DPR = 1;
     W = cvs.width  = Math.floor(innerWidth  * DPR);
     H = cvs.height = Math.floor(innerHeight * DPR);
     cvs.style.width  = innerWidth + 'px';
     cvs.style.height = innerHeight + 'px';
+    const horizon = H * 0.60;
+    brilhoHorizonte = ctx.createLinearGradient(0, horizon - H * 0.18, 0, horizon + H * 0.06);
+    brilhoHorizonte.addColorStop(0, 'hsla(315, 100%, 62%, 0)');
+    brilhoHorizonte.addColorStop(0.65, 'hsla(300, 100%, 62%, 0.10)');
+    brilhoHorizonte.addColorStop(1, 'hsla(185, 100%, 55%, 0)');
   }
 
   function initParticles() {
@@ -156,8 +183,11 @@
     }
   }
 
+  let impar = false;
   function frame() {
-    t += 0.006;
+    impar = !impar;
+    if (impar) return; // 30 quadros por segundo bastam para a grade e as partículas
+    t += 0.012;
 
     ctx.clearRect(0, 0, W, H);
 
@@ -165,33 +195,23 @@
     drawGrid(horizon, 0.35);
 
     // Brilho no horizonte
-    const g = ctx.createLinearGradient(0, horizon - H * 0.18, 0, horizon + H * 0.06);
-    g.addColorStop(0, 'hsla(315, 100%, 62%, 0)');
-    g.addColorStop(0.65, 'hsla(300, 100%, 62%, 0.10)');
-    g.addColorStop(1, 'hsla(185, 100%, 55%, 0)');
-    ctx.fillStyle = g;
+    ctx.fillStyle = brilhoHorizonte;
     ctx.fillRect(0, horizon - H * 0.18, W, H * 0.24);
 
     // Partículas
     for (const pt of particles) {
-      pt.x += pt.vx;
-      pt.y += pt.vy;
+      pt.x += pt.vx * 2;
+      pt.y += pt.vy * 2;
 
       if (pt.y < -20) { pt.y = H + 20; pt.x = Math.random() * W; }
       if (pt.x < -20) pt.x = W + 20;
       if (pt.x > W + 20) pt.x = -20;
 
-      ctx.beginPath();
-      ctx.fillStyle = `hsla(${pt.hue}, 100%, 70%, ${pt.a})`;
-      ctx.arc(pt.x, pt.y, pt.r, 0, Math.PI * 2);
-      ctx.fill();
-
-      // halo
-      ctx.beginPath();
-      ctx.fillStyle = `hsla(${pt.hue}, 100%, 70%, ${pt.a * 0.12})`;
-      ctx.arc(pt.x, pt.y, pt.r * 4, 0, Math.PI * 2);
-      ctx.fill();
+      // o ponto e o halo (4× o raio) de uma vez, do sprite da cor
+      ctx.globalAlpha = pt.a;
+      ctx.drawImage(sprites[pt.hue], pt.x - pt.r * 4, pt.y - pt.r * 4, pt.r * 8, pt.r * 8);
     }
+    ctx.globalAlpha = 1;
   }
 
   if (reduced) {
@@ -454,6 +474,7 @@
     }, { passive: true });
 
     passos.push(() => {
+      if (Math.abs(tx - px) < 0.05 && Math.abs(ty - py) < 0.05) return;
       px += (tx - px) * 0.06;
       py += (ty - py) * 0.06;
       halo.style.transform = `translate3d(${px}px, ${py}px, 0)`;

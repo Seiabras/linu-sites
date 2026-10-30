@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-moeda="BRL">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,15 +19,38 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self'; frame-src https://cafe.linupedia.com.br; object-src 'none'; base-uri 'self'; form-action 'self'">
   <link rel="preload" href="fontes/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="canonical" href="https://sites.linupedia.com.br/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sites.linupedia.com.br/">
+  <link rel="alternate" hreflang="pt-PT" href="https://sites.linupedia.com.br/pt-pt/">
+  <link rel="alternate" hreflang="es-ES" href="https://sites.linupedia.com.br/es/">
+  <link rel="alternate" hreflang="ca" href="https://sites.linupedia.com.br/ca/">
+  <link rel="alternate" hreflang="nl" href="https://sites.linupedia.com.br/nl/">
+  <link rel="alternate" hreflang="en-GB" href="https://sites.linupedia.com.br/en/">
+  <link rel="alternate" hreflang="en-IE" href="https://sites.linupedia.com.br/en/">
+  <link rel="alternate" hreflang="fr-FR" href="https://sites.linupedia.com.br/fr/">
+  <link rel="alternate" hreflang="de-DE" href="https://sites.linupedia.com.br/de/">
+  <link rel="alternate" hreflang="it-IT" href="https://sites.linupedia.com.br/it/">
+  <link rel="alternate" hreflang="x-default" href="https://sites.linupedia.com.br/en/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://sites.linupedia.com.br/">
   <meta property="og:locale" content="pt_BR">
+  <meta property="og:locale:alternate" content="pt_PT">
+  <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="ca_ES">
+  <meta property="og:locale:alternate" content="nl_NL">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta property="og:locale:alternate" content="it_IT">
+  <!-- O que o Google lê sobre o estúdio (schema.org); sai do ferramentas/gerar-idiomas.mjs -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Linu Sites","url":"https://sites.linupedia.com.br/","logo":"https://sites.linupedia.com.br/img/linu-logo.png","image":"https://sites.linupedia.com.br/img/compartilhar.png","description":"Sites de apresentação, ferramentas com painel e aplicativos que instalam no celular. A gente desenha, programa, publica e cuida do servidor.","inLanguage":"pt-BR","email":"contato@linupedia.com.br","telephone":"+55 61 99667-2610","areaServed":"BR","availableLanguage":["pt-BR","pt-PT","es-ES","ca","nl","en-GB","fr-FR","de-DE","it-IT"],"parentOrganization":{"@type":"Organization","name":"LinuPedia","url":"https://linupedia.com.br"}}</script>
+  <!-- Os textos que os scripts escrevem (menu, luz, Monte o seu site), no idioma da página -->
+  <script type="application/json" id="textos-js">{"menu_abrir":"Abrir o menu","menu_fechar":"Fechar o menu","luz_apagar_aria":"Apagar a luz (modo escuro)","luz_acender_aria":"Acender a luz (modo claro)","luz_apagar":"Apagar a luz","luz_acender":"Acender a luz","fechar":"Fechar","escolha":"Escolha o tipo para ver uma estimativa","sem_tipo":"Sem problema: a conversa ajuda a escolher o tipo.","um_item":"um item","n_itens":"{n} itens","extra":" + {itens} na proposta","por_ano":"{valor} por ano","por_mes":"{valor} por mês","estimativa":"Estimativa: a partir de {valor}{extra}","linha_tipo":"Tipo: {nome}","linha_itens":"Precisa ter:","linha_depois":"Depois de pronto: {nome}{anual}","anual":", pagando o ano","linha_estimativa":"Estimativa do site: a partir de {valor}{extra}","ola":"Olá! Quero um site.","sobre":"Sobre o meu negócio: ","assunto":"Quero um site","ola_conversa":"Olá! Quero conversar sobre um site.","area_vazia":"Nenhum projeto desta área aqui."}</script>
   <script src="js/tema-inicio.js?v=5"></script>
-  <link rel="stylesheet" href="css/estilo.css?v=13">
-  <script src="js/tema.js?v=6" defer></script>
-  <script src="js/menu.js?v=5" defer></script>
-  <script src="js/movimento.js?v=8" defer></script>
-  <script src="js/simulador.js?v=2" defer></script>
+  <link rel="stylesheet" href="css/estilo.css?v=14">
+  <script src="js/tema.js?v=7" defer></script>
+  <script src="js/menu.js?v=6" defer></script>
+  <script src="js/movimento.js?v=9" defer></script>
+  <script src="js/simulador.js?v=3" defer></script>
 </head>
 <body>
   <header class="topo">
@@ -45,6 +68,26 @@
           <a href="#duvidas">Dúvidas</a>
           <a class="botao menu-links-orcamento" href="#contato">Pedir orçamento</a>
         </div>
+        <details class="idiomas">
+          <summary title="Região e idioma"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3c2.5 2.6 3.7 5.6 3.7 9s-1.2 6.4-3.7 9c-2.5-2.6-3.7-5.6-3.7-9S9.5 5.6 12 3Z" /></svg><span class="idiomas-codigo">PT-BR</span><span class="so-leitor">: Região e idioma, Português (Brasil)</span></summary>
+          <div class="idiomas-lista">
+            <p class="idiomas-regiao" id="regiao-brasil">Brasil</p>
+            <ul aria-labelledby="regiao-brasil">
+              <li><a href="./" hreflang="pt-BR" lang="pt-BR" data-regiao="brasil" data-padrao data-sugestao="Ver esta página em português do Brasil" data-fechar="Fechar" aria-current="true">Português (Brasil)</a></li>
+            </ul>
+            <p class="idiomas-regiao" id="regiao-europa">Europa</p>
+            <ul aria-labelledby="regiao-europa">
+              <li><a href="pt-pt/" hreflang="pt-PT" lang="pt-PT" data-regiao="europa" data-sugestao="Ver esta página em português de Portugal" data-fechar="Fechar">Português (Portugal)</a></li>
+              <li><a href="es/" hreflang="es-ES" lang="es-ES" data-regiao="europa" data-sugestao="Ver esta página en español" data-fechar="Cerrar">Español</a></li>
+              <li><a href="ca/" hreflang="ca" lang="ca" data-regiao="europa" data-sugestao="Llegeix aquesta pàgina en català" data-fechar="Tancar">Català</a></li>
+              <li><a href="nl/" hreflang="nl" lang="nl" data-regiao="europa" data-sugestao="Lees deze pagina in het Nederlands" data-fechar="Sluiten">Nederlands</a></li>
+              <li><a href="en/" hreflang="en-GB" lang="en-GB" data-regiao="europa" data-padrao data-sugestao="See the page for the UK and Europe, in English (prices in €)" data-fechar="Close">English (UK & Europe)</a></li>
+              <li><a href="fr/" hreflang="fr-FR" lang="fr-FR" data-regiao="europa" data-sugestao="Lire cette page en français" data-fechar="Fermer">Français</a></li>
+              <li><a href="de/" hreflang="de-DE" lang="de-DE" data-regiao="europa" data-sugestao="Diese Seite auf Deutsch lesen" data-fechar="Schließen">Deutsch</a></li>
+              <li><a href="it/" hreflang="it-IT" lang="it-IT" data-regiao="europa" data-sugestao="Leggi questa pagina in italiano" data-fechar="Chiudi">Italiano</a></li>
+            </ul>
+          </div>
+        </details>
         <button class="luz" type="button" data-luz aria-label="Apagar a luz (modo escuro)" title="Apagar a luz">
           <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
             <path class="luz-raios" d="M12 1.5v2M4.6 4.6l1.4 1.4M1.5 12h2M20.5 12h2M19.4 4.6 18 6" />
@@ -97,39 +140,49 @@
             <span class="cartao-icone" aria-hidden="true">🧭</span>
             <h3><a class="cartao-link" href="#contato" data-escolher="tipo=apresentacao" aria-describedby="preco-apresentacao">Sites de apresentação</a></h3>
             <p>Para contar quem você é, o que oferece e como falar com você. Rápidos, bonitos no celular e fáceis de achar no Google.</p>
-            <p class="cartao-preco" id="preco-apresentacao">a partir de <b>R$ 1.800</b> <span class="cartao-seta" aria-hidden="true">→</span><span class="so-leitor">: montar o orçamento</span></p>
+            <p class="cartao-preco" id="preco-apresentacao">a partir de <b>R$ 1.800</b> <span class="cartao-seta" aria-hidden="true">→</span><span class="so-leitor">: montar o orçamento</span></p>
           </article>
           <article class="cartao">
             <span class="cartao-icone" aria-hidden="true">🛠️</span>
             <h3><a class="cartao-link" href="#contato" data-escolher="tipo=ferramenta" aria-describedby="preco-ferramenta">Ferramentas e painéis</a></h3>
             <p>Formulários de pedido, cálculos, área com login e painel para acompanhar tudo. O site deixa de ser vitrine e passa a fazer parte do trabalho.</p>
-            <p class="cartao-preco" id="preco-ferramenta">a partir de <b>R$ 6.000</b> <span class="cartao-seta" aria-hidden="true">→</span><span class="so-leitor">: montar o orçamento</span></p>
+            <p class="cartao-preco" id="preco-ferramenta">a partir de <b>R$ 6.000</b> <span class="cartao-seta" aria-hidden="true">→</span><span class="so-leitor">: montar o orçamento</span></p>
           </article>
           <article class="cartao">
             <span class="cartao-icone" aria-hidden="true">📱</span>
             <h3><a class="cartao-link" href="#contato" data-escolher="tipo=app" aria-describedby="preco-app">Apps que instalam</a></h3>
             <p>Aplicativos web que ficam na tela do celular como um app comum e abrem até sem internet, sem passar por loja.</p>
-            <p class="cartao-preco" id="preco-app">a partir de <b>R$ 9.000</b> <span class="cartao-seta" aria-hidden="true">→</span><span class="so-leitor">: montar o orçamento</span></p>
+            <p class="cartao-preco" id="preco-app">a partir de <b>R$ 9.000</b> <span class="cartao-seta" aria-hidden="true">→</span><span class="so-leitor">: montar o orçamento</span></p>
           </article>
           <article class="cartao">
             <span class="cartao-icone" aria-hidden="true">🛰️</span>
             <h3>No ar e cuidado</h3>
             <p>Domínio, cadeado de segurança (HTTPS), servidor e cópias de segurança. Você não precisa entender de nada disso.</p>
             <ul class="planos">
-              <li><a href="#contato" data-escolher="plano=60" aria-label="Plano No ar, R$ 60 por mês: montar o orçamento"><span>No ar</span><b>R$ 60</b>/mês</a></li>
-              <li><a href="#contato" data-escolher="plano=120" aria-label="Plano Cuidado, R$ 120 por mês: montar o orçamento"><span>Cuidado</span><b>R$ 120</b>/mês</a></li>
+              <li><a href="#contato" data-escolher="plano=60" aria-label="Plano No ar, R$ 60 por mês: montar o orçamento"><span>No ar</span><b>R$ 60</b>/mês</a></li>
+              <li><a href="#contato" data-escolher="plano=120" aria-label="Plano Cuidado, R$ 120 por mês: montar o orçamento"><span>Cuidado</span><b>R$ 120</b>/mês</a></li>
             </ul>
             <p class="planos-nota">O Cuidado inclui atualizações e pequenos ajustes de texto e foto. Pagando o ano, são 10 meses.</p>
           </article>
         </div>
-        <p class="precos-nota">Valores de referência para começar a conversa. O orçamento final, por escrito, depende do que entra no projeto. O registro do domínio (cerca de R$ 40 por ano no Registro.br) é pago à parte.</p>
+        <p class="precos-nota">Valores de referência para começar a conversa. O orçamento final, por escrito, depende do que entra no projeto. O registro do domínio (cerca de R$ 40 por ano no Registro.br) é pago à parte.</p>
       </div>
     </section>
 
     <section class="secao secao-gelo" id="projetos">
       <div class="dentro">
         <h2>Projetos</h2>
-        <!-- As duas listas em abas (js/movimento.js); sem JavaScript, as duas aparecem uma embaixo da outra -->
+        <!-- As áreas filtram as duas listas, e as abas separam o que está no ar do que é de estudo (js/movimento.js);
+             sem JavaScript, as áreas não aparecem e as duas listas ficam uma embaixo da outra.
+             Cada projeto diz as suas áreas no data-areas (pode ter mais de uma). -->
+        <div class="areas" role="group" aria-label="Filtrar por área" hidden>
+          <button class="area" type="button" data-area="" aria-pressed="true">Todas</button>
+          <button class="area" type="button" data-area="educacao" aria-pressed="false">Educação e cultura</button>
+          <button class="area" type="button" data-area="servicos" aria-pressed="false">Saúde e serviços</button>
+          <button class="area" type="button" data-area="comercio" aria-pressed="false">Comércio e turismo</button>
+          <button class="area" type="button" data-area="industria" aria-pressed="false">Indústria</button>
+          <button class="area" type="button" data-area="jogos" aria-pressed="false">Jogos</button>
+        </div>
         <div class="abas" role="tablist" aria-label="Que projetos mostrar" hidden>
           <button class="aba" type="button" role="tab" id="aba-no-ar" aria-controls="no-ar" aria-selected="true">No ar <span class="aba-conta">8</span></button>
           <button class="aba" type="button" role="tab" id="aba-estudo" aria-controls="estudo" aria-selected="false" tabindex="-1">De estudo <span class="aba-conta">3</span></button>
@@ -138,7 +191,7 @@
           <h3 class="painel-titulo">No ar</h3>
           <p class="secao-sub">Sites de verdade, sendo usados agora. Pode abrir e mexer.</p>
           <div class="projetos">
-            <article class="projeto">
+            <article class="projeto" data-areas="educacao jogos">
               <a href="https://linupedia.com.br" target="_blank" rel="noopener"><img src="img/projetos/linupedia.webp" alt="O linuhub da LinuPedia: o acampamento do Linu em pixel art, à noite, com a fogueira e os amigos dele" width="960" height="600" loading="lazy"></a>
               <div class="projeto-texto">
                 <p class="etiqueta">App que instala</p>
@@ -150,7 +203,7 @@
                 </p>
               </div>
             </article>
-            <article class="projeto">
+            <article class="projeto" data-areas="industria">
               <a href="https://v2tech.app.br" target="_blank" rel="noopener"><img src="img/projetos/v2tech.webp" alt="Página inicial do V²Tech COMBUSTÍVEL com o preço justo do diesel" width="960" height="600" loading="lazy"></a>
               <div class="projeto-texto">
                 <p class="etiqueta">Ferramenta para empresas</p>
@@ -162,7 +215,7 @@
                 </p>
               </div>
             </article>
-            <article class="projeto">
+            <article class="projeto" data-areas="comercio">
               <a href="https://losveganaestrada.com.br" target="_blank" rel="noopener"><img src="img/projetos/losvega.webp" alt="Página inicial do Los Vega na Estrada, roteiros de viagem personalizados" width="960" height="600" loading="lazy"></a>
               <div class="projeto-texto">
                 <p class="etiqueta">Site de vendas com painel</p>
@@ -174,7 +227,7 @@
                 </p>
               </div>
             </article>
-            <article class="projeto">
+            <article class="projeto" data-areas="educacao">
               <a href="https://marginalia.blog.br" target="_blank" rel="noopener"><img src="img/projetos/marginalia.webp" alt="Página inicial da Marginalia, publicação de História e humanidades" width="960" height="600" loading="lazy"></a>
               <div class="projeto-texto">
                 <p class="etiqueta">Publicação digital</p>
@@ -186,7 +239,7 @@
                 </p>
               </div>
             </article>
-            <article class="projeto">
+            <article class="projeto" data-areas="servicos">
               <a href="https://iconvet.com.br" target="_blank" rel="noopener"><img src="img/projetos/iconvet.webp" alt="Página inicial da Iconvet, clínica veterinária em Salvador, com o destaque do setor de exames de imagem" width="960" height="600" loading="lazy"></a>
               <div class="projeto-texto">
                 <p class="etiqueta">Site institucional</p>
@@ -198,7 +251,7 @@
                 </p>
               </div>
             </article>
-            <article class="projeto">
+            <article class="projeto" data-areas="servicos">
               <a href="https://ajoriente.com" target="_blank" rel="noopener"><img src="img/projetos/ajoriente.webp" alt="Página inicial da Administração Judicial Oriente: “Orientando empresas para novos começos”" width="960" height="600" loading="lazy"></a>
               <div class="projeto-texto">
                 <p class="etiqueta">Site com consulta de processos</p>
@@ -210,7 +263,7 @@
                 </p>
               </div>
             </article>
-            <article class="projeto">
+            <article class="projeto" data-areas="jogos">
               <a href="https://www.bjj-link.com" target="_blank" rel="noopener"><img src="img/projetos/dojo-legacy.webp" alt="Página inicial do Dojo Legacy: “Da faixa branca à lenda do tatame”, com o jogo no computador e no celular" width="960" height="600" loading="lazy"></a>
               <div class="projeto-texto">
                 <p class="etiqueta">Jogo no navegador e no celular</p>
@@ -222,7 +275,7 @@
                 </p>
               </div>
             </article>
-            <article class="projeto">
+            <article class="projeto" data-areas="servicos">
               <a href="https://omega-site-vert.vercel.app/" target="_blank" rel="noopener"><img src="img/projetos/omega.webp" alt="Página inicial da Ômega Imóveis: “O lugar certo muda tudo”, sobre a Zona Sul do Rio ao entardecer" width="960" height="600" loading="lazy"></a>
               <div class="projeto-texto">
                 <p class="etiqueta">Site de apresentação</p>
@@ -240,7 +293,7 @@
           <h3 class="painel-titulo">De estudo</h3>
           <p class="secao-sub">Projetos que fiz na faculdade. As empresas são fictícias; o código é aberto.</p>
           <div class="projetos">
-            <article class="projeto">
+            <article class="projeto" data-areas="comercio">
               <a href="https://cafe.linupedia.com.br" target="_blank" rel="noopener"><img src="img/projetos/cafe-aurora.webp" alt="Página inicial do Café Aurora: o nome em neon azul e rosa sobre uma cidade cyberpunk à noite" width="960" height="600" loading="lazy"></a>
               <div class="projeto-texto">
                 <p class="etiqueta">Site com efeitos</p>
@@ -252,7 +305,7 @@
                 </p>
               </div>
             </article>
-            <article class="projeto">
+            <article class="projeto" data-areas="servicos">
               <a href="https://cerrado.linupedia.com.br" target="_blank" rel="noopener"><img src="img/projetos/fotografia-do-cerrado.webp" alt="Página inicial da Fotografia do Cerrado: uma seriema no capim dourado, com um ipê-rosa florido ao fundo" width="960" height="600" loading="lazy"></a>
               <div class="projeto-texto">
                 <p class="etiqueta">Site de apresentação</p>
@@ -264,7 +317,7 @@
                 </p>
               </div>
             </article>
-            <article class="projeto">
+            <article class="projeto" data-areas="educacao">
               <a href="https://abelhas.linupedia.com.br" target="_blank" rel="noopener"><img src="img/projetos/abelhas-sem-ferrao.webp" alt="Página inicial do Abelhas sem Ferrão: a pergunta sobre as 250 espécies ao lado das fotos da jataí, da uruçu e da mandaçaia" width="960" height="600" loading="lazy"></a>
               <div class="projeto-texto">
                 <p class="etiqueta">Site educativo</p>
@@ -282,7 +335,7 @@
     </section>
 
     <!-- Simulador: o Café Aurora (cafeteria fictícia) embutido, com as partes que ligam e desligam e o preço.
-         Os preços ficam aqui, nos data-preco (e a base no data-base); o js/simulador.js só soma. -->
+         Os preços ficam em ferramentas/pagina/precos.json (o data-base e os data-preco saem dele); o js/simulador.js só soma. -->
     <section class="secao" id="exemplo">
       <div class="dentro">
         <h2>Ligue e desligue, veja o preço</h2>
@@ -291,17 +344,17 @@
           <div class="simulador-lado">
             <fieldset class="simulador-opcoes" aria-describedby="simulador-nota">
               <legend class="simulador-titulo">O que o site tem</legend>
-              <label class="simulador-base"><input type="checkbox" checked disabled><span>Início, sobre, cardápio e contato</span><b>R$ 1.800</b></label>
-              <label><input type="checkbox" name="modulo[]" value="depoimentos" data-preco="200" checked><span>Depoimentos</span><b>+ R$ 200</b></label>
-              <label><input type="checkbox" name="modulo[]" value="efeitos" data-preco="400" checked><span>Efeitos: fundo animado, neon e cursor</span><b>+ R$ 400</b></label>
-              <label><input type="checkbox" name="modulo[]" value="cores" data-preco="200" checked><span>Botão de trocar as cores</span><b>+ R$ 200</b></label>
-              <label><input type="checkbox" name="modulo[]" value="laboratorio" data-preco="600" checked><span>Monte sua bebida (simulador)</span><b>+ R$ 600</b></label>
-              <label><input type="checkbox" name="modulo[]" value="assinatura" data-preco="400" checked><span>Assinatura por e-mail</span><b>+ R$ 400</b></label>
-              <label><input type="checkbox" name="modulo[]" value="painel" data-preco="1200"><span>Painel para mexer sozinho</span><b>+ R$ 1.200</b></label>
+              <label class="simulador-base"><input type="checkbox" checked disabled><span>Início, sobre, cardápio e contato</span><b>R$ 1.800</b></label>
+              <label><input type="checkbox" name="modulo[]" value="depoimentos" data-preco="200" checked><span>Depoimentos</span><b>+ R$ 200</b></label>
+              <label><input type="checkbox" name="modulo[]" value="efeitos" data-preco="400" checked><span>Efeitos: fundo animado, neon e cursor</span><b>+ R$ 400</b></label>
+              <label><input type="checkbox" name="modulo[]" value="cores" data-preco="200" checked><span>Botão de trocar as cores</span><b>+ R$ 200</b></label>
+              <label><input type="checkbox" name="modulo[]" value="laboratorio" data-preco="600" checked><span>Monte sua bebida (simulador)</span><b>+ R$ 600</b></label>
+              <label><input type="checkbox" name="modulo[]" value="assinatura" data-preco="400" checked><span>Assinatura por e-mail</span><b>+ R$ 400</b></label>
+              <label><input type="checkbox" name="modulo[]" value="painel" data-preco="1200"><span>Painel para mexer sozinho</span><b>+ R$ 1.200</b></label>
             </fieldset>
             <div class="simulador-total" aria-live="polite">
-              <p><span>Projeto, a partir de</span> <b data-simulador-total>R$ 3.600</b></p>
-              <p class="simulador-nota" id="simulador-nota">Valores de referência, como no “Monte o seu site”. O mensal (a partir de R$ 60) é à parte.</p>
+              <p><span>Projeto, a partir de</span> <b data-simulador-total>R$ 3.600</b></p>
+              <p class="simulador-nota" id="simulador-nota">Valores de referência, como no “Monte o seu site”. O mensal (a partir de R$ 60) é à parte.</p>
               <a class="botao" href="#contato">Quero um site assim</a>
             </div>
           </div>
@@ -353,19 +406,19 @@
           <details>
             <summary>Como é o pagamento?</summary>
             <div class="faq-resposta">
-              <p>Metade quando a proposta é aceita e metade antes de o site ir para o seu domínio, por Pix ou transferência. Em projetos a partir de R$ 6.000, dá para dividir em três: 40% no começo, 30% com a prévia aprovada e 30% na publicação.</p>
+              <p>Metade quando a proposta é aceita e metade antes de o site ir para o seu domínio, por Pix ou transferência. Em projetos a partir de R$ 6.000, dá para dividir em três: 40% no começo, 30% com a prévia aprovada e 30% na publicação.</p>
             </div>
           </details>
           <details>
             <summary>Preciso pagar todo mês?</summary>
             <div class="faq-resposta">
-              <p>Sim: o site fica no nosso servidor, e o mensal é o que mantém ele no ar. São dois planos. O <b>No ar</b> (R$ 60 por mês) cobre servidor, cadeado de segurança, domínio configurado e cópias de segurança. O <b>Cuidado</b> (R$ 120 por mês) tem tudo isso e mais as atualizações e pequenos ajustes de texto e foto. Pagando o ano adiantado, são 10 meses.</p>
+              <p>Sim: o site fica no nosso servidor, e o mensal é o que mantém ele no ar. São dois planos. O <b>No ar</b> (R$ 60 por mês) cobre servidor, cadeado de segurança, domínio configurado e cópias de segurança. O <b>Cuidado</b> (R$ 120 por mês) tem tudo isso e mais as atualizações e pequenos ajustes de texto e foto. Pagando o ano adiantado, são 10 meses.</p>
             </div>
           </details>
           <details>
             <summary>Posso mexer no site sozinho?</summary>
             <div class="faq-resposta">
-              <p>Pode. Com o painel, você troca textos e fotos sem precisar chamar ninguém, e recebe um treino rápido e um guia. Nas ferramentas e nos apps ele já vem junto; no site de apresentação, é um extra de R$ 1.200. Página nova continua com a gente.</p>
+              <p>Pode. Com o painel, você troca textos e fotos sem precisar chamar ninguém, e recebe um treino rápido e um guia. Nas ferramentas e nos apps ele já vem junto; no site de apresentação, é um extra de R$ 1.200. Página nova continua com a gente.</p>
             </div>
           </details>
           <details>
@@ -420,19 +473,19 @@
             <fieldset class="monte-grupo">
               <legend class="monte-titulo">3. Depois de pronto</legend>
               <div class="monte-opcoes monte-unico">
-                <label><input type="radio" name="plano" value="60" data-nome="Plano No ar" checked><span>No ar · R$ 60/mês</span></label>
-                <label><input type="radio" name="plano" value="120" data-nome="Plano Cuidado"><span>Cuidado · R$ 120/mês</span></label>
+                <label><input type="radio" name="plano" value="60" data-nome="Plano No ar" checked><span>No ar · R$ 60/mês</span></label>
+                <label><input type="radio" name="plano" value="120" data-nome="Plano Cuidado"><span>Cuidado · R$ 120/mês</span></label>
               </div>
               <label class="monte-ano"><input type="checkbox" name="anual"><span>Pagar o ano adiantado (10 meses)</span></label>
             </fieldset>
             <div class="monte-total" aria-live="polite">
               <p class="monte-resumo">Escolha o tipo para ver uma estimativa</p>
               <dl class="monte-numeros" hidden>
-                <div><dt>Projeto</dt><dd><span data-total>R$ 0</span></dd></div>
+                <div><dt>Projeto</dt><dd><span data-total>R$ 0</span></dd></div>
                 <div><dt>Prazo</dt><dd data-prazo>—</dd></div>
                 <div><dt>Mensal</dt><dd data-mensal>—</dd></div>
               </dl>
-              <p class="monte-nota" id="monte-nota">Valor de referência, “a partir de”. O que tiver mais coisa entra na proposta, por escrito, com o valor certo. O domínio (cerca de R$ 40 por ano) é à parte.</p>
+              <p class="monte-nota" id="monte-nota">Valor de referência, “a partir de”. O que tiver mais coisa entra na proposta, por escrito, com o valor certo. O domínio (cerca de R$ 40 por ano) é à parte.</p>
             </div>
           </div>
           <div class="botoes contato-botoes">

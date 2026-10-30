@@ -11,7 +11,9 @@
   const total = sim.querySelector('[data-simulador-total]');
   const base = Number(sim.dataset.base);
   const calmo = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const reais = (v) => 'R$ ' + v.toLocaleString('pt-BR');
+  // a moeda e o jeito de escrever o número são os do idioma da página (<html lang data-moeda>)
+  const raiz = document.documentElement;
+  const reais = (v) => new Intl.NumberFormat(raiz.lang, { style: 'currency', currency: raiz.dataset.moeda || 'BRL', maximumFractionDigits: 0 }).format(v);
   const ligados = () => [...sim.querySelectorAll('input[name="modulo[]"]:checked')];
   let visivel = !('IntersectionObserver' in window);
   let mostrado = 0;

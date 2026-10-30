@@ -36,7 +36,7 @@ jobs:
       - name: Conferir a página
         run: |
           test -f public/index.html
-          npx --yes html-validate@10.1.2 public/*.html
+          npx --yes html-validate@10.1.2 public/*.html public/*/index.html
           python3 deploy/conferir-pagina.py
       - name: Entregar na VM
         if: steps.check.outputs.tem == 'sim'

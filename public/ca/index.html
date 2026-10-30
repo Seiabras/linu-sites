@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="ca" data-moeda="EUR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Linu Sites — webs i aplicacions web a mida</title>
+  <meta name="description" content="Webs de presentació, eines amb tauler i aplicacions que s'instal·len al mòbil. Dissenyem, programem, publiquem i ens ocupem del servidor.">
+  <meta name="theme-color" content="#1F2A44">
+  <link rel="icon" href="../img/linu-logo.png" type="image/png" sizes="128x128">
+  <link rel="icon" href="../img/icone-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="../img/icone-180.png">
+  <meta property="og:title" content="Linu Sites">
+  <meta property="og:description" content="Webs i aplicacions web a mida, del disseny al servidor.">
+  <meta property="og:image" content="https://sites.linupedia.com.br/img/compartilhar.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Linu Sites: webs i aplicacions web a mida, amb el Linu a l'estació de recerca">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self'; frame-src https://cafe.linupedia.com.br; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <link rel="preload" href="../fontes/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="canonical" href="https://sites.linupedia.com.br/ca/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sites.linupedia.com.br/">
+  <link rel="alternate" hreflang="pt-PT" href="https://sites.linupedia.com.br/pt-pt/">
+  <link rel="alternate" hreflang="es-ES" href="https://sites.linupedia.com.br/es/">
+  <link rel="alternate" hreflang="ca" href="https://sites.linupedia.com.br/ca/">
+  <link rel="alternate" hreflang="nl" href="https://sites.linupedia.com.br/nl/">
+  <link rel="alternate" hreflang="en-GB" href="https://sites.linupedia.com.br/en/">
+  <link rel="alternate" hreflang="en-IE" href="https://sites.linupedia.com.br/en/">
+  <link rel="alternate" hreflang="fr-FR" href="https://sites.linupedia.com.br/fr/">
+  <link rel="alternate" hreflang="de-DE" href="https://sites.linupedia.com.br/de/">
+  <link rel="alternate" hreflang="it-IT" href="https://sites.linupedia.com.br/it/">
+  <link rel="alternate" hreflang="x-default" href="https://sites.linupedia.com.br/en/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sites.linupedia.com.br/ca/">
+  <meta property="og:locale" content="ca_ES">
+  <meta property="og:locale:alternate" content="pt_BR">
+  <meta property="og:locale:alternate" content="pt_PT">
+  <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="nl_NL">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta property="og:locale:alternate" content="it_IT">
+  <!-- O que o Google lê sobre o estúdio (schema.org); sai do ferramentas/gerar-idiomas.mjs -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Linu Sites","url":"https://sites.linupedia.com.br/ca/","logo":"https://sites.linupedia.com.br/img/linu-logo.png","image":"https://sites.linupedia.com.br/img/compartilhar.png","description":"Webs de presentació, eines amb tauler i aplicacions que s'instal·len al mòbil. Dissenyem, programem, publiquem i ens ocupem del servidor.","inLanguage":"ca","email":"contato@linupedia.com.br","telephone":"+55 61 99667-2610","areaServed":["ES","AD"],"availableLanguage":["pt-BR","pt-PT","es-ES","ca","nl","en-GB","fr-FR","de-DE","it-IT"],"parentOrganization":{"@type":"Organization","name":"LinuPedia","url":"https://linupedia.com.br"}}</script>
+  <!-- Os textos que os scripts escrevem (menu, luz, Monte o seu site), no idioma da página -->
+  <script type="application/json" id="textos-js">{"menu_abrir":"Obrir el menú","menu_fechar":"Tancar el menú","luz_apagar_aria":"Apagar el llum (mode fosc)","luz_acender_aria":"Encendre el llum (mode clar)","luz_apagar":"Apagar el llum","luz_acender":"Encendre el llum","fechar":"Tancar","escolha":"Tria el tipus per veure una estimació","sem_tipo":"Cap problema: la conversa ajuda a triar el tipus.","um_item":"un element","n_itens":"{n} elements","extra":" + {itens} a la proposta","por_ano":"{valor} l'any","por_mes":"{valor} al mes","estimativa":"Estimació: des de {valor}{extra}","linha_tipo":"Tipus: {nome}","linha_itens":"Ha de tenir:","linha_depois":"Un cop feta: {nome}{anual}","anual":", pagant l'any","linha_estimativa":"Estimació de la web: des de {valor}{extra}","ola":"Hola! Vull una web.","sobre":"Sobre el meu negoci: ","assunto":"Vull una web","ola_conversa":"Hola! Vull parlar d'una web.","area_vazia":"Cap projecte d'aquest sector aquí."}</script>
+  <script src="../js/tema-inicio.js?v=5"></script>
+  <link rel="stylesheet" href="../css/estilo.css?v=14">
+  <script src="../js/tema.js?v=7" defer></script>
+  <script src="../js/menu.js?v=6" defer></script>
+  <script src="../js/movimento.js?v=9" defer></script>
+  <script src="../js/simulador.js?v=3" defer></script>
+</head>
+<body>
+  <header class="topo">
+    <div class="dentro topo-dentro">
+      <a class="marca" href="./" aria-label="Linu Sites, inici">
+        <img src="../img/linu-logo.png" alt="" width="40" height="40">
+        <span>Linu <b>Sites</b></span>
+      </a>
+      <nav class="menu" aria-label="Seccions">
+        <div class="menu-links" id="menu-links">
+          <a href="#servicos">Què fem</a>
+          <a href="#projetos">Projectes</a>
+          <a href="#exemplo">Exemple</a>
+          <a href="#como">Com funciona</a>
+          <a href="#duvidas">Preguntes</a>
+          <a class="botao menu-links-orcamento" href="#contato">Demanar pressupost</a>
+        </div>
+        <details class="idiomas">
+          <summary title="Regió i idioma"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3c2.5 2.6 3.7 5.6 3.7 9s-1.2 6.4-3.7 9c-2.5-2.6-3.7-5.6-3.7-9S9.5 5.6 12 3Z" /></svg><span class="idiomas-codigo">CA</span><span class="so-leitor">: Regió i idioma, Català</span></summary>
+          <div class="idiomas-lista">
+            <p class="idiomas-regiao" id="regiao-brasil">Brasil</p>
+            <ul aria-labelledby="regiao-brasil">
+              <li><a href="../" hreflang="pt-BR" lang="pt-BR" data-regiao="brasil" data-padrao data-sugestao="Ver esta página em português do Brasil" data-fechar="Fechar">Português (Brasil)</a></li>
+            </ul>
+            <p class="idiomas-regiao" id="regiao-europa">Europa</p>
+            <ul aria-labelledby="regiao-europa">
+              <li><a href="../pt-pt/" hreflang="pt-PT" lang="pt-PT" data-regiao="europa" data-sugestao="Ver esta página em português de Portugal" data-fechar="Fechar">Português (Portugal)</a></li>
+              <li><a href="../es/" hreflang="es-ES" lang="es-ES" data-regiao="europa" data-sugestao="Ver esta página en español" data-fechar="Cerrar">Español</a></li>
+              <li><a href="../ca/" hreflang="ca" lang="ca" data-regiao="europa" data-sugestao="Llegeix aquesta pàgina en català" data-fechar="Tancar" aria-current="true">Català</a></li>
+              <li><a href="../nl/" hreflang="nl" lang="nl" data-regiao="europa" data-sugestao="Lees deze pagina in het Nederlands" data-fechar="Sluiten">Nederlands</a></li>
+              <li><a href="../en/" hreflang="en-GB" lang="en-GB" data-regiao="europa" data-padrao data-sugestao="See the page for the UK and Europe, in English (prices in €)" data-fechar="Close">English (UK & Europe)</a></li>
+              <li><a href="../fr/" hreflang="fr-FR" lang="fr-FR" data-regiao="europa" data-sugestao="Lire cette page en français" data-fechar="Fermer">Français</a></li>
+              <li><a href="../de/" hreflang="de-DE" lang="de-DE" data-regiao="europa" data-sugestao="Diese Seite auf Deutsch lesen" data-fechar="Schließen">Deutsch</a></li>
+              <li><a href="../it/" hreflang="it-IT" lang="it-IT" data-regiao="europa" data-sugestao="Leggi questa pagina in italiano" data-fechar="Chiudi">Italiano</a></li>
+            </ul>
+          </div>
+        </details>
+        <button class="luz" type="button" data-luz aria-label="Apagar el llum (mode fosc)" title="Apagar el llum">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+            <path class="luz-raios" d="M12 1.5v2M4.6 4.6l1.4 1.4M1.5 12h2M20.5 12h2M19.4 4.6 18 6" />
+            <path class="luz-bulbo" d="M12 6a5.5 5.5 0 0 0-3.2 10c.5.4.8.9.8 1.5v.5h4.8v-.5c0-.6.3-1.1.8-1.5A5.5 5.5 0 0 0 12 6Z" />
+            <path class="luz-base" d="M9.8 20.5h4.4M10.5 22.5h3" />
+          </svg>
+        </button>
+        <a class="botao botao-pequeno menu-orcamento" href="#contato">Demanar pressupost</a>
+        <button class="menu-abrir" type="button" aria-expanded="false" aria-controls="menu-links" aria-label="Obrir el menú">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="abertura">
+      <div class="dentro abertura-dentro">
+        <div class="abertura-texto">
+          <p class="sobretitulo">Webs i aplicacions web a mida</p>
+          <h1>Una web que treballa per al <span class="marca-texto">teu negoci</span>.</h1>
+          <p class="abertura-sub">De la web de presentació a l'eina amb tauler i inici de sessió: dissenyem, programem, publiquem i ens ocupem del servidor. Parles directament amb qui la fa.</p>
+          <div class="botoes">
+            <a class="botao" href="#contato">Demanar un pressupost</a>
+            <a class="botao botao-linha" href="#projetos">Veure projectes</a>
+          </div>
+        </div>
+        <figure class="janela">
+          <div class="cena" data-cena>
+            <img class="pixel cena-dia" src="../img/abrigo-estacao-dia.png" alt="Il·lustració en pixel art d'una estació de recerca a l'Antàrtida, amb taula, ordinador i mapes a la paret" width="344" height="192">
+            <img class="pixel cena-acesa" src="../img/abrigo-estacao-noite.png" alt="" width="344" height="192">
+            <img class="pixel cena-apagada" src="../img/abrigo-estacao-apagada.png" alt="" width="344" height="192">
+            <span class="cena-linu" data-pose="frente">
+              <img class="pixel linu-frente" src="../img/linu/linu-frente.png" alt="" width="172" height="190">
+              <span class="linu-lado"><img class="pixel" src="../img/linu/linu-lado.png" alt="" width="688" height="190"></span>
+              <img class="pixel linu-costas" src="../img/linu/linu-costas.png" alt="" width="172" height="190">
+            </span>
+          </div>
+          <figcaption>L'estació del Linu, on es fan les webs.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="secao" id="servicos">
+      <div class="dentro">
+        <h2>Què fem</h2>
+        <p class="secao-sub">Cada projecte es fa des de zero, a la mida de com funciona el teu negoci.</p>
+        <div class="cartoes">
+          <article class="cartao">
+            <span class="cartao-icone" aria-hidden="true">🧭</span>
+            <h3><a class="cartao-link" href="#contato" data-escolher="tipo=apresentacao" aria-describedby="preco-apresentacao">Webs de presentació</a></h3>
+            <p>Per explicar qui ets, què ofereixes i com contactar-te. Ràpides, boniques al mòbil i fàcils de trobar a Google.</p>
+            <p class="cartao-preco" id="preco-apresentacao">des de <b>1.500 €</b> <span class="cartao-seta" aria-hidden="true">→</span><span class="so-leitor">: preparar el pressupost</span></p>
+          </article>
+          <article class="cartao">
+            <span class="cartao-icone" aria-hidden="true">🛠️</span>
+            <h3><a class="cartao-link" href="#contato" data-escolher="tipo=ferramenta" aria-describedby="preco-ferramenta">Eines i taulers</a></h3>
+            <p>Formularis de comanda, càlculs, àrea amb inici de sessió i un tauler per seguir-ho tot. La web deixa de ser un aparador i passa a formar part de la feina.</p>
+            <p class="cartao-preco" id="preco-ferramenta">des de <b>5.000 €</b> <span class="cartao-seta" aria-hidden="true">→</span><span class="so-leitor">: preparar el pressupost</span></p>
+          </article>
+          <article class="cartao">
+            <span class="cartao-icone" aria-hidden="true">📱</span>
+            <h3><a class="cartao-link" href="#contato" data-escolher="tipo=app" aria-describedby="preco-app">Apps que s'instal·len</a></h3>
+            <p>Aplicacions web que es queden a la pantalla del mòbil com qualsevol app i s'obren fins i tot sense internet, sense passar per cap botiga.</p>
+            <p class="cartao-preco" id="preco-app">des de <b>7.500 €</b> <span class="cartao-seta" aria-hidden="true">→</span><span class="so-leitor">: preparar el pressupost</span></p>
+          </article>
+          <article class="cartao">
+            <span class="cartao-icone" aria-hidden="true">🛰️</span>
+            <h3>En línia i ben cuidada</h3>
+            <p>Domini, cadenat de seguretat (HTTPS), servidor i còpies de seguretat. No cal que entenguis res d'això.</p>
+            <ul class="planos">
+              <li><a href="#contato" data-escolher="plano=25" aria-label="Pla En línia, 25 € al mes: preparar el pressupost"><span>En línia</span><b>25 €</b>/mes</a></li>
+              <li><a href="#contato" data-escolher="plano=50" aria-label="Pla Cura, 50 € al mes: preparar el pressupost"><span>Cura</span><b>50 €</b>/mes</a></li>
+            </ul>
+            <p class="planos-nota">El pla Cura inclou actualitzacions i petits canvis de text i fotos. Pagant l'any, són 10 mesos.</p>
+          </article>
+        </div>
+        <p class="precos-nota">Preus de referència per començar a parlar. El pressupost final, per escrit, depèn del que entri al projecte. El registre del domini (uns 15 € l'any) es paga a part.</p>
+      </div>
+    </section>
+
+    <section class="secao secao-gelo" id="projetos">
+      <div class="dentro">
+        <h2>Projectes</h2>
+        <!-- As áreas filtram as duas listas, e as abas separam o que está no ar do que é de estudo (js/movimento.js);
+             sem JavaScript, as áreas não aparecem e as duas listas ficam uma embaixo da outra.
+             Cada projeto diz as suas áreas no data-areas (pode ter mais de uma). -->
+        <div class="areas" role="group" aria-label="Filtrar per sector" hidden>
+          <button class="area" type="button" data-area="" aria-pressed="true">Tots</button>
+          <button class="area" type="button" data-area="educacao" aria-pressed="false">Educació i cultura</button>
+          <button class="area" type="button" data-area="servicos" aria-pressed="false">Salut i serveis</button>
+          <button class="area" type="button" data-area="comercio" aria-pressed="false">Comerç i turisme</button>
+          <button class="area" type="button" data-area="industria" aria-pressed="false">Indústria</button>
+          <button class="area" type="button" data-area="jogos" aria-pressed="false">Jocs</button>
+        </div>
+        <div class="abas" role="tablist" aria-label="Quins projectes mostrar" hidden>
+          <button class="aba" type="button" role="tab" id="aba-no-ar" aria-controls="no-ar" aria-selected="true">En línia <span class="aba-conta">8</span></button>
+          <button class="aba" type="button" role="tab" id="aba-estudo" aria-controls="estudo" aria-selected="false" tabindex="-1">D'estudi <span class="aba-conta">3</span></button>
+        </div>
+        <div class="painel" id="no-ar" role="tabpanel" aria-labelledby="aba-no-ar">
+          <h3 class="painel-titulo">En línia</h3>
+          <p class="secao-sub">Webs reals, en ús ara mateix. Obre-les i prova-les.</p>
+          <div class="projetos">
+            <article class="projeto" data-areas="educacao jogos">
+              <a href="https://linupedia.com.br" target="_blank" rel="noopener"><img src="../img/projetos/linupedia.webp" alt="El linuhub de la LinuPedia: el campament del Linu en pixel art, de nit, amb la foguera i els seus amics" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">App que s'instal·la</p>
+                <h3>LinuPedia</h3>
+                <p>App d'idiomes i enciclopèdia jugable, amb 197 idiomes i 39 àrees del coneixement. Funciona sense connexió al mòbil i a l'ordinador.</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="../projetos/linupedia" hreflang="pt-BR">Com es va fer (en portuguès)</a>
+                  <a class="projeto-link" href="https://linupedia.com.br" target="_blank" rel="noopener">linupedia.com.br</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="industria">
+              <a href="https://v2tech.app.br" target="_blank" rel="noopener"><img src="../img/projetos/v2tech.webp" alt="Pàgina d'inici de V²Tech COMBUSTÍVEL amb el preu just del gasoil" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">Eina per a empreses</p>
+                <h3>V²Tech COMBUSTÍVEL</h3>
+                <p>Comprova si el preu del gasoil, la gasolina o l'etanol que cobra el proveïdor té sentit, creuant dades de Petrobras, del regulador de combustibles i d'Hisenda del Brasil.</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="../projetos/v2tech" hreflang="pt-BR">Com es va fer (en portuguès)</a>
+                  <a class="projeto-link" href="https://v2tech.app.br" target="_blank" rel="noopener">v2tech.app.br</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="comercio">
+              <a href="https://losveganaestrada.com.br" target="_blank" rel="noopener"><img src="../img/projetos/losvega.webp" alt="Pàgina d'inici de Los Vega na Estrada, itineraris de viatge personalitzats" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">Web de vendes amb tauler</p>
+                <h3>Los Vega na Estrada</h3>
+                <p>Itineraris de viatge personalitzats: el client explica el viatge i veu el preu a l'instant; les comandes arriben a un tauler, amb resposta preparada per WhatsApp.</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="../projetos/losvega" hreflang="pt-BR">Com es va fer (en portuguès)</a>
+                  <a class="projeto-link" href="https://losveganaestrada.com.br" target="_blank" rel="noopener">losveganaestrada.com.br</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="educacao">
+              <a href="https://marginalia.blog.br" target="_blank" rel="noopener"><img src="../img/projetos/marginalia.webp" alt="Pàgina d'inici de Marginalia, publicació d'Història i humanitats" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">Publicació digital</p>
+                <h3>Marginalia</h3>
+                <p>Revista independent d'Història i humanitats, amb índex, cercador, notes al marge i citació bibliogràfica a punt per copiar.</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="../projetos/marginalia" hreflang="pt-BR">Com es va fer (en portuguès)</a>
+                  <a class="projeto-link" href="https://marginalia.blog.br" target="_blank" rel="noopener">marginalia.blog.br</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="servicos">
+              <a href="https://iconvet.com.br" target="_blank" rel="noopener"><img src="../img/projetos/iconvet.webp" alt="Pàgina d'inici d'Iconvet, clínica veterinària a Salvador, amb l'àrea de diagnòstic per la imatge destacada" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">Web corporativa</p>
+                <h3>Iconvet</h3>
+                <p>Clínica veterinària a Salvador (Brasil): àrees, proves, serveis i especialitats en 74 pàgines, amb WhatsApp i com arribar-hi a un toc.</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="../projetos/iconvet" hreflang="pt-BR">Com es va fer (en portuguès)</a>
+                  <a class="projeto-link" href="https://iconvet.com.br" target="_blank" rel="noopener">iconvet.com.br</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="servicos">
+              <a href="https://ajoriente.com" target="_blank" rel="noopener"><img src="../img/projetos/ajoriente.webp" alt="Pàgina d'inici d'Administração Judicial Oriente: “Orientant empreses cap a nous començaments”" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">Web amb consulta de processos</p>
+                <h3>Administração Judicial Oriente</h3>
+                <p>Administració concursal a Rio de Janeiro: àrees d'actuació, consulta de processos per empresa, models de documents i contacte.</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="../projetos/ajoriente" hreflang="pt-BR">Com es va fer (en portuguès)</a>
+                  <a class="projeto-link" href="https://ajoriente.com" target="_blank" rel="noopener">ajoriente.com</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="jogos">
+              <a href="https://www.bjj-link.com" target="_blank" rel="noopener"><img src="../img/projetos/dojo-legacy.webp" alt="Pàgina d'inici de Dojo Legacy: “De cinturó blanc a llegenda del tatami”, amb el joc a l'ordinador i al mòbil" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">Joc al navegador i al mòbil</p>
+                <h3>Dojo Legacy</h3>
+                <p>Joc de carrera de Jiu-Jitsu i MMA, gratuït al navegador, a l'iPhone i a l'Android, amb PvP, lligues d'equips i rànquings en directe.</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="../projetos/dojo-legacy" hreflang="pt-BR">Com es va fer (en portuguès)</a>
+                  <a class="projeto-link" href="https://www.bjj-link.com" target="_blank" rel="noopener">bjj-link.com</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="servicos">
+              <a href="https://omega-site-vert.vercel.app/" target="_blank" rel="noopener"><img src="../img/projetos/omega.webp" alt="Pàgina d'inici d'Ômega Imóveis: “El lloc adequat ho canvia tot”, sobre la Zona Sud de Rio al capvespre" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">Web de presentació</p>
+                <h3>Ômega Imóveis</h3>
+                <p>Immobiliària de la Zona Sud de Rio, en una web d'una sola pàgina que presenta la seva manera de treballar i els barris on actua.</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="../projetos/omega" hreflang="pt-BR">Com es va fer (en portuguès)</a>
+                  <a class="projeto-link" href="https://omega-site-vert.vercel.app/" target="_blank" rel="noopener">omega-site-vert.vercel.app</a>
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="painel" id="estudo" role="tabpanel" aria-labelledby="aba-estudo">
+          <h3 class="painel-titulo">D'estudi</h3>
+          <p class="secao-sub">Projectes que vaig fer a la universitat. Les empreses són fictícies; el codi és obert.</p>
+          <div class="projetos">
+            <article class="projeto" data-areas="comercio">
+              <a href="https://cafe.linupedia.com.br" target="_blank" rel="noopener"><img src="../img/projetos/cafe-aurora.webp" alt="Pàgina d'inici del Café Aurora: el nom en neó blau i rosa sobre una ciutat cyberpunk de nit" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">Web amb efectes</p>
+                <h3>Café Aurora</h3>
+                <p>Cafeteria cyberpunk que no existeix, amb pantalla d'entrada, fons animat, carta i un laboratori per crear la beguda. És la web del simulador d'aquí dalt, també en versions amb Bootstrap i Tailwind.</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="https://cafe.linupedia.com.br" target="_blank" rel="noopener">cafe.linupedia.com.br</a>
+                  <a class="projeto-link" href="https://github.com/Seiabras/cafe-aurora" target="_blank" rel="noopener">Codi a GitHub</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="servicos">
+              <a href="https://cerrado.linupedia.com.br" target="_blank" rel="noopener"><img src="../img/projetos/fotografia-do-cerrado.webp" alt="Pàgina d'inici de Fotografia do Cerrado: una seriema a l'herba daurada, amb un ipê rosa florit al fons" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">Web de presentació</p>
+                <h3>Fotografia do Cerrado</h3>
+                <p>Empresa de fotografia de fauna, amb galeria filtrable, expedicions i contacte. La paleta surt del mateix bioma i cada color es va mesurar amb la regla de contrast de les WCAG.</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="https://cerrado.linupedia.com.br" target="_blank" rel="noopener">cerrado.linupedia.com.br</a>
+                  <a class="projeto-link" href="https://github.com/Seiabras/fotografia-do-cerrado" target="_blank" rel="noopener">Codi a GitHub</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="educacao">
+              <a href="https://abelhas.linupedia.com.br" target="_blank" rel="noopener"><img src="../img/projetos/abelhas-sem-ferrao.webp" alt="Pàgina d'inici d'Abelhas sem Ferrão: la pregunta sobre les 250 espècies al costat de les fotos de la jataí, la uruçu i la mandaçaia" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">Web educativa</p>
+                <h3>Abelhas sem Ferrão</h3>
+                <p>Per a qui no ha sentit mai a parlar de les abelles sense fibló del Brasil: un recorregut de 3 minuts, què fer si trobes un niu i un test ràpid. Va néixer d'un exercici de Design Thinking.</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="https://abelhas.linupedia.com.br" target="_blank" rel="noopener">abelhas.linupedia.com.br</a>
+                  <a class="projeto-link" href="https://github.com/Seiabras/abelhas-sem-ferrao" target="_blank" rel="noopener">Codi a GitHub</a>
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Simulador: o Café Aurora (cafeteria fictícia) embutido, com as partes que ligam e desligam e o preço.
+         Os preços ficam em ferramentas/pagina/precos.json (o data-base e os data-preco saem dele); o js/simulador.js só soma. -->
+    <section class="secao" id="exemplo">
+      <div class="dentro">
+        <h2>Activa i desactiva, mira el preu</h2>
+        <p class="secao-sub">El Café Aurora és una cafeteria que no existeix, d'una altra dimensió. Activa i desactiva parts de la seva web: canvia a l'instant, i el preu també.</p>
+        <div class="simulador" data-base="1500">
+          <div class="simulador-lado">
+            <fieldset class="simulador-opcoes" aria-describedby="simulador-nota">
+              <legend class="simulador-titulo">Què té la web</legend>
+              <label class="simulador-base"><input type="checkbox" checked disabled><span>Inici, qui som, carta i contacte</span><b>1.500 €</b></label>
+              <label><input type="checkbox" name="modulo[]" value="depoimentos" data-preco="150" checked><span>Opinions de clients</span><b>+ 150 €</b></label>
+              <label><input type="checkbox" name="modulo[]" value="efeitos" data-preco="300" checked><span>Efectes: fons animat, neó i cursor</span><b>+ 300 €</b></label>
+              <label><input type="checkbox" name="modulo[]" value="cores" data-preco="150" checked><span>Botó per canviar els colors</span><b>+ 150 €</b></label>
+              <label><input type="checkbox" name="modulo[]" value="laboratorio" data-preco="450" checked><span>Crea la teva beguda (simulador)</span><b>+ 450 €</b></label>
+              <label><input type="checkbox" name="modulo[]" value="assinatura" data-preco="300" checked><span>Subscripció per correu</span><b>+ 300 €</b></label>
+              <label><input type="checkbox" name="modulo[]" value="painel" data-preco="600"><span>Tauler per editar-la tu</span><b>+ 600 €</b></label>
+            </fieldset>
+            <div class="simulador-total" aria-live="polite">
+              <p><span>Projecte, des de</span> <b data-simulador-total>2.850 €</b></p>
+              <p class="simulador-nota" id="simulador-nota">Preus de referència, com a “Dissenya la teva web”. La quota mensual (des de 25 €) va a part.</p>
+              <a class="botao" href="#contato">Vull una web així</a>
+            </div>
+          </div>
+          <div class="simulador-tela">
+            <p class="simulador-barra" aria-hidden="true"><i></i><i></i><i></i><span>Café Aurora · web fictícia, en portuguès</span></p>
+            <iframe src="https://cafe.linupedia.com.br/" title="Café Aurora, web d'exemple d'una cafeteria fictícia (en portuguès)" width="960" height="640" loading="lazy"></iframe>
+          </div>
+        </div>
+        <p class="simulador-credito">El Café Aurora va néixer en un treball de la universitat, a l'assignatura de Desenvolupament d'Interfícies. <a href="https://cafe.linupedia.com.br/" target="_blank" rel="noopener">Obrir a pantalla completa</a></p>
+      </div>
+    </section>
+
+    <!-- Depoimentos: a seção fica escondida (hidden) até chegarem frases de verdade, com nome e projeto.
+         Cada depoimento é um <figure class="depoimento"> como este:
+         <figure class="depoimento">
+           <blockquote><p>[frase da pessoa]</p></blockquote>
+           <figcaption><b>[nome]</b>, [projeto]</figcaption>
+         </figure> -->
+    <section class="secao" id="depoimentos" hidden>
+      <div class="dentro">
+        <h2>Qui ja té web amb nosaltres</h2>
+        <div class="depoimentos"></div>
+      </div>
+    </section>
+
+    <section class="secao" id="como">
+      <div class="dentro">
+        <h2>Com funciona</h2>
+        <ol class="passos">
+          <li><b>Conversa</b><span>Ens expliques què necessites, per a qui és la web i què ha de resoldre.</span></li>
+          <li><b>Proposta</b><span>Tornem amb el que inclou, el termini i el preu, per escrit.</span></li>
+          <li><b>Construcció</b><span>Segueixes una previsualització en línia des del principi i demanes canvis pel camí.</span></li>
+          <li><b>En línia</b><span>La web passa al teu domini, amb seguretat, i la continuem cuidant després.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="secao secao-gelo" id="duvidas">
+      <div class="dentro">
+        <h2>Preguntes freqüents</h2>
+        <p class="secao-sub">El que tothom pregunta abans de començar. El que valgui per al teu projecte ve per escrit a la proposta.</p>
+        <div class="faq">
+          <details>
+            <summary>Quant de temps triga?</summary>
+            <div class="faq-resposta">
+              <p>Una estimació per començar: una web de presentació triga de 2 a 3 setmanes, una eina amb tauler d'1 a 2 mesos i una app que s'instal·la de 2 a 3 mesos. El termini exacte, acordat per al teu projecte, ve a la proposta.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Com es paga?</summary>
+            <div class="faq-resposta">
+              <p>La meitat en acceptar la proposta i l'altra meitat abans que la web passi al teu domini, per transferència bancària (SEPA). En projectes des de 5.000 €, ho pots dividir en tres: 40 % en començar, 30 % amb la previsualització aprovada i 30 % a la publicació.</p>
+            </div>
+          </details>
+          <details>
+            <summary>He de pagar cada mes?</summary>
+            <div class="faq-resposta">
+              <p>Sí: la web és al nostre servidor, i la quota mensual és el que la manté en línia. Hi ha dos plans. <b>En línia</b> (25 € al mes) cobreix servidor, cadenat de seguretat, domini configurat i còpies de seguretat. <b>Cura</b> (50 € al mes) inclou tot això i, a més, les actualitzacions i petits canvis de text i fotos. Pagant l'any per avançat, són 10 mesos.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Puc editar la web jo mateix?</summary>
+            <div class="faq-resposta">
+              <p>Sí. Amb el tauler canvies textos i fotos sense trucar a ningú, i reps una formació ràpida i una guia. A les eines i les apps ja hi ve inclòs; a la web de presentació, és un extra de 600 €. Les pàgines noves les continuem fent nosaltres.</p>
+            </div>
+          </details>
+          <details>
+            <summary>De qui és el domini?</summary>
+            <div class="faq-resposta">
+              <p>Teu. El més habitual és registrar-lo al teu nom o al de la teva empresa (NIF), en un .cat, .es o el que prefereixis, i nosaltres ho configurem tot. Si prefereixes no ocupar-te'n, gestionem el registre i les renovacions per tu.</p>
+            </div>
+          </details>
+          <details>
+            <summary>I els textos, les fotos i les dades?</summary>
+            <div class="faq-resposta">
+              <p>Són teus: el que ens enviïs, els textos i imatges que creem per a la web (un cop pagats) i les dades de qui la fa servir, com comandes i registres. El codi, el disseny i l'aspecte són de Linu Sites; fas servir la web mentre el pla mensual estigui actiu.</p>
+            </div>
+          </details>
+          <details>
+            <summary>I si algun dia vull marxar?</summary>
+            <div class="faq-resposta">
+              <p>Reps els teus textos, imatges i dades en un fitxer, a punt per endur-te'ls. Si vols endur-te la web tal com és, el seu codi es pot comprar pel mateix preu del projecte. Ningú no s'hi queda atrapat.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao contato" id="contato">
+      <div class="dentro contato-dentro">
+        <span class="contato-linu" data-pose="acenando" aria-hidden="true"><img class="pixel" src="../img/linu/linu-contato.png" alt="" width="552" height="190"></span>
+        <div>
+          <h2>Explica'ns la teva web</h2>
+          <p>Dissenya la teva web i mira a l'instant una estimació de preu i de termini. Després només cal enviar-la per WhatsApp o correu: el missatge ja surt escrit. Pot ser només una idea: la resposta arriba amb preguntes i propers passos.</p>
+          <div class="monte" role="group" aria-label="Dissenya la teva web" aria-describedby="monte-nota">
+            <fieldset class="monte-grupo">
+              <legend class="monte-titulo">1. Quin tipus de projecte?</legend>
+              <div class="monte-opcoes monte-unico">
+                <label><input type="radio" name="tipo" value="apresentacao" data-preco="1500" data-prazo="2 a 3 setmanes" data-nome="Web de presentació"><span>Web de presentació</span></label>
+                <label><input type="radio" name="tipo" value="ferramenta" data-preco="5000" data-prazo="1 a 2 mesos" data-nome="Eina amb tauler"><span>Eina amb tauler</span></label>
+                <label><input type="radio" name="tipo" value="app" data-preco="7500" data-prazo="2 a 3 mesos" data-nome="App que s'instal·la al mòbil"><span>App que s'instal·la</span></label>
+                <label><input type="radio" name="tipo" value="nao-sei" data-nome="Encara no sé el tipus"><span>Encara no ho sé</span></label>
+              </div>
+            </fieldset>
+            <fieldset class="monte-grupo">
+              <legend class="monte-titulo">2. Què ha de tenir?</legend>
+              <div class="monte-opcoes">
+                <label><input type="checkbox" name="item[]" value="Tauler per canviar textos i fotos" data-preco-apresentacao="600"><span>Tauler per editar-la jo</span></label>
+                <label><input type="checkbox" name="item[]" value="Formulari de comanda o pressupost"><span>Formulari de comanda</span></label>
+                <label><input type="checkbox" name="item[]" value="Càlcul o simulador"><span>Càlcul o simulador</span></label>
+                <label><input type="checkbox" name="item[]" value="Àrea amb inici de sessió per a clients"><span>Accés de clients</span></label>
+                <label><input type="checkbox" name="item[]" value="Blog o publicació"><span>Blog o publicació</span></label>
+                <label><input type="checkbox" name="item[]" value="Avisos per WhatsApp o correu"><span>Avisos per WhatsApp o correu</span></label>
+              </div>
+            </fieldset>
+            <fieldset class="monte-grupo">
+              <legend class="monte-titulo">3. Un cop feta</legend>
+              <div class="monte-opcoes monte-unico">
+                <label><input type="radio" name="plano" value="25" data-nome="Pla En línia" checked><span>En línia · 25 €/mes</span></label>
+                <label><input type="radio" name="plano" value="50" data-nome="Pla Cura"><span>Cura · 50 €/mes</span></label>
+              </div>
+              <label class="monte-ano"><input type="checkbox" name="anual"><span>Pagar l'any per avançat (10 mesos)</span></label>
+            </fieldset>
+            <div class="monte-total" aria-live="polite">
+              <p class="monte-resumo">Tria el tipus per veure una estimació</p>
+              <dl class="monte-numeros" hidden>
+                <div><dt>Projecte</dt><dd><span data-total>0 €</span></dd></div>
+                <div><dt>Termini</dt><dd data-prazo>—</dd></div>
+                <div><dt>Mensual</dt><dd data-mensal>—</dd></div>
+              </dl>
+              <p class="monte-nota" id="monte-nota">Preu de referència, “des de”. El que porti més coses entra a la proposta, per escrit, amb el preu exacte. El domini (uns 15 € l'any) va a part.</p>
+            </div>
+          </div>
+          <div class="botoes contato-botoes">
+            <a class="botao botao-grande botao-whatsapp monte-whats" href="https://wa.me/5561996672610?text=Hola!%20Vull%20parlar%20d'una%20web." target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z" /></svg>
+              <span>WhatsApp <span class="sem-quebra">+55 61 99667-2610</span></span>
+            </a>
+            <a class="botao botao-grande botao-contorno-claro monte-enviar" href="mailto:contato@linupedia.com.br?subject=Vull%20una%20web">contato@linupedia.com.br</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="dentro rodape-dentro">
+      <p><b>Linu Sites</b> · webs i aplicacions web a mida</p>
+      <p>Un estudi de <a href="https://linupedia.com.br">LinuPedia</a></p>
+    </div>
+  </footer>
+</body>
+</html>

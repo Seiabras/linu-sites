@@ -1,5 +1,5 @@
 """Confere, antes de publicar, que todo arquivo local que as páginas de public/ usam (src, href, srcset,
-url() do CSS) existe de verdade. Sai com erro e a lista do que falta.
+url() do CSS) existe de verdade e que nenhuma moeda está com preços provisórios. Sai com erro e a lista do que falta.
 
     python3 deploy/conferir-pagina.py
 """
@@ -40,6 +40,15 @@ for pagina in PUBLIC.rglob('*.html'):
 for css in PUBLIC.rglob('*.css'):
     for ref in re.findall(r'url\(["\']?([^"\')]+)', css.read_text(encoding='utf-8')):
         conferir(css, ref)
+
+# Enquanto uma moeda usada por alguma página estiver pendente (ferramentas/pagina/precos.json), nada é publicado
+import json
+precos = json.loads((PUBLIC.parent / 'ferramentas' / 'pagina' / 'precos.json').read_text(encoding='utf-8'))
+usadas = {m for pagina in PUBLIC.rglob('index.html') for m in re.findall(r'<html[^>]*data-moeda="([A-Z]{3})"', pagina.read_text(encoding='utf-8'))}
+pendentes = [f'{moeda}: {tabela["pendente"]}' for moeda, tabela in precos.items() if moeda in usadas and isinstance(tabela, dict) and tabela.get('pendente')]
+if pendentes:
+    print('Preços pendentes, não publica:\n  ' + '\n  '.join(pendentes))
+    sys.exit(1)
 
 if faltando:
     print('Arquivos que não existem:\n  ' + '\n  '.join(faltando))

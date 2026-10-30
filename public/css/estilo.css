@@ -57,18 +57,43 @@ a { color: var(--azul); }
 .marca b { color: #7DD3FC; font-weight: 900; }
 .menu { display: flex; align-items: center; gap: 22px; }
 .menu-links { display: flex; align-items: center; gap: 22px; }
-.menu a:not(.botao) { color: #E2E8F0; text-decoration: none; font-weight: 700; font-size: .95rem; }
+.menu a:not(.botao) { color: #E2E8F0; text-decoration: none; font-weight: 700; font-size: .95rem; white-space: nowrap; }
 .menu a:not(.botao):hover { color: #FFFFFF; }
 .marca, .menu .botao { white-space: nowrap; }
 .menu .menu-links-orcamento, .menu-abrir { display: none; }
 .menu-abrir { align-items: center; justify-content: center; width: 40px; height: 40px; padding: 0; border-radius: 12px; border: 2px solid rgba(255, 255, 255, .25); background: transparent; color: #FFFFFF; cursor: pointer; }
 .menu-abrir svg { fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
 .menu-abrir[aria-expanded="true"] { background: rgba(255, 255, 255, .12); }
-/* no celular, os links e o orçamento vão para um painel que abre embaixo do topo */
-@media (max-width: 760px) {
+/* seletor de idioma: o globo com o código; a lista abre embaixo, como o menu (ferramentas/gerar-idiomas.mjs) */
+.idiomas { position: relative; }
+.idiomas summary { display: inline-flex; align-items: center; gap: 6px; height: 40px; padding: 0 12px; border-radius: 20px; border: 2px solid rgba(255, 255, 255, .25); color: #E2E8F0; font-weight: 800; font-size: .85rem; cursor: pointer; list-style: none; white-space: nowrap; transition: background .15s, border-color .15s; }
+.idiomas summary::-webkit-details-marker { display: none; }
+.idiomas summary:hover, .idiomas[open] summary { background: rgba(255, 255, 255, .08); border-color: rgba(255, 255, 255, .5); }
+.idiomas summary svg { fill: none; stroke: currentColor; stroke-width: 1.8; }
+.idiomas-lista { position: absolute; right: 0; top: calc(100% + 8px); z-index: 20; min-width: 230px; margin: 0; padding: 6px; background: var(--grafite); border: 1px solid rgba(255, 255, 255, .12); border-radius: 14px; box-shadow: 0 18px 30px -12px rgba(0, 0, 0, .6); max-height: calc(100vh - 96px); overflow-y: auto; }
+.idiomas-lista ul { margin: 0 0 4px; padding: 0; list-style: none; }
+.idiomas-regiao { margin: 6px 12px 2px; color: #94A3B8; font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.idiomas-lista a { display: block; padding: 9px 12px; border-radius: 10px; }
+.menu .idiomas-lista a::after { display: none; }
+.idiomas-lista a:hover, .idiomas-lista a:focus-visible { background: rgba(255, 255, 255, .08); }
+.menu .idiomas-lista a[aria-current] { color: #7DD3FC; }
+/* o aviso de que a página existe no idioma do navegador, na faixa de baixo do topo */
+.idioma-aviso { display: flex; align-items: center; justify-content: center; gap: 12px; padding: 8px 16px; background: #172554; border-top: 1px solid rgba(255, 255, 255, .1); font-size: .92rem; }
+.idioma-aviso a { color: #FFFFFF; font-weight: 800; }
+.idioma-aviso button { width: 32px; height: 32px; border: 0; border-radius: 50%; background: transparent; color: #E2E8F0; font-size: 1.3rem; cursor: pointer; }
+.idioma-aviso button:hover { background: rgba(255, 255, 255, .1); }
+/* em telas médias, os links ficam mais juntos para caber o idioma */
+@media (max-width: 1140px) {
+  .menu, .menu-links { gap: 16px; }
+  .menu a:not(.botao) { font-size: .9rem; }
+}
+/* no celular (e em telas médias, onde os links em alemão ou francês, mais o idioma, não cabem numa linha), os links e
+   o orçamento vão para um painel que abre embaixo do topo */
+@media (max-width: 980px) {
   .menu { gap: 10px; }
   .menu .menu-orcamento { display: none; }
   .menu-abrir { display: inline-flex; }
+  .idiomas summary { padding: 0 10px; }
   .menu-links { display: none; position: absolute; top: 100%; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 0; padding: 8px 20px 20px; background: var(--grafite); border-top: 1px solid rgba(255, 255, 255, .1); box-shadow: 0 18px 30px -18px rgba(0, 0, 0, .6); }
   .menu.aberto .menu-links { display: flex; }
   .menu-links a:not(.botao) { padding: 14px 4px; font-size: 1.05rem; border-bottom: 1px solid rgba(255, 255, 255, .08); }
@@ -113,8 +138,8 @@ h1 { margin: 0; font-size: clamp(2.3rem, 5.5vw, 3.8rem); line-height: 1.05; font
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .cena-apagada { opacity: 1; } }
 :root[data-theme="dark"] .cena-apagada { opacity: 1; }
 .cena-linu { position: absolute; top: 63.02%; left: 0; width: 16.05%; height: 31.77%; opacity: 0; pointer-events: none; }
-/* a sombra do chão é uma só, igual em todas as poses (os quadros vêm do app sem ela) */
-.cena-linu::before { content: ""; position: absolute; left: 18%; right: 18%; bottom: -3%; height: 11%; border-radius: 50%; background: rgba(40, 48, 66, .47); }
+/* sem sombra no chão (30/10/2026): os quadros vêm do app sem ela, e o Linu anda limpo pelo quarto */
+.cena-linu { transform-origin: 50% 100%; }
 .linu-frente, .linu-costas, .linu-lado { position: absolute; inset: 0; width: 100%; height: 100%; display: none; }
 .cena-linu[data-pose="frente"] .linu-frente,
 .cena-linu[data-pose="costas"] .linu-costas,
@@ -182,6 +207,13 @@ h3 { margin: 0 0 6px; font-size: 1.2rem; font-weight: 800; }
 
 /* Projetos: "No ar" e "De estudo" em abas (js/movimento.js). Sem JavaScript, as abas ficam escondidas e as duas
    listas aparecem com o título de cada uma. */
+/* as áreas: botões em pílula que filtram os projetos das duas abas */
+.areas[hidden], .projeto[hidden], .area-vazia[hidden] { display: none; }
+.areas { display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 0; }
+.area { min-height: 40px; padding: 7px 16px; border: 1px solid var(--linha); border-radius: 999px; background: var(--cartao); color: var(--tinta-suave); font: inherit; font-weight: 700; font-size: .92rem; cursor: pointer; transition: border-color .2s ease-out, color .2s ease-out, background-color .2s ease-out; }
+.area:hover { color: var(--tinta); border-color: var(--azul); }
+.area[aria-pressed="true"] { background: var(--azul-claro); border-color: var(--azul); color: var(--azul); }
+.area-vazia { margin: 24px 0 0; color: var(--tinta-suave); }
 .abas[hidden] { display: none; }
 .abas { display: inline-flex; gap: 4px; padding: 5px; margin: 18px 0 4px; background: var(--cartao); border: 1px solid var(--linha); border-radius: 999px; }
 .aba { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 8px 20px; border: 0; border-radius: 999px; background: transparent; color: var(--tinta-suave); font: inherit; font-weight: 800; cursor: pointer; transition: background-color .2s ease-out, color .2s ease-out; }

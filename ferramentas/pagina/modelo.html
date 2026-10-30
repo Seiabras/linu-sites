@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="{{lang}}" data-moeda="{{moeda}}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{titulo}}</title>
+  <meta name="description" content="{{descricao}}">
+  <meta name="theme-color" content="#1F2A44">
+  <link rel="icon" href="{{raiz}}img/linu-logo.png" type="image/png" sizes="128x128">
+  <link rel="icon" href="{{raiz}}img/icone-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="{{raiz}}img/icone-180.png">
+  <meta property="og:title" content="Linu Sites">
+  <meta property="og:description" content="{{og_descricao}}">
+  <meta property="og:image" content="https://sites.linupedia.com.br/img/compartilhar.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="{{og_imagem_alt}}">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self'; frame-src https://cafe.linupedia.com.br; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <link rel="preload" href="{{raiz}}fontes/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="canonical" href="{{url}}">
+{{alternativas}}
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="{{url}}">
+  <meta property="og:locale" content="{{og_locale}}">
+{{og_alternativas}}
+  <!-- O que o Google lê sobre o estúdio (schema.org); sai do ferramentas/gerar-idiomas.mjs -->
+  <script type="application/ld+json">{{dados_estruturados}}</script>
+  <!-- Os textos que os scripts escrevem (menu, luz, Monte o seu site), no idioma da página -->
+  <script type="application/json" id="textos-js">{{textos_js}}</script>
+  <script src="{{raiz}}js/tema-inicio.js?v=5"></script>
+  <link rel="stylesheet" href="{{raiz}}css/estilo.css?v=14">
+  <script src="{{raiz}}js/tema.js?v=7" defer></script>
+  <script src="{{raiz}}js/menu.js?v=6" defer></script>
+  <script src="{{raiz}}js/movimento.js?v=9" defer></script>
+  <script src="{{raiz}}js/simulador.js?v=3" defer></script>
+</head>
+<body>
+  <header class="topo">
+    <div class="dentro topo-dentro">
+      <a class="marca" href="./" aria-label="{{marca_aria}}">
+        <img src="{{raiz}}img/linu-logo.png" alt="" width="40" height="40">
+        <span>Linu <b>Sites</b></span>
+      </a>
+      <nav class="menu" aria-label="{{menu_aria}}">
+        <div class="menu-links" id="menu-links">
+          <a href="#servicos">{{menu_servicos}}</a>
+          <a href="#projetos">{{menu_projetos}}</a>
+          <a href="#exemplo">{{menu_exemplo}}</a>
+          <a href="#como">{{menu_como}}</a>
+          <a href="#duvidas">{{menu_duvidas}}</a>
+          <a class="botao menu-links-orcamento" href="#contato">{{menu_orcamento}}</a>
+        </div>
+{{seletor}}
+        <button class="luz" type="button" data-luz aria-label="{{luz_apagar_aria}}" title="{{luz_apagar}}">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+            <path class="luz-raios" d="M12 1.5v2M4.6 4.6l1.4 1.4M1.5 12h2M20.5 12h2M19.4 4.6 18 6" />
+            <path class="luz-bulbo" d="M12 6a5.5 5.5 0 0 0-3.2 10c.5.4.8.9.8 1.5v.5h4.8v-.5c0-.6.3-1.1.8-1.5A5.5 5.5 0 0 0 12 6Z" />
+            <path class="luz-base" d="M9.8 20.5h4.4M10.5 22.5h3" />
+          </svg>
+        </button>
+        <a class="botao botao-pequeno menu-orcamento" href="#contato">{{menu_orcamento}}</a>
+        <button class="menu-abrir" type="button" aria-expanded="false" aria-controls="menu-links" aria-label="{{menu_abrir}}">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="abertura">
+      <div class="dentro abertura-dentro">
+        <div class="abertura-texto">
+          <p class="sobretitulo">{{sobretitulo}}</p>
+          <h1>{{h1}}</h1>
+          <p class="abertura-sub">{{abertura_sub}}</p>
+          <div class="botoes">
+            <a class="botao" href="#contato">{{abertura_orcamento}}</a>
+            <a class="botao botao-linha" href="#projetos">{{abertura_projetos}}</a>
+          </div>
+        </div>
+        <figure class="janela">
+          <div class="cena" data-cena>
+            <img class="pixel cena-dia" src="{{raiz}}img/abrigo-estacao-dia.png" alt="{{cena_alt}}" width="344" height="192">
+            <img class="pixel cena-acesa" src="{{raiz}}img/abrigo-estacao-noite.png" alt="" width="344" height="192">
+            <img class="pixel cena-apagada" src="{{raiz}}img/abrigo-estacao-apagada.png" alt="" width="344" height="192">
+            <span class="cena-linu" data-pose="frente">
+              <img class="pixel linu-frente" src="{{raiz}}img/linu/linu-frente.png" alt="" width="172" height="190">
+              <span class="linu-lado"><img class="pixel" src="{{raiz}}img/linu/linu-lado.png" alt="" width="688" height="190"></span>
+              <img class="pixel linu-costas" src="{{raiz}}img/linu/linu-costas.png" alt="" width="172" height="190">
+            </span>
+          </div>
+          <figcaption>{{cena_legenda}}</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="secao" id="servicos">
+      <div class="dentro">
+        <h2>{{servicos_titulo}}</h2>
+        <p class="secao-sub">{{servicos_sub}}</p>
+        <div class="cartoes">
+          <article class="cartao">
+            <span class="cartao-icone" aria-hidden="true">🧭</span>
+            <h3><a class="cartao-link" href="#contato" data-escolher="tipo=apresentacao" aria-describedby="preco-apresentacao">{{apresentacao_titulo}}</a></h3>
+            <p>{{apresentacao_texto}}</p>
+            <p class="cartao-preco" id="preco-apresentacao">{{a_partir_de}} <b>{{p.apresentacao}}</b> <span class="cartao-seta" aria-hidden="true">→</span><span class="so-leitor">{{montar_orcamento_leitor}}</span></p>
+          </article>
+          <article class="cartao">
+            <span class="cartao-icone" aria-hidden="true">🛠️</span>
+            <h3><a class="cartao-link" href="#contato" data-escolher="tipo=ferramenta" aria-describedby="preco-ferramenta">{{ferramenta_titulo}}</a></h3>
+            <p>{{ferramenta_texto}}</p>
+            <p class="cartao-preco" id="preco-ferramenta">{{a_partir_de}} <b>{{p.ferramenta}}</b> <span class="cartao-seta" aria-hidden="true">→</span><span class="so-leitor">{{montar_orcamento_leitor}}</span></p>
+          </article>
+          <article class="cartao">
+            <span class="cartao-icone" aria-hidden="true">📱</span>
+            <h3><a class="cartao-link" href="#contato" data-escolher="tipo=app" aria-describedby="preco-app">{{app_titulo}}</a></h3>
+            <p>{{app_texto}}</p>
+            <p class="cartao-preco" id="preco-app">{{a_partir_de}} <b>{{p.app}}</b> <span class="cartao-seta" aria-hidden="true">→</span><span class="so-leitor">{{montar_orcamento_leitor}}</span></p>
+          </article>
+          <article class="cartao">
+            <span class="cartao-icone" aria-hidden="true">🛰️</span>
+            <h3>{{hospedagem_titulo}}</h3>
+            <p>{{hospedagem_texto}}</p>
+            <ul class="planos">
+              <li><a href="#contato" data-escolher="plano={{n.plano_no_ar}}" aria-label="{{plano_no_ar_aria}}"><span>{{plano_no_ar}}</span><b>{{p.plano_no_ar}}</b>{{por_mes_curto}}</a></li>
+              <li><a href="#contato" data-escolher="plano={{n.plano_cuidado}}" aria-label="{{plano_cuidado_aria}}"><span>{{plano_cuidado}}</span><b>{{p.plano_cuidado}}</b>{{por_mes_curto}}</a></li>
+            </ul>
+            <p class="planos-nota">{{planos_nota}}</p>
+          </article>
+        </div>
+        <p class="precos-nota">{{precos_nota}}</p>
+      </div>
+    </section>
+
+    <section class="secao secao-gelo" id="projetos">
+      <div class="dentro">
+        <h2>{{projetos_titulo}}</h2>
+        <!-- As áreas filtram as duas listas, e as abas separam o que está no ar do que é de estudo (js/movimento.js);
+             sem JavaScript, as áreas não aparecem e as duas listas ficam uma embaixo da outra.
+             Cada projeto diz as suas áreas no data-areas (pode ter mais de uma). -->
+        <div class="areas" role="group" aria-label="{{areas_aria}}" hidden>
+          <button class="area" type="button" data-area="" aria-pressed="true">{{area_todas}}</button>
+          <button class="area" type="button" data-area="educacao" aria-pressed="false">{{area_educacao}}</button>
+          <button class="area" type="button" data-area="servicos" aria-pressed="false">{{area_servicos}}</button>
+          <button class="area" type="button" data-area="comercio" aria-pressed="false">{{area_comercio}}</button>
+          <button class="area" type="button" data-area="industria" aria-pressed="false">{{area_industria}}</button>
+          <button class="area" type="button" data-area="jogos" aria-pressed="false">{{area_jogos}}</button>
+        </div>
+        <div class="abas" role="tablist" aria-label="{{abas_aria}}" hidden>
+          <button class="aba" type="button" role="tab" id="aba-no-ar" aria-controls="no-ar" aria-selected="true">{{aba_no_ar}} <span class="aba-conta">8</span></button>
+          <button class="aba" type="button" role="tab" id="aba-estudo" aria-controls="estudo" aria-selected="false" tabindex="-1">{{aba_estudo}} <span class="aba-conta">3</span></button>
+        </div>
+        <div class="painel" id="no-ar" role="tabpanel" aria-labelledby="aba-no-ar">
+          <h3 class="painel-titulo">{{aba_no_ar}}</h3>
+          <p class="secao-sub">{{no_ar_sub}}</p>
+          <div class="projetos">
+            <article class="projeto" data-areas="educacao jogos">
+              <a href="https://linupedia.com.br" target="_blank" rel="noopener"><img src="{{raiz}}img/projetos/linupedia.webp" alt="{{linupedia_alt}}" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">{{linupedia_etiqueta}}</p>
+                <h3>LinuPedia</h3>
+                <p>{{linupedia_texto}}</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="{{raiz}}projetos/linupedia"{{como_foi_feito_lang}}>{{como_foi_feito}}</a>
+                  <a class="projeto-link" href="https://linupedia.com.br" target="_blank" rel="noopener">linupedia.com.br</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="industria">
+              <a href="https://v2tech.app.br" target="_blank" rel="noopener"><img src="{{raiz}}img/projetos/v2tech.webp" alt="{{v2tech_alt}}" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">{{v2tech_etiqueta}}</p>
+                <h3>V²Tech COMBUSTÍVEL</h3>
+                <p>{{v2tech_texto}}</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="{{raiz}}projetos/v2tech"{{como_foi_feito_lang}}>{{como_foi_feito}}</a>
+                  <a class="projeto-link" href="https://v2tech.app.br" target="_blank" rel="noopener">v2tech.app.br</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="comercio">
+              <a href="https://losveganaestrada.com.br" target="_blank" rel="noopener"><img src="{{raiz}}img/projetos/losvega.webp" alt="{{losvega_alt}}" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">{{losvega_etiqueta}}</p>
+                <h3>Los Vega na Estrada</h3>
+                <p>{{losvega_texto}}</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="{{raiz}}projetos/losvega"{{como_foi_feito_lang}}>{{como_foi_feito}}</a>
+                  <a class="projeto-link" href="https://losveganaestrada.com.br" target="_blank" rel="noopener">losveganaestrada.com.br</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="educacao">
+              <a href="https://marginalia.blog.br" target="_blank" rel="noopener"><img src="{{raiz}}img/projetos/marginalia.webp" alt="{{marginalia_alt}}" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">{{marginalia_etiqueta}}</p>
+                <h3>Marginalia</h3>
+                <p>{{marginalia_texto}}</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="{{raiz}}projetos/marginalia"{{como_foi_feito_lang}}>{{como_foi_feito}}</a>
+                  <a class="projeto-link" href="https://marginalia.blog.br" target="_blank" rel="noopener">marginalia.blog.br</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="servicos">
+              <a href="https://iconvet.com.br" target="_blank" rel="noopener"><img src="{{raiz}}img/projetos/iconvet.webp" alt="{{iconvet_alt}}" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">{{iconvet_etiqueta}}</p>
+                <h3>Iconvet</h3>
+                <p>{{iconvet_texto}}</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="{{raiz}}projetos/iconvet"{{como_foi_feito_lang}}>{{como_foi_feito}}</a>
+                  <a class="projeto-link" href="https://iconvet.com.br" target="_blank" rel="noopener">iconvet.com.br</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="servicos">
+              <a href="https://ajoriente.com" target="_blank" rel="noopener"><img src="{{raiz}}img/projetos/ajoriente.webp" alt="{{ajoriente_alt}}" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">{{ajoriente_etiqueta}}</p>
+                <h3>Administração Judicial Oriente</h3>
+                <p>{{ajoriente_texto}}</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="{{raiz}}projetos/ajoriente"{{como_foi_feito_lang}}>{{como_foi_feito}}</a>
+                  <a class="projeto-link" href="https://ajoriente.com" target="_blank" rel="noopener">ajoriente.com</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="jogos">
+              <a href="https://www.bjj-link.com" target="_blank" rel="noopener"><img src="{{raiz}}img/projetos/dojo-legacy.webp" alt="{{dojo_alt}}" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">{{dojo_etiqueta}}</p>
+                <h3>Dojo Legacy</h3>
+                <p>{{dojo_texto}}</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="{{raiz}}projetos/dojo-legacy"{{como_foi_feito_lang}}>{{como_foi_feito}}</a>
+                  <a class="projeto-link" href="https://www.bjj-link.com" target="_blank" rel="noopener">bjj-link.com</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="servicos">
+              <a href="https://omega-site-vert.vercel.app/" target="_blank" rel="noopener"><img src="{{raiz}}img/projetos/omega.webp" alt="{{omega_alt}}" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">{{omega_etiqueta}}</p>
+                <h3>Ômega Imóveis</h3>
+                <p>{{omega_texto}}</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="{{raiz}}projetos/omega"{{como_foi_feito_lang}}>{{como_foi_feito}}</a>
+                  <a class="projeto-link" href="https://omega-site-vert.vercel.app/" target="_blank" rel="noopener">omega-site-vert.vercel.app</a>
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="painel" id="estudo" role="tabpanel" aria-labelledby="aba-estudo">
+          <h3 class="painel-titulo">{{aba_estudo}}</h3>
+          <p class="secao-sub">{{estudo_sub}}</p>
+          <div class="projetos">
+            <article class="projeto" data-areas="comercio">
+              <a href="https://cafe.linupedia.com.br" target="_blank" rel="noopener"><img src="{{raiz}}img/projetos/cafe-aurora.webp" alt="{{cafe_alt}}" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">{{cafe_etiqueta}}</p>
+                <h3>Café Aurora</h3>
+                <p>{{cafe_texto}}</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="https://cafe.linupedia.com.br" target="_blank" rel="noopener">cafe.linupedia.com.br</a>
+                  <a class="projeto-link" href="https://github.com/Seiabras/cafe-aurora" target="_blank" rel="noopener">{{codigo_github}}</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="servicos">
+              <a href="https://cerrado.linupedia.com.br" target="_blank" rel="noopener"><img src="{{raiz}}img/projetos/fotografia-do-cerrado.webp" alt="{{cerrado_alt}}" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">{{cerrado_etiqueta}}</p>
+                <h3>Fotografia do Cerrado</h3>
+                <p>{{cerrado_texto}}</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="https://cerrado.linupedia.com.br" target="_blank" rel="noopener">cerrado.linupedia.com.br</a>
+                  <a class="projeto-link" href="https://github.com/Seiabras/fotografia-do-cerrado" target="_blank" rel="noopener">{{codigo_github}}</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="educacao">
+              <a href="https://abelhas.linupedia.com.br" target="_blank" rel="noopener"><img src="{{raiz}}img/projetos/abelhas-sem-ferrao.webp" alt="{{abelhas_alt}}" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">{{abelhas_etiqueta}}</p>
+                <h3>Abelhas sem Ferrão</h3>
+                <p>{{abelhas_texto}}</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="https://abelhas.linupedia.com.br" target="_blank" rel="noopener">abelhas.linupedia.com.br</a>
+                  <a class="projeto-link" href="https://github.com/Seiabras/abelhas-sem-ferrao" target="_blank" rel="noopener">{{codigo_github}}</a>
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Simulador: o Café Aurora (cafeteria fictícia) embutido, com as partes que ligam e desligam e o preço.
+         Os preços ficam em ferramentas/pagina/precos.json (o data-base e os data-preco saem dele); o js/simulador.js só soma. -->
+    <section class="secao" id="exemplo">
+      <div class="dentro">
+        <h2>{{exemplo_titulo}}</h2>
+        <p class="secao-sub">{{exemplo_sub}}</p>
+        <div class="simulador" data-base="{{n.apresentacao}}">
+          <div class="simulador-lado">
+            <fieldset class="simulador-opcoes" aria-describedby="simulador-nota">
+              <legend class="simulador-titulo">{{simulador_titulo}}</legend>
+              <label class="simulador-base"><input type="checkbox" checked disabled><span>{{simulador_base}}</span><b>{{p.apresentacao}}</b></label>
+              <label><input type="checkbox" name="modulo[]" value="depoimentos" data-preco="{{n.depoimentos}}" checked><span>{{simulador_depoimentos}}</span><b>+ {{p.depoimentos}}</b></label>
+              <label><input type="checkbox" name="modulo[]" value="efeitos" data-preco="{{n.efeitos}}" checked><span>{{simulador_efeitos}}</span><b>+ {{p.efeitos}}</b></label>
+              <label><input type="checkbox" name="modulo[]" value="cores" data-preco="{{n.cores}}" checked><span>{{simulador_cores}}</span><b>+ {{p.cores}}</b></label>
+              <label><input type="checkbox" name="modulo[]" value="laboratorio" data-preco="{{n.laboratorio}}" checked><span>{{simulador_laboratorio}}</span><b>+ {{p.laboratorio}}</b></label>
+              <label><input type="checkbox" name="modulo[]" value="assinatura" data-preco="{{n.assinatura}}" checked><span>{{simulador_assinatura}}</span><b>+ {{p.assinatura}}</b></label>
+              <label><input type="checkbox" name="modulo[]" value="painel" data-preco="{{n.painel}}"><span>{{simulador_painel}}</span><b>+ {{p.painel}}</b></label>
+            </fieldset>
+            <div class="simulador-total" aria-live="polite">
+              <p><span>{{simulador_total}}</span> <b data-simulador-total>{{p.simulador_inicial}}</b></p>
+              <p class="simulador-nota" id="simulador-nota">{{simulador_nota}}</p>
+              <a class="botao" href="#contato">{{simulador_botao}}</a>
+            </div>
+          </div>
+          <div class="simulador-tela">
+            <p class="simulador-barra" aria-hidden="true"><i></i><i></i><i></i><span>{{simulador_barra}}</span></p>
+            <iframe src="https://cafe.linupedia.com.br/" title="{{simulador_iframe}}" width="960" height="640" loading="lazy"></iframe>
+          </div>
+        </div>
+        <p class="simulador-credito">{{simulador_credito}} <a href="https://cafe.linupedia.com.br/" target="_blank" rel="noopener">{{simulador_tela_cheia}}</a></p>
+      </div>
+    </section>
+
+    <!-- Depoimentos: a seção fica escondida (hidden) até chegarem frases de verdade, com nome e projeto.
+         Cada depoimento é um <figure class="depoimento"> como este:
+         <figure class="depoimento">
+           <blockquote><p>[frase da pessoa]</p></blockquote>
+           <figcaption><b>[nome]</b>, [projeto]</figcaption>
+         </figure> -->
+    <section class="secao" id="depoimentos" hidden>
+      <div class="dentro">
+        <h2>{{depoimentos_titulo}}</h2>
+        <div class="depoimentos"></div>
+      </div>
+    </section>
+
+    <section class="secao" id="como">
+      <div class="dentro">
+        <h2>{{como_titulo}}</h2>
+        <ol class="passos">
+          <li><b>{{passo1_titulo}}</b><span>{{passo1_texto}}</span></li>
+          <li><b>{{passo2_titulo}}</b><span>{{passo2_texto}}</span></li>
+          <li><b>{{passo3_titulo}}</b><span>{{passo3_texto}}</span></li>
+          <li><b>{{passo4_titulo}}</b><span>{{passo4_texto}}</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="secao secao-gelo" id="duvidas">
+      <div class="dentro">
+        <h2>{{duvidas_titulo}}</h2>
+        <p class="secao-sub">{{duvidas_sub}}</p>
+        <div class="faq">
+          <details>
+            <summary>{{faq_prazo_p}}</summary>
+            <div class="faq-resposta">
+              <p>{{faq_prazo_r}}</p>
+            </div>
+          </details>
+          <details>
+            <summary>{{faq_pagamento_p}}</summary>
+            <div class="faq-resposta">
+              <p>{{faq_pagamento_r}}</p>
+            </div>
+          </details>
+          <details>
+            <summary>{{faq_mensal_p}}</summary>
+            <div class="faq-resposta">
+              <p>{{faq_mensal_r}}</p>
+            </div>
+          </details>
+          <details>
+            <summary>{{faq_painel_p}}</summary>
+            <div class="faq-resposta">
+              <p>{{faq_painel_r}}</p>
+            </div>
+          </details>
+          <details>
+            <summary>{{faq_dominio_p}}</summary>
+            <div class="faq-resposta">
+              <p>{{faq_dominio_r}}</p>
+            </div>
+          </details>
+          <details>
+            <summary>{{faq_dados_p}}</summary>
+            <div class="faq-resposta">
+              <p>{{faq_dados_r}}</p>
+            </div>
+          </details>
+          <details>
+            <summary>{{faq_sair_p}}</summary>
+            <div class="faq-resposta">
+              <p>{{faq_sair_r}}</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao contato" id="contato">
+      <div class="dentro contato-dentro">
+        <span class="contato-linu" data-pose="acenando" aria-hidden="true"><img class="pixel" src="{{raiz}}img/linu/linu-contato.png" alt="" width="552" height="190"></span>
+        <div>
+          <h2>{{contato_titulo}}</h2>
+          <p>{{contato_texto}}</p>
+          <div class="monte" role="group" aria-label="{{monte_aria}}" aria-describedby="monte-nota">
+            <fieldset class="monte-grupo">
+              <legend class="monte-titulo">{{monte_tipo}}</legend>
+              <div class="monte-opcoes monte-unico">
+                <label><input type="radio" name="tipo" value="apresentacao" data-preco="{{n.apresentacao}}" data-prazo="{{prazo_apresentacao}}" data-nome="{{nome_apresentacao}}"><span>{{opcao_apresentacao}}</span></label>
+                <label><input type="radio" name="tipo" value="ferramenta" data-preco="{{n.ferramenta}}" data-prazo="{{prazo_ferramenta}}" data-nome="{{nome_ferramenta}}"><span>{{nome_ferramenta}}</span></label>
+                <label><input type="radio" name="tipo" value="app" data-preco="{{n.app}}" data-prazo="{{prazo_app}}" data-nome="{{nome_app}}"><span>{{opcao_app}}</span></label>
+                <label><input type="radio" name="tipo" value="nao-sei" data-nome="{{nome_nao_sei}}"><span>{{opcao_nao_sei}}</span></label>
+              </div>
+            </fieldset>
+            <fieldset class="monte-grupo">
+              <legend class="monte-titulo">{{monte_itens}}</legend>
+              <div class="monte-opcoes">
+                <label><input type="checkbox" name="item[]" value="{{item_painel}}" data-preco-apresentacao="{{n.painel}}"><span>{{opcao_painel}}</span></label>
+                <label><input type="checkbox" name="item[]" value="{{item_formulario}}"><span>{{opcao_formulario}}</span></label>
+                <label><input type="checkbox" name="item[]" value="{{item_calculo}}"><span>{{opcao_calculo}}</span></label>
+                <label><input type="checkbox" name="item[]" value="{{item_login}}"><span>{{opcao_login}}</span></label>
+                <label><input type="checkbox" name="item[]" value="{{item_blog}}"><span>{{opcao_blog}}</span></label>
+                <label><input type="checkbox" name="item[]" value="{{item_aviso}}"><span>{{opcao_aviso}}</span></label>
+              </div>
+            </fieldset>
+            <fieldset class="monte-grupo">
+              <legend class="monte-titulo">{{monte_depois}}</legend>
+              <div class="monte-opcoes monte-unico">
+                <label><input type="radio" name="plano" value="{{n.plano_no_ar}}" data-nome="{{nome_plano_no_ar}}" checked><span>{{plano_no_ar}} · {{p.plano_no_ar}}{{por_mes_curto}}</span></label>
+                <label><input type="radio" name="plano" value="{{n.plano_cuidado}}" data-nome="{{nome_plano_cuidado}}"><span>{{plano_cuidado}} · {{p.plano_cuidado}}{{por_mes_curto}}</span></label>
+              </div>
+              <label class="monte-ano"><input type="checkbox" name="anual"><span>{{monte_ano}}</span></label>
+            </fieldset>
+            <div class="monte-total" aria-live="polite">
+              <p class="monte-resumo">{{escolha}}</p>
+              <dl class="monte-numeros" hidden>
+                <div><dt>{{monte_projeto}}</dt><dd><span data-total>{{p.zero}}</span></dd></div>
+                <div><dt>{{monte_prazo}}</dt><dd data-prazo>—</dd></div>
+                <div><dt>{{monte_mensal}}</dt><dd data-mensal>—</dd></div>
+              </dl>
+              <p class="monte-nota" id="monte-nota">{{monte_nota}}</p>
+            </div>
+          </div>
+          <div class="botoes contato-botoes">
+            <a class="botao botao-grande botao-whatsapp monte-whats" href="https://wa.me/5561996672610?text={{whats_inicial}}" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z" /></svg>
+              <span>WhatsApp <span class="sem-quebra">{{telefone}}</span></span>
+            </a>
+            <a class="botao botao-grande botao-contorno-claro monte-enviar" href="mailto:contato@linupedia.com.br?subject={{email_assunto}}">contato@linupedia.com.br</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="dentro rodape-dentro">
+      <p><b>Linu Sites</b> · {{rodape_slogan}}</p>
+      <p>{{rodape_estudio}} <a href="https://linupedia.com.br">LinuPedia</a></p>
+    </div>
+  </footer>
+</body>
+</html>
