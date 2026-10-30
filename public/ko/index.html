@@ -56,7 +56,7 @@
   <!-- Os textos que os scripts escrevem (menu, luz, Monte o seu site), no idioma da página -->
   <script type="application/json" id="textos-js">{"menu_abrir":"메뉴 열기","menu_fechar":"메뉴 닫기","luz_apagar_aria":"불 끄기 (다크 모드)","luz_acender_aria":"불 켜기 (라이트 모드)","luz_apagar":"불 끄기","luz_acender":"불 켜기","fechar":"닫기","escolha":"유형을 고르면 예상 가격이 보입니다","sem_tipo":"괜찮습니다. 상담하면서 함께 정해요.","um_item":"1개 항목","n_itens":"{n}개 항목","extra":" + {itens}은 제안서에서","por_ano":"연 {valor}","por_mes":"월 {valor}","estimativa":"예상: 최소 {valor}{extra}","linha_tipo":"유형: {nome}","linha_itens":"필요한 기능:","linha_depois":"오픈 후: {nome}{anual}","anual":" (연 선납)","linha_estimativa":"사이트 예상 가격: 최소 {valor}{extra}","ola":"안녕하세요! 웹사이트 제작을 문의드립니다.","sobre":"제 비즈니스 소개: ","assunto":"웹사이트 제작 문의","ola_conversa":"안녕하세요! 웹사이트에 대해 상담하고 싶습니다.","area_vazia":"이 분야의 프로젝트는 여기 없습니다.","conversa_aberta":"지금 상담할 수 있습니다. 현지 시간으로 {fim}까지입니다.","conversa_fechada":"지금은 상담 시간이 아닙니다. 다음 시작은 현지 시간으로 {inicio}입니다."}</script>
   <script src="../js/tema-inicio.js?v=6"></script>
-  <link rel="stylesheet" href="../css/estilo.css?v=18">
+  <link rel="stylesheet" href="../css/estilo.css?v=19">
   <script src="../js/tema.js?v=8" defer></script>
   <script src="../js/menu.js?v=7" defer></script>
   <script src="../js/movimento.js?v=10" defer></script>
@@ -431,6 +431,35 @@
           <li><b>오픈</b><span>사이트를 고객의 도메인에 안전하게 올리고, 그 후에도 계속 관리합니다.</span></li>
         </ol>
         <!-- Só nas páginas da Europa (o que cada texto pode afirmar está no README, em “O que a Europa lê”) -->
+        <!-- Só em japonês, coreano e chinês: as etapas, os prazos e o orçamento em PDF. Os prazos são os mesmos do Monte
+             o seu site e das dúvidas (prazo_*); número novo aqui precisa ser combinado antes. -->
+        <div class="detalhes">
+          <h3>진행 과정 자세히</h3>
+          <div class="detalhes-grade">
+            <article class="detalhe">
+              <h4>단계별 내용</h4>
+              <ol>
+                <li><b>상담</b>WhatsApp이나 이메일로 필요한 것을 알려 주세요. 영업일 기준 하루 안에 답장합니다.</li>
+                <li><b>제안</b>포함 내용, 일정, 가격을 적은 견적서를 PDF로 보내 드립니다.</li>
+                <li><b>제작</b>제안 승인 후 제작을 시작합니다. 처음부터 온라인 미리보기로 확인하고, 중간에 수정을 요청할 수 있습니다.</li>
+                <li><b>오픈</b>고객의 도메인에 사이트를 올리고, 그 후에는 월 요금제로 계속 관리합니다.</li>
+              </ol>
+            </article>
+            <article class="detalhe">
+              <h4>제작 기간 안내</h4>
+              <dl>
+                <div><dt>회사 소개 사이트</dt><dd>2~3주</dd></div>
+                <div><dt>관리자 화면이 있는 도구</dt><dd>1~2개월</dd></div>
+                <div><dt>휴대폰에 설치하는 앱</dt><dd>2~3개월</dd></div>
+              </dl>
+              <p>정확한 일정은 견적서에 적어 드립니다.</p>
+            </article>
+            <article class="detalhe">
+              <h4>견적서는 PDF로</h4>
+              <p>견적서에는 포함 내용, 일정, 가격을 적습니다. 가격은 미국 달러 기준이고, 결제는 Wise 국제 송금으로 합니다. 제안 승인 시 절반, 공개 전에 나머지 절반이 기본이며, US$5,500 이상 프로젝트는 3회 분할도 가능합니다.</p>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
 

@@ -29,7 +29,7 @@
   <!-- Os textos que os scripts escrevem (menu, luz, Monte o seu site), no idioma da página -->
   <script type="application/json" id="textos-js">{{textos_js}}</script>
   <script src="{{raiz}}js/tema-inicio.js?v=6"></script>
-  <link rel="stylesheet" href="{{raiz}}css/estilo.css?v=18">
+  <link rel="stylesheet" href="{{raiz}}css/estilo.css?v=19">
   <script src="{{raiz}}js/tema.js?v=8" defer></script>
   <script src="{{raiz}}js/menu.js?v=7" defer></script>
   <script src="{{raiz}}js/movimento.js?v=10" defer></script>
@@ -390,6 +390,37 @@
           </article>
         </div>
         {{/europa}}
+        <!-- Só em japonês, coreano e chinês: as etapas, os prazos e o orçamento em PDF. Os prazos são os mesmos do Monte
+             o seu site e das dúvidas (prazo_*); número novo aqui precisa ser combinado antes. -->
+        {{?cjk}}
+        <div class="detalhes">
+          <h3>{{detalhe_titulo}}</h3>
+          <div class="detalhes-grade">
+            <article class="detalhe">
+              <h4>{{detalhe_etapas_titulo}}</h4>
+              <ol>
+                <li><b>{{passo1_titulo}}</b>{{detalhe_etapa1}}</li>
+                <li><b>{{passo2_titulo}}</b>{{detalhe_etapa2}}</li>
+                <li><b>{{passo3_titulo}}</b>{{detalhe_etapa3}}</li>
+                <li><b>{{passo4_titulo}}</b>{{detalhe_etapa4}}</li>
+              </ol>
+            </article>
+            <article class="detalhe">
+              <h4>{{detalhe_prazos_titulo}}</h4>
+              <dl>
+                <div><dt>{{nome_apresentacao}}</dt><dd>{{prazo_apresentacao}}</dd></div>
+                <div><dt>{{nome_ferramenta}}</dt><dd>{{prazo_ferramenta}}</dd></div>
+                <div><dt>{{nome_app}}</dt><dd>{{prazo_app}}</dd></div>
+              </dl>
+              <p>{{detalhe_prazos_nota}}</p>
+            </article>
+            <article class="detalhe">
+              <h4>{{detalhe_pdf_titulo}}</h4>
+              <p>{{detalhe_pdf_texto}}</p>
+            </article>
+          </div>
+        </div>
+        {{/cjk}}
       </div>
     </section>
 
