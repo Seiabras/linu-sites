@@ -1,5 +1,5 @@
 /* Café Aurora: o CSS do site, tirado do <style> para passar na CSP do Linu Sites.
-   O que eu acrescentei está no começo (fontes) e no fim ("Linu Sites: módulos do simulador"). */
+   O que eu acrescentei está no começo (fontes) e no fim ("Linu Sites: módulos do simulador" e "Modo dia"). */
 
 /* Fontes servidas pelo próprio site (licença OFL, ver fontes/OFL.txt), só o alfabeto latino */
 @font-face{font-family:'Orbitron';font-style:normal;font-weight:400 900;font-display:swap;src:url(fontes/orbitron.woff2) format('woff2')}
@@ -21,10 +21,12 @@
   --text:#ece9ff;
   --muted:#9a92bd;
 
-  --cyan:hsl(185 100% 55%);
-  --magenta:hsl(315 100% 62%);
-  --violet:hsl(265 92% 68%);
-  --amber:hsl(35 100% 62%);
+  /* o painel "Sintonizar dimensão" gira as quatro pelo --desvio (em graus) */
+  --desvio:0;
+  --cyan:hsl(calc(185 + var(--desvio)) 100% 55%);
+  --magenta:hsl(calc(315 + var(--desvio)) 100% 62%);
+  --violet:hsl(calc(265 + var(--desvio)) 92% 68%);
+  --amber:hsl(calc(35 + var(--desvio)) 100% 62%);
 
   --glow-c:0 0 8px hsl(185 100% 55% / .8), 0 0 28px hsl(185 100% 55% / .35);
   --glow-m:0 0 8px hsl(315 100% 62% / .8), 0 0 30px hsl(315 100% 62% / .35);
@@ -351,13 +353,13 @@ main{position:relative;z-index:2}
   text-transform:uppercase;
   margin-bottom:1.4rem;
 }
-.glitch span{display:block}
-.glitch span:first-child{
+.glitch>span{display:block}
+.glitch>span:first-child{
   background:linear-gradient(180deg,#fff,var(--cyan) 55%,var(--violet));
   -webkit-background-clip:text;background-clip:text;color:transparent;
   filter:drop-shadow(0 0 26px hsl(185 100% 55% / .45));
 }
-.glitch span:last-child{
+.glitch>span:last-child{
   background:linear-gradient(180deg,var(--magenta),var(--violet) 70%,#2b0b45);
   -webkit-background-clip:text;background-clip:text;color:transparent;
   filter:drop-shadow(0 0 26px hsl(315 100% 62% / .45));
@@ -578,12 +580,12 @@ main{position:relative;z-index:2}
   position:relative;cursor:none;
 }
 .chip input{position:absolute;opacity:0;width:0;height:0}
-.chip span{
+.chip>span{
   display:inline-block;padding:.5rem 1rem;border:1px solid var(--stroke);
   border-radius:99px;font-size:.8rem;letter-spacing:.08em;color:var(--muted);
   transition:.3s var(--ease);user-select:none;
 }
-.chip:hover span{color:var(--text);border-color:rgba(180,160,255,.45)}
+.chip:hover>span{color:var(--text);border-color:rgba(180,160,255,.45)}
 .chip input:checked+span{
   color:#03010a;border-color:var(--cyan);
   background:var(--cyan);box-shadow:0 0 20px hsl(185 100% 55% / .55);
@@ -867,3 +869,249 @@ input[type=range]::-moz-range-thumb{
 }
 .painel-demo__aviso:empty{display:none}
 .editando [contenteditable="true"]{outline:1px dashed var(--amber);outline-offset:4px;cursor:text}
+
+/* ============================================================
+   17. MODO DIA: A PADARIA AURORA
+   Das 6h às 18h (ou pelo botão de sol e lua) o <html> ganha
+   data-modo="dia": os textos .so-noite somem e os .so-dia aparecem,
+   e as mesmas variáveis viram creme, trigo, casca e geleia. Sem
+   JavaScript a página fica no café (o modo noite).
+   ============================================================ */
+html:not([data-modo="dia"]) .so-dia,[data-modo="dia"] .so-noite{display:none !important}
+
+[data-modo="dia"]{
+  --bg:#fbf3e4;
+  --bg-2:#f4e6cc;
+  --panel:rgba(255,250,240,.8);
+  --stroke:rgba(122,74,34,.22);
+  --text:#3a2414;
+  --muted:#6e5038;
+  --cyan:hsl(calc(24 + var(--desvio)) 70% 34%);
+  --magenta:hsl(calc(345 + var(--desvio)) 62% 40%);
+  --violet:hsl(calc(205 + var(--desvio)) 55% 34%);
+  --amber:hsl(calc(36 + var(--desvio)) 90% 30%);
+  --glow-c:none;
+  --glow-m:none;
+  color-scheme:light;
+}
+/* De dia não tem neon: nenhum texto brilha */
+[data-modo="dia"] *{text-shadow:none !important}
+[data-modo="dia"] ::selection{background:hsl(42 95% 72%);color:#2a1608}
+[data-modo="dia"] ::-webkit-scrollbar-track{background:#f4e6cc}
+[data-modo="dia"] ::-webkit-scrollbar-thumb{border-color:#f4e6cc}
+
+/* O céu da manhã: o sol no alto à direita e o calor do forno embaixo */
+[data-modo="dia"] .bg-veil{
+  background:
+    radial-gradient(55% 45% at 88% -6%, hsl(46 100% 72% / .55), transparent 70%),
+    radial-gradient(80% 50% at 10% 105%, hsl(28 95% 62% / .16), transparent 65%),
+    linear-gradient(180deg, hsl(200 70% 92% / .5), transparent 45%);
+}
+[data-modo="dia"] .scanlines{display:none}
+[data-modo="dia"] .boot{background:#fbf3e4}
+[data-modo="dia"] .boot__logo{animation:none}
+[data-modo="dia"] .boot__fill{background:linear-gradient(90deg,hsl(40 90% 50%),hsl(22 75% 40%));box-shadow:none}
+[data-modo="dia"] .boot__bar{background:rgba(122,74,34,.14)}
+
+[data-modo="dia"] .cur,[data-modo="dia"] .cur-dot{mix-blend-mode:normal;box-shadow:none}
+[data-modo="dia"] .cur.hovering{background:hsl(40 95% 60% / .18)}
+
+[data-modo="dia"] .nav.solid{background:rgba(251,243,228,.86)}
+@media(max-width:900px){[data-modo="dia"] .nav__links{background:rgba(251,243,228,.97)}}
+[data-modo="dia"] .nav__links a::after{box-shadow:none}
+[data-modo="dia"] .brand__orb{
+  background:radial-gradient(circle at 35% 35%,#fff,hsl(46 100% 62%) 45%,hsl(26 90% 50%));
+  box-shadow:0 0 10px hsl(42 100% 60% / .7);
+}
+[data-modo="dia"] .btn:hover{color:#fff8ee;box-shadow:0 10px 24px -10px hsl(24 70% 34% / .55)}
+[data-modo="dia"] .btn--ghost{--c:rgba(110,70,40,.45)}
+[data-modo="dia"] .burger{background:rgba(255,255,255,.5)}
+[data-modo="dia"] .burger span{box-shadow:none}
+[data-modo="dia"] .skip{color:#fff8ee}
+
+/* Abertura: o nome em casca e mel, o halo vira sol */
+[data-modo="dia"] .glitch>span:first-child{
+  background:linear-gradient(180deg,hsl(30 60% 30%),hsl(24 72% 38%) 55%,hsl(18 70% 28%));
+  -webkit-background-clip:text;background-clip:text;filter:none;
+}
+[data-modo="dia"] .glitch>span:last-child{
+  background:linear-gradient(180deg,hsl(42 92% 46%),hsl(32 88% 40%) 70%,hsl(22 72% 30%));
+  -webkit-background-clip:text;background-clip:text;filter:none;
+}
+[data-modo="dia"] .glitch::before,[data-modo="dia"] .glitch::after{display:none}
+/* "BOULANGERIE" e "PANADERÍA" são mais compridos que "CAFÉ": de dia o nome fica um pouco menor para caber no celular */
+[data-modo="dia"] .glitch{font-size:clamp(2rem,8.4vw,6.4rem)}
+/* e a marca no topo ("BOULANGERIE AURORA") divide a linha com os dois botões no celular */
+@media(max-width:480px){[data-modo="dia"] .nav .brand{font-size:.72rem;letter-spacing:.07em;gap:.45rem;min-width:0}}
+[data-modo="dia"] .hero__halo{
+  background:conic-gradient(from 0deg,
+    hsl(46 100% 66% / .45), hsl(30 95% 62% / .25),
+    hsl(40 100% 70% / .4), hsl(200 70% 80% / .25),
+    hsl(46 100% 66% / .45));
+}
+[data-modo="dia"] .hero__rings i{border-color:hsl(30 60% 40% / .16)}
+[data-modo="dia"] .hero__tag{background:rgba(255,255,255,.55)}
+[data-modo="dia"] .scroll-hint i{background:linear-gradient(var(--cyan),transparent)}
+
+[data-modo="dia"] .marquee{background:linear-gradient(90deg,hsl(42 90% 60% / .14),hsl(22 80% 55% / .1))}
+[data-modo="dia"] .marquee span::after{content:'✦';color:var(--amber)}
+
+/* A origem: o portal vira o sol que também é a boca do forno */
+[data-modo="dia"] .about__text p.lead{margin-top:0}
+[data-modo="dia"] .portal__core{
+  background:radial-gradient(circle at 38% 34%,#fffbe8 0%,hsl(48 100% 68%) 26%,hsl(34 96% 56%) 58%,hsl(20 82% 42%) 88%);
+  box-shadow:0 0 60px hsl(42 100% 62% / .6),0 0 130px hsl(28 95% 58% / .3),inset 0 0 40px rgba(120,50,10,.25);
+}
+
+/* Vitrine */
+[data-modo="dia"] .card{background:linear-gradient(160deg,rgba(255,252,245,.94),rgba(250,236,214,.88))}
+[data-modo="dia"] .card::before{background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),hsl(44 100% 62% / .22),transparent 62%)}
+[data-modo="dia"] .card:hover,[data-modo="dia"] .card--m:hover,[data-modo="dia"] .card--v:hover,[data-modo="dia"] .card--a:hover{
+  border-color:hsl(30 60% 40% / .45);
+  box-shadow:0 22px 50px -24px hsl(24 60% 30% / .45);
+}
+[data-modo="dia"] .card__icon{background:radial-gradient(circle at 30% 25%,#fff,hsl(40 80% 90%) 70%)}
+
+/* Forno (o laboratório de dia) */
+[data-modo="dia"] .lab__panel{background:linear-gradient(160deg,rgba(255,252,245,.92),rgba(248,234,210,.8))}
+[data-modo="dia"] .chip>span{background:rgba(255,255,255,.5)}
+[data-modo="dia"] .chip:hover>span{border-color:hsl(30 60% 40% / .5)}
+[data-modo="dia"] .chip input:checked+span{color:#fff8ee;box-shadow:0 6px 16px -8px hsl(24 70% 34% / .7)}
+[data-modo="dia"] input[type=range]{background:linear-gradient(90deg,hsl(44 90% 62%),hsl(28 80% 42%),hsl(18 70% 24%))}
+[data-modo="dia"] input[type=range]::-webkit-slider-thumb{background:#fffaf0;box-shadow:0 2px 8px rgba(80,40,10,.3)}
+[data-modo="dia"] input[type=range]::-moz-range-thumb{background:#fffaf0;box-shadow:0 2px 8px rgba(80,40,10,.3)}
+[data-modo="dia"] .lab__result{background:rgba(122,74,34,.06)}
+[data-modo="dia"] .badge-float{background:rgba(255,250,240,.88)}
+
+.pao-wrap{position:relative;display:grid;place-items:center;min-width:280px;filter:drop-shadow(0 26px 30px rgba(90,45,10,.28))}
+.pao-wrap .steam{top:-70px}
+[data-modo="dia"] .steam i{background:linear-gradient(to top,rgba(255,255,255,.95),transparent);filter:blur(7px)}
+[data-modo="dia"] .steam i:nth-child(2),[data-modo="dia"] .steam i:nth-child(3){background:linear-gradient(to top,rgba(255,250,240,.9),transparent)}
+/* O pão: casca (--casca) com brilho em cima e três cortes; cresce e doura conforme o tempo de forno */
+.pao{
+  --casca:hsl(34 68% 50%);--miolo:hsl(34 68% 72%);
+  position:relative;width:250px;height:125px;
+  border-radius:48% 52% 16px 16px / 82% 82% 16px 16px;
+  background:
+    radial-gradient(70% 55% at 42% 22%,rgba(255,255,255,.38),transparent 70%),
+    linear-gradient(180deg,var(--casca),color-mix(in srgb,var(--casca) 78%,#000));
+  box-shadow:inset 0 -10px 18px rgba(60,25,5,.28),inset 0 6px 10px rgba(255,255,255,.12);
+  transition:height .6s var(--ease),background .6s var(--ease);
+}
+/* os cortes do padeiro, na cor do miolo */
+.pao::before{
+  content:'';position:absolute;inset:22% 18% 46%;
+  background:
+    linear-gradient(-18deg,transparent 46%,var(--miolo) 47% 53%,transparent 54%) 0 0/34% 100% repeat-x;
+  border-radius:40%;opacity:.85;
+}
+/* gergelim (com-1) e açúcar de cometa (com-4): pontinhos por cima */
+.pao::after{
+  content:'';position:absolute;inset:6% 10% 52%;border-radius:50% 50% 20% 20%;opacity:0;
+  transition:opacity .4s;pointer-events:none;
+}
+.pao.com-1::after{
+  opacity:1;
+  background:
+    radial-gradient(ellipse 3px 1.6px at 30% 40%,#fff3d6 90%,transparent) 0 0/22px 14px,
+    radial-gradient(ellipse 3px 1.6px at 70% 70%,#f7e2b8 90%,transparent) 0 0/18px 16px;
+}
+.pao.com-4::after{
+  opacity:1;
+  background:
+    radial-gradient(circle 1.6px at 30% 40%,#fff 95%,transparent) 0 0/17px 13px,
+    radial-gradient(circle 1.2px at 70% 70%,hsl(200 100% 85%) 95%,transparent) 0 0/23px 15px;
+}
+.pao.com-1.com-4::after{
+  background:
+    radial-gradient(ellipse 3px 1.6px at 30% 40%,#fff3d6 90%,transparent) 0 0/22px 14px,
+    radial-gradient(circle 1.6px at 70% 70%,#fff 95%,transparent) 0 0/17px 13px,
+    radial-gradient(circle 1.2px at 50% 20%,hsl(200 100% 85%) 95%,transparent) 0 0/23px 15px;
+}
+/* brioche estelar: um brilho que corre devagar na casca */
+.pao.estelar{background:
+  radial-gradient(70% 55% at 42% 22%,rgba(255,255,255,.5),transparent 70%),
+  radial-gradient(circle 2px at 20% 30%,#fff,transparent) 0 0/31px 23px,
+  linear-gradient(180deg,var(--casca),color-mix(in srgb,var(--casca) 78%,#000))}
+.pao i{position:absolute;opacity:0;transition:opacity .4s,transform .4s var(--ease);pointer-events:none}
+/* manteiga (com-2): um tablete derretendo no alto */
+.pao__manteiga{
+  width:42px;height:22px;left:50%;top:-6px;transform:translate(-50%,6px) rotate(-6deg);
+  background:linear-gradient(160deg,#fff6c4,#f4d878);border-radius:5px 5px 9px 9px;
+  box-shadow:0 3px 0 -1px rgba(244,216,120,.7),inset 0 2px 2px rgba(255,255,255,.7);
+}
+.pao.com-2 .pao__manteiga{opacity:1;transform:translate(-50%,0) rotate(-6deg)}
+/* queijo (com-3): derretido por cima, escorrendo pelos lados */
+.pao__queijo{
+  left:8%;right:8%;top:2%;height:42%;border-radius:50% 50% 30% 30% / 90% 90% 30% 30%;
+  background:
+    radial-gradient(circle 9px at 18% 100%,#f7c948 98%,transparent) ,
+    radial-gradient(circle 7px at 46% 100%,#f7c948 98%,transparent),
+    radial-gradient(circle 10px at 74% 100%,#f7c948 98%,transparent),
+    linear-gradient(180deg,#ffe48a,#f7c948 80%,transparent 80%);
+  transform:translateY(-4px);
+}
+.pao.com-3 .pao__queijo{opacity:.92;transform:none}
+.tabua{
+  width:300px;height:18px;margin-top:-6px;border-radius:6px;
+  background:linear-gradient(180deg,#b97a44,#8a5428);
+  box-shadow:inset 0 2px 0 rgba(255,220,170,.35),0 10px 20px -8px rgba(80,40,10,.5);
+}
+.pao-wrap .cup-glow{width:360px;height:280px}
+.pao-wrap .badge-float:nth-of-type(1){top:-14%;left:-10%}
+.pao-wrap .badge-float:nth-of-type(2){top:34%;right:-16%}
+.pao-wrap .badge-float:nth-of-type(3){bottom:-14%;left:4%}
+@media(max-width:520px){.pao-wrap .badge-float:nth-of-type(2){right:-2%}}
+
+/* Recados, chamada final, rodapé e painéis */
+[data-modo="dia"] .trans{background:linear-gradient(140deg,rgba(255,252,245,.9),rgba(250,238,218,.7))}
+[data-modo="dia"] .trans:hover{border-color:hsl(30 60% 40% / .4)}
+[data-modo="dia"] .cta{background:linear-gradient(180deg,#f6e4c2,#fbf3e4)}
+[data-modo="dia"] .cta::before{background:conic-gradient(from 0deg,transparent,hsl(44 100% 62% / .3),transparent 40%)}
+[data-modo="dia"] .newsletter input{background:rgba(255,255,255,.75)}
+[data-modo="dia"] .newsletter input::placeholder{color:#8a6a50}
+[data-modo="dia"] .newsletter input:focus{box-shadow:0 0 0 3px hsl(40 95% 60% / .35)}
+[data-modo="dia"] .foot__bottom{color:var(--muted)}
+[data-modo="dia"] .dim{background:rgba(255,250,240,.92)}
+[data-modo="dia"] .dim__head i{box-shadow:none}
+[data-modo="dia"] .painel-demo__aviso{background:rgba(255,250,240,.96)}
+[data-modo="dia"] .painel-demo__botao{color:#fff8ee;box-shadow:0 6px 16px -8px rgba(80,40,10,.6)}
+[data-modo="dia"].sem-efeitos body{background:var(--bg)}
+
+/* O botão de sol e lua: mostra para onde ele leva (de noite o sol, de dia a lua) */
+.modo{
+  width:44px;height:44px;flex:none;display:grid;place-items:center;
+  border:1px solid var(--stroke);border-radius:2px;background:rgba(255,255,255,.03);cursor:none;
+  transition:border-color .3s,background-color .3s;
+}
+.modo:hover{border-color:var(--amber)}
+.modo__astro{
+  width:16px;height:16px;border-radius:50%;
+  background:var(--amber);
+  box-shadow:0 0 0 3px var(--bg),0 0 0 4.5px var(--amber),0 0 14px hsl(35 100% 62% / .6);
+  transition:box-shadow .3s,background-color .3s;
+}
+[data-modo="dia"] .modo{background:rgba(255,255,255,.55)}
+[data-modo="dia"] .modo__astro{background:transparent;box-shadow:inset -6px -3px 0 0 var(--violet)}
+@media (hover:none),(pointer:coarse){.modo{cursor:pointer}}
+
+/* A virada: o neon pisca, a tela se cobre, o sol nasce (ou a lua desce) e o modo troca por baixo */
+.piscando .glitch,.piscando .brand__orb,.piscando .hero__rings,.piscando .portal,.piscando .hero__halo{animation:flicker .26s steps(2) 1}
+.virada{
+  position:fixed;inset:0;z-index:9997;pointer-events:none;overflow:hidden;
+  display:grid;place-items:center;background:var(--bg);opacity:0;
+  animation:virada 1.3s var(--ease) forwards;transition:background-color .35s;
+}
+@keyframes virada{0%{opacity:0}34%,62%{opacity:1}100%{opacity:0}}
+.virada__astro{width:clamp(90px,16vmin,150px);aspect-ratio:1;border-radius:50%}
+.virada--dia .virada__astro{
+  background:radial-gradient(circle at 40% 38%,#fffbe0,hsl(46 100% 62%) 45%,hsl(30 95% 52%));
+  box-shadow:0 0 80px hsl(42 100% 60% / .85),0 0 200px hsl(36 100% 60% / .4);
+  animation:nasce 1.3s var(--ease) forwards;
+}
+.virada--noite .virada__astro{
+  background:transparent;box-shadow:inset -22px -10px 0 0 #e9e6ff,0 0 60px -10px hsl(265 92% 78% / .5);
+  animation:desce 1.3s var(--ease) forwards;
+}
+@keyframes nasce{0%{transform:translateY(55vh)}62%{transform:none}100%{transform:translateY(-6vh)}}
+@keyframes desce{0%{transform:translateY(-55vh)}62%{transform:none}100%{transform:translateY(6vh)}}

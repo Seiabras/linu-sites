@@ -77,7 +77,7 @@ node ferramentas/gerar-idiomas.mjs
 - **Para o Google:** cada página leva o `hreflang` de todas (o `x-default` é o inglês), os `og:locale`, os dados
   estruturados (`ProfessionalService`) e o `sitemap.xml` com as alternativas; o gerador refaz o sitemap.
 - Na Europa: preço em euro, pagamento por transferência SEPA, domínio do país (.pt, .es, .de…) e o WhatsApp com +55.
-  As páginas “Como foi feito” e o Café Aurora do simulador ainda estão em português, e os links avisam isso.
+  As páginas “Como foi feito” e o Café Aurora do simulador também estão nesses idiomas.
 
 ## O Café Aurora em cada idioma (30/10/2026)
 
@@ -96,6 +96,26 @@ node ferramentas/gerar-cafe.mjs
   segue o formato de número de cada língua.
 - As versões `/bootstrap/` e `/tailwind/` continuam só em português. O repositório `Seiabras/cafe-aurora` ainda não tem
   os idiomas (o gerador e os textos moram aqui).
+- `IDIOMAS=pt-BR node ferramentas/gerar-cafe.mjs` gera só os idiomas pedidos, para ver um texto novo antes de traduzir.
+
+## De dia, a Padaria Aurora (30/10/2026)
+
+Das 6h às 18h no relógio de quem visita, o Café vira a Padaria Aurora: o mesmo universo da fenda, só que de manhã
+(croissant de 2087 camadas, pão de gravidade zero). Mudam as cores (creme, trigo, casca), o fundo (farinha no ar em
+vez da grade de neon), o letreiro, o cardápio, os depoimentos, o horário, e o laboratório vira “Monte o seu pão”: a
+farinha, o tempo de forno (a casca doura e o pão cresce) e o que vai por cima (gergelim, manteiga, queijo, açúcar de
+cometa).
+
+- O `inicio.js` escolhe o modo antes de pintar e põe `data-modo="dia"` ou `"noite"` no `<html>`: primeiro o
+  `?modo=dia` / `?modo=noite` do endereço (só naquela visita), depois a escolha guardada pelo botão, depois o relógio.
+  Sem JavaScript, fica o café.
+- Cada texto que muda está duas vezes no modelo, `<span class="so-noite">` e `<span class="so-dia">`, e o CSS esconde
+  o do outro modo. As chaves de dia começam com `d_` nos textos de cada idioma; o que não dá para trocar por CSS (o
+  `aria-label` da marca e do laboratório) vai em `data-aria-dia` e o `script.js` troca.
+- As cores de dia são as mesmas variáveis (`--cyan`, `--magenta`…) redefinidas no bloco 17 do `estilo.css`; o painel
+  “Sintonizar dimensão” gira as duas paletas pelo `--desvio`.
+- O botão de sol e lua, ao lado do menu, mostra para onde leva e faz a virada: o neon pisca, a tela se cobre, o sol
+  nasce (ou a lua desce) e o modo troca por baixo. Com “menos movimento” ou sem os efeitos do simulador, troca direto.
 
 ## O Cerrado e as Abelhas em cada idioma, com modo claro e escuro (30/10/2026)
 

@@ -17,15 +17,16 @@
 <link rel="alternate" hreflang="de-DE" href="https://cafe.linupedia.com.br/de/">
 <link rel="alternate" hreflang="it-IT" href="https://cafe.linupedia.com.br/it/">
 <!-- Os textos que o script escreve (abertura, bebidas, assinatura, painel), no idioma da página -->
-<script type="application/json" id="textos-cafe">{"boot":["Inicializando portal…","Calibrando moagem quântica…","Sincronizando grãos de Ω-11…","Aquecendo reator de vapor…","Bem-vindo à fenda."],"news_erro":"Sinal inválido. Verifique as coordenadas do seu e-mail.","news_ok":"Sinal recebido. Você será contactado de outra dimensão.","terminar":"✓ Terminar","painel_aviso":"Clique num texto e escreva. No painel de verdade, o que você muda fica salvo.","expresso":"Expresso Quântico","coldbrew":"Cold Brew Neural","matcha":"Matcha do Vazio","estelar":"Leite de Estrela","nivel":"Nível","editar":"✎ Editar textos"}</script>
+<script type="application/json" id="textos-cafe">{"boot":["Inicializando portal…","Calibrando moagem quântica…","Sincronizando grãos de Ω-11…","Aquecendo reator de vapor…","Bem-vindo à fenda."],"news_erro":"Sinal inválido. Verifique as coordenadas do seu e-mail.","news_ok":"Sinal recebido. Você será contactado de outra dimensão.","terminar":"✓ Terminar","painel_aviso":"Clique num texto e escreva. No painel de verdade, o que você muda fica salvo.","d_boot":["Acendendo o forno…","Fechando a fenda…","Sovando a massa de Ω-11…","Esperando a casca dourar…","Bom dia."],"d_pao":["Pão de Trigo Solar","Pão de Centeio da Penumbra","Pão Integral de Órbita","Brioche Estelar"],"d_min":"{n} min","expresso":"Expresso Quântico","coldbrew":"Cold Brew Neural","matcha":"Matcha do Vazio","estelar":"Leite de Estrela","nivel":"Nível","editar":"✎ Editar textos"}</script>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
 <link rel="icon" href="icone.png" type="image/png" sizes="128x128">
 <link rel="preload" href="fontes/orbitron.woff2" as="font" type="font/woff2" crossorigin>
-<!-- Site de exemplo do Linu Sites: o Café Aurora não existe. Na página principal, ele aparece embutido
+<!-- Site de exemplo do Linu Sites: o Café Aurora não existe. De dia (6h–18h) ele vira a Padaria Aurora: cada texto
+     que muda tem as duas versões, .so-noite e .so-dia, e o data-modo do <html> esconde uma delas (ver inicio.js). Na página principal, ele aparece embutido
      (iframe) no simulador de preço, que liga e desliga as partes dele (ver script.js, "módulos"). -->
-<script src="inicio.js"></script>
-<link rel="stylesheet" href="estilo.css?v=2">
-<script src="script.js?v=3" defer></script>
+<script src="inicio.js?v=2"></script>
+<link rel="stylesheet" href="estilo.css?v=3">
+<script src="script.js?v=4" defer></script>
 </head>
 
 <body>
@@ -33,9 +34,9 @@
 
 <!-- BOOT -->
 <div class="boot" id="boot" role="status" aria-live="polite">
-  <div class="boot__logo">CAFÉ AURORA</div>
+  <div class="boot__logo"><span class="so-noite">CAFÉ AURORA</span><span class="so-dia">PADARIA AURORA</span></div>
   <div class="boot__bar"><div class="boot__fill" id="bootFill"></div></div>
-  <div class="boot__log" id="bootLog">Inicializando portal…</div>
+  <div class="boot__log" id="bootLog"><span class="so-noite">Inicializando portal…</span><span class="so-dia">Acendendo o forno…</span></div>
 </div>
 
 <!-- CURSOR -->
@@ -50,20 +51,24 @@
 
 <!-- NAV -->
 <header class="nav" id="nav">
-  <a href="#inicio" class="brand" aria-label="Café Aurora — início">
+  <a href="#inicio" class="brand" aria-label="Café Aurora — início" data-aria-dia="Padaria Aurora — início">
     <span class="brand__orb" aria-hidden="true"></span>
-    CAFÉ&nbsp;AURORA
+    <span class="so-noite">CAFÉ&nbsp;AURORA</span><span class="so-dia">PADARIA AURORA</span>
   </a>
 
   <nav class="nav__links" id="navLinks" aria-label="Navegação principal">
     <a href="#inicio" class="active">Início</a>
     <a href="#sobre">Origem</a>
     <a href="#menu">Cardápio</a>
-    <a href="#laboratorio">Laboratório</a>
-    <a href="#transmissoes">Transmissões</a>
+    <a href="#laboratorio"><span class="so-noite">Laboratório</span><span class="so-dia">Forno</span></a>
+    <a href="#transmissoes"><span class="so-noite">Transmissões</span><span class="so-dia">Recados</span></a>
   </nav>
 
   <div class="nav__right">
+    <button type="button" class="modo" id="modo" aria-label="Abrir a padaria (modo dia)" title="Abrir a padaria (modo dia)"
+            data-para-dia="Abrir a padaria (modo dia)" data-para-noite="Voltar ao café (modo noite)">
+      <span class="modo__astro" aria-hidden="true"></span>
+    </button>
     <a href="#laboratorio" class="btn btn--magenta magnetic">Pedir agora</a>
     <button type="button" class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>
@@ -79,26 +84,26 @@
     <div class="hero__rings" aria-hidden="true"><i></i><i></i><i></i></div>
 
     <div>
-      <span class="hero__tag reveal">☕ <b>ABERTO</b> 24H · SETOR NEON-07 · DIMENSÃO Ω</span>
+      <span class="hero__tag reveal"><span class="so-noite">☕ <b>ABERTO</b> 24H · SETOR NEON-07 · DIMENSÃO Ω</span><span class="so-dia">🥐 <b>FORNADA</b> DAS 6H · SETOR SOL-07 · DIMENSÃO ☉</span></span>
 
       <h1 class="glitch" data-text="CAFÉ&#10;AURORA">
-        <span>CAFÉ</span>
-        <span>AURORA</span>
+        <span><span class="so-noite">CAFÉ</span><span class="so-dia">PADARIA</span></span>
+        <span><span class="so-noite">AURORA</span><span class="so-dia">AURORA</span></span>
       </h1>
 
       <p class="hero__sub reveal" data-d="1">
-        Torramos grãos colhidos em <b>realidades paralelas</b>. Cada xícara é um pequeno colapso quântico — e o seu paladar, a única constante.
+        <span class="so-noite">Torramos grãos colhidos em <b>realidades paralelas</b>. Cada xícara é um pequeno colapso quântico — e o seu paladar, a única constante.</span><span class="so-dia">Quando o sol nasce, a fenda fecha e o forno acende. Assamos pão com farinha moída em <b>realidades paralelas</b>: cada fatia sai quentinha, crocante e só um pouco fora do tempo.</span>
       </p>
 
       <div class="hero__cta reveal" data-d="2">
-        <a href="#menu" class="btn magnetic">Explorar o cardápio</a>
-        <a href="#sobre" class="btn btn--ghost magnetic">Atravessar o portal</a>
+        <a href="#menu" class="btn magnetic"><span class="so-noite">Explorar o cardápio</span><span class="so-dia">Ver a fornada</span></a>
+        <a href="#sobre" class="btn btn--ghost magnetic"><span class="so-noite">Atravessar o portal</span><span class="so-dia">Conhecer a padaria</span></a>
       </div>
 
       <div class="hero__stats reveal" data-d="3">
-        <div><b>12</b>Dimensões ativas</div>
-        <div><b>98,4%</b>Precisão quântica</div>
-        <div><b>∞</b>Recargas de sonho</div>
+        <div><b>12</b><span class="so-noite">Dimensões ativas</span><span class="so-dia">Fornadas por dia</span></div>
+        <div><b>98,4%</b><span class="so-noite">Precisão quântica</span><span class="so-dia">Crocância medida</span></div>
+        <div><b>∞</b><span class="so-noite">Recargas de sonho</span><span class="so-dia">Migalhas perdoadas</span></div>
       </div>
     </div>
 
@@ -110,11 +115,13 @@
 
   <!-- MARQUEE -->
   <div class="marquee" aria-hidden="true">
-    <div class="marquee__track">
-      <span>Expresso Quântico</span><span>Latte de Plasma</span><span>Cold Brew Neural</span>
-      <span>Matcha do Vazio</span><span>Leite de Estrela</span><span>Poeira de Cometa</span>
-      <span>Expresso Quântico</span><span>Latte de Plasma</span><span>Cold Brew Neural</span>
-      <span>Matcha do Vazio</span><span>Leite de Estrela</span><span>Poeira de Cometa</span>
+    <div class="marquee__track so-noite">
+      <span>Expresso Quântico</span><span>Latte de Plasma</span><span>Cold Brew Neural</span><span>Matcha do Vazio</span><span>Leite de Estrela</span><span>Poeira de Cometa</span>
+      <span>Expresso Quântico</span><span>Latte de Plasma</span><span>Cold Brew Neural</span><span>Matcha do Vazio</span><span>Leite de Estrela</span><span>Poeira de Cometa</span>
+    </div>
+    <div class="marquee__track so-dia">
+      <span>Croissant de 2087 Camadas</span><span>Pão de Gravidade Zero</span><span>Baguete de Órbita</span><span>Sonho de Nebulosa</span><span>Rosca do Eclipse</span><span>Pão de Queijo Quântico</span>
+      <span>Croissant de 2087 Camadas</span><span>Pão de Gravidade Zero</span><span>Baguete de Órbita</span><span>Sonho de Nebulosa</span><span>Rosca do Eclipse</span><span>Pão de Queijo Quântico</span>
     </div>
   </div>
 
@@ -123,18 +130,15 @@
     <div class="about">
       <div class="about__text">
         <span class="eyebrow reveal">Origem</span>
-        <h2 class="reveal" data-d="1">Nascemos de um <em>curto-circuito</em> entre dois mundos</h2>
+        <h2 class="reveal" data-d="1"><span class="so-noite">Nascemos de um <em>curto-circuito</em> entre dois mundos</span><span class="so-dia">De dia, a fenda vira <em>forno</em></span></h2>
 
         <div class="reveal" data-d="2">
-          <p class="lead">
-            Em 2087, uma barista chamada <strong>Aurora Vex</strong> derramou café sobre um reator de dobra. O resultado não foi uma explosão — foi um aroma.
-          </p>
-          <p>
-            O aroma abriu uma fenda. Do outro lado, havia uma cidade igual à nossa, mas com luzes que pensavam e chuva que lembrava. Foi lá que encontramos os grãos que hoje servimos.
-          </p>
-          <p>
-            O <strong>Café Aurora</strong> é o único ponto de encontro entre as duas metrópoles. Aqui, o vapor sobe devagar e o tempo aceita ser interrompido por alguns minutos — desde que você peça a segunda xícara.
-          </p>
+          <p class="lead so-noite">Em 2087, uma barista chamada <strong>Aurora Vex</strong> derramou café sobre um reator de dobra. O resultado não foi uma explosão — foi um aroma.</p>
+          <p class="so-noite">O aroma abriu uma fenda. Do outro lado, havia uma cidade igual à nossa, mas com luzes que pensavam e chuva que lembrava. Foi lá que encontramos os grãos que hoje servimos.</p>
+          <p class="so-noite">O <strong>Café Aurora</strong> é o único ponto de encontro entre as duas metrópoles. Aqui, o vapor sobe devagar e o tempo aceita ser interrompido por alguns minutos — desde que você peça a segunda xícara.</p>
+          <p class="lead so-dia">Toda manhã, quando o nosso sol e o de Ω-11 nascem juntos, a fenda que <strong>Aurora Vex</strong> abriu com café encolhe até ficar do tamanho de uma porta de forno.</p>
+          <p class="so-dia">O calor que vaza do outro lado não se perde: assa pão. A primeira fornada sai às seis, e o cheiro atravessa as duas cidades antes de qualquer despertador.</p>
+          <p class="so-dia">A <strong>Padaria Aurora</strong> é o mesmo lugar do café, com a luz do dia. Os baristas da noite viram padeiros, o balcão vira vitrine e o neon descansa até o sol se pôr.</p>
         </div>
       </div>
 
@@ -143,7 +147,7 @@
         <div class="portal__ring"></div>
         <div class="portal__ring"></div>
         <div class="portal__core"></div>
-        <span class="portal__label">Fenda estável · 3.2 nm</span>
+        <span class="portal__label"><span class="so-noite">Fenda estável · 3.2 nm</span><span class="so-dia">Forno estável · 220 °C</span></span>
       </div>
     </div>
   </section>
@@ -151,87 +155,93 @@
   <!-- MENU -->
   <section class="section" id="menu">
     <span class="eyebrow reveal">Cardápio</span>
-    <h2 class="reveal" data-d="1">Blends que <em>não existem</em> em toda parte</h2>
+    <h2 class="reveal" data-d="1"><span class="so-noite">Blends que <em>não existem</em> em toda parte</span><span class="so-dia">Fornadas que <em>não esperam</em> o tempo passar</span></h2>
     <p class="lead reveal" data-d="2">
-      Seis receitas calibradas para diferentes frequências cerebrais. Todas servidas em xícaras autorregenerativas.
+      <span class="so-noite">Seis receitas calibradas para diferentes frequências cerebrais. Todas servidas em xícaras autorregenerativas.</span><span class="so-dia">Seis receitas que saem do forno várias vezes por dia. Todas embrulhadas num papel que guarda o calor por algumas horas, ou dimensões.</span>
     </p>
 
     <div class="menu-grid">
       <article class="card reveal tilt" data-d="1">
         <div class="card__top">
-          <div class="card__icon" aria-hidden="true">⚡</div>
-          <span class="card__id">LX-001</span>
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">⚡</span><span class="so-dia">🥐</span></div>
+          <span class="card__id"><span class="so-noite">LX-001</span><span class="so-dia">FN-001</span></span>
         </div>
-        <h3>Expresso Quântico</h3>
-        <p>Duas extrações simultâneas em universos distintos. Você prova a média entre elas.</p>
+        <h3><span class="so-noite">Expresso Quântico</span><span class="so-dia">Croissant de 2087 Camadas</span></h3>
+        <p class="so-noite">Duas extrações simultâneas em universos distintos. Você prova a média entre elas.</p>
+        <p class="so-dia">Dobramos a massa 2087 vezes, uma para cada ano até a fenda. Cada mordida estala numa camada diferente da realidade.</p>
         <div class="card__foot">
-          <span class="card__price">₡ 18</span>
-          <span class="card__tag">Intenso</span>
+          <span class="card__price"><span class="so-noite">₡ 18</span><span class="so-dia">₡ 9</span></span>
+          <span class="card__tag"><span class="so-noite">Intenso</span><span class="so-dia">Folhado</span></span>
         </div>
       </article>
 
       <article class="card card--m reveal tilt" data-d="2">
         <div class="card__top">
-          <div class="card__icon" aria-hidden="true">🌌</div>
-          <span class="card__id">LX-014</span>
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">🌌</span><span class="so-dia">🍞</span></div>
+          <span class="card__id"><span class="so-noite">LX-014</span><span class="so-dia">FN-006</span></span>
         </div>
-        <h3>Latte de Plasma</h3>
-        <p>Leite vaporizado a 340 °C em campo magnético. Brilha de leve quando você mexe.</p>
+        <h3><span class="so-noite">Latte de Plasma</span><span class="so-dia">Pão de Gravidade Zero</span></h3>
+        <p class="so-noite">Leite vaporizado a 340 °C em campo magnético. Brilha de leve quando você mexe.</p>
+        <p class="so-dia">Fermentado por 72h flutuando, sem nada que o puxe para baixo. É tão leve que vem preso ao prato.</p>
         <div class="card__foot">
-          <span class="card__price">₡ 24</span>
-          <span class="card__tag">Brilhante</span>
+          <span class="card__price"><span class="so-noite">₡ 24</span><span class="so-dia">₡ 7</span></span>
+          <span class="card__tag"><span class="so-noite">Brilhante</span><span class="so-dia">Leve</span></span>
         </div>
       </article>
 
       <article class="card card--v reveal tilt" data-d="3">
         <div class="card__top">
-          <div class="card__icon" aria-hidden="true">❄️</div>
-          <span class="card__id">LX-027</span>
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">❄️</span><span class="so-dia">🥖</span></div>
+          <span class="card__id"><span class="so-noite">LX-027</span><span class="so-dia">FN-012</span></span>
         </div>
-        <h3>Cold Brew Neural</h3>
-        <p>Fermentado por 72h em câmara de privação sensorial. Sincroniza com seu ritmo de foco.</p>
+        <h3><span class="so-noite">Cold Brew Neural</span><span class="so-dia">Baguete de Órbita</span></h3>
+        <p class="so-noite">Fermentado por 72h em câmara de privação sensorial. Sincroniza com seu ritmo de foco.</p>
+        <p class="so-dia">Assada dando uma volta inteira no forno orbital. A casca canta quando você aperta.</p>
         <div class="card__foot">
-          <span class="card__price">₡ 22</span>
-          <span class="card__tag">Lúcido</span>
+          <span class="card__price"><span class="so-noite">₡ 22</span><span class="so-dia">₡ 8</span></span>
+          <span class="card__tag"><span class="so-noite">Lúcido</span><span class="so-dia">Crocante</span></span>
         </div>
       </article>
 
       <article class="card card--a reveal tilt" data-d="4">
         <div class="card__top">
-          <div class="card__icon" aria-hidden="true">🍃</div>
-          <span class="card__id">LX-033</span>
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">🍃</span><span class="so-dia">🧁</span></div>
+          <span class="card__id"><span class="so-noite">LX-033</span><span class="so-dia">FN-019</span></span>
         </div>
-        <h3>Matcha do Vazio</h3>
-        <p>Folhas cultivadas onde não há luz. O sabor chega antes do aroma — não pergunte como.</p>
+        <h3><span class="so-noite">Matcha do Vazio</span><span class="so-dia">Sonho de Nebulosa</span></h3>
+        <p class="so-noite">Folhas cultivadas onde não há luz. O sabor chega antes do aroma — não pergunte como.</p>
+        <p class="so-dia">Recheio de creme que brilha de leve, polvilhado com açúcar de estrela. Coma antes que ele resolva evaporar.</p>
         <div class="card__foot">
-          <span class="card__price">₡ 26</span>
-          <span class="card__tag">Etéreo</span>
+          <span class="card__price"><span class="so-noite">₡ 26</span><span class="so-dia">₡ 6</span></span>
+          <span class="card__tag"><span class="so-noite">Etéreo</span><span class="so-dia">Doce</span></span>
         </div>
       </article>
 
       <article class="card card--m reveal tilt" data-d="5">
         <div class="card__top">
-          <div class="card__icon" aria-hidden="true">✨</div>
-          <span class="card__id">LX-042</span>
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">✨</span><span class="so-dia">🍩</span></div>
+          <span class="card__id"><span class="so-noite">LX-042</span><span class="so-dia">FN-024</span></span>
         </div>
-        <h3>Leite de Estrela</h3>
-        <p>Sem cafeína. Feito de poeira estelar condensada e um pouco de saudade.</p>
+        <h3><span class="so-noite">Leite de Estrela</span><span class="so-dia">Rosca do Eclipse</span></h3>
+        <p class="so-noite">Sem cafeína. Feito de poeira estelar condensada e um pouco de saudade.</p>
+        <p class="so-dia">Uma rosca com o miolo sempre à sombra. Por fora, açúcar; por dentro, um pouco de noite.</p>
         <div class="card__foot">
-          <span class="card__price">₡ 20</span>
-          <span class="card__tag">Suave</span>
+          <span class="card__price"><span class="so-noite">₡ 20</span><span class="so-dia">₡ 5</span></span>
+          <span class="card__tag"><span class="so-noite">Suave</span><span class="so-dia">Raro</span></span>
         </div>
       </article>
 
       <article class="card card--v reveal tilt" data-d="5">
         <div class="card__top">
-          <div class="card__icon" aria-hidden="true">☄️</div>
-          <span class="card__id">LX-050</span>
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">☄️</span><span class="so-dia">🧀</span></div>
+          <span class="card__id"><span class="so-noite">LX-050</span><span class="so-dia">FN-031</span></span>
         </div>
-        <h3>Poeira de Cometa</h3>
-        <p>Um shot triplo com lascas de gelo orbital. O gelo nunca derrete — apenas desiste.</p>
+        <h3><span class="so-noite">Poeira de Cometa</span><span class="so-dia">Pão de Queijo Quântico</span></h3>
+        <p class="so-noite">Um shot triplo com lascas de gelo orbital. O gelo nunca derrete — apenas desiste.</p>
+        <p class="so-dia">Fica quente e frio ao mesmo tempo até alguém abrir o saquinho. Sempre sai quente.</p>
         <div class="card__foot">
-          <span class="card__price">₡ 31</span>
-          <span class="card__tag">Raro</span>
+          <span class="card__price"><span class="so-noite">₡ 31</span><span class="so-dia">₡ 4</span></span>
+          <span class="card__tag"><span class="so-noite">Raro</span><span class="so-dia">Clássico</span></span>
         </div>
       </article>
     </div>
@@ -239,70 +249,70 @@
 
   <!-- LABORATÓRIO -->
   <section class="section" id="laboratorio">
-    <span class="eyebrow reveal">Laboratório</span>
-    <h2 class="reveal" data-d="1">Sintetize a sua <em>própria</em> xícara</h2>
+    <span class="eyebrow reveal"><span class="so-noite">Laboratório</span><span class="so-dia">Forno</span></span>
+    <h2 class="reveal" data-d="1"><span class="so-noite">Sintetize a sua <em>própria</em> xícara</span><span class="so-dia">Monte o <em>seu</em> pão</span></h2>
     <p class="lead reveal" data-d="2">
-      Ajuste os parâmetros. A bebida se recalcula em tempo real — como tudo por aqui.
+      <span class="so-noite">Ajuste os parâmetros. A bebida se recalcula em tempo real — como tudo por aqui.</span><span class="so-dia">Escolha a farinha, o tempo de forno e o que vai por cima. A casca doura enquanto você decide.</span>
     </p>
 
     <div class="lab">
       <!-- Painel -->
-      <div class="lab__panel reveal" data-d="2" id="labForm" role="group" aria-label="Monte sua bebida">
+      <div class="lab__panel reveal" data-d="2" id="labForm" role="group" aria-label="Monte sua bebida" data-aria-dia="Monte o seu pão">
         <div class="lab__group">
-          <div class="lab__label"><span>01 · Base molecular</span></div>
-          <div class="chips" role="radiogroup" aria-label="Base molecular">
+          <div class="lab__label"><span><span class="so-noite">01 · Base molecular</span><span class="so-dia">01 · Farinha</span></span></div>
+          <div class="chips" role="radiogroup" aria-label="Base molecular" data-aria-dia="Farinha">
             <label class="chip">
               <input type="radio" name="base" value="expresso" checked>
-              <span>Expresso</span>
+              <span><span class="so-noite">Expresso</span><span class="so-dia">Trigo</span></span>
             </label>
             <label class="chip">
               <input type="radio" name="base" value="coldbrew">
-              <span>Cold Brew</span>
+              <span><span class="so-noite">Cold Brew</span><span class="so-dia">Centeio</span></span>
             </label>
             <label class="chip">
               <input type="radio" name="base" value="matcha">
-              <span>Matcha</span>
+              <span><span class="so-noite">Matcha</span><span class="so-dia">Integral</span></span>
             </label>
             <label class="chip">
               <input type="radio" name="base" value="estelar">
-              <span>Leite Estelar</span>
+              <span><span class="so-noite">Leite Estelar</span><span class="so-dia">Brioche Estelar</span></span>
             </label>
           </div>
         </div>
 
         <div class="lab__group">
           <div class="lab__label">
-            <span>02 · Intensidade quântica</span>
+            <span><span class="so-noite">02 · Intensidade quântica</span><span class="so-dia">02 · Tempo de forno</span></span>
             <b id="intVal">7</b>
           </div>
           <input type="range" id="intensity" min="1" max="10" value="7"
-                 aria-label="Intensidade quântica, de 1 a 10">
+                 aria-label="Intensidade quântica, de 1 a 10" data-aria-dia="Tempo de forno, de 1 a 10">
         </div>
 
         <div class="lab__group">
-          <div class="lab__label"><span>03 · Modificadores</span></div>
+          <div class="lab__label"><span><span class="so-noite">03 · Modificadores</span><span class="so-dia">03 · Por cima</span></span></div>
           <div class="chips">
             <label class="chip">
-              <input type="checkbox" name="top[]" value="Poeira de Cometa">
-              <span>Poeira de Cometa</span>
+              <input type="checkbox" name="top[]" value="Poeira de Cometa" data-cob="1">
+              <span><span class="so-noite">Poeira de Cometa</span><span class="so-dia">Gergelim</span></span>
             </label>
             <label class="chip">
-              <input type="checkbox" name="top[]" value="Espuma de Plasma">
-              <span>Espuma de Plasma</span>
+              <input type="checkbox" name="top[]" value="Espuma de Plasma" data-cob="2">
+              <span><span class="so-noite">Espuma de Plasma</span><span class="so-dia">Manteiga</span></span>
             </label>
             <label class="chip">
-              <input type="checkbox" name="top[]" value="Cristal de Açúcar">
-              <span>Cristal de Açúcar</span>
+              <input type="checkbox" name="top[]" value="Cristal de Açúcar" data-cob="3">
+              <span><span class="so-noite">Cristal de Açúcar</span><span class="so-dia">Queijo</span></span>
             </label>
             <label class="chip">
-              <input type="checkbox" name="top[]" value="Flor de Neon">
-              <span>Flor de Neon</span>
+              <input type="checkbox" name="top[]" value="Flor de Neon" data-cob="4">
+              <span><span class="so-noite">Flor de Neon</span><span class="so-dia">Açúcar de Cometa</span></span>
             </label>
           </div>
         </div>
 
         <div class="lab__result">
-          <small>Saída do sintetizador</small>
+          <small><span class="so-noite">Saída do sintetizador</span><span class="so-dia">Saindo do forno</span></small>
           <div id="drinkName">Expresso Quântico · Nível VII</div>
           <span id="drinkPrice">₡ 21,50</span>
         </div>
@@ -310,7 +320,7 @@
 
       <!-- Xícara -->
       <div class="cup-stage reveal" data-d="3">
-        <div class="cup-wrap">
+        <div class="cup-wrap so-noite">
           <div class="cup-glow" id="cupGlow" aria-hidden="true"></div>
           <div class="steam" aria-hidden="true"><i></i><i></i><i></i></div>
           <div class="cup">
@@ -322,38 +332,52 @@
           <span class="badge-float">ph · 5.4</span>
           <span class="badge-float">dim · Ω-07</span>
         </div>
+
+        <!-- O pão (modo dia): a casca doura com o tempo de forno; cada cobertura é uma classe com-N -->
+        <div class="pao-wrap so-dia">
+          <div class="cup-glow" id="forno" aria-hidden="true"></div>
+          <div class="steam" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="pao" id="pao" aria-hidden="true">
+            <i class="pao__queijo"></i><i class="pao__manteiga"></i>
+          </div>
+          <div class="tabua" aria-hidden="true"></div>
+
+          <span class="badge-float">forno · 220 °C</span>
+          <span class="badge-float">fermento · 72 h</span>
+          <span class="badge-float">dim · ☉-07</span>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- TRANSMISSÕES -->
   <section class="section" id="transmissoes">
-    <span class="eyebrow reveal">Transmissões</span>
-    <h2 class="reveal" data-d="1">Vozes captadas de <em>outras</em> dimensões</h2>
+    <span class="eyebrow reveal"><span class="so-noite">Transmissões</span><span class="so-dia">Recados</span></span>
+    <h2 class="reveal" data-d="1"><span class="so-noite">Vozes captadas de <em>outras</em> dimensões</span><span class="so-dia">Recados deixados <em>no balcão</em></span></h2>
 
     <div class="trans-grid">
       <blockquote class="trans reveal" data-d="1">
-        <q>Pedi um Expresso Quântico e passei a lembrar de uma infância que nunca tive. Recomendo. Volto amanhã — ou ontem.</q>
-        <footer><b>Kira-09</b>Setor Neon-07</footer>
+        <q><span class="so-noite">Pedi um Expresso Quântico e passei a lembrar de uma infância que nunca tive. Recomendo. Volto amanhã — ou ontem.</span><span class="so-dia">Comprei um croissant e achei, entre as camadas, um bilhete que eu mesmo vou escrever amanhã. Estava delicioso.</span></q>
+        <footer><b><span class="so-noite">Kira-09</span><span class="so-dia">Tomás-06</span></b><span class="so-noite">Setor Neon-07</span><span class="so-dia">Setor Sol-07</span></footer>
       </blockquote>
 
       <blockquote class="trans reveal" data-d="2">
-        <q>O Latte de Plasma brilhou quando eu chorei. Foi embaraçoso para nós dois, mas o sabor era impecável.</q>
-        <footer><b>Dr. Halven</b>Clínica de Memórias</footer>
+        <q><span class="so-noite">O Latte de Plasma brilhou quando eu chorei. Foi embaraçoso para nós dois, mas o sabor era impecável.</span><span class="so-dia">O pão de gravidade zero subiu até o teto. Esperei ele descer para tomar meu café. Volto amanhã.</span></q>
+        <footer><b><span class="so-noite">Dr. Halven</span><span class="so-dia">Odila Prax</span></b><span class="so-noite">Clínica de Memórias</span><span class="so-dia">Relojoaria do Largo</span></footer>
       </blockquote>
 
       <blockquote class="trans reveal" data-d="3">
-        <q>Vim só comprar café. Saí com uma teoria sobre o tempo e um copo que se recusa a esvaziar.</q>
-        <footer><b>Anônima</b>Dimensão Ω-11</footer>
+        <q><span class="so-noite">Vim só comprar café. Saí com uma teoria sobre o tempo e um copo que se recusa a esvaziar.</span><span class="so-dia">Pedi um pão de queijo e saí com dois: um daqui e um de lá. Os dois quentinhos.</span></q>
+        <footer><b>Anônima</b><span class="so-noite">Dimensão Ω-11</span><span class="so-dia">Dimensão ☉-03</span></footer>
       </blockquote>
     </div>
   </section>
 
   <!-- CTA -->
   <section class="cta">
-    <h2 class="reveal">A fenda está aberta <em>até tarde</em></h2>
+    <h2 class="reveal"><span class="so-noite">A fenda está aberta <em>até tarde</em></span><span class="so-dia">O forno acende <em>às seis</em></span></h2>
     <p class="reveal" data-d="1">
-      Não precisa de agendamento. Só de coragem para atravessar a porta errada.
+      <span class="so-noite">Não precisa de agendamento. Só de coragem para atravessar a porta errada.</span><span class="so-dia">Chegue cedo: a primeira fornada acaba antes de o sol terminar de subir.</span>
     </p>
     <div class="hero__cta reveal" data-d="2">
       <a href="#menu" class="btn btn--magenta magnetic">Ver cardápio completo</a>
@@ -365,9 +389,9 @@
   <footer class="foot">
     <div>
       <div class="brand">
-        <span class="brand__orb" aria-hidden="true"></span>CAFÉ AURORA
+        <span class="brand__orb" aria-hidden="true"></span><span class="so-noite">CAFÉ AURORA</span><span class="so-dia">PADARIA AURORA</span>
       </div>
-      <p>Torrefação interdimensional desde 2087. Grãos colhidos com ética em universos que consentiram.</p>
+      <p><span class="so-noite">Torrefação interdimensional desde 2087. Grãos colhidos com ética em universos que consentiram.</span><span class="so-dia">Panificação interdimensional desde 2087. Farinha moída com ética em universos que consentiram.</span></p>
 
       <form class="newsletter" id="newsForm" novalidate>
         <label class="sr-only" for="email">Seu e-mail para receber sinais</label>
@@ -389,9 +413,9 @@
     <div>
       <h4>Horário</h4>
       <ul>
-        <li>Seg–Sex · 06h — 04h</li>
-        <li>Sáb–Dom · sempre</li>
-        <li>Feriados dimensionais · fechado</li>
+        <li><span class="so-noite">Seg–Sex · 06h — 04h</span><span class="so-dia">Todos os dias · 06h — 18h</span></li>
+        <li><span class="so-noite">Sáb–Dom · sempre</span><span class="so-dia">Primeira fornada · 06h em ponto</span></li>
+        <li><span class="so-noite">Feriados dimensionais · fechado</span><span class="so-dia">Depois do pôr do sol · o café abre</span></li>
       </ul>
       <h4 class="foot__h4-espaco">Sinal</h4>
       <ul>
@@ -401,7 +425,7 @@
     </div>
 
     <div class="foot__bottom">
-      <span>© <span id="year"></span> Café Aurora <span class="dot">◆</span> Todos os universos reservados</span>
+      <span>© <span id="year"></span> <span class="so-noite">Café Aurora</span><span class="so-dia">Padaria Aurora</span> <span class="dot">◆</span> Todos os universos reservados</span>
       <span>Cafeteria fictícia · site de exemplo feito por <a href="https://sites.linupedia.com.br/" target="_top">Linu Sites</a></span>
     </div>
   </footer>

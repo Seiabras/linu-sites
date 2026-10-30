@@ -3,7 +3,8 @@
    O que mudei para o Linu Sites:
    os três laços de animação (cursor, fundo e halo) rodam num quadro só, que para
    quando os efeitos estão desligados ou o site está fora da tela; e o item 13,
-   que recebe do simulador quais módulos estão ligados.
+   que recebe do simulador quais módulos estão ligados. E o modo dia: das 6h às 18h o
+   Café vira a Padaria Aurora (item 14; o inicio.js escolhe o modo antes de pintar).
    ============================================================ */
 (() => {
   'use strict';
@@ -14,6 +15,7 @@
   const $$ = (s, c = document) => [...c.querySelectorAll(s)];
   const raiz = document.documentElement;
   const embutido = raiz.classList.contains('embutido');
+  let modo = raiz.dataset.modo === 'dia' ? 'dia' : 'noite';
   // Os textos no idioma da página: o ferramentas/gerar-cafe.mjs do linu-sites escreve o bloco #textos-cafe em cada
   // versão (pt-BR na raiz, as outras em /<idioma>/); sem o bloco, ficam estes, em português
   const bloco = $('#textos-cafe');
@@ -24,7 +26,10 @@
     news_erro: 'Sinal inválido. Verifique as coordenadas do seu e-mail.',
     news_ok: 'Sinal recebido. Você será contactado de outra dimensão.',
     editar: '✎ Editar textos', terminar: '✓ Terminar',
-    painel_aviso: 'Clique num texto e escreva. No painel de verdade, o que você muda fica salvo.'
+    painel_aviso: 'Clique num texto e escreva. No painel de verdade, o que você muda fica salvo.',
+    d_boot: ['Acendendo o forno…', 'Fechando a fenda…', 'Sovando a massa de Ω-11…', 'Esperando a casca dourar…', 'Bom dia.'],
+    d_pao: ['Pão de Trigo Solar', 'Pão de Centeio da Penumbra', 'Pão Integral de Órbita', 'Brioche Estelar'],
+    d_min: '{n} min'
   }, bloco ? JSON.parse(bloco.textContent) : {});
 
   // Um quadro só para todas as animações contínuas; para quando não tem ninguém vendo
@@ -45,7 +50,7 @@
   const bootFill = $('#bootFill');
   const bootLog  = $('#bootLog');
 
-  const steps = T.boot;
+  const steps = modo === 'dia' ? T.d_boot : T.boot;
 
   let p = 0, si = 0;
   const bootTimer = embutido ? 0 : setInterval(() => {
@@ -123,6 +128,19 @@
   }
   sprites[185] = sprite(185);
   sprites[315] = sprite(315);
+  // de dia, a farinha no ar: grãos claros e foscos, sem o brilho do neon
+  const farinha = (() => {
+    const tam = 16, c = document.createElement('canvas');
+    c.width = c.height = tam;
+    const g = c.getContext('2d');
+    const r = g.createRadialGradient(tam / 2, tam / 2, 0, tam / 2, tam / 2, tam / 2);
+    r.addColorStop(0, 'hsla(34, 45%, 52%, .9)');
+    r.addColorStop(0.45, 'hsla(34, 45%, 52%, .5)');
+    r.addColorStop(1, 'hsla(34, 45%, 52%, 0)');
+    g.fillStyle = r;
+    g.fillRect(0, 0, tam, tam);
+    return c;
+  })();
 
   function resize() {
     DPR = 1;
@@ -189,11 +207,27 @@
     }
   }
 
+  // De dia: só a farinha caindo devagar, de lado, como no balcão da padaria
+  function frameDia() {
+    ctx.clearRect(0, 0, W, H);
+    for (const pt of particles) {
+      pt.x += pt.vx * 1.5 + Math.sin(t * 2 + pt.a * 20) * 0.15;
+      pt.y -= pt.vy * 1.2;
+      if (pt.y > H + 20) { pt.y = -20; pt.x = Math.random() * W; }
+      if (pt.x < -20) pt.x = W + 20;
+      if (pt.x > W + 20) pt.x = -20;
+      ctx.globalAlpha = pt.a * 0.8;
+      ctx.drawImage(farinha, pt.x - pt.r * 2.5, pt.y - pt.r * 2.5, pt.r * 5, pt.r * 5);
+    }
+    ctx.globalAlpha = 1;
+  }
+
   let impar = false;
   function frame() {
     impar = !impar;
     if (impar) return; // 30 quadros por segundo bastam para a grade e as partículas
     t += 0.012;
+    if (modo === 'dia') { frameDia(); return; }
 
     ctx.clearRect(0, 0, W, H);
 
@@ -220,10 +254,13 @@
     ctx.globalAlpha = 1;
   }
 
-  if (reduced) {
-    // Desenha um frame estático
+  // Sem movimento: um quadro parado (a grade de noite; de dia, o fundo limpo)
+  function fundoParado() {
     ctx.clearRect(0, 0, W, H);
-    drawGrid(H * 0.6, 0);
+    if (modo === 'noite') drawGrid(H * 0.6, 0);
+  }
+  if (reduced) {
+    fundoParado();
   } else {
     passos.push(frame);
   }
@@ -364,6 +401,14 @@
   const BASE_PRICE = { expresso: 16, coldbrew: 19, matcha: 21, estelar: 18 };
   const TOP_PRICE  = 3.5;
 
+  // De dia, as mesmas quatro escolhas são farinhas: a casca vai da cor crua (claro) à bem assada (escuro)
+  const PAES = {
+    expresso: { i: 0, h: 34, s: 68, claro: 74, escuro: 30, preco: 3 },
+    coldbrew: { i: 1, h: 22, s: 42, claro: 56, escuro: 18, preco: 4 },
+    matcha:   { i: 2, h: 28, s: 52, claro: 62, escuro: 22, preco: 4 },
+    estelar:  { i: 3, h: 40, s: 88, claro: 72, escuro: 34, preco: 5 }
+  };
+
   const form      = $('#labForm');
   const intEl     = $('#intensity');
   const intVal    = $('#intVal');
@@ -371,14 +416,36 @@
   const cupGlow   = $('#cupGlow');
   const nameOut   = $('#drinkName');
   const priceOut  = $('#drinkPrice');
+  const pao       = $('#pao');
+  const forno     = $('#forno');
+  const preco = v => '₡ ' + v.toLocaleString(raiz.lang, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
+  function atualizarPao(baseKey, intensity, marcadas) {
+    const p = PAES[baseKey];
+    const l = p.claro - (intensity - 1) * (p.claro - p.escuro) / 9;
+    pao.style.setProperty('--casca', `hsl(${p.h} ${p.s}% ${l}%)`);
+    pao.style.setProperty('--miolo', `hsl(${p.h} ${p.s}% ${Math.min(88, l + 22)}%)`);
+    pao.style.height = (104 + intensity * 3) + 'px'; // cresce um pouco no forno
+    pao.classList.toggle('estelar', baseKey === 'estelar');
+    for (let n = 1; n <= 4; n++) pao.classList.toggle('com-' + n, marcadas.some(i => i.dataset.cob === String(n)));
+    forno.style.background = `radial-gradient(circle, hsla(${28 + intensity}, 95%, 58%, ${0.18 + intensity * 0.03}), transparent 65%)`;
+
+    let nome = `${T.d_pao[p.i]} · ${T.d_min.replace('{n}', 12 + intensity * 3)}`;
+    const nomes = marcadas.map(i => i.nextElementSibling.querySelector('.so-dia').textContent);
+    if (nomes.length) nome += ` + ${nomes.join(' + ')}`;
+    nameOut.textContent = nome;
+    priceOut.textContent = preco(p.preco + intensity * 0.2 + marcadas.length * 1.5);
+  }
 
   function updateDrink() {
     const baseKey = form.querySelector('input[name="base"]:checked').value;
     const base = BASES[baseKey];
     const intensity = Number(intEl.value);          // 1..10
-    const tops = $$('input[name="top[]"]:checked', form).map(i => i.value);
+    const marcadas = $$('input[name="top[]"]:checked', form);
+    const tops = marcadas.map(i => i.value);
 
     intVal.textContent = intensity;
+    if (modo === 'dia') { atualizarPao(baseKey, intensity, marcadas); return; }
 
     // Cor: mais intenso = mais escuro e saturado
     const l = Math.max(6, base.l - (intensity - 5) * 2.4);
@@ -399,7 +466,7 @@
 
     // Preço
     const price = BASE_PRICE[baseKey] + intensity * 0.55 + tops.length * TOP_PRICE;
-    priceOut.textContent = '₡ ' + price.toLocaleString(raiz.lang, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    priceOut.textContent = preco(price);
   }
 
   form.addEventListener('input', updateDrink);
@@ -418,11 +485,8 @@
   hueEl.addEventListener('input', () => {
     const v = Number(hueEl.value);
     hueVal.textContent = v + '°';
-    const root = document.documentElement;
-    root.style.setProperty('--cyan',    `hsl(${185 + v} 100% 55%)`);
-    root.style.setProperty('--magenta', `hsl(${315 + v} 100% 62%)`);
-    root.style.setProperty('--violet',  `hsl(${265 + v} 92% 68%)`);
-    root.style.setProperty('--amber',   `hsl(${35 + v} 100% 62%)`);
+    // as quatro cores de cada modo saem do --desvio no CSS (bloco 0 e bloco 17)
+    raiz.style.setProperty('--desvio', v);
   });
 
   dimHead.addEventListener('click', () => {
@@ -451,13 +515,13 @@
     const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
 
     if (!ok) {
-      newsMsg.style.color = 'hsl(315 100% 68%)';
+      newsMsg.style.color = 'var(--magenta)';
       newsMsg.textContent = T.news_erro;
       emailIn.focus();
       return;
     }
 
-    newsMsg.style.color = 'hsl(185 100% 65%)';
+    newsMsg.style.color = 'var(--cyan)';
     newsMsg.textContent = T.news_ok;
     emailIn.value = '';
   });
@@ -486,6 +550,49 @@
       halo.style.transform = `translate3d(${px}px, ${py}px, 0)`;
     });
   }
+
+  /* ----------------------------------------------------------
+     14. MODO DIA (A PADARIA) E MODO NOITE (O CAFÉ)
+     Os textos de cada modo já estão na página (.so-dia e .so-noite) e o
+     CSS esconde os do outro; aqui ficam o que muda por atributo, o botão
+     de sol e lua e a virada: o neon pisca, o sol nasce (ou a lua desce)
+     e o modo troca com a tela coberta.
+     ---------------------------------------------------------- */
+  const botaoModo = $('#modo');
+  const corTema = $('meta[name="theme-color"]');
+
+  function aplicarModo(novo) {
+    modo = novo;
+    raiz.dataset.modo = novo;
+    const outro = novo === 'dia' ? 'noite' : 'dia';
+    botaoModo.setAttribute('aria-label', botaoModo.dataset['para' + outro[0].toUpperCase() + outro.slice(1)]);
+    botaoModo.title = botaoModo.getAttribute('aria-label');
+    $$('[data-aria-dia]').forEach(el => {
+      if (!el.dataset.ariaNoite) el.dataset.ariaNoite = el.getAttribute('aria-label');
+      el.setAttribute('aria-label', novo === 'dia' ? el.dataset.ariaDia : el.dataset.ariaNoite);
+    });
+    corTema.content = novo === 'dia' ? '#fbf3e4' : '#05030a';
+    updateDrink();
+    if (reduced) fundoParado();
+  }
+
+  let virando = false;
+  botaoModo.addEventListener('click', () => {
+    if (virando) return;
+    const novo = modo === 'dia' ? 'noite' : 'dia';
+    try { localStorage.setItem('aurora-modo', novo); } catch (e) {}
+    if (reduced || !efeitos) { aplicarModo(novo); return; }
+    virando = true;
+    raiz.classList.add('piscando');
+    const virada = document.createElement('div');
+    virada.className = 'virada virada--' + novo;
+    virada.setAttribute('aria-hidden', 'true');
+    virada.innerHTML = '<i class="virada__astro"></i>';
+    setTimeout(() => document.body.append(virada), 260);
+    setTimeout(() => { raiz.classList.remove('piscando'); aplicarModo(novo); }, 260 + 650);
+    setTimeout(() => { virada.remove(); virando = false; }, 260 + 1300);
+  });
+  aplicarModo(modo);
 
   conferirQuadro();
 

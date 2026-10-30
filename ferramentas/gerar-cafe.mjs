@@ -16,7 +16,8 @@ const aqui = path.dirname(fileURLToPath(import.meta.url));
 const cafe = path.join(aqui, '..', 'sitios', 'cafe-aurora');
 const CAFE = 'https://cafe.linupedia.com.br/';
 const SITES = 'https://sites.linupedia.com.br/';
-const ORDEM = ['pt-BR', 'pt-PT', 'es-ES', 'ca', 'nl', 'en-GB', 'fr', 'de', 'it', 'en-INTL', 'ja', 'ko', 'zh-Hant'];
+// IDIOMAS=pt-BR,en-GB gera só esses (para testar um texto novo antes de traduzir os outros)
+const ORDEM = process.env.IDIOMAS ? process.env.IDIOMAS.split(',') : ['pt-BR', 'pt-PT', 'es-ES', 'ca', 'nl', 'en-GB', 'fr', 'de', 'it', 'en-INTL', 'ja', 'ko', 'zh-Hant'];
 // os textos do HTML que o script também usa
 const DO_SCRIPT = ['expresso', 'coldbrew', 'matcha', 'estelar', 'nivel', 'editar'];
 

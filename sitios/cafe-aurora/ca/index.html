@@ -17,15 +17,16 @@
 <link rel="alternate" hreflang="de-DE" href="https://cafe.linupedia.com.br/de/">
 <link rel="alternate" hreflang="it-IT" href="https://cafe.linupedia.com.br/it/">
 <!-- Os textos que o script escreve (abertura, bebidas, assinatura, painel), no idioma da página -->
-<script type="application/json" id="textos-cafe">{"boot":["Iniciant el portal…","Calibrant la mòlta quàntica…","Sincronitzant grans d’Ω-11…","Escalfant el reactor de vapor…","Benvingut a l’escletxa."],"news_erro":"Senyal no vàlid. Revisa les coordenades del teu correu.","news_ok":"Senyal rebut. Et contactaran des d’una altra dimensió.","terminar":"✓ Fet","painel_aviso":"Fes clic en un text i escriu. Al tauler de debò, el que canvies queda desat.","expresso":"Exprés Quàntic","coldbrew":"Cold Brew Neural","matcha":"Matcha del Buit","estelar":"Llet d’Estrella","nivel":"Nivell","editar":"✎ Edita els textos"}</script>
+<script type="application/json" id="textos-cafe">{"boot":["Iniciant el portal…","Calibrant la mòlta quàntica…","Sincronitzant grans d’Ω-11…","Escalfant el reactor de vapor…","Benvingut a l’escletxa."],"news_erro":"Senyal no vàlid. Revisa les coordenades del teu correu.","news_ok":"Senyal rebut. Et contactaran des d’una altra dimensió.","terminar":"✓ Fet","painel_aviso":"Fes clic en un text i escriu. Al tauler de debò, el que canvies queda desat.","d_boot":["Encenent el forn…","Tancant l'escletxa…","Pastant la massa d'Ω-11…","Esperant que la crosta es dauri…","Bon dia."],"d_pao":["Pa de Blat Solar","Pa de Sègol de la Penombra","Pa Integral d'Òrbita","Brioix Estel·lar"],"d_min":"{n} min","expresso":"Exprés Quàntic","coldbrew":"Cold Brew Neural","matcha":"Matcha del Buit","estelar":"Llet d’Estrella","nivel":"Nivell","editar":"✎ Edita els textos"}</script>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
 <link rel="icon" href="../icone.png" type="image/png" sizes="128x128">
 <link rel="preload" href="../fontes/orbitron.woff2" as="font" type="font/woff2" crossorigin>
-<!-- Site de exemplo do Linu Sites: o Café Aurora não existe. Na página principal, ele aparece embutido
+<!-- Site de exemplo do Linu Sites: o Café Aurora não existe. De dia (6h–18h) ele vira a Padaria Aurora: cada texto
+     que muda tem as duas versões, .so-noite e .so-dia, e o data-modo do <html> esconde uma delas (ver inicio.js). Na página principal, ele aparece embutido
      (iframe) no simulador de preço, que liga e desliga as partes dele (ver script.js, "módulos"). -->
-<script src="../inicio.js"></script>
-<link rel="stylesheet" href="../estilo.css?v=2">
-<script src="../script.js?v=3" defer></script>
+<script src="../inicio.js?v=2"></script>
+<link rel="stylesheet" href="../estilo.css?v=3">
+<script src="../script.js?v=4" defer></script>
 </head>
 
 <body>
@@ -33,9 +34,9 @@
 
 <!-- BOOT -->
 <div class="boot" id="boot" role="status" aria-live="polite">
-  <div class="boot__logo">CAFÉ AURORA</div>
+  <div class="boot__logo"><span class="so-noite">CAFÉ AURORA</span><span class="so-dia">FORN AURORA</span></div>
   <div class="boot__bar"><div class="boot__fill" id="bootFill"></div></div>
-  <div class="boot__log" id="bootLog">Iniciant el portal…</div>
+  <div class="boot__log" id="bootLog"><span class="so-noite">Iniciant el portal…</span><span class="so-dia">Encenent el forn…</span></div>
 </div>
 
 <!-- CURSOR -->
@@ -50,20 +51,24 @@
 
 <!-- NAV -->
 <header class="nav" id="nav">
-  <a href="#inicio" class="brand" aria-label="Café Aurora — inici">
+  <a href="#inicio" class="brand" aria-label="Café Aurora — inici" data-aria-dia="Forn Aurora — inici">
     <span class="brand__orb" aria-hidden="true"></span>
-    CAFÉ&nbsp;AURORA
+    <span class="so-noite">CAFÉ&nbsp;AURORA</span><span class="so-dia">FORN AURORA</span>
   </a>
 
   <nav class="nav__links" id="navLinks" aria-label="Navegació principal">
     <a href="#inicio" class="active">Inici</a>
     <a href="#sobre">Origen</a>
     <a href="#menu">Carta</a>
-    <a href="#laboratorio">Laboratori</a>
-    <a href="#transmissoes">Transmissions</a>
+    <a href="#laboratorio"><span class="so-noite">Laboratori</span><span class="so-dia">Forn</span></a>
+    <a href="#transmissoes"><span class="so-noite">Transmissions</span><span class="so-dia">Notes</span></a>
   </nav>
 
   <div class="nav__right">
+    <button type="button" class="modo" id="modo" aria-label="Obrir el forn de pa (mode dia)" title="Obrir el forn de pa (mode dia)"
+            data-para-dia="Obrir el forn de pa (mode dia)" data-para-noite="Tornar al cafè (mode nit)">
+      <span class="modo__astro" aria-hidden="true"></span>
+    </button>
     <a href="#laboratorio" class="btn btn--magenta magnetic">Demana ara</a>
     <button type="button" class="burger" id="burger" aria-label="Obre el menú" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>
@@ -79,26 +84,26 @@
     <div class="hero__rings" aria-hidden="true"><i></i><i></i><i></i></div>
 
     <div>
-      <span class="hero__tag reveal">☕ <b>OBERT</b> 24H · SECTOR NEÓ-07 · DIMENSIÓ Ω</span>
+      <span class="hero__tag reveal"><span class="so-noite">☕ <b>OBERT</b> 24H · SECTOR NEÓ-07 · DIMENSIÓ Ω</span><span class="so-dia">🥐 <b>FORNADA</b> DE LES 6 · SECTOR SOL-07 · DIMENSIÓ ☉</span></span>
 
       <h1 class="glitch" data-text="CAFÉ&#10;AURORA">
-        <span>CAFÉ</span>
-        <span>AURORA</span>
+        <span><span class="so-noite">CAFÉ</span><span class="so-dia">FORN</span></span>
+        <span><span class="so-noite">AURORA</span><span class="so-dia">AURORA</span></span>
       </h1>
 
       <p class="hero__sub reveal" data-d="1">
-        Torrem grans collits en <b>realitats paral·leles</b>. Cada tassa és un petit col·lapse quàntic — i el teu paladar, l’única constant.
+        <span class="so-noite">Torrem grans collits en <b>realitats paral·leles</b>. Cada tassa és un petit col·lapse quàntic — i el teu paladar, l’única constant.</span><span class="so-dia">Quan surt el sol, l'escletxa es tanca i el forn s'encén. Coem pa amb farina molta en <b>realitats paral·leles</b>: cada llesca surt calenteta, cruixent i només una mica fora del temps.</span>
       </p>
 
       <div class="hero__cta reveal" data-d="2">
-        <a href="#menu" class="btn magnetic">Explora la carta</a>
-        <a href="#sobre" class="btn btn--ghost magnetic">Travessa el portal</a>
+        <a href="#menu" class="btn magnetic"><span class="so-noite">Explora la carta</span><span class="so-dia">Veure la fornada</span></a>
+        <a href="#sobre" class="btn btn--ghost magnetic"><span class="so-noite">Travessa el portal</span><span class="so-dia">Conèixer el forn</span></a>
       </div>
 
       <div class="hero__stats reveal" data-d="3">
-        <div><b>12</b>Dimensions actives</div>
-        <div><b>98,4 %</b>Precisió quàntica</div>
-        <div><b>∞</b>Recàrregues de somni</div>
+        <div><b>12</b><span class="so-noite">Dimensions actives</span><span class="so-dia">Fornades al dia</span></div>
+        <div><b>98,4 %</b><span class="so-noite">Precisió quàntica</span><span class="so-dia">Cruixent mesurat</span></div>
+        <div><b>∞</b><span class="so-noite">Recàrregues de somni</span><span class="so-dia">Molles perdonades</span></div>
       </div>
     </div>
 
@@ -110,11 +115,13 @@
 
   <!-- MARQUEE -->
   <div class="marquee" aria-hidden="true">
-    <div class="marquee__track">
-      <span>Exprés Quàntic</span><span>Latte de Plasma</span><span>Cold Brew Neural</span>
-      <span>Matcha del Buit</span><span>Llet d’Estrella</span><span>Pols de Cometa</span>
-      <span>Exprés Quàntic</span><span>Latte de Plasma</span><span>Cold Brew Neural</span>
-      <span>Matcha del Buit</span><span>Llet d’Estrella</span><span>Pols de Cometa</span>
+    <div class="marquee__track so-noite">
+      <span>Exprés Quàntic</span><span>Latte de Plasma</span><span>Cold Brew Neural</span><span>Matcha del Buit</span><span>Llet d’Estrella</span><span>Pols de Cometa</span>
+      <span>Exprés Quàntic</span><span>Latte de Plasma</span><span>Cold Brew Neural</span><span>Matcha del Buit</span><span>Llet d’Estrella</span><span>Pols de Cometa</span>
+    </div>
+    <div class="marquee__track so-dia">
+      <span>Croissant de 2087 Capes</span><span>Pa de Gravetat Zero</span><span>Barra d'Òrbita</span><span>Bunyol de Nebulosa</span><span>Rosca de l'Eclipsi</span><span>Pa de Formatge Quàntic</span>
+      <span>Croissant de 2087 Capes</span><span>Pa de Gravetat Zero</span><span>Barra d'Òrbita</span><span>Bunyol de Nebulosa</span><span>Rosca de l'Eclipsi</span><span>Pa de Formatge Quàntic</span>
     </div>
   </div>
 
@@ -123,18 +130,15 @@
     <div class="about">
       <div class="about__text">
         <span class="eyebrow reveal">Origen</span>
-        <h2 class="reveal" data-d="1">Vam néixer d’un <em>curtcircuit</em> entre dos mons</h2>
+        <h2 class="reveal" data-d="1"><span class="so-noite">Vam néixer d’un <em>curtcircuit</em> entre dos mons</span><span class="so-dia">De dia, l'escletxa es torna <em>forn</em></span></h2>
 
         <div class="reveal" data-d="2">
-          <p class="lead">
-            El 2087, una barista anomenada <strong>Aurora Vex</strong> va vessar cafè sobre un reactor de curvatura. El resultat no va ser una explosió — va ser una aroma.
-          </p>
-          <p>
-            L’aroma va obrir una escletxa. A l’altre costat hi havia una ciutat igual que la nostra, però amb llums que pensaven i pluja que recordava. Allà vam trobar els grans que avui servim.
-          </p>
-          <p>
-            El <strong>Café Aurora</strong> és l’únic punt de trobada entre les dues metròpolis. Aquí el vapor puja a poc a poc i el temps accepta aturar-se uns minuts — sempre que demanis la segona tassa.
-          </p>
+          <p class="lead so-noite">El 2087, una barista anomenada <strong>Aurora Vex</strong> va vessar cafè sobre un reactor de curvatura. El resultat no va ser una explosió — va ser una aroma.</p>
+          <p class="so-noite">L’aroma va obrir una escletxa. A l’altre costat hi havia una ciutat igual que la nostra, però amb llums que pensaven i pluja que recordava. Allà vam trobar els grans que avui servim.</p>
+          <p class="so-noite">El <strong>Café Aurora</strong> és l’únic punt de trobada entre les dues metròpolis. Aquí el vapor puja a poc a poc i el temps accepta aturar-se uns minuts — sempre que demanis la segona tassa.</p>
+          <p class="lead so-dia">Cada matí, quan el nostre sol i el d'Ω-11 surten alhora, l'escletxa que <strong>Aurora Vex</strong> va obrir amb cafè s'encongeix fins a quedar de la mida de la porta d'un forn.</p>
+          <p class="so-dia">La calor que s'escapa de l'altra banda no es perd: cou pa. La primera fornada surt a les sis, i l'olor travessa les dues ciutats abans que cap despertador.</p>
+          <p class="so-dia">El <strong>Forn Aurora</strong> és el mateix local del cafè, amb llum de dia. Els baristes de la nit es tornen forners, la barra es converteix en aparador i el neó descansa fins que es pon el sol.</p>
         </div>
       </div>
 
@@ -143,7 +147,7 @@
         <div class="portal__ring"></div>
         <div class="portal__ring"></div>
         <div class="portal__core"></div>
-        <span class="portal__label">Escletxa estable · 3.2 nm</span>
+        <span class="portal__label"><span class="so-noite">Escletxa estable · 3.2 nm</span><span class="so-dia">Forn estable · 220 °C</span></span>
       </div>
     </div>
   </section>
@@ -151,87 +155,93 @@
   <!-- MENU -->
   <section class="section" id="menu">
     <span class="eyebrow reveal">Carta</span>
-    <h2 class="reveal" data-d="1">Mescles que <em>no existeixen</em> enlloc més</h2>
+    <h2 class="reveal" data-d="1"><span class="so-noite">Mescles que <em>no existeixen</em> enlloc més</span><span class="so-dia">Fornades que <em>no esperen</em> que passi el temps</span></h2>
     <p class="lead reveal" data-d="2">
-      Sis receptes calibrades per a diferents freqüències cerebrals. Totes servides en tasses autoregeneratives.
+      <span class="so-noite">Sis receptes calibrades per a diferents freqüències cerebrals. Totes servides en tasses autoregeneratives.</span><span class="so-dia">Sis receptes que surten del forn diverses vegades al dia. Totes embolicades en un paper que guarda la calor unes hores, o dimensions.</span>
     </p>
 
     <div class="menu-grid">
       <article class="card reveal tilt" data-d="1">
         <div class="card__top">
-          <div class="card__icon" aria-hidden="true">⚡</div>
-          <span class="card__id">LX-001</span>
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">⚡</span><span class="so-dia">🥐</span></div>
+          <span class="card__id"><span class="so-noite">LX-001</span><span class="so-dia">FN-001</span></span>
         </div>
-        <h3>Exprés Quàntic</h3>
-        <p>Dues extraccions simultànies en universos diferents. Tastes la mitjana de totes dues.</p>
+        <h3><span class="so-noite">Exprés Quàntic</span><span class="so-dia">Croissant de 2087 Capes</span></h3>
+        <p class="so-noite">Dues extraccions simultànies en universos diferents. Tastes la mitjana de totes dues.</p>
+        <p class="so-dia">Pleguem la massa 2087 vegades, una per cada any fins a l'escletxa. Cada mossegada cruix en una capa diferent de la realitat.</p>
         <div class="card__foot">
-          <span class="card__price">₡ 18</span>
-          <span class="card__tag">Intens</span>
+          <span class="card__price"><span class="so-noite">₡ 18</span><span class="so-dia">₡ 9</span></span>
+          <span class="card__tag"><span class="so-noite">Intens</span><span class="so-dia">Fullat</span></span>
         </div>
       </article>
 
       <article class="card card--m reveal tilt" data-d="2">
         <div class="card__top">
-          <div class="card__icon" aria-hidden="true">🌌</div>
-          <span class="card__id">LX-014</span>
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">🌌</span><span class="so-dia">🍞</span></div>
+          <span class="card__id"><span class="so-noite">LX-014</span><span class="so-dia">FN-006</span></span>
         </div>
-        <h3>Latte de Plasma</h3>
-        <p>Llet vaporitzada a 340 °C en un camp magnètic. Brilla una mica quan la remenes.</p>
+        <h3><span class="so-noite">Latte de Plasma</span><span class="so-dia">Pa de Gravetat Zero</span></h3>
+        <p class="so-noite">Llet vaporitzada a 340 °C en un camp magnètic. Brilla una mica quan la remenes.</p>
+        <p class="so-dia">Fermentat 72 h surant, sense res que l'estiri cap avall. És tan lleuger que ve lligat al plat.</p>
         <div class="card__foot">
-          <span class="card__price">₡ 24</span>
-          <span class="card__tag">Brillant</span>
+          <span class="card__price"><span class="so-noite">₡ 24</span><span class="so-dia">₡ 7</span></span>
+          <span class="card__tag"><span class="so-noite">Brillant</span><span class="so-dia">Lleuger</span></span>
         </div>
       </article>
 
       <article class="card card--v reveal tilt" data-d="3">
         <div class="card__top">
-          <div class="card__icon" aria-hidden="true">❄️</div>
-          <span class="card__id">LX-027</span>
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">❄️</span><span class="so-dia">🥖</span></div>
+          <span class="card__id"><span class="so-noite">LX-027</span><span class="so-dia">FN-012</span></span>
         </div>
-        <h3>Cold Brew Neural</h3>
-        <p>Fermentat durant 72 h en una cambra de privació sensorial. Se sincronitza amb el teu ritme de concentració.</p>
+        <h3><span class="so-noite">Cold Brew Neural</span><span class="so-dia">Barra d'Òrbita</span></h3>
+        <p class="so-noite">Fermentat durant 72 h en una cambra de privació sensorial. Se sincronitza amb el teu ritme de concentració.</p>
+        <p class="so-dia">Cuita fent una volta sencera al forn orbital. La crosta canta quan l'estrenys.</p>
         <div class="card__foot">
-          <span class="card__price">₡ 22</span>
-          <span class="card__tag">Lúcid</span>
+          <span class="card__price"><span class="so-noite">₡ 22</span><span class="so-dia">₡ 8</span></span>
+          <span class="card__tag"><span class="so-noite">Lúcid</span><span class="so-dia">Cruixent</span></span>
         </div>
       </article>
 
       <article class="card card--a reveal tilt" data-d="4">
         <div class="card__top">
-          <div class="card__icon" aria-hidden="true">🍃</div>
-          <span class="card__id">LX-033</span>
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">🍃</span><span class="so-dia">🧁</span></div>
+          <span class="card__id"><span class="so-noite">LX-033</span><span class="so-dia">FN-019</span></span>
         </div>
-        <h3>Matcha del Buit</h3>
-        <p>Fulles cultivades on no hi ha llum. El gust arriba abans que l’aroma — no preguntis com.</p>
+        <h3><span class="so-noite">Matcha del Buit</span><span class="so-dia">Bunyol de Nebulosa</span></h3>
+        <p class="so-noite">Fulles cultivades on no hi ha llum. El gust arriba abans que l’aroma — no preguntis com.</p>
+        <p class="so-dia">Farcit de crema que brilla una mica, empolsinat amb sucre d'estrella. Menja-te'l abans que decideixi evaporar-se.</p>
         <div class="card__foot">
-          <span class="card__price">₡ 26</span>
-          <span class="card__tag">Eteri</span>
+          <span class="card__price"><span class="so-noite">₡ 26</span><span class="so-dia">₡ 6</span></span>
+          <span class="card__tag"><span class="so-noite">Eteri</span><span class="so-dia">Dolç</span></span>
         </div>
       </article>
 
       <article class="card card--m reveal tilt" data-d="5">
         <div class="card__top">
-          <div class="card__icon" aria-hidden="true">✨</div>
-          <span class="card__id">LX-042</span>
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">✨</span><span class="so-dia">🍩</span></div>
+          <span class="card__id"><span class="so-noite">LX-042</span><span class="so-dia">FN-024</span></span>
         </div>
-        <h3>Llet d’Estrella</h3>
-        <p>Sense cafeïna. Fet de pols estel·lar condensada i una mica d’enyorança.</p>
+        <h3><span class="so-noite">Llet d’Estrella</span><span class="so-dia">Rosca de l'Eclipsi</span></h3>
+        <p class="so-noite">Sense cafeïna. Fet de pols estel·lar condensada i una mica d’enyorança.</p>
+        <p class="so-dia">Una rosca amb la molla sempre a l'ombra. Per fora, sucre; per dins, una mica de nit.</p>
         <div class="card__foot">
-          <span class="card__price">₡ 20</span>
-          <span class="card__tag">Suau</span>
+          <span class="card__price"><span class="so-noite">₡ 20</span><span class="so-dia">₡ 5</span></span>
+          <span class="card__tag"><span class="so-noite">Suau</span><span class="so-dia">Rar</span></span>
         </div>
       </article>
 
       <article class="card card--v reveal tilt" data-d="5">
         <div class="card__top">
-          <div class="card__icon" aria-hidden="true">☄️</div>
-          <span class="card__id">LX-050</span>
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">☄️</span><span class="so-dia">🧀</span></div>
+          <span class="card__id"><span class="so-noite">LX-050</span><span class="so-dia">FN-031</span></span>
         </div>
-        <h3>Pols de Cometa</h3>
-        <p>Un triple shot amb estelles de gel orbital. El gel no es fon mai — només es rendeix.</p>
+        <h3><span class="so-noite">Pols de Cometa</span><span class="so-dia">Pa de Formatge Quàntic</span></h3>
+        <p class="so-noite">Un triple shot amb estelles de gel orbital. El gel no es fon mai — només es rendeix.</p>
+        <p class="so-dia">És calent i fred alhora fins que algú obre la bosseta. Sempre surt calent.</p>
         <div class="card__foot">
-          <span class="card__price">₡ 31</span>
-          <span class="card__tag">Rar</span>
+          <span class="card__price"><span class="so-noite">₡ 31</span><span class="so-dia">₡ 4</span></span>
+          <span class="card__tag"><span class="so-noite">Rar</span><span class="so-dia">Clàssic</span></span>
         </div>
       </article>
     </div>
@@ -239,70 +249,70 @@
 
   <!-- LABORATÓRIO -->
   <section class="section" id="laboratorio">
-    <span class="eyebrow reveal">Laboratori</span>
-    <h2 class="reveal" data-d="1">Sintetitza la teva <em>pròpia</em> tassa</h2>
+    <span class="eyebrow reveal"><span class="so-noite">Laboratori</span><span class="so-dia">Forn</span></span>
+    <h2 class="reveal" data-d="1"><span class="so-noite">Sintetitza la teva <em>pròpia</em> tassa</span><span class="so-dia">Fes el <em>teu</em> pa</span></h2>
     <p class="lead reveal" data-d="2">
-      Ajusta els paràmetres. La beguda es recalcula en temps real — com tot per aquí.
+      <span class="so-noite">Ajusta els paràmetres. La beguda es recalcula en temps real — com tot per aquí.</span><span class="so-dia">Tria la farina, el temps de forn i què hi va a sobre. La crosta es daura mentre decideixes.</span>
     </p>
 
     <div class="lab">
       <!-- Painel -->
-      <div class="lab__panel reveal" data-d="2" id="labForm" role="group" aria-label="Crea la teva beguda">
+      <div class="lab__panel reveal" data-d="2" id="labForm" role="group" aria-label="Crea la teva beguda" data-aria-dia="Fes el teu pa">
         <div class="lab__group">
-          <div class="lab__label"><span>01 · Base molecular</span></div>
-          <div class="chips" role="radiogroup" aria-label="Base molecular">
+          <div class="lab__label"><span><span class="so-noite">01 · Base molecular</span><span class="so-dia">01 · Farina</span></span></div>
+          <div class="chips" role="radiogroup" aria-label="Base molecular" data-aria-dia="Farina">
             <label class="chip">
               <input type="radio" name="base" value="expresso" checked>
-              <span>Exprés</span>
+              <span><span class="so-noite">Exprés</span><span class="so-dia">Blat</span></span>
             </label>
             <label class="chip">
               <input type="radio" name="base" value="coldbrew">
-              <span>Cold Brew</span>
+              <span><span class="so-noite">Cold Brew</span><span class="so-dia">Sègol</span></span>
             </label>
             <label class="chip">
               <input type="radio" name="base" value="matcha">
-              <span>Matcha</span>
+              <span><span class="so-noite">Matcha</span><span class="so-dia">Integral</span></span>
             </label>
             <label class="chip">
               <input type="radio" name="base" value="estelar">
-              <span>Llet Estel·lar</span>
+              <span><span class="so-noite">Llet Estel·lar</span><span class="so-dia">Brioix Estel·lar</span></span>
             </label>
           </div>
         </div>
 
         <div class="lab__group">
           <div class="lab__label">
-            <span>02 · Intensitat quàntica</span>
+            <span><span class="so-noite">02 · Intensitat quàntica</span><span class="so-dia">02 · Temps de forn</span></span>
             <b id="intVal">7</b>
           </div>
           <input type="range" id="intensity" min="1" max="10" value="7"
-                 aria-label="Intensitat quàntica, de l’1 al 10">
+                 aria-label="Intensitat quàntica, de l’1 al 10" data-aria-dia="Temps de forn, de l'1 al 10">
         </div>
 
         <div class="lab__group">
-          <div class="lab__label"><span>03 · Modificadors</span></div>
+          <div class="lab__label"><span><span class="so-noite">03 · Modificadors</span><span class="so-dia">03 · A sobre</span></span></div>
           <div class="chips">
             <label class="chip">
-              <input type="checkbox" name="top[]" value="Pols de Cometa">
-              <span>Pols de Cometa</span>
+              <input type="checkbox" name="top[]" value="Pols de Cometa" data-cob="1">
+              <span><span class="so-noite">Pols de Cometa</span><span class="so-dia">Sèsam</span></span>
             </label>
             <label class="chip">
-              <input type="checkbox" name="top[]" value="Escuma de Plasma">
-              <span>Escuma de Plasma</span>
+              <input type="checkbox" name="top[]" value="Escuma de Plasma" data-cob="2">
+              <span><span class="so-noite">Escuma de Plasma</span><span class="so-dia">Mantega</span></span>
             </label>
             <label class="chip">
-              <input type="checkbox" name="top[]" value="Cristall de Sucre">
-              <span>Cristall de Sucre</span>
+              <input type="checkbox" name="top[]" value="Cristall de Sucre" data-cob="3">
+              <span><span class="so-noite">Cristall de Sucre</span><span class="so-dia">Formatge</span></span>
             </label>
             <label class="chip">
-              <input type="checkbox" name="top[]" value="Flor de Neó">
-              <span>Flor de Neó</span>
+              <input type="checkbox" name="top[]" value="Flor de Neó" data-cob="4">
+              <span><span class="so-noite">Flor de Neó</span><span class="so-dia">Sucre de Cometa</span></span>
             </label>
           </div>
         </div>
 
         <div class="lab__result">
-          <small>Sortida del sintetitzador</small>
+          <small><span class="so-noite">Sortida del sintetitzador</span><span class="so-dia">Sortint del forn</span></small>
           <div id="drinkName">Exprés Quàntic · Nivell VII</div>
           <span id="drinkPrice">₡ 21,50</span>
         </div>
@@ -310,7 +320,7 @@
 
       <!-- Xícara -->
       <div class="cup-stage reveal" data-d="3">
-        <div class="cup-wrap">
+        <div class="cup-wrap so-noite">
           <div class="cup-glow" id="cupGlow" aria-hidden="true"></div>
           <div class="steam" aria-hidden="true"><i></i><i></i><i></i></div>
           <div class="cup">
@@ -322,38 +332,52 @@
           <span class="badge-float">ph · 5.4</span>
           <span class="badge-float">dim · Ω-07</span>
         </div>
+
+        <!-- O pão (modo dia): a casca doura com o tempo de forno; cada cobertura é uma classe com-N -->
+        <div class="pao-wrap so-dia">
+          <div class="cup-glow" id="forno" aria-hidden="true"></div>
+          <div class="steam" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="pao" id="pao" aria-hidden="true">
+            <i class="pao__queijo"></i><i class="pao__manteiga"></i>
+          </div>
+          <div class="tabua" aria-hidden="true"></div>
+
+          <span class="badge-float">forno · 220 °C</span>
+          <span class="badge-float">fermento · 72 h</span>
+          <span class="badge-float">dim · ☉-07</span>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- TRANSMISSÕES -->
   <section class="section" id="transmissoes">
-    <span class="eyebrow reveal">Transmissions</span>
-    <h2 class="reveal" data-d="1">Veus captades d’<em>altres</em> dimensions</h2>
+    <span class="eyebrow reveal"><span class="so-noite">Transmissions</span><span class="so-dia">Notes</span></span>
+    <h2 class="reveal" data-d="1"><span class="so-noite">Veus captades d’<em>altres</em> dimensions</span><span class="so-dia">Notes deixades <em>a la barra</em></span></h2>
 
     <div class="trans-grid">
       <blockquote class="trans reveal" data-d="1">
-        <q>Vaig demanar un Exprés Quàntic i vaig començar a recordar una infància que no he tingut mai. Recomanat. Torno demà — o ahir.</q>
-        <footer><b>Kira-09</b>Sector Neó-07</footer>
+        <q><span class="so-noite">Vaig demanar un Exprés Quàntic i vaig començar a recordar una infància que no he tingut mai. Recomanat. Torno demà — o ahir.</span><span class="so-dia">Vaig comprar un croissant i hi vaig trobar, entre les capes, una nota que jo mateix escriuré demà. Era boníssim.</span></q>
+        <footer><b><span class="so-noite">Kira-09</span><span class="so-dia">Tomás-06</span></b><span class="so-noite">Sector Neó-07</span><span class="so-dia">Sector Sol-07</span></footer>
       </blockquote>
 
       <blockquote class="trans reveal" data-d="2">
-        <q>El Latte de Plasma va brillar quan vaig plorar. Va ser incòmode per a tots dos, però el gust era impecable.</q>
-        <footer><b>Dr. Halven</b>Clínica de Records</footer>
+        <q><span class="so-noite">El Latte de Plasma va brillar quan vaig plorar. Va ser incòmode per a tots dos, però el gust era impecable.</span><span class="so-dia">El pa de gravetat zero va pujar fins al sostre. Vaig esperar que baixés per esmorzar. Tornaré demà.</span></q>
+        <footer><b><span class="so-noite">Dr. Halven</span><span class="so-dia">Odila Prax</span></b><span class="so-noite">Clínica de Records</span><span class="so-dia">Rellotgeria de la Plaça</span></footer>
       </blockquote>
 
       <blockquote class="trans reveal" data-d="3">
-        <q>Només venia a comprar cafè. Vaig sortir amb una teoria sobre el temps i un got que es nega a buidar-se.</q>
-        <footer><b>Anònima</b>Dimensió Ω-11</footer>
+        <q><span class="so-noite">Només venia a comprar cafè. Vaig sortir amb una teoria sobre el temps i un got que es nega a buidar-se.</span><span class="so-dia">Vaig demanar un pa de formatge i en vaig sortir amb dos: un d'aquí i un d'allà. Tots dos calentons.</span></q>
+        <footer><b>Anònima</b><span class="so-noite">Dimensió Ω-11</span><span class="so-dia">Dimensió ☉-03</span></footer>
       </blockquote>
     </div>
   </section>
 
   <!-- CTA -->
   <section class="cta">
-    <h2 class="reveal">L’escletxa és oberta <em>fins tard</em></h2>
+    <h2 class="reveal"><span class="so-noite">L’escletxa és oberta <em>fins tard</em></span><span class="so-dia">El forn s'encén <em>a les sis</em></span></h2>
     <p class="reveal" data-d="1">
-      No cal reservar. Només valor per travessar la porta equivocada.
+      <span class="so-noite">No cal reservar. Només valor per travessar la porta equivocada.</span><span class="so-dia">Vine d'hora: la primera fornada s'acaba abans que el sol acabi de pujar.</span>
     </p>
     <div class="hero__cta reveal" data-d="2">
       <a href="#menu" class="btn btn--magenta magnetic">Veure la carta completa</a>
@@ -365,9 +389,9 @@
   <footer class="foot">
     <div>
       <div class="brand">
-        <span class="brand__orb" aria-hidden="true"></span>CAFÉ AURORA
+        <span class="brand__orb" aria-hidden="true"></span><span class="so-noite">CAFÉ AURORA</span><span class="so-dia">FORN AURORA</span>
       </div>
-      <p>Torrefacció interdimensional des del 2087. Grans collits amb ètica en universos que hi van donar el consentiment.</p>
+      <p><span class="so-noite">Torrefacció interdimensional des del 2087. Grans collits amb ètica en universos que hi van donar el consentiment.</span><span class="so-dia">Fleca interdimensional des del 2087. Farina molta amb ètica en universos que hi han donat el consentiment.</span></p>
 
       <form class="newsletter" id="newsForm" novalidate>
         <label class="sr-only" for="email">El teu correu per rebre senyals</label>
@@ -389,9 +413,9 @@
     <div>
       <h4>Horari</h4>
       <ul>
-        <li>Dl–Dv · 06h — 04h</li>
-        <li>Ds–Dg · sempre</li>
-        <li>Festius dimensionals · tancat</li>
+        <li><span class="so-noite">Dl–Dv · 06h — 04h</span><span class="so-dia">Cada dia · 06:00 — 18:00</span></li>
+        <li><span class="so-noite">Ds–Dg · sempre</span><span class="so-dia">Primera fornada · a les 06:00 en punt</span></li>
+        <li><span class="so-noite">Festius dimensionals · tancat</span><span class="so-dia">Després de la posta de sol · obre el cafè</span></li>
       </ul>
       <h4 class="foot__h4-espaco">Senyal</h4>
       <ul>
@@ -401,7 +425,7 @@
     </div>
 
     <div class="foot__bottom">
-      <span>© <span id="year"></span> Café Aurora <span class="dot">◆</span> Tots els universos reservats</span>
+      <span>© <span id="year"></span> <span class="so-noite">Café Aurora</span><span class="so-dia">Forn Aurora</span> <span class="dot">◆</span> Tots els universos reservats</span>
       <span>Cafeteria fictícia · web d’exemple feta per <a href="https://sites.linupedia.com.br/ca/" target="_top">Linu Sites</a></span>
     </div>
   </footer>
