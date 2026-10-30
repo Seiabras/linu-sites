@@ -139,6 +139,8 @@
     "passo4_texto": "Die Website kommt sicher auf Ihre Domain und wird auch danach weiter gepflegt.",
     "europa_acess_titulo": "Barrierefreiheit",
     "europa_acess_texto": "Der European Accessibility Act gilt seit Juni 2025, und WCAG 2.2 ist die aktuelle Fassung der Richtlinien für barrierefreie Webinhalte. Was diese Seite schon tut: Kontrast auf AA-Niveau im hellen und dunklen Modus, sichtbarer Fokus, alles per Tastatur erreichbar und, mit „Bewegung reduzieren“, stoppen die Animationen. Das Café Aurora im Simulator gehört nicht dazu: Es ist eine eigene Beispiel-Website. Das ist weder eine Zertifizierung noch eine Garantie für rechtliche Konformität.",
+    "europa_priv_titulo": "Datenschutz (DSGVO)",
+    "europa_priv_texto": "Diese Website hat keine Cookies, keine Tracker, kein CDN und keine Google Fonts: Alles kommt von unserem eigenen Server. Das gewählte Design und die Sprache bleiben nur in Ihrem Browser gespeichert.",
     "duvidas_titulo": "Häufige Fragen",
     "duvidas_sub": "Was alle vor dem Start fragen. Was für Ihr Projekt gilt, steht schriftlich im Angebot.",
     "faq_prazo_p": "Wie lange dauert es?",

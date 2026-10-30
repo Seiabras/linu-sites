@@ -135,6 +135,8 @@
     "passo4_texto": "La web pasa a tu dominio, con seguridad, y la seguimos cuidando después.",
     "europa_acess_titulo": "Accesibilidad",
     "europa_acess_texto": "La European Accessibility Act se aplica desde junio de 2025, y la WCAG 2.2 es la versión actual de las pautas de accesibilidad web. Lo que esta página ya hace: contraste de nivel AA en modo claro y oscuro, foco visible, todo accesible con el teclado y, con “reducir movimiento” activado, las animaciones se detienen. Queda fuera el Café Aurora del simulador, una web de ejemplo aparte. No es una certificación ni una garantía de cumplimiento legal.",
+    "europa_priv_titulo": "Privacidad (RGPD)",
+    "europa_priv_texto": "Esta web no tiene cookies, rastreadores, CDN ni Google Fonts: todo sale de nuestro propio servidor. El tema y el idioma que elijas se guardan solo en tu navegador.",
     "duvidas_titulo": "Preguntas frecuentes",
     "duvidas_sub": "Lo que todo el mundo pregunta antes de empezar. Lo que valga para tu proyecto viene por escrito en la propuesta.",
     "faq_prazo_p": "¿Cuánto tarda?",

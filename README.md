@@ -105,6 +105,14 @@ vazia dentro de um bloco que entra faz o gerador recusar a gravação.
   menores que 24 px. Se o Café for acertado, tire a frase. Mudou a página a ponto de um item deixar de valer, tire o
   item do texto nos 8 idiomas.
 
+- **Privacidade** (`europa_priv_titulo`, `europa_priv_texto`): diz que o site não tem cookies, rastreador, CDN nem Google
+  Fonts e que o tema e o idioma escolhidos ficam só no navegador. Conferido em 30/10/2026: nenhum `Set-Cookie` nem
+  `document.cookie`, nem na página nem no Café; nenhum script, folha, fonte ou imagem de outro endereço nas páginas
+  geradas (o único endereço de fora que carrega é o `cafe.linupedia.com.br`, no quadro do simulador, na mesma VM); o DNS
+  aponta direto para a VM, sem CDN; e a CSP, na `<meta>` e no cabeçalho do Caddy, só libera o próprio site e o Café.
+  O que fica no navegador é o `localStorage` (`tema`, `idioma`, `idioma-aviso` e, no Café, `aurora-modo`). Antes de pôr
+  qualquer coisa de terceiro no site, mude esse texto nos 8 idiomas. Ele fala **deste site**, não dos sites dos clientes.
+
 ## O Café Aurora em cada idioma (30/10/2026)
 
 O Café do simulador fala a língua da página: `cafe.linupedia.com.br/` em pt-BR e `/pt-pt/`, `/es/`, `/ca/`, `/nl/`,

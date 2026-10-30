@@ -138,6 +138,8 @@
     "passo4_texto": "De website gaat veilig naar jouw domein en wordt daarna verder verzorgd.",
     "europa_acess_titulo": "Toegankelijkheid",
     "europa_acess_texto": "De European Accessibility Act geldt sinds juni 2025, en WCAG 2.2 is de huidige versie van de richtlijnen voor webtoegankelijkheid. Wat deze pagina al doet: AA-contrast in lichte en donkere modus, zichtbare focus, alles bereikbaar met het toetsenbord en, met “minder beweging” aan, stoppen de animaties. Het Café Aurora in de simulator valt erbuiten: dat is een aparte voorbeeldsite. Dit is geen certificering en geen garantie dat je aan de wet voldoet.",
+    "europa_priv_titulo": "Privacy (AVG)",
+    "europa_priv_texto": "Deze website heeft geen cookies, trackers, CDN of Google Fonts: alles komt van onze eigen server. Het thema en de taal die je kiest, blijven alleen in je browser staan.",
     "duvidas_titulo": "Veelgestelde vragen",
     "duvidas_sub": "Wat iedereen vraagt voordat we beginnen. Wat voor jouw project geldt, staat op papier in het voorstel.",
     "faq_prazo_p": "Hoe lang duurt het?",
