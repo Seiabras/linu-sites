@@ -147,6 +147,8 @@ h1 { margin: 0; font-size: clamp(2.3rem, 5.5vw, 3.8rem); line-height: 1.05; font
 .cena-acesa, .cena-apagada { opacity: 0; }
 @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .cena-apagada { opacity: 1; } }
 :root[data-theme="dark"] .cena-apagada { opacity: 1; }
+/* de noite no relógio de quem visita (tema-inicio.js), o quarto claro é o da noite com o lampião aceso */
+:root[data-hora="noite"] .cena-acesa { opacity: 1; }
 .cena-linu { position: absolute; top: 63.02%; left: 0; width: 16.05%; height: 31.77%; opacity: 0; pointer-events: none; }
 /* sem sombra no chão (30/10/2026): os quadros vêm do app sem ela, e o Linu anda limpo pelo quarto */
 .cena-linu { transform-origin: 50% 100%; }

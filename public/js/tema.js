@@ -2,6 +2,8 @@
    lampião, apaga (modo escuro) ou acende (modo claro) e sai. A página troca de cor no instante em que a
    luz da cena muda. A escolha fica guardada no navegador; sem escolha, vale a do sistema.
    Com "menos movimento" no aparelho, o Linu não anda: aparece embaixo do lampião e some.
+   De noite no relógio de quem visita (data-hora, ver tema-inicio.js), o quarto claro é a noite com o lampião
+   aceso: apagar e acender a luz não passa pelo dia.
    As coordenadas são as da imagem da cena (344 × 192), como no abrigo do app. */
 (function () {
   "use strict";
@@ -71,10 +73,13 @@
     var acesa = alvo.querySelector(".cena-acesa");
     var apagada = alvo.querySelector(".cena-apagada");
     var segura = { fill: "forwards" };
+    var noite = raiz.dataset.hora === "noite";
     if (tema === "dark") {
-      // o dia vira a noite com o lampião aceso; ele falha algumas vezes e apaga
-      await acesa.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 420, easing: "ease-out", fill: "forwards" }).finished;
-      await esperar(120);
+      // o dia vira a noite com o lampião aceso (de noite ela já está ali); ele falha algumas vezes e apaga
+      if (!noite) {
+        await acesa.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 420, easing: "ease-out", fill: "forwards" }).finished;
+        await esperar(120);
+      }
       await apagada.animate([
         { opacity: 0 }, { opacity: 0.85, offset: 0.12 }, { opacity: 0.1, offset: 0.22 }, { opacity: 0.9, offset: 0.4 },
         { opacity: 0.45, offset: 0.52 }, { opacity: 1, offset: 0.68 }, { opacity: 1 }
@@ -88,8 +93,10 @@
         { opacity: 0.5, offset: 0.55 }, { opacity: 0 }
       ], { duration: 760, fill: "forwards" }).finished;
       aplicarTema(tema, true);
-      await esperar(380);
-      await acesa.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 900, easing: "ease-in-out", fill: "forwards" }).finished;
+      if (!noite) {
+        await esperar(380);
+        await acesa.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 900, easing: "ease-in-out", fill: "forwards" }).finished;
+      }
     }
     // o CSS do tema novo já mostra a camada certa: as animações saem sem pular
     acesa.getAnimations().concat(apagada.getAnimations()).forEach(function (a) { a.cancel(); });
@@ -168,6 +175,13 @@
       : animar(tema);
     feito.catch(function () { aplicarTema(tema, false); }).then(function () { ocupado = false; });
   });
+
+  // a hora vira com a página aberta: confere a cada cinco minutos (sem mexer no meio de uma troca)
+  setInterval(function () {
+    if (ocupado) return;
+    var h = new Date().getHours();
+    raiz.dataset.hora = h >= 6 && h < 18 ? "dia" : "noite";
+  }, 300000);
 
   // sem escolha guardada, o tema acompanha o sistema
   sistemaEscuro.addEventListener("change", atualizarBotao);
