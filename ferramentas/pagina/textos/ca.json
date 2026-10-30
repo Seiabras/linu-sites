@@ -188,6 +188,10 @@
     "monte_mensal": "Mensual",
     "monte_nota": "Preu de referència, “des de”. El que porti més coses entra a la proposta, per escrit, amb el preu exacte. El domini (uns {{p.dominio_ano}} l'any) va a part.",
     "telefone": "+55 61 99667-2610",
+    "conversa_titulo": "Quan parlem",
+    "conversa_janela": "De dilluns a divendres, de 9.00 a 21.00, hora de Brasília (UTC−3).",
+    "conversa_sua_hora": "La teva hora",
+    "conversa_brasilia": "Brasília",
     "rodape_slogan": "webs i aplicacions web a mida",
     "rodape_estudio": "Un estudi de",
     "proj_voltar": "← Tots els projectes",
@@ -225,6 +229,8 @@
     "sobre": "Sobre el meu negoci: ",
     "assunto": "Vull una web",
     "ola_conversa": "Hola! Vull parlar d'una web.",
-    "area_vazia": "Cap projecte d'aquest sector aquí."
+    "area_vazia": "Cap projecte d'aquest sector aquí.",
+    "conversa_aberta": "Ara podem parlar, fins a {fim} a la teva hora.",
+    "conversa_fechada": "Ara estem fora d'horari. La propera franja obre {inicio} a la teva hora."
   }
 }

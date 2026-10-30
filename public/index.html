@@ -54,12 +54,12 @@
   <!-- O que o Google lê sobre o estúdio (schema.org); sai do ferramentas/gerar-idiomas.mjs -->
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Linu Sites","url":"https://sites.linupedia.com.br/","logo":"https://sites.linupedia.com.br/img/linu-logo.png","image":"https://sites.linupedia.com.br/img/compartilhar.png","description":"Sites de apresentação, ferramentas com painel e aplicativos que instalam no celular. A gente desenha, programa, publica e cuida do servidor.","inLanguage":"pt-BR","email":"contato@linupedia.com.br","telephone":"+55 61 99667-2610","areaServed":"BR","availableLanguage":["pt-BR","pt-PT","es-ES","ca","nl","en-GB","fr-FR","de-DE","it-IT","en","ja-JP","ko-KR","zh-Hant"],"parentOrganization":{"@type":"Organization","name":"LinuPedia","url":"https://linupedia.com.br"}}</script>
   <!-- Os textos que os scripts escrevem (menu, luz, Monte o seu site), no idioma da página -->
-  <script type="application/json" id="textos-js">{"menu_abrir":"Abrir o menu","menu_fechar":"Fechar o menu","luz_apagar_aria":"Apagar a luz (modo escuro)","luz_acender_aria":"Acender a luz (modo claro)","luz_apagar":"Apagar a luz","luz_acender":"Acender a luz","fechar":"Fechar","escolha":"Escolha o tipo para ver uma estimativa","sem_tipo":"Sem problema: a conversa ajuda a escolher o tipo.","um_item":"um item","n_itens":"{n} itens","extra":" + {itens} na proposta","por_ano":"{valor} por ano","por_mes":"{valor} por mês","estimativa":"Estimativa: a partir de {valor}{extra}","linha_tipo":"Tipo: {nome}","linha_itens":"Precisa ter:","linha_depois":"Depois de pronto: {nome}{anual}","anual":", pagando o ano","linha_estimativa":"Estimativa do site: a partir de {valor}{extra}","ola":"Olá! Quero um site.","sobre":"Sobre o meu negócio: ","assunto":"Quero um site","ola_conversa":"Olá! Quero conversar sobre um site.","area_vazia":"Nenhum projeto desta área aqui."}</script>
+  <script type="application/json" id="textos-js">{"menu_abrir":"Abrir o menu","menu_fechar":"Fechar o menu","luz_apagar_aria":"Apagar a luz (modo escuro)","luz_acender_aria":"Acender a luz (modo claro)","luz_apagar":"Apagar a luz","luz_acender":"Acender a luz","fechar":"Fechar","escolha":"Escolha o tipo para ver uma estimativa","sem_tipo":"Sem problema: a conversa ajuda a escolher o tipo.","um_item":"um item","n_itens":"{n} itens","extra":" + {itens} na proposta","por_ano":"{valor} por ano","por_mes":"{valor} por mês","estimativa":"Estimativa: a partir de {valor}{extra}","linha_tipo":"Tipo: {nome}","linha_itens":"Precisa ter:","linha_depois":"Depois de pronto: {nome}{anual}","anual":", pagando o ano","linha_estimativa":"Estimativa do site: a partir de {valor}{extra}","ola":"Olá! Quero um site.","sobre":"Sobre o meu negócio: ","assunto":"Quero um site","ola_conversa":"Olá! Quero conversar sobre um site.","area_vazia":"Nenhum projeto desta área aqui.","conversa_aberta":"Agora dá para conversar, até {fim} na sua hora.","conversa_fechada":"Agora estamos fora do horário. A próxima janela abre {inicio} na sua hora."}</script>
   <script src="js/tema-inicio.js?v=6"></script>
-  <link rel="stylesheet" href="css/estilo.css?v=16">
+  <link rel="stylesheet" href="css/estilo.css?v=17">
   <script src="js/tema.js?v=8" defer></script>
   <script src="js/menu.js?v=7" defer></script>
-  <script src="js/movimento.js?v=9" defer></script>
+  <script src="js/movimento.js?v=10" defer></script>
   <script src="js/simulador.js?v=3" defer></script>
 </head>
 <body>
@@ -535,6 +535,18 @@
               <span>WhatsApp <span class="sem-quebra">(61) 99667-2610</span></span>
             </a>
             <a class="botao botao-grande botao-contorno-claro monte-enviar" href="mailto:contato@linupedia.com.br?subject=Quero%20um%20site">contato@linupedia.com.br</a>
+          </div>
+          <!-- A janela em horário de Brasília vale sem JavaScript; as duas horas e o “agora” saem do js/movimento.js -->
+          <div class="conversa" data-conversa>
+            <h3>Quando a gente conversa</h3>
+            <p>De segunda a sexta, das 9h às 21h no horário de Brasília (UTC−3).</p>
+            <div class="conversa-agora" hidden>
+              <dl>
+                <div><dt>Sua hora</dt><dd data-hora-visita>—</dd></div>
+                <div><dt>Brasília</dt><dd data-hora-brasilia>—</dd></div>
+              </dl>
+              <p data-conversa-estado>—</p>
+            </div>
           </div>
         </div>
       </div>

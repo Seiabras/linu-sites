@@ -194,6 +194,10 @@
     "monte_mensal": "月費",
     "monte_nota": "參考價格，「起價」。超出的部分會寫在書面提案中，附上確切價格。網域（每年約 {{p.dominio_ano}}）另計。",
     "telefone": "+55 61 99667-2610",
+    "conversa_titulo": "可以討論的時間",
+    "conversa_janela": "週一到週五，巴西利亞時間（UTC−3）9:00 到 21:00。",
+    "conversa_sua_hora": "你的時間",
+    "conversa_brasilia": "巴西利亞",
     "rodape_slogan": "量身打造的網站與網頁應用程式",
     "rodape_estudio": "隸屬於",
     "proj_voltar": "← 所有作品",
@@ -231,6 +235,8 @@
     "sobre": "關於我的事業：",
     "assunto": "網站製作洽詢",
     "ola_conversa": "你好！我想聊聊網站的事。",
-    "area_vazia": "這裡沒有這個領域的作品。"
+    "area_vazia": "這裡沒有這個領域的作品。",
+    "conversa_aberta": "現在可以討論，到你的時間 {fim} 為止。",
+    "conversa_fechada": "現在是非工作時間。下一段時間從你的時間 {inicio} 開始。"
   }
 }

@@ -185,6 +185,10 @@
     "monte_mensal": "월 요금",
     "monte_nota": "“최소” 기준의 참고 가격입니다. 그 이상의 내용은 정확한 가격과 함께 서면 제안서에 적습니다. 도메인(연 약 {{p.dominio_ano}})은 별도입니다.",
     "telefone": "+55 61 99667-2610",
+    "conversa_titulo": "상담 가능 시간",
+    "conversa_janela": "월요일부터 금요일까지, 브라질리아 시간(UTC−3) 9:00~21:00입니다.",
+    "conversa_sua_hora": "현지 시간",
+    "conversa_brasilia": "브라질리아",
     "rodape_slogan": "맞춤형 웹사이트와 웹 앱",
     "rodape_estudio": "운영:",
     "proj_voltar": "← 전체 포트폴리오",
@@ -222,6 +226,8 @@
     "sobre": "제 비즈니스 소개: ",
     "assunto": "웹사이트 제작 문의",
     "ola_conversa": "안녕하세요! 웹사이트에 대해 상담하고 싶습니다.",
-    "area_vazia": "이 분야의 프로젝트는 여기 없습니다."
+    "area_vazia": "이 분야의 프로젝트는 여기 없습니다.",
+    "conversa_aberta": "지금 상담할 수 있습니다. 현지 시간으로 {fim}까지입니다.",
+    "conversa_fechada": "지금은 상담 시간이 아닙니다. 다음 시작은 현지 시간으로 {inicio}입니다."
   }
 }

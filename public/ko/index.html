@@ -54,12 +54,12 @@
   <!-- O que o Google lê sobre o estúdio (schema.org); sai do ferramentas/gerar-idiomas.mjs -->
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Linu Sites","url":"https://sites.linupedia.com.br/ko/","logo":"https://sites.linupedia.com.br/img/linu-logo.png","image":"https://sites.linupedia.com.br/img/compartilhar.png","description":"회사 소개 사이트, 관리자 화면이 있는 도구, 휴대폰에 설치하는 웹 앱. 디자인, 개발, 배포, 서버 관리까지 맡습니다.","inLanguage":"ko-KR","email":"contato@linupedia.com.br","telephone":"+55 61 99667-2610","areaServed":"KR","availableLanguage":["pt-BR","pt-PT","es-ES","ca","nl","en-GB","fr-FR","de-DE","it-IT","en","ja-JP","ko-KR","zh-Hant"],"parentOrganization":{"@type":"Organization","name":"LinuPedia","url":"https://linupedia.com.br"}}</script>
   <!-- Os textos que os scripts escrevem (menu, luz, Monte o seu site), no idioma da página -->
-  <script type="application/json" id="textos-js">{"menu_abrir":"메뉴 열기","menu_fechar":"메뉴 닫기","luz_apagar_aria":"불 끄기 (다크 모드)","luz_acender_aria":"불 켜기 (라이트 모드)","luz_apagar":"불 끄기","luz_acender":"불 켜기","fechar":"닫기","escolha":"유형을 고르면 예상 가격이 보입니다","sem_tipo":"괜찮습니다. 상담하면서 함께 정해요.","um_item":"1개 항목","n_itens":"{n}개 항목","extra":" + {itens}은 제안서에서","por_ano":"연 {valor}","por_mes":"월 {valor}","estimativa":"예상: 최소 {valor}{extra}","linha_tipo":"유형: {nome}","linha_itens":"필요한 기능:","linha_depois":"오픈 후: {nome}{anual}","anual":" (연 선납)","linha_estimativa":"사이트 예상 가격: 최소 {valor}{extra}","ola":"안녕하세요! 웹사이트 제작을 문의드립니다.","sobre":"제 비즈니스 소개: ","assunto":"웹사이트 제작 문의","ola_conversa":"안녕하세요! 웹사이트에 대해 상담하고 싶습니다.","area_vazia":"이 분야의 프로젝트는 여기 없습니다."}</script>
+  <script type="application/json" id="textos-js">{"menu_abrir":"메뉴 열기","menu_fechar":"메뉴 닫기","luz_apagar_aria":"불 끄기 (다크 모드)","luz_acender_aria":"불 켜기 (라이트 모드)","luz_apagar":"불 끄기","luz_acender":"불 켜기","fechar":"닫기","escolha":"유형을 고르면 예상 가격이 보입니다","sem_tipo":"괜찮습니다. 상담하면서 함께 정해요.","um_item":"1개 항목","n_itens":"{n}개 항목","extra":" + {itens}은 제안서에서","por_ano":"연 {valor}","por_mes":"월 {valor}","estimativa":"예상: 최소 {valor}{extra}","linha_tipo":"유형: {nome}","linha_itens":"필요한 기능:","linha_depois":"오픈 후: {nome}{anual}","anual":" (연 선납)","linha_estimativa":"사이트 예상 가격: 최소 {valor}{extra}","ola":"안녕하세요! 웹사이트 제작을 문의드립니다.","sobre":"제 비즈니스 소개: ","assunto":"웹사이트 제작 문의","ola_conversa":"안녕하세요! 웹사이트에 대해 상담하고 싶습니다.","area_vazia":"이 분야의 프로젝트는 여기 없습니다.","conversa_aberta":"지금 상담할 수 있습니다. 현지 시간으로 {fim}까지입니다.","conversa_fechada":"지금은 상담 시간이 아닙니다. 다음 시작은 현지 시간으로 {inicio}입니다."}</script>
   <script src="../js/tema-inicio.js?v=6"></script>
-  <link rel="stylesheet" href="../css/estilo.css?v=16">
+  <link rel="stylesheet" href="../css/estilo.css?v=17">
   <script src="../js/tema.js?v=8" defer></script>
   <script src="../js/menu.js?v=7" defer></script>
-  <script src="../js/movimento.js?v=9" defer></script>
+  <script src="../js/movimento.js?v=10" defer></script>
   <script src="../js/simulador.js?v=3" defer></script>
 </head>
 <body>
@@ -535,6 +535,18 @@
               <span>WhatsApp <span class="sem-quebra">+55 61 99667-2610</span></span>
             </a>
             <a class="botao botao-grande botao-contorno-claro monte-enviar" href="mailto:contato@linupedia.com.br?subject=%EC%9B%B9%EC%82%AC%EC%9D%B4%ED%8A%B8%20%EC%A0%9C%EC%9E%91%20%EB%AC%B8%EC%9D%98">contato@linupedia.com.br</a>
+          </div>
+          <!-- A janela em horário de Brasília vale sem JavaScript; as duas horas e o “agora” saem do js/movimento.js -->
+          <div class="conversa" data-conversa>
+            <h3>상담 가능 시간</h3>
+            <p>월요일부터 금요일까지, 브라질리아 시간(UTC−3) 9:00~21:00입니다.</p>
+            <div class="conversa-agora" hidden>
+              <dl>
+                <div><dt>현지 시간</dt><dd data-hora-visita>—</dd></div>
+                <div><dt>브라질리아</dt><dd data-hora-brasilia>—</dd></div>
+              </dl>
+              <p data-conversa-estado>—</p>
+            </div>
           </div>
         </div>
       </div>

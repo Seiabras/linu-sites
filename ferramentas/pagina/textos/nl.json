@@ -188,6 +188,10 @@
     "monte_mensal": "Per maand",
     "monte_nota": "Richtprijs, “vanaf”. Wat meer omvat, komt in het voorstel, op papier, met de precieze prijs. Het domein (ongeveer {{p.dominio_ano}} per jaar) komt apart.",
     "telefone": "+55 61 99667-2610",
+    "conversa_titulo": "Wanneer we kunnen praten",
+    "conversa_janela": "Maandag tot en met vrijdag, van 9.00 tot 21.00 uur, tijd in Brasília (UTC−3).",
+    "conversa_sua_hora": "Jouw tijd",
+    "conversa_brasilia": "Brasília",
     "rodape_slogan": "websites en webapps op maat",
     "rodape_estudio": "Een studio van",
     "proj_voltar": "← Alle projecten",
@@ -225,6 +229,8 @@
     "sobre": "Over mijn bedrijf: ",
     "assunto": "Ik wil een website",
     "ola_conversa": "Hallo! Ik wil graag praten over een website.",
-    "area_vazia": "Geen projecten uit deze sector hier."
+    "area_vazia": "Geen projecten uit deze sector hier.",
+    "conversa_aberta": "We zijn nu bereikbaar, tot {fim} jouw tijd.",
+    "conversa_fechada": "We zijn nu niet bereikbaar. Het volgende blok begint {inicio} jouw tijd."
   }
 }

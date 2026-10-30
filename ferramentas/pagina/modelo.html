@@ -29,10 +29,10 @@
   <!-- Os textos que os scripts escrevem (menu, luz, Monte o seu site), no idioma da página -->
   <script type="application/json" id="textos-js">{{textos_js}}</script>
   <script src="{{raiz}}js/tema-inicio.js?v=6"></script>
-  <link rel="stylesheet" href="{{raiz}}css/estilo.css?v=16">
+  <link rel="stylesheet" href="{{raiz}}css/estilo.css?v=17">
   <script src="{{raiz}}js/tema.js?v=8" defer></script>
   <script src="{{raiz}}js/menu.js?v=7" defer></script>
-  <script src="{{raiz}}js/movimento.js?v=9" defer></script>
+  <script src="{{raiz}}js/movimento.js?v=10" defer></script>
   <script src="{{raiz}}js/simulador.js?v=3" defer></script>
 </head>
 <body>
@@ -482,6 +482,18 @@
               <span>WhatsApp <span class="sem-quebra">{{telefone}}</span></span>
             </a>
             <a class="botao botao-grande botao-contorno-claro monte-enviar" href="mailto:contato@linupedia.com.br?subject={{email_assunto}}">contato@linupedia.com.br</a>
+          </div>
+          <!-- A janela em horário de Brasília vale sem JavaScript; as duas horas e o “agora” saem do js/movimento.js -->
+          <div class="conversa" data-conversa>
+            <h3>{{conversa_titulo}}</h3>
+            <p>{{conversa_janela}}</p>
+            <div class="conversa-agora" hidden>
+              <dl>
+                <div><dt>{{conversa_sua_hora}}</dt><dd data-hora-visita>—</dd></div>
+                <div><dt>{{conversa_brasilia}}</dt><dd data-hora-brasilia>—</dd></div>
+              </dl>
+              <p data-conversa-estado>—</p>
+            </div>
           </div>
         </div>
       </div>

@@ -1,5 +1,6 @@
-// Movimento e interação da página: as abas dos projetos, seções que entram ao rolar, menu que marca a seção atual
-// e o "monte o seu site", que mostra a estimativa na hora e já escreve a mensagem do WhatsApp e o e-mail.
+// Movimento e interação da página: as abas dos projetos, seções que entram ao rolar, menu que marca a seção atual,
+// "quando a gente conversa" (as duas horas) e o "monte o seu site", que mostra a estimativa na hora e já escreve a
+// mensagem do WhatsApp e o e-mail.
 // Sem JavaScript, ou com "menos movimento" no aparelho, tudo continua lá: só não anima.
 (() => {
   'use strict';
@@ -135,6 +136,57 @@
     };
     linu.addEventListener('click', comemorar);
     linu.addEventListener('pointerenter', (e) => { if (e.pointerType === 'mouse') comemorar(); });
+  }
+
+  // ---- Quando a gente conversa: a hora de quem visita ao lado da de Brasília e se dá para falar agora ----
+  // A janela é de segunda a sexta, das 9h às 21h em Brasília (UTC−3). Tudo sai do relógio do aparelho, com Intl: sem
+  // pedir permissão e sem guardar nada. Sem JavaScript, fica a janela em horário de Brasília, que já vem no HTML.
+  const conversa = document.querySelector('[data-conversa]');
+  if (conversa) {
+    const HORA = 3600000;
+    const DIA = 24 * HORA;
+    const FUSO = -3 * HORA;
+    const ABRE = 9;
+    const FECHA = 21;
+    const util = (d) => d >= 1 && d <= 5;
+    const lang = document.documentElement.lang;
+    const relogio = (timeZone) => new Intl.DateTimeFormat(lang, { weekday: 'short', hour: '2-digit', minute: '2-digit', hourCycle: 'h23', timeZone });
+    const aqui = relogio();
+    const la = relogio('America/Sao_Paulo');
+    const visita = conversa.querySelector('[data-hora-visita]');
+    const brasilia = conversa.querySelector('[data-hora-brasilia]');
+    const estado = conversa.querySelector('[data-conversa-estado]');
+    const escrever = () => {
+      const agora = Date.now();
+      visita.textContent = aqui.format(agora);
+      brasilia.textContent = la.format(agora);
+      // a hora de Brasília lida como UTC dá o dia da semana e a hora de lá, em qualquer fuso
+      const lido = new Date(agora + FUSO);
+      const dia = lido.getUTCDay();
+      const hora = lido.getUTCHours();
+      const meiaNoite = agora - ((agora + FUSO) % DIA + DIA) % DIA;
+      const aberta = util(dia) && hora >= ABRE && hora < FECHA;
+      if (aberta) {
+        estado.textContent = t('conversa_aberta', { fim: aqui.format(meiaNoite + FECHA * HORA) });
+      } else {
+        // antes das 9h de um dia útil abre hoje; depois disso, ou no fim de semana, no próximo dia útil
+        let dias = 0;
+        if (hora >= ABRE || !util(dia)) { dias = 1; while (!util((dia + dias) % 7)) dias++; }
+        estado.textContent = t('conversa_fechada', { inicio: aqui.format(meiaNoite + dias * DIA + ABRE * HORA) });
+      }
+      estado.classList.toggle('aberta', aberta);
+    };
+    try {
+      escrever();
+      conversa.querySelector('.conversa-agora').hidden = false;
+      // o relógio só corre com o bloco na tela e a aba aberta
+      let espera = 0;
+      let naTela = false;
+      const tique = () => { escrever(); espera = setTimeout(tique, 60000 - Date.now() % 60000); };
+      const conferir = () => { clearTimeout(espera); if (naTela && !document.hidden) tique(); };
+      if ('IntersectionObserver' in window) new IntersectionObserver((es) => { naTela = es[es.length - 1].isIntersecting; conferir(); }).observe(conversa);
+      document.addEventListener('visibilitychange', conferir);
+    } catch (e) { /* sem o fuso de Brasília no navegador, fica só a janela escrita */ }
   }
 
   // ---- Monte o seu site: estimativa na hora e a mensagem pronta ----

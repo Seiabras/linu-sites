@@ -189,6 +189,10 @@
     "monte_mensal": "Mensuel",
     "monte_nota": "Prix indicatif, « à partir de ». Ce qui demande davantage entre dans la proposition, par écrit, avec le prix exact. Le nom de domaine (environ {{p.dominio_ano}} par an) est à part.",
     "telefone": "+55 61 99667-2610",
+    "conversa_titulo": "Quand se parler",
+    "conversa_janela": "Du lundi au vendredi, de 9 h à 21 h, heure de Brasília (UTC−3).",
+    "conversa_sua_hora": "Votre heure",
+    "conversa_brasilia": "Brasília",
     "rodape_slogan": "sites et applications web sur mesure",
     "rodape_estudio": "Un studio de",
     "proj_voltar": "← Tous les projets",
@@ -226,6 +230,8 @@
     "sobre": "À propos de mon entreprise : ",
     "assunto": "Je voudrais un site",
     "ola_conversa": "Bonjour ! J’aimerais parler d’un site.",
-    "area_vazia": "Aucun projet de ce secteur ici."
+    "area_vazia": "Aucun projet de ce secteur ici.",
+    "conversa_aberta": "Nous sommes disponibles jusqu’à {fim}, à votre heure.",
+    "conversa_fechada": "Nous ne sommes pas disponibles pour le moment. Prochain créneau : {inicio}, à votre heure."
   }
 }

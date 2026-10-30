@@ -54,12 +54,12 @@
   <!-- O que o Google lê sobre o estúdio (schema.org); sai do ferramentas/gerar-idiomas.mjs -->
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Linu Sites","url":"https://sites.linupedia.com.br/fr/","logo":"https://sites.linupedia.com.br/img/linu-logo.png","image":"https://sites.linupedia.com.br/img/compartilhar.png","description":"Sites vitrines, outils avec tableau de bord et applications qui s’installent sur le téléphone. Nous concevons, développons, mettons en ligne et gérons le serveur.","inLanguage":"fr-FR","email":"contato@linupedia.com.br","telephone":"+55 61 99667-2610","areaServed":["FR","BE","LU"],"availableLanguage":["pt-BR","pt-PT","es-ES","ca","nl","en-GB","fr-FR","de-DE","it-IT","en","ja-JP","ko-KR","zh-Hant"],"parentOrganization":{"@type":"Organization","name":"LinuPedia","url":"https://linupedia.com.br"}}</script>
   <!-- Os textos que os scripts escrevem (menu, luz, Monte o seu site), no idioma da página -->
-  <script type="application/json" id="textos-js">{"menu_abrir":"Ouvrir le menu","menu_fechar":"Fermer le menu","luz_apagar_aria":"Éteindre la lumière (mode sombre)","luz_acender_aria":"Allumer la lumière (mode clair)","luz_apagar":"Éteindre la lumière","luz_acender":"Allumer la lumière","fechar":"Fermer","escolha":"Choisissez le type pour voir une estimation","sem_tipo":"Pas de souci : l’échange aidera à choisir le type.","um_item":"un élément","n_itens":"{n} éléments","extra":" + {itens} dans la proposition","por_ano":"{valor} par an","por_mes":"{valor} par mois","estimativa":"Estimation : à partir de {valor}{extra}","linha_tipo":"Type : {nome}","linha_itens":"Doit contenir :","linha_depois":"Une fois en ligne : {nome}{anual}","anual":", en payant l’année","linha_estimativa":"Estimation du site : à partir de {valor}{extra}","ola":"Bonjour ! Je voudrais un site.","sobre":"À propos de mon entreprise : ","assunto":"Je voudrais un site","ola_conversa":"Bonjour ! J’aimerais parler d’un site.","area_vazia":"Aucun projet de ce secteur ici."}</script>
+  <script type="application/json" id="textos-js">{"menu_abrir":"Ouvrir le menu","menu_fechar":"Fermer le menu","luz_apagar_aria":"Éteindre la lumière (mode sombre)","luz_acender_aria":"Allumer la lumière (mode clair)","luz_apagar":"Éteindre la lumière","luz_acender":"Allumer la lumière","fechar":"Fermer","escolha":"Choisissez le type pour voir une estimation","sem_tipo":"Pas de souci : l’échange aidera à choisir le type.","um_item":"un élément","n_itens":"{n} éléments","extra":" + {itens} dans la proposition","por_ano":"{valor} par an","por_mes":"{valor} par mois","estimativa":"Estimation : à partir de {valor}{extra}","linha_tipo":"Type : {nome}","linha_itens":"Doit contenir :","linha_depois":"Une fois en ligne : {nome}{anual}","anual":", en payant l’année","linha_estimativa":"Estimation du site : à partir de {valor}{extra}","ola":"Bonjour ! Je voudrais un site.","sobre":"À propos de mon entreprise : ","assunto":"Je voudrais un site","ola_conversa":"Bonjour ! J’aimerais parler d’un site.","area_vazia":"Aucun projet de ce secteur ici.","conversa_aberta":"Nous sommes disponibles jusqu’à {fim}, à votre heure.","conversa_fechada":"Nous ne sommes pas disponibles pour le moment. Prochain créneau : {inicio}, à votre heure."}</script>
   <script src="../js/tema-inicio.js?v=6"></script>
-  <link rel="stylesheet" href="../css/estilo.css?v=16">
+  <link rel="stylesheet" href="../css/estilo.css?v=17">
   <script src="../js/tema.js?v=8" defer></script>
   <script src="../js/menu.js?v=7" defer></script>
-  <script src="../js/movimento.js?v=9" defer></script>
+  <script src="../js/movimento.js?v=10" defer></script>
   <script src="../js/simulador.js?v=3" defer></script>
 </head>
 <body>
@@ -535,6 +535,18 @@
               <span>WhatsApp <span class="sem-quebra">+55 61 99667-2610</span></span>
             </a>
             <a class="botao botao-grande botao-contorno-claro monte-enviar" href="mailto:contato@linupedia.com.br?subject=Je%20voudrais%20un%20site">contato@linupedia.com.br</a>
+          </div>
+          <!-- A janela em horário de Brasília vale sem JavaScript; as duas horas e o “agora” saem do js/movimento.js -->
+          <div class="conversa" data-conversa>
+            <h3>Quand se parler</h3>
+            <p>Du lundi au vendredi, de 9 h à 21 h, heure de Brasília (UTC−3).</p>
+            <div class="conversa-agora" hidden>
+              <dl>
+                <div><dt>Votre heure</dt><dd data-hora-visita>—</dd></div>
+                <div><dt>Brasília</dt><dd data-hora-brasilia>—</dd></div>
+              </dl>
+              <p data-conversa-estado>—</p>
+            </div>
           </div>
         </div>
       </div>

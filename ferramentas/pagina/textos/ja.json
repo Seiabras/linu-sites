@@ -185,6 +185,10 @@
     "monte_mensal": "月額",
     "monte_nota": "「最低価格」の参考値です。それ以上の内容は、正確な価格とともに書面のご提案に記載します。ドメイン（年約{{p.dominio_ano}}）は別途です。",
     "telefone": "+55 61 99667-2610",
+    "conversa_titulo": "ご連絡できる時間",
+    "conversa_janela": "月曜から金曜の9:00〜21:00（ブラジリア時間、UTC−3）です。",
+    "conversa_sua_hora": "お客様の時刻",
+    "conversa_brasilia": "ブラジリア",
     "rodape_slogan": "オーダーメイドのウェブサイトとウェブアプリ",
     "rodape_estudio": "運営：",
     "proj_voltar": "← すべての実績",
@@ -222,6 +226,8 @@
     "sobre": "私のビジネスについて：",
     "assunto": "ウェブサイト制作のご相談",
     "ola_conversa": "こんにちは。ウェブサイトについて相談させてください。",
-    "area_vazia": "この分野の実績はここにはありません。"
+    "area_vazia": "この分野の実績はここにはありません。",
+    "conversa_aberta": "今はご連絡いただける時間です。お客様の時刻で{fim}まで対応します。",
+    "conversa_fechada": "今は時間外です。次の開始は、お客様の時刻で{inicio}です。"
   }
 }

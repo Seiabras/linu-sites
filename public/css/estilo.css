@@ -316,6 +316,19 @@ h3 { margin: 0 0 6px; font-size: 1.2rem; font-weight: 800; }
 :root .contato .botao-contorno-claro { background: transparent; border-color: rgba(255, 255, 255, .45); }
 :root .contato .botao-contorno-claro:hover { background: rgba(255, 255, 255, .08); border-color: #FFFFFF; }
 
+/* Quando a gente conversa: a janela escrita e, com JavaScript, as duas horas e se dá para falar agora */
+.conversa { margin-top: 18px; padding: 14px 16px; max-width: 620px; background: rgba(15, 23, 42, .45); border: 1px solid rgba(255, 255, 255, .14); border-radius: var(--raio); }
+.conversa h3 { margin: 0 0 4px; color: #FFFFFF; font-size: 1.05rem; font-weight: 800; }
+.contato .conversa p { margin: 0; max-width: none; font-size: .98rem; }
+.conversa-agora { margin-top: 12px; }
+.conversa-agora[hidden] { display: none; }
+.conversa dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 0 0 8px; }
+.conversa dt { font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; color: #94A3B8; font-weight: 800; }
+.conversa dd { margin: 2px 0 0; color: #FFFFFF; font-size: 1.15rem; font-weight: 900; font-variant-numeric: tabular-nums; }
+.contato .conversa [data-conversa-estado] { display: flex; align-items: flex-start; gap: 8px; color: #E2E8F0; font-weight: 700; }
+[data-conversa-estado]::before { content: ""; flex: none; width: 10px; height: 10px; margin-top: .45em; border-radius: 50%; background: #FBBF24; }
+[data-conversa-estado].aberta::before { background: #4ADE80; }
+
 /* Depoimentos (a seção fica escondida até chegarem as frases) */
 .depoimentos { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 18px; margin-top: 32px; }
 .depoimento { margin: 0; background: var(--cartao); border: 1px solid var(--linha); border-radius: var(--raio); padding: 24px; }

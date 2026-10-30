@@ -185,6 +185,10 @@
     "monte_mensal": "Mensal",
     "monte_nota": "Valor de referência, “a partir de”. O que tiver mais coisas entra na proposta, por escrito, com o valor certo. O domínio (cerca de {{p.dominio_ano}} por ano) é à parte.",
     "telefone": "+55 61 99667-2610",
+    "conversa_titulo": "Quando podemos falar",
+    "conversa_janela": "De segunda a sexta, das 9h às 21h, hora de Brasília (UTC−3).",
+    "conversa_sua_hora": "A sua hora",
+    "conversa_brasilia": "Brasília",
     "rodape_slogan": "sites e aplicações web à medida",
     "rodape_estudio": "Um estúdio da",
     "proj_voltar": "← Todos os projetos",
@@ -222,6 +226,8 @@
     "sobre": "Sobre o meu negócio: ",
     "assunto": "Quero um site",
     "ola_conversa": "Olá! Gostava de falar sobre um site.",
-    "area_vazia": "Nenhum projeto desta área aqui."
+    "area_vazia": "Nenhum projeto desta área aqui.",
+    "conversa_aberta": "Agora podemos falar, até {fim} na sua hora.",
+    "conversa_fechada": "Agora estamos fora do horário. A próxima janela abre {inicio} na sua hora."
   }
 }

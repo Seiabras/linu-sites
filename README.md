@@ -169,6 +169,11 @@ node ferramentas/gerar-estudo.mjs abelhas-sem-ferrao
   empresas fictícias: Café Aurora, Fotografia do Cerrado e Abelhas sem Ferrão. Cada cartão leva ao subdomínio e ao
   código no GitHub; as capturas também ficam em `public/img/projetos/`.
 - **Como funciona** e **contato**: WhatsApp (61) 99667-2610 e `contato@linupedia.com.br`.
+- **Quando a gente conversa** (no contato, 30/10/2026): a hora de quem visita ao lado da de Brasília, se dá para falar
+  agora e, se não der, quando abre a próxima janela, na hora de quem visita e com o dia da semana. A janela é de segunda
+  a sexta, das 9h às 21h em Brasília (UTC−3): para mudar, são as constantes `ABRE` e `FECHA` no `js/movimento.js` e a
+  chave `conversa_janela` de cada idioma. Sai tudo do relógio do aparelho, com `Intl`, sem pedir permissão e sem guardar
+  nada; o relógio só corre com o bloco na tela e a aba aberta. Sem JavaScript, fica só a janela em horário de Brasília.
 - **Monte o seu site** (no contato, 22/10/2026): a pessoa escolhe o tipo, o que o site precisa ter e o plano
   mensal, e vê na hora a estimativa (a partir de), o prazo e o mensal; a mensagem do WhatsApp e do e-mail já sai
   com tudo. Os preços são os mesmos dos cartões e das dúvidas (o painel é extra de R$ 1.200 só no site de
