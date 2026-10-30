@@ -38,7 +38,9 @@ const idiomas = ATIVOS.map((c) => JSON.parse(fs.readFileSync(arquivoDe(c), 'utf8
 const erros = [];
 
 const enderecoDe = (i) => SITE + (i.pasta ? i.pasta + '/' : '');
-const aspas = (s) => String(s).replaceAll('"', '&quot;');
+// um & solto num texto ("English (UK & Europe)") sai como &amp;; as entidades que já vêm escritas ficam como estão
+const eComercial = (s) => String(s).replace(/&(?![a-zA-Z]+;|#\d+;)/g, '&amp;');
+const aspas = (s) => eComercial(s).replaceAll('"', '&quot;');
 const hreflangs = (o) => [o.lang, ...(o.hreflang_extra || [])];
 for (const i of idiomas) if (!REGIOES.includes(i.regiao)) erros.push(`${i.codigo}: região "${i.regiao}" não existe`);
 for (const r of REGIOES) {
@@ -73,9 +75,9 @@ for (const i of idiomas) {
     `          <summary title="${aspas(i.textos.idioma_rotulo)}"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3c2.5 2.6 3.7 5.6 3.7 9s-1.2 6.4-3.7 9c-2.5-2.6-3.7-5.6-3.7-9S9.5 5.6 12 3Z" /></svg><span class="idiomas-codigo">${i.curto}</span><span class="so-leitor">: ${aspas(i.textos.idioma_rotulo)}, ${aspas(i.nome)}</span></summary>`,
     '          <div class="idiomas-lista">',
     ...REGIOES.filter((r) => idiomas.some((o) => o.regiao === r)).flatMap((r) => [
-      `            <p class="idiomas-regiao" id="regiao-${r}">${i.textos['regiao_' + r]}</p>`,
+      `            <p class="idiomas-regiao" id="regiao-${r}">${eComercial(i.textos['regiao_' + r])}</p>`,
       `            <ul aria-labelledby="regiao-${r}">`,
-      ...idiomas.filter((o) => o.regiao === r).map((o) => `              <li><a href="${o.pasta ? raiz + o.pasta + '/' : raiz || './'}" hreflang="${o.lang}" lang="${o.lang}" data-regiao="${o.regiao}"${o.padrao ? ' data-padrao' : ''} data-sugestao="${aspas(o.sugestao)}" data-fechar="${aspas(o.js.fechar)}"${o === i ? ' aria-current="true"' : ''}>${o.nome}</a></li>`),
+      ...idiomas.filter((o) => o.regiao === r).map((o) => `              <li><a href="${o.pasta ? raiz + o.pasta + '/' : raiz || './'}" hreflang="${o.lang}" lang="${o.lang}" data-regiao="${o.regiao}"${o.padrao ? ' data-padrao' : ''} data-sugestao="${aspas(o.sugestao)}" data-fechar="${aspas(o.js.fechar)}"${o === i ? ' aria-current="true"' : ''}>${eComercial(o.nome)}</a></li>`),
       '            </ul>',
     ]),
     '          </div>',
@@ -134,7 +136,7 @@ for (const i of idiomas) {
     if (v === undefined) { erros.push(`${i.codigo}: {{${k}}} sem texto`); return ''; }
     // dentro de um atributo (número ímpar de aspas desde o último <), o texto entra com as aspas escapadas
     const tag = todo.slice(todo.lastIndexOf('<', onde), onde);
-    const texto = precosNo(v, k);
+    const texto = eComercial(precosNo(v, k));
     return (tag.split('"').length % 2 === 0) ? texto.replaceAll('"', '&quot;') : texto;
   });
   saidas.push([i, html]);
