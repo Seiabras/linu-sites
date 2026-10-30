@@ -143,5 +143,23 @@
       "Gehost op Vercel, voorlopig zonder eigen domein.",
       "Een lichte pagina, met een link “Naar de inhoud” voor wie met het toetsenbord navigeert."
     ]
+  },
+  "minhocao": {
+    "etiqueta": "Horrorspel in de browser",
+    "alt": "Gang van de Minhocão bij nacht in het spel, met het betonnen plafond, de lampen en de affiches aan de muren",
+    "resumo": "Horrorspel in de eerste persoon in de Minhocão, het hoofdgebouw van de Universiteit van Brasília, met de echte geschiedenis van de universiteit tijdens de dictatuur.",
+    "desafio": "Zorgen dat wie het ICC kent zich er echt binnen voelt, in een spel dat meteen in de browser opent op computer en telefoon, en de geschiedenis van de universiteit tijdens de dictatuur vertellen zonder feiten en fictie te vermengen.",
+    "feito": [
+      "De kelder wordt bij elk spel door code gegenereerd, volgens de echte plattegrond van het gebouw: vleugels, blokken, pleinen en tientallen ingerichte zalen.",
+      "De gang op de begane grond houdt niet op, en elke ronde toont een jaar van de dictatuur, met echte data.",
+      "Het monster hoort en ziet, geïnspireerd op de bewakers die studenten over de campus volgden, en er zijn meerdere manieren om eraan te ontsnappen.",
+      "Een scherm vertelt de geschiedenis achter het spel, met feiten en bronnen die zijn gecontroleerd in het rapport van de Comissão Anísio Teixeira.",
+      "Na afloop kun je vrij door het gebouw lopen, zonder monster, en de geschiedenis van elke plek lezen."
+    ],
+    "dentro": [
+      "Draait in drie dimensies in de browser, met Three.js, zonder iets te installeren.",
+      "Al het geluid wordt ter plekke gegenereerd en niets verlaat het apparaat: geen account, geen cookies, geen tracking.",
+      "Automatische tests van de kaartgenerator en een script dat het spel doorloopt in een echte browser."
+    ]
   }
 }

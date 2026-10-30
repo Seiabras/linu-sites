@@ -143,5 +143,23 @@
       "Pubblicato su Vercel, per ora senza dominio proprio.",
       "Una pagina leggera, con un link “Vai al contenuto” per chi naviga con la tastiera."
     ]
+  },
+  "minhocao": {
+    "etiqueta": "Gioco horror nel browser",
+    "alt": "Corridoio del Minhocão di notte nel gioco, con il soffitto di cemento, le lampade e i manifesti sulle pareti",
+    "resumo": "Gioco horror in prima persona nel Minhocão, l’edificio centrale dell’Università di Brasília, con la storia vera dell’università durante la dittatura.",
+    "desafio": "Far sentire dentro l’ICC chi lo conosce, in un gioco che si apre direttamente nel browser, su computer e telefono, e raccontare la storia dell’università durante la dittatura senza mescolare fatti e finzione.",
+    "feito": [
+      "Il seminterrato è generato dal codice a ogni partita, seguendo la pianta reale dell’edificio: ali, blocchi, piazze e decine di aule arredate.",
+      "Il corridoio del piano terra non finisce mai, e ogni giro mostra un anno della dittatura, con date reali.",
+      "Il mostro sente e vede, ispirato ai sorveglianti che seguivano gli studenti nel campus, e ci sono diversi modi per sfuggirgli.",
+      "Una schermata racconta la storia dietro il gioco, con fatti e fonti verificati nel rapporto della Commissione Anísio Teixeira.",
+      "Dopo il finale si può girare liberamente per l’edificio, senza mostro, e leggere la storia di ogni luogo."
+    ],
+    "dentro": [
+      "Funziona in tre dimensioni nel browser, con Three.js, senza installare nulla.",
+      "Tutto il suono è generato sul momento e nulla esce dal dispositivo: niente account, cookie o tracciamento.",
+      "Test automatici del generatore della mappa e uno script che percorre il gioco in un vero browser."
+    ]
   }
 }

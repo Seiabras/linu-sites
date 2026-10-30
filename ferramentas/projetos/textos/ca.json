@@ -143,5 +143,23 @@
       "Publicada a Vercel, de moment sense domini propi.",
       "Pàgina lleugera, amb enllaç “Salta al contingut” per a qui navega amb el teclat."
     ]
+  },
+  "minhocao": {
+    "etiqueta": "Joc de terror al navegador",
+    "alt": "Passadís del Minhocão de nit al joc, amb el sostre de formigó, els llums i els cartells a les parets",
+    "resumo": "Joc de terror en primera persona al Minhocão, l’edifici central de la Universitat de Brasília, amb la història real de la universitat durant la dictadura.",
+    "desafio": "Fer que qui coneix l’ICC s’hi senti a dins, en un joc que s’obre directament al navegador, a l’ordinador i al mòbil, i explicar la història de la universitat durant la dictadura sense barrejar fets i ficció.",
+    "feito": [
+      "El soterrani es genera per codi a cada partida, seguint el plànol real de l’edifici: ales, blocs, places i desenes d’aules amb mobles.",
+      "El passadís de la planta baixa no s’acaba, i cada volta mostra un any de la dictadura, amb dates reals.",
+      "El monstre sent i veu, inspirat en els vigilants que seguien els estudiants pel campus, i hi ha diverses maneres d’escapar-ne.",
+      "Una pantalla explica la història que hi ha darrere del joc, amb fets i fonts comprovats a l’informe de la Comissió Anísio Teixeira.",
+      "En acabar, es pot recórrer l’edifici lliurement, sense monstre, i llegir la història de cada lloc."
+    ],
+    "dentro": [
+      "Funciona en tres dimensions al navegador, amb Three.js, sense instal·lar res.",
+      "Tot el so es genera al moment i res no surt del dispositiu: sense compte, sense galetes i sense seguiment.",
+      "Proves automàtiques del generador del mapa i un guió que recorre el joc en un navegador real."
+    ]
   }
 }

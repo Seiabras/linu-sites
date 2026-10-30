@@ -143,5 +143,23 @@
       "Publicado na Vercel, por enquanto sem domínio próprio.",
       "Página leve, com link “Saltar para o conteúdo” para quem navega pelo teclado."
     ]
+  },
+  "minhocao": {
+    "etiqueta": "Jogo de terror no navegador",
+    "alt": "Corredor do Minhocão à noite no jogo, com a laje de betão, as lâmpadas e os cartazes nas paredes",
+    "resumo": "Jogo de terror na primeira pessoa no Minhocão, o edifício central da Universidade de Brasília, com a história real da universidade na ditadura.",
+    "desafio": "Fazer quem conhece o ICC sentir-se lá dentro, num jogo que abre diretamente no navegador, no computador e no telemóvel, e contar a história da universidade na ditadura sem misturar facto e ficção.",
+    "feito": [
+      "A cave é gerada por código em cada partida, seguindo a planta real do edifício: alas, blocos, praças e dezenas de salas com mobília.",
+      "O corredor do piso térreo não acaba, e cada volta mostra um ano da ditadura, com datas reais.",
+      "O monstro ouve e vê, inspirado nos vigilantes que seguiam estudantes pelo campus, e há várias formas de lhe escapar.",
+      "Um ecrã conta a história por trás do jogo, com factos e fontes confirmados no relatório da Comissão Anísio Teixeira.",
+      "Depois do fim, pode-se andar livremente pelo edifício, sem monstro, e ler a história de cada lugar."
+    ],
+    "dentro": [
+      "Corre em três dimensões no navegador, com Three.js, sem instalar nada.",
+      "Todo o som é gerado no momento, e nada sai do aparelho: sem conta, sem cookies e sem rastreio.",
+      "Testes automáticos do gerador do mapa e um guião que percorre o jogo num navegador a sério."
+    ]
   }
 }

@@ -143,5 +143,23 @@
       "Publicada en Vercel, por ahora sin dominio propio.",
       "Página ligera, con enlace “Saltar al contenido” para quien navega con el teclado."
     ]
+  },
+  "minhocao": {
+    "etiqueta": "Juego de terror en el navegador",
+    "alt": "Pasillo del Minhocão de noche en el juego, con el forjado de hormigón, las lámparas y los carteles en las paredes",
+    "resumo": "Juego de terror en primera persona en el Minhocão, el edificio central de la Universidad de Brasilia, con la historia real de la universidad durante la dictadura.",
+    "desafio": "Hacer que quien conoce el ICC se sienta dentro, en un juego que se abre directamente en el navegador, en ordenador y móvil, y contar la historia de la universidad en la dictadura sin mezclar hechos y ficción.",
+    "feito": [
+      "El sótano se genera por código en cada partida, siguiendo el plano real del edificio: alas, bloques, plazas y decenas de aulas con muebles.",
+      "El pasillo de la planta baja no se acaba, y cada vuelta muestra un año de la dictadura, con fechas reales.",
+      "El monstruo oye y ve, inspirado en los vigilantes que seguían a los estudiantes por el campus, y hay varias formas de escapar de él.",
+      "Una pantalla cuenta la historia que hay detrás del juego, con hechos y fuentes comprobados en el informe de la Comisión Anísio Teixeira.",
+      "Al terminar, se puede recorrer el edificio con libertad, sin monstruo, y leer la historia de cada lugar."
+    ],
+    "dentro": [
+      "Funciona en tres dimensiones en el navegador, con Three.js, sin instalar nada.",
+      "Todo el sonido se genera en el momento y nada sale del dispositivo: sin cuenta, sin cookies y sin rastreo.",
+      "Pruebas automáticas del generador del mapa y un guion que recorre el juego en un navegador real."
+    ]
   }
 }

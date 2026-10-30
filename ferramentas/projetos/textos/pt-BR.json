@@ -143,5 +143,23 @@
       "Publicado na Vercel, por enquanto sem domínio próprio.",
       "Página leve, com link “Pular para o conteúdo” para quem navega pelo teclado."
     ]
+  },
+  "minhocao": {
+    "etiqueta": "Jogo de terror no navegador",
+    "alt": "Corredor do Minhocão à noite no jogo, com a laje de concreto, as lâmpadas e os cartazes nas paredes",
+    "resumo": "Jogo de terror em primeira pessoa no Minhocão, o prédio central da UnB, com a história real da universidade na ditadura.",
+    "desafio": "Fazer quem conhece o ICC se sentir lá dentro, num jogo que abre direto no navegador, no computador e no celular, e contar a história da UnB na ditadura sem misturar fato com ficção.",
+    "feito": [
+      "O subsolo é gerado por código a cada partida, seguindo a planta real do prédio: alas, blocos, praças e dezenas de salas com móveis.",
+      "O corredor do térreo não acaba, e cada volta mostra um ano da ditadura, com datas reais.",
+      "O monstro ouve e enxerga, inspirado nos vigias que seguiam estudantes pelo campus, e há vários jeitos de escapar dele.",
+      "Uma tela conta a história por trás do jogo, com fatos e fontes conferidos no relatório da Comissão Anísio Teixeira.",
+      "Depois do fim, dá para andar livre pelo prédio, sem monstro, e ler a história de cada lugar."
+    ],
+    "dentro": [
+      "Roda em três dimensões no navegador, com Three.js, sem instalar nada.",
+      "Todo o som é gerado na hora, e nada sai do aparelho: sem conta, sem cookies e sem rastreamento.",
+      "Testes automáticos do gerador do mapa e um roteiro que percorre o jogo num navegador de verdade."
+    ]
   }
 }

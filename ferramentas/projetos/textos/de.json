@@ -143,5 +143,23 @@
       "Auf Vercel gehostet, vorerst ohne eigene Domain.",
       "Eine leichte Seite, mit einem Link „Zum Inhalt springen“ für die Tastaturbedienung."
     ]
+  },
+  "minhocao": {
+    "etiqueta": "Horrorspiel im Browser",
+    "alt": "Ein Flur des Minhocão bei Nacht im Spiel, mit der Betondecke, den Lampen und den Plakaten an den Wänden",
+    "resumo": "Horrorspiel aus der Ich-Perspektive im Minhocão, dem Hauptgebäude der Universität Brasília, mit der echten Geschichte der Universität in der Diktatur.",
+    "desafio": "Wer das ICC kennt, soll sich mittendrin fühlen, in einem Spiel, das direkt im Browser auf Computer und Handy startet, und die Geschichte der Universität in der Diktatur erzählen, ohne Fakten und Fiktion zu vermischen.",
+    "feito": [
+      "Das Untergeschoss wird bei jeder Partie per Code erzeugt, nach dem echten Grundriss des Gebäudes: Flügel, Blöcke, Plätze und Dutzende möblierte Räume.",
+      "Der Flur im Erdgeschoss endet nie, und jede Runde zeigt ein Jahr der Diktatur, mit echten Daten.",
+      "Das Monster hört und sieht, inspiriert von den Wachleuten, die Studierende über den Campus verfolgten, und es gibt mehrere Wege, ihm zu entkommen.",
+      "Ein Bildschirm erzählt die Geschichte hinter dem Spiel, mit Fakten und Quellen, die am Bericht der Anísio-Teixeira-Kommission geprüft wurden.",
+      "Nach dem Ende kann man frei durch das Gebäude gehen, ohne Monster, und die Geschichte jedes Ortes lesen."
+    ],
+    "dentro": [
+      "Läuft dreidimensional im Browser, mit Three.js, ganz ohne Installation.",
+      "Der gesamte Ton entsteht in Echtzeit, und nichts verlässt das Gerät: kein Konto, keine Cookies, kein Tracking.",
+      "Automatische Tests des Kartengenerators und ein Skript, das das Spiel in einem echten Browser durchläuft."
+    ]
   }
 }

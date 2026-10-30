@@ -143,5 +143,23 @@
       "Hébergé sur Vercel, pour l’instant sans domaine propre.",
       "Une page légère, avec un lien « Aller au contenu » pour la navigation au clavier."
     ]
+  },
+  "minhocao": {
+    "etiqueta": "Jeu d’horreur sur navigateur",
+    "alt": "Couloir du Minhocão la nuit dans le jeu, avec le plafond de béton, les lampes et les affiches sur les murs",
+    "resumo": "Jeu d’horreur à la première personne dans le Minhocão, le bâtiment central de l’université de Brasília, avec l’histoire réelle de l’université sous la dictature.",
+    "desafio": "Donner à ceux qui connaissent l’ICC le sentiment d’y être, dans un jeu qui s’ouvre directement dans le navigateur, sur ordinateur et téléphone, et raconter l’histoire de l’université sous la dictature sans mêler faits et fiction.",
+    "feito": [
+      "Le sous-sol est généré par le code à chaque partie, selon le plan réel du bâtiment : ailes, blocs, places et des dizaines de salles meublées.",
+      "Le couloir du rez-de-chaussée ne finit jamais, et chaque tour montre une année de la dictature, avec des dates réelles.",
+      "Le monstre entend et voit, inspiré des vigiles qui suivaient les étudiants sur le campus, et plusieurs moyens permettent de lui échapper.",
+      "Un écran raconte l’histoire derrière le jeu, avec des faits et des sources vérifiés dans le rapport de la Commission Anísio Teixeira.",
+      "Une fois le jeu terminé, on peut parcourir librement le bâtiment, sans monstre, et lire l’histoire de chaque lieu."
+    ],
+    "dentro": [
+      "Tourne en trois dimensions dans le navigateur, avec Three.js, sans rien installer.",
+      "Tout le son est généré à la volée, et rien ne quitte l’appareil : ni compte, ni cookies, ni pistage.",
+      "Tests automatiques du générateur de carte et un script qui parcourt le jeu dans un vrai navigateur."
+    ]
   }
 }
