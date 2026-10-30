@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ko-KR" data-moeda="USD">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Linu Sites — 맞춤형 웹사이트와 웹 앱</title>
+  <meta name="description" content="회사 소개 사이트, 관리자 화면이 있는 도구, 휴대폰에 설치하는 웹 앱. 디자인, 개발, 배포, 서버 관리까지 맡습니다.">
+  <meta name="theme-color" content="#1F2A44">
+  <link rel="icon" href="../img/linu-logo.png" type="image/png" sizes="128x128">
+  <link rel="icon" href="../img/icone-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="../img/icone-180.png">
+  <meta property="og:title" content="Linu Sites">
+  <meta property="og:description" content="디자인부터 서버까지, 맞춤형 웹사이트와 웹 앱.">
+  <meta property="og:image" content="https://sites.linupedia.com.br/img/compartilhar.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Linu Sites: 맞춤형 웹사이트와 웹 앱, 연구 기지에 있는 Linu">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self'; frame-src https://cafe.linupedia.com.br; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <link rel="preload" href="../fontes/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="canonical" href="https://sites.linupedia.com.br/ko/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sites.linupedia.com.br/">
+  <link rel="alternate" hreflang="pt-PT" href="https://sites.linupedia.com.br/pt-pt/">
+  <link rel="alternate" hreflang="es-ES" href="https://sites.linupedia.com.br/es/">
+  <link rel="alternate" hreflang="ca" href="https://sites.linupedia.com.br/ca/">
+  <link rel="alternate" hreflang="nl" href="https://sites.linupedia.com.br/nl/">
+  <link rel="alternate" hreflang="en-GB" href="https://sites.linupedia.com.br/en/">
+  <link rel="alternate" hreflang="en-IE" href="https://sites.linupedia.com.br/en/">
+  <link rel="alternate" hreflang="fr-FR" href="https://sites.linupedia.com.br/fr/">
+  <link rel="alternate" hreflang="de-DE" href="https://sites.linupedia.com.br/de/">
+  <link rel="alternate" hreflang="it-IT" href="https://sites.linupedia.com.br/it/">
+  <link rel="alternate" hreflang="en" href="https://sites.linupedia.com.br/intl/">
+  <link rel="alternate" hreflang="ja-JP" href="https://sites.linupedia.com.br/ja/">
+  <link rel="alternate" hreflang="ko-KR" href="https://sites.linupedia.com.br/ko/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://sites.linupedia.com.br/zh-hant/">
+  <link rel="alternate" hreflang="zh-TW" href="https://sites.linupedia.com.br/zh-hant/">
+  <link rel="alternate" hreflang="zh-HK" href="https://sites.linupedia.com.br/zh-hant/">
+  <link rel="alternate" hreflang="x-default" href="https://sites.linupedia.com.br/intl/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sites.linupedia.com.br/ko/">
+  <meta property="og:locale" content="ko_KR">
+  <meta property="og:locale:alternate" content="pt_BR">
+  <meta property="og:locale:alternate" content="pt_PT">
+  <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="ca_ES">
+  <meta property="og:locale:alternate" content="nl_NL">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta property="og:locale:alternate" content="it_IT">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="ja_JP">
+  <meta property="og:locale:alternate" content="zh_TW">
+  <!-- O que o Google lê sobre o estúdio (schema.org); sai do ferramentas/gerar-idiomas.mjs -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Linu Sites","url":"https://sites.linupedia.com.br/ko/","logo":"https://sites.linupedia.com.br/img/linu-logo.png","image":"https://sites.linupedia.com.br/img/compartilhar.png","description":"회사 소개 사이트, 관리자 화면이 있는 도구, 휴대폰에 설치하는 웹 앱. 디자인, 개발, 배포, 서버 관리까지 맡습니다.","inLanguage":"ko-KR","email":"contato@linupedia.com.br","telephone":"+55 61 99667-2610","areaServed":"KR","availableLanguage":["pt-BR","pt-PT","es-ES","ca","nl","en-GB","fr-FR","de-DE","it-IT","en","ja-JP","ko-KR","zh-Hant"],"parentOrganization":{"@type":"Organization","name":"LinuPedia","url":"https://linupedia.com.br"}}</script>
+  <!-- Os textos que os scripts escrevem (menu, luz, Monte o seu site), no idioma da página -->
+  <script type="application/json" id="textos-js">{"menu_abrir":"메뉴 열기","menu_fechar":"메뉴 닫기","luz_apagar_aria":"불 끄기 (다크 모드)","luz_acender_aria":"불 켜기 (라이트 모드)","luz_apagar":"불 끄기","luz_acender":"불 켜기","fechar":"닫기","escolha":"유형을 고르면 예상 가격이 보입니다","sem_tipo":"괜찮습니다. 상담하면서 함께 정해요.","um_item":"1개 항목","n_itens":"{n}개 항목","extra":" + {itens}은 제안서에서","por_ano":"연 {valor}","por_mes":"월 {valor}","estimativa":"예상: 최소 {valor}{extra}","linha_tipo":"유형: {nome}","linha_itens":"필요한 기능:","linha_depois":"오픈 후: {nome}{anual}","anual":" (연 선납)","linha_estimativa":"사이트 예상 가격: 최소 {valor}{extra}","ola":"안녕하세요! 웹사이트 제작을 문의드립니다.","sobre":"제 비즈니스 소개: ","assunto":"웹사이트 제작 문의","ola_conversa":"안녕하세요! 웹사이트에 대해 상담하고 싶습니다.","area_vazia":"이 분야의 프로젝트는 여기 없습니다."}</script>
+  <script src="../js/tema-inicio.js?v=5"></script>
+  <link rel="stylesheet" href="../css/estilo.css?v=15">
+  <script src="../js/tema.js?v=7" defer></script>
+  <script src="../js/menu.js?v=7" defer></script>
+  <script src="../js/movimento.js?v=9" defer></script>
+  <script src="../js/simulador.js?v=3" defer></script>
+</head>
+<body>
+  <header class="topo">
+    <div class="dentro topo-dentro">
+      <a class="marca" href="./" aria-label="Linu Sites, 홈">
+        <img src="../img/linu-logo.png" alt="" width="40" height="40">
+        <span>Linu <b>Sites</b></span>
+      </a>
+      <nav class="menu" aria-label="섹션">
+        <div class="menu-links" id="menu-links">
+          <a href="#servicos">서비스</a>
+          <a href="#projetos">포트폴리오</a>
+          <a href="#exemplo">데모</a>
+          <a href="#como">진행 과정</a>
+          <a href="#duvidas">자주 묻는 질문</a>
+          <a class="botao menu-links-orcamento" href="#contato">견적 요청</a>
+        </div>
+        <details class="idiomas">
+          <summary title="지역 및 언어"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3c2.5 2.6 3.7 5.6 3.7 9s-1.2 6.4-3.7 9c-2.5-2.6-3.7-5.6-3.7-9S9.5 5.6 12 3Z" /></svg><span class="idiomas-codigo">KO</span><span class="so-leitor">: 지역 및 언어, 한국어</span></summary>
+          <div class="idiomas-lista">
+            <p class="idiomas-regiao" id="regiao-brasil">브라질</p>
+            <ul aria-labelledby="regiao-brasil">
+              <li><a href="../" hreflang="pt-BR" lang="pt-BR" data-regiao="brasil" data-padrao data-sugestao="Ver esta página em português do Brasil" data-fechar="Fechar">Português (Brasil)</a></li>
+            </ul>
+            <p class="idiomas-regiao" id="regiao-europa">유럽</p>
+            <ul aria-labelledby="regiao-europa">
+              <li><a href="../pt-pt/" hreflang="pt-PT" lang="pt-PT" data-regiao="europa" data-sugestao="Ver esta página em português de Portugal" data-fechar="Fechar">Português (Portugal)</a></li>
+              <li><a href="../es/" hreflang="es-ES" lang="es-ES" data-regiao="europa" data-sugestao="Ver esta página en español" data-fechar="Cerrar">Español</a></li>
+              <li><a href="../ca/" hreflang="ca" lang="ca" data-regiao="europa" data-sugestao="Llegeix aquesta pàgina en català" data-fechar="Tancar">Català</a></li>
+              <li><a href="../nl/" hreflang="nl" lang="nl" data-regiao="europa" data-sugestao="Lees deze pagina in het Nederlands" data-fechar="Sluiten">Nederlands</a></li>
+              <li><a href="../en/" hreflang="en-GB" lang="en-GB" data-regiao="europa" data-padrao data-sugestao="See the page for the UK and Europe, in English (prices in €)" data-fechar="Close">English (UK &amp; Europe)</a></li>
+              <li><a href="../fr/" hreflang="fr-FR" lang="fr-FR" data-regiao="europa" data-sugestao="Lire cette page en français" data-fechar="Fermer">Français</a></li>
+              <li><a href="../de/" hreflang="de-DE" lang="de-DE" data-regiao="europa" data-sugestao="Diese Seite auf Deutsch lesen" data-fechar="Schließen">Deutsch</a></li>
+              <li><a href="../it/" hreflang="it-IT" lang="it-IT" data-regiao="europa" data-sugestao="Leggi questa pagina in italiano" data-fechar="Chiudi">Italiano</a></li>
+            </ul>
+            <p class="idiomas-regiao" id="regiao-asia">아시아·태평양 및 해외</p>
+            <ul aria-labelledby="regiao-asia">
+              <li><a href="../intl/" hreflang="en" lang="en" data-regiao="asia" data-padrao data-sugestao="See the international page, in English (prices in US$)" data-fechar="Close">English (international)</a></li>
+              <li><a href="../ja/" hreflang="ja-JP" lang="ja-JP" data-regiao="asia" data-sugestao="このページを日本語で見る" data-fechar="閉じる">日本語</a></li>
+              <li><a href="../ko/" hreflang="ko-KR" lang="ko-KR" data-regiao="asia" data-sugestao="이 페이지를 한국어로 보기" data-fechar="닫기" aria-current="true">한국어</a></li>
+              <li><a href="../zh-hant/" hreflang="zh-Hant" lang="zh-Hant" data-regiao="asia" data-sugestao="以繁體中文瀏覽此頁" data-fechar="關閉">繁體中文</a></li>
+            </ul>
+          </div>
+        </details>
+        <button class="luz" type="button" data-luz aria-label="불 끄기 (다크 모드)" title="불 끄기">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+            <path class="luz-raios" d="M12 1.5v2M4.6 4.6l1.4 1.4M1.5 12h2M20.5 12h2M19.4 4.6 18 6" />
+            <path class="luz-bulbo" d="M12 6a5.5 5.5 0 0 0-3.2 10c.5.4.8.9.8 1.5v.5h4.8v-.5c0-.6.3-1.1.8-1.5A5.5 5.5 0 0 0 12 6Z" />
+            <path class="luz-base" d="M9.8 20.5h4.4M10.5 22.5h3" />
+          </svg>
+        </button>
+        <a class="botao botao-pequeno menu-orcamento" href="#contato">견적 요청</a>
+        <button class="menu-abrir" type="button" aria-expanded="false" aria-controls="menu-links" aria-label="메뉴 열기">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="abertura">
+      <div class="dentro abertura-dentro">
+        <div class="abertura-texto">
+          <p class="sobretitulo">맞춤형 웹사이트와 웹 앱</p>
+          <h1><span class="marca-texto">당신의 비즈니스</span>를 위해 일하는 웹사이트.</h1>
+          <p class="abertura-sub">회사 소개 사이트부터 관리자 화면과 로그인이 있는 도구까지. 디자인, 개발, 배포, 서버 관리까지 맡습니다. 만드는 사람과 직접 이야기하세요.</p>
+          <div class="botoes">
+            <a class="botao" href="#contato">견적 요청하기</a>
+            <a class="botao botao-linha" href="#projetos">포트폴리오 보기</a>
+          </div>
+        </div>
+        <figure class="janela">
+          <div class="cena" data-cena>
+            <img class="pixel cena-dia" src="../img/abrigo-estacao-dia.png" alt="남극 연구 기지를 그린 픽셀 아트. 책상, 컴퓨터, 벽에 걸린 지도" width="344" height="192">
+            <img class="pixel cena-acesa" src="../img/abrigo-estacao-noite.png" alt="" width="344" height="192">
+            <img class="pixel cena-apagada" src="../img/abrigo-estacao-apagada.png" alt="" width="344" height="192">
+            <span class="cena-linu" data-pose="frente">
+              <img class="pixel linu-frente" src="../img/linu/linu-frente.png" alt="" width="172" height="190">
+              <span class="linu-lado"><img class="pixel" src="../img/linu/linu-lado.png" alt="" width="688" height="190"></span>
+              <img class="pixel linu-costas" src="../img/linu/linu-costas.png" alt="" width="172" height="190">
+            </span>
+          </div>
+          <figcaption>웹사이트가 만들어지는 Linu의 기지.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="secao" id="servicos">
+      <div class="dentro">
+        <h2>서비스</h2>
+        <p class="secao-sub">모든 프로젝트는 고객의 일하는 방식에 맞춰 처음부터 만듭니다.</p>
+        <div class="cartoes">
+          <article class="cartao">
+            <span class="cartao-icone" aria-hidden="true">🧭</span>
+            <h3><a class="cartao-link" href="#contato" data-escolher="tipo=apresentacao" aria-describedby="preco-apresentacao">회사 소개 사이트</a></h3>
+            <p>누구인지, 무엇을 제공하는지, 어떻게 연락하는지 알리는 사이트. 빠르고, 휴대폰에서도 보기 좋고, Google과 네이버에서 찾기 쉽습니다.</p>
+            <p class="cartao-preco" id="preco-apresentacao">최소 <b>US$1,600</b> <span class="cartao-seta" aria-hidden="true">→</span><span class="so-leitor">: 견적 만들기</span></p>
+          </article>
+          <article class="cartao">
+            <span class="cartao-icone" aria-hidden="true">🛠️</span>
+            <h3><a class="cartao-link" href="#contato" data-escolher="tipo=ferramenta" aria-describedby="preco-ferramenta">도구와 관리자 화면</a></h3>
+            <p>주문서, 계산기, 로그인 회원 영역, 모든 것을 한눈에 보는 관리자 화면. 웹사이트가 진열장이 아니라 업무의 일부가 됩니다.</p>
+            <p class="cartao-preco" id="preco-ferramenta">최소 <b>US$5,500</b> <span class="cartao-seta" aria-hidden="true">→</span><span class="so-leitor">: 견적 만들기</span></p>
+          </article>
+          <article class="cartao">
+            <span class="cartao-icone" aria-hidden="true">📱</span>
+            <h3><a class="cartao-link" href="#contato" data-escolher="tipo=app" aria-describedby="preco-app">설치형 앱</a></h3>
+            <p>일반 앱처럼 휴대폰 홈 화면에 놓이고 인터넷 없이도 열리는 웹 앱. 앱 스토어를 거치지 않습니다.</p>
+            <p class="cartao-preco" id="preco-app">최소 <b>US$8,000</b> <span class="cartao-seta" aria-hidden="true">→</span><span class="so-leitor">: 견적 만들기</span></p>
+          </article>
+          <article class="cartao">
+            <span class="cartao-icone" aria-hidden="true">🛰️</span>
+            <h3>운영과 관리</h3>
+            <p>도메인, 보안 자물쇠(HTTPS), 서버, 백업. 이 중 어떤 것도 몰라도 됩니다.</p>
+            <ul class="planos">
+              <li><a href="#contato" data-escolher="plano=29" aria-label="온라인 요금제, 월 US$29: 견적 만들기"><span>온라인</span><b>US$29</b>/월</a></li>
+              <li><a href="#contato" data-escolher="plano=59" aria-label="케어 요금제, 월 US$59: 견적 만들기"><span>케어</span><b>US$59</b>/월</a></li>
+            </ul>
+            <p class="planos-nota">케어에는 업데이트와 글·사진의 작은 수정이 포함됩니다. 1년 선납 시 10개월 요금입니다.</p>
+          </article>
+        </div>
+        <p class="precos-nota">상담을 시작하기 위한 참고 가격입니다. 최종 견적은 서면으로 드리며, 프로젝트 내용에 따라 달라집니다. 도메인 등록비(연 약 US$15)는 별도입니다.</p>
+      </div>
+    </section>
+
+    <section class="secao secao-gelo" id="projetos">
+      <div class="dentro">
+        <h2>포트폴리오</h2>
+        <!-- As áreas filtram as duas listas, e as abas separam o que está no ar do que é de estudo (js/movimento.js);
+             sem JavaScript, as áreas não aparecem e as duas listas ficam uma embaixo da outra.
+             Cada projeto diz as suas áreas no data-areas (pode ter mais de uma). -->
+        <div class="areas" role="group" aria-label="분야별 보기" hidden>
+          <button class="area" type="button" data-area="" aria-pressed="true">전체</button>
+          <button class="area" type="button" data-area="educacao" aria-pressed="false">교육·문화</button>
+          <button class="area" type="button" data-area="servicos" aria-pressed="false">의료·서비스</button>
+          <button class="area" type="button" data-area="comercio" aria-pressed="false">유통·관광</button>
+          <button class="area" type="button" data-area="industria" aria-pressed="false">산업</button>
+          <button class="area" type="button" data-area="jogos" aria-pressed="false">게임</button>
+        </div>
+        <div class="abas" role="tablist" aria-label="보여줄 프로젝트" hidden>
+          <button class="aba" type="button" role="tab" id="aba-no-ar" aria-controls="no-ar" aria-selected="true">운영 중 <span class="aba-conta">8</span></button>
+          <button class="aba" type="button" role="tab" id="aba-estudo" aria-controls="estudo" aria-selected="false" tabindex="-1">학습 작품 <span class="aba-conta">3</span></button>
+        </div>
+        <div class="painel" id="no-ar" role="tabpanel" aria-labelledby="aba-no-ar">
+          <h3 class="painel-titulo">운영 중</h3>
+          <p class="secao-sub">지금 실제로 쓰이고 있는 사이트입니다. 열어서 직접 써 보세요.</p>
+          <div class="projetos">
+            <article class="projeto" data-areas="educacao jogos">
+              <a href="https://linupedia.com.br" target="_blank" rel="noopener"><img src="../img/projetos/linupedia.webp" alt="LinuPedia의 linuhub: 밤의 Linu 캠프를 그린 픽셀 아트, 모닥불과 친구들" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">설치형 앱</p>
+                <h3>LinuPedia</h3>
+                <p>언어 학습 앱이자 플레이할 수 있는 백과사전. 197개 언어와 39개 지식 분야. 휴대폰과 컴퓨터에서 오프라인으로 작동합니다.</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="projetos/linupedia">제작 과정</a>
+                  <a class="projeto-link" href="https://linupedia.com.br" target="_blank" rel="noopener">linupedia.com.br</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="industria">
+              <a href="https://v2tech.app.br" target="_blank" rel="noopener"><img src="../img/projetos/v2tech.webp" alt="V²Tech COMBUSTÍVEL 첫 화면, 경유의 적정 가격 표시" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">기업용 도구</p>
+                <h3>V²Tech COMBUSTÍVEL</h3>
+                <p>공급업체가 청구한 경유, 휘발유, 에탄올 가격이 타당한지 페트로브라스, 브라질 연료 규제 기관, 국세청 데이터를 대조해 확인합니다.</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="projetos/v2tech">제작 과정</a>
+                  <a class="projeto-link" href="https://v2tech.app.br" target="_blank" rel="noopener">v2tech.app.br</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="comercio">
+              <a href="https://losveganaestrada.com.br" target="_blank" rel="noopener"><img src="../img/projetos/losvega.webp" alt="Los Vega na Estrada 첫 화면, 맞춤 여행 일정" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">관리자 화면이 있는 판매 사이트</p>
+                <h3>Los Vega na Estrada</h3>
+                <p>맞춤 여행 일정. 고객이 여행을 설명하면 바로 가격이 보이고, 요청은 관리자 화면으로 들어오며 WhatsApp 답장도 준비됩니다.</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="projetos/losvega">제작 과정</a>
+                  <a class="projeto-link" href="https://losveganaestrada.com.br" target="_blank" rel="noopener">losveganaestrada.com.br</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="educacao">
+              <a href="https://marginalia.blog.br" target="_blank" rel="noopener"><img src="../img/projetos/marginalia.webp" alt="Marginalia 첫 화면, 역사와 인문학 출판물" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">디지털 출판</p>
+                <h3>Marginalia</h3>
+                <p>역사와 인문학 독립 잡지. 목차, 검색, 여백 주석, 바로 복사할 수 있는 참고문헌 표기.</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="projetos/marginalia">제작 과정</a>
+                  <a class="projeto-link" href="https://marginalia.blog.br" target="_blank" rel="noopener">marginalia.blog.br</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="servicos">
+              <a href="https://iconvet.com.br" target="_blank" rel="noopener"><img src="../img/projetos/iconvet.webp" alt="Iconvet 첫 화면, 살바도르의 동물병원, 영상의학과 소개" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">기업 사이트</p>
+                <h3>Iconvet</h3>
+                <p>브라질 살바도르의 동물병원. 진료과, 검사, 서비스, 전문 분야를 74페이지로 소개하고, WhatsApp과 길찾기를 한 번에 연결합니다.</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="projetos/iconvet">제작 과정</a>
+                  <a class="projeto-link" href="https://iconvet.com.br" target="_blank" rel="noopener">iconvet.com.br</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="servicos">
+              <a href="https://ajoriente.com" target="_blank" rel="noopener"><img src="../img/projetos/ajoriente.webp" alt="Administração Judicial Oriente 첫 화면: “기업을 새로운 시작으로 이끕니다”" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">사건 조회 사이트</p>
+                <h3>Administração Judicial Oriente</h3>
+                <p>리우데자네이루의 파산 관재 업무. 업무 분야, 기업별 사건 조회, 서식, 연락처.</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="projetos/ajoriente">제작 과정</a>
+                  <a class="projeto-link" href="https://ajoriente.com" target="_blank" rel="noopener">ajoriente.com</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="jogos">
+              <a href="https://www.bjj-link.com" target="_blank" rel="noopener"><img src="../img/projetos/dojo-legacy.webp" alt="Dojo Legacy 첫 화면: “흰 띠에서 매트의 전설로”, 컴퓨터와 휴대폰 게임 화면" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">브라우저·모바일 게임</p>
+                <h3>Dojo Legacy</h3>
+                <p>주짓수와 MMA 커리어 게임. 브라우저, iPhone, Android에서 무료이며 PvP, 팀 리그, 실시간 랭킹이 있습니다.</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="projetos/dojo-legacy">제작 과정</a>
+                  <a class="projeto-link" href="https://www.bjj-link.com" target="_blank" rel="noopener">bjj-link.com</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="servicos">
+              <a href="https://omega-site-vert.vercel.app/" target="_blank" rel="noopener"><img src="../img/projetos/omega.webp" alt="Ômega Imóveis 첫 화면: “올바른 장소가 모든 것을 바꿉니다”, 해 질 녘의 리우 남부" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">회사 소개 사이트</p>
+                <h3>Ômega Imóveis</h3>
+                <p>리우 남부의 부동산 중개업체. 일하는 방식과 담당 지역을 한 페이지로 소개하는 사이트입니다.</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="projetos/omega">제작 과정</a>
+                  <a class="projeto-link" href="https://omega-site-vert.vercel.app/" target="_blank" rel="noopener">omega-site-vert.vercel.app</a>
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="painel" id="estudo" role="tabpanel" aria-labelledby="aba-estudo">
+          <h3 class="painel-titulo">학습 작품</h3>
+          <p class="secao-sub">대학에서 만든 작품입니다. 회사는 가상이며, 코드는 공개되어 있습니다.</p>
+          <div class="projetos">
+            <article class="projeto" data-areas="comercio">
+              <a href="https://cafe.linupedia.com.br/ko/" target="_blank" rel="noopener"><img src="../img/projetos/cafe-aurora.webp" alt="Café Aurora 첫 화면: 밤의 사이버펑크 도시 위 파란색과 분홍색 네온 간판" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">효과가 있는 사이트</p>
+                <h3>Café Aurora</h3>
+                <p>존재하지 않는 사이버펑크 카페. 시작 화면, 움직이는 배경, 메뉴, 음료를 만드는 실험실이 있습니다. 위 시뮬레이터의 사이트이며, Bootstrap과 Tailwind 버전도 있습니다.</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="https://cafe.linupedia.com.br/ko/" target="_blank" rel="noopener">cafe.linupedia.com.br</a>
+                  <a class="projeto-link" href="https://github.com/Seiabras/cafe-aurora" target="_blank" rel="noopener">GitHub 코드</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="servicos">
+              <a href="https://cerrado.linupedia.com.br/ko/" target="_blank" rel="noopener"><img src="../img/projetos/fotografia-do-cerrado.webp" alt="Fotografia do Cerrado 첫 화면: 황금빛 풀밭의 세리에마와 뒤로 꽃이 핀 분홍 이페 나무" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">회사 소개 사이트</p>
+                <h3>Fotografia do Cerrado</h3>
+                <p>야생동물 사진 회사. 필터가 있는 갤러리, 촬영 여행, 연락처. 색상은 세하두(브라질의 사바나)에서 가져왔고, 모든 색을 WCAG 명도 대비 기준으로 확인했습니다.</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="https://cerrado.linupedia.com.br/ko/" target="_blank" rel="noopener">cerrado.linupedia.com.br</a>
+                  <a class="projeto-link" href="https://github.com/Seiabras/fotografia-do-cerrado" target="_blank" rel="noopener">GitHub 코드</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="educacao">
+              <a href="https://abelhas.linupedia.com.br/ko/" target="_blank" rel="noopener"><img src="../img/projetos/abelhas-sem-ferrao.webp" alt="Abelhas sem Ferrão 첫 화면: 250종에 대한 질문과 자타이, 우루수, 만다사이아 사진" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">교육 사이트</p>
+                <h3>Abelhas sem Ferrão</h3>
+                <p>브라질의 침 없는 벌을 처음 듣는 사람을 위해: 3분 투어, 둥지를 발견했을 때 할 일, 짧은 퀴즈. 디자인 씽킹 과제에서 시작되었습니다.</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="https://abelhas.linupedia.com.br/ko/" target="_blank" rel="noopener">abelhas.linupedia.com.br</a>
+                  <a class="projeto-link" href="https://github.com/Seiabras/abelhas-sem-ferrao" target="_blank" rel="noopener">GitHub 코드</a>
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Simulador: o Café Aurora (cafeteria fictícia) embutido, com as partes que ligam e desligam e o preço.
+         Os preços ficam em ferramentas/pagina/precos.json (o data-base e os data-preco saem dele); o js/simulador.js só soma. -->
+    <section class="secao" id="exemplo">
+      <div class="dentro">
+        <h2>켜고 끄며 가격을 확인하세요</h2>
+        <p class="secao-sub">Café Aurora는 다른 차원에서 온, 존재하지 않는 카페입니다. 사이트의 기능을 켜고 끄면 사이트와 가격이 바로 바뀝니다.</p>
+        <div class="simulador" data-base="1600">
+          <div class="simulador-lado">
+            <fieldset class="simulador-opcoes" aria-describedby="simulador-nota">
+              <legend class="simulador-titulo">사이트 구성</legend>
+              <label class="simulador-base"><input type="checkbox" checked disabled><span>홈, 소개, 메뉴, 연락처</span><b>US$1,600</b></label>
+              <label><input type="checkbox" name="modulo[]" value="depoimentos" data-preco="160" checked><span>고객 후기</span><b>+ US$160</b></label>
+              <label><input type="checkbox" name="modulo[]" value="efeitos" data-preco="330" checked><span>효과: 움직이는 배경, 네온, 커서</span><b>+ US$330</b></label>
+              <label><input type="checkbox" name="modulo[]" value="cores" data-preco="160" checked><span>색상 전환 버튼</span><b>+ US$160</b></label>
+              <label><input type="checkbox" name="modulo[]" value="laboratorio" data-preco="500" checked><span>음료 만들기 (시뮬레이터)</span><b>+ US$500</b></label>
+              <label><input type="checkbox" name="modulo[]" value="assinatura" data-preco="330" checked><span>이메일 구독</span><b>+ US$330</b></label>
+              <label><input type="checkbox" name="modulo[]" value="painel" data-preco="650"><span>직접 수정하는 관리자 화면</span><b>+ US$650</b></label>
+            </fieldset>
+            <div class="simulador-total" aria-live="polite">
+              <p><span>제작비, 최소</span> <b data-simulador-total>US$3,080</b></p>
+              <p class="simulador-nota" id="simulador-nota">“사이트 구성하기”와 같은 참고 가격입니다. 월 요금제(최소 US$29)는 별도입니다.</p>
+              <a class="botao" href="#contato">이런 사이트를 원해요</a>
+            </div>
+          </div>
+          <div class="simulador-tela">
+            <p class="simulador-barra" aria-hidden="true"><i></i><i></i><i></i><span>Café Aurora · 가상 사이트</span></p>
+            <iframe src="https://cafe.linupedia.com.br/ko/" title="Café Aurora, 가상 카페의 예시 사이트" width="960" height="640" loading="lazy"></iframe>
+          </div>
+        </div>
+        <p class="simulador-credito">Café Aurora는 대학의 인터페이스 개발 수업 과제에서 시작되었습니다. <a href="https://cafe.linupedia.com.br/ko/" target="_blank" rel="noopener">전체 화면으로 열기</a></p>
+      </div>
+    </section>
+
+    <!-- Depoimentos: a seção fica escondida (hidden) até chegarem frases de verdade, com nome e projeto.
+         Cada depoimento é um <figure class="depoimento"> como este:
+         <figure class="depoimento">
+           <blockquote><p>[frase da pessoa]</p></blockquote>
+           <figcaption><b>[nome]</b>, [projeto]</figcaption>
+         </figure> -->
+    <section class="secao" id="depoimentos" hidden>
+      <div class="dentro">
+        <h2>고객 후기</h2>
+        <div class="depoimentos"></div>
+      </div>
+    </section>
+
+    <section class="secao" id="como">
+      <div class="dentro">
+        <h2>진행 과정</h2>
+        <ol class="passos">
+          <li><b>상담</b><span>필요한 것, 사이트의 대상, 해결하고 싶은 문제를 알려 주세요.</span></li>
+          <li><b>제안</b><span>포함 내용, 일정, 가격을 서면으로 드립니다.</span></li>
+          <li><b>제작</b><span>처음부터 온라인 미리보기로 진행 상황을 보고, 중간에 수정을 요청할 수 있습니다.</span></li>
+          <li><b>오픈</b><span>사이트를 고객의 도메인에 안전하게 올리고, 그 후에도 계속 관리합니다.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="secao secao-gelo" id="duvidas">
+      <div class="dentro">
+        <h2>자주 묻는 질문</h2>
+        <p class="secao-sub">시작 전에 모두가 묻는 질문입니다. 고객의 프로젝트에 해당하는 내용은 제안서에 서면으로 적습니다.</p>
+        <div class="faq">
+          <details>
+            <summary>기간은 얼마나 걸리나요?</summary>
+            <div class="faq-resposta">
+              <p>대략적으로 회사 소개 사이트는 2~3주, 관리자 화면이 있는 도구는 1~2개월, 설치형 앱은 2~3개월입니다. 정확한 일정은 제안서에서 고객의 프로젝트에 맞춰 안내합니다.</p>
+            </div>
+          </details>
+          <details>
+            <summary>결제는 어떻게 하나요?</summary>
+            <div class="faq-resposta">
+              <p>제안 승인 시 절반, 고객의 도메인에 공개하기 전에 나머지 절반을 국제 송금(Wise) 또는 PayPal로 미국 달러로 결제합니다. US$5,500 이상 프로젝트는 3회 분할(시작 시 40%, 미리보기 승인 시 30%, 공개 시 30%)도 가능합니다.</p>
+            </div>
+          </details>
+          <details>
+            <summary>매달 내야 하나요?</summary>
+            <div class="faq-resposta">
+              <p>네. 사이트는 저희 서버에서 운영되며, 월 요금제가 사이트를 계속 공개 상태로 유지합니다. 요금제는 두 가지입니다. <b>온라인</b>(월 US$29)은 서버, 보안 자물쇠, 도메인 설정, 백업을 포함합니다. <b>케어</b>(월 US$59)는 여기에 업데이트와 글·사진의 작은 수정을 더합니다. 1년 선납 시 10개월 요금입니다.</p>
+            </div>
+          </details>
+          <details>
+            <summary>사이트를 직접 수정할 수 있나요?</summary>
+            <div class="faq-resposta">
+              <p>네. 관리자 화면에서 누구에게 부탁하지 않고 글과 사진을 바꿀 수 있으며, 짧은 교육과 안내서를 드립니다. 도구와 앱에는 기본으로 포함되고, 회사 소개 사이트에서는 US$650 추가입니다. 새 페이지 추가는 저희가 합니다.</p>
+            </div>
+          </details>
+          <details>
+            <summary>도메인은 누구의 것인가요?</summary>
+            <div class="faq-resposta">
+              <p>고객의 것입니다. 기본적으로 고객 또는 회사 명의로(.kr, .co.kr, .com 등) 등록하고, 설정은 저희가 모두 합니다. 직접 관리하고 싶지 않다면 등록과 갱신도 대신 처리합니다.</p>
+            </div>
+          </details>
+          <details>
+            <summary>글, 사진, 데이터는요?</summary>
+            <div class="faq-resposta">
+              <p>고객의 것입니다. 보내 주신 자료, 저희가 사이트를 위해 만든 글과 이미지(결제 후), 그리고 주문과 가입 같은 이용자 데이터. 코드, 레이아웃, 디자인은 Linu Sites에 속하며, 월 요금제가 유지되는 동안 사이트를 사용합니다.</p>
+            </div>
+          </details>
+          <details>
+            <summary>나중에 그만두고 싶다면요?</summary>
+            <div class="faq-resposta">
+              <p>글, 이미지, 데이터를 파일로 받아 그대로 가져갈 수 있습니다. 사이트를 그대로 가져가고 싶다면 프로젝트와 같은 금액으로 코드를 구매할 수 있습니다. 묶이는 일은 없습니다.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao contato" id="contato">
+      <div class="dentro contato-dentro">
+        <span class="contato-linu" data-pose="acenando" aria-hidden="true"><img class="pixel" src="../img/linu/linu-contato.png" alt="" width="552" height="190"></span>
+        <div>
+          <h2>당신의 사이트에 대해 알려 주세요</h2>
+          <p>사이트를 구성하면 가격과 기간의 예상치가 바로 보입니다. 그다음 WhatsApp이나 이메일로 보내기만 하면 됩니다. 메시지는 이미 작성되어 있습니다. 아이디어만 있어도 괜찮습니다. 질문과 다음 단계를 담아 답장드립니다. 저희는 브라질(UTC−3, 한국과 12시간 차이)에 있습니다. 영업일 기준 하루 안에 답장하며, 화상 통화는 고객의 아침이나 저녁 시간에 맞출 수 있습니다.</p>
+          <div class="monte" role="group" aria-label="사이트 구성하기" aria-describedby="monte-nota">
+            <fieldset class="monte-grupo">
+              <legend class="monte-titulo">1. 어떤 프로젝트인가요?</legend>
+              <div class="monte-opcoes monte-unico">
+                <label><input type="radio" name="tipo" value="apresentacao" data-preco="1600" data-prazo="2~3주" data-nome="회사 소개 사이트"><span>회사 소개 사이트</span></label>
+                <label><input type="radio" name="tipo" value="ferramenta" data-preco="5500" data-prazo="1~2개월" data-nome="관리자 화면이 있는 도구"><span>관리자 화면이 있는 도구</span></label>
+                <label><input type="radio" name="tipo" value="app" data-preco="8000" data-prazo="2~3개월" data-nome="휴대폰에 설치하는 앱"><span>설치형 앱</span></label>
+                <label><input type="radio" name="tipo" value="nao-sei" data-nome="아직 유형을 모름"><span>아직 모르겠어요</span></label>
+              </div>
+            </fieldset>
+            <fieldset class="monte-grupo">
+              <legend class="monte-titulo">2. 어떤 기능이 필요한가요?</legend>
+              <div class="monte-opcoes">
+                <label><input type="checkbox" name="item[]" value="글과 사진을 바꾸는 관리자 화면" data-preco-apresentacao="650"><span>직접 수정하는 관리자 화면</span></label>
+                <label><input type="checkbox" name="item[]" value="주문 또는 견적 양식"><span>주문 양식</span></label>
+                <label><input type="checkbox" name="item[]" value="계산기 또는 시뮬레이터"><span>계산기 또는 시뮬레이터</span></label>
+                <label><input type="checkbox" name="item[]" value="로그인 회원 영역"><span>회원 로그인</span></label>
+                <label><input type="checkbox" name="item[]" value="블로그 또는 게시물"><span>블로그 또는 게시물</span></label>
+                <label><input type="checkbox" name="item[]" value="WhatsApp 또는 이메일 알림"><span>WhatsApp·이메일 알림</span></label>
+              </div>
+            </fieldset>
+            <fieldset class="monte-grupo">
+              <legend class="monte-titulo">3. 오픈 후</legend>
+              <div class="monte-opcoes monte-unico">
+                <label><input type="radio" name="plano" value="29" data-nome="온라인 요금제" checked><span>온라인 · US$29/월</span></label>
+                <label><input type="radio" name="plano" value="59" data-nome="케어 요금제"><span>케어 · US$59/월</span></label>
+              </div>
+              <label class="monte-ano"><input type="checkbox" name="anual"><span>1년 선납 (10개월 요금)</span></label>
+            </fieldset>
+            <div class="monte-total" aria-live="polite">
+              <p class="monte-resumo">유형을 고르면 예상 가격이 보입니다</p>
+              <dl class="monte-numeros" hidden>
+                <div><dt>제작비</dt><dd><span data-total>US$0</span></dd></div>
+                <div><dt>기간</dt><dd data-prazo>—</dd></div>
+                <div><dt>월 요금</dt><dd data-mensal>—</dd></div>
+              </dl>
+              <p class="monte-nota" id="monte-nota">“최소” 기준의 참고 가격입니다. 그 이상의 내용은 정확한 가격과 함께 서면 제안서에 적습니다. 도메인(연 약 US$15)은 별도입니다.</p>
+            </div>
+          </div>
+          <div class="botoes contato-botoes">
+            <a class="botao botao-grande botao-whatsapp monte-whats" href="https://wa.me/5561996672610?text=%EC%95%88%EB%85%95%ED%95%98%EC%84%B8%EC%9A%94!%20%EC%9B%B9%EC%82%AC%EC%9D%B4%ED%8A%B8%EC%97%90%20%EB%8C%80%ED%95%B4%20%EC%83%81%EB%8B%B4%ED%95%98%EA%B3%A0%20%EC%8B%B6%EC%8A%B5%EB%8B%88%EB%8B%A4." target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z" /></svg>
+              <span>WhatsApp <span class="sem-quebra">+55 61 99667-2610</span></span>
+            </a>
+            <a class="botao botao-grande botao-contorno-claro monte-enviar" href="mailto:contato@linupedia.com.br?subject=%EC%9B%B9%EC%82%AC%EC%9D%B4%ED%8A%B8%20%EC%A0%9C%EC%9E%91%20%EB%AC%B8%EC%9D%98">contato@linupedia.com.br</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="dentro rodape-dentro">
+      <p><b>Linu Sites</b> · 맞춤형 웹사이트와 웹 앱</p>
+      <p>운영: <a href="https://linupedia.com.br">LinuPedia</a></p>
+    </div>
+  </footer>
+</body>
+</html>

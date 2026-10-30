@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ja-JP" data-moeda="USD">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Linu Sites — オーダーメイドのウェブサイトとウェブアプリ</title>
+  <meta name="description" content="企業サイト、管理画面つきのツール、スマートフォンにインストールできるウェブアプリ。デザイン、開発、公開、サーバー管理まで一貫して行います。">
+  <meta name="theme-color" content="#1F2A44">
+  <link rel="icon" href="../img/linu-logo.png" type="image/png" sizes="128x128">
+  <link rel="icon" href="../img/icone-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="../img/icone-180.png">
+  <meta property="og:title" content="Linu Sites">
+  <meta property="og:description" content="デザインからサーバーまで、オーダーメイドのウェブサイトとウェブアプリ。">
+  <meta property="og:image" content="https://sites.linupedia.com.br/img/compartilhar.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Linu Sites：オーダーメイドのウェブサイトとウェブアプリ。研究基地にいるLinu">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self'; frame-src https://cafe.linupedia.com.br; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <link rel="preload" href="../fontes/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="canonical" href="https://sites.linupedia.com.br/ja/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sites.linupedia.com.br/">
+  <link rel="alternate" hreflang="pt-PT" href="https://sites.linupedia.com.br/pt-pt/">
+  <link rel="alternate" hreflang="es-ES" href="https://sites.linupedia.com.br/es/">
+  <link rel="alternate" hreflang="ca" href="https://sites.linupedia.com.br/ca/">
+  <link rel="alternate" hreflang="nl" href="https://sites.linupedia.com.br/nl/">
+  <link rel="alternate" hreflang="en-GB" href="https://sites.linupedia.com.br/en/">
+  <link rel="alternate" hreflang="en-IE" href="https://sites.linupedia.com.br/en/">
+  <link rel="alternate" hreflang="fr-FR" href="https://sites.linupedia.com.br/fr/">
+  <link rel="alternate" hreflang="de-DE" href="https://sites.linupedia.com.br/de/">
+  <link rel="alternate" hreflang="it-IT" href="https://sites.linupedia.com.br/it/">
+  <link rel="alternate" hreflang="en" href="https://sites.linupedia.com.br/intl/">
+  <link rel="alternate" hreflang="ja-JP" href="https://sites.linupedia.com.br/ja/">
+  <link rel="alternate" hreflang="ko-KR" href="https://sites.linupedia.com.br/ko/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://sites.linupedia.com.br/zh-hant/">
+  <link rel="alternate" hreflang="zh-TW" href="https://sites.linupedia.com.br/zh-hant/">
+  <link rel="alternate" hreflang="zh-HK" href="https://sites.linupedia.com.br/zh-hant/">
+  <link rel="alternate" hreflang="x-default" href="https://sites.linupedia.com.br/intl/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sites.linupedia.com.br/ja/">
+  <meta property="og:locale" content="ja_JP">
+  <meta property="og:locale:alternate" content="pt_BR">
+  <meta property="og:locale:alternate" content="pt_PT">
+  <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="ca_ES">
+  <meta property="og:locale:alternate" content="nl_NL">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta property="og:locale:alternate" content="it_IT">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="ko_KR">
+  <meta property="og:locale:alternate" content="zh_TW">
+  <!-- O que o Google lê sobre o estúdio (schema.org); sai do ferramentas/gerar-idiomas.mjs -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Linu Sites","url":"https://sites.linupedia.com.br/ja/","logo":"https://sites.linupedia.com.br/img/linu-logo.png","image":"https://sites.linupedia.com.br/img/compartilhar.png","description":"企業サイト、管理画面つきのツール、スマートフォンにインストールできるウェブアプリ。デザイン、開発、公開、サーバー管理まで一貫して行います。","inLanguage":"ja-JP","email":"contato@linupedia.com.br","telephone":"+55 61 99667-2610","areaServed":"JP","availableLanguage":["pt-BR","pt-PT","es-ES","ca","nl","en-GB","fr-FR","de-DE","it-IT","en","ja-JP","ko-KR","zh-Hant"],"parentOrganization":{"@type":"Organization","name":"LinuPedia","url":"https://linupedia.com.br"}}</script>
+  <!-- Os textos que os scripts escrevem (menu, luz, Monte o seu site), no idioma da página -->
+  <script type="application/json" id="textos-js">{"menu_abrir":"メニューを開く","menu_fechar":"メニューを閉じる","luz_apagar_aria":"明かりを消す（ダークモード）","luz_acender_aria":"明かりをつける（ライトモード）","luz_apagar":"明かりを消す","luz_acender":"明かりをつける","fechar":"閉じる","escolha":"種類を選ぶと目安が表示されます","sem_tipo":"大丈夫です。ご相談の中で一緒に決めましょう。","um_item":"1項目","n_itens":"{n}項目","extra":"＋{itens}はご提案で","por_ano":"年額{valor}","por_mes":"月額{valor}","estimativa":"目安：{valor}から{extra}","linha_tipo":"種類：{nome}","linha_itens":"必要な機能：","linha_depois":"公開後：{nome}{anual}","anual":"（年払い）","linha_estimativa":"サイトの目安：{valor}から{extra}","ola":"こんにちは。ウェブサイトの制作を相談したいです。","sobre":"私のビジネスについて：","assunto":"ウェブサイト制作のご相談","ola_conversa":"こんにちは。ウェブサイトについて相談させてください。","area_vazia":"この分野の実績はここにはありません。"}</script>
+  <script src="../js/tema-inicio.js?v=5"></script>
+  <link rel="stylesheet" href="../css/estilo.css?v=15">
+  <script src="../js/tema.js?v=7" defer></script>
+  <script src="../js/menu.js?v=7" defer></script>
+  <script src="../js/movimento.js?v=9" defer></script>
+  <script src="../js/simulador.js?v=3" defer></script>
+</head>
+<body>
+  <header class="topo">
+    <div class="dentro topo-dentro">
+      <a class="marca" href="./" aria-label="Linu Sites、ホーム">
+        <img src="../img/linu-logo.png" alt="" width="40" height="40">
+        <span>Linu <b>Sites</b></span>
+      </a>
+      <nav class="menu" aria-label="セクション">
+        <div class="menu-links" id="menu-links">
+          <a href="#servicos">サービス</a>
+          <a href="#projetos">実績</a>
+          <a href="#exemplo">デモ</a>
+          <a href="#como">流れ</a>
+          <a href="#duvidas">よくある質問</a>
+          <a class="botao menu-links-orcamento" href="#contato">見積もりを依頼</a>
+        </div>
+        <details class="idiomas">
+          <summary title="地域と言語"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3c2.5 2.6 3.7 5.6 3.7 9s-1.2 6.4-3.7 9c-2.5-2.6-3.7-5.6-3.7-9S9.5 5.6 12 3Z" /></svg><span class="idiomas-codigo">JA</span><span class="so-leitor">: 地域と言語, 日本語</span></summary>
+          <div class="idiomas-lista">
+            <p class="idiomas-regiao" id="regiao-brasil">ブラジル</p>
+            <ul aria-labelledby="regiao-brasil">
+              <li><a href="../" hreflang="pt-BR" lang="pt-BR" data-regiao="brasil" data-padrao data-sugestao="Ver esta página em português do Brasil" data-fechar="Fechar">Português (Brasil)</a></li>
+            </ul>
+            <p class="idiomas-regiao" id="regiao-europa">ヨーロッパ</p>
+            <ul aria-labelledby="regiao-europa">
+              <li><a href="../pt-pt/" hreflang="pt-PT" lang="pt-PT" data-regiao="europa" data-sugestao="Ver esta página em português de Portugal" data-fechar="Fechar">Português (Portugal)</a></li>
+              <li><a href="../es/" hreflang="es-ES" lang="es-ES" data-regiao="europa" data-sugestao="Ver esta página en español" data-fechar="Cerrar">Español</a></li>
+              <li><a href="../ca/" hreflang="ca" lang="ca" data-regiao="europa" data-sugestao="Llegeix aquesta pàgina en català" data-fechar="Tancar">Català</a></li>
+              <li><a href="../nl/" hreflang="nl" lang="nl" data-regiao="europa" data-sugestao="Lees deze pagina in het Nederlands" data-fechar="Sluiten">Nederlands</a></li>
+              <li><a href="../en/" hreflang="en-GB" lang="en-GB" data-regiao="europa" data-padrao data-sugestao="See the page for the UK and Europe, in English (prices in €)" data-fechar="Close">English (UK &amp; Europe)</a></li>
+              <li><a href="../fr/" hreflang="fr-FR" lang="fr-FR" data-regiao="europa" data-sugestao="Lire cette page en français" data-fechar="Fermer">Français</a></li>
+              <li><a href="../de/" hreflang="de-DE" lang="de-DE" data-regiao="europa" data-sugestao="Diese Seite auf Deutsch lesen" data-fechar="Schließen">Deutsch</a></li>
+              <li><a href="../it/" hreflang="it-IT" lang="it-IT" data-regiao="europa" data-sugestao="Leggi questa pagina in italiano" data-fechar="Chiudi">Italiano</a></li>
+            </ul>
+            <p class="idiomas-regiao" id="regiao-asia">アジア太平洋・海外</p>
+            <ul aria-labelledby="regiao-asia">
+              <li><a href="../intl/" hreflang="en" lang="en" data-regiao="asia" data-padrao data-sugestao="See the international page, in English (prices in US$)" data-fechar="Close">English (international)</a></li>
+              <li><a href="../ja/" hreflang="ja-JP" lang="ja-JP" data-regiao="asia" data-sugestao="このページを日本語で見る" data-fechar="閉じる" aria-current="true">日本語</a></li>
+              <li><a href="../ko/" hreflang="ko-KR" lang="ko-KR" data-regiao="asia" data-sugestao="이 페이지를 한국어로 보기" data-fechar="닫기">한국어</a></li>
+              <li><a href="../zh-hant/" hreflang="zh-Hant" lang="zh-Hant" data-regiao="asia" data-sugestao="以繁體中文瀏覽此頁" data-fechar="關閉">繁體中文</a></li>
+            </ul>
+          </div>
+        </details>
+        <button class="luz" type="button" data-luz aria-label="明かりを消す（ダークモード）" title="明かりを消す">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+            <path class="luz-raios" d="M12 1.5v2M4.6 4.6l1.4 1.4M1.5 12h2M20.5 12h2M19.4 4.6 18 6" />
+            <path class="luz-bulbo" d="M12 6a5.5 5.5 0 0 0-3.2 10c.5.4.8.9.8 1.5v.5h4.8v-.5c0-.6.3-1.1.8-1.5A5.5 5.5 0 0 0 12 6Z" />
+            <path class="luz-base" d="M9.8 20.5h4.4M10.5 22.5h3" />
+          </svg>
+        </button>
+        <a class="botao botao-pequeno menu-orcamento" href="#contato">見積もりを依頼</a>
+        <button class="menu-abrir" type="button" aria-expanded="false" aria-controls="menu-links" aria-label="メニューを開く">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="abertura">
+      <div class="dentro abertura-dentro">
+        <div class="abertura-texto">
+          <p class="sobretitulo">オーダーメイドのウェブサイトとウェブアプリ</p>
+          <h1><span class="marca-texto">あなたのビジネス</span>のために働くウェブサイト。</h1>
+          <p class="abertura-sub">企業サイトから、管理画面やログインのあるツールまで。デザイン、開発、公開、サーバー管理まで行います。作り手と直接やり取りできます。</p>
+          <div class="botoes">
+            <a class="botao" href="#contato">見積もりを依頼する</a>
+            <a class="botao botao-linha" href="#projetos">実績を見る</a>
+          </div>
+        </div>
+        <figure class="janela">
+          <div class="cena" data-cena>
+            <img class="pixel cena-dia" src="../img/abrigo-estacao-dia.png" alt="南極の研究基地を描いたピクセルアート。机、コンピューター、壁の地図" width="344" height="192">
+            <img class="pixel cena-acesa" src="../img/abrigo-estacao-noite.png" alt="" width="344" height="192">
+            <img class="pixel cena-apagada" src="../img/abrigo-estacao-apagada.png" alt="" width="344" height="192">
+            <span class="cena-linu" data-pose="frente">
+              <img class="pixel linu-frente" src="../img/linu/linu-frente.png" alt="" width="172" height="190">
+              <span class="linu-lado"><img class="pixel" src="../img/linu/linu-lado.png" alt="" width="688" height="190"></span>
+              <img class="pixel linu-costas" src="../img/linu/linu-costas.png" alt="" width="172" height="190">
+            </span>
+          </div>
+          <figcaption>Linuの基地。ここでウェブサイトが作られています。</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="secao" id="servicos">
+      <div class="dentro">
+        <h2>サービス</h2>
+        <p class="secao-sub">どのプロジェクトも、お客様の仕事の進め方に合わせてゼロから作ります。</p>
+        <div class="cartoes">
+          <article class="cartao">
+            <span class="cartao-icone" aria-hidden="true">🧭</span>
+            <h3><a class="cartao-link" href="#contato" data-escolher="tipo=apresentacao" aria-describedby="preco-apresentacao">企業・紹介サイト</a></h3>
+            <p>あなたが誰で、何を提供し、どう連絡すればよいかを伝えるサイト。速く、スマートフォンでも美しく、Googleで見つけやすい作りです。</p>
+            <p class="cartao-preco" id="preco-apresentacao">参考価格 <b>$1,600</b> <span class="cartao-seta" aria-hidden="true">→</span><span class="so-leitor">：見積もりを作る</span></p>
+          </article>
+          <article class="cartao">
+            <span class="cartao-icone" aria-hidden="true">🛠️</span>
+            <h3><a class="cartao-link" href="#contato" data-escolher="tipo=ferramenta" aria-describedby="preco-ferramenta">ツールと管理画面</a></h3>
+            <p>注文フォーム、計算、ログイン付きの会員エリア、すべてを把握できる管理画面。ウェブサイトがショーウィンドウから仕事の一部へと変わります。</p>
+            <p class="cartao-preco" id="preco-ferramenta">参考価格 <b>$5,500</b> <span class="cartao-seta" aria-hidden="true">→</span><span class="so-leitor">：見積もりを作る</span></p>
+          </article>
+          <article class="cartao">
+            <span class="cartao-icone" aria-hidden="true">📱</span>
+            <h3><a class="cartao-link" href="#contato" data-escolher="tipo=app" aria-describedby="preco-app">インストールできるアプリ</a></h3>
+            <p>普通のアプリのようにホーム画面に置けて、オフラインでも開けるウェブアプリ。アプリストアを通す必要はありません。</p>
+            <p class="cartao-preco" id="preco-app">参考価格 <b>$8,000</b> <span class="cartao-seta" aria-hidden="true">→</span><span class="so-leitor">：見積もりを作る</span></p>
+          </article>
+          <article class="cartao">
+            <span class="cartao-icone" aria-hidden="true">🛰️</span>
+            <h3>公開と保守</h3>
+            <p>ドメイン、セキュリティの鍵（HTTPS）、サーバー、バックアップ。どれも理解していなくて大丈夫です。</p>
+            <ul class="planos">
+              <li><a href="#contato" data-escolher="plano=29" aria-label="オンラインプラン、月額$29：見積もりを作る"><span>オンライン</span><b>$29</b>／月</a></li>
+              <li><a href="#contato" data-escolher="plano=59" aria-label="ケアプラン、月額$59：見積もりを作る"><span>ケア</span><b>$59</b>／月</a></li>
+            </ul>
+            <p class="planos-nota">ケアには更新作業と、文章や写真の小さな修正が含まれます。年払いなら10か月分の料金です。</p>
+          </article>
+        </div>
+        <p class="precos-nota">ご相談のための参考価格です。最終的な見積もりは書面でお出しし、内容によって変わります。ドメインの登録料（年約$15）は別途です。</p>
+      </div>
+    </section>
+
+    <section class="secao secao-gelo" id="projetos">
+      <div class="dentro">
+        <h2>実績</h2>
+        <!-- As áreas filtram as duas listas, e as abas separam o que está no ar do que é de estudo (js/movimento.js);
+             sem JavaScript, as áreas não aparecem e as duas listas ficam uma embaixo da outra.
+             Cada projeto diz as suas áreas no data-areas (pode ter mais de uma). -->
+        <div class="areas" role="group" aria-label="分野で絞り込む" hidden>
+          <button class="area" type="button" data-area="" aria-pressed="true">すべて</button>
+          <button class="area" type="button" data-area="educacao" aria-pressed="false">教育・文化</button>
+          <button class="area" type="button" data-area="servicos" aria-pressed="false">医療・サービス</button>
+          <button class="area" type="button" data-area="comercio" aria-pressed="false">小売・観光</button>
+          <button class="area" type="button" data-area="industria" aria-pressed="false">産業</button>
+          <button class="area" type="button" data-area="jogos" aria-pressed="false">ゲーム</button>
+        </div>
+        <div class="abas" role="tablist" aria-label="表示する実績" hidden>
+          <button class="aba" type="button" role="tab" id="aba-no-ar" aria-controls="no-ar" aria-selected="true">公開中 <span class="aba-conta">8</span></button>
+          <button class="aba" type="button" role="tab" id="aba-estudo" aria-controls="estudo" aria-selected="false" tabindex="-1">学習作品 <span class="aba-conta">3</span></button>
+        </div>
+        <div class="painel" id="no-ar" role="tabpanel" aria-labelledby="aba-no-ar">
+          <h3 class="painel-titulo">公開中</h3>
+          <p class="secao-sub">今まさに使われている本物のサイトです。開いて試してみてください。</p>
+          <div class="projetos">
+            <article class="projeto" data-areas="educacao jogos">
+              <a href="https://linupedia.com.br" target="_blank" rel="noopener"><img src="../img/projetos/linupedia.webp" alt="LinuPediaのlinuhub：夜のLinuのキャンプをピクセルアートで。たき火と仲間たち" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">インストールできるアプリ</p>
+                <h3>LinuPedia</h3>
+                <p>語学アプリであり、遊べる百科事典。197言語と39の知識分野を収録。スマートフォンでもパソコンでもオフラインで使えます。</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="projetos/linupedia">制作の裏側</a>
+                  <a class="projeto-link" href="https://linupedia.com.br" target="_blank" rel="noopener">linupedia.com.br</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="industria">
+              <a href="https://v2tech.app.br" target="_blank" rel="noopener"><img src="../img/projetos/v2tech.webp" alt="V²Tech COMBUSTÍVELのトップページ。軽油の適正価格を表示" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">企業向けツール</p>
+                <h3>V²Tech COMBUSTÍVEL</h3>
+                <p>仕入れ先が請求する軽油、ガソリン、エタノールの価格が妥当かを、ペトロブラス、ブラジルの燃料規制当局、税務当局のデータを照合して確認します。</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="projetos/v2tech">制作の裏側</a>
+                  <a class="projeto-link" href="https://v2tech.app.br" target="_blank" rel="noopener">v2tech.app.br</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="comercio">
+              <a href="https://losveganaestrada.com.br" target="_blank" rel="noopener"><img src="../img/projetos/losvega.webp" alt="Los Vega na Estradaのトップページ。オーダーメイドの旅行プラン" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">管理画面つき販売サイト</p>
+                <h3>Los Vega na Estrada</h3>
+                <p>オーダーメイドの旅行プラン。お客様が旅の内容を入力するとすぐに料金が表示され、依頼は管理画面に届き、WhatsAppの返信文もすぐに用意されます。</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="projetos/losvega">制作の裏側</a>
+                  <a class="projeto-link" href="https://losveganaestrada.com.br" target="_blank" rel="noopener">losveganaestrada.com.br</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="educacao">
+              <a href="https://marginalia.blog.br" target="_blank" rel="noopener"><img src="../img/projetos/marginalia.webp" alt="Marginaliaのトップページ。歴史と人文学の出版物" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">デジタル出版</p>
+                <h3>Marginalia</h3>
+                <p>歴史と人文学の独立系マガジン。目次、検索、欄外の注、コピーできる参考文献表記つき。</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="projetos/marginalia">制作の裏側</a>
+                  <a class="projeto-link" href="https://marginalia.blog.br" target="_blank" rel="noopener">marginalia.blog.br</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="servicos">
+              <a href="https://iconvet.com.br" target="_blank" rel="noopener"><img src="../img/projetos/iconvet.webp" alt="Iconvetのトップページ。サルヴァドールの動物病院で、画像診断部門を紹介" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">企業サイト</p>
+                <h3>Iconvet</h3>
+                <p>ブラジル・サルヴァドールの動物病院。診療科、検査、サービス、専門分野を74ページで紹介し、WhatsAppと道順にワンタップでアクセスできます。</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="projetos/iconvet">制作の裏側</a>
+                  <a class="projeto-link" href="https://iconvet.com.br" target="_blank" rel="noopener">iconvet.com.br</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="servicos">
+              <a href="https://ajoriente.com" target="_blank" rel="noopener"><img src="../img/projetos/ajoriente.webp" alt="Administração Judicial Orienteのトップページ：「企業を新たな出発へ導く」" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">案件照会つきサイト</p>
+                <h3>Administração Judicial Oriente</h3>
+                <p>リオデジャネイロの破産管財業務。業務分野、企業ごとの案件照会、書式テンプレート、お問い合わせ。</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="projetos/ajoriente">制作の裏側</a>
+                  <a class="projeto-link" href="https://ajoriente.com" target="_blank" rel="noopener">ajoriente.com</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="jogos">
+              <a href="https://www.bjj-link.com" target="_blank" rel="noopener"><img src="../img/projetos/dojo-legacy.webp" alt="Dojo Legacyのトップページ：「白帯から畳の伝説へ」。パソコンとスマートフォンのゲーム画面" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">ブラウザ・スマホゲーム</p>
+                <h3>Dojo Legacy</h3>
+                <p>柔術とMMAのキャリアゲーム。ブラウザ、iPhone、Androidで無料。対人戦、チームリーグ、リアルタイムランキング付き。</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="projetos/dojo-legacy">制作の裏側</a>
+                  <a class="projeto-link" href="https://www.bjj-link.com" target="_blank" rel="noopener">bjj-link.com</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="servicos">
+              <a href="https://omega-site-vert.vercel.app/" target="_blank" rel="noopener"><img src="../img/projetos/omega.webp" alt="Ômega Imóveisのトップページ：「正しい場所がすべてを変える」。夕暮れのリオ南部" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">企業・紹介サイト</p>
+                <h3>Ômega Imóveis</h3>
+                <p>リオ南部の不動産会社。仕事の進め方と取り扱うエリアを1ページで紹介するサイトです。</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="projetos/omega">制作の裏側</a>
+                  <a class="projeto-link" href="https://omega-site-vert.vercel.app/" target="_blank" rel="noopener">omega-site-vert.vercel.app</a>
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="painel" id="estudo" role="tabpanel" aria-labelledby="aba-estudo">
+          <h3 class="painel-titulo">学習作品</h3>
+          <p class="secao-sub">大学で制作した作品です。企業は架空で、コードは公開しています。</p>
+          <div class="projetos">
+            <article class="projeto" data-areas="comercio">
+              <a href="https://cafe.linupedia.com.br/ja/" target="_blank" rel="noopener"><img src="../img/projetos/cafe-aurora.webp" alt="Café Auroraのトップページ：夜のサイバーパンク都市に青とピンクのネオンで店名" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">エフェクト付きサイト</p>
+                <h3>Café Aurora</h3>
+                <p>存在しないサイバーパンクなカフェ。オープニング画面、動く背景、メニュー、ドリンクを作るラボ付き。上のシミュレーターのサイトで、BootstrapとTailwind版もあります。</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="https://cafe.linupedia.com.br/ja/" target="_blank" rel="noopener">cafe.linupedia.com.br</a>
+                  <a class="projeto-link" href="https://github.com/Seiabras/cafe-aurora" target="_blank" rel="noopener">GitHubのコード</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="servicos">
+              <a href="https://cerrado.linupedia.com.br/ja/" target="_blank" rel="noopener"><img src="../img/projetos/fotografia-do-cerrado.webp" alt="Fotografia do Cerradoのトップページ：金色の草原にいるノガンモドキと、背景に咲くピンクのイペー" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">企業・紹介サイト</p>
+                <h3>Fotografia do Cerrado</h3>
+                <p>野生動物写真の会社。絞り込めるギャラリー、撮影ツアー、お問い合わせ。配色はセラード（ブラジルのサバンナ）から取り、すべての色をWCAGのコントラスト基準で確認しました。</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="https://cerrado.linupedia.com.br/ja/" target="_blank" rel="noopener">cerrado.linupedia.com.br</a>
+                  <a class="projeto-link" href="https://github.com/Seiabras/fotografia-do-cerrado" target="_blank" rel="noopener">GitHubのコード</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="educacao">
+              <a href="https://abelhas.linupedia.com.br/ja/" target="_blank" rel="noopener"><img src="../img/projetos/abelhas-sem-ferrao.webp" alt="Abelhas sem Ferrãoのトップページ：250種についての問いと、ジャタイ、ウルス、マンダサイアの写真" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">学習サイト</p>
+                <h3>Abelhas sem Ferrão</h3>
+                <p>ブラジルの針のないハチを知らない人のために：3分のツアー、巣を見つけたときにすること、小テスト。デザイン思考の演習から生まれました。</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="https://abelhas.linupedia.com.br/ja/" target="_blank" rel="noopener">abelhas.linupedia.com.br</a>
+                  <a class="projeto-link" href="https://github.com/Seiabras/abelhas-sem-ferrao" target="_blank" rel="noopener">GitHubのコード</a>
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Simulador: o Café Aurora (cafeteria fictícia) embutido, com as partes que ligam e desligam e o preço.
+         Os preços ficam em ferramentas/pagina/precos.json (o data-base e os data-preco saem dele); o js/simulador.js só soma. -->
+    <section class="secao" id="exemplo">
+      <div class="dentro">
+        <h2>オン・オフして、価格を見る</h2>
+        <p class="secao-sub">Café Auroraは、別の次元にある存在しないカフェです。サイトの機能をオン・オフすると、サイトも価格もすぐに変わります。</p>
+        <div class="simulador" data-base="1600">
+          <div class="simulador-lado">
+            <fieldset class="simulador-opcoes" aria-describedby="simulador-nota">
+              <legend class="simulador-titulo">サイトの機能</legend>
+              <label class="simulador-base"><input type="checkbox" checked disabled><span>トップ、紹介、メニュー、お問い合わせ</span><b>$1,600</b></label>
+              <label><input type="checkbox" name="modulo[]" value="depoimentos" data-preco="160" checked><span>お客様の声</span><b>+ $160</b></label>
+              <label><input type="checkbox" name="modulo[]" value="efeitos" data-preco="330" checked><span>エフェクト：動く背景、ネオン、カーソル</span><b>+ $330</b></label>
+              <label><input type="checkbox" name="modulo[]" value="cores" data-preco="160" checked><span>配色切り替えボタン</span><b>+ $160</b></label>
+              <label><input type="checkbox" name="modulo[]" value="laboratorio" data-preco="500" checked><span>ドリンクを作る（シミュレーター）</span><b>+ $500</b></label>
+              <label><input type="checkbox" name="modulo[]" value="assinatura" data-preco="330" checked><span>メールマガジン登録</span><b>+ $330</b></label>
+              <label><input type="checkbox" name="modulo[]" value="painel" data-preco="650"><span>自分で編集できる管理画面</span><b>+ $650</b></label>
+            </fieldset>
+            <div class="simulador-total" aria-live="polite">
+              <p><span>制作費（最低）</span> <b data-simulador-total>$3,080</b></p>
+              <p class="simulador-nota" id="simulador-nota">「サイトを組み立てる」と同じ参考価格です。月額プラン（$29から）は別途です。</p>
+              <a class="botao" href="#contato">このようなサイトがほしい</a>
+            </div>
+          </div>
+          <div class="simulador-tela">
+            <p class="simulador-barra" aria-hidden="true"><i></i><i></i><i></i><span>Café Aurora · 架空のサイト</span></p>
+            <iframe src="https://cafe.linupedia.com.br/ja/" title="Café Aurora、架空のカフェのサンプルサイト" width="960" height="640" loading="lazy"></iframe>
+          </div>
+        </div>
+        <p class="simulador-credito">Café Auroraは、大学の「インターフェース開発」の課題から生まれました。 <a href="https://cafe.linupedia.com.br/ja/" target="_blank" rel="noopener">全画面で開く</a></p>
+      </div>
+    </section>
+
+    <!-- Depoimentos: a seção fica escondida (hidden) até chegarem frases de verdade, com nome e projeto.
+         Cada depoimento é um <figure class="depoimento"> como este:
+         <figure class="depoimento">
+           <blockquote><p>[frase da pessoa]</p></blockquote>
+           <figcaption><b>[nome]</b>, [projeto]</figcaption>
+         </figure> -->
+    <section class="secao" id="depoimentos" hidden>
+      <div class="dentro">
+        <h2>お客様の声</h2>
+        <div class="depoimentos"></div>
+      </div>
+    </section>
+
+    <section class="secao" id="como">
+      <div class="dentro">
+        <h2>制作の流れ</h2>
+        <ol class="passos">
+          <li><b>ご相談</b><span>必要なこと、サイトの対象、解決したいことをお聞かせください。</span></li>
+          <li><b>ご提案</b><span>内容、期間、価格を書面でお届けします。</span></li>
+          <li><b>制作</b><span>最初から公開プレビューで進み具合を確認でき、途中で修正をご依頼いただけます。</span></li>
+          <li><b>公開</b><span>サイトを安全にお客様のドメインで公開し、その後も保守を続けます。</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="secao secao-gelo" id="duvidas">
+      <div class="dentro">
+        <h2>よくある質問</h2>
+        <p class="secao-sub">始める前によくいただく質問です。お客様のプロジェクトに当てはまる内容は、提案書に書面で記載します。</p>
+        <div class="faq">
+          <details>
+            <summary>どのくらいの期間がかかりますか？</summary>
+            <div class="faq-resposta">
+              <p>目安として、企業・紹介サイトは2〜3週間、管理画面つきのツールは1〜2か月、インストールできるアプリは2〜3か月です。正確な期間は、ご提案の際にお客様のプロジェクトに合わせてお伝えします。</p>
+            </div>
+          </details>
+          <details>
+            <summary>支払い方法は？</summary>
+            <div class="faq-resposta">
+              <p>ご提案の承認時に半額、お客様のドメインでの公開前に残りの半額を、国際送金（Wise）またはPayPalで米ドルにてお支払いいただきます。$5,500以上のプロジェクトは3回払い（開始時40%、プレビュー承認時30%、公開時30%）も可能です。</p>
+            </div>
+          </details>
+          <details>
+            <summary>毎月の支払いは必要ですか？</summary>
+            <div class="faq-resposta">
+              <p>はい。サイトは当社のサーバーで動いており、月額プランで公開を維持します。プランは2つです。<b>オンライン</b>（月額$29）はサーバー、セキュリティの鍵、ドメイン設定、バックアップを含みます。<b>ケア</b>（月額$59）はそれに加えて、更新作業と文章や写真の小さな修正を含みます。年払いなら10か月分の料金です。</p>
+            </div>
+          </details>
+          <details>
+            <summary>自分でサイトを編集できますか？</summary>
+            <div class="faq-resposta">
+              <p>できます。管理画面で、誰にも頼まずに文章や写真を変更でき、簡単な研修とガイドもお付けします。ツールとアプリには標準で含まれ、企業・紹介サイトでは追加$650です。新しいページの追加は当社が行います。</p>
+            </div>
+          </details>
+          <details>
+            <summary>ドメインは誰のものですか？</summary>
+            <div class="faq-resposta">
+              <p>お客様のものです。通常はお客様または御社の名義で（.jp、.com など）登録し、設定はすべて当社が行います。ご自身で管理したくない場合は、登録と更新も代行します。</p>
+            </div>
+          </details>
+          <details>
+            <summary>文章、写真、データはどうなりますか？</summary>
+            <div class="faq-resposta">
+              <p>お客様のものです。お送りいただいた素材、当社がサイト用に作成した文章と画像（お支払い後）、そして注文や登録などの利用者データ。コード、レイアウト、デザインはLinu Sitesに帰属し、月額プランが有効な間サイトをご利用いただけます。</p>
+            </div>
+          </details>
+          <details>
+            <summary>将来やめたくなったら？</summary>
+            <div class="faq-resposta">
+              <p>文章、画像、データをファイルでお渡しするので、そのまま持ち出せます。サイトをそのまま使い続けたい場合は、プロジェクトと同じ金額でコードを買い取ることもできます。縛りはありません。</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao contato" id="contato">
+      <div class="dentro contato-dentro">
+        <span class="contato-linu" data-pose="acenando" aria-hidden="true"><img class="pixel" src="../img/linu/linu-contato.png" alt="" width="552" height="190"></span>
+        <div>
+          <h2>あなたのサイトについてお聞かせください</h2>
+          <p>サイトを組み立てると、価格と期間の目安がすぐに表示されます。あとはWhatsAppかメールで送るだけで、メッセージはもう書かれています。アイデアだけでも大丈夫です。質問と次のステップをお返しします。私たちはブラジル（UTC−3、日本とは12時間差）にいます。1営業日以内に返信し、ビデオ通話はお客様の朝か夜に合わせて設定できます。</p>
+          <div class="monte" role="group" aria-label="サイトを組み立てる" aria-describedby="monte-nota">
+            <fieldset class="monte-grupo">
+              <legend class="monte-titulo">1. どんなプロジェクトですか？</legend>
+              <div class="monte-opcoes monte-unico">
+                <label><input type="radio" name="tipo" value="apresentacao" data-preco="1600" data-prazo="2〜3週間" data-nome="企業・紹介サイト"><span>企業・紹介サイト</span></label>
+                <label><input type="radio" name="tipo" value="ferramenta" data-preco="5500" data-prazo="1〜2か月" data-nome="管理画面つきツール"><span>管理画面つきツール</span></label>
+                <label><input type="radio" name="tipo" value="app" data-preco="8000" data-prazo="2〜3か月" data-nome="スマートフォンにインストールできるアプリ"><span>インストールできるアプリ</span></label>
+                <label><input type="radio" name="tipo" value="nao-sei" data-nome="種類はまだ未定"><span>まだわからない</span></label>
+              </div>
+            </fieldset>
+            <fieldset class="monte-grupo">
+              <legend class="monte-titulo">2. 必要な機能は？</legend>
+              <div class="monte-opcoes">
+                <label><input type="checkbox" name="item[]" value="文章と写真を変更できる管理画面" data-preco-apresentacao="650"><span>自分で編集できる管理画面</span></label>
+                <label><input type="checkbox" name="item[]" value="注文・見積もりフォーム"><span>注文フォーム</span></label>
+                <label><input type="checkbox" name="item[]" value="計算・シミュレーター"><span>計算・シミュレーター</span></label>
+                <label><input type="checkbox" name="item[]" value="ログイン付きの会員エリア"><span>会員ログイン</span></label>
+                <label><input type="checkbox" name="item[]" value="ブログ・記事"><span>ブログ・記事</span></label>
+                <label><input type="checkbox" name="item[]" value="WhatsAppやメールでの通知"><span>WhatsApp・メール通知</span></label>
+              </div>
+            </fieldset>
+            <fieldset class="monte-grupo">
+              <legend class="monte-titulo">3. 公開後</legend>
+              <div class="monte-opcoes monte-unico">
+                <label><input type="radio" name="plano" value="29" data-nome="オンラインプラン" checked><span>オンライン · $29／月</span></label>
+                <label><input type="radio" name="plano" value="59" data-nome="ケアプラン"><span>ケア · $59／月</span></label>
+              </div>
+              <label class="monte-ano"><input type="checkbox" name="anual"><span>年払いにする（10か月分）</span></label>
+            </fieldset>
+            <div class="monte-total" aria-live="polite">
+              <p class="monte-resumo">種類を選ぶと目安が表示されます</p>
+              <dl class="monte-numeros" hidden>
+                <div><dt>制作費</dt><dd><span data-total>$0</span></dd></div>
+                <div><dt>期間</dt><dd data-prazo>—</dd></div>
+                <div><dt>月額</dt><dd data-mensal>—</dd></div>
+              </dl>
+              <p class="monte-nota" id="monte-nota">「最低価格」の参考値です。それ以上の内容は、正確な価格とともに書面のご提案に記載します。ドメイン（年約$15）は別途です。</p>
+            </div>
+          </div>
+          <div class="botoes contato-botoes">
+            <a class="botao botao-grande botao-whatsapp monte-whats" href="https://wa.me/5561996672610?text=%E3%81%93%E3%82%93%E3%81%AB%E3%81%A1%E3%81%AF%E3%80%82%E3%82%A6%E3%82%A7%E3%83%96%E3%82%B5%E3%82%A4%E3%83%88%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E7%9B%B8%E8%AB%87%E3%81%95%E3%81%9B%E3%81%A6%E3%81%8F%E3%81%A0%E3%81%95%E3%81%84%E3%80%82" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z" /></svg>
+              <span>WhatsApp <span class="sem-quebra">+55 61 99667-2610</span></span>
+            </a>
+            <a class="botao botao-grande botao-contorno-claro monte-enviar" href="mailto:contato@linupedia.com.br?subject=%E3%82%A6%E3%82%A7%E3%83%96%E3%82%B5%E3%82%A4%E3%83%88%E5%88%B6%E4%BD%9C%E3%81%AE%E3%81%94%E7%9B%B8%E8%AB%87">contato@linupedia.com.br</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="dentro rodape-dentro">
+      <p><b>Linu Sites</b> · オーダーメイドのウェブサイトとウェブアプリ</p>
+      <p>運営： <a href="https://linupedia.com.br">LinuPedia</a></p>
+    </div>
+  </footer>
+</body>
+</html>

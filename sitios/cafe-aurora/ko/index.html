@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Café Aurora — 다른 차원의 사이버펑크 카페</title>
+<meta name="description" content="Café Aurora, 가상의 사이버펑크 카페: Linu Sites의 예시 사이트입니다.">
+<meta name="theme-color" content="#05030a">
+<link rel="canonical" href="https://cafe.linupedia.com.br/ko/">
+<link rel="alternate" hreflang="pt-BR" href="https://cafe.linupedia.com.br/">
+<link rel="alternate" hreflang="pt-PT" href="https://cafe.linupedia.com.br/pt-pt/">
+<link rel="alternate" hreflang="es-ES" href="https://cafe.linupedia.com.br/es/">
+<link rel="alternate" hreflang="ca" href="https://cafe.linupedia.com.br/ca/">
+<link rel="alternate" hreflang="nl" href="https://cafe.linupedia.com.br/nl/">
+<link rel="alternate" hreflang="en-GB" href="https://cafe.linupedia.com.br/en/">
+<link rel="alternate" hreflang="fr-FR" href="https://cafe.linupedia.com.br/fr/">
+<link rel="alternate" hreflang="de-DE" href="https://cafe.linupedia.com.br/de/">
+<link rel="alternate" hreflang="it-IT" href="https://cafe.linupedia.com.br/it/">
+<link rel="alternate" hreflang="en" href="https://cafe.linupedia.com.br/intl/">
+<link rel="alternate" hreflang="ja-JP" href="https://cafe.linupedia.com.br/ja/">
+<link rel="alternate" hreflang="ko-KR" href="https://cafe.linupedia.com.br/ko/">
+<link rel="alternate" hreflang="zh-Hant" href="https://cafe.linupedia.com.br/zh-hant/">
+<!-- Os textos que o script escreve (abertura, bebidas, assinatura, painel), no idioma da página -->
+<script type="application/json" id="textos-cafe">{"boot":["포털을 여는 중…","양자 분쇄 보정 중…","Ω-11 원두 동기화 중…","증기 원자로 예열 중…","틈에 오신 걸 환영합니다."],"news_erro":"잘못된 신호입니다. 이메일 좌표를 확인하세요.","news_ok":"신호를 받았습니다. 다른 차원에서 연락드리겠습니다.","terminar":"✓ 완료","painel_aviso":"글을 클릭해서 바꿔 보세요. 실제 관리자 화면에서는 바꾼 내용이 저장됩니다.","d_boot":["오븐에 불을 켜는 중…","틈을 닫는 중…","Ω-11 반죽을 치대는 중…","껍질이 노릇해지길 기다리는 중…","좋은 아침입니다."],"d_pao":["태양 밀빵","황혼 호밀빵","궤도 통밀빵","별빛 브리오슈"],"d_min":"{n}분","expresso":"양자 에스프레소","coldbrew":"뉴럴 콜드브루","matcha":"공허의 말차","estelar":"별빛 우유","nivel":"레벨","editar":"✎ 글 수정"}</script>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<link rel="icon" href="../icone.png" type="image/png" sizes="128x128">
+<link rel="preload" href="../fontes/orbitron.woff2" as="font" type="font/woff2" crossorigin>
+<!-- Site de exemplo do Linu Sites: o Café Aurora não existe. De dia (6h–18h) ele vira a Padaria Aurora: cada texto
+     que muda tem as duas versões, .so-noite e .so-dia, e o data-modo do <html> esconde uma delas (ver inicio.js). Na página principal, ele aparece embutido
+     (iframe) no simulador de preço, que liga e desliga as partes dele (ver script.js, "módulos"). -->
+<script src="../inicio.js?v=2"></script>
+<link rel="stylesheet" href="../estilo.css?v=3">
+<script src="../script.js?v=4" defer></script>
+</head>
+
+<body>
+<a class="skip" href="#conteudo">본문으로 건너뛰기</a>
+
+<!-- BOOT -->
+<div class="boot" id="boot" role="status" aria-live="polite">
+  <div class="boot__logo"><span class="so-noite">CAFÉ AURORA</span><span class="so-dia">AURORA BAKERY</span></div>
+  <div class="boot__bar"><div class="boot__fill" id="bootFill"></div></div>
+  <div class="boot__log" id="bootLog"><span class="so-noite">포털을 여는 중…</span><span class="so-dia">오븐에 불을 켜는 중…</span></div>
+</div>
+
+<!-- CURSOR -->
+<div class="cur" id="cur" aria-hidden="true"></div>
+<div class="cur-dot" id="curDot" aria-hidden="true"></div>
+
+<!-- FUNDO -->
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="bg-veil" aria-hidden="true"></div>
+<div class="noise" aria-hidden="true"></div>
+<div class="scanlines" aria-hidden="true"></div>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <a href="#inicio" class="brand" aria-label="Café Aurora — 홈" data-aria-dia="오로라 베이커리 — 처음으로">
+    <span class="brand__orb" aria-hidden="true"></span>
+    <span class="so-noite">CAFÉ&nbsp;AURORA</span><span class="so-dia">AURORA BAKERY</span>
+  </a>
+
+  <nav class="nav__links" id="navLinks" aria-label="주 메뉴">
+    <a href="#inicio" class="active">홈</a>
+    <a href="#sobre">기원</a>
+    <a href="#menu">메뉴</a>
+    <a href="#laboratorio"><span class="so-noite">실험실</span><span class="so-dia">오븐</span></a>
+    <a href="#transmissoes"><span class="so-noite">교신 기록</span><span class="so-dia">쪽지</span></a>
+  </nav>
+
+  <div class="nav__right">
+    <button type="button" class="modo" id="modo" aria-label="베이커리 열기 (낮 모드)" title="베이커리 열기 (낮 모드)"
+            data-para-dia="베이커리 열기 (낮 모드)" data-para-noite="카페로 돌아가기 (밤 모드)">
+      <span class="modo__astro" aria-hidden="true"></span>
+    </button>
+    <a href="#laboratorio" class="btn btn--magenta magnetic">지금 주문</a>
+    <button type="button" class="burger" id="burger" aria-label="메뉴 열기" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero__halo" aria-hidden="true"></div>
+    <div class="hero__rings" aria-hidden="true"><i></i><i></i><i></i></div>
+
+    <div>
+      <span class="hero__tag reveal"><span class="so-noite">☕ <b>24시간 영업</b> · 섹터 네온-07 · 차원 Ω</span><span class="so-dia">🥐 <b>아침 6시</b> 첫 빵 · 태양 섹터-07 · 차원 ☉</span></span>
+
+      <h1 class="glitch" data-text="CAFÉ&#10;AURORA">
+        <span><span class="so-noite">CAFÉ</span><span class="so-dia">AURORA</span></span>
+        <span><span class="so-noite">AURORA</span><span class="so-dia">BAKERY</span></span>
+      </h1>
+
+      <p class="hero__sub reveal" data-d="1">
+        <span class="so-noite"><b>평행 세계</b>에서 수확한 원두를 볶습니다. 한 잔 한 잔이 작은 양자 붕괴입니다. 그리고 당신의 입맛만이 유일한 상수죠.</span><span class="so-dia">해가 뜨면 틈이 닫히고 오븐에 불이 들어옵니다. <b>평행 우주</b>에서 빻은 밀가루로 빵을 굽습니다. 한 조각 한 조각이 따뜻하고 바삭하며, 시간에서 아주 살짝 벗어나 있습니다.</span>
+      </p>
+
+      <div class="hero__cta reveal" data-d="2">
+        <a href="#menu" class="btn magnetic"><span class="so-noite">메뉴 보기</span><span class="so-dia">갓 구운 빵 보기</span></a>
+        <a href="#sobre" class="btn btn--ghost magnetic"><span class="so-noite">포털 통과하기</span><span class="so-dia">베이커리 둘러보기</span></a>
+      </div>
+
+      <div class="hero__stats reveal" data-d="3">
+        <div><b>12</b><span class="so-noite">활성 차원</span><span class="so-dia">하루에 굽는 횟수</span></div>
+        <div><b>98.4%</b><span class="so-noite">양자 정밀도</span><span class="so-dia">측정한 바삭함</span></div>
+        <div><b>∞</b><span class="so-noite">꿈 리필</span><span class="so-dia">용서한 빵부스러기</span></div>
+      </div>
+    </div>
+
+    <div class="scroll-hint" aria-hidden="true">
+      <span>스크롤</span>
+      <i></i>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track so-noite">
+      <span>양자 에스프레소</span><span>플라스마 라테</span><span>뉴럴 콜드브루</span><span>공허의 말차</span><span>별빛 우유</span><span>혜성 가루</span>
+      <span>양자 에스프레소</span><span>플라스마 라테</span><span>뉴럴 콜드브루</span><span>공허의 말차</span><span>별빛 우유</span><span>혜성 가루</span>
+    </div>
+    <div class="marquee__track so-dia">
+      <span>2087겹 크루아상</span><span>무중력 식빵</span><span>궤도 바게트</span><span>성운 크림빵</span><span>일식 도넛</span><span>양자 치즈빵</span>
+      <span>2087겹 크루아상</span><span>무중력 식빵</span><span>궤도 바게트</span><span>성운 크림빵</span><span>일식 도넛</span><span>양자 치즈빵</span>
+    </div>
+  </div>
+
+  <!-- SOBRE -->
+  <section class="section" id="sobre">
+    <div class="about">
+      <div class="about__text">
+        <span class="eyebrow reveal">기원</span>
+        <h2 class="reveal" data-d="1"><span class="so-noite">두 세계 사이의 <em>합선</em>에서 태어났습니다</span><span class="so-dia">낮이 되면 틈은 <em>오븐</em>이 됩니다</span></h2>
+
+        <div class="reveal" data-d="2">
+          <p class="lead so-noite">2087년, <strong>아우로라 벡스</strong>라는 바리스타가 워프 원자로에 커피를 쏟았습니다. 결과는 폭발이 아니라 향기였습니다.</p>
+          <p class="so-noite">그 향기가 틈을 열었습니다. 건너편에는 우리와 똑같은 도시가 있었지만, 그곳의 불빛은 생각했고 비는 기억했습니다. 지금 내리는 원두는 그곳에서 찾았습니다.</p>
+          <p class="so-noite"><strong>Café Aurora</strong>는 두 도시가 만나는 유일한 곳입니다. 여기서는 김이 천천히 오르고, 시간도 몇 분쯤 멈춰 줍니다. 두 번째 잔을 주문한다면요.</p>
+          <p class="lead so-dia">매일 아침, 우리 태양과 Ω-11의 태양이 함께 뜨면, <strong>아우로라 벡스</strong>가 커피로 연 틈은 오븐 문만 한 크기로 줄어듭니다.</p>
+          <p class="so-dia">저편에서 새어 나오는 열은 버리지 않습니다. 빵을 굽지요. 첫 빵은 여섯 시에 나오고, 그 냄새는 어떤 알람보다 먼저 두 도시를 가로지릅니다.</p>
+          <p class="so-dia"><strong>오로라 베이커리</strong>는 카페와 같은 곳의 낮 모습입니다. 밤의 바리스타는 제빵사가 되고, 카운터는 진열장이 되며, 네온은 해가 질 때까지 쉽니다.</p>
+        </div>
+      </div>
+
+      <div class="portal reveal" data-d="3" aria-hidden="true">
+        <div class="portal__ring"></div>
+        <div class="portal__ring"></div>
+        <div class="portal__ring"></div>
+        <div class="portal__core"></div>
+        <span class="portal__label"><span class="so-noite">안정된 틈 · 3.2 nm</span><span class="so-dia">오븐 안정 · 220 °C</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="section" id="menu">
+    <span class="eyebrow reveal">메뉴</span>
+    <h2 class="reveal" data-d="1"><span class="so-noite"><em>어디에도 없는</em> 블렌드</span><span class="so-dia">시간이 흐르길 <em>기다리지 않는</em> 빵</span></h2>
+    <p class="lead reveal" data-d="2">
+      <span class="so-noite">서로 다른 뇌파에 맞춘 여섯 가지 레시피. 모두 스스로 재생되는 컵에 담아 드립니다.</span><span class="so-dia">하루에도 몇 번씩 오븐에서 나오는 여섯 가지 레시피. 모두 몇 시간, 혹은 몇 차원 동안 온기를 지켜 주는 종이에 싸 드립니다.</span>
+    </p>
+
+    <div class="menu-grid">
+      <article class="card reveal tilt" data-d="1">
+        <div class="card__top">
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">⚡</span><span class="so-dia">🥐</span></div>
+          <span class="card__id"><span class="so-noite">LX-001</span><span class="so-dia">FN-001</span></span>
+        </div>
+        <h3><span class="so-noite">양자 에스프레소</span><span class="so-dia">2087겹 크루아상</span></h3>
+        <p class="so-noite">서로 다른 우주에서 동시에 추출한 두 잔. 당신은 그 평균을 맛봅니다.</p>
+        <p class="so-dia">반죽을 2087번 접습니다. 틈이 열리기까지의 한 해에 한 번씩. 한 입마다 현실의 다른 층이 바삭 소리를 냅니다.</p>
+        <div class="card__foot">
+          <span class="card__price"><span class="so-noite">₡ 18</span><span class="so-dia">₡ 9</span></span>
+          <span class="card__tag"><span class="so-noite">진함</span><span class="so-dia">결이 살아 있는</span></span>
+        </div>
+      </article>
+
+      <article class="card card--m reveal tilt" data-d="2">
+        <div class="card__top">
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">🌌</span><span class="so-dia">🍞</span></div>
+          <span class="card__id"><span class="so-noite">LX-014</span><span class="so-dia">FN-006</span></span>
+        </div>
+        <h3><span class="so-noite">플라스마 라테</span><span class="so-dia">무중력 식빵</span></h3>
+        <p class="so-noite">자기장 속에서 340 °C로 스팀한 우유. 저으면 은은하게 빛납니다.</p>
+        <p class="so-dia">아래로 끌어당기는 것 없이 떠 있는 채로 72시간 발효. 너무 가벼워서 접시에 묶어서 드립니다.</p>
+        <div class="card__foot">
+          <span class="card__price"><span class="so-noite">₡ 24</span><span class="so-dia">₡ 7</span></span>
+          <span class="card__tag"><span class="so-noite">반짝임</span><span class="so-dia">가벼운</span></span>
+        </div>
+      </article>
+
+      <article class="card card--v reveal tilt" data-d="3">
+        <div class="card__top">
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">❄️</span><span class="so-dia">🥖</span></div>
+          <span class="card__id"><span class="so-noite">LX-027</span><span class="so-dia">FN-012</span></span>
+        </div>
+        <h3><span class="so-noite">뉴럴 콜드브루</span><span class="so-dia">궤도 바게트</span></h3>
+        <p class="so-noite">감각 차단실에서 72시간 우려냈습니다. 당신의 집중 리듬에 맞춰집니다.</p>
+        <p class="so-dia">궤도 오븐을 한 바퀴 돌며 구워 냅니다. 누르면 껍질이 노래합니다.</p>
+        <div class="card__foot">
+          <span class="card__price"><span class="so-noite">₡ 22</span><span class="so-dia">₡ 8</span></span>
+          <span class="card__tag"><span class="so-noite">명료함</span><span class="so-dia">바삭한</span></span>
+        </div>
+      </article>
+
+      <article class="card card--a reveal tilt" data-d="4">
+        <div class="card__top">
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">🍃</span><span class="so-dia">🧁</span></div>
+          <span class="card__id"><span class="so-noite">LX-033</span><span class="so-dia">FN-019</span></span>
+        </div>
+        <h3><span class="so-noite">공허의 말차</span><span class="so-dia">성운 크림빵</span></h3>
+        <p class="so-noite">빛이 없는 곳에서 자란 잎. 향보다 맛이 먼저 옵니다. 이유는 묻지 마세요.</p>
+        <p class="so-dia">은은하게 빛나는 크림을 채우고 별 설탕을 뿌렸습니다. 증발하기로 마음먹기 전에 드세요.</p>
+        <div class="card__foot">
+          <span class="card__price"><span class="so-noite">₡ 26</span><span class="so-dia">₡ 6</span></span>
+          <span class="card__tag"><span class="so-noite">신비로움</span><span class="so-dia">달콤한</span></span>
+        </div>
+      </article>
+
+      <article class="card card--m reveal tilt" data-d="5">
+        <div class="card__top">
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">✨</span><span class="so-dia">🍩</span></div>
+          <span class="card__id"><span class="so-noite">LX-042</span><span class="so-dia">FN-024</span></span>
+        </div>
+        <h3><span class="so-noite">별빛 우유</span><span class="so-dia">일식 도넛</span></h3>
+        <p class="so-noite">카페인 없음. 응축된 별가루와 약간의 그리움으로 만들었습니다.</p>
+        <p class="so-dia">속이 언제나 그늘에 있는 도넛. 겉은 설탕, 속은 약간의 밤.</p>
+        <div class="card__foot">
+          <span class="card__price"><span class="so-noite">₡ 20</span><span class="so-dia">₡ 5</span></span>
+          <span class="card__tag"><span class="so-noite">부드러움</span><span class="so-dia">희귀한</span></span>
+        </div>
+      </article>
+
+      <article class="card card--v reveal tilt" data-d="5">
+        <div class="card__top">
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">☄️</span><span class="so-dia">🧀</span></div>
+          <span class="card__id"><span class="so-noite">LX-050</span><span class="so-dia">FN-031</span></span>
+        </div>
+        <h3><span class="so-noite">혜성 가루</span><span class="so-dia">양자 치즈빵</span></h3>
+        <p class="so-noite">궤도 얼음 조각을 넣은 트리플 샷. 얼음은 절대 녹지 않습니다. 그냥 포기할 뿐.</p>
+        <p class="so-dia">누군가 봉지를 열기 전까지 뜨거우면서 차갑습니다. 열면 언제나 뜨겁습니다.</p>
+        <div class="card__foot">
+          <span class="card__price"><span class="so-noite">₡ 31</span><span class="so-dia">₡ 4</span></span>
+          <span class="card__tag"><span class="so-noite">희귀</span><span class="so-dia">클래식</span></span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- LABORATÓRIO -->
+  <section class="section" id="laboratorio">
+    <span class="eyebrow reveal"><span class="so-noite">실험실</span><span class="so-dia">오븐</span></span>
+    <h2 class="reveal" data-d="1"><span class="so-noite"><em>나만의</em> 한 잔을 합성하세요</span><span class="so-dia"><em>나만의</em> 빵 만들기</span></h2>
+    <p class="lead reveal" data-d="2">
+      <span class="so-noite">값을 조절해 보세요. 음료가 실시간으로 다시 계산됩니다. 여기서는 모든 게 그렇죠.</span><span class="so-dia">밀가루, 굽는 시간, 토핑을 고르세요. 고르는 동안 껍질이 노릇하게 익어 갑니다.</span>
+    </p>
+
+    <div class="lab">
+      <!-- Painel -->
+      <div class="lab__panel reveal" data-d="2" id="labForm" role="group" aria-label="음료 만들기" data-aria-dia="나만의 빵 만들기">
+        <div class="lab__group">
+          <div class="lab__label"><span><span class="so-noite">01 · 분자 베이스</span><span class="so-dia">01 · 밀가루</span></span></div>
+          <div class="chips" role="radiogroup" aria-label="분자 베이스" data-aria-dia="밀가루">
+            <label class="chip">
+              <input type="radio" name="base" value="expresso" checked>
+              <span><span class="so-noite">에스프레소</span><span class="so-dia">밀</span></span>
+            </label>
+            <label class="chip">
+              <input type="radio" name="base" value="coldbrew">
+              <span><span class="so-noite">콜드브루</span><span class="so-dia">호밀</span></span>
+            </label>
+            <label class="chip">
+              <input type="radio" name="base" value="matcha">
+              <span><span class="so-noite">말차</span><span class="so-dia">통밀</span></span>
+            </label>
+            <label class="chip">
+              <input type="radio" name="base" value="estelar">
+              <span><span class="so-noite">별빛 우유</span><span class="so-dia">별빛 브리오슈</span></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="lab__group">
+          <div class="lab__label">
+            <span><span class="so-noite">02 · 양자 강도</span><span class="so-dia">02 · 굽는 시간</span></span>
+            <b id="intVal">7</b>
+          </div>
+          <input type="range" id="intensity" min="1" max="10" value="7"
+                 aria-label="양자 강도, 1부터 10까지" data-aria-dia="굽는 시간, 1에서 10까지">
+        </div>
+
+        <div class="lab__group">
+          <div class="lab__label"><span><span class="so-noite">03 · 토핑</span><span class="so-dia">03 · 토핑</span></span></div>
+          <div class="chips">
+            <label class="chip">
+              <input type="checkbox" name="top[]" value="혜성 가루" data-cob="1">
+              <span><span class="so-noite">혜성 가루</span><span class="so-dia">참깨</span></span>
+            </label>
+            <label class="chip">
+              <input type="checkbox" name="top[]" value="플라스마 거품" data-cob="2">
+              <span><span class="so-noite">플라스마 거품</span><span class="so-dia">버터</span></span>
+            </label>
+            <label class="chip">
+              <input type="checkbox" name="top[]" value="설탕 결정" data-cob="3">
+              <span><span class="so-noite">설탕 결정</span><span class="so-dia">치즈</span></span>
+            </label>
+            <label class="chip">
+              <input type="checkbox" name="top[]" value="네온 꽃" data-cob="4">
+              <span><span class="so-noite">네온 꽃</span><span class="so-dia">혜성 설탕</span></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="lab__result">
+          <small><span class="so-noite">합성기 출력</span><span class="so-dia">오븐에서 막 나온 빵</span></small>
+          <div id="drinkName">양자 에스프레소 · 레벨 VII</div>
+          <span id="drinkPrice">₡ 21.50</span>
+        </div>
+      </div>
+
+      <!-- Xícara -->
+      <div class="cup-stage reveal" data-d="3">
+        <div class="cup-wrap so-noite">
+          <div class="cup-glow" id="cupGlow" aria-hidden="true"></div>
+          <div class="steam" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="cup">
+            <div class="liquid" id="liquid"></div>
+          </div>
+          <div class="saucer" aria-hidden="true"></div>
+
+          <span class="badge-float">temp · 68 °C</span>
+          <span class="badge-float">ph · 5.4</span>
+          <span class="badge-float">dim · Ω-07</span>
+        </div>
+
+        <!-- O pão (modo dia): a casca doura com o tempo de forno; cada cobertura é uma classe com-N -->
+        <div class="pao-wrap so-dia">
+          <div class="cup-glow" id="forno" aria-hidden="true"></div>
+          <div class="steam" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="pao" id="pao" aria-hidden="true">
+            <i class="pao__queijo"></i><i class="pao__manteiga"></i>
+          </div>
+          <div class="tabua" aria-hidden="true"></div>
+
+          <span class="badge-float">forno · 220 °C</span>
+          <span class="badge-float">fermento · 72 h</span>
+          <span class="badge-float">dim · ☉-07</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANSMISSÕES -->
+  <section class="section" id="transmissoes">
+    <span class="eyebrow reveal"><span class="so-noite">교신 기록</span><span class="so-dia">쪽지</span></span>
+    <h2 class="reveal" data-d="1"><span class="so-noite"><em>다른</em> 차원에서 잡힌 목소리</span><span class="so-dia"><em>카운터</em>에 남긴 쪽지</span></h2>
+
+    <div class="trans-grid">
+      <blockquote class="trans reveal" data-d="1">
+        <q><span class="so-noite">양자 에스프레소를 주문했더니 겪어 본 적 없는 어린 시절이 기억나기 시작했어요. 추천합니다. 내일 또 올게요. 아니면 어제.</span><span class="so-dia">크루아상을 샀는데, 겹 사이에서 내일 제가 직접 쓸 쪽지가 나왔어요. 정말 맛있었어요.</span></q>
+        <footer><b><span class="so-noite">Kira-09</span><span class="so-dia">Tomás-06</span></b><span class="so-noite">섹터 네온-07</span><span class="so-dia">태양 섹터-07</span></footer>
+      </blockquote>
+
+      <blockquote class="trans reveal" data-d="2">
+        <q><span class="so-noite">제가 울자 플라스마 라테가 빛났어요. 서로 민망했지만 맛은 완벽했습니다.</span><span class="so-dia">무중력 식빵이 천장까지 떠올랐어요. 내려올 때까지 기다렸다가 아침을 먹었죠. 내일 또 올게요.</span></q>
+        <footer><b><span class="so-noite">Dr. Halven</span><span class="so-dia">Odila Prax</span></b><span class="so-noite">기억 클리닉</span><span class="so-dia">광장 시계방</span></footer>
+      </blockquote>
+
+      <blockquote class="trans reveal" data-d="3">
+        <q><span class="so-noite">커피만 사러 왔어요. 시간에 관한 이론 하나와, 비워지기를 거부하는 컵을 들고 나왔습니다.</span><span class="so-dia">치즈빵 하나를 주문했는데 두 개를 들고 나왔어요. 여기 것 하나, 저기 것 하나. 둘 다 따끈따끈.</span></q>
+        <footer><b>익명</b><span class="so-noite">차원 Ω-11</span><span class="so-dia">차원 ☉-03</span></footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2 class="reveal"><span class="so-noite">틈은 <em>늦게까지</em> 열려 있습니다</span><span class="so-dia">오븐은 <em>여섯 시</em>에 켜집니다</span></h2>
+    <p class="reveal" data-d="1">
+      <span class="so-noite">예약은 필요 없습니다. 잘못된 문을 지날 용기만 있으면 됩니다.</span><span class="so-dia">일찍 오세요. 첫 빵은 해가 다 뜨기도 전에 동이 납니다.</span>
+    </p>
+    <div class="hero__cta reveal" data-d="2">
+      <a href="#menu" class="btn btn--magenta magnetic">전체 메뉴 보기</a>
+      <a href="#inicio" class="btn btn--ghost magnetic">맨 위로</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="foot">
+    <div>
+      <div class="brand">
+        <span class="brand__orb" aria-hidden="true"></span><span class="so-noite">CAFÉ AURORA</span><span class="so-dia">AURORA BAKERY</span>
+      </div>
+      <p><span class="so-noite">2087년부터 이어진 차원 간 로스터리. 동의한 우주에서 윤리적으로 수확한 원두.</span><span class="so-dia">2087년부터 이어 온 차원 간 베이커리. 동의해 준 우주에서 윤리적으로 빻은 밀가루를 씁니다.</span></p>
+
+      <form class="newsletter" id="newsForm" novalidate>
+        <label class="sr-only" for="email">신호를 받을 이메일</label>
+        <input type="email" id="email" placeholder="you@email.dim" autocomplete="email" required>
+        <button type="submit" class="btn magnetic">구독</button>
+      </form>
+      <p id="newsMsg" role="status" aria-live="polite" class="news-msg"></p>
+    </div>
+
+    <div>
+      <h4>좌표</h4>
+      <ul>
+        <li>벡스로 2087 — 섹터 네온-07</li>
+        <li>로어 메트로폴리스 · 지하 3층</li>
+        <li>방금 전까지 없던 문으로 입장</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>영업시간</h4>
+      <ul>
+        <li><span class="so-noite">월–금 · 06:00 — 04:00</span><span class="so-dia">매일 · 06:00 — 18:00</span></li>
+        <li><span class="so-noite">토–일 · 항상</span><span class="so-dia">첫 빵 · 06:00 정각</span></li>
+        <li><span class="so-noite">차원 공휴일 · 휴무</span><span class="so-dia">해가 진 뒤 · 카페가 문을 엽니다</span></li>
+      </ul>
+      <h4 class="foot__h4-espaco">신호</h4>
+      <ul>
+        <li><a href="#inicio">@cafeaurora.omega</a></li>
+        <li><a href="#inicio">+Ω 07 2087-0000</a></li>
+      </ul>
+    </div>
+
+    <div class="foot__bottom">
+      <span>© <span id="year"></span> <span class="so-noite">Café Aurora</span><span class="so-dia">오로라 베이커리</span> <span class="dot">◆</span> 모든 우주의 권리 보유</span>
+      <span>가상의 카페 · 예시 사이트 제작: <a href="https://sites.linupedia.com.br/ko/" target="_top">Linu Sites</a></span>
+    </div>
+  </footer>
+</main>
+
+<!-- PAINEL DE DIMENSÃO -->
+<aside class="dim" id="dim" aria-label="색상 차원 조절">
+  <button type="button" class="dim__head" id="dimHead" aria-expanded="true" aria-controls="dimBody">
+    <span class="dim__titulo"><i aria-hidden="true"></i>차원 맞추기</span>
+    <span aria-hidden="true" id="dimChevron">▾</span>
+  </button>
+  <div class="dim__body" id="dimBody">
+    <label for="hue">색상 이동 · <span id="hueVal">0°</span></label>
+    <input type="range" id="hue" min="-70" max="70" value="0" aria-label="색상 이동(도)">
+    <p class="dim__hint">드래그해서 카페의 색을 바꿔 보세요. 아무것도 망가지지 않습니다. 아마도.</p>
+  </div>
+</aside>
+
+<!-- PAINEL (módulo "painel para mexer sozinho"): só aparece quando o simulador liga o módulo -->
+<div class="painel-demo" id="painelDemo" hidden>
+  <button type="button" class="painel-demo__botao" id="painelBotao" aria-pressed="false">✎ 글 수정</button>
+  <p class="painel-demo__aviso" id="painelAviso" role="status" aria-live="polite"></p>
+</div>
+
+</body>
+</html>

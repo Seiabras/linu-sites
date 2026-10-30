@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="ja-JP">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Café Aurora — 異次元のサイバーパンク・カフェ</title>
+<meta name="description" content="Café Aurora：架空のサイバーパンク・カフェ。Linu Sitesのサンプルサイトです。">
+<meta name="theme-color" content="#05030a">
+<link rel="canonical" href="https://cafe.linupedia.com.br/ja/">
+<link rel="alternate" hreflang="pt-BR" href="https://cafe.linupedia.com.br/">
+<link rel="alternate" hreflang="pt-PT" href="https://cafe.linupedia.com.br/pt-pt/">
+<link rel="alternate" hreflang="es-ES" href="https://cafe.linupedia.com.br/es/">
+<link rel="alternate" hreflang="ca" href="https://cafe.linupedia.com.br/ca/">
+<link rel="alternate" hreflang="nl" href="https://cafe.linupedia.com.br/nl/">
+<link rel="alternate" hreflang="en-GB" href="https://cafe.linupedia.com.br/en/">
+<link rel="alternate" hreflang="fr-FR" href="https://cafe.linupedia.com.br/fr/">
+<link rel="alternate" hreflang="de-DE" href="https://cafe.linupedia.com.br/de/">
+<link rel="alternate" hreflang="it-IT" href="https://cafe.linupedia.com.br/it/">
+<link rel="alternate" hreflang="en" href="https://cafe.linupedia.com.br/intl/">
+<link rel="alternate" hreflang="ja-JP" href="https://cafe.linupedia.com.br/ja/">
+<link rel="alternate" hreflang="ko-KR" href="https://cafe.linupedia.com.br/ko/">
+<link rel="alternate" hreflang="zh-Hant" href="https://cafe.linupedia.com.br/zh-hant/">
+<!-- Os textos que o script escreve (abertura, bebidas, assinatura, painel), no idioma da página -->
+<script type="application/json" id="textos-cafe">{"boot":["ポータルを起動中…","量子挽きを調整中…","Ω-11の豆を同期中…","蒸気炉を予熱中…","裂け目へようこそ。"],"news_erro":"無効なシグナルです。メールアドレスの座標を確認してください。","news_ok":"シグナルを受信しました。別の次元からご連絡します。","terminar":"✓ 完了","painel_aviso":"テキストをクリックして書き換えてください。本物の管理画面では、変更が保存されます。","d_boot":["オーブンに火を入れています…","裂け目を閉じています…","Ω-11の生地をこねています…","皮が色づくのを待っています…","おはようございます。"],"d_pao":["太陽の小麦パン","薄明のライ麦パン","軌道の全粒粉パン","星のブリオッシュ"],"d_min":"{n}分","expresso":"量子エスプレッソ","coldbrew":"ニューラル・コールドブリュー","matcha":"虚空の抹茶","estelar":"星のミルク","nivel":"レベル","editar":"✎ テキストを編集"}</script>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<link rel="icon" href="../icone.png" type="image/png" sizes="128x128">
+<link rel="preload" href="../fontes/orbitron.woff2" as="font" type="font/woff2" crossorigin>
+<!-- Site de exemplo do Linu Sites: o Café Aurora não existe. De dia (6h–18h) ele vira a Padaria Aurora: cada texto
+     que muda tem as duas versões, .so-noite e .so-dia, e o data-modo do <html> esconde uma delas (ver inicio.js). Na página principal, ele aparece embutido
+     (iframe) no simulador de preço, que liga e desliga as partes dele (ver script.js, "módulos"). -->
+<script src="../inicio.js?v=2"></script>
+<link rel="stylesheet" href="../estilo.css?v=3">
+<script src="../script.js?v=4" defer></script>
+</head>
+
+<body>
+<a class="skip" href="#conteudo">本文へスキップ</a>
+
+<!-- BOOT -->
+<div class="boot" id="boot" role="status" aria-live="polite">
+  <div class="boot__logo"><span class="so-noite">CAFÉ AURORA</span><span class="so-dia">AURORA BAKERY</span></div>
+  <div class="boot__bar"><div class="boot__fill" id="bootFill"></div></div>
+  <div class="boot__log" id="bootLog"><span class="so-noite">ポータルを起動中…</span><span class="so-dia">オーブンに火を入れています…</span></div>
+</div>
+
+<!-- CURSOR -->
+<div class="cur" id="cur" aria-hidden="true"></div>
+<div class="cur-dot" id="curDot" aria-hidden="true"></div>
+
+<!-- FUNDO -->
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="bg-veil" aria-hidden="true"></div>
+<div class="noise" aria-hidden="true"></div>
+<div class="scanlines" aria-hidden="true"></div>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <a href="#inicio" class="brand" aria-label="Café Aurora — ホーム" data-aria-dia="オーロラ・ベーカリー — ホーム">
+    <span class="brand__orb" aria-hidden="true"></span>
+    <span class="so-noite">CAFÉ&nbsp;AURORA</span><span class="so-dia">AURORA BAKERY</span>
+  </a>
+
+  <nav class="nav__links" id="navLinks" aria-label="メインナビゲーション">
+    <a href="#inicio" class="active">ホーム</a>
+    <a href="#sobre">はじまり</a>
+    <a href="#menu">メニュー</a>
+    <a href="#laboratorio"><span class="so-noite">ラボ</span><span class="so-dia">オーブン</span></a>
+    <a href="#transmissoes"><span class="so-noite">交信記録</span><span class="so-dia">置き手紙</span></a>
+  </nav>
+
+  <div class="nav__right">
+    <button type="button" class="modo" id="modo" aria-label="ベーカリーを開く（昼モード）" title="ベーカリーを開く（昼モード）"
+            data-para-dia="ベーカリーを開く（昼モード）" data-para-noite="カフェに戻る（夜モード）">
+      <span class="modo__astro" aria-hidden="true"></span>
+    </button>
+    <a href="#laboratorio" class="btn btn--magenta magnetic">今すぐ注文</a>
+    <button type="button" class="burger" id="burger" aria-label="メニューを開く" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero__halo" aria-hidden="true"></div>
+    <div class="hero__rings" aria-hidden="true"><i></i><i></i><i></i></div>
+
+    <div>
+      <span class="hero__tag reveal"><span class="so-noite">☕ <b>24時間営業</b> · セクター・ネオン07 · 次元Ω</span><span class="so-dia">🥐 <b>朝6時</b>の焼きたて · 太陽セクター07 · ディメンション ☉</span></span>
+
+      <h1 class="glitch" data-text="CAFÉ&#10;AURORA">
+        <span><span class="so-noite">CAFÉ</span><span class="so-dia">AURORA</span></span>
+        <span><span class="so-noite">AURORA</span><span class="so-dia">BAKERY</span></span>
+      </h1>
+
+      <p class="hero__sub reveal" data-d="1">
+        <span class="so-noite"><b>パラレルワールド</b>で収穫した豆を焙煎しています。一杯ごとに小さな量子崩壊——そして、あなたの味覚だけが変わらない定数です。</span><span class="so-dia">日が昇ると、裂け目が閉じてオーブンに火が入ります。<b>パラレルワールド</b>で挽いた小麦粉でパンを焼いています。どのひと切れも、あたたかくて、サクッとして、ほんの少しだけ時間からはみ出しています。</span>
+      </p>
+
+      <div class="hero__cta reveal" data-d="2">
+        <a href="#menu" class="btn magnetic"><span class="so-noite">メニューを見る</span><span class="so-dia">焼きたてを見る</span></a>
+        <a href="#sobre" class="btn btn--ghost magnetic"><span class="so-noite">ポータルをくぐる</span><span class="so-dia">ベーカリーを知る</span></a>
+      </div>
+
+      <div class="hero__stats reveal" data-d="3">
+        <div><b>12</b><span class="so-noite">稼働中の次元</span><span class="so-dia">1日の焼き上がり</span></div>
+        <div><b>98.4%</b><span class="so-noite">量子精度</span><span class="so-dia">測定したサクサク度</span></div>
+        <div><b>∞</b><span class="so-noite">夢のおかわり</span><span class="so-dia">許されたパンくず</span></div>
+      </div>
+    </div>
+
+    <div class="scroll-hint" aria-hidden="true">
+      <span>スクロール</span>
+      <i></i>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track so-noite">
+      <span>量子エスプレッソ</span><span>プラズマラテ</span><span>ニューラル・コールドブリュー</span><span>虚空の抹茶</span><span>星のミルク</span><span>彗星の粉</span>
+      <span>量子エスプレッソ</span><span>プラズマラテ</span><span>ニューラル・コールドブリュー</span><span>虚空の抹茶</span><span>星のミルク</span><span>彗星の粉</span>
+    </div>
+    <div class="marquee__track so-dia">
+      <span>2087層のクロワッサン</span><span>無重力ブレッド</span><span>軌道バゲット</span><span>星雲クリームパン</span><span>日食ドーナツ</span><span>量子チーズパン</span>
+      <span>2087層のクロワッサン</span><span>無重力ブレッド</span><span>軌道バゲット</span><span>星雲クリームパン</span><span>日食ドーナツ</span><span>量子チーズパン</span>
+    </div>
+  </div>
+
+  <!-- SOBRE -->
+  <section class="section" id="sobre">
+    <div class="about">
+      <div class="about__text">
+        <span class="eyebrow reveal">はじまり</span>
+        <h2 class="reveal" data-d="1"><span class="so-noite">ふたつの世界の<em>ショート</em>から生まれました</span><span class="so-dia">昼になると、裂け目は<em>オーブン</em>に</span></h2>
+
+        <div class="reveal" data-d="2">
+          <p class="lead so-noite">2087年、<strong>アウロラ・ヴェックス</strong>というバリスタが、ワープ炉にコーヒーをこぼしました。起きたのは爆発ではなく——香りでした。</p>
+          <p class="so-noite">その香りが裂け目を開きました。向こう側には私たちと同じような街がありましたが、そこでは光が考え、雨が覚えていました。今お出ししている豆は、そこで見つけたものです。</p>
+          <p class="so-noite"><strong>Café Aurora</strong>は、ふたつの都市が出会う唯一の場所です。ここでは湯気がゆっくりと立ちのぼり、時間も数分だけ止まってくれます——二杯目を頼んでくれるなら。</p>
+          <p class="lead so-dia">毎朝、わたしたちの太陽とΩ-11の太陽が同時に昇ると、<strong>アウロラ・ヴェックス</strong>がコーヒーで開いた裂け目は、オーブンの扉ほどの大きさまで縮みます。</p>
+          <p class="so-dia">向こう側から漏れてくる熱は無駄にしません。パンを焼くのです。最初の焼き上がりは6時。その香りは、どの目覚まし時計よりも早くふたつの街に届きます。</p>
+          <p class="so-dia"><strong>オーロラ・ベーカリー</strong>は、カフェと同じ場所の昼の顔。夜のバリスタはパン職人に、カウンターはショーケースに変わり、ネオンは日が沈むまでひと休みします。</p>
+        </div>
+      </div>
+
+      <div class="portal reveal" data-d="3" aria-hidden="true">
+        <div class="portal__ring"></div>
+        <div class="portal__ring"></div>
+        <div class="portal__ring"></div>
+        <div class="portal__core"></div>
+        <span class="portal__label"><span class="so-noite">安定した裂け目 · 3.2 nm</span><span class="so-dia">オーブン安定 · 220 °C</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="section" id="menu">
+    <span class="eyebrow reveal">メニュー</span>
+    <h2 class="reveal" data-d="1"><span class="so-noite"><em>ほかには存在しない</em>ブレンド</span><span class="so-dia">時間を<em>待たない</em>焼き上がり</span></h2>
+    <p class="lead reveal" data-d="2">
+      <span class="so-noite">さまざまな脳波に合わせて調整した6つのレシピ。すべて自己再生するカップでお出しします。</span><span class="so-dia">1日に何度もオーブンから出てくる6つのレシピ。どれも、数時間（あるいは数ディメンション）ぬくもりを保つ紙で包んでお渡しします。</span>
+    </p>
+
+    <div class="menu-grid">
+      <article class="card reveal tilt" data-d="1">
+        <div class="card__top">
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">⚡</span><span class="so-dia">🥐</span></div>
+          <span class="card__id"><span class="so-noite">LX-001</span><span class="so-dia">FN-001</span></span>
+        </div>
+        <h3><span class="so-noite">量子エスプレッソ</span><span class="so-dia">2087層のクロワッサン</span></h3>
+        <p class="so-noite">別々の宇宙で同時に抽出した2杯。あなたが味わうのは、その平均です。</p>
+        <p class="so-dia">生地を2087回折りたたみます。裂け目までの1年にひとつずつ。ひと口ごとに、現実の違う層がサクッと鳴ります。</p>
+        <div class="card__foot">
+          <span class="card__price"><span class="so-noite">₡ 18</span><span class="so-dia">₡ 9</span></span>
+          <span class="card__tag"><span class="so-noite">濃厚</span><span class="so-dia">サクサク</span></span>
+        </div>
+      </article>
+
+      <article class="card card--m reveal tilt" data-d="2">
+        <div class="card__top">
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">🌌</span><span class="so-dia">🍞</span></div>
+          <span class="card__id"><span class="so-noite">LX-014</span><span class="so-dia">FN-006</span></span>
+        </div>
+        <h3><span class="so-noite">プラズマラテ</span><span class="so-dia">無重力ブレッド</span></h3>
+        <p class="so-noite">磁場の中、340 °Cでスチームしたミルク。かき混ぜるとほのかに光ります。</p>
+        <p class="so-dia">下に引っぱるものが何もない中、浮かんだまま72時間発酵。軽すぎるので、お皿に結んでお出しします。</p>
+        <div class="card__foot">
+          <span class="card__price"><span class="so-noite">₡ 24</span><span class="so-dia">₡ 7</span></span>
+          <span class="card__tag"><span class="so-noite">きらめき</span><span class="so-dia">軽やか</span></span>
+        </div>
+      </article>
+
+      <article class="card card--v reveal tilt" data-d="3">
+        <div class="card__top">
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">❄️</span><span class="so-dia">🥖</span></div>
+          <span class="card__id"><span class="so-noite">LX-027</span><span class="so-dia">FN-012</span></span>
+        </div>
+        <h3><span class="so-noite">ニューラル・コールドブリュー</span><span class="so-dia">軌道バゲット</span></h3>
+        <p class="so-noite">感覚遮断室で72時間かけて抽出。あなたの集中のリズムに同調します。</p>
+        <p class="so-dia">軌道オーブンをぐるりと一周しながら焼き上げます。押すと皮が歌います。</p>
+        <div class="card__foot">
+          <span class="card__price"><span class="so-noite">₡ 22</span><span class="so-dia">₡ 8</span></span>
+          <span class="card__tag"><span class="so-noite">明晰</span><span class="so-dia">カリッと</span></span>
+        </div>
+      </article>
+
+      <article class="card card--a reveal tilt" data-d="4">
+        <div class="card__top">
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">🍃</span><span class="so-dia">🧁</span></div>
+          <span class="card__id"><span class="so-noite">LX-033</span><span class="so-dia">FN-019</span></span>
+        </div>
+        <h3><span class="so-noite">虚空の抹茶</span><span class="so-dia">星雲クリームパン</span></h3>
+        <p class="so-noite">光のない場所で育った茶葉。香りより先に味が届きます——理由は聞かないでください。</p>
+        <p class="so-dia">ほのかに光るクリーム入りで、星の砂糖をふりかけて。蒸発する気になる前に召し上がれ。</p>
+        <div class="card__foot">
+          <span class="card__price"><span class="so-noite">₡ 26</span><span class="so-dia">₡ 6</span></span>
+          <span class="card__tag"><span class="so-noite">幽玄</span><span class="so-dia">甘い</span></span>
+        </div>
+      </article>
+
+      <article class="card card--m reveal tilt" data-d="5">
+        <div class="card__top">
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">✨</span><span class="so-dia">🍩</span></div>
+          <span class="card__id"><span class="so-noite">LX-042</span><span class="so-dia">FN-024</span></span>
+        </div>
+        <h3><span class="so-noite">星のミルク</span><span class="so-dia">日食ドーナツ</span></h3>
+        <p class="so-noite">カフェインなし。凝縮した星くずと、少しの郷愁でできています。</p>
+        <p class="so-dia">中身がいつも影の中にあるドーナツ。外は砂糖、中は少しだけ夜。</p>
+        <div class="card__foot">
+          <span class="card__price"><span class="so-noite">₡ 20</span><span class="so-dia">₡ 5</span></span>
+          <span class="card__tag"><span class="so-noite">まろやか</span><span class="so-dia">レア</span></span>
+        </div>
+      </article>
+
+      <article class="card card--v reveal tilt" data-d="5">
+        <div class="card__top">
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">☄️</span><span class="so-dia">🧀</span></div>
+          <span class="card__id"><span class="so-noite">LX-050</span><span class="so-dia">FN-031</span></span>
+        </div>
+        <h3><span class="so-noite">彗星の粉</span><span class="so-dia">量子チーズパン</span></h3>
+        <p class="so-noite">軌道氷のかけらを浮かべたトリプルショット。氷は決して溶けません——ただ、あきらめるだけ。</p>
+        <p class="so-dia">誰かが袋を開けるまで、熱くて冷たい状態が重なっています。開けるといつも熱々。</p>
+        <div class="card__foot">
+          <span class="card__price"><span class="so-noite">₡ 31</span><span class="so-dia">₡ 4</span></span>
+          <span class="card__tag"><span class="so-noite">希少</span><span class="so-dia">定番</span></span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- LABORATÓRIO -->
+  <section class="section" id="laboratorio">
+    <span class="eyebrow reveal"><span class="so-noite">ラボ</span><span class="so-dia">オーブン</span></span>
+    <h2 class="reveal" data-d="1"><span class="so-noite"><em>あなただけの</em>一杯を合成しよう</span><span class="so-dia"><em>自分だけの</em>パンをつくる</span></h2>
+    <p class="lead reveal" data-d="2">
+      <span class="so-noite">パラメーターを調整してください。ドリンクはリアルタイムで再計算されます——ここでは何でもそうです。</span><span class="so-dia">粉、焼き時間、トッピングを選んでください。迷っているあいだに皮がこんがり色づきます。</span>
+    </p>
+
+    <div class="lab">
+      <!-- Painel -->
+      <div class="lab__panel reveal" data-d="2" id="labForm" role="group" aria-label="ドリンクを作る" data-aria-dia="自分だけのパンをつくる">
+        <div class="lab__group">
+          <div class="lab__label"><span><span class="so-noite">01 · 分子ベース</span><span class="so-dia">01 · 粉</span></span></div>
+          <div class="chips" role="radiogroup" aria-label="分子ベース" data-aria-dia="粉">
+            <label class="chip">
+              <input type="radio" name="base" value="expresso" checked>
+              <span><span class="so-noite">エスプレッソ</span><span class="so-dia">小麦</span></span>
+            </label>
+            <label class="chip">
+              <input type="radio" name="base" value="coldbrew">
+              <span><span class="so-noite">コールドブリュー</span><span class="so-dia">ライ麦</span></span>
+            </label>
+            <label class="chip">
+              <input type="radio" name="base" value="matcha">
+              <span><span class="so-noite">抹茶</span><span class="so-dia">全粒粉</span></span>
+            </label>
+            <label class="chip">
+              <input type="radio" name="base" value="estelar">
+              <span><span class="so-noite">星のミルク</span><span class="so-dia">星のブリオッシュ</span></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="lab__group">
+          <div class="lab__label">
+            <span><span class="so-noite">02 · 量子の強さ</span><span class="so-dia">02 · 焼き時間</span></span>
+            <b id="intVal">7</b>
+          </div>
+          <input type="range" id="intensity" min="1" max="10" value="7"
+                 aria-label="量子の強さ、1から10" data-aria-dia="焼き時間、1から10">
+        </div>
+
+        <div class="lab__group">
+          <div class="lab__label"><span><span class="so-noite">03 · トッピング</span><span class="so-dia">03 · トッピング</span></span></div>
+          <div class="chips">
+            <label class="chip">
+              <input type="checkbox" name="top[]" value="彗星の粉" data-cob="1">
+              <span><span class="so-noite">彗星の粉</span><span class="so-dia">ごま</span></span>
+            </label>
+            <label class="chip">
+              <input type="checkbox" name="top[]" value="プラズマフォーム" data-cob="2">
+              <span><span class="so-noite">プラズマフォーム</span><span class="so-dia">バター</span></span>
+            </label>
+            <label class="chip">
+              <input type="checkbox" name="top[]" value="シュガークリスタル" data-cob="3">
+              <span><span class="so-noite">シュガークリスタル</span><span class="so-dia">チーズ</span></span>
+            </label>
+            <label class="chip">
+              <input type="checkbox" name="top[]" value="ネオンの花" data-cob="4">
+              <span><span class="so-noite">ネオンの花</span><span class="so-dia">彗星シュガー</span></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="lab__result">
+          <small><span class="so-noite">シンセサイザーの出力</span><span class="so-dia">焼き上がり</span></small>
+          <div id="drinkName">量子エスプレッソ · レベル VII</div>
+          <span id="drinkPrice">₡ 21.50</span>
+        </div>
+      </div>
+
+      <!-- Xícara -->
+      <div class="cup-stage reveal" data-d="3">
+        <div class="cup-wrap so-noite">
+          <div class="cup-glow" id="cupGlow" aria-hidden="true"></div>
+          <div class="steam" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="cup">
+            <div class="liquid" id="liquid"></div>
+          </div>
+          <div class="saucer" aria-hidden="true"></div>
+
+          <span class="badge-float">temp · 68 °C</span>
+          <span class="badge-float">ph · 5.4</span>
+          <span class="badge-float">dim · Ω-07</span>
+        </div>
+
+        <!-- O pão (modo dia): a casca doura com o tempo de forno; cada cobertura é uma classe com-N -->
+        <div class="pao-wrap so-dia">
+          <div class="cup-glow" id="forno" aria-hidden="true"></div>
+          <div class="steam" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="pao" id="pao" aria-hidden="true">
+            <i class="pao__queijo"></i><i class="pao__manteiga"></i>
+          </div>
+          <div class="tabua" aria-hidden="true"></div>
+
+          <span class="badge-float">forno · 220 °C</span>
+          <span class="badge-float">fermento · 72 h</span>
+          <span class="badge-float">dim · ☉-07</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANSMISSÕES -->
+  <section class="section" id="transmissoes">
+    <span class="eyebrow reveal"><span class="so-noite">交信記録</span><span class="so-dia">置き手紙</span></span>
+    <h2 class="reveal" data-d="1"><span class="so-noite"><em>別の</em>次元から届いた声</span><span class="so-dia"><em>カウンター</em>に残された置き手紙</span></h2>
+
+    <div class="trans-grid">
+      <blockquote class="trans reveal" data-d="1">
+        <q><span class="so-noite">量子エスプレッソを頼んだら、経験したことのない子ども時代を思い出すようになりました。おすすめです。明日また来ます——あるいは昨日。</span><span class="so-dia">クロワッサンを買ったら、層のあいだから、明日わたしが自分で書くはずのメモが出てきました。とてもおいしかったです。</span></q>
+        <footer><b><span class="so-noite">Kira-09</span><span class="so-dia">Tomás-06</span></b><span class="so-noite">セクター・ネオン07</span><span class="so-dia">太陽セクター07</span></footer>
+      </blockquote>
+
+      <blockquote class="trans reveal" data-d="2">
+        <q><span class="so-noite">私が泣いたら、プラズマラテが光りました。お互い気まずかったけれど、味は完璧でした。</span><span class="so-dia">無重力ブレッドが天井まで浮かんでいきました。降りてくるのを待ってから朝ごはん。また明日来ます。</span></q>
+        <footer><b><span class="so-noite">Dr. Halven</span><span class="so-dia">Odila Prax</span></b><span class="so-noite">記憶クリニック</span><span class="so-dia">広場の時計店</span></footer>
+      </blockquote>
+
+      <blockquote class="trans reveal" data-d="3">
+        <q><span class="so-noite">コーヒーを買いに来ただけなのに。時間についての理論と、空になるのを拒むカップを持って帰りました。</span><span class="so-dia">チーズパンをひとつ頼んだら、ふたつ持って帰ることに。こちらのとあちらの。どちらもあつあつ。</span></q>
+        <footer><b>匿名</b><span class="so-noite">次元Ω-11</span><span class="so-dia">ディメンション ☉-03</span></footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2 class="reveal"><span class="so-noite">裂け目は<em>夜遅くまで</em>開いています</span><span class="so-dia">オーブンに火が入るのは<em>6時</em></span></h2>
+    <p class="reveal" data-d="1">
+      <span class="so-noite">予約は不要です。必要なのは、間違った扉をくぐる勇気だけ。</span><span class="so-dia">お早めにどうぞ。最初の焼き上がりは、太陽が昇りきる前になくなります。</span>
+    </p>
+    <div class="hero__cta reveal" data-d="2">
+      <a href="#menu" class="btn btn--magenta magnetic">すべてのメニューを見る</a>
+      <a href="#inicio" class="btn btn--ghost magnetic">トップへ戻る</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="foot">
+    <div>
+      <div class="brand">
+        <span class="brand__orb" aria-hidden="true"></span><span class="so-noite">CAFÉ AURORA</span><span class="so-dia">AURORA BAKERY</span>
+      </div>
+      <p><span class="so-noite">2087年から続く次元間焙煎所。同意を得た宇宙で、倫理的に収穫した豆を使っています。</span><span class="so-dia">2087年創業の次元間ベーカリー。同意してくれた宇宙で、倫理的に挽いた小麦粉を使っています。</span></p>
+
+      <form class="newsletter" id="newsForm" novalidate>
+        <label class="sr-only" for="email">シグナルを受け取るメールアドレス</label>
+        <input type="email" id="email" placeholder="you@email.dim" autocomplete="email" required>
+        <button type="submit" class="btn magnetic">登録する</button>
+      </form>
+      <p id="newsMsg" role="status" aria-live="polite" class="news-msg"></p>
+    </div>
+
+    <div>
+      <h4>座標</h4>
+      <ul>
+        <li>ヴェックス通り2087 — セクター・ネオン07</li>
+        <li>ロウアー・メトロポリス · 地下3階</li>
+        <li>さっきまでなかった扉から入店</li>
+      </ul>
+    </div>
+
+    <div>
+      <h4>営業時間</h4>
+      <ul>
+        <li><span class="so-noite">月〜金 · 6:00〜翌4:00</span><span class="so-dia">毎日 · 6:00 — 18:00</span></li>
+        <li><span class="so-noite">土・日 · いつでも</span><span class="so-dia">最初の焼き上がり · 6:00ちょうど</span></li>
+        <li><span class="so-noite">次元の祝日 · 休業</span><span class="so-dia">日没後 · カフェが開きます</span></li>
+      </ul>
+      <h4 class="foot__h4-espaco">シグナル</h4>
+      <ul>
+        <li><a href="#inicio">@cafeaurora.omega</a></li>
+        <li><a href="#inicio">+Ω 07 2087-0000</a></li>
+      </ul>
+    </div>
+
+    <div class="foot__bottom">
+      <span>© <span id="year"></span> <span class="so-noite">Café Aurora</span><span class="so-dia">オーロラ・ベーカリー</span> <span class="dot">◆</span> すべての宇宙の権利を留保</span>
+      <span>架空のカフェ · サンプルサイト制作： <a href="https://sites.linupedia.com.br/ja/" target="_top">Linu Sites</a></span>
+    </div>
+  </footer>
+</main>
+
+<!-- PAINEL DE DIMENSÃO -->
+<aside class="dim" id="dim" aria-label="色の次元を調整">
+  <button type="button" class="dim__head" id="dimHead" aria-expanded="true" aria-controls="dimBody">
+    <span class="dim__titulo"><i aria-hidden="true"></i>次元を同調する</span>
+    <span aria-hidden="true" id="dimChevron">▾</span>
+  </button>
+  <div class="dim__body" id="dimBody">
+    <label for="hue">色相のずれ · <span id="hueVal">0°</span></label>
+    <input type="range" id="hue" min="-70" max="70" value="0" aria-label="色相のずれ（度）">
+    <p class="dim__hint">ドラッグしてカフェの色を変えてみてください。何も壊れません——たぶん。</p>
+  </div>
+</aside>
+
+<!-- PAINEL (módulo "painel para mexer sozinho"): só aparece quando o simulador liga o módulo -->
+<div class="painel-demo" id="painelDemo" hidden>
+  <button type="button" class="painel-demo__botao" id="painelBotao" aria-pressed="false">✎ テキストを編集</button>
+  <p class="painel-demo__aviso" id="painelAviso" role="status" aria-live="polite"></p>
+</div>
+
+</body>
+</html>

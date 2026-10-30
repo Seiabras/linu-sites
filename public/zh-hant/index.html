@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" data-moeda="USD">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Linu Sites — 量身打造的網站與網頁應用程式</title>
+  <meta name="description" content="企業形象網站、附後台的工具，以及可安裝在手機上的網頁應用程式。從設計、開發、上線到伺服器維護，一手包辦。">
+  <meta name="theme-color" content="#1F2A44">
+  <link rel="icon" href="../img/linu-logo.png" type="image/png" sizes="128x128">
+  <link rel="icon" href="../img/icone-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="../img/icone-180.png">
+  <meta property="og:title" content="Linu Sites">
+  <meta property="og:description" content="量身打造的網站與網頁應用程式，從設計到伺服器。">
+  <meta property="og:image" content="https://sites.linupedia.com.br/img/compartilhar.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Linu Sites：量身打造的網站與網頁應用程式，Linu 在研究站裡">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self'; frame-src https://cafe.linupedia.com.br; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <link rel="preload" href="../fontes/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="canonical" href="https://sites.linupedia.com.br/zh-hant/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sites.linupedia.com.br/">
+  <link rel="alternate" hreflang="pt-PT" href="https://sites.linupedia.com.br/pt-pt/">
+  <link rel="alternate" hreflang="es-ES" href="https://sites.linupedia.com.br/es/">
+  <link rel="alternate" hreflang="ca" href="https://sites.linupedia.com.br/ca/">
+  <link rel="alternate" hreflang="nl" href="https://sites.linupedia.com.br/nl/">
+  <link rel="alternate" hreflang="en-GB" href="https://sites.linupedia.com.br/en/">
+  <link rel="alternate" hreflang="en-IE" href="https://sites.linupedia.com.br/en/">
+  <link rel="alternate" hreflang="fr-FR" href="https://sites.linupedia.com.br/fr/">
+  <link rel="alternate" hreflang="de-DE" href="https://sites.linupedia.com.br/de/">
+  <link rel="alternate" hreflang="it-IT" href="https://sites.linupedia.com.br/it/">
+  <link rel="alternate" hreflang="en" href="https://sites.linupedia.com.br/intl/">
+  <link rel="alternate" hreflang="ja-JP" href="https://sites.linupedia.com.br/ja/">
+  <link rel="alternate" hreflang="ko-KR" href="https://sites.linupedia.com.br/ko/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://sites.linupedia.com.br/zh-hant/">
+  <link rel="alternate" hreflang="zh-TW" href="https://sites.linupedia.com.br/zh-hant/">
+  <link rel="alternate" hreflang="zh-HK" href="https://sites.linupedia.com.br/zh-hant/">
+  <link rel="alternate" hreflang="x-default" href="https://sites.linupedia.com.br/intl/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sites.linupedia.com.br/zh-hant/">
+  <meta property="og:locale" content="zh_TW">
+  <meta property="og:locale:alternate" content="pt_BR">
+  <meta property="og:locale:alternate" content="pt_PT">
+  <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="ca_ES">
+  <meta property="og:locale:alternate" content="nl_NL">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta property="og:locale:alternate" content="it_IT">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:locale:alternate" content="ja_JP">
+  <meta property="og:locale:alternate" content="ko_KR">
+  <!-- O que o Google lê sobre o estúdio (schema.org); sai do ferramentas/gerar-idiomas.mjs -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Linu Sites","url":"https://sites.linupedia.com.br/zh-hant/","logo":"https://sites.linupedia.com.br/img/linu-logo.png","image":"https://sites.linupedia.com.br/img/compartilhar.png","description":"企業形象網站、附後台的工具，以及可安裝在手機上的網頁應用程式。從設計、開發、上線到伺服器維護，一手包辦。","inLanguage":"zh-Hant","email":"contato@linupedia.com.br","telephone":"+55 61 99667-2610","areaServed":["TW","HK","MO","SG"],"availableLanguage":["pt-BR","pt-PT","es-ES","ca","nl","en-GB","fr-FR","de-DE","it-IT","en","ja-JP","ko-KR","zh-Hant"],"parentOrganization":{"@type":"Organization","name":"LinuPedia","url":"https://linupedia.com.br"}}</script>
+  <!-- Os textos que os scripts escrevem (menu, luz, Monte o seu site), no idioma da página -->
+  <script type="application/json" id="textos-js">{"menu_abrir":"開啟選單","menu_fechar":"關閉選單","luz_apagar_aria":"關燈（深色模式）","luz_acender_aria":"開燈（淺色模式）","luz_apagar":"關燈","luz_acender":"開燈","fechar":"關閉","escolha":"選擇類型即可看到估算","sem_tipo":"沒問題，我們在討論中一起決定。","um_item":"1 個項目","n_itens":"{n} 個項目","extra":" + {itens}寫在提案中","por_ano":"每年 {valor}","por_mes":"每月 {valor}","estimativa":"估算：{valor} 起{extra}","linha_tipo":"類型：{nome}","linha_itens":"需要的功能：","linha_depois":"上線之後：{nome}{anual}","anual":"（年繳）","linha_estimativa":"網站估算：{valor} 起{extra}","ola":"你好！我想做一個網站。","sobre":"關於我的事業：","assunto":"網站製作洽詢","ola_conversa":"你好！我想聊聊網站的事。","area_vazia":"這裡沒有這個領域的作品。"}</script>
+  <script src="../js/tema-inicio.js?v=5"></script>
+  <link rel="stylesheet" href="../css/estilo.css?v=15">
+  <script src="../js/tema.js?v=7" defer></script>
+  <script src="../js/menu.js?v=7" defer></script>
+  <script src="../js/movimento.js?v=9" defer></script>
+  <script src="../js/simulador.js?v=3" defer></script>
+</head>
+<body>
+  <header class="topo">
+    <div class="dentro topo-dentro">
+      <a class="marca" href="./" aria-label="Linu Sites，首頁">
+        <img src="../img/linu-logo.png" alt="" width="40" height="40">
+        <span>Linu <b>Sites</b></span>
+      </a>
+      <nav class="menu" aria-label="區塊">
+        <div class="menu-links" id="menu-links">
+          <a href="#servicos">服務</a>
+          <a href="#projetos">作品</a>
+          <a href="#exemplo">示範</a>
+          <a href="#como">合作流程</a>
+          <a href="#duvidas">常見問題</a>
+          <a class="botao menu-links-orcamento" href="#contato">索取報價</a>
+        </div>
+        <details class="idiomas">
+          <summary title="地區與語言"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3c2.5 2.6 3.7 5.6 3.7 9s-1.2 6.4-3.7 9c-2.5-2.6-3.7-5.6-3.7-9S9.5 5.6 12 3Z" /></svg><span class="idiomas-codigo">繁中</span><span class="so-leitor">: 地區與語言, 繁體中文</span></summary>
+          <div class="idiomas-lista">
+            <p class="idiomas-regiao" id="regiao-brasil">巴西</p>
+            <ul aria-labelledby="regiao-brasil">
+              <li><a href="../" hreflang="pt-BR" lang="pt-BR" data-regiao="brasil" data-padrao data-sugestao="Ver esta página em português do Brasil" data-fechar="Fechar">Português (Brasil)</a></li>
+            </ul>
+            <p class="idiomas-regiao" id="regiao-europa">歐洲</p>
+            <ul aria-labelledby="regiao-europa">
+              <li><a href="../pt-pt/" hreflang="pt-PT" lang="pt-PT" data-regiao="europa" data-sugestao="Ver esta página em português de Portugal" data-fechar="Fechar">Português (Portugal)</a></li>
+              <li><a href="../es/" hreflang="es-ES" lang="es-ES" data-regiao="europa" data-sugestao="Ver esta página en español" data-fechar="Cerrar">Español</a></li>
+              <li><a href="../ca/" hreflang="ca" lang="ca" data-regiao="europa" data-sugestao="Llegeix aquesta pàgina en català" data-fechar="Tancar">Català</a></li>
+              <li><a href="../nl/" hreflang="nl" lang="nl" data-regiao="europa" data-sugestao="Lees deze pagina in het Nederlands" data-fechar="Sluiten">Nederlands</a></li>
+              <li><a href="../en/" hreflang="en-GB" lang="en-GB" data-regiao="europa" data-padrao data-sugestao="See the page for the UK and Europe, in English (prices in €)" data-fechar="Close">English (UK &amp; Europe)</a></li>
+              <li><a href="../fr/" hreflang="fr-FR" lang="fr-FR" data-regiao="europa" data-sugestao="Lire cette page en français" data-fechar="Fermer">Français</a></li>
+              <li><a href="../de/" hreflang="de-DE" lang="de-DE" data-regiao="europa" data-sugestao="Diese Seite auf Deutsch lesen" data-fechar="Schließen">Deutsch</a></li>
+              <li><a href="../it/" hreflang="it-IT" lang="it-IT" data-regiao="europa" data-sugestao="Leggi questa pagina in italiano" data-fechar="Chiudi">Italiano</a></li>
+            </ul>
+            <p class="idiomas-regiao" id="regiao-asia">亞太與國際</p>
+            <ul aria-labelledby="regiao-asia">
+              <li><a href="../intl/" hreflang="en" lang="en" data-regiao="asia" data-padrao data-sugestao="See the international page, in English (prices in US$)" data-fechar="Close">English (international)</a></li>
+              <li><a href="../ja/" hreflang="ja-JP" lang="ja-JP" data-regiao="asia" data-sugestao="このページを日本語で見る" data-fechar="閉じる">日本語</a></li>
+              <li><a href="../ko/" hreflang="ko-KR" lang="ko-KR" data-regiao="asia" data-sugestao="이 페이지를 한국어로 보기" data-fechar="닫기">한국어</a></li>
+              <li><a href="../zh-hant/" hreflang="zh-Hant" lang="zh-Hant" data-regiao="asia" data-sugestao="以繁體中文瀏覽此頁" data-fechar="關閉" aria-current="true">繁體中文</a></li>
+            </ul>
+          </div>
+        </details>
+        <button class="luz" type="button" data-luz aria-label="關燈（深色模式）" title="關燈">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+            <path class="luz-raios" d="M12 1.5v2M4.6 4.6l1.4 1.4M1.5 12h2M20.5 12h2M19.4 4.6 18 6" />
+            <path class="luz-bulbo" d="M12 6a5.5 5.5 0 0 0-3.2 10c.5.4.8.9.8 1.5v.5h4.8v-.5c0-.6.3-1.1.8-1.5A5.5 5.5 0 0 0 12 6Z" />
+            <path class="luz-base" d="M9.8 20.5h4.4M10.5 22.5h3" />
+          </svg>
+        </button>
+        <a class="botao botao-pequeno menu-orcamento" href="#contato">索取報價</a>
+        <button class="menu-abrir" type="button" aria-expanded="false" aria-controls="menu-links" aria-label="開啟選單">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="abertura">
+      <div class="dentro abertura-dentro">
+        <div class="abertura-texto">
+          <p class="sobretitulo">量身打造的網站與網頁應用程式</p>
+          <h1>為<span class="marca-texto">你的事業</span>工作的網站。</h1>
+          <p class="abertura-sub">從企業形象網站到附後台與登入功能的工具：我們負責設計、開發、上線，也照顧伺服器。你直接和動手做的人溝通。</p>
+          <div class="botoes">
+            <a class="botao" href="#contato">索取報價</a>
+            <a class="botao botao-linha" href="#projetos">看作品</a>
+          </div>
+        </div>
+        <figure class="janela">
+          <div class="cena" data-cena>
+            <img class="pixel cena-dia" src="../img/abrigo-estacao-dia.png" alt="南極研究站的像素畫，有書桌、電腦和牆上的地圖" width="344" height="192">
+            <img class="pixel cena-acesa" src="../img/abrigo-estacao-noite.png" alt="" width="344" height="192">
+            <img class="pixel cena-apagada" src="../img/abrigo-estacao-apagada.png" alt="" width="344" height="192">
+            <span class="cena-linu" data-pose="frente">
+              <img class="pixel linu-frente" src="../img/linu/linu-frente.png" alt="" width="172" height="190">
+              <span class="linu-lado"><img class="pixel" src="../img/linu/linu-lado.png" alt="" width="688" height="190"></span>
+              <img class="pixel linu-costas" src="../img/linu/linu-costas.png" alt="" width="172" height="190">
+            </span>
+          </div>
+          <figcaption>Linu 的研究站，網站在這裡誕生。</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="secao" id="servicos">
+      <div class="dentro">
+        <h2>服務</h2>
+        <p class="secao-sub">每個專案都從零開始，依照你的事業運作方式打造。</p>
+        <div class="cartoes">
+          <article class="cartao">
+            <span class="cartao-icone" aria-hidden="true">🧭</span>
+            <h3><a class="cartao-link" href="#contato" data-escolher="tipo=apresentacao" aria-describedby="preco-apresentacao">企業形象網站</a></h3>
+            <p>介紹你是誰、提供什麼、怎麼聯絡你。速度快、手機上也好看，在 Google 上容易被找到。</p>
+            <p class="cartao-preco" id="preco-apresentacao">起價 <b>US$1,600</b> <span class="cartao-seta" aria-hidden="true">→</span><span class="so-leitor">：建立報價</span></p>
+          </article>
+          <article class="cartao">
+            <span class="cartao-icone" aria-hidden="true">🛠️</span>
+            <h3><a class="cartao-link" href="#contato" data-escolher="tipo=ferramenta" aria-describedby="preco-ferramenta">工具與後台</a></h3>
+            <p>訂購表單、試算、會員登入區，以及掌握一切的後台。網站不再只是櫥窗，而是工作的一部分。</p>
+            <p class="cartao-preco" id="preco-ferramenta">起價 <b>US$5,500</b> <span class="cartao-seta" aria-hidden="true">→</span><span class="so-leitor">：建立報價</span></p>
+          </article>
+          <article class="cartao">
+            <span class="cartao-icone" aria-hidden="true">📱</span>
+            <h3><a class="cartao-link" href="#contato" data-escolher="tipo=app" aria-describedby="preco-app">可安裝的應用程式</a></h3>
+            <p>像一般 App 一樣放在手機主畫面、沒有網路也能開啟的網頁應用程式，不必經過應用程式商店。</p>
+            <p class="cartao-preco" id="preco-app">起價 <b>US$8,000</b> <span class="cartao-seta" aria-hidden="true">→</span><span class="so-leitor">：建立報價</span></p>
+          </article>
+          <article class="cartao">
+            <span class="cartao-icone" aria-hidden="true">🛰️</span>
+            <h3>上線與維護</h3>
+            <p>網域、安全鎖頭（HTTPS）、伺服器和備份。這些你都不需要懂。</p>
+            <ul class="planos">
+              <li><a href="#contato" data-escolher="plano=29" aria-label="上線方案，每月 US$29：建立報價"><span>上線</span><b>US$29</b>／月</a></li>
+              <li><a href="#contato" data-escolher="plano=59" aria-label="照護方案，每月 US$59：建立報價"><span>照護</span><b>US$59</b>／月</a></li>
+            </ul>
+            <p class="planos-nota">照護方案包含更新，以及文字和照片的小幅修改。年繳只需付 10 個月。</p>
+          </article>
+        </div>
+        <p class="precos-nota">參考價格，作為討論的起點。正式報價以書面提供，視專案內容而定。網域註冊費（每年約 US$15）另計。</p>
+      </div>
+    </section>
+
+    <section class="secao secao-gelo" id="projetos">
+      <div class="dentro">
+        <h2>作品</h2>
+        <!-- As áreas filtram as duas listas, e as abas separam o que está no ar do que é de estudo (js/movimento.js);
+             sem JavaScript, as áreas não aparecem e as duas listas ficam uma embaixo da outra.
+             Cada projeto diz as suas áreas no data-areas (pode ter mais de uma). -->
+        <div class="areas" role="group" aria-label="依領域篩選" hidden>
+          <button class="area" type="button" data-area="" aria-pressed="true">全部</button>
+          <button class="area" type="button" data-area="educacao" aria-pressed="false">教育與文化</button>
+          <button class="area" type="button" data-area="servicos" aria-pressed="false">醫療與服務</button>
+          <button class="area" type="button" data-area="comercio" aria-pressed="false">零售與觀光</button>
+          <button class="area" type="button" data-area="industria" aria-pressed="false">產業</button>
+          <button class="area" type="button" data-area="jogos" aria-pressed="false">遊戲</button>
+        </div>
+        <div class="abas" role="tablist" aria-label="顯示哪些作品" hidden>
+          <button class="aba" type="button" role="tab" id="aba-no-ar" aria-controls="no-ar" aria-selected="true">已上線 <span class="aba-conta">8</span></button>
+          <button class="aba" type="button" role="tab" id="aba-estudo" aria-controls="estudo" aria-selected="false" tabindex="-1">學習作品 <span class="aba-conta">3</span></button>
+        </div>
+        <div class="painel" id="no-ar" role="tabpanel" aria-labelledby="aba-no-ar">
+          <h3 class="painel-titulo">已上線</h3>
+          <p class="secao-sub">正在使用中的真實網站。歡迎打開試用。</p>
+          <div class="projetos">
+            <article class="projeto" data-areas="educacao jogos">
+              <a href="https://linupedia.com.br" target="_blank" rel="noopener"><img src="../img/projetos/linupedia.webp" alt="LinuPedia 的 linuhub：夜晚 Linu 營地的像素畫，有營火和他的朋友們" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">可安裝的應用程式</p>
+                <h3>LinuPedia</h3>
+                <p>語言學習 App 與可以玩的百科全書，收錄 197 種語言和 39 個知識領域。手機與電腦皆可離線使用。</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="projetos/linupedia">製作過程</a>
+                  <a class="projeto-link" href="https://linupedia.com.br" target="_blank" rel="noopener">linupedia.com.br</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="industria">
+              <a href="https://v2tech.app.br" target="_blank" rel="noopener"><img src="../img/projetos/v2tech.webp" alt="V²Tech COMBUSTÍVEL 首頁，顯示柴油的合理價格" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">企業工具</p>
+                <h3>V²Tech COMBUSTÍVEL</h3>
+                <p>比對巴西石油公司、巴西燃料主管機關與稅務機關的資料，檢查供應商開出的柴油、汽油或乙醇價格是否合理。</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="projetos/v2tech">製作過程</a>
+                  <a class="projeto-link" href="https://v2tech.app.br" target="_blank" rel="noopener">v2tech.app.br</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="comercio">
+              <a href="https://losveganaestrada.com.br" target="_blank" rel="noopener"><img src="../img/projetos/losvega.webp" alt="Los Vega na Estrada 首頁，客製化旅遊行程" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">附後台的銷售網站</p>
+                <h3>Los Vega na Estrada</h3>
+                <p>客製化旅遊行程：客人描述旅程後立刻看到價格；需求進入後台，並備好 WhatsApp 回覆。</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="projetos/losvega">製作過程</a>
+                  <a class="projeto-link" href="https://losveganaestrada.com.br" target="_blank" rel="noopener">losveganaestrada.com.br</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="educacao">
+              <a href="https://marginalia.blog.br" target="_blank" rel="noopener"><img src="../img/projetos/marginalia.webp" alt="Marginalia 首頁，歷史與人文出版品" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">數位出版</p>
+                <h3>Marginalia</h3>
+                <p>獨立的歷史與人文雜誌，附目錄、搜尋、頁邊註記，以及可直接複製的引用格式。</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="projetos/marginalia">製作過程</a>
+                  <a class="projeto-link" href="https://marginalia.blog.br" target="_blank" rel="noopener">marginalia.blog.br</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="servicos">
+              <a href="https://iconvet.com.br" target="_blank" rel="noopener"><img src="../img/projetos/iconvet.webp" alt="Iconvet 首頁，薩爾瓦多的動物醫院，主打影像診斷部門" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">企業網站</p>
+                <h3>Iconvet</h3>
+                <p>巴西薩爾瓦多的動物醫院：以 74 頁介紹各科別、檢查、服務與專科，一鍵連到 WhatsApp 與路線導航。</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="projetos/iconvet">製作過程</a>
+                  <a class="projeto-link" href="https://iconvet.com.br" target="_blank" rel="noopener">iconvet.com.br</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="servicos">
+              <a href="https://ajoriente.com" target="_blank" rel="noopener"><img src="../img/projetos/ajoriente.webp" alt="Administração Judicial Oriente 首頁：「引導企業迎向新開始」" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">案件查詢網站</p>
+                <h3>Administração Judicial Oriente</h3>
+                <p>里約熱內盧的破產管理事務所：業務領域、依公司查詢案件、文件範本與聯絡方式。</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="projetos/ajoriente">製作過程</a>
+                  <a class="projeto-link" href="https://ajoriente.com" target="_blank" rel="noopener">ajoriente.com</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="jogos">
+              <a href="https://www.bjj-link.com" target="_blank" rel="noopener"><img src="../img/projetos/dojo-legacy.webp" alt="Dojo Legacy 首頁：「從白帶到墊上傳奇」，電腦與手機上的遊戲畫面" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">瀏覽器與手機遊戲</p>
+                <h3>Dojo Legacy</h3>
+                <p>柔術與綜合格鬥的生涯遊戲，在瀏覽器、iPhone 和 Android 上免費遊玩，有 PvP、隊伍聯賽與即時排行榜。</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="projetos/dojo-legacy">製作過程</a>
+                  <a class="projeto-link" href="https://www.bjj-link.com" target="_blank" rel="noopener">bjj-link.com</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="servicos">
+              <a href="https://omega-site-vert.vercel.app/" target="_blank" rel="noopener"><img src="../img/projetos/omega.webp" alt="Ômega Imóveis 首頁：「對的地方改變一切」，黃昏時的里約南區" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">企業形象網站</p>
+                <h3>Ômega Imóveis</h3>
+                <p>里約南區的房仲公司，用單頁網站介紹工作方式與服務的街區。</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="projetos/omega">製作過程</a>
+                  <a class="projeto-link" href="https://omega-site-vert.vercel.app/" target="_blank" rel="noopener">omega-site-vert.vercel.app</a>
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="painel" id="estudo" role="tabpanel" aria-labelledby="aba-estudo">
+          <h3 class="painel-titulo">學習作品</h3>
+          <p class="secao-sub">我在大學時做的作品。公司是虛構的，原始碼公開。</p>
+          <div class="projetos">
+            <article class="projeto" data-areas="comercio">
+              <a href="https://cafe.linupedia.com.br/zh-hant/" target="_blank" rel="noopener"><img src="../img/projetos/cafe-aurora.webp" alt="Café Aurora 首頁：夜晚的賽博龐克城市上方，藍色與粉紅色的霓虹店名" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">特效網站</p>
+                <h3>Café Aurora</h3>
+                <p>一間不存在的賽博龐克咖啡館，有開場畫面、動態背景、菜單和調配飲料的實驗室。就是上方模擬器裡的網站，也有 Bootstrap 和 Tailwind 版本。</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="https://cafe.linupedia.com.br/zh-hant/" target="_blank" rel="noopener">cafe.linupedia.com.br</a>
+                  <a class="projeto-link" href="https://github.com/Seiabras/cafe-aurora" target="_blank" rel="noopener">GitHub 原始碼</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="servicos">
+              <a href="https://cerrado.linupedia.com.br/zh-hant/" target="_blank" rel="noopener"><img src="../img/projetos/fotografia-do-cerrado.webp" alt="Fotografia do Cerrado 首頁：金色草地上的紅腿叫鶴，背景是盛開的粉紅風鈴木" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">企業形象網站</p>
+                <h3>Fotografia do Cerrado</h3>
+                <p>野生動物攝影公司，有可篩選的相簿、攝影行程與聯絡方式。配色取自塞拉多（巴西的熱帶草原），每個顏色都依 WCAG 對比標準檢查過。</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="https://cerrado.linupedia.com.br/zh-hant/" target="_blank" rel="noopener">cerrado.linupedia.com.br</a>
+                  <a class="projeto-link" href="https://github.com/Seiabras/fotografia-do-cerrado" target="_blank" rel="noopener">GitHub 原始碼</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="educacao">
+              <a href="https://abelhas.linupedia.com.br/zh-hant/" target="_blank" rel="noopener"><img src="../img/projetos/abelhas-sem-ferrao.webp" alt="Abelhas sem Ferrão 首頁：關於 250 個物種的提問，旁邊是 jataí、uruçu 和 mandaçaia 的照片" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">教育網站</p>
+                <h3>Abelhas sem Ferrão</h3>
+                <p>給從沒聽過巴西無螫蜂的人：3 分鐘導覽、發現蜂巢時該怎麼做，以及小測驗。源自一次設計思考練習。</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="https://abelhas.linupedia.com.br/zh-hant/" target="_blank" rel="noopener">abelhas.linupedia.com.br</a>
+                  <a class="projeto-link" href="https://github.com/Seiabras/abelhas-sem-ferrao" target="_blank" rel="noopener">GitHub 原始碼</a>
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Simulador: o Café Aurora (cafeteria fictícia) embutido, com as partes que ligam e desligam e o preço.
+         Os preços ficam em ferramentas/pagina/precos.json (o data-base e os data-preco saem dele); o js/simulador.js só soma. -->
+    <section class="secao" id="exemplo">
+      <div class="dentro">
+        <h2>開開關關，看看價格</h2>
+        <p class="secao-sub">Café Aurora 是一間來自另一個次元、不存在的咖啡館。開啟或關閉網站的各個部分，網站和價格都會立刻改變。</p>
+        <div class="simulador" data-base="1600">
+          <div class="simulador-lado">
+            <fieldset class="simulador-opcoes" aria-describedby="simulador-nota">
+              <legend class="simulador-titulo">網站包含</legend>
+              <label class="simulador-base"><input type="checkbox" checked disabled><span>首頁、關於、菜單與聯絡</span><b>US$1,600</b></label>
+              <label><input type="checkbox" name="modulo[]" value="depoimentos" data-preco="160" checked><span>顧客評價</span><b>+ US$160</b></label>
+              <label><input type="checkbox" name="modulo[]" value="efeitos" data-preco="330" checked><span>特效：動態背景、霓虹與游標</span><b>+ US$330</b></label>
+              <label><input type="checkbox" name="modulo[]" value="cores" data-preco="160" checked><span>切換配色按鈕</span><b>+ US$160</b></label>
+              <label><input type="checkbox" name="modulo[]" value="laboratorio" data-preco="500" checked><span>調配你的飲料（模擬器）</span><b>+ US$500</b></label>
+              <label><input type="checkbox" name="modulo[]" value="assinatura" data-preco="330" checked><span>電子報訂閱</span><b>+ US$330</b></label>
+              <label><input type="checkbox" name="modulo[]" value="painel" data-preco="650"><span>自己編輯的後台</span><b>+ US$650</b></label>
+            </fieldset>
+            <div class="simulador-total" aria-live="polite">
+              <p><span>專案起價</span> <b data-simulador-total>US$3,080</b></p>
+              <p class="simulador-nota" id="simulador-nota">參考價格，和「組合你的網站」相同。月費方案（US$29 起）另計。</p>
+              <a class="botao" href="#contato">我想要這樣的網站</a>
+            </div>
+          </div>
+          <div class="simulador-tela">
+            <p class="simulador-barra" aria-hidden="true"><i></i><i></i><i></i><span>Café Aurora · 虛構網站</span></p>
+            <iframe src="https://cafe.linupedia.com.br/zh-hant/" title="Café Aurora，虛構咖啡館的範例網站" width="960" height="640" loading="lazy"></iframe>
+          </div>
+        </div>
+        <p class="simulador-credito">Café Aurora 來自大學「介面開發」課程的作業。 <a href="https://cafe.linupedia.com.br/zh-hant/" target="_blank" rel="noopener">全螢幕開啟</a></p>
+      </div>
+    </section>
+
+    <!-- Depoimentos: a seção fica escondida (hidden) até chegarem frases de verdade, com nome e projeto.
+         Cada depoimento é um <figure class="depoimento"> como este:
+         <figure class="depoimento">
+           <blockquote><p>[frase da pessoa]</p></blockquote>
+           <figcaption><b>[nome]</b>, [projeto]</figcaption>
+         </figure> -->
+    <section class="secao" id="depoimentos" hidden>
+      <div class="dentro">
+        <h2>客戶怎麼說</h2>
+        <div class="depoimentos"></div>
+      </div>
+    </section>
+
+    <section class="secao" id="como">
+      <div class="dentro">
+        <h2>合作流程</h2>
+        <ol class="passos">
+          <li><b>討論</b><span>告訴我們你需要什麼、網站給誰看、要解決什麼問題。</span></li>
+          <li><b>提案</b><span>我們以書面回覆內容、時程與價格。</span></li>
+          <li><b>製作</b><span>從第一天起就能看到線上預覽，並隨時提出修改。</span></li>
+          <li><b>上線</b><span>網站安全地放上你的網域，之後也持續維護。</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="secao secao-gelo" id="duvidas">
+      <div class="dentro">
+        <h2>常見問題</h2>
+        <p class="secao-sub">開始前大家都會問的問題。適用於你專案的內容，會以書面寫在提案中。</p>
+        <div class="faq">
+          <details>
+            <summary>需要多久時間？</summary>
+            <div class="faq-resposta">
+              <p>大致上，企業形象網站需要 2 到 3 週，附後台的工具 1 到 2 個月，可安裝的應用程式 2 到 3 個月。確切時程會依你的專案寫在提案中。</p>
+            </div>
+          </details>
+          <details>
+            <summary>怎麼付款？</summary>
+            <div class="faq-resposta">
+              <p>接受提案時付一半，網站放上你的網域前付另一半，以國際匯款（Wise）或 PayPal 用美元支付。US$5,500 以上的專案可分三期：開始時 40%、預覽確認時 30%、上線時 30%。</p>
+            </div>
+          </details>
+          <details>
+            <summary>每個月都要付費嗎？</summary>
+            <div class="faq-resposta">
+              <p>是的：網站放在我們的伺服器上，月費讓它持續上線。共有兩種方案。<b>上線</b>（每月 US$29）包含伺服器、安全鎖頭、網域設定與備份。<b>照護</b>（每月 US$59）包含以上全部，再加上更新與文字、照片的小幅修改。年繳只需付 10 個月。</p>
+            </div>
+          </details>
+          <details>
+            <summary>我可以自己修改網站嗎？</summary>
+            <div class="faq-resposta">
+              <p>可以。透過後台，你不必找人就能更換文字和照片，並會收到簡短的教學與使用指南。工具和應用程式已內含後台；企業形象網站則加價 US$650。新增頁面仍由我們製作。</p>
+            </div>
+          </details>
+          <details>
+            <summary>網域屬於誰？</summary>
+            <div class="faq-resposta">
+              <p>屬於你。通常以你或你公司的名義註冊（.tw、.hk、.com 等），由我們完成所有設定。如果你不想處理，我們也可以代為註冊與續約。</p>
+            </div>
+          </details>
+          <details>
+            <summary>那文字、照片和資料呢？</summary>
+            <div class="faq-resposta">
+              <p>都是你的：你提供的素材、我們為網站製作的文字與圖片（付款後），以及使用者的資料，例如訂單與註冊。程式碼、版面與設計屬於 Linu Sites；在月費方案有效期間，你可以使用網站。</p>
+            </div>
+          </details>
+          <details>
+            <summary>如果有一天我想離開呢？</summary>
+            <div class="faq-resposta">
+              <p>你會收到包含文字、圖片和資料的檔案，可以直接帶走。如果想原封不動帶走網站，可以用與專案相同的金額買下原始碼。沒有人會被綁住。</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao contato" id="contato">
+      <div class="dentro contato-dentro">
+        <span class="contato-linu" data-pose="acenando" aria-hidden="true"><img class="pixel" src="../img/linu/linu-contato.png" alt="" width="552" height="190"></span>
+        <div>
+          <h2>跟我們聊聊你的網站</h2>
+          <p>組合你的網站，立刻看到價格與時程的估算。接著透過 WhatsApp 或電子郵件送出即可，訊息已經寫好了。只有一個想法也沒關係：我們會回覆問題與下一步。我們在巴西（UTC−3，與台灣相差 11 小時），會在一個工作天內回覆，視訊會議可以約在你的早上或晚上。</p>
+          <div class="monte" role="group" aria-label="組合你的網站" aria-describedby="monte-nota">
+            <fieldset class="monte-grupo">
+              <legend class="monte-titulo">1. 什麼類型的專案？</legend>
+              <div class="monte-opcoes monte-unico">
+                <label><input type="radio" name="tipo" value="apresentacao" data-preco="1600" data-prazo="2 到 3 週" data-nome="企業形象網站"><span>企業形象網站</span></label>
+                <label><input type="radio" name="tipo" value="ferramenta" data-preco="5500" data-prazo="1 到 2 個月" data-nome="附後台的工具"><span>附後台的工具</span></label>
+                <label><input type="radio" name="tipo" value="app" data-preco="8000" data-prazo="2 到 3 個月" data-nome="可安裝在手機上的應用程式"><span>可安裝的應用程式</span></label>
+                <label><input type="radio" name="tipo" value="nao-sei" data-nome="還不確定類型"><span>還不確定</span></label>
+              </div>
+            </fieldset>
+            <fieldset class="monte-grupo">
+              <legend class="monte-titulo">2. 需要哪些功能？</legend>
+              <div class="monte-opcoes">
+                <label><input type="checkbox" name="item[]" value="可更換文字與照片的後台" data-preco-apresentacao="650"><span>自己編輯的後台</span></label>
+                <label><input type="checkbox" name="item[]" value="訂購或報價表單"><span>訂購表單</span></label>
+                <label><input type="checkbox" name="item[]" value="試算或模擬器"><span>試算或模擬器</span></label>
+                <label><input type="checkbox" name="item[]" value="客戶登入區"><span>客戶登入</span></label>
+                <label><input type="checkbox" name="item[]" value="部落格或文章"><span>部落格或文章</span></label>
+                <label><input type="checkbox" name="item[]" value="WhatsApp 或電子郵件通知"><span>WhatsApp 或郵件通知</span></label>
+              </div>
+            </fieldset>
+            <fieldset class="monte-grupo">
+              <legend class="monte-titulo">3. 上線之後</legend>
+              <div class="monte-opcoes monte-unico">
+                <label><input type="radio" name="plano" value="29" data-nome="上線方案" checked><span>上線 · US$29／月</span></label>
+                <label><input type="radio" name="plano" value="59" data-nome="照護方案"><span>照護 · US$59／月</span></label>
+              </div>
+              <label class="monte-ano"><input type="checkbox" name="anual"><span>年繳（付 10 個月）</span></label>
+            </fieldset>
+            <div class="monte-total" aria-live="polite">
+              <p class="monte-resumo">選擇類型即可看到估算</p>
+              <dl class="monte-numeros" hidden>
+                <div><dt>專案</dt><dd><span data-total>US$0</span></dd></div>
+                <div><dt>時程</dt><dd data-prazo>—</dd></div>
+                <div><dt>月費</dt><dd data-mensal>—</dd></div>
+              </dl>
+              <p class="monte-nota" id="monte-nota">參考價格，「起價」。超出的部分會寫在書面提案中，附上確切價格。網域（每年約 US$15）另計。</p>
+            </div>
+          </div>
+          <div class="botoes contato-botoes">
+            <a class="botao botao-grande botao-whatsapp monte-whats" href="https://wa.me/5561996672610?text=%E4%BD%A0%E5%A5%BD%EF%BC%81%E6%88%91%E6%83%B3%E8%81%8A%E8%81%8A%E7%B6%B2%E7%AB%99%E7%9A%84%E4%BA%8B%E3%80%82" target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z" /></svg>
+              <span>WhatsApp <span class="sem-quebra">+55 61 99667-2610</span></span>
+            </a>
+            <a class="botao botao-grande botao-contorno-claro monte-enviar" href="mailto:contato@linupedia.com.br?subject=%E7%B6%B2%E7%AB%99%E8%A3%BD%E4%BD%9C%E6%B4%BD%E8%A9%A2">contato@linupedia.com.br</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="dentro rodape-dentro">
+      <p><b>Linu Sites</b> · 量身打造的網站與網頁應用程式</p>
+      <p>隸屬於 <a href="https://linupedia.com.br">LinuPedia</a></p>
+    </div>
+  </footer>
+</body>
+</html>

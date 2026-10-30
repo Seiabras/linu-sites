@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문의 — Fotografia do Cerrado</title>
+    <meta name="description" content="촬영 여행과 사진에 대해 Fotografia do Cerrado에 문의하세요.">
+    <meta name="theme-color" content="#814F12">
+    <script src="../js/tema-inicio.js?v=2"></script>
+    <link rel="stylesheet" href="../css/estilo.css?v=2">
+    <script src="../js/tema.js?v=2" defer></script>
+    <script src="../js/menu.js?v=2" defer></script>
+    <script src="../js/contato.js?v=2" defer></script>
+    <link rel="alternate" hreflang="pt-BR" href="https://cerrado.linupedia.com.br/contato">
+    <link rel="alternate" hreflang="pt-PT" href="https://cerrado.linupedia.com.br/pt-pt/contato">
+    <link rel="alternate" hreflang="es-ES" href="https://cerrado.linupedia.com.br/es/contato">
+    <link rel="alternate" hreflang="ca" href="https://cerrado.linupedia.com.br/ca/contato">
+    <link rel="alternate" hreflang="nl" href="https://cerrado.linupedia.com.br/nl/contato">
+    <link rel="alternate" hreflang="en-GB" href="https://cerrado.linupedia.com.br/en/contato">
+    <link rel="alternate" hreflang="fr-FR" href="https://cerrado.linupedia.com.br/fr/contato">
+    <link rel="alternate" hreflang="de-DE" href="https://cerrado.linupedia.com.br/de/contato">
+    <link rel="alternate" hreflang="it-IT" href="https://cerrado.linupedia.com.br/it/contato">
+    <link rel="alternate" hreflang="en" href="https://cerrado.linupedia.com.br/intl/contato">
+    <link rel="alternate" hreflang="ja-JP" href="https://cerrado.linupedia.com.br/ja/contato">
+    <link rel="alternate" hreflang="ko-KR" href="https://cerrado.linupedia.com.br/ko/contato">
+    <link rel="alternate" hreflang="zh-Hant" href="https://cerrado.linupedia.com.br/zh-hant/contato">
+<script type="application/json" id="textos-estudo">{"obrigado":"{nome}님, 감사합니다! 이 페이지는 데모라서 메시지가 실제로 전송되지는 않았습니다."}</script>
+</head>
+<body>
+    <a class="pular" href="#conteudo">본문으로 건너뛰기</a>
+    <header class="topo">
+        <div class="container">
+            <a class="marca" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#C8985A"/><circle cx="16" cy="16" r="8" fill="#5E3A0D"/><circle cx="16" cy="16" r="4" fill="#FBF7F1"/></svg> Fotografia do Cerrado</a>
+            <button class="botao-tema" type="button" data-escuro="다크 모드로 바꾸기" data-claro="라이트 모드로 바꾸기" aria-label="다크 모드로 바꾸기"><svg class="lua" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg><svg class="sol" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1"/></svg></button>
+            <button class="botao-menu" type="button" aria-expanded="false" aria-controls="menu">메뉴</button>
+            <nav aria-label="주 메뉴">
+                <ul class="menu" id="menu"><li><a href="index.html">홈</a></li><li><a href="galeria.html">갤러리</a></li><li><a href="expedicoes.html">촬영 여행</a></li><li><a href="sobre.html">소개</a></li><li><a href="contato.html" aria-current="page">문의</a></li></ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="conteudo">
+        <section class="titulo-pagina">
+            <div class="container">
+                <h1>문의</h1>
+                <p>촬영 여행에 참여하거나 사진을 사용하고 싶으신가요? 연락 주세요.</p>
+            </div>
+        </section>
+        <section class="secao">
+            <div class="container">
+                <form class="contato" novalidate>
+                    <div><label for="nome">이름</label><input id="nome" name="nome" type="text" autocomplete="name" required></div>
+                    <div><label for="email">이메일</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+                    <div><label for="assunto">문의 유형</label>
+                        <select id="assunto" name="assunto">
+                            <option>샤파다 두스 베아데이루스 촬영 여행</option>
+                            <option>에마스 국립공원 촬영 여행</option>
+                            <option>브라질리아 국립공원 당일 촬영</option>
+                            <option>사진 사용</option>
+                            <option>기타 문의</option>
+                        </select></div>
+                    <div><label for="mensagem">메시지</label><textarea id="mensagem" name="mensagem" rows="5" required></textarea></div>
+                    <div><button class="botao" type="submit">보내기</button></div>
+                    <p class="aviso" id="aviso" role="status" tabindex="-1" hidden></p>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <footer class="rodape">
+        <div class="container">
+            <nav class="idiomas-rodape" aria-label="지역 및 언어"><a href="../contato.html" hreflang="pt-BR" lang="pt-BR">Português (Brasil)</a> · <a href="../pt-pt/contato.html" hreflang="pt-PT" lang="pt-PT">Português (Portugal)</a> · <a href="../es/contato.html" hreflang="es-ES" lang="es-ES">Español</a> · <a href="../ca/contato.html" hreflang="ca" lang="ca">Català</a> · <a href="../nl/contato.html" hreflang="nl" lang="nl">Nederlands</a> · <a href="../en/contato.html" hreflang="en-GB" lang="en-GB">English (UK &amp; Europe)</a> · <a href="../fr/contato.html" hreflang="fr-FR" lang="fr-FR">Français</a> · <a href="../de/contato.html" hreflang="de-DE" lang="de-DE">Deutsch</a> · <a href="../it/contato.html" hreflang="it-IT" lang="it-IT">Italiano</a> · <a href="../intl/contato.html" hreflang="en" lang="en">English (international)</a> · <a href="../ja/contato.html" hreflang="ja-JP" lang="ja-JP">日本語</a> · <a href="../ko/contato.html" hreflang="ko-KR" lang="ko-KR" aria-current="true">한국어</a> · <a href="../zh-hant/contato.html" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></nav>
+            <p>© 2026 Fotografia do Cerrado · 가상의 회사, 루이스 마테우스 모라이스 베가의 학습 프로젝트</p>
+            <p><a href="creditos.html">사진 출처</a></p>
+        </div>
+    </footer>
+</body>
+</html>

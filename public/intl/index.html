@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en" data-moeda="USD">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Linu Sites — custom websites and web apps</title>
+  <meta name="description" content="Business websites, tools with dashboards and web apps that install on your phone. We design, build, launch and look after the server.">
+  <meta name="theme-color" content="#1F2A44">
+  <link rel="icon" href="../img/linu-logo.png" type="image/png" sizes="128x128">
+  <link rel="icon" href="../img/icone-32.png" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="../img/icone-180.png">
+  <meta property="og:title" content="Linu Sites">
+  <meta property="og:description" content="Custom websites and web apps, from design to server.">
+  <meta property="og:image" content="https://sites.linupedia.com.br/img/compartilhar.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Linu Sites: custom websites and web apps, with Linu at the research station">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self'; frame-src https://cafe.linupedia.com.br; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <link rel="preload" href="../fontes/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="canonical" href="https://sites.linupedia.com.br/intl/">
+  <link rel="alternate" hreflang="pt-BR" href="https://sites.linupedia.com.br/">
+  <link rel="alternate" hreflang="pt-PT" href="https://sites.linupedia.com.br/pt-pt/">
+  <link rel="alternate" hreflang="es-ES" href="https://sites.linupedia.com.br/es/">
+  <link rel="alternate" hreflang="ca" href="https://sites.linupedia.com.br/ca/">
+  <link rel="alternate" hreflang="nl" href="https://sites.linupedia.com.br/nl/">
+  <link rel="alternate" hreflang="en-GB" href="https://sites.linupedia.com.br/en/">
+  <link rel="alternate" hreflang="en-IE" href="https://sites.linupedia.com.br/en/">
+  <link rel="alternate" hreflang="fr-FR" href="https://sites.linupedia.com.br/fr/">
+  <link rel="alternate" hreflang="de-DE" href="https://sites.linupedia.com.br/de/">
+  <link rel="alternate" hreflang="it-IT" href="https://sites.linupedia.com.br/it/">
+  <link rel="alternate" hreflang="en" href="https://sites.linupedia.com.br/intl/">
+  <link rel="alternate" hreflang="ja-JP" href="https://sites.linupedia.com.br/ja/">
+  <link rel="alternate" hreflang="ko-KR" href="https://sites.linupedia.com.br/ko/">
+  <link rel="alternate" hreflang="zh-Hant" href="https://sites.linupedia.com.br/zh-hant/">
+  <link rel="alternate" hreflang="zh-TW" href="https://sites.linupedia.com.br/zh-hant/">
+  <link rel="alternate" hreflang="zh-HK" href="https://sites.linupedia.com.br/zh-hant/">
+  <link rel="alternate" hreflang="x-default" href="https://sites.linupedia.com.br/intl/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://sites.linupedia.com.br/intl/">
+  <meta property="og:locale" content="en_US">
+  <meta property="og:locale:alternate" content="pt_BR">
+  <meta property="og:locale:alternate" content="pt_PT">
+  <meta property="og:locale:alternate" content="es_ES">
+  <meta property="og:locale:alternate" content="ca_ES">
+  <meta property="og:locale:alternate" content="nl_NL">
+  <meta property="og:locale:alternate" content="en_GB">
+  <meta property="og:locale:alternate" content="fr_FR">
+  <meta property="og:locale:alternate" content="de_DE">
+  <meta property="og:locale:alternate" content="it_IT">
+  <meta property="og:locale:alternate" content="ja_JP">
+  <meta property="og:locale:alternate" content="ko_KR">
+  <meta property="og:locale:alternate" content="zh_TW">
+  <!-- O que o Google lê sobre o estúdio (schema.org); sai do ferramentas/gerar-idiomas.mjs -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Linu Sites","url":"https://sites.linupedia.com.br/intl/","logo":"https://sites.linupedia.com.br/img/linu-logo.png","image":"https://sites.linupedia.com.br/img/compartilhar.png","description":"Business websites, tools with dashboards and web apps that install on your phone. We design, build, launch and look after the server.","inLanguage":"en","email":"contato@linupedia.com.br","telephone":"+55 61 99667-2610","areaServed":["JP","KR","TW","HK","SG","MY","ID","TH","VN","PH","IN","AU","NZ","US","CA"],"availableLanguage":["pt-BR","pt-PT","es-ES","ca","nl","en-GB","fr-FR","de-DE","it-IT","en","ja-JP","ko-KR","zh-Hant"],"parentOrganization":{"@type":"Organization","name":"LinuPedia","url":"https://linupedia.com.br"}}</script>
+  <!-- Os textos que os scripts escrevem (menu, luz, Monte o seu site), no idioma da página -->
+  <script type="application/json" id="textos-js">{"menu_abrir":"Open the menu","menu_fechar":"Close the menu","luz_apagar_aria":"Turn off the light (dark mode)","luz_acender_aria":"Turn on the light (light mode)","luz_apagar":"Turn off the light","luz_acender":"Turn on the light","fechar":"Close","escolha":"Choose the type to see an estimate","sem_tipo":"No problem: the conversation will help choose the type.","um_item":"one item","n_itens":"{n} items","extra":" + {itens} in the proposal","por_ano":"{valor} a year","por_mes":"{valor} a month","estimativa":"Estimate: from {valor}{extra}","linha_tipo":"Type: {nome}","linha_itens":"It needs:","linha_depois":"Once it's live: {nome}{anual}","anual":", paying for the year","linha_estimativa":"Website estimate: from {valor}{extra}","ola":"Hello! I'd like a website.","sobre":"About my business: ","assunto":"I'd like a website","ola_conversa":"Hello! I'd like to talk about a website.","area_vazia":"No projects from this sector here."}</script>
+  <script src="../js/tema-inicio.js?v=5"></script>
+  <link rel="stylesheet" href="../css/estilo.css?v=15">
+  <script src="../js/tema.js?v=7" defer></script>
+  <script src="../js/menu.js?v=7" defer></script>
+  <script src="../js/movimento.js?v=9" defer></script>
+  <script src="../js/simulador.js?v=3" defer></script>
+</head>
+<body>
+  <header class="topo">
+    <div class="dentro topo-dentro">
+      <a class="marca" href="./" aria-label="Linu Sites, home">
+        <img src="../img/linu-logo.png" alt="" width="40" height="40">
+        <span>Linu <b>Sites</b></span>
+      </a>
+      <nav class="menu" aria-label="Sections">
+        <div class="menu-links" id="menu-links">
+          <a href="#servicos">What we do</a>
+          <a href="#projetos">Projects</a>
+          <a href="#exemplo">Example</a>
+          <a href="#como">How it works</a>
+          <a href="#duvidas">FAQ</a>
+          <a class="botao menu-links-orcamento" href="#contato">Get a quote</a>
+        </div>
+        <details class="idiomas">
+          <summary title="Region and language"><svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3c2.5 2.6 3.7 5.6 3.7 9s-1.2 6.4-3.7 9c-2.5-2.6-3.7-5.6-3.7-9S9.5 5.6 12 3Z" /></svg><span class="idiomas-codigo">INTL</span><span class="so-leitor">: Region and language, English (international)</span></summary>
+          <div class="idiomas-lista">
+            <p class="idiomas-regiao" id="regiao-brasil">Brazil</p>
+            <ul aria-labelledby="regiao-brasil">
+              <li><a href="../" hreflang="pt-BR" lang="pt-BR" data-regiao="brasil" data-padrao data-sugestao="Ver esta página em português do Brasil" data-fechar="Fechar">Português (Brasil)</a></li>
+            </ul>
+            <p class="idiomas-regiao" id="regiao-europa">Europe</p>
+            <ul aria-labelledby="regiao-europa">
+              <li><a href="../pt-pt/" hreflang="pt-PT" lang="pt-PT" data-regiao="europa" data-sugestao="Ver esta página em português de Portugal" data-fechar="Fechar">Português (Portugal)</a></li>
+              <li><a href="../es/" hreflang="es-ES" lang="es-ES" data-regiao="europa" data-sugestao="Ver esta página en español" data-fechar="Cerrar">Español</a></li>
+              <li><a href="../ca/" hreflang="ca" lang="ca" data-regiao="europa" data-sugestao="Llegeix aquesta pàgina en català" data-fechar="Tancar">Català</a></li>
+              <li><a href="../nl/" hreflang="nl" lang="nl" data-regiao="europa" data-sugestao="Lees deze pagina in het Nederlands" data-fechar="Sluiten">Nederlands</a></li>
+              <li><a href="../en/" hreflang="en-GB" lang="en-GB" data-regiao="europa" data-padrao data-sugestao="See the page for the UK and Europe, in English (prices in €)" data-fechar="Close">English (UK &amp; Europe)</a></li>
+              <li><a href="../fr/" hreflang="fr-FR" lang="fr-FR" data-regiao="europa" data-sugestao="Lire cette page en français" data-fechar="Fermer">Français</a></li>
+              <li><a href="../de/" hreflang="de-DE" lang="de-DE" data-regiao="europa" data-sugestao="Diese Seite auf Deutsch lesen" data-fechar="Schließen">Deutsch</a></li>
+              <li><a href="../it/" hreflang="it-IT" lang="it-IT" data-regiao="europa" data-sugestao="Leggi questa pagina in italiano" data-fechar="Chiudi">Italiano</a></li>
+            </ul>
+            <p class="idiomas-regiao" id="regiao-asia">Asia-Pacific &amp; international</p>
+            <ul aria-labelledby="regiao-asia">
+              <li><a href="../intl/" hreflang="en" lang="en" data-regiao="asia" data-padrao data-sugestao="See the international page, in English (prices in US$)" data-fechar="Close" aria-current="true">English (international)</a></li>
+              <li><a href="../ja/" hreflang="ja-JP" lang="ja-JP" data-regiao="asia" data-sugestao="このページを日本語で見る" data-fechar="閉じる">日本語</a></li>
+              <li><a href="../ko/" hreflang="ko-KR" lang="ko-KR" data-regiao="asia" data-sugestao="이 페이지를 한국어로 보기" data-fechar="닫기">한국어</a></li>
+              <li><a href="../zh-hant/" hreflang="zh-Hant" lang="zh-Hant" data-regiao="asia" data-sugestao="以繁體中文瀏覽此頁" data-fechar="關閉">繁體中文</a></li>
+            </ul>
+          </div>
+        </details>
+        <button class="luz" type="button" data-luz aria-label="Turn off the light (dark mode)" title="Turn off the light">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+            <path class="luz-raios" d="M12 1.5v2M4.6 4.6l1.4 1.4M1.5 12h2M20.5 12h2M19.4 4.6 18 6" />
+            <path class="luz-bulbo" d="M12 6a5.5 5.5 0 0 0-3.2 10c.5.4.8.9.8 1.5v.5h4.8v-.5c0-.6.3-1.1.8-1.5A5.5 5.5 0 0 0 12 6Z" />
+            <path class="luz-base" d="M9.8 20.5h4.4M10.5 22.5h3" />
+          </svg>
+        </button>
+        <a class="botao botao-pequeno menu-orcamento" href="#contato">Get a quote</a>
+        <button class="menu-abrir" type="button" aria-expanded="false" aria-controls="menu-links" aria-label="Open the menu">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" /></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="abertura">
+      <div class="dentro abertura-dentro">
+        <div class="abertura-texto">
+          <p class="sobretitulo">Custom websites and web apps</p>
+          <h1>A website that works for <span class="marca-texto">your business</span>.</h1>
+          <p class="abertura-sub">From a business website to a tool with a dashboard and logins: we design, build, launch and look after the server. You talk directly to the people who make it.</p>
+          <div class="botoes">
+            <a class="botao" href="#contato">Get a quote</a>
+            <a class="botao botao-linha" href="#projetos">See projects</a>
+          </div>
+        </div>
+        <figure class="janela">
+          <div class="cena" data-cena>
+            <img class="pixel cena-dia" src="../img/abrigo-estacao-dia.png" alt="Pixel art illustration of a research station in Antarctica, with a desk, a computer and maps on the wall" width="344" height="192">
+            <img class="pixel cena-acesa" src="../img/abrigo-estacao-noite.png" alt="" width="344" height="192">
+            <img class="pixel cena-apagada" src="../img/abrigo-estacao-apagada.png" alt="" width="344" height="192">
+            <span class="cena-linu" data-pose="frente">
+              <img class="pixel linu-frente" src="../img/linu/linu-frente.png" alt="" width="172" height="190">
+              <span class="linu-lado"><img class="pixel" src="../img/linu/linu-lado.png" alt="" width="688" height="190"></span>
+              <img class="pixel linu-costas" src="../img/linu/linu-costas.png" alt="" width="172" height="190">
+            </span>
+          </div>
+          <figcaption>Linu's station, where the websites are made.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="secao" id="servicos">
+      <div class="dentro">
+        <h2>What we do</h2>
+        <p class="secao-sub">Every project is built from scratch, around the way your business works.</p>
+        <div class="cartoes">
+          <article class="cartao">
+            <span class="cartao-icone" aria-hidden="true">🧭</span>
+            <h3><a class="cartao-link" href="#contato" data-escolher="tipo=apresentacao" aria-describedby="preco-apresentacao">Business websites</a></h3>
+            <p>To say who you are, what you offer and how to reach you. Fast, great on mobile and easy to find on Google.</p>
+            <p class="cartao-preco" id="preco-apresentacao">from <b>$1,600</b> <span class="cartao-seta" aria-hidden="true">→</span><span class="so-leitor">: build a quote</span></p>
+          </article>
+          <article class="cartao">
+            <span class="cartao-icone" aria-hidden="true">🛠️</span>
+            <h3><a class="cartao-link" href="#contato" data-escolher="tipo=ferramenta" aria-describedby="preco-ferramenta">Tools and dashboards</a></h3>
+            <p>Order forms, calculators, customer logins and a dashboard to keep track of it all. Your website stops being a shop window and becomes part of the work.</p>
+            <p class="cartao-preco" id="preco-ferramenta">from <b>$5,500</b> <span class="cartao-seta" aria-hidden="true">→</span><span class="so-leitor">: build a quote</span></p>
+          </article>
+          <article class="cartao">
+            <span class="cartao-icone" aria-hidden="true">📱</span>
+            <h3><a class="cartao-link" href="#contato" data-escolher="tipo=app" aria-describedby="preco-app">Installable apps</a></h3>
+            <p>Web apps that sit on the phone's home screen like any other app and even open offline, with no app store in between.</p>
+            <p class="cartao-preco" id="preco-app">from <b>$8,000</b> <span class="cartao-seta" aria-hidden="true">→</span><span class="so-leitor">: build a quote</span></p>
+          </article>
+          <article class="cartao">
+            <span class="cartao-icone" aria-hidden="true">🛰️</span>
+            <h3>Online and cared for</h3>
+            <p>Domain, security padlock (HTTPS), server and backups. You don't need to understand any of it.</p>
+            <ul class="planos">
+              <li><a href="#contato" data-escolher="plano=29" aria-label="Online plan, $29 a month: build a quote"><span>Online</span><b>$29</b>/month</a></li>
+              <li><a href="#contato" data-escolher="plano=59" aria-label="Care plan, $59 a month: build a quote"><span>Care</span><b>$59</b>/month</a></li>
+            </ul>
+            <p class="planos-nota">Care includes updates and small text and photo changes. Pay for the year and get 2 months free.</p>
+          </article>
+        </div>
+        <p class="precos-nota">Reference prices to start the conversation. The final quote, in writing, depends on what goes into the project. Domain registration (about $15 a year) is paid separately.</p>
+      </div>
+    </section>
+
+    <section class="secao secao-gelo" id="projetos">
+      <div class="dentro">
+        <h2>Projects</h2>
+        <!-- As áreas filtram as duas listas, e as abas separam o que está no ar do que é de estudo (js/movimento.js);
+             sem JavaScript, as áreas não aparecem e as duas listas ficam uma embaixo da outra.
+             Cada projeto diz as suas áreas no data-areas (pode ter mais de uma). -->
+        <div class="areas" role="group" aria-label="Filter by sector" hidden>
+          <button class="area" type="button" data-area="" aria-pressed="true">All</button>
+          <button class="area" type="button" data-area="educacao" aria-pressed="false">Education and culture</button>
+          <button class="area" type="button" data-area="servicos" aria-pressed="false">Health and services</button>
+          <button class="area" type="button" data-area="comercio" aria-pressed="false">Retail and tourism</button>
+          <button class="area" type="button" data-area="industria" aria-pressed="false">Industry</button>
+          <button class="area" type="button" data-area="jogos" aria-pressed="false">Games</button>
+        </div>
+        <div class="abas" role="tablist" aria-label="Which projects to show" hidden>
+          <button class="aba" type="button" role="tab" id="aba-no-ar" aria-controls="no-ar" aria-selected="true">Live <span class="aba-conta">8</span></button>
+          <button class="aba" type="button" role="tab" id="aba-estudo" aria-controls="estudo" aria-selected="false" tabindex="-1">Study projects <span class="aba-conta">3</span></button>
+        </div>
+        <div class="painel" id="no-ar" role="tabpanel" aria-labelledby="aba-no-ar">
+          <h3 class="painel-titulo">Live</h3>
+          <p class="secao-sub">Real websites, in use right now. Go ahead and try them.</p>
+          <div class="projetos">
+            <article class="projeto" data-areas="educacao jogos">
+              <a href="https://linupedia.com.br" target="_blank" rel="noopener"><img src="../img/projetos/linupedia.webp" alt="LinuPedia's linuhub: Linu's camp in pixel art, at night, with the campfire and his friends" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">Installable app</p>
+                <h3>LinuPedia</h3>
+                <p>Language app and playable encyclopedia, with 197 languages and 39 areas of knowledge. Works offline on phones and computers.</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="projetos/linupedia">How it was built</a>
+                  <a class="projeto-link" href="https://linupedia.com.br" target="_blank" rel="noopener">linupedia.com.br</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="industria">
+              <a href="https://v2tech.app.br" target="_blank" rel="noopener"><img src="../img/projetos/v2tech.webp" alt="V²Tech COMBUSTÍVEL home page showing the fair price of diesel" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">Business tool</p>
+                <h3>V²Tech COMBUSTÍVEL</h3>
+                <p>Checks whether the diesel, gasoline or ethanol price a supplier charges makes sense, cross-checking data from Petrobras, Brazil's fuel regulator and its tax authority.</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="projetos/v2tech">How it was built</a>
+                  <a class="projeto-link" href="https://v2tech.app.br" target="_blank" rel="noopener">v2tech.app.br</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="comercio">
+              <a href="https://losveganaestrada.com.br" target="_blank" rel="noopener"><img src="../img/projetos/losvega.webp" alt="Los Vega na Estrada home page, tailor-made travel itineraries" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">Sales website with dashboard</p>
+                <h3>Los Vega na Estrada</h3>
+                <p>Tailor-made travel itineraries: the customer describes the trip and sees the price straight away; requests land in a dashboard with a ready-made WhatsApp reply.</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="projetos/losvega">How it was built</a>
+                  <a class="projeto-link" href="https://losveganaestrada.com.br" target="_blank" rel="noopener">losveganaestrada.com.br</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="educacao">
+              <a href="https://marginalia.blog.br" target="_blank" rel="noopener"><img src="../img/projetos/marginalia.webp" alt="Marginalia home page, a History and humanities publication" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">Digital publication</p>
+                <h3>Marginalia</h3>
+                <p>Independent History and humanities magazine, with contents, search, notes in the margin and ready-to-copy citations.</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="projetos/marginalia">How it was built</a>
+                  <a class="projeto-link" href="https://marginalia.blog.br" target="_blank" rel="noopener">marginalia.blog.br</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="servicos">
+              <a href="https://iconvet.com.br" target="_blank" rel="noopener"><img src="../img/projetos/iconvet.webp" alt="Iconvet home page, a veterinary clinic in Salvador, featuring its imaging department" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">Company website</p>
+                <h3>Iconvet</h3>
+                <p>Veterinary clinic in Salvador, Brazil: departments, tests, services and specialties across 74 pages, with WhatsApp and directions one tap away.</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="projetos/iconvet">How it was built</a>
+                  <a class="projeto-link" href="https://iconvet.com.br" target="_blank" rel="noopener">iconvet.com.br</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="servicos">
+              <a href="https://ajoriente.com" target="_blank" rel="noopener"><img src="../img/projetos/ajoriente.webp" alt="Administração Judicial Oriente home page: “Guiding companies to new beginnings”" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">Website with case lookup</p>
+                <h3>Administração Judicial Oriente</h3>
+                <p>Insolvency administration in Rio de Janeiro: practice areas, case lookup by company, document templates and contact.</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="projetos/ajoriente">How it was built</a>
+                  <a class="projeto-link" href="https://ajoriente.com" target="_blank" rel="noopener">ajoriente.com</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="jogos">
+              <a href="https://www.bjj-link.com" target="_blank" rel="noopener"><img src="../img/projetos/dojo-legacy.webp" alt="Dojo Legacy home page: “From white belt to mat legend”, with the game on a computer and a phone" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">Browser and mobile game</p>
+                <h3>Dojo Legacy</h3>
+                <p>Jiu-Jitsu and MMA career game, free in the browser, on iPhone and on Android, with PvP, team leagues and live rankings.</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="projetos/dojo-legacy">How it was built</a>
+                  <a class="projeto-link" href="https://www.bjj-link.com" target="_blank" rel="noopener">bjj-link.com</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="servicos">
+              <a href="https://omega-site-vert.vercel.app/" target="_blank" rel="noopener"><img src="../img/projetos/omega.webp" alt="Ômega Imóveis home page: “The right place changes everything”, over Rio's South Zone at sunset" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">Business website</p>
+                <h3>Ômega Imóveis</h3>
+                <p>Real estate agency in Rio's South Zone, on a one-page website that presents how they work and the neighborhoods they cover.</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="projetos/omega">How it was built</a>
+                  <a class="projeto-link" href="https://omega-site-vert.vercel.app/" target="_blank" rel="noopener">omega-site-vert.vercel.app</a>
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+        <div class="painel" id="estudo" role="tabpanel" aria-labelledby="aba-estudo">
+          <h3 class="painel-titulo">Study projects</h3>
+          <p class="secao-sub">Projects I made at university. The companies are fictional; the code is open source.</p>
+          <div class="projetos">
+            <article class="projeto" data-areas="comercio">
+              <a href="https://cafe.linupedia.com.br/intl/" target="_blank" rel="noopener"><img src="../img/projetos/cafe-aurora.webp" alt="Café Aurora home page: the name in blue and pink neon over a cyberpunk city at night" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">Website with effects</p>
+                <h3>Café Aurora</h3>
+                <p>A cyberpunk café that doesn't exist, with an intro screen, animated background, menu and a lab to build your drink. It's the website in the simulator above, also in Bootstrap and Tailwind versions.</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="https://cafe.linupedia.com.br/intl/" target="_blank" rel="noopener">cafe.linupedia.com.br</a>
+                  <a class="projeto-link" href="https://github.com/Seiabras/cafe-aurora" target="_blank" rel="noopener">Code on GitHub</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="servicos">
+              <a href="https://cerrado.linupedia.com.br/intl/" target="_blank" rel="noopener"><img src="../img/projetos/fotografia-do-cerrado.webp" alt="Fotografia do Cerrado home page: a seriema in golden grass, with a flowering pink ipê tree behind" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">Business website</p>
+                <h3>Fotografia do Cerrado</h3>
+                <p>Wildlife photography company, with a filterable gallery, expeditions and contact. The palette comes from the Cerrado itself and every color was checked against the WCAG contrast rules.</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="https://cerrado.linupedia.com.br/intl/" target="_blank" rel="noopener">cerrado.linupedia.com.br</a>
+                  <a class="projeto-link" href="https://github.com/Seiabras/fotografia-do-cerrado" target="_blank" rel="noopener">Code on GitHub</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="educacao">
+              <a href="https://abelhas.linupedia.com.br/intl/" target="_blank" rel="noopener"><img src="../img/projetos/abelhas-sem-ferrao.webp" alt="Abelhas sem Ferrão home page: the question about the 250 species next to photos of the jataí, uruçu and mandaçaia bees" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">Educational website</p>
+                <h3>Abelhas sem Ferrão</h3>
+                <p>For people who have never heard of Brazil's native stingless bees: a 3-minute tour, what to do if you find a nest and a quick quiz. It grew out of a Design Thinking exercise.</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="https://abelhas.linupedia.com.br/intl/" target="_blank" rel="noopener">abelhas.linupedia.com.br</a>
+                  <a class="projeto-link" href="https://github.com/Seiabras/abelhas-sem-ferrao" target="_blank" rel="noopener">Code on GitHub</a>
+                </p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Simulador: o Café Aurora (cafeteria fictícia) embutido, com as partes que ligam e desligam e o preço.
+         Os preços ficam em ferramentas/pagina/precos.json (o data-base e os data-preco saem dele); o js/simulador.js só soma. -->
+    <section class="secao" id="exemplo">
+      <div class="dentro">
+        <h2>Switch it on and off, see the price</h2>
+        <p class="secao-sub">Café Aurora is a café that doesn't exist, from another dimension. Switch parts of its website on and off: it changes instantly, and so does the price.</p>
+        <div class="simulador" data-base="1600">
+          <div class="simulador-lado">
+            <fieldset class="simulador-opcoes" aria-describedby="simulador-nota">
+              <legend class="simulador-titulo">What the website has</legend>
+              <label class="simulador-base"><input type="checkbox" checked disabled><span>Home, about, menu and contact</span><b>$1,600</b></label>
+              <label><input type="checkbox" name="modulo[]" value="depoimentos" data-preco="160" checked><span>Testimonials</span><b>+ $160</b></label>
+              <label><input type="checkbox" name="modulo[]" value="efeitos" data-preco="330" checked><span>Effects: animated background, neon and cursor</span><b>+ $330</b></label>
+              <label><input type="checkbox" name="modulo[]" value="cores" data-preco="160" checked><span>Color switch button</span><b>+ $160</b></label>
+              <label><input type="checkbox" name="modulo[]" value="laboratorio" data-preco="500" checked><span>Build your drink (simulator)</span><b>+ $500</b></label>
+              <label><input type="checkbox" name="modulo[]" value="assinatura" data-preco="330" checked><span>Email newsletter sign-up</span><b>+ $330</b></label>
+              <label><input type="checkbox" name="modulo[]" value="painel" data-preco="650"><span>Dashboard to edit it yourself</span><b>+ $650</b></label>
+            </fieldset>
+            <div class="simulador-total" aria-live="polite">
+              <p><span>Project, from</span> <b data-simulador-total>$3,080</b></p>
+              <p class="simulador-nota" id="simulador-nota">Reference prices, as in “Build your website”. The monthly plan (from $29) is separate.</p>
+              <a class="botao" href="#contato">I want a website like this</a>
+            </div>
+          </div>
+          <div class="simulador-tela">
+            <p class="simulador-barra" aria-hidden="true"><i></i><i></i><i></i><span>Café Aurora · fictional site</span></p>
+            <iframe src="https://cafe.linupedia.com.br/intl/" title="Café Aurora, example website for a fictional café" width="960" height="640" loading="lazy"></iframe>
+          </div>
+        </div>
+        <p class="simulador-credito">Café Aurora started as a university assignment, in the Interface Development course. <a href="https://cafe.linupedia.com.br/intl/" target="_blank" rel="noopener">Open full screen</a></p>
+      </div>
+    </section>
+
+    <!-- Depoimentos: a seção fica escondida (hidden) até chegarem frases de verdade, com nome e projeto.
+         Cada depoimento é um <figure class="depoimento"> como este:
+         <figure class="depoimento">
+           <blockquote><p>[frase da pessoa]</p></blockquote>
+           <figcaption><b>[nome]</b>, [projeto]</figcaption>
+         </figure> -->
+    <section class="secao" id="depoimentos" hidden>
+      <div class="dentro">
+        <h2>Clients with a website by us</h2>
+        <div class="depoimentos"></div>
+      </div>
+    </section>
+
+    <section class="secao" id="como">
+      <div class="dentro">
+        <h2>How it works</h2>
+        <ol class="passos">
+          <li><b>Conversation</b><span>You tell us what you need, who the website is for and what it should solve.</span></li>
+          <li><b>Proposal</b><span>We come back with what's included, the timeline and the price, in writing.</span></li>
+          <li><b>Build</b><span>You follow a live preview from day one and ask for changes along the way.</span></li>
+          <li><b>Live</b><span>The website goes onto your domain, securely, and keeps being looked after.</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="secao secao-gelo" id="duvidas">
+      <div class="dentro">
+        <h2>Frequently asked questions</h2>
+        <p class="secao-sub">What everyone asks before starting. Whatever applies to your project comes in writing in the proposal.</p>
+        <div class="faq">
+          <details>
+            <summary>How long does it take?</summary>
+            <div class="faq-resposta">
+              <p>A rough guide: a business website takes 2 to 3 weeks, a tool with a dashboard 1 to 2 months and an installable app 2 to 3 months. The exact timeline, agreed for your project, comes in the proposal.</p>
+            </div>
+          </details>
+          <details>
+            <summary>How does payment work?</summary>
+            <div class="faq-resposta">
+              <p>Half when you accept the proposal and half before the website goes onto your domain, by international bank transfer (Wise) or PayPal, in US dollars. For projects from $5,500, you can split it into three: 40% at the start, 30% when the preview is approved and 30% at launch.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Do I have to pay every month?</summary>
+            <div class="faq-resposta">
+              <p>Yes: the website runs on our server, and the monthly plan keeps it online. There are two plans. <b>Online</b> ($29 a month) covers the server, security padlock, domain setup and backups. <b>Care</b> ($59 a month) has all that plus updates and small text and photo changes. Pay for the year up front and get 2 months free.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Can I edit the website myself?</summary>
+            <div class="faq-resposta">
+              <p>Yes. With the dashboard you change text and photos without calling anyone, and you get a quick training session and a guide. Tools and apps include it; on a business website it's an extra $650. New pages are still done by us.</p>
+            </div>
+          </details>
+          <details>
+            <summary>Who owns the domain?</summary>
+            <div class="faq-resposta">
+              <p>You do. By default it's registered in your or your company's name, with your country's domain (.jp, .kr, .tw, .sg, .com or any other), and we set everything up. If you'd rather not deal with it, we handle registration and renewals for you.</p>
+            </div>
+          </details>
+          <details>
+            <summary>What about the text, photos and data?</summary>
+            <div class="faq-resposta">
+              <p>They're yours: whatever you send us, the text and images we create for the website (once paid) and the data of the people who use it, such as orders and sign-ups. The code, layout and design belong to Linu Sites; you use the website while the monthly plan is active.</p>
+            </div>
+          </details>
+          <details>
+            <summary>What if I want to leave one day?</summary>
+            <div class="faq-resposta">
+              <p>You get your text, images and data in a file, ready to take with you. If you want to take the website as it is, its code can be bought for the same price as the project. Nobody is locked in.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section class="secao contato" id="contato">
+      <div class="dentro contato-dentro">
+        <span class="contato-linu" data-pose="acenando" aria-hidden="true"><img class="pixel" src="../img/linu/linu-contato.png" alt="" width="552" height="190"></span>
+        <div>
+          <h2>Tell us about your website</h2>
+          <p>Build your website and instantly see an estimated price and timeline. Then send it by WhatsApp or email: the message is already written. It can be just an idea: the reply comes with questions and next steps. We're based in Brazil (UTC−3): replies come within one business day, and video calls can be scheduled for your morning or evening.</p>
+          <div class="monte" role="group" aria-label="Build your website" aria-describedby="monte-nota">
+            <fieldset class="monte-grupo">
+              <legend class="monte-titulo">1. What kind of project?</legend>
+              <div class="monte-opcoes monte-unico">
+                <label><input type="radio" name="tipo" value="apresentacao" data-preco="1600" data-prazo="2 to 3 weeks" data-nome="Business website"><span>Business website</span></label>
+                <label><input type="radio" name="tipo" value="ferramenta" data-preco="5500" data-prazo="1 to 2 months" data-nome="Tool with dashboard"><span>Tool with dashboard</span></label>
+                <label><input type="radio" name="tipo" value="app" data-preco="8000" data-prazo="2 to 3 months" data-nome="App that installs on the phone"><span>Installable app</span></label>
+                <label><input type="radio" name="tipo" value="nao-sei" data-nome="Not sure of the type yet"><span>Not sure yet</span></label>
+              </div>
+            </fieldset>
+            <fieldset class="monte-grupo">
+              <legend class="monte-titulo">2. What does it need?</legend>
+              <div class="monte-opcoes">
+                <label><input type="checkbox" name="item[]" value="Dashboard to change text and photos" data-preco-apresentacao="650"><span>Dashboard to edit it myself</span></label>
+                <label><input type="checkbox" name="item[]" value="Order or quote form"><span>Order form</span></label>
+                <label><input type="checkbox" name="item[]" value="Calculator or simulator"><span>Calculator or simulator</span></label>
+                <label><input type="checkbox" name="item[]" value="Customer login area"><span>Customer login</span></label>
+                <label><input type="checkbox" name="item[]" value="Blog or publication"><span>Blog or publication</span></label>
+                <label><input type="checkbox" name="item[]" value="WhatsApp or email notifications"><span>WhatsApp or email alerts</span></label>
+              </div>
+            </fieldset>
+            <fieldset class="monte-grupo">
+              <legend class="monte-titulo">3. Once it's live</legend>
+              <div class="monte-opcoes monte-unico">
+                <label><input type="radio" name="plano" value="29" data-nome="Online plan" checked><span>Online · $29/month</span></label>
+                <label><input type="radio" name="plano" value="59" data-nome="Care plan"><span>Care · $59/month</span></label>
+              </div>
+              <label class="monte-ano"><input type="checkbox" name="anual"><span>Pay the year up front (10 months)</span></label>
+            </fieldset>
+            <div class="monte-total" aria-live="polite">
+              <p class="monte-resumo">Choose the type to see an estimate</p>
+              <dl class="monte-numeros" hidden>
+                <div><dt>Project</dt><dd><span data-total>$0</span></dd></div>
+                <div><dt>Timeline</dt><dd data-prazo>—</dd></div>
+                <div><dt>Monthly</dt><dd data-mensal>—</dd></div>
+              </dl>
+              <p class="monte-nota" id="monte-nota">Reference price, “from”. Anything more goes into the proposal, in writing, with the exact price. The domain (about $15 a year) is separate.</p>
+            </div>
+          </div>
+          <div class="botoes contato-botoes">
+            <a class="botao botao-grande botao-whatsapp monte-whats" href="https://wa.me/5561996672610?text=Hello!%20I'd%20like%20to%20talk%20about%20a%20website." target="_blank" rel="noopener">
+              <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z" /></svg>
+              <span>WhatsApp <span class="sem-quebra">+55 61 99667-2610</span></span>
+            </a>
+            <a class="botao botao-grande botao-contorno-claro monte-enviar" href="mailto:contato@linupedia.com.br?subject=I'd%20like%20a%20website">contato@linupedia.com.br</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="dentro rodape-dentro">
+      <p><b>Linu Sites</b> · custom websites and web apps</p>
+      <p>A studio by <a href="https://linupedia.com.br">LinuPedia</a></p>
+    </div>
+  </footer>
+</body>
+</html>
