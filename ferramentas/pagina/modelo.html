@@ -29,7 +29,7 @@
   <!-- Os textos que os scripts escrevem (menu, luz, Monte o seu site), no idioma da página -->
   <script type="application/json" id="textos-js">{{textos_js}}</script>
   <script src="{{raiz}}js/tema-inicio.js?v=6"></script>
-  <link rel="stylesheet" href="{{raiz}}css/estilo.css?v=20">
+  <link rel="stylesheet" href="{{raiz}}css/estilo.css?v=21">
   <script src="{{raiz}}js/tema.js?v=8" defer></script>
   <script src="{{raiz}}js/menu.js?v=7" defer></script>
   <script src="{{raiz}}js/movimento.js?v=10" defer></script>
@@ -98,7 +98,7 @@
     <section class="secao" id="servicos">
       <div class="dentro">
         <h2>{{servicos_titulo}}</h2>
-        <p class="secao-sub">{{servicos_sub}}</p>
+        <p class="secao-sub" data-deslize="{{deslize_lado}}">{{servicos_sub}}</p>
         <div class="cartoes">
           <article class="cartao">
             <span class="cartao-icone" aria-hidden="true">🧭</span>
@@ -153,7 +153,7 @@
         </div>
         <div class="painel" id="no-ar" role="tabpanel" aria-labelledby="aba-no-ar">
           <h3 class="painel-titulo">{{aba_no_ar}}</h3>
-          <p class="secao-sub">{{no_ar_sub}}</p>
+          <p class="secao-sub" data-deslize="{{deslize_lado}}">{{no_ar_sub}}</p>
           <div class="projetos">
             <article class="projeto" data-areas="educacao jogos">
               <a href="https://linupedia.com.br" target="_blank" rel="noopener"><img src="{{raiz}}img/projetos/linupedia.webp" alt="{{linupedia_alt}}" width="960" height="600" loading="lazy"></a>
@@ -279,7 +279,7 @@
         </div>
         <div class="painel" id="estudo" role="tabpanel" aria-labelledby="aba-estudo">
           <h3 class="painel-titulo">{{aba_estudo}}</h3>
-          <p class="secao-sub">{{estudo_sub}}</p>
+          <p class="secao-sub" data-deslize="{{deslize_lado}}">{{estudo_sub}}</p>
           <div class="projetos">
             <article class="projeto" data-areas="comercio">
               <a href="{{cafe_url}}" target="_blank" rel="noopener"><img src="{{raiz}}img/projetos/cafe-aurora.webp" alt="{{cafe_alt}}" width="960" height="600" loading="lazy"></a>
@@ -327,7 +327,7 @@
     <section class="secao" id="exemplo">
       <div class="dentro">
         <h2>{{exemplo_titulo}}</h2>
-        <p class="secao-sub">{{exemplo_sub}}</p>
+        <p class="secao-sub" data-deslize="{{deslize_partes}}">{{exemplo_sub}}</p>
         <div class="simulador" data-base="{{n.apresentacao}}">
           <div class="simulador-lado">
             <fieldset class="simulador-opcoes" aria-describedby="simulador-nota">

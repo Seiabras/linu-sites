@@ -6,10 +6,10 @@
    e chinês, cortada com os caracteres que elas usam (ferramentas/gerar-fontes.mjs). A Nunito cuida do latim. */
 @font-face { font-family: "Noto Sans JP"; font-style: normal; font-weight: 100 500; font-display: swap; src: url(../fontes/noto-ja-400.woff2?v=1) format("woff2"); }
 @font-face { font-family: "Noto Sans JP"; font-style: normal; font-weight: 600 1000; font-display: swap; src: url(../fontes/noto-ja-700.woff2?v=1) format("woff2"); }
-@font-face { font-family: "Noto Sans KR"; font-style: normal; font-weight: 100 500; font-display: swap; src: url(../fontes/noto-ko-400.woff2?v=1) format("woff2"); }
-@font-face { font-family: "Noto Sans KR"; font-style: normal; font-weight: 600 1000; font-display: swap; src: url(../fontes/noto-ko-700.woff2?v=1) format("woff2"); }
-@font-face { font-family: "Noto Sans TC"; font-style: normal; font-weight: 100 500; font-display: swap; src: url(../fontes/noto-zh-hant-400.woff2?v=1) format("woff2"); }
-@font-face { font-family: "Noto Sans TC"; font-style: normal; font-weight: 600 1000; font-display: swap; src: url(../fontes/noto-zh-hant-700.woff2?v=1) format("woff2"); }
+@font-face { font-family: "Noto Sans KR"; font-style: normal; font-weight: 100 500; font-display: swap; src: url(../fontes/noto-ko-400.woff2?v=2) format("woff2"); }
+@font-face { font-family: "Noto Sans KR"; font-style: normal; font-weight: 600 1000; font-display: swap; src: url(../fontes/noto-ko-700.woff2?v=2) format("woff2"); }
+@font-face { font-family: "Noto Sans TC"; font-style: normal; font-weight: 100 500; font-display: swap; src: url(../fontes/noto-zh-hant-400.woff2?v=2) format("woff2"); }
+@font-face { font-family: "Noto Sans TC"; font-style: normal; font-weight: 600 1000; font-display: swap; src: url(../fontes/noto-zh-hant-700.woff2?v=2) format("woff2"); }
 
 /* Linu Sites: as cores da LinuPedia (azul do app, gelo, pergaminho e aurora da expedição) */
 :root {
@@ -460,7 +460,7 @@ span.contato-linu { display: block; position: relative; aspect-ratio: 138 / 190;
   }
   .cartoes::-webkit-scrollbar, .projetos::-webkit-scrollbar { display: none; }
   .cartoes > *, .projetos > * { flex: 0 0 84%; scroll-snap-align: start; }
-  #servicos .secao-sub::after, #projetos .secao-sub::after { content: " Deslize para o lado →"; white-space: nowrap; }
+  #servicos .secao-sub::after, #projetos .secao-sub::after { content: " " attr(data-deslize); white-space: nowrap; }
   .cartao:hover, .projeto:hover, .passos li:hover { transform: none; box-shadow: none; }
 }
 
@@ -526,5 +526,5 @@ span.contato-linu { display: block; position: relative; aspect-ratio: 138 / 190;
   .simulador-nota { order: 3; flex-basis: 100%; margin: 0 !important; }
   .simulador-total .botao { padding: 8px 16px; font-size: .92rem; }
   .simulador-tela iframe { height: min(68vh, 560px); }
-  #exemplo .secao-sub::after { content: " Deslize as partes para o lado →"; white-space: nowrap; }
+  #exemplo .secao-sub::after { content: " " attr(data-deslize); white-space: nowrap; }
 }
