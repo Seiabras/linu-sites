@@ -161,5 +161,22 @@
       "Tot el so es genera al moment i res no surt del dispositiu: sense compte, sense galetes i sense seguiment.",
       "Proves automàtiques del generador del mapa i un guió que recorre el joc en un navegador real."
     ]
+  },
+  "trupe": {
+    "etiqueta": "Xarxa d’artistes",
+    "alt": "El tauler de projectes de Trupe: notes subjectes amb cinta, cadascuna amb les àrees que busca i el tipus de participació",
+    "resumo": "Artistes de totes les àrees es troben per fer projectes junts: un tauler de projectes, un explorador amb fitxa i filtres, comunitats i converses al mateix lloc web.",
+    "desafio": "Unir qui té un projecte amb qui vol treballar, des d’actors fins a tècnics de so, i aguantar el pic d’un gran anunci sense dependre de cap xarxa social.",
+    "feito": [
+      "Un tauler on qui té la idea penja el que busca i qui s’hi apunta es presenta, amb el tipus de participació a la vista: pagat, col·laboratiu, intercanvi o convocatòria.",
+      "Un explorador d’un artista cada vegada, amb la fitxa de cadascú i filtres com «ja ha fet cinema» o «mai no ha fet musical», que mostra primer qui té més en comú.",
+      "Comunitats amb subcomunitats, missatges directes i la conversa de cada projecte, tot en temps real.",
+      "Cura de debò: denúncies amb motiu, tauler de moderació, alerta contra estafes a les converses i accés només per a majors de 18 anys."
+    ],
+    "dentro": [
+      "Feta amb Node, sense dependències i amb SQLite, i provada amb 100.000 persones en una base de dades de mida real.",
+      "Accés sense contrasenya, amb un codi per correu o amb Google, i avisos al mòbil amb Trupe tancada.",
+      "Més de 80 proves automàtiques, còpia diària xifrada i instal·lació al mòbil com a app."
+    ]
   }
 }

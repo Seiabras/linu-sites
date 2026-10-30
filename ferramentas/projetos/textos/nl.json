@@ -161,5 +161,22 @@
       "Al het geluid wordt ter plekke gegenereerd en niets verlaat het apparaat: geen account, geen cookies, geen tracking.",
       "Automatische tests van de kaartgenerator en een script dat het spel doorloopt in een echte browser."
     ]
+  },
+  "trupe": {
+    "etiqueta": "Netwerk voor artiesten",
+    "alt": "Het projectenbord van Trupe: briefjes vastgeplakt met tape, elk met de gezochte disciplines en het soort deelname",
+    "resumo": "Artiesten uit alle disciplines vinden elkaar om samen projecten te maken: een projectenbord, een verkenner met profielkaart en filters, community’s en gesprekken op de site zelf.",
+    "desafio": "Mensen met een project koppelen aan mensen die willen werken, van acteurs tot geluidstechnici, en de piek van een grote aankondiging aankunnen zonder afhankelijk te zijn van sociale media.",
+    "feito": [
+      "Een bord waarop wie een idee heeft ophangt wat hij zoekt en wie meedoet zich aanmeldt, met het soort deelname duidelijk erbij: betaald, samenwerking, ruil of subsidie.",
+      "Een verkenner met één artiest tegelijk, met ieders profielkaart en filters als ‘heeft film gedaan’ of ‘nooit musical gedaan’, en wie het meest gemeen heeft komt eerst.",
+      "Community’s met subcommunity’s, directe berichten en het gesprek bij elk project, allemaal in realtime.",
+      "Echte zorg: meldingen met reden, moderatiepaneel, waarschuwing tegen oplichting in gesprekken en alleen toegang vanaf 18 jaar."
+    ],
+    "dentro": [
+      "Gebouwd in Node, zonder afhankelijkheden en met SQLite, en getest met 100.000 mensen in een database op ware grootte.",
+      "Inloggen zonder wachtwoord, met een code per e-mail of met Google, en meldingen op de telefoon terwijl Trupe dicht is.",
+      "Meer dan 80 geautomatiseerde tests, dagelijkse versleutelde back-up en installatie op de telefoon als app."
+    ]
   }
 }

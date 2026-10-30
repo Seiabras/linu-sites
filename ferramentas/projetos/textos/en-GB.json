@@ -161,5 +161,22 @@
       "All the sound is generated on the spot, and nothing leaves the device: no account, no cookies, no tracking.",
       "Automated tests of the map generator and a script that plays through the game in a real browser."
     ]
+  },
+  "trupe": {
+    "etiqueta": "Network for artists",
+    "alt": "The Trupe project board: notes held up with tape, each showing the disciplines sought and the kind of participation",
+    "resumo": "Artists from every discipline find each other to make projects together: a project board, an explorer with profiles and filters, communities and conversations on the site itself.",
+    "desafio": "To connect people who have a project with people who want to work, from actors to sound technicians, and to withstand the peak of a big announcement without depending on any social network.",
+    "feito": [
+      "A board where whoever has the idea posts what they are looking for and whoever is keen applies, with the kind of participation in plain view: paid, collaborative, exchange or grant-funded.",
+      "An explorer showing one artist at a time, with each person’s profile and filters such as “has done film” or “has never done musicals”, putting those with most in common first.",
+      "Communities with sub-communities, direct messages and a conversation on each project, all arriving in real time.",
+      "Real care: reports with a reason, a moderation panel, scam warnings in conversations and access for over-18s only."
+    ],
+    "dentro": [
+      "Built in Node, with no dependencies and with SQLite, and tested with 100,000 people in a full-size database.",
+      "Password-free sign-in, by email code or with Google, and phone notifications with Trupe closed.",
+      "More than 80 automated tests, encrypted daily backups and installation on the phone as an app."
+    ]
   }
 }

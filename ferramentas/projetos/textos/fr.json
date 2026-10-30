@@ -161,5 +161,22 @@
       "Tout le son est généré à la volée, et rien ne quitte l’appareil : ni compte, ni cookies, ni pistage.",
       "Tests automatiques du générateur de carte et un script qui parcourt le jeu dans un vrai navigateur."
     ]
+  },
+  "trupe": {
+    "etiqueta": "Réseau d’artistes",
+    "alt": "Le tableau de projets de Trupe : des notes fixées avec du ruban adhésif, chacune avec les disciplines recherchées et le type de participation",
+    "resumo": "Des artistes de toutes les disciplines se trouvent pour monter des projets ensemble : un tableau de projets, un explorateur avec fiche et filtres, des communautés et des conversations sur le site même.",
+    "desafio": "Rapprocher ceux qui ont un projet de ceux qui veulent travailler, des comédiens aux techniciens du son, et tenir le pic d’une grande annonce sans dépendre d’aucun réseau social.",
+    "feito": [
+      "Un tableau où celui qui a l’idée affiche ce qu’il cherche et où les intéressés postulent, avec le type de participation bien visible : rémunéré, collaboratif, échange ou subvention.",
+      "Un explorateur qui montre un artiste à la fois, avec sa fiche et des filtres comme « a déjà fait du cinéma » ou « n’a jamais fait de comédie musicale », en commençant par ceux qui ont le plus en commun.",
+      "Des communautés avec des sous-communautés, des messages directs et la conversation de chaque projet, le tout en temps réel.",
+      "Un vrai soin : signalements motivés, panneau de modération, alerte contre les arnaques dans les conversations et accès réservé aux plus de 18 ans."
+    ],
+    "dentro": [
+      "Réalisée en Node, sans dépendances et avec SQLite, et testée avec 100 000 personnes sur une base de données de taille réelle.",
+      "Connexion sans mot de passe, par code e-mail ou avec Google, et notifications sur le téléphone quand Trupe est fermée.",
+      "Plus de 80 tests automatisés, sauvegarde quotidienne chiffrée et installation sur le téléphone comme une application."
+    ]
   }
 }

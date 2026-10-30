@@ -161,5 +161,22 @@
       "Der gesamte Ton entsteht in Echtzeit, und nichts verlässt das Gerät: kein Konto, keine Cookies, kein Tracking.",
       "Automatische Tests des Kartengenerators und ein Skript, das das Spiel in einem echten Browser durchläuft."
     ]
+  },
+  "trupe": {
+    "etiqueta": "Netzwerk für Kunstschaffende",
+    "alt": "Die Projektwand von Trupe: mit Klebeband befestigte Zettel, jeder mit den gesuchten Bereichen und der Art der Mitwirkung",
+    "resumo": "Kunstschaffende aller Bereiche finden sich für gemeinsame Projekte: eine Projektwand, ein Entdecker mit Steckbrief und Filtern, Communitys und Gespräche direkt auf der Website.",
+    "desafio": "Menschen mit einem Projekt und Menschen, die mitarbeiten wollen, zusammenzubringen, von Schauspielern bis zu Tontechnikern, und die Spitze einer großen Ankündigung ohne Abhängigkeit von sozialen Netzwerken zu verkraften.",
+    "feito": [
+      "Eine Wand, an der man aushängt, was man sucht, und Interessierte sich bewerben, mit klar sichtbarer Art der Mitwirkung: bezahlt, gemeinschaftlich, Tausch oder Förderung.",
+      "Ein Entdecker mit jeweils einer Person, mit Steckbrief und Filtern wie „hat schon Film gemacht“ oder „noch nie Musical gemacht“, und wer am meisten gemeinsam hat, kommt zuerst.",
+      "Communitys mit Unter-Communitys, Direktnachrichten und das Gespräch zu jedem Projekt, alles in Echtzeit.",
+      "Echte Sorgfalt: Meldungen mit Grund, Moderationspanel, Warnung vor Betrug in Gesprächen und Zugang erst ab 18 Jahren."
+    ],
+    "dentro": [
+      "In Node gebaut, ohne Abhängigkeiten und mit SQLite, und mit 100.000 Personen in einer Datenbank in realer Größe getestet.",
+      "Anmeldung ohne Passwort, per E-Mail-Code oder mit Google, und Benachrichtigungen auf dem Handy bei geschlossener Trupe.",
+      "Mehr als 80 automatische Tests, tägliche verschlüsselte Sicherung und Installation auf dem Handy als App."
+    ]
   }
 }

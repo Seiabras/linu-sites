@@ -8,7 +8,8 @@
     "ajoriente",
     "dojo-legacy",
     "omega",
-    "minhocao"
+    "minhocao",
+    "trupe"
   ],
   "fixos": {
     "linupedia": {
@@ -64,6 +65,12 @@
       "url": "https://minhocao.linupedia.com.br",
       "endereco": "minhocao.linupedia.com.br",
       "imagem": "minhocao.webp"
+    },
+    "trupe": {
+      "nome": "Trupe",
+      "url": "https://trupe.163-176-222-234.sslip.io",
+      "endereco": "trupe.163-176-222-234.sslip.io",
+      "imagem": "trupe.webp"
     }
   }
 }

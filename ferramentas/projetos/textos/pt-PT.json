@@ -161,5 +161,22 @@
       "Todo o som é gerado no momento, e nada sai do aparelho: sem conta, sem cookies e sem rastreio.",
       "Testes automáticos do gerador do mapa e um guião que percorre o jogo num navegador a sério."
     ]
+  },
+  "trupe": {
+    "etiqueta": "Rede de artistas",
+    "alt": "O mural de projetos da Trupe: bilhetes presos com fita, cada um com as áreas procuradas e o tipo de participação",
+    "resumo": "Artistas de todas as áreas encontram-se para fazer projetos juntos: um mural de projetos, um explorar com ficha e filtros, comunidades e conversas no próprio site.",
+    "desafio": "Juntar quem tem um projeto a quem quer trabalhar, de atores a técnicos de som, e aguentar o pico de um grande anúncio sem depender de nenhuma rede social.",
+    "feito": [
+      "Um mural onde quem tem a ideia afixa o que procura e quem alinha candidata-se, com o tipo de participação às claras: pago, colaborativo, permuta ou concurso público.",
+      "Um explorar de um artista de cada vez, com a ficha de cada um e filtros como “já fez cinema” ou “nunca fez musical”, a mostrar primeiro quem tem mais em comum.",
+      "Comunidades com subcomunidades, mensagens diretas e a conversa de cada projeto, tudo em tempo real.",
+      "Cuidado a sério: denúncias com motivo, painel de moderação, alerta contra burlas nas conversas e entrada só para maiores de 18 anos."
+    ],
+    "dentro": [
+      "Feita em Node, sem dependências e com SQLite, e testada com 100 mil pessoas numa base de dados de tamanho real.",
+      "Entrada sem palavra-passe, por código no e-mail ou pelo Google, e avisos no telemóvel com a Trupe fechada.",
+      "Mais de 80 testes automáticos, cópia diária encriptada e instalação no telemóvel como aplicação."
+    ]
   }
 }

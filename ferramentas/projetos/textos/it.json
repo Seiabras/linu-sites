@@ -161,5 +161,22 @@
       "Tutto il suono è generato sul momento e nulla esce dal dispositivo: niente account, cookie o tracciamento.",
       "Test automatici del generatore della mappa e uno script che percorre il gioco in un vero browser."
     ]
+  },
+  "trupe": {
+    "etiqueta": "Rete di artisti",
+    "alt": "La bacheca dei progetti di Trupe: biglietti fissati con il nastro, ognuno con le aree cercate e il tipo di partecipazione",
+    "resumo": "Artisti di ogni area si trovano per fare progetti insieme: una bacheca dei progetti, un esploratore con scheda e filtri, community e conversazioni sul sito stesso.",
+    "desafio": "Unire chi ha un progetto con chi vuole lavorare, dagli attori ai tecnici del suono, e reggere il picco di un grande annuncio senza dipendere da alcun social network.",
+    "feito": [
+      "Una bacheca dove chi ha l’idea appende ciò che cerca e chi ci sta si candida, con il tipo di partecipazione ben visibile: pagato, collaborativo, scambio o bando.",
+      "Un esploratore con un artista alla volta, con la scheda di ciascuno e filtri come «ha già fatto cinema» o «non ha mai fatto musical», che mostra prima chi ha più in comune.",
+      "Community con sotto-community, messaggi diretti e la conversazione di ogni progetto, tutto in tempo reale.",
+      "Cura vera: segnalazioni con motivo, pannello di moderazione, avviso contro le truffe nelle conversazioni e accesso solo ai maggiori di 18 anni."
+    ],
+    "dentro": [
+      "Realizzata in Node, senza dipendenze e con SQLite, e testata con 100.000 persone in un database di dimensioni reali.",
+      "Accesso senza password, con codice via e-mail o con Google, e notifiche sul telefono con Trupe chiusa.",
+      "Oltre 80 test automatici, backup giornaliero cifrato e installazione sul telefono come app."
+    ]
   }
 }
