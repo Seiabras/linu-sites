@@ -28,11 +28,12 @@ O visual segue a LinuPedia: o azul do app, o gelo e o pergaminho da expedição 
 | `public/css/estilo.css` | Visual (cores da LinuPedia, modo claro e escuro). |
 | `public/js/` | `tema-inicio.js` (aplica o tema antes de pintar), `tema.js` (o Linu e o lampião; com “menos movimento” ligado ele não anda, só aparece embaixo do lampião), `menu.js` (menu do celular), `movimento.js` (animações), `simulador.js` (o simulador do Café Aurora). |
 | `public/img/` | Cena da estação, o Linu (`linu/`, `linu-pixel.png`), a logo (`linu-logo.png`), capturas dos projetos (`projetos/`), ícones e imagem de compartilhar. |
-| `public/fontes/` | Nunito (licença OFL), servida pelo próprio site. |
+| `public/fontes/` | Nunito e as Noto de japonês, coreano e chinês (licença OFL), servidas pelo próprio site. |
 | `sitios/` | Os sites dos subdomínios, fora de `public/`: `cafe-aurora/` (cafe.linupedia.com.br, também com `/bootstrap/` e `/tailwind/`), `fotografia-do-cerrado/` (cerrado.linupedia.com.br) e `abelhas-sem-ferrao/` (abelhas.linupedia.com.br). Cada um tem o seu repositório público no GitHub (`Seiabras/cafe-aurora`, `Seiabras/fotografia-do-cerrado`, `Seiabras/abelhas-sem-ferrao`); mudou aqui, leve a mudança para lá. |
 | `ferramentas/cafe/` | O modelo do Café Aurora (`modelo.html`) e os textos dele em cada idioma (`textos/<código>.json`), para o `gerar-cafe.mjs`. |
 | `ferramentas/pagina/` | O modelo da página inicial (`modelo.html`), os textos de cada idioma (`textos/<código>.json`) e os preços de cada moeda (`precos.json`). |
-| `ferramentas/` | Geradores: a página em cada idioma (`gerar-idiomas.mjs`), páginas de projeto, imagem de compartilhar, cena noturna e o Linu trazido do app (`linu-do-app.py`). |
+| `ferramentas/fontes/` | Os caracteres que estão em cada fonte Noto (`ja.txt`, `ko.txt`, `zh-hant.txt`), escritos pelo `gerar-fontes.mjs`. |
+| `ferramentas/` | Geradores: a página em cada idioma (`gerar-idiomas.mjs`), as fontes Noto (`gerar-fontes.mjs`), páginas de projeto, imagem de compartilhar, cena noturna e o Linu trazido do app (`linu-do-app.py`). |
 | `deploy/` | Instalação na VM (`instalar-uma-vez.sh`), recebimento (`receber.sh`), conferência antes de publicar (`conferir-pagina.py`), bloco do Caddy e o manual `ORACLE.md`. |
 | `.github/workflows/oracle.yml` | Publicação automática (confere a página, entrega e testa se o site respondeu). |
 
@@ -69,8 +70,8 @@ node ferramentas/gerar-idiomas.mjs
   `"padrao": true` na página que representa a região; `"hreflang_extra"` para outros códigos que a página atende, como
   `en-IE` no inglês europeu e `zh-TW`/`zh-HK` no chinês). O seletor agrupa por região. A **Ásia-Pacífico e
   internacional** tem o inglês internacional (`/intl/`, em dólar, que também é o `x-default`), o japonês (`/ja/`), o
-  coreano (`/ko/`) e o chinês tradicional (`/zh-hant/`), com as fontes do sistema para esses três (a Nunito não tem os
-  caracteres) e a quebra de linha de cada língua.
+  coreano (`/ko/`) e o chinês tradicional (`/zh-hant/`), com fonte Noto própria para esses três (a Nunito não tem os
+  caracteres) e a entrelinha e a quebra de linha de cada língua.
   Um idioma com `"rascunho": true` fica fora do site, do seletor e do sitemap.
 - **Blocos só de algumas páginas (30/10/2026):** `{{?nome}}` … `{{/nome}}`, cada um na sua linha do modelo, entra só nas
   páginas daquela região (`europa`, `asia`, `brasil`), daquele idioma ou, com `cjk`, em japonês, coreano e chinês. As
@@ -116,6 +117,32 @@ vazia dentro de um bloco que entra faz o gerador recusar a gravação.
   aponta direto para a VM, sem CDN; e a CSP, na `<meta>` e no cabeçalho do Caddy, só libera o próprio site e o Café.
   O que fica no navegador é o `localStorage` (`tema`, `idioma`, `idioma-aviso` e, no Café, `aurora-modo`). Antes de pôr
   qualquer coisa de terceiro no site, mude esse texto nos 8 idiomas. Ele fala **deste site**, não dos sites dos clientes.
+
+## Fontes de japonês, coreano e chinês (30/10/2026)
+
+As páginas `/ja/`, `/ko/` e `/zh-hant/` usam a Noto Sans CJK (licença OFL, `public/fontes/OFL-Noto.txt`) cortada só com os
+caracteres que elas usam, servida de `public/fontes/`, sem CDN. São dois pesos por língua, 400 e 700, e as outras páginas
+não baixam nada disso: as famílias só entram no `--texto` dessas línguas, no `css/estilo.css`.
+
+| Língua | Caracteres | Regular + Bold |
+|---|---:|---:|
+| Japonês | 718 | 198 KB |
+| Coreano | 550 | 75 KB |
+| Chinês tradicional | 905 | 295 KB |
+
+- **Refazer:** nada a fazer na hora. O `node ferramentas/gerar-idiomas.mjs` compara os caracteres das páginas com o
+  `ferramentas/fontes/<pasta>.txt` e refaz a fonte que mudou; depois, suba o `?v=` dela no `css/estilo.css` e o do
+  `estilo.css` nos modelos. Entram o HTML das páginas (com os textos dos scripts), o `content` do CSS e os dias da semana
+  que o `Intl` escreve nos relógios do contato. `node ferramentas/gerar-fontes.mjs --tudo` refaz todas.
+- **O que precisa:** a Noto Sans CJK em `/usr/share/fonts/noto-cjk` (pacote `noto-fonts-cjk` do Arch, ou `NOTO_CJK=<pasta>`)
+  e o `pyftsubset`, com o brotli. O gerador procura em `PYFTSUBSET`, no `PATH` e no ambiente separado que uso aqui:
+  `python3 -m venv ~/.local/share/linu-sites-fontes && ~/.local/share/linu-sites-fontes/bin/pip install fonttools brotli`.
+  Sem eles, o gerador avisa e segue: a página sai normal, e o caractere novo aparece na fonte do aparelho.
+- **Limite:** 400 KB somados por página. O `deploy/conferir-pagina.py` não deixa publicar acima disso. O chinês é o que
+  tem menos folga; se apertar, o próximo passo é deixar no Bold só os caracteres que aparecem em negrito.
+- **Entrelinha e quebra de linha** (`css/estilo.css`): 1,85 em japonês e chinês e 1,75 em coreano; `line-break: strict` nas
+  três; `word-break: keep-all` em coreano, para quebrar entre palavras; `word-break: auto-phrase` e `palt` nos títulos em
+  japonês. Nos navegadores sem `auto-phrase`, o título quebra do jeito normal.
 
 ## O Café Aurora em cada idioma (30/10/2026)
 
@@ -248,7 +275,7 @@ node ferramentas/gerar-estudo.mjs abelhas-sem-ferrao
 
 ## Fonte e segurança
 
-A Nunito fica em `public/fontes` (licença OFL), sem Google Fonts. A página leva uma CSP numa `<meta>` (só
+A Nunito e as Noto ficam em `public/fontes` (licença OFL), sem Google Fonts. A página leva uma CSP numa `<meta>` (só
 carrega o que é do próprio site); o `deploy/Caddyfile-bloco` traz os cabeçalhos completos, para aplicar
 na VM (ver `deploy/ORACLE.md`). Desde 29/10/2026 o bloco deixa o próprio site pôr uma página dele num quadro
 (`frame-ancestors 'self'` e `X-Frame-Options SAMEORIGIN`), por causa do simulador; aplicado na VM em 29/10/2026 (a

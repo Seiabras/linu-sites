@@ -1,5 +1,6 @@
 """Confere, antes de publicar, que todo arquivo local que as páginas de public/ usam (src, href, srcset,
-url() do CSS) existe de verdade e que nenhuma moeda está com preços provisórios. Sai com erro e a lista do que falta.
+url() do CSS) existe de verdade, que nenhuma moeda está com preços provisórios e que as fontes de japonês, coreano e
+chinês não passam de 400 KB por língua. Sai com erro e a lista do que falta.
 
     python3 deploy/conferir-pagina.py
 """
@@ -48,6 +49,17 @@ usadas = {m for pagina in PUBLIC.rglob('index.html') for m in re.findall(r'<html
 pendentes = [f'{moeda}: {tabela["pendente"]}' for moeda, tabela in precos.items() if moeda in usadas and isinstance(tabela, dict) and tabela.get('pendente')]
 if pendentes:
     print('Preços pendentes, não publica:\n  ' + '\n  '.join(pendentes))
+    sys.exit(1)
+
+# As fontes de cada língua, somadas, ficam em até 400 KB por página (ferramentas/gerar-fontes.mjs)
+LIMITE_FONTES = 400 * 1024
+linguas = {}
+for fonte in (PUBLIC / 'fontes').glob('noto-*.woff2'):
+    lingua = fonte.stem.rsplit('-', 1)[0]
+    linguas[lingua] = linguas.get(lingua, 0) + fonte.stat().st_size
+pesadas = [f'{lingua}: {tamanho // 1024} KB' for lingua, tamanho in sorted(linguas.items()) if tamanho > LIMITE_FONTES]
+if pesadas:
+    print('Fontes acima de 400 KB por página, não publica:\n  ' + '\n  '.join(pesadas))
     sys.exit(1)
 
 if faltando:

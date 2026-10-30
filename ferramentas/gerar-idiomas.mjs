@@ -12,10 +12,11 @@
 // - precos.json: os preços de cada moeda. Uma moeda com "pendente" ainda gera as páginas, mas não publica; com
 //   "provisorio", publica e só avisa.
 // Também gera as páginas “Como foi feito” de cada projeto em cada idioma (ferramentas/projetos/) e refaz o sitemap.xml,
-// com as alternativas de idioma de todas as páginas.
+// com as alternativas de idioma de todas as páginas. No fim, confere as fontes de japonês, coreano e chinês (gerar-fontes.mjs).
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { FACES, gerarFontes } from './gerar-fontes.mjs';
 
 const aqui = path.dirname(fileURLToPath(import.meta.url));
 const pagina = path.join(aqui, 'pagina');
@@ -96,7 +97,7 @@ const alternativasPara = (sufixo) => [
 
 // Os blocos que só entram em algumas páginas. As chaves de texto deles existem em todos os idiomas, vazias onde o bloco
 // não entra; uma chave vazia dentro de um bloco que entra recusa a gravação, para o bloco não sair sem texto.
-const CJK = ['ja', 'ko', 'zh-Hant'];
+const CJK = Object.keys(FACES);
 const CONDICOES = new Set([...REGIOES, ...ORDEM, 'cjk']);
 const soNestas = (modelo, i) => modelo.replace(/^[ \t]*\{\{\?([A-Za-z0-9_-]+)\}\}\n([\s\S]*?)^[ \t]*\{\{\/\1\}\}\n/gm, (_, nome, dentro) => {
   if (!CONDICOES.has(nome)) erros.push(`bloco {{?${nome}}} não existe`);
@@ -238,5 +239,8 @@ const sitemap = [
   '',
 ].join('\n');
 if (sitemap !== sitemapAntes) { fs.writeFileSync(arquivoSitemap, sitemap); console.log('gravado sitemap.xml'); }
+
+// As fontes de japonês, coreano e chinês saem das páginas gravadas: refaz a que tiver caractere novo (ou a menos)
+if (!process.env.IDIOMAS) gerarFontes();
 
 for (const a of avisos) console.warn(a);
