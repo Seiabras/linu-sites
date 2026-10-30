@@ -103,7 +103,7 @@ vazia dentro de um bloco que entra faz o gerador recusar a gravação.
   só o que esta página faz. Sem promessa de conformidade legal nem de certificação, e o texto diz isso. O que foi
   medido no Chrome em 30/10/2026, em 390 e 1280 px, claro e escuro, na inicial e na página de um projeto: contraste de
   texto AA (4,5:1, ou 3:1 no texto grande), anel de foco em toda parada do Tab, tudo alcançável por teclado sem ficar
-  preso, alvos de pelo menos 24 × 24 px e nenhuma animação com “menos movimento”. Para isso, em 30/10 subiram os
+  preso, alvos de pelo menos 24 × 24 px e, com “menos movimento”, nada se mexe (a troca de luz fica só na opacidade e na cor). Para isso, em 30/10 subiram os
   contrastes das abas e das áreas e do número dos passos, o anel de foco ficou azul-claro nas partes escuras e por
   dentro da captura dos projetos, e o topo preso não cobre mais o que recebe foco (`scroll-padding-top`).
 - **O Café Aurora fica de fora** e o texto diz isso: é um site à parte, e ali o rodapé tem contraste de 3,7:1 e há alvos

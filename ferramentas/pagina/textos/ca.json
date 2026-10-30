@@ -137,7 +137,7 @@
     "passo4_titulo": "En línia",
     "passo4_texto": "La web passa al teu domini, amb seguretat, i la continuem cuidant després.",
     "europa_acess_titulo": "Accessibilitat",
-    "europa_acess_texto": "L'European Accessibility Act s'aplica des del juny de 2025, i la WCAG 2.2 és la versió actual de les pautes d'accessibilitat web. El que aquesta pàgina ja fa: contrast de nivell AA en mode clar i fosc, focus visible, tot accessible amb el teclat i, amb “reduir el moviment” activat, les animacions s'aturen. En queda fora el Café Aurora del simulador, una web d'exemple a part. No és cap certificació ni cap garantia de compliment legal.",
+    "europa_acess_texto": "L'European Accessibility Act s'aplica des del juny de 2025, i la WCAG 2.2 és la versió actual de les pautes d'accessibilitat web. El que aquesta pàgina ja fa: contrast de nivell AA en mode clar i fosc, focus visible, tot accessible amb el teclat i, amb “reduir el moviment” activat, les animacions de moviment s'aturen. En queda fora el Café Aurora del simulador, una web d'exemple a part. No és cap certificació ni cap garantia de compliment legal.",
     "europa_priv_titulo": "Privadesa (RGPD)",
     "europa_priv_texto": "Aquesta web no té galetes, rastrejadors, CDN ni Google Fonts: tot surt del nostre propi servidor. El tema i l'idioma que triïs es guarden només al teu navegador.",
     "detalhe_titulo": "",

@@ -138,7 +138,7 @@
     "passo4_titulo": "Online",
     "passo4_texto": "Il sito va sul tuo dominio, in sicurezza, e continua a essere curato anche dopo.",
     "europa_acess_titulo": "Accessibilità",
-    "europa_acess_texto": "L’European Accessibility Act si applica da giugno 2025 e le WCAG 2.2 sono la versione attuale delle linee guida per l’accessibilità del web. Cosa fa già questa pagina: contrasto di livello AA in modalità chiara e scura, focus visibile, tutto raggiungibile da tastiera e, con “riduci movimento” attivo, le animazioni si fermano. Resta fuori il Café Aurora del simulatore, un sito di esempio a parte. Non è una certificazione né una garanzia di conformità legale.",
+    "europa_acess_texto": "L’European Accessibility Act si applica da giugno 2025 e le WCAG 2.2 sono la versione attuale delle linee guida per l’accessibilità del web. Cosa fa già questa pagina: contrasto di livello AA in modalità chiara e scura, focus visibile, tutto raggiungibile da tastiera e, con “riduci movimento” attivo, le animazioni di movimento si fermano. Resta fuori il Café Aurora del simulatore, un sito di esempio a parte. Non è una certificazione né una garanzia di conformità legale.",
     "europa_priv_titulo": "Privacy (GDPR)",
     "europa_priv_texto": "Questo sito non ha cookie, tracker, CDN né Google Fonts: tutto arriva dal nostro server. Il tema e la lingua che scegli restano solo nel tuo browser.",
     "detalhe_titulo": "",
