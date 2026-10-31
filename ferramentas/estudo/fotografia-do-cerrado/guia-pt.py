@@ -483,6 +483,60 @@ ESP = [
  ('lixeira', 'Lixeira', 'Curatella americana', 'Árvores', 'flora', None, ['cerrado-sentido-restrito'], 'As folhas são tão ásperas que já foram usadas como lixa.', None, False, []),
  ('pau-santo', 'Pau-santo', 'Kielmeyera coriacea', 'Árvores', 'flora', None, ['cerrado-sentido-restrito', 'campo-sujo'], 'Casca de cortiça grossa e flores brancas perfumadas na seca.', None, False, []),
 ]
+
+# as fichas completas das espécies sem foto (31/10/2026, noite): os números com fonte; onde as fontes divergem, o texto diz
+FICHAS = {
+ 'onca-pintada': dict(fontes=[35, 15], abre='O maior felino das Américas e o maior predador do Cerrado. É rara e evita gente: quase tudo o que se sabe dela por aqui vem de armadilhas fotográficas e de pegadas.',
+   fatos=[('Comprimento', 'de 1,7 a 2,4 m, com a cauda; os machos são maiores'), ('Peso', 'de uns 35 a mais de 100 kg, conforme a região e o sexo'), ('Come', 'capivaras, veados, queixadas, jacarés e outros bichos de porte médio'), ('Quando aparece', 'sozinha, mais à noite e ao amanhecer')],
+   reconhecer=['Pintas em forma de roseta, com pintinhas dentro (a onça-parda é lisa).', 'Corpo forte, cabeça grande e patas largas.', 'Algumas são pretas, as onças-pretas: é a mesma espécie, e as rosetas aparecem contra a luz.'],
+   importa='Como predador do topo, ajuda a controlar as populações de herbívoros. No Cerrado, depende das matas de galeria e ciliares para se deslocar entre as áreas de mata; é vulnerável na lista nacional.',
+   escala=(2.0, 0.7, '2 m do focinho à ponta da cauda')),
+ 'tatu-canastra': dict(fontes=[34, 15], abre='O maior tatu do mundo, e um dos bichos mais difíceis de ver no Cerrado: passa o dia em tocas fundas e sai à noite.',
+   fatos=[('Comprimento', 'cerca de 1,5 m, com a cauda'), ('Peso', 'em média 28 kg as fêmeas e 44 kg os machos, num estudo em Goiás'), ('Come', 'cupins e formigas, que ele tira cavando os montes'), ('Quando aparece', 'à noite; de dia fica na toca')],
+   reconhecer=['Casco escuro com uma faixa clara na borda.', 'Uma garra enorme em cada pata da frente, feita para cavar.', 'Tocas largas, do tamanho de uma pessoa agachada, e montes de terra revirada.'],
+   importa='É chamado de engenheiro do ecossistema: as tocas que ele abandona servem de abrigo para mais de cem espécies de vertebrados. É vulnerável na lista nacional.',
+   escala=(1.5, 0.4, '1,5 m do focinho à ponta da cauda')),
+ 'anta': dict(fontes=[40, 15], abre='O maior mamífero terrestre do Brasil. Apesar do tamanho, é tímida, anda à noite perto da água e foge nadando quando se assusta.',
+   fatos=[('Comprimento', 'de 1,7 a 2 m'), ('Altura', 'até cerca de 1,2 m'), ('Peso', 'até 250 a 300 kg (as fontes divergem)'), ('Come', 'frutos, folhas e brotos'), ('Quando aparece', 'à noite, perto de rios, veredas e matas')],
+   reconhecer=['Um focinho curto e móvel, quase uma tromba.', 'Corpo escuro e arredondado, com uma crina curta no pescoço.', 'Os filhotes têm listras e pintas claras, que somem com a idade.'],
+   importa='É uma das maiores jardineiras do Cerrado: engole frutos grandes e espalha as sementes longe, nas fezes. É vulnerável na lista nacional.',
+   escala=(2.0, 1.1, '2 m de comprimento, 1,1 m de altura')),
+ 'veado-campeiro': dict(fontes=[36, 15], abre='O veado dos campos abertos. Vive em grupos pequenos e depende de grandes áreas de campo nativo, que estão sumindo.',
+   fatos=[('Comprimento', 'de 1,2 a 1,5 m'), ('Altura', 'de 70 a 75 cm'), ('Peso', 'de 30 a 40 kg; a fêmea é um pouco menor'), ('Come', 'capins, ervas e brotos'), ('Chifres', 'só os machos têm')],
+   reconhecer=['Pelagem castanho-alaranjada, com a barriga clara.', 'Orelhas grandes e cauda curta, branca por baixo.', 'Fica em pé e parado no meio do campo, olhando, antes de fugir.'],
+   importa='Onde ainda há bandos de veado-campeiro, ainda há campo nativo de verdade. O Parque Nacional das Emas é um dos melhores lugares para vê-lo. É vulnerável na lista nacional.',
+   escala=(1.35, 0.72, '1,35 m de comprimento, 72 cm de altura')),
+ 'raposa-do-campo': dict(fontes=[38, 17], abre='O único canídeo que só existe no Cerrado: uma raposa pequena, de focinho curto, que vive de comer cupins.',
+   fatos=[('Peso', 'de 2,5 a 4 kg'), ('Come', 'principalmente cupins, e também besouros, pequenos roedores e frutos'), ('Quando aparece', 'ao anoitecer e à noite, nos campos'), ('Situação', 'vulnerável na lista nacional')],
+   reconhecer=['Pequena, menor que o cachorro-do-mato.', 'Pelagem cinza-amarelada, com uma faixa escura no alto da cauda e a ponta preta.', 'Focinho curto e dentes pequenos, de quem come insetos.'],
+   importa='Por ser especializada em cupins e só existir no Cerrado, sofre muito com a troca dos campos por pasto e lavoura, e com os atropelamentos.',
+   escala=None),
+ 'ema': dict(fontes=[37], abre='A maior ave do Brasil. Não voa, mas corre muito; vive em bandos nos campos abertos, muitas vezes perto de veados e de gado.',
+   fatos=[('Altura', 'de 1,3 a 1,7 m'), ('Peso', 'de 25 a 45 kg (as fontes divergem)'), ('Come', 'folhas, sementes, frutos, insetos e pequenos bichos'), ('Ninho', 'o macho choca de 15 a 30 ovos, por cerca de 38 dias, e cuida dos filhotes')],
+   reconhecer=['Pescoço longo e penas cinzentas, sem cauda.', 'Pernas compridas com três dedos.', 'Abre as asas para mudar de direção quando corre.'],
+   importa='Come muitos insetos e espalha sementes pelos campos. É um dos símbolos dos chapadões do Cerrado.',
+   escala=(0.9, 1.5, '1,3 a 1,7 m de altura')),
+ 'pato-mergulhao': dict(fontes=[18, 41], abre='Um dos patos mais raros do mundo. Vive só em rios de água limpa e com corredeiras do Cerrado, mergulhando atrás de peixes.',
+   fatos=[('Tamanho', 'cerca de 56 cm'), ('Peso', 'de 600 a 700 g'), ('Quantos restam', 'menos de 250 adultos'), ('Onde vive', 'rios da Serra da Canastra, do Jalapão e da Chapada dos Veadeiros, entre outros')],
+   reconhecer=['Pato escuro, de cabeça verde-escura com um topete para trás.', 'Bico fino, preto e serrilhado, feito para segurar peixes.', 'Nada baixo na água e mergulha muito.'],
+   importa='Precisa de rios limpos, com mata nas margens e sem barragens: onde ele vive, o rio está bem. É criticamente em perigo de extinção.',
+   escala=(0.56, 0.3, '56 cm')),
+ 'pequi': dict(fontes=[39, 19], abre='A árvore do fruto mais famoso do Cerrado, que tinge o arroz de amarelo e perfuma a cozinha de Goiás e de Minas.',
+   fatos=[('Altura', 'em geral de 6 a 10 m, podendo passar de 12 m'), ('Frutos', 'de 500 a 2.000 por árvore em cada safra'), ('Safra', 'muda de região para região: de outubro a março'), ('Flores', 'grandes, claras, cheias de estames; abrem à noite')],
+   reconhecer=['Folhas com três partes (trifoliadas), de bordas serrilhadas.', 'Tronco grosso e tortuoso, de casca rugosa.', 'Frutos verdes, redondos, do tamanho de uma laranja.'],
+   importa='Na safra, a coleta do pequi é a renda de muitas famílias. Cuidado ao comer: o caroço tem espinhos finos escondidos, e não se morde.',
+   escala=('arvore', 8, '8 m (em geral de 6 a 10)')),
+ 'baru': dict(fontes=[39, 19], abre='A árvore da castanha mais famosa do Cerrado. Os frutos caem na seca, quando falta comida, e alimentam muitos bichos.',
+   fatos=[('Altura', 'pode passar de 15 m e chegar a 25 m'), ('Frutos', 'caem de setembro a outubro, segundo um estudo; a época muda de lugar para lugar'), ('Castanha', 'comida torrada, uma por fruto'), ('Quem come', 'o gado, morcegos, macacos e outros bichos comem a polpa')],
+   reconhecer=['Frutos marrons, achatados e duros, que caem embaixo da árvore.', 'Folhas compostas, com vários folíolos.', 'Copa larga, que dá boa sombra no pasto.'],
+   importa='A castanha virou fonte de renda para comunidades que colhem os frutos sem derrubar as árvores. Muitos baruzeiros ficam de pé nos pastos justamente por isso.',
+   escala=('arvore', 20, '20 m (pode chegar a 25)')),
+ 'buriti': dict(fontes=[39, 19, 10], abre='A palmeira das veredas. Onde tem buriti, tem água: ele só cresce onde o solo fica encharcado.',
+   fatos=[('Altura', 'pode passar de 20 m e chegar a 35 m'), ('Frutos', 'de dezembro a junho, com escamas avermelhadas'), ('Plantas', 'há buritis machos e fêmeas; só as fêmeas dão fruto'), ('Usos', 'doce, óleo, as folhas para artesanato e para cobrir casas')],
+   reconhecer=['Folhas enormes em forma de leque, no alto de um tronco reto e liso.', 'Cachos pendurados de frutos cobertos de escamas cor de vinho.', 'Cresce em fileira, seguindo o fio de água da vereda.'],
+   importa='Os frutos alimentam araras, antas e gente. E o buriti mostra onde está a água: proteger as veredas é proteger as nascentes.',
+   escala=('palmeira', 25, '25 m (pode chegar a 35)')),
+}
 NOME_PAISAGEM = {p['id']: p['nome'] for p in P}
 SITIO = AQUI.parents[2] / 'sitios' / 'fotografia-do-cerrado'
 CRED_ESP = {c['arquivo']: c for c in json.loads((SITIO / 'img' / 'especies' / 'creditos.json').read_text())}
@@ -514,7 +568,7 @@ def cartao(e):
     else:
         img = f'<div class="esp-icone esp-{reino}" aria-hidden="true"><svg viewBox="0 0 24 24" width="36" height="36">{ICONES[grupo]}</svg></div>'
     selo = f'<span class="selo">{AMEACA[am]}</span>' if am else ''
-    link = f'<a href="especie-{id_}.html">{nome}</a>' if ficha else nome
+    link = f'<a href="especie-{id_}.html">{nome}</a>' if ficha or id_ in FICHAS else nome
     if id_ == 'jatai':
         texto = texto.replace('Veja o site Abelhas sem Ferrão.', 'Veja o site <a href="https://abelhas.linupedia.com.br/" rel="noopener">Abelhas sem Ferrão</a>.')
     onde = ', '.join(f'<a href="paisagem-{x}.html">{NOME_PAISAGEM[x].lower().replace("cerrado sentido restrito", "cerrado")}</a>' for x in pais)
@@ -1061,3 +1115,117 @@ q = M / 'fontes.html'; t = q.read_text()
 t = re.sub(r'<ol class="fontes-lista">.*?</ol>', '<ol class="fontes-lista">' + lista + '</ol>', t, flags=re.S)
 q.write_text(t)
 print('páginas das paisagens:', len(P))
+
+# ================================================================ As fichas completas (especie-<id>.html) das espécies do dicionário FICHAS
+FONTES += [
+ (34, 'Tatu-canastra: estudo em Goiás (revista Multi-Science, IF Goiano), com o peso médio de 28 kg das fêmeas e 44 kg dos machos; e Estado de Minas (2026), as tocas usadas por mais de 100 espécies de vertebrados.', 'https://periodicos.ifgoiano.edu.br/multiscience/article/download/569/467/2140'),
+ (35, 'National Geographic Brasil. Qual é o maior felino das Américas (2024); e o levantamento de medidas e pesos da onça-pintada, que variam com a região.', 'https://www.nationalgeographicbrasil.com/animais/2024/11/qual-e-o-maior-felino-das-americas-alguns-exemplares-medem-ate-1-metro-e-80-centimetros'),
+ (36, 'UniCEUB (monografia, 2002): o veado-campeiro, com 1,2 a 1,5 m de comprimento, 70 a 75 cm de altura e 30 a 40 kg; só os machos têm chifres.', 'https://repositorio.uniceub.br/jspui/bitstream/123456789/2445/2/9810853.pdf'),
+ (37, 'InfoEscola. Ema: a maior ave do Brasil, de 1,3 a 1,7 m e 25 a 45 kg; o macho choca os ovos por cerca de 38 dias.', 'https://www.infoescola.com/aves/ema/'),
+ (38, 'Procarnívoros. Raposinha-do-campo: de 2,5 a 4 kg, com os cupins como base da alimentação.', 'https://procarnivoros.org.br/animais/raposinha-do-campo/'),
+ (39, 'Embrapa e trabalhos acadêmicos: o pequizeiro (6 a 10 m, até mais de 12 m; 500 a 2.000 frutos por safra), o baru (até 25 m, Embrapa) e o buriti (até 35 m, folder da Embrapa).', 'https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/859495/1/folderburiti.pdf'),
+ (40, 'Prefeitura de Belo Horizonte. Dia Mundial da Anta: mais de 2 m de comprimento, mais de 1 m de altura e até 250 kg (outras fontes falam em 300 kg).', 'https://prefeitura.pbh.gov.br/noticias/dia-mundial-da-anta'),
+ (41, 'Oiseaux.net. Brazilian Merganser: cerca de 56 cm e de 600 a 700 g; e o sumário do Plano de Ação Nacional do pato-mergulhão (ICMBio).', 'https://oiseaux.net/birds/brazilian.merganser.html'),
+]
+FONTES.sort()
+
+def escala_ficha(id_, nome, esc):
+    """O bicho (ou a árvore) e uma pessoa de 1,70 m na mesma escala."""
+    if not esc: return ''
+    W2, chao = 420, 200
+    px, ph = 40, 170
+    if esc[0] in ('arvore', 'palmeira'):
+        h_m = esc[1]; k = 180 / max(h_m, 1.7)  # px por metro, para caber
+        hp = 1.7 * k; xa = 230; ha = h_m * k
+        pessoa = f'<rect class="pessoa-barra" x="{px}" y="{chao - hp:.1f}" width="10" height="{hp:.1f}" rx="5"/>'
+        if esc[0] == 'arvore':
+            planta = f'<line class="tronco-escala" x1="{xa}" y1="{chao}" x2="{xa}" y2="{chao - ha * .55:.1f}"/><ellipse class="copa-escala" cx="{xa}" cy="{chao - ha * .72:.1f}" rx="{ha * .38:.1f}" ry="{ha * .28:.1f}"/>'
+        else:
+            planta = f'<line class="tronco-escala" x1="{xa}" y1="{chao}" x2="{xa}" y2="{chao - ha:.1f}"/>' + ''.join(f'<path class="folha-escala" d="M{xa} {chao - ha:.1f} q {dx * .5:.0f} -12 {dx} {dy}"/>' for dx, dy in [(-30, 10), (-20, -12), (0, -18), (20, -12), (30, 10)])
+        rot = f'<text x="{px + 5}" y="222" text-anchor="start">1,70 m</text><text x="{xa}" y="222" text-anchor="middle">{esc[2]}</text>'
+        return (f'<figure class="escala"><svg viewBox="0 0 {W2} 230" role="img" aria-labelledby="esc-{id_}"><title id="esc-{id_}">{nome}: {esc[2]}, ao lado de uma pessoa de 1,70 m</title>'
+                f'<line class="chao" x1="0" y1="{chao}" x2="{W2}" y2="{chao}"/>{pessoa}{planta}{rot}</svg>'
+                f'<figcaption>Na mesma escala: {nome.lower()}, {esc[2]}, e uma pessoa de 1,70 m (a barrinha à esquerda).</figcaption></figure>')
+    comp, alt, txt = esc
+    pessoa = (f'<g class="pessoa"><circle cx="{px + 15}" cy="{chao - 158}" r="12"/><rect x="{px}" y="{chao - 144}" width="30" height="74" rx="12"/>'
+              f'<rect x="{px + 2}" y="{chao - 74}" width="11" height="74" rx="5"/><rect x="{px + 17}" y="{chao - 74}" width="11" height="74" rx="5"/></g>')
+    c, a = comp * 100, alt * 100
+    return (f'<figure class="escala"><svg viewBox="0 0 {W2} 230" role="img" aria-labelledby="esc-{id_}"><title id="esc-{id_}">{nome}: {txt}, ao lado de uma pessoa de 1,70 m</title>'
+            f'<line class="chao" x1="0" y1="{chao}" x2="{W2}" y2="{chao}"/>{pessoa}<rect class="bicho" x="120" y="{chao - a}" width="{c}" height="{a}" rx="{min(a, 40) / 2}"/>'
+            f'<text x="{px + 15}" y="222" text-anchor="middle">1,70 m</text><text x="{120 + c / 2}" y="222" text-anchor="middle">{re.split(r' (?:do|de) ', txt)[0]}</text></svg>'
+            f'<figcaption>Na mesma escala: {txt}, ao lado de uma pessoa de 1,70 m.</figcaption></figure>')
+
+POR_ID = {e[0]: e for e in ESP}
+ORDEM_F = list(FICHAS)
+for n, id_ in enumerate(ORDEM_F):
+    e = POR_ID[id_]; f = FICHAS[id_]
+    _, nome, cien, grupo, reino, am, pais, _texto, _foto, _ficha, _fs = e
+    ant, prox = POR_ID[ORDEM_F[n - 1]], POR_ID[ORDEM_F[(n + 1) % len(ORDEM_F)]]
+    if foto_nova(id_):
+        topo = f'<img src="{{{{raiz}}}}img/especies/{id_}.webp" srcset="{{{{raiz}}}}img/especies/{id_}-640.webp 640w, {{{{raiz}}}}img/especies/{id_}.webp 1000w" sizes="(max-width: 900px) 100vw, 55vw" alt="{nome}" width="1000" height="667" fetchpriority="high">'
+    else:
+        topo = f'<div class="ficha-sem-foto esp-{reino}" aria-hidden="true"><svg viewBox="0 0 24 24" width="120" height="120">{ICONES[grupo]}</svg><p>Foto em breve</p></div>'
+    selo = f'<span class="selo">{AMEACA[am]} (lista nacional)</span>' if am else ''
+    fatos = ''.join(f'<dt>{k}</dt><dd>{v}</dd>' for k, v in f['fatos'])
+    rec = ''.join(f'<li>{r}</li>' for r in f['reconhecer'])
+    pais_links = ', '.join(f'<a href="paisagem-{x}.html">{NOME_PAISAGEM[x].lower()}</a>' for x in pais)
+    notas = ''.join(fonte(k) for k in f['fontes'])
+    esc = escala_ficha(id_, nome, f['escala'])
+    corpo = f'''        <article class="ficha-especie">
+            <div class="container">
+                <p class="trilha"><a href="especies.html">Espécies</a> <span aria-hidden="true">›</span> {nome}</p>
+                <div class="ficha-topo">
+                    {topo}
+                    <div class="ficha-resumo">
+                        <p class="ficha-grupo">{grupo}</p>
+                        <h1>{nome}</h1>
+                        <p class="cientifico">{cien}</p>
+                        <p class="ficha-abre">{f['abre']}{notas}</p>
+                        {selo}
+                    </div>
+                </div>
+                <div class="ficha-corpo">
+                    <section aria-labelledby="fatos-titulo">
+                        <h2 class="sub" id="fatos-titulo">Em poucas palavras</h2>
+                        <dl class="ficha-fatos">{fatos}</dl>
+                    </section>
+                    {f'<section aria-labelledby="tamanho-titulo"><h2 class="sub" id="tamanho-titulo">Do tamanho de quê?</h2>{esc}</section>' if esc else ''}
+                    <section aria-labelledby="reconhecer-titulo">
+                        <h2 class="sub" id="reconhecer-titulo">Como reconhecer</h2>
+                        <ul class="lista">{rec}</ul>
+                    </section>
+                    <section aria-labelledby="importa-titulo">
+                        <h2 class="sub" id="importa-titulo">Por que importa</h2>
+                        <p>{f['importa']}</p>
+                    </section>
+                    <section class="ficha-onde" aria-labelledby="onde-titulo">
+                        <h2 class="sub" id="onde-titulo">Em que paisagens</h2>
+                        <p>Aparece em: {pais_links}.</p>
+                    </section>
+                </div>
+                <nav class="ficha-navegar" aria-label="Outras fichas">
+                    <a href="especie-{ant[0]}.html" rel="prev"><span aria-hidden="true">←</span> {ant[1]}</a>
+                    <a href="especie-{prox[0]}.html" rel="next">{prox[1]} <span aria-hidden="true">→</span></a>
+                </nav>
+                <p class="ficha-nota">Medidas aproximadas, de adultos, e as fontes discordam em alguns números: veja cada uma em <a href="fontes.html">Fontes</a>. A situação de ameaça é a da lista nacional.</p>
+            </div>
+        </article>
+'''
+    pagina(f'especie-{id_}.html', f'{nome} ({cien}) — Guia do Cerrado', f'{nome}: como reconhecer, do que vive, o tamanho, por que importa e em que paisagens do Cerrado aparece.', corpo)
+
+so_pt = json.loads((AQUI / 'so-pt.json').read_text())
+for id_ in FICHAS:
+    f = f'especie-{id_}.html'
+    if f not in so_pt: so_pt.append(f)
+(AQUI / 'so-pt.json').write_text(json.dumps(so_pt, ensure_ascii=False, indent=2) + '\n')
+for f in so_pt:
+    if f == '404.html': continue
+    q = M / f; t = q.read_text()
+    t = re.sub(r'<ul class="menu" id="menu">.*?</ul>', menu_pt(f), t, count=1)
+    t = com_rodape_novo(t)
+    q.write_text(t)
+lista = ''.join(f'<li id="f{n}"><span class="fonte-numero">{n}</span> {t} <a href="{u}" rel="noopener">Abrir a fonte</a></li>' for n, t, u in FONTES)
+q = M / 'fontes.html'; t = q.read_text()
+t = re.sub(r'<ol class="fontes-lista">.*?</ol>', '<ol class="fontes-lista">' + lista + '</ol>', t, flags=re.S)
+q.write_text(t)
+print('fichas novas:', len(FICHAS))

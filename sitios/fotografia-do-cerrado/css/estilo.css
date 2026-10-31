@@ -782,3 +782,14 @@ sup.nota a { min-width: 24px; }
     .pagina-paisagem .especies-lista { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 1rem; padding-bottom: .6rem; }
     .pagina-paisagem .esp { flex: 0 0 82%; scroll-snap-align: start; background: var(--superficie); border: 1px solid var(--borda); border-radius: var(--raio); padding: .9rem; }
 }
+
+/* As fichas das espécies sem foto: o ícone do grupo no lugar da foto, até ela chegar */
+.ficha-sem-foto { aspect-ratio: 3 / 2; border-radius: var(--raio); display: grid; place-items: center; align-content: center; gap: .4rem; }
+.ficha-sem-foto svg { fill: currentColor; stroke: currentColor; stroke-width: 0; }
+.ficha-sem-foto svg [fill="none"] { stroke-width: 2; }
+.ficha-sem-foto p { color: var(--texto-suave); font-weight: 600; font-size: .9rem; }
+.escala .pessoa-barra { fill: var(--texto-suave); }
+.escala .tronco-escala { stroke: #6B4A2B; stroke-width: 5; stroke-linecap: round; }
+.escala .copa-escala { fill: #6F8F4E; }
+.escala .folha-escala { stroke: #5F7F44; stroke-width: 4; fill: none; stroke-linecap: round; }
+.ficha-onde a, .ficha-nota a { display: inline-block; padding-block: 2px; }
