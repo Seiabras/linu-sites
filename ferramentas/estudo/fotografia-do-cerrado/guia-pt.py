@@ -2120,3 +2120,79 @@ q = M / 'fontes.html'; t = q.read_text()
 t = re.sub(r'<ol class="fontes-lista">.*?</ol>', '<ol class="fontes-lista">' + lista + '</ol>', t, flags=re.S)
 q.write_text(t)
 print('como ajudar:', len(ACOES), 'ações; fontes:', len(FONTES))
+
+# ================================================================ Monte sua visita (1/11/2026): parque + mês = o que dá para ver
+# As paisagens de cada parque são as principais, a partir do texto de "Onde ver" (aproximadas: ver NO-COMPUTADOR 9.12);
+# os destaques são espécies que o próprio guia já liga ao parque, nas fichas ou em "Onde ver".
+PARQUE_PAIS = {
+ 1: ['campo-rupestre', 'campo-limpo', 'cerrado-sentido-restrito', 'mata-de-galeria', 'vereda'],
+ 2: ['campo-limpo', 'campo-sujo', 'parque-de-cerrado', 'vereda'],
+ 3: ['cerrado-sentido-restrito', 'campo-sujo', 'mata-de-galeria', 'cerradao', 'parque-de-cerrado'],
+ 4: ['campo-rupestre', 'campo-limpo', 'mata-de-galeria'],
+ 5: ['vereda', 'cerrado-sentido-restrito', 'campo-limpo'],
+ 6: ['cerradao', 'mata-ciliar', 'cerrado-sentido-restrito'],
+ 7: ['campo-rupestre', 'cerrado-sentido-restrito', 'mata-de-galeria'],
+ 8: ['vereda', 'campo-limpo', 'cerrado-sentido-restrito'],
+ 9: ['palmeiral', 'vereda', 'cerrado-sentido-restrito'],
+ 10: ['mata-seca', 'cerrado-sentido-restrito'],
+ 11: ['campo-rupestre', 'campo-limpo'],
+ 12: ['palmeiral', 'cerrado-sentido-restrito', 'mata-ciliar'],
+ 13: ['mata-ciliar', 'mata-seca', 'vereda'],
+}
+DESTAQUES = {
+ 1: ['lobo-guara', 'pato-mergulhao', 'canela-de-ema'],
+ 2: ['vaga-lume-cupinzeiro', 'ema', 'veado-campeiro', 'tamandua-bandeira', 'queixada', 'cachorro-vinagre', 'capim-flecha'],
+ 4: ['pato-mergulhao'],
+ 5: ['buriti'],
+ 7: ['canela-de-ema'],
+ 8: ['capim-dourado', 'pato-mergulhao'],
+ 9: ['babacu'],
+ 11: ['sempre-viva', 'chuveirinho'],
+ 12: ['babacu'],
+}
+ROTEIRO = {
+ 'parques': [{'n': n, 'nome': p[0], 'uf': p[1], 'texto': p[4], 'pais': PARQUE_PAIS[n], 'dest': DESTAQUES.get(n, [])} for n, p in enumerate(PARQUES, 1)],
+ 'paisagens': {p['id']: p['nome'] for p in P},
+ 'especies': [{'id': e[0], 'n': e[1], 'g': e[3], 'p': e[6]} for e in ESP],
+ 'eventos': [{'c': c, 'n': nome, 'l': link, 'm': ms, 't': txt} for c, nome, link, ms, txt, fs in EVENTOS],
+}
+roteiro_json = json.dumps(ROTEIRO, ensure_ascii=False).replace('</', '<\\/')
+op_parques = ''.join(f'<option value="{n}">{p[0]} ({p[1]})</option>' for n, p in enumerate(PARQUES, 1))
+op_meses = ''.join(f'<option value="{i}">{m.capitalize()}</option>' for i, m in enumerate(NOMES_MES, 1))
+roteiro = f'''        <section class="titulo-pagina guia-topo">
+            <div class="container">
+                <p class="guia-chapeu">Guia do cerrado</p>
+                <h1>Monte sua visita</h1>
+                <p>Escolha um parque e o mês da viagem: o guia junta as paisagens, as espécies para procurar e o que estará acontecendo por lá.</p>
+            </div>
+        </section>
+        <section class="secao">
+            <div class="container roteiro">
+                <form class="roteiro-escolha" action="roteiro.html" method="get">
+                    <div class="campo"><label for="roteiro-parque">Parque</label><select id="roteiro-parque" name="parque">{op_parques}</select></div>
+                    <div class="campo"><label for="roteiro-mes">Mês</label><select id="roteiro-mes" name="mes">{op_meses}</select></div>
+                    <noscript><button type="submit" class="botao">Ver</button></noscript>
+                </form>
+                <div class="roteiro-resultado" aria-live="polite">
+                    <p class="sem-js">Esta página precisa de JavaScript para montar a visita. Sem ele, veja os parques em <a href="onde-ver.html">Onde ver</a> e as épocas em <a href="mes-a-mes.html">Mês a mês</a>.</p>
+                </div>
+                <script type="application/json" id="roteiro-dados">{roteiro_json}</script>
+                <p class="nota-calculo">As paisagens de cada parque são as principais, de forma aproximada, e nem toda espécie aparece em todo parque que tem a paisagem dela: use a lista como um ponto de partida. Antes de ir, confira no site do parque se ele está aberto e o que precisa de guia.</p>
+            </div>
+        </section>
+'''
+pagina('roteiro.html', 'Monte sua visita — Guia do Cerrado',
+       'Escolha um parque do Cerrado e o mês: o guia junta as paisagens, as espécies para procurar e o que estará acontecendo por lá.', roteiro, scripts=['roteiro.js?v=2'])
+RODAPE_PT = RODAPE_PT.replace(' · <a href="onde-ver.html">Onde ver</a>', ' · <a href="onde-ver.html">Onde ver</a> · <a href="roteiro.html">Monte sua visita</a>')
+so_pt = json.loads((AQUI / 'so-pt.json').read_text())
+if 'roteiro.html' not in so_pt: so_pt.append('roteiro.html')
+(AQUI / 'so-pt.json').write_text(json.dumps(so_pt, ensure_ascii=False, indent=2) + '\n')
+for f in COMPARTILHADAS:
+    q = M / f; q.write_text(com_rodape_novo(q.read_text()))
+for f in so_pt:
+    if f == '404.html': continue
+    q = M / f; t = com_rodape_novo(q.read_text())
+    if f == 'onde-ver.html':
+        t = t.replace('Toque num número do mapa para ler sobre o parque.</p>', 'Toque num número do mapa para ler sobre o parque, ou <a href="roteiro.html">monte sua visita</a> escolhendo o parque e o mês.</p>', 1)
+    q.write_text(t)
+print('roteiro:', len(PARQUES), 'parques')

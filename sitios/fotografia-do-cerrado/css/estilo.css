@@ -869,3 +869,32 @@ svg.esp-icone { display: block; flex: none; fill: currentColor; stroke: currentC
 .acao-marcar { display: inline-flex; align-items: center; gap: .55rem; min-height: 44px; font-weight: 700; cursor: pointer; }
 .acao-marcar input { width: 24px; height: 24px; accent-color: var(--oliva); }
 .acoes-placar { font-weight: 700; margin-bottom: 1rem; }
+
+/* Monte sua visita (1/11/2026): as duas escolhas em cima (presas ao rolar no computador) e o resultado em blocos */
+.roteiro-escolha { display: grid; gap: .8rem; grid-template-columns: minmax(0, 1fr); margin-bottom: 1.5rem; }
+@media (min-width: 640px) { .roteiro-escolha { grid-template-columns: 2fr 1fr; align-items: end; } }
+@media (min-width: 1000px) { .roteiro-escolha { position: sticky; top: 64px; z-index: 2; background: var(--fundo); padding: .6rem 0; } }
+.roteiro-escolha .campo { display: grid; gap: .3rem; }
+.roteiro-escolha label { font-weight: 700; }
+.roteiro-escolha select { width: 100%; min-height: 44px; padding: .55rem .7rem; border: 2px solid var(--cinza); border-radius: 6px; font: inherit; background: var(--superficie); color: var(--texto); }
+.roteiro-resultado { display: grid; gap: 1.6rem; }
+@media (min-width: 1000px) { .roteiro-resultado { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-flow: row dense; align-items: start; column-gap: 3rem; } .roteiro-topo { grid-column: 1 / -1; } .roteiro-bloco-especies { grid-column: 2; grid-row: span 2; } }
+.roteiro-resultado > * { animation: evento-entra .2s ease-out; }
+.roteiro-topo { border-left: 4px solid var(--oliva); padding: .3rem 0 .3rem 1rem; }
+.roteiro-topo.estacao-seca { border-left-color: var(--areia); } .roteiro-topo.estacao-auge { border-left-color: var(--primaria); }
+.roteiro-topo p { margin: 0 0 .35rem; max-width: 70ch; }
+.roteiro-titulo { font-family: "Newsreader", Georgia, serif; font-weight: 600; font-size: 1.6rem; line-height: 1.2; }
+.roteiro-estacao { font-weight: 700; }
+.roteiro-sobre { color: var(--texto-suave); }
+.roteiro-sobre a, .roteiro-eventos a { display: inline-block; padding-block: 2px; font-weight: 700; }
+.roteiro-chips { list-style: none; display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .6rem; }
+.roteiro-chips a { display: inline-flex; align-items: center; min-height: 36px; padding: .3rem .8rem; border: 1px solid var(--borda); border-radius: 999px; background: var(--superficie); font-weight: 600; }
+.roteiro-especies { list-style: none; display: grid; gap: .4rem; margin: .6rem 0 .8rem; }
+.roteiro-especies li { display: flex; flex-wrap: wrap; align-items: baseline; gap: .2rem .6rem; padding: .45rem .7rem; background: var(--superficie); border: 1px solid var(--borda); border-radius: 8px; }
+.roteiro-especies li[hidden] { display: none; }
+.roteiro-especies a { font-weight: 700; padding-block: 2px; }
+.roteiro-marca { font-size: .78rem; font-weight: 700; padding: .05rem .5rem; border-radius: 999px; background: var(--oliva); color: var(--branco); }
+.roteiro-grupo { color: var(--texto-suave); font-size: .85rem; margin-left: auto; }
+.roteiro-eventos { display: grid; gap: .5rem; margin: .6rem 0 .8rem; padding-left: 1.2rem; }
+.js .roteiro-resultado .sem-js { display: none; }
+@media (prefers-reduced-motion: reduce) { .roteiro-resultado > * { animation: none; } }
