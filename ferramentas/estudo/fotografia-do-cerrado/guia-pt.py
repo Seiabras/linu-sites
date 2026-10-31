@@ -22,6 +22,10 @@ ATUAL = {'especie-': 'galeria.html'}  # as fichas ficam dentro de Espécies
 def menu_pt(arquivo):
     atual = next((v for k, v in ATUAL.items() if arquivo.startswith(k)), arquivo)
     itens = ''.join(f'<li><a href="{h}"{" aria-current=\"page\"" if h == atual else ""}>{t}</a></li>' for h, t in MENU)
+    # a lupa da busca (1/11/2026): só o ícone no computador; no menu que abre (celular e tablet), o ícone e a palavra
+    lupa = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>'
+    cur = ' aria-current="page"' if atual == 'busca.html' else ''
+    itens += f'<li class="menu-busca-item"><a class="menu-busca" href="busca.html"{cur}>{lupa}<span class="menu-busca-txt">Buscar</span></a></li>'
     return f'<ul class="menu" id="menu">{itens}</ul>'
 
 RODAPE_PT = ' · <a href="diario.html">Diário de campo</a> · <a href="como-fotografamos.html">Como fotografamos</a> · <a href="contato.html">Contato</a> · <a href="fontes.html">Fontes</a>'
@@ -2196,3 +2200,67 @@ for f in so_pt:
         t = t.replace('Toque num número do mapa para ler sobre o parque.</p>', 'Toque num número do mapa para ler sobre o parque, ou <a href="roteiro.html">monte sua visita</a> escolhendo o parque e o mês.</p>', 1)
     q.write_text(t)
 print('roteiro:', len(PARQUES), 'parques')
+
+
+# ================================================================ Buscar no guia (1/11/2026): um índice de tudo, dentro da própria página
+def sem_tags(s): return re.sub(r'<[^>]+>', '', s)
+BUSCA = []
+for e in ESP:
+    f = FICHAS.get(e[0])
+    BUSCA.append({'t': 'Espécies', 'n': e[1], 's': e[2], 'd': sem_tags(f['abre'] if f else e[7]), 'u': f'especie-{e[0]}.html', 'k': e[3]})
+for p_ in P:
+    BUSCA.append({'t': 'Paisagens', 'n': p_['nome'], 's': '', 'd': sem_tags(p_['texto']), 'u': f'paisagem-{p_["id"]}.html', 'k': ''})
+for n, pq in enumerate(PARQUES, 1):
+    BUSCA.append({'t': 'Parques', 'n': pq[0], 's': pq[1], 'd': pq[4], 'u': f'onde-ver.html#parque-{n}', 'k': ''})
+for i, nome, txt in [(x[0], x[1], x[2]) for x in POVOS]:
+    BUSCA.append({'t': 'Povos', 'n': nome, 's': '', 'd': sem_tags(txt), 'u': f'povos.html#{i}', 'k': ''})
+for termo, d, l in GLOSSARIO:
+    BUSCA.append({'t': 'Glossário', 'n': termo, 's': '', 'd': sem_tags(d), 'u': f'aprender.html#g-{re.sub(r"[^a-z]", "", termo.lower())}', 'k': ''})
+for c, nome, link, ms, txt, fs in EVENTOS:
+    BUSCA.append({'t': 'Mês a mês', 'n': nome, 's': quando_txt(ms), 'd': txt, 'u': f'mes-a-mes.html?mes={ms[0]}', 'k': ''})
+PAGINAS_BUSCA = [
+ ('index.html', 'Início', 'O guia do Cerrado: o bioma, as paisagens, as espécies, a água, os povos e as ameaças.'),
+ ('bioma.html', 'O bioma', 'Onde fica o Cerrado, o clima, o solo, o fogo e a vida: o segundo maior bioma do Brasil.'),
+ ('paisagens.html', 'Paisagens', 'As onze paisagens do Cerrado num corte desenhado, do campo limpo à mata seca.'),
+ ('especies.html', 'Espécies', f'O catálogo das {len(ESP)} espécies, com busca, filtros e o calendário das frutas.'),
+ ('agua.html', 'Água', 'O berço das águas: as nascentes, os aquíferos e os rios que nascem no Cerrado.'),
+ ('povos.html', 'Povos', 'Indígenas, quilombolas, geraizeiros, quebradeiras de coco e outros povos do Cerrado.'),
+ ('ameacas.html', 'Ameaças', 'O desmatamento ano a ano, onde ele acontece e o que está protegido.'),
+ ('aprender.html', 'Aprender', 'Quiz, os jogos Qual é esta espécie? e Qual paisagem é esta?, e o glossário.'),
+ ('onde-ver.html', 'Onde ver', 'Treze parques para conhecer o Cerrado, num mapa.'),
+ ('roteiro.html', 'Monte sua visita', 'Escolha o parque e o mês e veja o que dá para ver por lá.'),
+ ('mes-a-mes.html', 'O Cerrado mês a mês', 'O que floresce, amadurece e aparece em cada mês.'),
+ ('como-ajudar.html', 'Como ajudar', 'Registrar, denunciar, socorrer um bicho, comprar, plantar e evitar o fogo.'),
+ ('fontes.html', 'Fontes', 'Todas as fontes do guia, numeradas.'),
+ ('expedicoes.html', 'Expedições', 'As expedições de fotografia e o melhor mês para cada uma.'),
+ ('diario.html', 'Diário de campo', 'Anotações das saídas de campo.'),
+ ('como-fotografamos.html', 'Como fotografamos', 'O jeito de fotografar bichos sem perturbar.'),
+]
+for u, n, d in PAGINAS_BUSCA:
+    BUSCA.append({'t': 'Páginas', 'n': n, 's': '', 'd': d, 'u': u, 'k': ''})
+busca_json = json.dumps(BUSCA, ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')
+busca = f"""        <section class="titulo-pagina guia-topo">
+            <div class="container">
+                <p class="guia-chapeu">Guia do cerrado</p>
+                <h1>Buscar no guia</h1>
+                <p>Espécies (pelo nome comum ou científico), paisagens, parques, povos, palavras do glossário e páginas: {len(BUSCA)} itens.</p>
+            </div>
+        </section>
+        <section class="secao">
+            <div class="container busca">
+                <form class="busca-form" action="busca.html" method="get" role="search">
+                    <label for="busca-q">O que você procura?</label>
+                    <div class="busca-linha"><input id="busca-q" name="q" type="search" placeholder="Ex.: lobo, buriti, vereda, Kalunga" autocomplete="off" spellcheck="false"><button type="submit" class="botao">Buscar</button></div>
+                </form>
+                <p class="busca-contagem" aria-live="polite"></p>
+                <div class="busca-resultados"></div>
+                <div class="busca-sugestoes"><p>Experimente:</p><ul class="roteiro-chips"><li><a href="busca.html?q=lobo">lobo</a></li><li><a href="busca.html?q=vereda">vereda</a></li><li><a href="busca.html?q=pequi">pequi</a></li><li><a href="busca.html?q=fogo">fogo</a></li><li><a href="busca.html?q=Kalunga">Kalunga</a></li><li><a href="busca.html?q=Emas">Emas</a></li></ul></div>
+                <script type="application/json" id="busca-dados">{busca_json}</script>
+            </div>
+        </section>
+"""
+pagina('busca.html', 'Buscar no guia — Guia do Cerrado', 'Busque espécies, paisagens, parques, povos e palavras do glossário em todo o Guia do Cerrado.', busca, scripts=['busca.js?v=1'])
+so_pt = json.loads((AQUI / 'so-pt.json').read_text())
+if 'busca.html' not in so_pt: so_pt.append('busca.html')
+(AQUI / 'so-pt.json').write_text(json.dumps(so_pt, ensure_ascii=False, indent=2) + '\n')
+print('busca:', len(BUSCA), 'itens,', len(busca_json) // 1024, 'KB')
