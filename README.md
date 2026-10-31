@@ -229,6 +229,11 @@ node ferramentas/gerar-estudo.mjs abelhas-sem-ferrao
   (mude o texto lá e rode antes do `gerar-estudo.mjs`); o mapa das Expedições, do `mapa.py` da mesma pasta.
   Fotos novas entram sozinhas: `img/especies/<id>.webp` e `<id>-640.webp` (com o crédito em `img/especies/creditos.json`) no
   catálogo, e `img/paisagens/<id>…` nas fichas das paisagens; a série do desmatamento fica no `prodes.json`.
+  **Em 1/11/2026:** o catálogo passou a 114 espécies, todas com ficha (dicionário `FICHAS` do `guia-pt.py`, as fontes
+  numeradas até 154); as fichas têm “Não confunda com” (lista `PARES`), o Aprender ganhou o jogo “Qual é esta espécie?”
+  (pistas tiradas das fichas) e há duas páginas novas, “O Cerrado mês a mês” (lista `EVENTOS`) e “Como ajudar” (lista
+  `ACOES`). Para caber no orçamento de DOM, os ícones do catálogo são um `<svg>` com `<use>` (os desenhos ficam uma vez
+  só, em `icones_defs()`). No tablet, o menu de 8 itens do guia vira o botão “Menu” até 1099 px (regra por `:has()`).
 - **A 404 do Cerrado** (`sitios/fotografia-do-cerrado/404.html`) só aparece depois de o bloco novo do `deploy/Caddyfile-bloco`
   (`handle_errors` no `cerrado.linupedia.com.br`) ser posto na VM, como diz o `deploy/ORACLE.md`.
 - Os repositórios `Seiabras/fotografia-do-cerrado` e `Seiabras/abelhas-sem-ferrao` recebem uma cópia de
