@@ -748,3 +748,37 @@ sup.nota a { min-width: 24px; }
 .parques-lista h2 { font-size: 1.25rem; line-height: 1.2; }
 .parque-uf { color: var(--texto-suave); font-weight: 600; font-size: .9rem; }
 .mapa-parques .pino circle.pino-alvo { fill: transparent; stroke: none; }
+
+/* A página de cada paisagem */
+.paisagem-topo { background: var(--fundo-alt); padding: 1.5rem 0 2.5rem; }
+.paisagem-topo-grade { display: grid; gap: 1.5rem; align-items: center; }
+@media (min-width: 900px) { .paisagem-topo-grade { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3rem; } }
+.paisagem-topo h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); line-height: 1.05; margin: .2rem 0 .8rem; }
+.paisagem-abre { font-size: 1.08rem; max-width: 60ch; }
+.paisagem-figura { margin: 0; }
+.paisagem-desenho { display: block; width: 100%; max-width: 440px; height: auto; margin: 0 auto; background: var(--fundo); border-radius: var(--raio); }
+.paisagem-desenho .tronco { stroke: #6B4A2B; stroke-width: 3; fill: none; stroke-linecap: round; }
+.paisagem-desenho .tronco.fino { stroke-width: 1.6; }
+.paisagem-desenho .copa { fill: #6F8F4E; } .paisagem-desenho .copa.seca { fill: #B49A6A; }
+.paisagem-desenho .folha { stroke: #5F7F44; stroke-width: 3; fill: none; stroke-linecap: round; }
+.paisagem-desenho .capim { stroke: #B8A45A; stroke-width: 1.5; fill: none; }
+.paisagem-desenho .arbusto { fill: #8A9A55; } .paisagem-desenho .rocha { fill: #9C928A; }
+.paisagem-desenho .murundu { fill: #C2A878; } .paisagem-desenho .agua { fill: #6E9FB8; }
+.paisagem-desenho .chao { stroke: var(--texto-suave); stroke-width: 2; }
+.paisagem-desenho .trecho-fundo { fill: transparent; }
+.paisagem-figura figcaption { color: var(--texto-suave); font-size: .9rem; margin-top: .5rem; text-align: center; }
+.paisagem-figura figcaption a { display: inline-block; padding-block: 2px; font-weight: 600; }
+.paisagem-corpo { display: grid; gap: 2rem; padding-top: 2.5rem; padding-bottom: 2.5rem; }
+@media (min-width: 900px) { .paisagem-corpo { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem; } }
+.paisagem-corpo .sub { margin-bottom: .5rem; }
+.paisagem-links { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+.paisagem-links a, .esp-onde a { display: inline-block; padding-block: 2px; }
+.pagina-paisagem .ficha-navegar { margin-bottom: 3rem; }
+.paisagem-corpo .lista a, .pagina-paisagem .intro a { display: inline-block; padding-block: 2px; }
+.paisagem-desenho { max-width: 560px; }
+.paisagem-desenho .vizinho { opacity: .3; }
+/* nas páginas das paisagens, no celular, as espécies viram uma faixa que rola de lado (a página não fica comprida demais) */
+@media (max-width: 759px) {
+    .pagina-paisagem .especies-lista { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 1rem; padding-bottom: .6rem; }
+    .pagina-paisagem .esp { flex: 0 0 82%; scroll-snap-align: start; background: var(--superficie); border: 1px solid var(--borda); border-radius: var(--raio); padding: .9rem; }
+}

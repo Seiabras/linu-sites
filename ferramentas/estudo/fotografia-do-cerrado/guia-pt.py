@@ -517,7 +517,7 @@ def cartao(e):
     link = f'<a href="especie-{id_}.html">{nome}</a>' if ficha else nome
     if id_ == 'jatai':
         texto = texto.replace('Veja o site Abelhas sem Ferrão.', 'Veja o site <a href="https://abelhas.linupedia.com.br/" rel="noopener">Abelhas sem Ferrão</a>.')
-    onde = ', '.join(NOME_PAISAGEM[x].lower().replace('cerrado sentido restrito', 'cerrado') for x in pais)
+    onde = ', '.join(f'<a href="paisagem-{x}.html">{NOME_PAISAGEM[x].lower().replace("cerrado sentido restrito", "cerrado")}</a>' for x in pais)
     return (f'<li class="esp" data-reino="{reino}" data-grupo="{grupo}" data-ameaca="{am or ""}" data-paisagens="{" ".join(pais)}" '
             f'data-busca="{(nome + " " + cien).lower()}">{img}<div class="esp-texto"><p class="esp-grupo">{grupo}</p><h2>{link}</h2>'
             f'<p class="cientifico">{cien}</p><p>{texto}{"".join(fonte(n) for n in fs)}</p><p class="esp-onde">Onde: {onde}</p>{selo}{credito}</div></li>')
@@ -954,3 +954,110 @@ for f in so_pt:
     if f == '404.html': continue
     q = M / f; t = q.read_text(); t = com_rodape_novo(t); q.write_text(t)
 print('onde ver pronto')
+
+# ================================================================ Uma página para cada paisagem (paisagem-<id>.html)
+FONTES += [
+ (33, 'Brasil. Lei nº 12.651, de 25 de maio de 2012 (Código Florestal), art. 4º, com a redação da Lei nº 12.727/2012: as Áreas de Preservação Permanente, como a faixa de pelo menos 50 m em volta da parte encharcada das veredas e as faixas nas margens dos rios.', 'https://www.planalto.gov.br/ccivil_03/_ato2011-2014/2012/lei/l12651.htm'),
+]
+FONTES.sort()
+# o que cada página acrescenta à ficha: por que importa e onde ver (os números são os da lista de Onde ver)
+MAIS = {
+ 'campo-limpo': ('É onde vivem as aves e os bichos de campo aberto, como a ema, o veado-campeiro e a coruja-buraqueira, e costuma cercar as nascentes e as veredas. Por ser fácil de transformar em pasto, é uma das paisagens que mais somem.', [2, 1]),
+ 'campo-sujo': ('É a paisagem de passagem entre o campo e o cerrado: um pouco de cada. Tem muita comida para quem come capim, frutos rasteiros e insetos, como o tamanduá-bandeira e a raposa-do-campo.', [2, 3]),
+ 'campo-rupestre': ('Junta muitas plantas que só existem numa serra, às vezes num único morro. As sempre-vivas e o capim-dourado são colhidos para artesanato, e a mineração é uma das maiores ameaças a esses campos.', [1, 7, 11]),
+ 'parque-de-cerrado': ('Na chuva, o campo entre os murundus encharca, e as árvores só conseguem viver em cima deles. É uma paisagem que guarda água e que some rápido quando o terreno é drenado para plantar.', [2, 3]),
+ 'cerrado-sentido-restrito': ('É a paisagem que cobre a maior parte do bioma e a que dá os frutos mais conhecidos: pequi, cagaita, mangaba, araticum. É também a mais derrubada para virar lavoura e pasto.', [1, 3, 5]),
+ 'palmeiral': ('Os babaçuais do norte do Cerrado sustentam o trabalho das quebradeiras de coco do Maranhão, do Tocantins e do Piauí. Os buritizais alimentam araras, antas e gente.', [12, 9]),
+ 'vereda': ('Onde tem vereda, tem água: ela guarda nascentes e solta água devagar para os rios durante a seca. Por isso a lei protege uma faixa de pelo menos 50 m em volta da parte encharcada de toda vereda.', [5, 8]),
+ 'cerradao': ('Guarda espécies do cerrado e da mata juntas, e por isso é cheio de vida. Foi muito cortado para tirar madeira e fazer carvão.', [3, 6]),
+ 'mata-seca': ('Cresce nos solos mais férteis, muitas vezes sobre calcário, perto de cavernas. Por isso mesmo foi muito procurada para a agricultura e pela madeira das árvores grandes.', [10, 13]),
+ 'mata-de-galeria': ('É o corredor por onde muitos bichos atravessam o Cerrado aberto, com sombra e água o ano inteiro, e protege os córregos de terra e de calor. A lei protege as faixas de mata nas margens dos rios.', [3, 1]),
+ 'mata-ciliar': ('Segura as margens dos rios grandes contra a erosão e dá comida e abrigo para peixes e bichos da beira d’água. A lei protege as faixas de mata nas margens, mais largas quanto mais largo é o rio.', [13, 6]),
+}
+LEI = {'vereda', 'mata-de-galeria', 'mata-ciliar'}
+def desenho_grande(i, p):
+    # a paisagem no meio e as vizinhas do corte, apagadas, dos lados: fica deitado e mostra o que vem antes e depois
+    ini = min(max(i - 1, 0), len(P) - 3)
+    partes = []
+    for j in range(ini, ini + 3):
+        g = re.sub(r'<text [^>]*>[^<]*</text>', '', desenho(j, P[j]))
+        partes.append(g if j == i else g.replace('<g class="trecho"', '<g class="trecho vizinho"', 1))
+    return f'<svg class="paisagem-desenho" viewBox="{ini * W} 20 {3 * W} 205" aria-hidden="true" focusable="false">{"".join(partes)}</svg>'
+def especies_da(pid):
+    lista = [e for e in ESP if pid in e[6]]
+    return ''.join(cartao(e) for e in lista), len(lista)
+for i, p in enumerate(P):
+    ant, prox = P[i - 1], P[(i + 1) % len(P)]
+    texto_mais, parques = MAIS[p['id']]
+    cartoes_esp, n_esp = especies_da(p['id'])
+    onde_li = ''.join(f'<li><a href="onde-ver.html#parque-{n}">{PARQUES[n - 1][0]}</a> <span class="parque-uf">({PARQUES[n - 1][1]})</span></li>' for n in parques)
+    foto = foto_paisagem(p)
+    corpo = f'''        <article class="pagina-paisagem">
+            <section class="paisagem-topo">
+                <div class="container">
+                    <p class="trilha"><a href="paisagens.html">Paisagens</a> <span aria-hidden="true">›</span> {p['nome']}</p>
+                    <div class="paisagem-topo-grade">
+                        <div>
+                            <p class="guia-chapeu">Formação {p['formacao'].lower()} · {i + 1} de {len(P)}</p>
+                            <h1>{p['nome']}</h1>
+                            <p class="paisagem-abre">{p['texto']}{''.join(fonte(n) for n in p['f'])}</p>
+                            <dl class="paisagem-dados"><dt>Cobertura</dt><dd>{p['cobertura']}</dd><dt>Altura</dt><dd>{p['altura']}</dd></dl>
+                        </div>
+                        <figure class="paisagem-figura">{foto or desenho_grande(i, p)}<figcaption>{'' if foto else 'Desenho do trecho no corte do Cerrado, do campo à mata. '}<a href="paisagens.html#tipo-{p['id']}">Ver no corte inteiro</a></figcaption></figure>
+                    </div>
+                </div>
+            </section>
+            <div class="container paisagem-corpo">
+                <section aria-labelledby="reconhecer-titulo">
+                    <h2 id="reconhecer-titulo" class="sub">Como reconhecer</h2>
+                    <p>{p['reconhecer']}</p>
+                </section>
+                <section aria-labelledby="importa-titulo">
+                    <h2 id="importa-titulo" class="sub">Por que importa</h2>
+                    <p>{texto_mais}{fonte(33) if p['id'] in LEI else ''}</p>
+                </section>
+                <section aria-labelledby="onde-titulo">
+                    <h2 id="onde-titulo" class="sub">Onde ver</h2>
+                    <ul class="lista">{onde_li}</ul>
+                </section>
+            </div>
+            <section class="secao creme" aria-labelledby="esp-titulo">
+                <div class="container">
+                    <h2 id="esp-titulo">Espécies desta paisagem</h2>
+                    <p class="intro">{n_esp} espécies do catálogo aparecem nesta paisagem. <a href="especies.html?paisagem={p['id']}">Ver com os filtros</a></p>
+                    <ul class="especies-lista">{cartoes_esp}</ul>
+                </div>
+            </section>
+            <div class="container">
+                <nav class="ficha-navegar" aria-label="Outras paisagens">
+                    <a href="paisagem-{ant['id']}.html" rel="prev"><span aria-hidden="true">←</span> {ant['nome']}</a>
+                    <a href="paisagem-{prox['id']}.html" rel="next">{prox['nome']} <span aria-hidden="true">→</span></a>
+                </nav>
+            </div>
+        </article>
+'''
+    pagina(f'paisagem-{p["id"]}.html', f'{p["nome"]}, uma paisagem do Cerrado — Guia do Cerrado',
+           f'{p["nome"]}: como é, como reconhecer, por que importa, onde ver e as espécies dessa paisagem do Cerrado.', corpo)
+
+# na página das paisagens, cada ficha leva à página completa; no catálogo, o "Onde" leva às paisagens
+q = M / 'paisagens.html'; t = q.read_text()
+t = re.sub(r'<p class="mais"><a href="especies\.html\?paisagem=([a-z-]+)">Espécies desta paisagem →</a></p>',
+           r'<p class="mais paisagem-links"><a href="paisagem-\1.html">Página completa →</a> <a href="especies.html?paisagem=\1">Espécies desta paisagem →</a></p>', t)
+q.write_text(t)
+ATUAL['paisagem-'] = 'paisagens.html'
+so_pt = json.loads((AQUI / 'so-pt.json').read_text())
+for p in P:
+    f = f'paisagem-{p["id"]}.html'
+    if f not in so_pt: so_pt.append(f)
+(AQUI / 'so-pt.json').write_text(json.dumps(so_pt, ensure_ascii=False, indent=2) + '\n')
+for f in so_pt:
+    if f == '404.html': continue
+    q = M / f; t = q.read_text()
+    t = re.sub(r'<ul class="menu" id="menu">.*?</ul>', menu_pt(f), t, count=1)
+    t = com_rodape_novo(t)
+    q.write_text(t)
+lista = ''.join(f'<li id="f{n}"><span class="fonte-numero">{n}</span> {t} <a href="{u}" rel="noopener">Abrir a fonte</a></li>' for n, t, u in FONTES)
+q = M / 'fontes.html'; t = q.read_text()
+t = re.sub(r'<ol class="fontes-lista">.*?</ol>', '<ol class="fontes-lista">' + lista + '</ol>', t, flags=re.S)
+q.write_text(t)
+print('páginas das paisagens:', len(P))
