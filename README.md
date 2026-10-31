@@ -33,7 +33,7 @@ O visual segue a LinuPedia: o azul do app, o gelo e o pergaminho da expedição 
 | `ferramentas/cafe/` | O modelo do Café Aurora (`modelo.html`) e os textos dele em cada idioma (`textos/<código>.json`), para o `gerar-cafe.mjs`. |
 | `ferramentas/pagina/` | O modelo da página inicial (`modelo.html`), os textos de cada idioma (`textos/<código>.json`) e os preços de cada moeda (`precos.json`). |
 | `ferramentas/fontes/` | Os caracteres que estão em cada fonte Noto (`ja.txt`, `ko.txt`, `zh-hant.txt`), escritos pelo `gerar-fontes.mjs`. |
-| `ferramentas/` | Geradores: a página em cada idioma (`gerar-idiomas.mjs`), as fontes Noto (`gerar-fontes.mjs`), páginas de projeto, imagem de compartilhar, cena noturna e o Linu trazido do app (`linu-do-app.py`). |
+| `ferramentas/` | Geradores: a página em cada idioma (`gerar-idiomas.mjs`), as fontes Noto (`gerar-fontes.mjs`), páginas de projeto, imagem de compartilhar e capas do portfólio (`capas/`), cena noturna e o Linu trazido do app (`linu-do-app.py`). |
 | `deploy/` | Instalação na VM (`instalar-uma-vez.sh`), recebimento (`receber.sh`), conferência antes de publicar (`conferir-pagina.py`), bloco do Caddy e o manual `ORACLE.md`. |
 | `.github/workflows/oracle.yml` | Publicação automática (confere a página, entrega e testa se o site respondeu). |
 
@@ -126,9 +126,9 @@ não baixam nada disso: as famílias só entram no `--texto` dessas línguas, no
 
 | Língua | Caracteres | Regular + Bold |
 |---|---:|---:|
-| Japonês | 718 | 198 KB |
-| Coreano | 550 | 75 KB |
-| Chinês tradicional | 905 | 295 KB |
+| Japonês | 737 | 203 KB |
+| Coreano | 564 | 76 KB |
+| Chinês tradicional | 922 | 302 KB |
 
 - **Refazer:** nada a fazer na hora. O `node ferramentas/gerar-idiomas.mjs` compara os caracteres das páginas com o
   `ferramentas/fontes/<pasta>.txt` e refaz a fonte que mudou; depois, suba o `?v=` dela no `css/estilo.css` e o do
@@ -223,7 +223,12 @@ node ferramentas/gerar-estudo.mjs abelhas-sem-ferrao
   Iconvet (iconvet.com.br), Administração Judicial Oriente (ajoriente.com), Dojo Legacy (bjj-link.com) e Ômega
   Imóveis (omega-site-vert.vercel.app, ainda sem domínio); desde 30/10/2026, o Minhocão (minhocao.linupedia.com.br) e a Trupe (em prévia, ainda sem domínio); e a Barreto Jiu-Jitsu (barreto-site-ashy.vercel.app, em prévia, ainda sem domínio), na área
   Saúde e serviços.
-  Capturas em `public/img/projetos/` (960×600, WebP).
+  Capturas em `public/img/projetos/` (960×600, WebP). A LinuPedia, o Minhocão e a Trupe não têm uma página de abertura que
+  sirva de capa, então desde 31/10/2026 usam uma capa feita para o portfólio: o abrigo do Linu, a imagem de compartilhar
+  do jogo e o cartaz com os bilhetes do mural (sem o crédito que a imagem da Trupe leva). As fontes dessas capas ficam em
+  `ferramentas/capas/`, com a arte dos repositórios vizinhos: `node ferramentas/gerar-imagens.mjs capas` refaz. Trocou a
+  imagem, suba o `?v=` dela no modelo da página e no `projetos.json` (imagem fica 7 dias em cache) e troque o texto
+  alternativo nos 13 idiomas.
   O NeuroSim fica de fora por enquanto, até sair do começo.
 - **De estudo** (`#estudo`, 29/10/2026): os sites que fiz na disciplina Desenvolvimento de Interfaces, com
   empresas fictícias: Café Aurora, Fotografia do Cerrado e Abelhas sem Ferrão. Cada cartão leva ao subdomínio e ao
@@ -296,7 +301,7 @@ site: `python3 ferramentas/linu-do-app.py --so-limpar`). Ao apagar a luz, ele d�
 quarto vira noite com o lampião aceso, o lampião falha e apaga, e só então a página escurece; ao acender, o lampião
 falha e acende no escuro, a página clareia e o dia volta devagar (`js/tema.js`). `ferramentas/linu-do-app.py` copia
 tudo do app de novo; depois, o
-`ferramentas/gerar-imagens.mjs` refaz a imagem de compartilhar. O que é só do site fica em `ferramentas/`:
+`ferramentas/gerar-imagens.mjs` refaz a imagem de compartilhar e as capas do portfólio. O que é só do site fica em `ferramentas/`:
 
 - `cena-apagada.py` gera `img/abrigo-estacao-apagada.png`, a noite com o lampião apagado (o modo escuro).
 - `corrigir-porta-estacao.py` tirou o retângulo da porta e da escotilha nas imagens de noite.

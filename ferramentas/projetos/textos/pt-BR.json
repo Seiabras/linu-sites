@@ -1,7 +1,7 @@
 {
   "linupedia": {
     "etiqueta": "App que instala",
-    "alt": "Tela principal da LinuPedia: a lista do linuhub, com a Fogueira, a Barraca do Linu e as áreas da Tenda principal",
+    "alt": "Capa da LinuPedia: o Linu, um pinguim em pixel art, no abrigo na Antártica, com o nome do app num bilhete preso com fita",
     "resumo": "Um app de idiomas que virou uma enciclopédia jogável: 197 idiomas e 39 áreas do conhecimento, no celular e no computador, funcionando até sem internet.",
     "desafio": "Ensinar idiomas, e depois ciências, artes e lazer, para quem fala português: de graça para todos, sem anúncios, sem depender de internet e sem inventar nada. Cada fato e cada exemplo precisa vir com a fonte.",
     "feito": [
@@ -163,7 +163,7 @@
   },
   "minhocao": {
     "etiqueta": "Jogo de terror no navegador",
-    "alt": "Tela inicial do Minhocão: o título sobre o corredor escuro do ICC, o campo do nome na chamada e o botão de entrar",
+    "alt": "Capa do Minhocão: o título sobre o corredor escuro do ICC, com um vigia ao longe",
     "resumo": "Jogo de terror em primeira pessoa no Minhocão, o prédio central da UnB, com a história real da universidade na ditadura.",
     "desafio": "Fazer quem conhece o ICC se sentir lá dentro, num jogo que abre direto no navegador, no computador e no celular, e contar a história da UnB na ditadura sem misturar fato com ficção.",
     "feito": [
@@ -181,7 +181,7 @@
   },
   "trupe": {
     "etiqueta": "Rede de artistas",
-    "alt": "O mural de projetos da Trupe: bilhetes presos com fita, cada um com as áreas procuradas e o tipo de participação",
+    "alt": "Capa da Trupe: o nome em vermelho, a frase “Tá montando algo e falta gente? Pendura aqui.” e dois bilhetes de projeto presos com fita",
     "resumo": "Artistas de todas as áreas se acham para fazer projetos juntos: um mural de projetos, um explorar com ficha e filtros, comunidades e conversas no próprio site.",
     "desafio": "Juntar quem tem um projeto com quem quer trabalhar, de atores a técnicos de som, e aguentar o pico de um anúncio grande sem depender de nenhuma rede social.",
     "feito": [

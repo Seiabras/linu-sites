@@ -1,7 +1,7 @@
 {
   "linupedia": {
     "etiqueta": "Installable app",
-    "alt": "LinuPedia's main screen: the linuhub list, with the campfire, Linu's tent and the study areas of the main tent",
+    "alt": "LinuPedia cover: Linu, a pixel art penguin, in the shelter in Antarctica, with the app’s name on a note held up with tape",
     "resumo": "A language app that became a playable encyclopedia: 197 languages and 39 areas of knowledge, on phones and computers, working even offline.",
     "desafio": "Teach languages, and then science, arts and hobbies, to Portuguese speakers: free for everyone, with no ads, no need for internet and nothing made up. Every fact and every example must come with its source.",
     "feito": [
@@ -163,7 +163,7 @@
   },
   "minhocao": {
     "etiqueta": "Browser horror game",
-    "alt": "The Minhocão start screen: the title over the dark ICC corridor, the name field for the roll call and the button to enter",
+    "alt": "Minhocão cover: the title over the dark corridor of the ICC, with a guard in the distance",
     "resumo": "First-person horror game set in the Minhocão, the main building of the University of Brasília, with the university’s real history under the dictatorship.",
     "desafio": "To make anyone who knows the ICC feel they are inside it, in a game that opens right in the browser on computer and phone, and to tell the story of the university under the dictatorship without mixing fact and fiction.",
     "feito": [
@@ -181,7 +181,7 @@
   },
   "trupe": {
     "etiqueta": "Network for artists",
-    "alt": "The Trupe project board: notes held up with tape, each showing the disciplines sought and the kind of participation",
+    "alt": "Trupe cover: the name in red, the line “Putting something together and short of people? Pin it up here.” and two project notes held up with tape",
     "resumo": "Artists from every discipline find each other to make projects together: a project board, an explorer with profiles and filters, communities and conversations on the site itself.",
     "desafio": "To connect people who have a project with people who want to work, from actors to sound technicians, and to handle the peak of a big announcement without depending on any social network.",
     "feito": [
