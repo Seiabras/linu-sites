@@ -222,6 +222,7 @@
     "desafio": "C’était un exercice sur les palettes de couleurs et les WCAG : construire une petite interface avec les couleurs choisies et prouver que tout le texte était lisible. C’est devenu un site complet, sans renoncer à la règle.",
     "feito": [
       "Six pages d’un studio de photo animalière qui n’existe pas : galerie avec filtre et photo agrandie, expéditions avec questions fréquentes, à propos et contact.",
+      "Dans Expéditions, on choisit le mois et l’on voit l’état du cerrado et les sorties à leur meilleure période ; dans la galerie, on passe d’une photo agrandie à l’autre avec les flèches ou d’un glissement du doigt.",
       "La palette vient du biome lui-même, le brun des troncs, l’herbe sèche et la terre, et la page À propos montre le contraste mesuré de chaque couleur.",
       "Modes clair et sombre, qui suivent le système et retiennent le choix, sans que la page claire clignote à l’ouverture.",
       "Des photos libres de Wikimedia Commons, avec l’auteur et la licence de chacune sur une page de crédits."

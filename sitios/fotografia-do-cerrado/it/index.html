@@ -7,7 +7,8 @@
     <meta name="description" content="Fotografie della fauna del Cerrado brasiliano, per avvicinare le persone alla natura e aiutare a proteggerla.">
     <meta name="theme-color" content="#814F12">
     <script src="../js/tema-inicio.js?v=2"></script>
-    <link rel="stylesheet" href="../css/estilo.css?v=3">
+    <link rel="preload" href="../fontes/newsreader-600.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../css/estilo.css?v=4">
     <script src="../js/tema.js?v=2" defer></script>
     <script src="../js/menu.js?v=2" defer></script>
     <link rel="alternate" hreflang="pt-BR" href="https://cerrado.linupedia.com.br/">
@@ -23,7 +24,7 @@
     <link rel="alternate" hreflang="ja-JP" href="https://cerrado.linupedia.com.br/ja/">
     <link rel="alternate" hreflang="ko-KR" href="https://cerrado.linupedia.com.br/ko/">
     <link rel="alternate" hreflang="zh-Hant" href="https://cerrado.linupedia.com.br/zh-hant/">
-<script type="application/json" id="textos-estudo">{"obrigado":"Grazie, {nome}! Questa è una pagina dimostrativa: il messaggio non è stato inviato davvero."}</script>
+<script type="application/json" id="textos-estudo">{"obrigado":"Grazie, {nome}! Questa è una pagina dimostrativa: il messaggio non è stato inviato davvero.","est_chuvas":"Stagione delle piogge","est_seca":"Inizio della stagione secca","est_auge":"Piena stagione secca","nota_chuvas":"Il cerrado diventa verde, molti uccelli nidificano e il pequi dà frutti da ottobre a gennaio. I sentieri possono essere fangosi: le uscite brevi funzionano meglio.","nota_seca":"L’erba secca e si abbassa, e gli animali si vedono meglio da lontano. Fioriscono gli ipê viola, e il tardo pomeriggio è l’ora del crisocione.","nota_auge":"Fioriscono gli ipê gialli e bianchi, e gli animali si radunano vicino all’acqua. Giornate calde, albe fredde e massima attenzione agli incendi.","boa_epoca":"Periodo migliore","anterior":"Foto precedente","proxima":"Foto successiva","posicao":"{n} di {total}"}</script>
 </head>
 <body>
     <a class="pular" href="#conteudo">Vai al contenuto</a>
@@ -40,7 +41,7 @@
 
     <main id="conteudo">
         <section class="abertura">
-            <img src="../img/abertura-seriema-ipe.jpg" alt="Seriema in un prato di erba dorata, con un ipê rosa in fiore sullo sfondo" width="1000" height="667" loading="eager">
+            <img src="../img/abertura-seriema-ipe.webp" srcset="../img/abertura-seriema-ipe-640.webp 640w, ../img/abertura-seriema-ipe.webp 1000w" sizes="100vw" alt="Seriema in un prato di erba dorata, con un ipê rosa in fiore sullo sfondo" width="1000" height="667" loading="eager" fetchpriority="high">
             <div class="faixa">
                 <div class="container">
                     <h1>La fauna del Cerrado, da vicino</h1>
@@ -54,9 +55,9 @@
             <div class="container">
                 <h2>Ultime foto</h2>
                 <p class="intro">Alcuni degli animali che compaiono più spesso nelle nostre spedizioni.</p>
-                <div class="grade">
+                <div class="grade destaque">
                 <article class="foto" data-grupo="mamiferos">
-                    <img src="../img/lobo-guara.jpg" alt="Crisocione dal pelo arancione e le zampe nere che cammina sull’erba" width="1000" height="647" loading="lazy">
+                    <img src="../img/lobo-guara.webp" srcset="../img/lobo-guara-640.webp 640w, ../img/lobo-guara.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="Crisocione dal pelo arancione e le zampe nere che cammina sull’erba" width="1000" height="647" loading="lazy">
                     <div class="legenda">
                         <h3>Crisocione</h3>
                         <p class="cientifico">Chrysocyon brachyurus</p>
@@ -65,7 +66,7 @@
                     </div>
                 </article>
                 <article class="foto" data-grupo="mamiferos">
-                    <img src="../img/tamandua-bandeira.jpg" alt="Formichiere gigante grigio, con la fascia nera sulla spalla, in cerca di cibo nell’erba" width="1000" height="667" loading="lazy">
+                    <img src="../img/tamandua-bandeira.webp" srcset="../img/tamandua-bandeira-640.webp 640w, ../img/tamandua-bandeira.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="Formichiere gigante grigio, con la fascia nera sulla spalla, in cerca di cibo nell’erba" width="1000" height="667" loading="lazy">
                     <div class="legenda">
                         <h3>Formichiere gigante</h3>
                         <p class="cientifico">Myrmecophaga tridactyla</p>
@@ -74,7 +75,7 @@
                     </div>
                 </article>
                 <article class="foto" data-grupo="aves">
-                    <img src="../img/arara-caninde.jpg" alt="Ara gialloblu in volo ad ali aperte sopra la foresta" width="1000" height="772" loading="lazy">
+                    <img src="../img/arara-caninde.webp" srcset="../img/arara-caninde-640.webp 640w, ../img/arara-caninde.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="Ara gialloblu in volo ad ali aperte sopra la foresta" width="1000" height="772" loading="lazy">
                     <div class="legenda">
                         <h3>Ara gialloblu</h3>
                         <p class="cientifico">Ara ararauna</p>
@@ -91,7 +92,7 @@
             <div class="container">
                 <h2>Perché il Cerrado</h2>
                 <p class="intro">È la savana più ricca di specie al mondo e, allo stesso tempo, uno dei biomi che hanno perso più vegetazione originaria in Brasile.</p>
-                <div class="numeros">
+                <div class="fatos">
                     <div><strong>2°</strong>bioma più grande del Brasile, dopo l’Amazzonia</div>
                     <div><strong>≈ 24%</strong>del territorio brasiliano</div>
                     <div><strong>3</strong>grandi bacini idrografici nascono qui: quello del Rio delle Amazzoni, del São Francisco e del Paraná</div>

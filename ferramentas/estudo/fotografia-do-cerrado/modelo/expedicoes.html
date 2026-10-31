@@ -7,9 +7,11 @@
     <meta name="description" content="{{expedicoes_066}}">
     <meta name="theme-color" content="#814F12">
     <script src="{{raiz}}js/tema-inicio.js?v=2"></script>
-    <link rel="stylesheet" href="{{raiz}}css/estilo.css?v=3">
+    <link rel="preload" href="{{raiz}}fontes/newsreader-600.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="{{raiz}}css/estilo.css?v=4">
     <script src="{{raiz}}js/tema.js?v=2" defer></script>
     <script src="{{raiz}}js/menu.js?v=2" defer></script>
+    <script src="{{raiz}}js/quando.js?v=1" defer></script>
 {{alternativas}}
 <script type="application/json" id="textos-estudo">{{textos_js}}</script>
 </head>
@@ -34,9 +36,16 @@
             </div>
         </section>
         <section class="secao">
-            <div class="container">
-                <article class="expedicao">
-                    <img src="{{raiz}}img/lobo-guara.jpg" alt="{{expedicoes_063}}" width="1000" height="647" loading="lazy">
+            <div class="container expedicoes">
+                <aside class="quando" aria-labelledby="quando-titulo" hidden>
+                    <h2 class="sub" id="quando-titulo">{{quando_titulo}}</h2>
+                    <p>{{quando_intro}}</p>
+                    <div class="meses" role="group" aria-label="{{quando_rotulo}}"></div>
+                    <div class="estacao" aria-live="polite"><p class="estacao-nome"></p><p class="estacao-nota"></p></div>
+                </aside>
+                <div class="lista-expedicoes">
+                <article class="expedicao" data-meses="6 7 8 9">
+                    <img src="{{raiz}}img/lobo-guara.webp" srcset="{{raiz}}img/lobo-guara-640.webp 640w, {{raiz}}img/lobo-guara.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="{{expedicoes_063}}" width="1000" height="647" loading="lazy">
                     <div class="texto">
                         <h2 class="sub">{{expedicoes_058}}</h2>
                         <p>{{expedicoes_057}}</p>
@@ -44,8 +53,8 @@
                         <a class="botao" href="contato.html">{{expedicoes_042}}</a>
                     </div>
                 </article>
-                <article class="expedicao">
-                    <img src="{{raiz}}img/tamandua-bandeira.jpg" alt="{{expedicoes_064}}" width="1000" height="667" loading="lazy">
+                <article class="expedicao" data-meses="5 6 7 8">
+                    <img src="{{raiz}}img/tamandua-bandeira.webp" srcset="{{raiz}}img/tamandua-bandeira-640.webp 640w, {{raiz}}img/tamandua-bandeira.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="{{expedicoes_064}}" width="1000" height="667" loading="lazy">
                     <div class="texto">
                         <h2 class="sub">{{expedicoes_054}}</h2>
                         <p>{{expedicoes_053}}</p>
@@ -53,8 +62,8 @@
                         <a class="botao" href="contato.html">{{expedicoes_042}}</a>
                     </div>
                 </article>
-                <article class="expedicao">
-                    <img src="{{raiz}}img/tucano-toco.jpg" alt="{{expedicoes_065}}" width="1000" height="589" loading="lazy">
+                <article class="expedicao" data-meses="1 2 3 4 5 6 7 8 9 10 11 12">
+                    <img src="{{raiz}}img/tucano-toco.webp" srcset="{{raiz}}img/tucano-toco-640.webp 640w, {{raiz}}img/tucano-toco.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="{{expedicoes_065}}" width="1000" height="589" loading="lazy">
                     <div class="texto">
                         <h2 class="sub">{{expedicoes_050}}</h2>
                         <p>{{expedicoes_049}}</p>
@@ -62,6 +71,9 @@
                         <a class="botao" href="contato.html">{{expedicoes_042}}</a>
                     </div>
                 </article>
+                </div>
+            </div>
+            <div class="container">
                 <h2 class="sub espaco">{{expedicoes_041}}</h2>
                 <ul class="lista">
                     <li>{{expedicoes_040}}</li>

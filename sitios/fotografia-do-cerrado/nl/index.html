@@ -7,7 +7,8 @@
     <meta name="description" content="Foto's van de dieren van de Braziliaanse Cerrado, om mensen dichter bij de natuur te brengen en haar te helpen beschermen.">
     <meta name="theme-color" content="#814F12">
     <script src="../js/tema-inicio.js?v=2"></script>
-    <link rel="stylesheet" href="../css/estilo.css?v=3">
+    <link rel="preload" href="../fontes/newsreader-600.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../css/estilo.css?v=4">
     <script src="../js/tema.js?v=2" defer></script>
     <script src="../js/menu.js?v=2" defer></script>
     <link rel="alternate" hreflang="pt-BR" href="https://cerrado.linupedia.com.br/">
@@ -23,7 +24,7 @@
     <link rel="alternate" hreflang="ja-JP" href="https://cerrado.linupedia.com.br/ja/">
     <link rel="alternate" hreflang="ko-KR" href="https://cerrado.linupedia.com.br/ko/">
     <link rel="alternate" hreflang="zh-Hant" href="https://cerrado.linupedia.com.br/zh-hant/">
-<script type="application/json" id="textos-estudo">{"obrigado":"Bedankt, {nome}! Dit is een demopagina: je bericht is niet echt verstuurd."}</script>
+<script type="application/json" id="textos-estudo">{"obrigado":"Bedankt, {nome}! Dit is een demopagina: je bericht is niet echt verstuurd.","est_chuvas":"Regentijd","est_seca":"Begin van de droge tijd","est_auge":"Hartje droge tijd","nota_chuvas":"De cerrado wordt groen, veel vogels broeden en de pequi draagt vrucht van oktober tot januari. Paden kunnen modderig zijn: korte tochten werken het best.","nota_seca":"Het gras droogt op en wordt lager, zodat je dieren van ver ziet. De paarse ipês bloeien, en de late middag is het uur van de manenwolf.","nota_auge":"De gele en witte ipês bloeien, en de dieren verzamelen zich bij het water. Warme dagen, koude nachten en extra opletten voor natuurbranden.","boa_epoca":"Beste tijd","anterior":"Vorige foto","proxima":"Volgende foto","posicao":"{n} van {total}"}</script>
 </head>
 <body>
     <a class="pular" href="#conteudo">Naar de inhoud</a>
@@ -40,7 +41,7 @@
 
     <main id="conteudo">
         <section class="abertura">
-            <img src="../img/abertura-seriema-ipe.jpg" alt="Roodpootseriema in goudkleurig gras, met een bloeiende roze ipê op de achtergrond" width="1000" height="667" loading="eager">
+            <img src="../img/abertura-seriema-ipe.webp" srcset="../img/abertura-seriema-ipe-640.webp 640w, ../img/abertura-seriema-ipe.webp 1000w" sizes="100vw" alt="Roodpootseriema in goudkleurig gras, met een bloeiende roze ipê op de achtergrond" width="1000" height="667" loading="eager" fetchpriority="high">
             <div class="faixa">
                 <div class="container">
                     <h1>De dieren van de Cerrado, van dichtbij</h1>
@@ -54,9 +55,9 @@
             <div class="container">
                 <h2>Nieuwste foto's</h2>
                 <p class="intro">Enkele dieren die we het vaakst tegenkomen op onze expedities.</p>
-                <div class="grade">
+                <div class="grade destaque">
                 <article class="foto" data-grupo="mamiferos">
-                    <img src="../img/lobo-guara.jpg" alt="Manenwolf met oranje vacht en zwarte poten die over het gras loopt" width="1000" height="647" loading="lazy">
+                    <img src="../img/lobo-guara.webp" srcset="../img/lobo-guara-640.webp 640w, ../img/lobo-guara.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="Manenwolf met oranje vacht en zwarte poten die over het gras loopt" width="1000" height="647" loading="lazy">
                     <div class="legenda">
                         <h3>Manenwolf</h3>
                         <p class="cientifico">Chrysocyon brachyurus</p>
@@ -65,7 +66,7 @@
                     </div>
                 </article>
                 <article class="foto" data-grupo="mamiferos">
-                    <img src="../img/tamandua-bandeira.jpg" alt="Grijze reuzenmiereneter met de zwarte schouderstreep, op zoek naar voedsel in het gras" width="1000" height="667" loading="lazy">
+                    <img src="../img/tamandua-bandeira.webp" srcset="../img/tamandua-bandeira-640.webp 640w, ../img/tamandua-bandeira.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="Grijze reuzenmiereneter met de zwarte schouderstreep, op zoek naar voedsel in het gras" width="1000" height="667" loading="lazy">
                     <div class="legenda">
                         <h3>Reuzenmiereneter</h3>
                         <p class="cientifico">Myrmecophaga tridactyla</p>
@@ -74,7 +75,7 @@
                     </div>
                 </article>
                 <article class="foto" data-grupo="aves">
-                    <img src="../img/arara-caninde.jpg" alt="Blauwgele ara die met gespreide vleugels boven het bos vliegt" width="1000" height="772" loading="lazy">
+                    <img src="../img/arara-caninde.webp" srcset="../img/arara-caninde-640.webp 640w, ../img/arara-caninde.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="Blauwgele ara die met gespreide vleugels boven het bos vliegt" width="1000" height="772" loading="lazy">
                     <div class="legenda">
                         <h3>Blauwgele ara</h3>
                         <p class="cientifico">Ara ararauna</p>
@@ -91,7 +92,7 @@
             <div class="container">
                 <h2>Waarom de Cerrado</h2>
                 <p class="intro">Het is de soortenrijkste savanne ter wereld en tegelijk een van de biomen die in Brazilië de meeste natuurlijke begroeiing hebben verloren.</p>
-                <div class="numeros">
+                <div class="fatos">
                     <div><strong>2e</strong>grootste bioom van Brazilië, na het Amazonegebied</div>
                     <div><strong>≈ 24%</strong>van het Braziliaanse grondgebied</div>
                     <div><strong>3</strong>grote rivierbekkens ontspringen er: die van de Amazone, de São Francisco en de Paraná</div>

@@ -7,10 +7,11 @@
     <meta name="description" content="{{galeria_103}}">
     <meta name="theme-color" content="#814F12">
     <script src="{{raiz}}js/tema-inicio.js?v=2"></script>
-    <link rel="stylesheet" href="{{raiz}}css/estilo.css?v=3">
+    <link rel="preload" href="{{raiz}}fontes/newsreader-600.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="{{raiz}}css/estilo.css?v=4">
     <script src="{{raiz}}js/tema.js?v=2" defer></script>
     <script src="{{raiz}}js/menu.js?v=2" defer></script>
-    <script src="{{raiz}}js/galeria.js?v=3" defer></script>
+    <script src="{{raiz}}js/galeria.js?v=5" defer></script>
 {{alternativas}}
 <script type="application/json" id="textos-estudo">{{textos_js}}</script>
 </head>
@@ -43,7 +44,7 @@
                 </div>
                 <div class="grade">
                 <article class="foto" data-grupo="mamiferos">
-                    <button type="button" aria-label="{{galeria_092}}"><img src="{{raiz}}img/lobo-guara.jpg" alt="{{galeria_093}}" width="1000" height="647" loading="lazy"></button>
+                    <button type="button" aria-label="{{galeria_092}}"><img src="{{raiz}}img/lobo-guara.webp" srcset="{{raiz}}img/lobo-guara-640.webp 640w, {{raiz}}img/lobo-guara.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="{{galeria_093}}" width="1000" height="647" loading="lazy"></button>
                     <div class="legenda">
                         <h2>{{galeria_083}}</h2>
                         <p class="cientifico">{{galeria_082}}</p>
@@ -52,7 +53,7 @@
                     </div>
                 </article>
                 <article class="foto" data-grupo="mamiferos">
-                    <button type="button" aria-label="{{galeria_094}}"><img src="{{raiz}}img/tamandua-bandeira.jpg" alt="{{galeria_095}}" width="1000" height="667" loading="lazy"></button>
+                    <button type="button" aria-label="{{galeria_094}}"><img src="{{raiz}}img/tamandua-bandeira.webp" srcset="{{raiz}}img/tamandua-bandeira-640.webp 640w, {{raiz}}img/tamandua-bandeira.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="{{galeria_095}}" width="1000" height="667" loading="lazy"></button>
                     <div class="legenda">
                         <h2>{{galeria_080}}</h2>
                         <p class="cientifico">{{galeria_079}}</p>
@@ -61,7 +62,7 @@
                     </div>
                 </article>
                 <article class="foto" data-grupo="aves">
-                    <button type="button" aria-label="{{galeria_096}}"><img src="{{raiz}}img/arara-caninde.jpg" alt="{{galeria_097}}" width="1000" height="772" loading="lazy"></button>
+                    <button type="button" aria-label="{{galeria_096}}"><img src="{{raiz}}img/arara-caninde.webp" srcset="{{raiz}}img/arara-caninde-640.webp 640w, {{raiz}}img/arara-caninde.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="{{galeria_097}}" width="1000" height="772" loading="lazy"></button>
                     <div class="legenda">
                         <h2>{{galeria_076}}</h2>
                         <p class="cientifico">{{galeria_075}}</p>
@@ -70,7 +71,7 @@
                     </div>
                 </article>
                 <article class="foto" data-grupo="aves">
-                    <button type="button" aria-label="{{galeria_098}}"><img src="{{raiz}}img/seriema.jpg" alt="{{galeria_099}}" width="1000" height="729" loading="lazy"></button>
+                    <button type="button" aria-label="{{galeria_098}}"><img src="{{raiz}}img/seriema.webp" srcset="{{raiz}}img/seriema-640.webp 640w, {{raiz}}img/seriema.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="{{galeria_099}}" width="1000" height="729" loading="lazy"></button>
                     <div class="legenda">
                         <h2>{{galeria_073}}</h2>
                         <p class="cientifico">{{galeria_072}}</p>
@@ -79,7 +80,7 @@
                     </div>
                 </article>
                 <article class="foto" data-grupo="aves">
-                    <button type="button" aria-label="{{galeria_100}}"><img src="{{raiz}}img/tucano-toco.jpg" alt="{{galeria_101}}" width="1000" height="589" loading="lazy"></button>
+                    <button type="button" aria-label="{{galeria_100}}"><img src="{{raiz}}img/tucano-toco.webp" srcset="{{raiz}}img/tucano-toco-640.webp 640w, {{raiz}}img/tucano-toco.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="{{galeria_101}}" width="1000" height="589" loading="lazy"></button>
                     <div class="legenda">
                         <h2>{{galeria_070}}</h2>
                         <p class="cientifico">{{galeria_069}}</p>
@@ -91,8 +92,15 @@
             </div>
         </section>
         <dialog class="ampliada" id="ampliada" aria-label="{{galeria_102}}">
-            <img src="{{raiz}}img/lobo-guara.jpg" alt="">
-            <div class="rodape-foto"><strong class="titulo"></strong><button type="button" class="fechar">{{galeria_067}}</button></div>
+            <div class="moldura">
+                <img src="{{raiz}}img/lobo-guara.webp" alt="" width="1000" height="647">
+                <button type="button" class="seta anterior" aria-label="{{foto_anterior}}"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+                <button type="button" class="seta proxima" aria-label="{{foto_proxima}}"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+            </div>
+            <div class="rodape-foto">
+                <div class="ficha"><p class="titulo"></p><p class="cientifico"></p><p class="texto"></p></div>
+                <div class="acoes-foto"><span class="posicao" aria-live="polite"></span><button type="button" class="fechar">{{galeria_067}}</button></div>
+            </div>
         </dialog>
     </main>
 

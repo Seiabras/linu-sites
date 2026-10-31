@@ -7,9 +7,11 @@
     <meta name="description" content="Expeditionen für Tierfotografie im Cerrado: Chapada dos Veadeiros, Nationalpark Emas und Nationalpark Brasília.">
     <meta name="theme-color" content="#814F12">
     <script src="../js/tema-inicio.js?v=2"></script>
-    <link rel="stylesheet" href="../css/estilo.css?v=3">
+    <link rel="preload" href="../fontes/newsreader-600.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../css/estilo.css?v=4">
     <script src="../js/tema.js?v=2" defer></script>
     <script src="../js/menu.js?v=2" defer></script>
+    <script src="../js/quando.js?v=1" defer></script>
     <link rel="alternate" hreflang="pt-BR" href="https://cerrado.linupedia.com.br/expedicoes">
     <link rel="alternate" hreflang="pt-PT" href="https://cerrado.linupedia.com.br/pt-pt/expedicoes">
     <link rel="alternate" hreflang="es-ES" href="https://cerrado.linupedia.com.br/es/expedicoes">
@@ -23,7 +25,7 @@
     <link rel="alternate" hreflang="ja-JP" href="https://cerrado.linupedia.com.br/ja/expedicoes">
     <link rel="alternate" hreflang="ko-KR" href="https://cerrado.linupedia.com.br/ko/expedicoes">
     <link rel="alternate" hreflang="zh-Hant" href="https://cerrado.linupedia.com.br/zh-hant/expedicoes">
-<script type="application/json" id="textos-estudo">{"obrigado":"Danke, {nome}! Dies ist eine Demoseite: Ihre Nachricht wurde nicht wirklich gesendet."}</script>
+<script type="application/json" id="textos-estudo">{"obrigado":"Danke, {nome}! Dies ist eine Demoseite: Ihre Nachricht wurde nicht wirklich gesendet.","est_chuvas":"Regenzeit","est_seca":"Beginn der Trockenzeit","est_auge":"Mitten in der Trockenzeit","nota_chuvas":"Der Cerrado wird grün, viele Vögel brüten, und der Pequi trägt von Oktober bis Januar Früchte. Die Wege können schlammig sein: Kurze Touren sind dann besser.","nota_seca":"Das Gras trocknet und wird niedriger, Tiere sind von Weitem leichter zu sehen. Die violetten Ipês blühen, und der späte Nachmittag gehört dem Mähnenwolf.","nota_auge":"Die gelben und weißen Ipês blühen, und die Tiere sammeln sich am Wasser. Heiße Tage, kalte Morgen und besondere Vorsicht wegen Bränden.","boa_epoca":"Beste Zeit","anterior":"Vorheriges Foto","proxima":"Nächstes Foto","posicao":"{n} von {total}"}</script>
 </head>
 <body>
     <a class="pular" href="#conteudo">Zum Inhalt springen</a>
@@ -46,9 +48,16 @@
             </div>
         </section>
         <section class="secao">
-            <div class="container">
-                <article class="expedicao">
-                    <img src="../img/lobo-guara.jpg" alt="Mähnenwolf beim Gehen durch das Grasland" width="1000" height="647" loading="lazy">
+            <div class="container expedicoes">
+                <aside class="quando" aria-labelledby="quando-titulo" hidden>
+                    <h2 class="sub" id="quando-titulo">Wann hinfahren?</h2>
+                    <p>Wähle den Monat: Wir zeigen, wie der Cerrado gerade aussieht und welche Touren dann ihre beste Zeit haben.</p>
+                    <div class="meses" role="group" aria-label="Reisemonat"></div>
+                    <div class="estacao" aria-live="polite"><p class="estacao-nome"></p><p class="estacao-nota"></p></div>
+                </aside>
+                <div class="lista-expedicoes">
+                <article class="expedicao" data-meses="6 7 8 9">
+                    <img src="../img/lobo-guara.webp" srcset="../img/lobo-guara-640.webp 640w, ../img/lobo-guara.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="Mähnenwolf beim Gehen durch das Grasland" width="1000" height="647" loading="lazy">
                     <div class="texto">
                         <h2 class="sub">Chapada dos Veadeiros (GO)</h2>
                         <p>Felsige Grasländer und Palmensümpfe; die beste Zeit für den Mähnenwolf ist die Dämmerung.</p>
@@ -56,8 +65,8 @@
                         <a class="botao" href="contato.html">Ich möchte mitmachen</a>
                     </div>
                 </article>
-                <article class="expedicao">
-                    <img src="../img/tamandua-bandeira.jpg" alt="Großer Ameisenbär im Gras" width="1000" height="667" loading="lazy">
+                <article class="expedicao" data-meses="5 6 7 8">
+                    <img src="../img/tamandua-bandeira.webp" srcset="../img/tamandua-bandeira-640.webp 640w, ../img/tamandua-bandeira.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="Großer Ameisenbär im Gras" width="1000" height="667" loading="lazy">
                     <div class="texto">
                         <h2 class="sub">Nationalpark Emas (GO)</h2>
                         <p>Weite offene Grasflächen, auf denen man oft den Großen Ameisenbären sieht.</p>
@@ -65,8 +74,8 @@
                         <a class="botao" href="contato.html">Ich möchte mitmachen</a>
                     </div>
                 </article>
-                <article class="expedicao">
-                    <img src="../img/tucano-toco.jpg" alt="Riesentukan im Profil" width="1000" height="589" loading="lazy">
+                <article class="expedicao" data-meses="1 2 3 4 5 6 7 8 9 10 11 12">
+                    <img src="../img/tucano-toco.webp" srcset="../img/tucano-toco-640.webp 640w, ../img/tucano-toco.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="Riesentukan im Profil" width="1000" height="589" loading="lazy">
                     <div class="texto">
                         <h2 class="sub">Nationalpark Brasília (DF)</h2>
                         <p>Kurzer Ausflug für Einsteiger, mit flachen Wegen und vielen Vögeln am Wasser.</p>
@@ -74,6 +83,9 @@
                         <a class="botao" href="contato.html">Ich möchte mitmachen</a>
                     </div>
                 </article>
+                </div>
+            </div>
+            <div class="container">
                 <h2 class="sub espaco">Regeln im Gelände</h2>
                 <ul class="lista">
                     <li>Abstand zu den Tieren: nicht rufen, nicht einkreisen, nicht füttern.</li>

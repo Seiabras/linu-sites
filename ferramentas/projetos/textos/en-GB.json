@@ -222,6 +222,7 @@
     "desafio": "It was a colour palette and WCAG assignment: build a small interface with the chosen colours and prove every piece of text was readable. It grew into a whole site without dropping the rule.",
     "feito": [
       "Six pages for a wildlife photography studio that doesn’t exist: a gallery with a filter and enlarged photos, expeditions with FAQs, about and contact.",
+      "On the Expeditions page you pick a month and see what the cerrado is like and which trips are at their best; in the gallery you move between enlarged photos with the arrows or a swipe.",
       "The palette comes from the biome itself, the brown of tree bark, dry grass and earth, and the About page shows each colour’s measured contrast.",
       "Light and dark modes that follow the system and remember the choice, without the light page flashing on load.",
       "Free photos from Wikimedia Commons, with each one’s author and licence on a credits page."

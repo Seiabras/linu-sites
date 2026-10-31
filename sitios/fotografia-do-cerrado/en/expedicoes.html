@@ -7,9 +7,11 @@
     <meta name="description" content="Wildlife photography expeditions in the Cerrado: Chapada dos Veadeiros, Emas National Park and Brasília National Park.">
     <meta name="theme-color" content="#814F12">
     <script src="../js/tema-inicio.js?v=2"></script>
-    <link rel="stylesheet" href="../css/estilo.css?v=3">
+    <link rel="preload" href="../fontes/newsreader-600.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../css/estilo.css?v=4">
     <script src="../js/tema.js?v=2" defer></script>
     <script src="../js/menu.js?v=2" defer></script>
+    <script src="../js/quando.js?v=1" defer></script>
     <link rel="alternate" hreflang="pt-BR" href="https://cerrado.linupedia.com.br/expedicoes">
     <link rel="alternate" hreflang="pt-PT" href="https://cerrado.linupedia.com.br/pt-pt/expedicoes">
     <link rel="alternate" hreflang="es-ES" href="https://cerrado.linupedia.com.br/es/expedicoes">
@@ -23,7 +25,7 @@
     <link rel="alternate" hreflang="ja-JP" href="https://cerrado.linupedia.com.br/ja/expedicoes">
     <link rel="alternate" hreflang="ko-KR" href="https://cerrado.linupedia.com.br/ko/expedicoes">
     <link rel="alternate" hreflang="zh-Hant" href="https://cerrado.linupedia.com.br/zh-hant/expedicoes">
-<script type="application/json" id="textos-estudo">{"obrigado":"Thank you, {nome}! This is a demo page: your message was not actually sent."}</script>
+<script type="application/json" id="textos-estudo">{"obrigado":"Thank you, {nome}! This is a demo page: your message was not actually sent.","est_chuvas":"Rainy season","est_seca":"Early dry season","est_auge":"Height of the dry season","nota_chuvas":"The cerrado turns green, many birds nest and the pequi fruits from October to January. Trails can be muddy, so shorter trips work best.","nota_seca":"The grass dries and drops, making animals easier to spot from afar. The purple ipês bloom, and late afternoon is maned wolf time.","nota_auge":"The yellow and white ipês bloom, and animals gather near water. Hot days, cold early mornings and extra care with wildfires.","boa_epoca":"Best time","anterior":"Previous photo","proxima":"Next photo","posicao":"{n} of {total}"}</script>
 </head>
 <body>
     <a class="pular" href="#conteudo">Skip to content</a>
@@ -46,9 +48,16 @@
             </div>
         </section>
         <section class="secao">
-            <div class="container">
-                <article class="expedicao">
-                    <img src="../img/lobo-guara.jpg" alt="Maned wolf walking through the grassland" width="1000" height="647" loading="lazy">
+            <div class="container expedicoes">
+                <aside class="quando" aria-labelledby="quando-titulo" hidden>
+                    <h2 class="sub" id="quando-titulo">When to go?</h2>
+                    <p>Pick a month: we’ll show you what the cerrado is like and which trips are at their best.</p>
+                    <div class="meses" role="group" aria-label="Month of the trip"></div>
+                    <div class="estacao" aria-live="polite"><p class="estacao-nome"></p><p class="estacao-nota"></p></div>
+                </aside>
+                <div class="lista-expedicoes">
+                <article class="expedicao" data-meses="6 7 8 9">
+                    <img src="../img/lobo-guara.webp" srcset="../img/lobo-guara-640.webp 640w, ../img/lobo-guara.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="Maned wolf walking through the grassland" width="1000" height="647" loading="lazy">
                     <div class="texto">
                         <h2 class="sub">Chapada dos Veadeiros (GO)</h2>
                         <p>Rocky grasslands and palm swamps; the best time for the maned wolf is at dusk.</p>
@@ -56,8 +65,8 @@
                         <a class="botao" href="contato.html">I want to join</a>
                     </div>
                 </article>
-                <article class="expedicao">
-                    <img src="../img/tamandua-bandeira.jpg" alt="Giant anteater in the grass" width="1000" height="667" loading="lazy">
+                <article class="expedicao" data-meses="5 6 7 8">
+                    <img src="../img/tamandua-bandeira.webp" srcset="../img/tamandua-bandeira-640.webp 640w, ../img/tamandua-bandeira.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="Giant anteater in the grass" width="1000" height="667" loading="lazy">
                     <div class="texto">
                         <h2 class="sub">Emas National Park (GO)</h2>
                         <p>Vast open grasslands, where the giant anteater is often seen.</p>
@@ -65,8 +74,8 @@
                         <a class="botao" href="contato.html">I want to join</a>
                     </div>
                 </article>
-                <article class="expedicao">
-                    <img src="../img/tucano-toco.jpg" alt="Toco toucan in profile" width="1000" height="589" loading="lazy">
+                <article class="expedicao" data-meses="1 2 3 4 5 6 7 8 9 10 11 12">
+                    <img src="../img/tucano-toco.webp" srcset="../img/tucano-toco-640.webp 640w, ../img/tucano-toco.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="Toco toucan in profile" width="1000" height="589" loading="lazy">
                     <div class="texto">
                         <h2 class="sub">Brasília National Park (DF)</h2>
                         <p>A short trip for beginners, with flat trails and lots of birds near the water.</p>
@@ -74,6 +83,9 @@
                         <a class="botao" href="contato.html">I want to join</a>
                     </div>
                 </article>
+                </div>
+            </div>
+            <div class="container">
                 <h2 class="sub espaco">Field rules</h2>
                 <ul class="lista">
                     <li>Keep your distance from the animals: no calling, cornering or feeding them.</li>

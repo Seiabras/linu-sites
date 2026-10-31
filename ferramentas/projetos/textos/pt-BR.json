@@ -222,6 +222,7 @@
     "desafio": "Era uma atividade de paletas de cores e WCAG: montar uma interface pequena com as cores escolhidas e provar que todo texto era legível. Virou um site inteiro, sem abrir mão da regra.",
     "feito": [
       "Seis páginas de um estúdio de fotografia de fauna que não existe: galeria com filtro e foto ampliada, expedições com perguntas frequentes, sobre e contato.",
+      "Nas Expedições, a pessoa escolhe o mês e vê como está o cerrado e quais saídas estão na melhor época; na galeria, passa de uma foto ampliada para a outra pelas setas ou deslizando o dedo.",
       "A paleta saiu do próprio bioma, o marrom do tronco, o capim seco e a terra, e cada cor tem o contraste medido na página Sobre.",
       "Modo claro e escuro, que segue o sistema e lembra a escolha, sem a página clara piscar ao abrir.",
       "Fotos livres do Wikimedia Commons, com o autor e a licença de cada uma numa página de créditos."

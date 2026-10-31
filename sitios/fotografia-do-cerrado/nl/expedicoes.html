@@ -7,9 +7,11 @@
     <meta name="description" content="Natuurfotografie-expedities in de Cerrado: Chapada dos Veadeiros, Nationaal Park Emas en Nationaal Park Brasília.">
     <meta name="theme-color" content="#814F12">
     <script src="../js/tema-inicio.js?v=2"></script>
-    <link rel="stylesheet" href="../css/estilo.css?v=3">
+    <link rel="preload" href="../fontes/newsreader-600.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../css/estilo.css?v=4">
     <script src="../js/tema.js?v=2" defer></script>
     <script src="../js/menu.js?v=2" defer></script>
+    <script src="../js/quando.js?v=1" defer></script>
     <link rel="alternate" hreflang="pt-BR" href="https://cerrado.linupedia.com.br/expedicoes">
     <link rel="alternate" hreflang="pt-PT" href="https://cerrado.linupedia.com.br/pt-pt/expedicoes">
     <link rel="alternate" hreflang="es-ES" href="https://cerrado.linupedia.com.br/es/expedicoes">
@@ -23,7 +25,7 @@
     <link rel="alternate" hreflang="ja-JP" href="https://cerrado.linupedia.com.br/ja/expedicoes">
     <link rel="alternate" hreflang="ko-KR" href="https://cerrado.linupedia.com.br/ko/expedicoes">
     <link rel="alternate" hreflang="zh-Hant" href="https://cerrado.linupedia.com.br/zh-hant/expedicoes">
-<script type="application/json" id="textos-estudo">{"obrigado":"Bedankt, {nome}! Dit is een demopagina: je bericht is niet echt verstuurd."}</script>
+<script type="application/json" id="textos-estudo">{"obrigado":"Bedankt, {nome}! Dit is een demopagina: je bericht is niet echt verstuurd.","est_chuvas":"Regentijd","est_seca":"Begin van de droge tijd","est_auge":"Hartje droge tijd","nota_chuvas":"De cerrado wordt groen, veel vogels broeden en de pequi draagt vrucht van oktober tot januari. Paden kunnen modderig zijn: korte tochten werken het best.","nota_seca":"Het gras droogt op en wordt lager, zodat je dieren van ver ziet. De paarse ipês bloeien, en de late middag is het uur van de manenwolf.","nota_auge":"De gele en witte ipês bloeien, en de dieren verzamelen zich bij het water. Warme dagen, koude nachten en extra opletten voor natuurbranden.","boa_epoca":"Beste tijd","anterior":"Vorige foto","proxima":"Volgende foto","posicao":"{n} van {total}"}</script>
 </head>
 <body>
     <a class="pular" href="#conteudo">Naar de inhoud</a>
@@ -46,9 +48,16 @@
             </div>
         </section>
         <section class="secao">
-            <div class="container">
-                <article class="expedicao">
-                    <img src="../img/lobo-guara.jpg" alt="Manenwolf die door het grasland loopt" width="1000" height="647" loading="lazy">
+            <div class="container expedicoes">
+                <aside class="quando" aria-labelledby="quando-titulo" hidden>
+                    <h2 class="sub" id="quando-titulo">Wanneer ga je?</h2>
+                    <p>Kies de maand: we laten zien hoe de cerrado erbij ligt en welke tochten dan op hun best zijn.</p>
+                    <div class="meses" role="group" aria-label="Maand van de reis"></div>
+                    <div class="estacao" aria-live="polite"><p class="estacao-nome"></p><p class="estacao-nota"></p></div>
+                </aside>
+                <div class="lista-expedicoes">
+                <article class="expedicao" data-meses="6 7 8 9">
+                    <img src="../img/lobo-guara.webp" srcset="../img/lobo-guara-640.webp 640w, ../img/lobo-guara.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="Manenwolf die door het grasland loopt" width="1000" height="647" loading="lazy">
                     <div class="texto">
                         <h2 class="sub">Chapada dos Veadeiros (GO)</h2>
                         <p>Rotsgraslanden en palmmoerassen; het beste moment voor de manenwolf is in de schemering.</p>
@@ -56,8 +65,8 @@
                         <a class="botao" href="contato.html">Ik wil meedoen</a>
                     </div>
                 </article>
-                <article class="expedicao">
-                    <img src="../img/tamandua-bandeira.jpg" alt="Reuzenmiereneter in het gras" width="1000" height="667" loading="lazy">
+                <article class="expedicao" data-meses="5 6 7 8">
+                    <img src="../img/tamandua-bandeira.webp" srcset="../img/tamandua-bandeira-640.webp 640w, ../img/tamandua-bandeira.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="Reuzenmiereneter in het gras" width="1000" height="667" loading="lazy">
                     <div class="texto">
                         <h2 class="sub">Nationaal Park Emas (GO)</h2>
                         <p>Uitgestrekte open graslanden, waar de reuzenmiereneter vaak te zien is.</p>
@@ -65,8 +74,8 @@
                         <a class="botao" href="contato.html">Ik wil meedoen</a>
                     </div>
                 </article>
-                <article class="expedicao">
-                    <img src="../img/tucano-toco.jpg" alt="Reuzentoekan van opzij" width="1000" height="589" loading="lazy">
+                <article class="expedicao" data-meses="1 2 3 4 5 6 7 8 9 10 11 12">
+                    <img src="../img/tucano-toco.webp" srcset="../img/tucano-toco-640.webp 640w, ../img/tucano-toco.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="Reuzentoekan van opzij" width="1000" height="589" loading="lazy">
                     <div class="texto">
                         <h2 class="sub">Nationaal Park Brasília (DF)</h2>
                         <p>Korte tocht voor beginners, met vlakke paden en veel vogels bij het water.</p>
@@ -74,6 +83,9 @@
                         <a class="botao" href="contato.html">Ik wil meedoen</a>
                     </div>
                 </article>
+                </div>
+            </div>
+            <div class="container">
                 <h2 class="sub espaco">Regels in het veld</h2>
                 <ul class="lista">
                     <li>Afstand houden van de dieren: niet roepen, insluiten of voeren.</li>

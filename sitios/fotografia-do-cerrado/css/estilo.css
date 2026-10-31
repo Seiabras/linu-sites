@@ -1,4 +1,12 @@
 /* Fotografia do Cerrado — estilos
+
+   Caderno de campo (31/10/2026): os títulos e os nomes científicos na Newsreader (licença OFL, fontes/OFL.txt), servida
+   pelo próprio site; o texto continua na fonte do aparelho. Só o alfabeto latino: em japonês, coreano e chinês os
+   títulos ficam na fonte do aparelho. */
+@font-face { font-family: "Newsreader"; font-style: normal; font-weight: 600; font-display: swap; src: url(../fontes/newsreader-600.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Newsreader"; font-style: italic; font-weight: 400; font-display: swap; src: url(../fontes/newsreader-400-italic.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+/* Fotografia do Cerrado — paleta
    Paleta da Atividade 4 (contrastes medidos pela fórmula da WCAG 2.2):
    texto branco só sobre a primária e o oliva; as cores claras só com texto preto. */
 :root {
@@ -154,12 +162,6 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .filtros button { background: var(--superficie); color: var(--texto); border: 2px solid var(--primaria); padding: .45rem 1rem; border-radius: 999px; font: inherit; font-weight: 600; cursor: pointer; }
 .filtros button[aria-pressed="true"] { background: var(--primaria); color: var(--branco); }
 
-/* Foto ampliada */
-dialog.ampliada { border: none; border-radius: var(--raio); padding: 0; max-width: min(960px, 94vw); background: var(--preto); color: var(--branco); }
-dialog.ampliada::backdrop { background: rgba(0,0,0,.8); }
-dialog.ampliada img { max-height: 75vh; width: 100%; object-fit: contain; }
-dialog.ampliada .rodape-foto { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: .8rem 1rem; }
-dialog.ampliada button { background: var(--branco); color: var(--preto); border: none; border-radius: 6px; padding: .4rem .9rem; font: inherit; font-weight: 700; cursor: pointer; }
 
 /* Expedições */
 .expedicao { display: grid; grid-template-columns: 1fr 1.3fr; gap: 1.5rem; background: var(--superficie); border: 1px solid var(--borda); border-radius: var(--raio); overflow: hidden; margin-bottom: 1.5rem; }
@@ -194,3 +196,115 @@ form.contato input, form.contato textarea, form.contato select { width: 100%; pa
 .idiomas-rodape { width: 100%; font-size: .85rem; line-height: 1.9; }
 .idiomas-rodape a { white-space: nowrap; display: inline-block; padding-block: 4px; } /* alvo de 24 px (WCAG 2.2, 2.5.8) */
 .idiomas-rodape a[aria-current] { font-weight: 700; text-decoration: none; }
+
+/* ============================================================
+   Caderno de campo (31/10/2026)
+   ============================================================ */
+h1, h2, h3, .marca, .fatos strong, dialog.ampliada .titulo { font-family: "Newsreader", Georgia, serif; font-weight: 600; letter-spacing: -.01em; }
+.cientifico, dialog.ampliada .cientifico { font-family: "Newsreader", Georgia, serif; font-style: italic; font-weight: 400; }
+:lang(ja) :is(h1, h2, h3, .fatos strong, dialog.ampliada .titulo), :lang(ko) :is(h1, h2, h3, .fatos strong, dialog.ampliada .titulo),
+:lang(zh-Hant) :is(h1, h2, h3, .fatos strong, dialog.ampliada .titulo) { font-family: inherit; letter-spacing: 0; }
+.abertura h1 { font-size: clamp(2.4rem, 6vw, 4rem); line-height: 1.02; }
+
+/* As fotos sem caixa em volta: a foto, o nome e o texto, como numa revista */
+.foto { border: none; background: none; border-radius: 0; overflow: visible; }
+.foto img { border-radius: var(--raio); }
+.foto .legenda { padding: .9rem 0 0; }
+.foto h2, .foto h3 { font-size: 1.35rem; }
+
+/* No computador, a primeira foto da inicial ocupa a altura das outras duas */
+@media (min-width: 900px) {
+    .grade.destaque { grid-template-columns: 1.5fr 1fr; grid-auto-flow: dense; column-gap: 2rem; row-gap: 1.5rem; }
+    .grade.destaque .foto:first-child { grid-row: span 2; }
+    /* a grande cresce até a altura das duas menores, sem deixar vão */
+    .grade.destaque .foto:first-child img { flex: 1; min-height: 0; aspect-ratio: auto; object-position: 75% 50%; }
+    .grade.destaque .foto:first-child h3 { font-size: 1.8rem; }
+    .grade.destaque .foto:not(:first-child) img { aspect-ratio: 2 / 1; }
+}
+
+/* Os números do cerrado: tipografia grande separada por fios, sem cartões */
+.fatos { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--borda); }
+.fatos div { padding: 1.4rem 1.5rem 0 0; color: var(--texto); }
+.fatos div + div { border-left: 1px solid var(--borda); padding-left: 1.5rem; }
+.fatos strong { display: block; font-size: clamp(2.6rem, 6vw, 3.8rem); line-height: 1; color: var(--destaque); margin-bottom: .5rem; }
+@media (max-width: 700px) {
+    .fatos { grid-template-columns: 1fr; border-top: 0; }
+    .fatos div, .fatos div + div { border-left: 0; border-top: 1px solid var(--borda); padding: 1.1rem 0; }
+}
+
+/* Foto ampliada: anterior e próxima pelos botões, pelas setas do teclado e deslizando o dedo */
+/* o * { margin: 0 } do começo tirava a centralização do <dialog> */
+dialog.ampliada { margin: auto; border: none; border-radius: var(--raio); padding: 0; width: min(1000px, 94vw); max-height: 94vh; background: #0D0A07; color: var(--branco); overflow: auto; }
+dialog.ampliada::backdrop { background: rgba(0, 0, 0, .82); }
+dialog.ampliada .moldura { position: relative; background: #000; touch-action: pan-y; }
+dialog.ampliada .moldura img { width: 100%; height: auto; max-height: 68vh; object-fit: contain; display: block; }
+dialog.ampliada .seta { position: absolute; top: 50%; translate: 0 -50%; width: 48px; height: 48px; border-radius: 50%; border: none; background: rgba(0, 0, 0, .6); color: var(--branco); display: grid; place-items: center; cursor: pointer; }
+dialog.ampliada .seta:hover { background: rgba(0, 0, 0, .85); }
+dialog.ampliada .seta svg { fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+dialog.ampliada .anterior { left: .75rem; }
+dialog.ampliada .proxima { right: .75rem; }
+dialog.ampliada .rodape-foto { display: flex; justify-content: space-between; align-items: flex-start; gap: 1.5rem; padding: 1rem 1.2rem 1.2rem; }
+dialog.ampliada .titulo { font-size: 1.5rem; line-height: 1.2; }
+dialog.ampliada .cientifico { color: #D9CDBE; }
+dialog.ampliada .texto { margin-top: .4rem; max-width: 60ch; color: #EFE7DC; }
+dialog.ampliada .acoes-foto { display: flex; align-items: center; gap: 1rem; flex-shrink: 0; }
+dialog.ampliada .posicao { color: #D9CDBE; font-variant-numeric: tabular-nums; }
+dialog.ampliada .fechar { background: var(--branco); color: var(--preto); border: none; border-radius: 6px; padding: .5rem 1rem; font: inherit; font-weight: 700; cursor: pointer; }
+dialog.ampliada :focus-visible { outline-color: var(--branco); }
+@media (max-width: 600px) {
+    dialog.ampliada .rodape-foto { flex-direction: column; gap: .8rem; }
+    dialog.ampliada .acoes-foto { width: 100%; justify-content: space-between; }
+    dialog.ampliada .seta { width: 44px; height: 44px; }
+}
+
+/* Quando ir? No computador fica parado ao lado das expedições; no celular, os meses rolam de lado */
+.quando { margin-bottom: 2rem; }
+.quando > p { color: var(--texto-suave); }
+.meses { display: grid; grid-template-columns: repeat(4, 1fr); gap: .4rem; margin: 1rem 0; }
+.meses button { font: inherit; font-weight: 600; text-transform: capitalize; padding: .55rem .2rem .45rem; border-radius: 6px; border: 1px solid var(--borda); border-bottom: 4px solid var(--estacao, var(--borda)); background: var(--superficie); color: var(--texto); cursor: pointer; }
+.meses button[data-estacao="chuvas"] { --estacao: var(--oliva); }
+.meses button[data-estacao="seca"] { --estacao: var(--areia); }
+.meses button[data-estacao="auge"] { --estacao: var(--primaria); }
+.meses button:hover { border-color: var(--texto-suave); border-bottom-color: var(--estacao); }
+.meses button[aria-pressed="true"] { background: var(--primaria); color: var(--branco); border-color: var(--primaria); border-bottom-color: var(--estacao); }
+.estacao { border-left: 4px solid var(--destaque); padding: .2rem 0 .2rem 1rem; }
+.estacao-nome { font-family: "Newsreader", Georgia, serif; font-weight: 600; font-size: 1.25rem; }
+:lang(ja) .estacao-nome, :lang(ko) .estacao-nome, :lang(zh-Hant) .estacao-nome { font-family: inherit; }
+.estacao-nota { color: var(--texto-suave); margin-top: .3rem; }
+.selo-epoca { display: inline-block; margin-bottom: .5rem; background: var(--oliva); color: var(--branco); font-size: .82rem; font-weight: 700; padding: .2rem .6rem; border-radius: 4px; }
+/* sem apagar as outras (opacidade baixaria o contraste do texto): a da época ganha borda e selo */
+.expedicao { transition: border-color .2s ease-out, box-shadow .2s ease-out; }
+.expedicao.na-epoca { border-color: var(--oliva); box-shadow: 0 0 0 1px var(--oliva); }
+@media (max-width: 999px) {
+    .meses { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: .4rem; }
+    .meses button { flex: 0 0 auto; min-width: 64px; scroll-snap-align: start; }
+}
+@media (min-width: 1000px) {
+    .expedicoes { display: grid; grid-template-columns: 300px 1fr; gap: 2.5rem; align-items: start; }
+    .quando { position: sticky; top: 88px; margin-bottom: 0; }
+    .expedicao { grid-template-columns: 1fr 1.2fr; }
+}
+
+/* Troca de página suave (View Transitions); o cabeçalho fica parado */
+@media (prefers-reduced-motion: no-preference) {
+    @view-transition { navigation: auto; }
+    .topo { view-transition-name: topo; }
+    .meses button, .filtros button, dialog.ampliada .seta { transition: background-color .18s ease-out, border-color .18s ease-out, color .18s ease-out; }
+    dialog.ampliada .moldura img { transition: opacity .18s ease-out; }
+    dialog.ampliada .moldura img.trocando { opacity: 0; }
+}
+
+/* O nome do site numa linha só no celular, com a fonte de título mais larga */
+.marca { white-space: nowrap; }
+@media (max-width: 420px) { .marca { font-size: 1.02rem; } .marca svg { width: 22px; height: 22px; } }
+
+/* Tablet: os 12 meses cabem numa linha, e a primeira foto da inicial vai de lado a lado, com as outras duas embaixo */
+@media (min-width: 700px) and (max-width: 999px) {
+    .meses { display: grid; grid-template-columns: repeat(12, 1fr); overflow: visible; }
+    .meses button { min-width: 0; padding-inline: 0; }
+}
+@media (min-width: 560px) and (max-width: 899px) {
+    .grade.destaque { grid-template-columns: 1fr 1fr; }
+    .grade.destaque .foto:first-child { grid-column: 1 / -1; }
+    .grade.destaque .foto:first-child img { aspect-ratio: 2 / 1; object-position: 75% 50%; }
+}

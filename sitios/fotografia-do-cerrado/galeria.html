@@ -7,10 +7,11 @@
     <meta name="description" content="Galeria de fotos de animais do cerrado: lobo-guará, tamanduá-bandeira, arara-canindé, seriema e tucano-toco.">
     <meta name="theme-color" content="#814F12">
     <script src="js/tema-inicio.js?v=2"></script>
-    <link rel="stylesheet" href="css/estilo.css?v=3">
+    <link rel="preload" href="fontes/newsreader-600.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="css/estilo.css?v=4">
     <script src="js/tema.js?v=2" defer></script>
     <script src="js/menu.js?v=2" defer></script>
-    <script src="js/galeria.js?v=3" defer></script>
+    <script src="js/galeria.js?v=5" defer></script>
     <link rel="alternate" hreflang="pt-BR" href="https://cerrado.linupedia.com.br/galeria">
     <link rel="alternate" hreflang="pt-PT" href="https://cerrado.linupedia.com.br/pt-pt/galeria">
     <link rel="alternate" hreflang="es-ES" href="https://cerrado.linupedia.com.br/es/galeria">
@@ -24,7 +25,7 @@
     <link rel="alternate" hreflang="ja-JP" href="https://cerrado.linupedia.com.br/ja/galeria">
     <link rel="alternate" hreflang="ko-KR" href="https://cerrado.linupedia.com.br/ko/galeria">
     <link rel="alternate" hreflang="zh-Hant" href="https://cerrado.linupedia.com.br/zh-hant/galeria">
-<script type="application/json" id="textos-estudo">{"obrigado":"Obrigado, {nome}! Esta é uma página de demonstração: a mensagem não foi enviada de verdade."}</script>
+<script type="application/json" id="textos-estudo">{"obrigado":"Obrigado, {nome}! Esta é uma página de demonstração: a mensagem não foi enviada de verdade.","est_chuvas":"Época das chuvas","est_seca":"Começo da seca","est_auge":"Auge da seca","nota_chuvas":"O cerrado fica verde, muitas aves fazem ninho e o pequi dá fruto de outubro a janeiro. As trilhas podem ter lama: as saídas curtas funcionam melhor.","nota_seca":"O capim seca e baixa, e fica mais fácil ver os bichos de longe. Os ipês-roxos florescem, e o fim da tarde é a hora do lobo-guará.","nota_auge":"Os ipês-amarelos e os brancos florescem, e os animais se juntam perto da água. Dias quentes, madrugadas frias e cuidado redobrado com as queimadas.","boa_epoca":"Melhor época","anterior":"Foto anterior","proxima":"Próxima foto","posicao":"{n} de {total}"}</script>
 </head>
 <body>
     <a class="pular" href="#conteudo">Pular para o conteúdo</a>
@@ -55,7 +56,7 @@
                 </div>
                 <div class="grade">
                 <article class="foto" data-grupo="mamiferos">
-                    <button type="button" aria-label="Ampliar a foto: Lobo-guará"><img src="img/lobo-guara.jpg" alt="Lobo-guará de pelagem laranja e pernas pretas andando na grama" width="1000" height="647" loading="lazy"></button>
+                    <button type="button" aria-label="Ampliar a foto: Lobo-guará"><img src="img/lobo-guara.webp" srcset="img/lobo-guara-640.webp 640w, img/lobo-guara.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="Lobo-guará de pelagem laranja e pernas pretas andando na grama" width="1000" height="647" loading="lazy"></button>
                     <div class="legenda">
                         <h2>Lobo-guará</h2>
                         <p class="cientifico">Chrysocyon brachyurus</p>
@@ -64,7 +65,7 @@
                     </div>
                 </article>
                 <article class="foto" data-grupo="mamiferos">
-                    <button type="button" aria-label="Ampliar a foto: Tamanduá-bandeira"><img src="img/tamandua-bandeira.jpg" alt="Tamanduá-bandeira cinza, com a faixa preta no ombro, procurando alimento no capim" width="1000" height="667" loading="lazy"></button>
+                    <button type="button" aria-label="Ampliar a foto: Tamanduá-bandeira"><img src="img/tamandua-bandeira.webp" srcset="img/tamandua-bandeira-640.webp 640w, img/tamandua-bandeira.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="Tamanduá-bandeira cinza, com a faixa preta no ombro, procurando alimento no capim" width="1000" height="667" loading="lazy"></button>
                     <div class="legenda">
                         <h2>Tamanduá-bandeira</h2>
                         <p class="cientifico">Myrmecophaga tridactyla</p>
@@ -73,7 +74,7 @@
                     </div>
                 </article>
                 <article class="foto" data-grupo="aves">
-                    <button type="button" aria-label="Ampliar a foto: Arara-canindé"><img src="img/arara-caninde.jpg" alt="Arara-canindé azul e amarela voando de asas abertas sobre a mata" width="1000" height="772" loading="lazy"></button>
+                    <button type="button" aria-label="Ampliar a foto: Arara-canindé"><img src="img/arara-caninde.webp" srcset="img/arara-caninde-640.webp 640w, img/arara-caninde.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="Arara-canindé azul e amarela voando de asas abertas sobre a mata" width="1000" height="772" loading="lazy"></button>
                     <div class="legenda">
                         <h2>Arara-canindé</h2>
                         <p class="cientifico">Ara ararauna</p>
@@ -82,7 +83,7 @@
                     </div>
                 </article>
                 <article class="foto" data-grupo="aves">
-                    <button type="button" aria-label="Ampliar a foto: Seriema"><img src="img/seriema.jpg" alt="Seriema de pernas vermelhas caminhando no chão de terra" width="1000" height="729" loading="lazy"></button>
+                    <button type="button" aria-label="Ampliar a foto: Seriema"><img src="img/seriema.webp" srcset="img/seriema-640.webp 640w, img/seriema.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="Seriema de pernas vermelhas caminhando no chão de terra" width="1000" height="729" loading="lazy"></button>
                     <div class="legenda">
                         <h2>Seriema</h2>
                         <p class="cientifico">Cariama cristata</p>
@@ -91,7 +92,7 @@
                     </div>
                 </article>
                 <article class="foto" data-grupo="aves">
-                    <button type="button" aria-label="Ampliar a foto: Tucano-toco"><img src="img/tucano-toco.jpg" alt="Tucano-toco de bico laranja com a ponta preta, visto de perfil" width="1000" height="589" loading="lazy"></button>
+                    <button type="button" aria-label="Ampliar a foto: Tucano-toco"><img src="img/tucano-toco.webp" srcset="img/tucano-toco-640.webp 640w, img/tucano-toco.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="Tucano-toco de bico laranja com a ponta preta, visto de perfil" width="1000" height="589" loading="lazy"></button>
                     <div class="legenda">
                         <h2>Tucano-toco</h2>
                         <p class="cientifico">Ramphastos toco</p>
@@ -103,8 +104,15 @@
             </div>
         </section>
         <dialog class="ampliada" id="ampliada" aria-label="Foto ampliada">
-            <img src="img/lobo-guara.jpg" alt="">
-            <div class="rodape-foto"><strong class="titulo"></strong><button type="button" class="fechar">Fechar</button></div>
+            <div class="moldura">
+                <img src="img/lobo-guara.webp" alt="" width="1000" height="647">
+                <button type="button" class="seta anterior" aria-label="Foto anterior"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+                <button type="button" class="seta proxima" aria-label="Próxima foto"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+            </div>
+            <div class="rodape-foto">
+                <div class="ficha"><p class="titulo"></p><p class="cientifico"></p><p class="texto"></p></div>
+                <div class="acoes-foto"><span class="posicao" aria-live="polite"></span><button type="button" class="fechar">Fechar</button></div>
+            </div>
         </dialog>
     </main>
 

@@ -211,6 +211,10 @@ node ferramentas/gerar-estudo.mjs abelhas-sem-ferrao
   das Expedições (`<details>`, sem JavaScript), o nome de cada foto da galeria como `h2` e a paleta do Sobre legível no
   modo escuro. Nos dois, os links do rodapé com 24 px de altura. O axe 4.10 não acha nenhuma falha em nenhuma página, nos
   dois modos.
+- **O Cerrado como caderno de campo (31/10/2026):** títulos e nomes científicos na Newsreader (em `fontes/`), fotos sem
+  caixa, os números em tipografia grande, o “Quando ir?” nas Expedições (`js/quando.js`; as frases em `js` do JSON, os
+  meses pelo `Intl`), a foto ampliada com anterior e próxima e fotos em WebP com versão de 640 px. Detalhes no README de
+  `Seiabras/fotografia-do-cerrado`.
 - Os repositórios `Seiabras/fotografia-do-cerrado` e `Seiabras/abelhas-sem-ferrao` recebem uma cópia de
   `sitios/<site>/` a cada mudança (o README e o CLAUDE.md de lá não vêm daqui).
 

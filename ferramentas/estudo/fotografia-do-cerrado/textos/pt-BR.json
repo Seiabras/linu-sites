@@ -144,9 +144,24 @@
     "faq_q3": "Crianças podem ir?",
     "faq_r3": "Na saída de um dia no Parque Nacional de Brasília, sim, a partir de 10 anos e com um responsável. As expedições mais longas são a partir de 16 anos.",
     "faq_q4": "E se chover?",
-    "faq_r4": "Com chuva fraca a saída acontece: muitos animais aparecem logo depois. Com tempestade, a gente remarca sem custo."
+    "faq_r4": "Com chuva fraca a saída acontece: muitos animais aparecem logo depois. Com tempestade, a gente remarca sem custo.",
+    "quando_titulo": "Quando ir?",
+    "quando_intro": "Escolha o mês: a gente mostra como está o cerrado e quais saídas estão na melhor época.",
+    "quando_rotulo": "Mês da viagem",
+    "foto_anterior": "Foto anterior",
+    "foto_proxima": "Próxima foto"
   },
   "js": {
-    "obrigado": "Obrigado, {nome}! Esta é uma página de demonstração: a mensagem não foi enviada de verdade."
+    "obrigado": "Obrigado, {nome}! Esta é uma página de demonstração: a mensagem não foi enviada de verdade.",
+    "est_chuvas": "Época das chuvas",
+    "est_seca": "Começo da seca",
+    "est_auge": "Auge da seca",
+    "nota_chuvas": "O cerrado fica verde, muitas aves fazem ninho e o pequi dá fruto de outubro a janeiro. As trilhas podem ter lama: as saídas curtas funcionam melhor.",
+    "nota_seca": "O capim seca e baixa, e fica mais fácil ver os bichos de longe. Os ipês-roxos florescem, e o fim da tarde é a hora do lobo-guará.",
+    "nota_auge": "Os ipês-amarelos e os brancos florescem, e os animais se juntam perto da água. Dias quentes, madrugadas frias e cuidado redobrado com as queimadas.",
+    "boa_epoca": "Melhor época",
+    "anterior": "Foto anterior",
+    "proxima": "Próxima foto",
+    "posicao": "{n} de {total}"
   }
 }

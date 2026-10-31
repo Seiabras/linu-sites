@@ -144,9 +144,24 @@
     "faq_q3": "Possono venire i bambini?",
     "faq_r3": "Nell’uscita di un giorno al Parco Nazionale di Brasília sì, dai 10 anni e con un adulto responsabile. Le spedizioni più lunghe sono dai 16 anni.",
     "faq_q4": "E se piove?",
-    "faq_r4": "Con pioggia leggera l’uscita si fa: molti animali si fanno vedere subito dopo. Con il temporale la spostiamo senza costi."
+    "faq_r4": "Con pioggia leggera l’uscita si fa: molti animali si fanno vedere subito dopo. Con il temporale la spostiamo senza costi.",
+    "quando_titulo": "Quando andare?",
+    "quando_intro": "Scegli il mese: ti mostriamo com’è il cerrado e quali uscite sono nel periodo migliore.",
+    "quando_rotulo": "Mese del viaggio",
+    "foto_anterior": "Foto precedente",
+    "foto_proxima": "Foto successiva"
   },
   "js": {
-    "obrigado": "Grazie, {nome}! Questa è una pagina dimostrativa: il messaggio non è stato inviato davvero."
+    "obrigado": "Grazie, {nome}! Questa è una pagina dimostrativa: il messaggio non è stato inviato davvero.",
+    "est_chuvas": "Stagione delle piogge",
+    "est_seca": "Inizio della stagione secca",
+    "est_auge": "Piena stagione secca",
+    "nota_chuvas": "Il cerrado diventa verde, molti uccelli nidificano e il pequi dà frutti da ottobre a gennaio. I sentieri possono essere fangosi: le uscite brevi funzionano meglio.",
+    "nota_seca": "L’erba secca e si abbassa, e gli animali si vedono meglio da lontano. Fioriscono gli ipê viola, e il tardo pomeriggio è l’ora del crisocione.",
+    "nota_auge": "Fioriscono gli ipê gialli e bianchi, e gli animali si radunano vicino all’acqua. Giornate calde, albe fredde e massima attenzione agli incendi.",
+    "boa_epoca": "Periodo migliore",
+    "anterior": "Foto precedente",
+    "proxima": "Foto successiva",
+    "posicao": "{n} di {total}"
   }
 }

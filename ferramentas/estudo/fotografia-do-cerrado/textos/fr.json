@@ -144,9 +144,24 @@
     "faq_q3": "Les enfants peuvent-ils venir ?",
     "faq_r3": "Pour la sortie d’une journée au parc national de Brasília, oui, dès 10 ans et avec un adulte responsable. Les expéditions plus longues sont à partir de 16 ans.",
     "faq_q4": "Et s’il pleut ?",
-    "faq_r4": "Par petite pluie, la sortie est maintenue : beaucoup d’animaux se montrent juste après. En cas d’orage, nous la reportons sans frais."
+    "faq_r4": "Par petite pluie, la sortie est maintenue : beaucoup d’animaux se montrent juste après. En cas d’orage, nous la reportons sans frais.",
+    "quando_titulo": "Quand partir ?",
+    "quando_intro": "Choisissez le mois : on vous montre l’état du cerrado et les sorties qui sont à leur meilleure période.",
+    "quando_rotulo": "Mois du voyage",
+    "foto_anterior": "Photo précédente",
+    "foto_proxima": "Photo suivante"
   },
   "js": {
-    "obrigado": "Merci, {nome} ! Ceci est une page de démonstration : votre message n’a pas vraiment été envoyé."
+    "obrigado": "Merci, {nome} ! Ceci est une page de démonstration : votre message n’a pas vraiment été envoyé.",
+    "est_chuvas": "Saison des pluies",
+    "est_seca": "Début de la saison sèche",
+    "est_auge": "Cœur de la saison sèche",
+    "nota_chuvas": "Le cerrado reverdit, beaucoup d’oiseaux nichent et le pequi donne ses fruits d’octobre à janvier. Les sentiers peuvent être boueux : les sorties courtes conviennent mieux.",
+    "nota_seca": "L’herbe sèche et s’abaisse, et l’on voit les animaux de plus loin. Les ipês violets fleurissent, et la fin d’après-midi est l’heure du loup à crinière.",
+    "nota_auge": "Les ipês jaunes et blancs fleurissent, et les animaux se regroupent près de l’eau. Journées chaudes, petits matins froids et grande prudence face aux incendies.",
+    "boa_epoca": "Meilleure période",
+    "anterior": "Photo précédente",
+    "proxima": "Photo suivante",
+    "posicao": "{n} sur {total}"
   }
 }
