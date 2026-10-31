@@ -5,13 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery — Fotografia do Cerrado</title>
     <meta name="description" content="Photo gallery of Cerrado animals: maned wolf, giant anteater, blue-and-yellow macaw, red-legged seriema and toco toucan.">
+    <link rel="icon" href="../img/icone.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../img/icone-180.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Fotografia do Cerrado">
+    <meta property="og:title" content="Gallery — Fotografia do Cerrado">
+    <meta property="og:description" content="Photo gallery of Cerrado animals: maned wolf, giant anteater, blue-and-yellow macaw, red-legged seriema and toco toucan.">
+    <meta property="og:image" content="https://cerrado.linupedia.com.br/img/compartilhar.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="theme-color" content="#814F12">
-    <script src="../js/tema-inicio.js?v=2"></script>
+    <script src="../js/tema-inicio.js?v=3"></script>
     <link rel="preload" href="../fontes/newsreader-600.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="../css/estilo.css?v=4">
     <script src="../js/tema.js?v=2" defer></script>
     <script src="../js/menu.js?v=2" defer></script>
-    <script src="../js/galeria.js?v=5" defer></script>
+    <script src="../js/galeria.js?v=6" defer></script>
     <link rel="alternate" hreflang="pt-BR" href="https://cerrado.linupedia.com.br/galeria">
     <link rel="alternate" hreflang="pt-PT" href="https://cerrado.linupedia.com.br/pt-pt/galeria">
     <link rel="alternate" hreflang="es-ES" href="https://cerrado.linupedia.com.br/es/galeria">
@@ -56,7 +66,7 @@
                 </div>
                 <div class="grade">
                 <article class="foto" data-grupo="mamiferos">
-                    <button type="button" aria-label="Enlarge the photo: Maned wolf"><img src="../img/lobo-guara.webp" srcset="../img/lobo-guara-640.webp 640w, ../img/lobo-guara.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="Maned wolf with orange fur and black legs walking on the grass" width="1000" height="647" loading="lazy"></button>
+                    <button type="button" aria-label="Enlarge the photo: Maned wolf"><img src="../img/lobo-guara.webp" srcset="../img/lobo-guara-640.webp 640w, ../img/lobo-guara.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="Maned wolf with orange fur and black legs walking on the grass" width="1000" height="647" loading="eager"></button>
                     <div class="legenda">
                         <h2>Maned wolf</h2>
                         <p class="cientifico">Chrysocyon brachyurus</p>
@@ -103,9 +113,10 @@
                 </div>
             </div>
         </section>
+
         <dialog class="ampliada" id="ampliada" aria-label="Enlarged photo">
             <div class="moldura">
-                <img src="../img/lobo-guara.webp" alt="" width="1000" height="647">
+                <img src="../img/lobo-guara.webp" alt="" width="1000" height="647" loading="lazy">
                 <button type="button" class="seta anterior" aria-label="Previous photo"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
                 <button type="button" class="seta proxima" aria-label="Next photo"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
             </div>

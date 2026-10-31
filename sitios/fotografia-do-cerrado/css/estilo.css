@@ -308,3 +308,172 @@ dialog.ampliada :focus-visible { outline-color: var(--branco); }
     .grade.destaque .foto:first-child { grid-column: 1 / -1; }
     .grade.destaque .foto:first-child img { aspect-ratio: 2 / 1; object-position: 75% 50%; }
 }
+
+/* Contato (31/10/2026): no computador, o formulário e o quadro "Sua saída" lado a lado; o erro embaixo de cada campo */
+:root { --erro: #A3221A; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --erro: #FFA494; } }
+:root[data-theme="dark"] { --erro: #FFA494; }
+.contato-layout { display: grid; gap: 2rem; }
+@media (min-width: 900px) {
+    .contato-layout { grid-template-columns: minmax(0, 560px) minmax(0, 380px); gap: 4rem; align-items: start; }
+    .resumo { position: sticky; top: 88px; }
+}
+.opcional { font-weight: 400; color: var(--texto-suave); }
+form.contato [aria-invalid="true"] { border-color: var(--erro); }
+.erro { color: var(--erro); font-weight: 600; font-size: .92rem; margin-top: .35rem; }
+.resumo { background: var(--fundo-alt); border-radius: var(--raio); padding: 1.4rem 1.5rem; border-top: 4px solid var(--primaria); }
+.resumo-corpo { margin: .6rem 0 1.2rem; color: var(--texto-suave); }
+.resumo-corpo dl { display: grid; grid-template-columns: auto 1fr; gap: .25rem 1rem; color: var(--texto); }
+.resumo-corpo dt { font-weight: 700; }
+.resumo-nota { margin-top: .8rem; padding-left: .8rem; border-left: 3px solid var(--areia); color: var(--texto); }
+.resumo-nota.boa { border-left-color: var(--oliva); }
+.resumo-sub { font-size: 1.1rem; }
+
+/* ============================================================
+   Fichas de espécie, diário de campo e "Como fotografamos" (31/10/2026, só em português por enquanto)
+   ============================================================ */
+.ficha-link { margin-top: .5rem; }
+.ficha-link a, .ver-ficha a { font-weight: 700; display: inline-block; padding-block: 2px; }
+.ficha-link a::after { content: " →"; }
+dialog.ampliada .ver-ficha { margin-top: .5rem; }
+dialog.ampliada .ver-ficha a { color: var(--branco); }
+
+.ficha-especie { padding: 1.5rem 0 4rem; }
+.trilha { color: var(--texto-suave); margin-bottom: 1.2rem; }
+.trilha a { display: inline-block; padding-block: 2px; }
+.ficha-topo { display: grid; gap: 1.5rem; align-items: center; }
+.ficha-topo img { border-radius: var(--raio); width: 100%; }
+.ficha-grupo { text-transform: none; color: var(--texto-suave); font-weight: 600; }
+.ficha-resumo h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); line-height: 1.05; }
+.ficha-resumo .cientifico { font-size: 1.2rem; margin: .2rem 0 1rem; }
+.ficha-abre { font-size: 1.1rem; max-width: 52ch; }
+.selo-calmo { background: var(--fundo-alt); color: var(--texto); border: 1px solid var(--borda); }
+.ficha-corpo { display: grid; gap: 2.2rem; margin-top: 3rem; }
+.ficha-corpo section > p { max-width: 65ch; }
+.ficha-fatos { display: grid; grid-template-columns: auto 1fr; gap: .45rem 1.2rem; margin-top: .6rem; }
+.ficha-fatos dt { font-weight: 700; }
+.ficha-fatos dd { max-width: 55ch; }
+.ficha-onde { border-left: 4px solid var(--oliva); padding-left: 1rem; }
+.ficha-navegar { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--borda); }
+.ficha-navegar a { font-weight: 700; padding: .4rem 0; }
+.ficha-nota { color: var(--texto-suave); font-size: .9rem; margin-top: 1.5rem; }
+@media (min-width: 900px) {
+    .ficha-topo { grid-template-columns: 1.15fr 1fr; gap: 3rem; }
+    .ficha-corpo { grid-template-columns: 1fr 1fr; column-gap: 3.5rem; }
+    .ficha-onde { grid-column: 1 / -1; }
+}
+
+/* "Do tamanho de quê?": a pessoa e o bicho na mesma escala */
+.escala { margin-top: .8rem; }
+.escala svg { width: 100%; max-width: 460px; height: auto; display: block; }
+.escala .chao { stroke: var(--texto-suave); stroke-width: 2; }
+.escala .pessoa { fill: var(--texto-suave); }
+.escala .bicho { fill: var(--areia); }
+.escala text { fill: var(--texto); font-size: 17px; font-weight: 600; }
+.escala figcaption { color: var(--texto-suave); font-size: .92rem; margin-top: .3rem; }
+
+/* Diário de campo */
+.diario { display: grid; gap: 3.5rem; }
+.relato { display: grid; gap: 1.2rem; }
+.relato img { border-radius: var(--raio); width: 100%; }
+.relato h2 { font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.15; margin: .2rem 0 .8rem; }
+.relato p + p { margin-top: .8rem; }
+.relato > div > p:not(.relato-data):not(.relato-links) { max-width: 62ch; }
+.relato-data { color: var(--texto-suave); font-weight: 600; }
+.relato-links { color: var(--texto-suave); }
+.relato-links a { display: inline-block; padding-block: 2px; }
+@media (min-width: 900px) {
+    .relato { grid-template-columns: 2fr 3fr; gap: 2.5rem; align-items: start; }
+    .relato img { position: sticky; top: 88px; }
+}
+
+/* Como fotografamos: texto corrido, numa coluna de leitura */
+.texto-longo { max-width: 70ch; }
+.texto-longo p + p { margin-top: .8rem; }
+.texto-longo .sub + p, .texto-longo .sub + ul { margin-top: .5rem; }
+
+/* Teste as cores (página Sobre, só em português por enquanto) */
+.testador { display: grid; gap: 2rem; }
+@media (min-width: 900px) { .testador { grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; } .testador-resultado { position: sticky; top: 88px; } }
+.cores-grupo { border: 0; margin-bottom: 1.2rem; }
+.cores-grupo legend { font-weight: 700; margin-bottom: .5rem; }
+.amostras { display: flex; flex-wrap: wrap; gap: .4rem; }
+.amostra { position: relative; display: inline-flex; align-items: center; gap: .45rem; padding: .4rem .75rem .4rem .45rem; border: 1px solid var(--borda); border-radius: 999px; background: var(--superficie); cursor: pointer; font-size: .92rem; min-height: 36px; }
+.amostra input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.amostra:has(input:checked) { border-color: var(--texto); box-shadow: 0 0 0 1px var(--texto); font-weight: 700; }
+.amostra:has(input:focus-visible) { outline: 3px solid var(--texto); outline-offset: 2px; }
+.bolinha { width: 22px; height: 22px; border-radius: 50%; border: 1px solid rgba(0, 0, 0, .35); flex: none; }
+.cor-814f12 { background: #814F12; } .cor-5e3a0d { background: #5E3A0D; } .cor-7e7450 { background: #7E7450; }
+.cor-c8985a { background: #C8985A; } .cor-cfa58c { background: #CFA58C; } .cor-6e6465 { background: #6E6465; }
+.cor-fbf7f1 { background: #FBF7F1; } .cor-ffffff { background: #FFFFFF; } .cor-000000 { background: #000000; }
+.botao-linha { background: transparent; color: var(--link); border: 2px solid currentColor; }
+.botao-linha:hover { background: var(--fundo-alt); }
+.previa { border-radius: var(--raio); padding: 1.6rem; border: 1px solid var(--borda); transition: color .2s ease-out, background-color .2s ease-out; }
+.previa-grande { font-family: "Newsreader", Georgia, serif; font-weight: 600; font-size: 1.6rem; line-height: 1.2; margin-bottom: .5rem; }
+.razao { margin: 1rem 0 .4rem; }
+.razao strong { font-family: "Newsreader", Georgia, serif; font-size: 2.6rem; line-height: 1; }
+.veredito { list-style: none; display: grid; gap: .35rem; }
+.veredito li { padding-left: 1.6rem; position: relative; }
+.veredito li::before { position: absolute; left: 0; font-weight: 700; }
+.veredito .passa::before { content: "✓"; color: var(--oliva-texto); }
+.veredito .nao-passa::before { content: "✗"; color: var(--erro); }
+.veredito .nao-passa { color: var(--texto-suave); }
+
+/* Do tamanho de quê? (galeria): os comprimentos na mesma régua (0 a 2,2 m), com a altura de uma pessoa tracejada */
+.tamanhos-lista { list-style: none; display: grid; gap: .9rem; max-width: 760px; }
+.tamanhos-lista a { display: block; color: var(--texto); text-decoration: none; }
+.tamanho-nome { font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.tamanho-medida { color: var(--texto-suave); margin-left: .3rem; }
+.tamanhos-lista svg, .tamanhos-legenda svg { display: block; }
+.tamanhos-lista svg { width: 100%; height: 20px; margin-top: .3rem; }
+.tamanhos-lista .barra { fill: var(--areia); transition: fill .18s ease-out; }
+.tamanhos-lista a:hover .barra, .tamanhos-lista a:focus-visible .barra { fill: var(--primaria); }
+.pessoa-linha { stroke: var(--texto); stroke-width: 2; stroke-dasharray: 4 3; vector-effect: non-scaling-stroke; }
+.tamanhos-legenda { display: flex; align-items: center; gap: .6rem; color: var(--texto-suave); margin-top: 1rem; }
+/* a altura de uma pessoa: uma linha só, de cima a baixo, em 1,70 m da régua de 2,2 m */
+.tamanhos-lista { position: relative; padding-bottom: .2rem; }
+.tamanhos-lista::after { content: ""; position: absolute; top: 0; bottom: 0; left: calc(170 / 220 * 100%); border-left: 2px dashed var(--texto); pointer-events: none; }
+
+/* Onde ficam os parques (Expedições, só em português por enquanto): o mapa do Centro-Oeste, com contorno do IBGE */
+.onde-layout { display: grid; gap: 1.5rem; }
+@media (min-width: 900px) { .onde-layout { grid-template-columns: 3fr 2fr; gap: 3rem; align-items: center; } }
+.mapa { width: 100%; height: auto; display: block; border-radius: var(--raio); background: var(--fundo-alt); }
+.mapa .estado { fill: var(--superficie); stroke: var(--borda); stroke-width: 1.2; stroke-linejoin: round; }
+.mapa .destaque { fill: var(--areia); stroke: var(--primaria); }
+.mapa .sigla { fill: var(--texto-suave); font-size: 18px; font-weight: 700; }
+.mapa .destaque + .sigla, .mapa .sigla-df { fill: var(--preto); }
+.mapa .sigla-df { font-size: 12px; }
+.mapa .parque text { fill: var(--texto); font-size: 19px; font-weight: 700; paint-order: stroke; stroke: var(--fundo-alt); stroke-width: 4px; stroke-linejoin: round; }
+.mapa .ponto { fill: var(--primaria); stroke: var(--branco); stroke-width: 2.5; transition: r .18s ease-out; }
+.mapa .alvo { fill: transparent; }
+.mapa .parque:hover .ponto, .mapa .parque:focus-visible .ponto { r: 9; }
+.mapa .parque:focus-visible { outline: 3px solid var(--texto); }
+.mapa .mini-fundo { fill: var(--superficie); stroke: var(--borda); }
+.mapa .mini-brasil { fill: var(--areia); }
+.mapa .mini-recorte { fill: none; stroke: var(--primaria); stroke-width: 4; }
+.mapa-figura figcaption { color: var(--texto-suave); font-size: .9rem; margin-top: .4rem; }
+.distancias { list-style: none; display: grid; gap: 1rem; }
+.distancias li { border-left: 3px solid var(--areia); padding-left: .9rem; }
+.distancias a { font-weight: 700; display: inline-block; padding-block: 2px; }
+.distancias span { display: block; color: var(--texto-suave); }
+.expedicao:target { border-color: var(--primaria); box-shadow: 0 0 0 2px var(--primaria); }
+html { scroll-padding-top: 80px; }
+
+/* Página de erro (404) */
+.pagina-erro { min-height: calc(100vh - 64px - 160px); display: grid; align-items: center; }
+.pagina-erro h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1; max-width: 18ch; margin-bottom: .8rem; }
+.erro-codigo { color: var(--texto-suave); font-weight: 700; }
+.pagina-erro .botao { margin: .3rem .4rem .3rem 0; }
+
+/* Sem a página pular (31/10/2026): o "Quando ir?" só aparece com JavaScript, mas o espaço dele já está reservado desde
+   o primeiro quadro (a classe .js vem do tema-inicio.js), e o selo "Melhor época" fica no canto do cartão */
+.quando { display: none; }
+.js .quando { display: block; }
+.js .meses { min-height: 50px; }
+.js .estacao { min-height: 9.5em; }
+@media (min-width: 700px) { .js .estacao { min-height: 6.5em; } }
+@media (min-width: 1000px) { .js .meses { min-height: 150px; } .js .estacao { min-height: 9em; } }
+.expedicao { position: relative; }
+.selo-epoca { position: absolute; top: .8rem; left: .8rem; margin: 0; z-index: 1; box-shadow: 0 1px 4px rgba(0, 0, 0, .25); }
+.so-leitor { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.ficha-onde a { display: inline-block; padding-block: 3px; }

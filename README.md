@@ -215,6 +215,14 @@ node ferramentas/gerar-estudo.mjs abelhas-sem-ferrao
   caixa, os números em tipografia grande, o “Quando ir?” nas Expedições (`js/quando.js`; as frases em `js` do JSON, os
   meses pelo `Intl`), a foto ampliada com anterior e próxima e fotos em WebP com versão de 640 px. Detalhes no README de
   `Seiabras/fotografia-do-cerrado`.
+- **Só em português por enquanto (31/10/2026):** o `gerar-estudo.mjs` gera só em pt-BR as páginas listadas em
+  `ferramentas/estudo/<site>/so-pt.json` (sem alternativas nem lista de idiomas) e põe só na página em pt-BR o que estiver
+  entre `{{?pt-BR}}` e `{{/pt-BR}}` num modelo. O Cerrado usa os dois (fichas, diário, mapa, testador de contraste); a
+  lista está no README de `Seiabras/fotografia-do-cerrado`. Para traduzir, trocar o texto por chaves e tirar daqui.
+  As fichas, o diário, “Como fotografamos” e a 404 do Cerrado saem do `ferramentas/estudo/fotografia-do-cerrado/paginas-pt.py`
+  (mude o texto lá e rode antes do `gerar-estudo.mjs`); o mapa das Expedições, do `mapa.py` da mesma pasta.
+- **A 404 do Cerrado** (`sitios/fotografia-do-cerrado/404.html`) só aparece depois de o bloco novo do `deploy/Caddyfile-bloco`
+  (`handle_errors` no `cerrado.linupedia.com.br`) ser posto na VM, como diz o `deploy/ORACLE.md`.
 - Os repositórios `Seiabras/fotografia-do-cerrado` e `Seiabras/abelhas-sem-ferrao` recebem uma cópia de
   `sitios/<site>/` a cada mudança (o README e o CLAUDE.md de lá não vêm daqui).
 

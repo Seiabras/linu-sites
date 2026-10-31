@@ -23,6 +23,7 @@ if (janela) {
     const cientifico = janela.querySelector('.cientifico');
     const texto = janela.querySelector('.texto');
     const posicao = janela.querySelector('.posicao');
+    const verFicha = janela.querySelector('.ver-ficha a');
     const anterior = janela.querySelector('.anterior');
     const proxima = janela.querySelector('.proxima');
     anterior.setAttribute('aria-label', t.anterior || 'Foto anterior');
@@ -45,6 +46,9 @@ if (janela) {
             titulo.textContent = foto.querySelector('h2, h3').textContent;
             cientifico.textContent = foto.querySelector('.cientifico').textContent;
             texto.textContent = foto.querySelector('.legenda > p:not(.cientifico)')?.textContent || '';
+            // na página em português, o link para a ficha da espécie
+            const ficha = foto.querySelector('.ficha-link a');
+            if (verFicha && ficha) verFicha.href = ficha.getAttribute('href');
             posicao.textContent = (t.posicao || '{n} de {total}').replace('{n}', atual + 1).replace('{total}', lista.length);
             imagem.classList.remove('trocando');
         };

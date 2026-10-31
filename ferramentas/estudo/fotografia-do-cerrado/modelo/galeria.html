@@ -5,13 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{galeria_090}}</title>
     <meta name="description" content="{{galeria_103}}">
+    <link rel="icon" href="{{raiz}}img/icone.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="{{raiz}}img/icone-180.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Fotografia do Cerrado">
+    <meta property="og:title" content="{{galeria_090}}">
+    <meta property="og:description" content="{{galeria_103}}">
+    <meta property="og:image" content="https://cerrado.linupedia.com.br/img/compartilhar.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="theme-color" content="#814F12">
-    <script src="{{raiz}}js/tema-inicio.js?v=2"></script>
+    <script src="{{raiz}}js/tema-inicio.js?v=3"></script>
     <link rel="preload" href="{{raiz}}fontes/newsreader-600.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="{{raiz}}css/estilo.css?v=4">
     <script src="{{raiz}}js/tema.js?v=2" defer></script>
     <script src="{{raiz}}js/menu.js?v=2" defer></script>
-    <script src="{{raiz}}js/galeria.js?v=5" defer></script>
+    <script src="{{raiz}}js/galeria.js?v=6" defer></script>
 {{alternativas}}
 <script type="application/json" id="textos-estudo">{{textos_js}}</script>
 </head>
@@ -23,7 +33,7 @@
             <button class="botao-tema" type="button" data-escuro="{{contato_023}}" data-claro="{{contato_024}}" aria-label="{{contato_023}}"><svg class="lua" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg><svg class="sol" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1"/></svg></button>
             <button class="botao-menu" type="button" aria-expanded="false" aria-controls="menu">{{contato_020}}</button>
             <nav aria-label="{{contato_025}}">
-                <ul class="menu" id="menu"><li>{{contato_019}}</li><li>{{galeria_089}}</li><li>{{contato_017}}</li><li>{{contato_016}}</li><li>{{creditos_035}}</li></ul>
+                <ul class="menu" id="menu"><li>{{contato_019}}</li><li>{{galeria_089}}</li><li>{{contato_017}}</li>{{?pt-BR}}<li><a href="diario.html">Diário</a></li>{{/pt-BR}}<li>{{contato_016}}</li><li>{{creditos_035}}</li></ul>
             </nav>
         </div>
     </header>
@@ -44,12 +54,13 @@
                 </div>
                 <div class="grade">
                 <article class="foto" data-grupo="mamiferos">
-                    <button type="button" aria-label="{{galeria_092}}"><img src="{{raiz}}img/lobo-guara.webp" srcset="{{raiz}}img/lobo-guara-640.webp 640w, {{raiz}}img/lobo-guara.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="{{galeria_093}}" width="1000" height="647" loading="lazy"></button>
+                    <button type="button" aria-label="{{galeria_092}}"><img src="{{raiz}}img/lobo-guara.webp" srcset="{{raiz}}img/lobo-guara-640.webp 640w, {{raiz}}img/lobo-guara.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="{{galeria_093}}" width="1000" height="647" loading="eager"></button>
                     <div class="legenda">
                         <h2>{{galeria_083}}</h2>
                         <p class="cientifico">{{galeria_082}}</p>
                         <p>{{galeria_081}}</p>
-                        <span class="selo">{{galeria_077}}</span>
+{{?pt-BR}}                        <p class="ficha-link"><a href="especie-lobo-guara.html">Ver a ficha</a></p>
+{{/pt-BR}}                        <span class="selo">{{galeria_077}}</span>
                     </div>
                 </article>
                 <article class="foto" data-grupo="mamiferos">
@@ -58,7 +69,8 @@
                         <h2>{{galeria_080}}</h2>
                         <p class="cientifico">{{galeria_079}}</p>
                         <p>{{galeria_078}}</p>
-                        <span class="selo">{{galeria_077}}</span>
+{{?pt-BR}}                        <p class="ficha-link"><a href="especie-tamandua-bandeira.html">Ver a ficha</a></p>
+{{/pt-BR}}                        <span class="selo">{{galeria_077}}</span>
                     </div>
                 </article>
                 <article class="foto" data-grupo="aves">
@@ -67,7 +79,8 @@
                         <h2>{{galeria_076}}</h2>
                         <p class="cientifico">{{galeria_075}}</p>
                         <p>{{galeria_074}}</p>
-
+{{?pt-BR}}                        <p class="ficha-link"><a href="especie-arara-caninde.html">Ver a ficha</a></p>
+{{/pt-BR}}
                     </div>
                 </article>
                 <article class="foto" data-grupo="aves">
@@ -76,7 +89,8 @@
                         <h2>{{galeria_073}}</h2>
                         <p class="cientifico">{{galeria_072}}</p>
                         <p>{{galeria_071}}</p>
-
+{{?pt-BR}}                        <p class="ficha-link"><a href="especie-seriema.html">Ver a ficha</a></p>
+{{/pt-BR}}
                     </div>
                 </article>
                 <article class="foto" data-grupo="aves">
@@ -85,20 +99,42 @@
                         <h2>{{galeria_070}}</h2>
                         <p class="cientifico">{{galeria_069}}</p>
                         <p>{{galeria_068}}</p>
-
+{{?pt-BR}}                        <p class="ficha-link"><a href="especie-tucano-toco.html">Ver a ficha</a></p>
+{{/pt-BR}}
                     </div>
                 </article>
                 </div>
             </div>
         </section>
+{{?pt-BR}}
+        <section class="secao creme" aria-labelledby="tamanhos-titulo">
+            <div class="container">
+                <h2 id="tamanhos-titulo">Do tamanho de quê?</h2>
+                <p class="intro">O comprimento de cada um, do focinho (ou do bico) à ponta da cauda, perto da altura de uma pessoa. Toque num bicho para abrir a ficha dele.</p>
+                <ul class="tamanhos-lista">
+                    <li><a href="especie-tamandua-bandeira.html"><span class="tamanho-nome">Tamanduá-bandeira</span> <span class="tamanho-medida">2 m</span>
+                        <svg viewBox="0 0 220 20" preserveAspectRatio="none" aria-hidden="true"><rect class="barra" x="0" y="2" width="200" height="16"/></svg></a></li>
+                    <li><a href="especie-lobo-guara.html"><span class="tamanho-nome">Lobo-guará</span> <span class="tamanho-medida">1,5 m</span>
+                        <svg viewBox="0 0 220 20" preserveAspectRatio="none" aria-hidden="true"><rect class="barra" x="0" y="2" width="150" height="16"/></svg></a></li>
+                    <li><a href="especie-arara-caninde.html"><span class="tamanho-nome">Arara-canindé</span> <span class="tamanho-medida">85 cm</span>
+                        <svg viewBox="0 0 220 20" preserveAspectRatio="none" aria-hidden="true"><rect class="barra" x="0" y="2" width="85" height="16"/></svg></a></li>
+                    <li><a href="especie-seriema.html"><span class="tamanho-nome">Seriema</span> <span class="tamanho-medida">85 cm</span>
+                        <svg viewBox="0 0 220 20" preserveAspectRatio="none" aria-hidden="true"><rect class="barra" x="0" y="2" width="85" height="16"/></svg></a></li>
+                    <li><a href="especie-tucano-toco.html"><span class="tamanho-nome">Tucano-toco</span> <span class="tamanho-medida">60 cm</span>
+                        <svg viewBox="0 0 220 20" preserveAspectRatio="none" aria-hidden="true"><rect class="barra" x="0" y="2" width="60" height="16"/></svg></a></li>
+                </ul>
+                <p class="tamanhos-legenda"><svg viewBox="0 0 10 20" width="10" height="20" aria-hidden="true"><line class="pessoa-linha" x1="5" y1="0" x2="5" y2="20"/></svg> A linha tracejada é a altura de uma pessoa: 1,70 m.</p>
+            </div>
+        </section>
+{{/pt-BR}}
         <dialog class="ampliada" id="ampliada" aria-label="{{galeria_102}}">
             <div class="moldura">
-                <img src="{{raiz}}img/lobo-guara.webp" alt="" width="1000" height="647">
+                <img src="{{raiz}}img/lobo-guara.webp" alt="" width="1000" height="647" loading="lazy">
                 <button type="button" class="seta anterior" aria-label="{{foto_anterior}}"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
                 <button type="button" class="seta proxima" aria-label="{{foto_proxima}}"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
             </div>
             <div class="rodape-foto">
-                <div class="ficha"><p class="titulo"></p><p class="cientifico"></p><p class="texto"></p></div>
+                <div class="ficha"><p class="titulo"></p><p class="cientifico"></p><p class="texto"></p>{{?pt-BR}}<p class="ver-ficha"><a href="galeria.html">Ver a ficha completa</a></p>{{/pt-BR}}</div>
                 <div class="acoes-foto"><span class="posicao" aria-live="polite"></span><button type="button" class="fechar">{{galeria_067}}</button></div>
             </div>
         </dialog>
@@ -108,7 +144,7 @@
         <div class="container">
             {{idiomas}}
             <p>{{contato_002}}</p>
-            <p>{{contato_001}}</p>
+            <p>{{contato_001}}{{?pt-BR}} · <a href="como-fotografamos.html">Como fotografamos</a>{{/pt-BR}}</p>
         </div>
     </footer>
 </body>

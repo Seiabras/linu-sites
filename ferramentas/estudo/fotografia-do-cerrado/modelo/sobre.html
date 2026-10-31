@@ -5,8 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{sobre_135}}</title>
     <meta name="description" content="{{sobre_136}}">
+    <link rel="icon" href="{{raiz}}img/icone.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="{{raiz}}img/icone-180.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Fotografia do Cerrado">
+    <meta property="og:title" content="{{sobre_135}}">
+    <meta property="og:description" content="{{sobre_136}}">
+    <meta property="og:image" content="https://cerrado.linupedia.com.br/img/compartilhar.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="theme-color" content="#814F12">
-    <script src="{{raiz}}js/tema-inicio.js?v=2"></script>
+    <script src="{{raiz}}js/tema-inicio.js?v=3"></script>
     <link rel="preload" href="{{raiz}}fontes/newsreader-600.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="{{raiz}}css/estilo.css?v=4">
     <script src="{{raiz}}js/tema.js?v=2" defer></script>
@@ -22,7 +32,7 @@
             <button class="botao-tema" type="button" data-escuro="{{contato_023}}" data-claro="{{contato_024}}" aria-label="{{contato_023}}"><svg class="lua" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg><svg class="sol" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1"/></svg></button>
             <button class="botao-menu" type="button" aria-expanded="false" aria-controls="menu">{{contato_020}}</button>
             <nav aria-label="{{contato_025}}">
-                <ul class="menu" id="menu"><li>{{contato_019}}</li><li>{{contato_018}}</li><li>{{contato_017}}</li><li>{{sobre_134}}</li><li>{{creditos_035}}</li></ul>
+                <ul class="menu" id="menu"><li>{{contato_019}}</li><li>{{contato_018}}</li><li>{{contato_017}}</li>{{?pt-BR}}<li><a href="diario.html">Diário</a></li>{{/pt-BR}}<li>{{sobre_134}}</li><li>{{creditos_035}}</li></ul>
             </nav>
         </div>
     </header>
@@ -50,14 +60,36 @@
                 </div>
             </div>
         </section>
+{{?pt-BR}}
+        <section class="secao creme" aria-labelledby="teste-titulo">
+            <div class="container">
+                <h2 id="teste-titulo">Teste as cores</h2>
+                <p class="intro">Foi assim que a paleta foi escolhida: cada par de texto e fundo passou pela fórmula de contraste da WCAG 2.2. Escolha duas cores e veja se o texto fica legível.</p>
+                <div class="testador">
+                    <div class="testador-escolha">
+                        <fieldset class="cores-grupo"><legend>Cor do texto</legend><div class="amostras"><label class="amostra"><input type="radio" name="texto" value="#814F12"><span class="bolinha cor-814f12" aria-hidden="true"></span>primária</label><label class="amostra"><input type="radio" name="texto" value="#5E3A0D"><span class="bolinha cor-5e3a0d" aria-hidden="true"></span>primária escura</label><label class="amostra"><input type="radio" name="texto" value="#7E7450"><span class="bolinha cor-7e7450" aria-hidden="true"></span>oliva</label><label class="amostra"><input type="radio" name="texto" value="#C8985A"><span class="bolinha cor-c8985a" aria-hidden="true"></span>areia</label><label class="amostra"><input type="radio" name="texto" value="#CFA58C"><span class="bolinha cor-cfa58c" aria-hidden="true"></span>terra</label><label class="amostra"><input type="radio" name="texto" value="#6E6465"><span class="bolinha cor-6e6465" aria-hidden="true"></span>cinza</label><label class="amostra"><input type="radio" name="texto" value="#FBF7F1"><span class="bolinha cor-fbf7f1" aria-hidden="true"></span>creme</label><label class="amostra"><input type="radio" name="texto" value="#FFFFFF" checked><span class="bolinha cor-ffffff" aria-hidden="true"></span>branco</label><label class="amostra"><input type="radio" name="texto" value="#000000"><span class="bolinha cor-000000" aria-hidden="true"></span>preto</label></div></fieldset>
+                        <fieldset class="cores-grupo"><legend>Cor do fundo</legend><div class="amostras"><label class="amostra"><input type="radio" name="fundo" value="#814F12" checked><span class="bolinha cor-814f12" aria-hidden="true"></span>primária</label><label class="amostra"><input type="radio" name="fundo" value="#5E3A0D"><span class="bolinha cor-5e3a0d" aria-hidden="true"></span>primária escura</label><label class="amostra"><input type="radio" name="fundo" value="#7E7450"><span class="bolinha cor-7e7450" aria-hidden="true"></span>oliva</label><label class="amostra"><input type="radio" name="fundo" value="#C8985A"><span class="bolinha cor-c8985a" aria-hidden="true"></span>areia</label><label class="amostra"><input type="radio" name="fundo" value="#CFA58C"><span class="bolinha cor-cfa58c" aria-hidden="true"></span>terra</label><label class="amostra"><input type="radio" name="fundo" value="#6E6465"><span class="bolinha cor-6e6465" aria-hidden="true"></span>cinza</label><label class="amostra"><input type="radio" name="fundo" value="#FBF7F1"><span class="bolinha cor-fbf7f1" aria-hidden="true"></span>creme</label><label class="amostra"><input type="radio" name="fundo" value="#FFFFFF"><span class="bolinha cor-ffffff" aria-hidden="true"></span>branco</label><label class="amostra"><input type="radio" name="fundo" value="#000000"><span class="bolinha cor-000000" aria-hidden="true"></span>preto</label></div></fieldset>
+                        <button class="botao botao-linha" type="button" id="trocar-cores">Trocar texto e fundo</button>
+                    </div>
+                    <div class="testador-resultado">
+                        <div class="previa" id="previa"><p class="previa-grande">Lobo-guará ao entardecer</p><p>Saídas em grupos pequenos, com guia local e foco em observar sem perturbar os animais.</p></div>
+                        <p class="razao" aria-live="polite"><strong id="razao">6,86:1</strong> de contraste</p>
+                        <ul class="veredito" id="veredito"></ul>
+                    </div>
+                </div>
+                <p class="mais">Quer saber como o resto do site foi pensado? Leia <a href="como-fotografamos.html">como fotografamos</a>.</p>
+            </div>
+        </section>
+{{/pt-BR}}
     </main>
 
     <footer class="rodape">
         <div class="container">
             {{idiomas}}
             <p>{{contato_002}}</p>
-            <p>{{contato_001}}</p>
+            <p>{{contato_001}}{{?pt-BR}} · <a href="como-fotografamos.html">Como fotografamos</a>{{/pt-BR}}</p>
         </div>
     </footer>
-</body>
+{{?pt-BR}}    <script src="{{raiz}}js/contraste.js?v=1" defer></script>
+{{/pt-BR}}</body>
 </html>

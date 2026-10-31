@@ -5,8 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{index_119}}</title>
     <meta name="description" content="{{index_121}}">
+    <link rel="icon" href="{{raiz}}img/icone.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="{{raiz}}img/icone-180.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Fotografia do Cerrado">
+    <meta property="og:title" content="{{index_119}}">
+    <meta property="og:description" content="{{index_121}}">
+    <meta property="og:image" content="https://cerrado.linupedia.com.br/img/compartilhar.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="theme-color" content="#814F12">
-    <script src="{{raiz}}js/tema-inicio.js?v=2"></script>
+    <script src="{{raiz}}js/tema-inicio.js?v=3"></script>
     <link rel="preload" href="{{raiz}}fontes/newsreader-600.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="{{raiz}}css/estilo.css?v=4">
     <script src="{{raiz}}js/tema.js?v=2" defer></script>
@@ -22,7 +32,7 @@
             <button class="botao-tema" type="button" data-escuro="{{contato_023}}" data-claro="{{contato_024}}" aria-label="{{contato_023}}"><svg class="lua" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg><svg class="sol" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1"/></svg></button>
             <button class="botao-menu" type="button" aria-expanded="false" aria-controls="menu">{{contato_020}}</button>
             <nav aria-label="{{contato_025}}">
-                <ul class="menu" id="menu"><li>{{index_118}}</li><li>{{contato_018}}</li><li>{{contato_017}}</li><li>{{contato_016}}</li><li>{{creditos_035}}</li></ul>
+                <ul class="menu" id="menu"><li>{{index_118}}</li><li>{{contato_018}}</li><li>{{contato_017}}</li>{{?pt-BR}}<li><a href="diario.html">Diário</a></li>{{/pt-BR}}<li>{{contato_016}}</li><li>{{creditos_035}}</li></ul>
             </nav>
         </div>
     </header>
@@ -50,7 +60,8 @@
                         <h3>{{galeria_083}}</h3>
                         <p class="cientifico">{{galeria_082}}</p>
                         <p>{{galeria_081}}</p>
-                        <span class="selo">{{galeria_077}}</span>
+{{?pt-BR}}                        <p class="ficha-link"><a href="especie-lobo-guara.html">Ver a ficha</a></p>
+{{/pt-BR}}                        <span class="selo">{{galeria_077}}</span>
                     </div>
                 </article>
                 <article class="foto" data-grupo="mamiferos">
@@ -59,7 +70,8 @@
                         <h3>{{galeria_080}}</h3>
                         <p class="cientifico">{{galeria_079}}</p>
                         <p>{{galeria_078}}</p>
-                        <span class="selo">{{galeria_077}}</span>
+{{?pt-BR}}                        <p class="ficha-link"><a href="especie-tamandua-bandeira.html">Ver a ficha</a></p>
+{{/pt-BR}}                        <span class="selo">{{galeria_077}}</span>
                     </div>
                 </article>
                 <article class="foto" data-grupo="aves">
@@ -68,7 +80,8 @@
                         <h3>{{galeria_076}}</h3>
                         <p class="cientifico">{{galeria_075}}</p>
                         <p>{{galeria_074}}</p>
-
+{{?pt-BR}}                        <p class="ficha-link"><a href="especie-arara-caninde.html">Ver a ficha</a></p>
+{{/pt-BR}}
                     </div>
                 </article>
                 </div>
@@ -101,7 +114,7 @@
         <div class="container">
             {{idiomas}}
             <p>{{contato_002}}</p>
-            <p>{{contato_001}}</p>
+            <p>{{contato_001}}{{?pt-BR}} · <a href="como-fotografamos.html">Como fotografamos</a>{{/pt-BR}}</p>
         </div>
     </footer>
 </body>

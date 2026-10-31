@@ -5,13 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>撮影ツアー — Fotografia do Cerrado</title>
     <meta name="description" content="セラードでの野生動物撮影ツアー：シャパーダ・ドス・ヴェアデイロス、エマス国立公園、ブラジリア国立公園。">
+    <link rel="icon" href="../img/icone.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../img/icone-180.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Fotografia do Cerrado">
+    <meta property="og:title" content="撮影ツアー — Fotografia do Cerrado">
+    <meta property="og:description" content="セラードでの野生動物撮影ツアー：シャパーダ・ドス・ヴェアデイロス、エマス国立公園、ブラジリア国立公園。">
+    <meta property="og:image" content="https://cerrado.linupedia.com.br/img/compartilhar.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="theme-color" content="#814F12">
-    <script src="../js/tema-inicio.js?v=2"></script>
+    <script src="../js/tema-inicio.js?v=3"></script>
     <link rel="preload" href="../fontes/newsreader-600.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="../css/estilo.css?v=4">
     <script src="../js/tema.js?v=2" defer></script>
     <script src="../js/menu.js?v=2" defer></script>
-    <script src="../js/quando.js?v=1" defer></script>
+    <script src="../js/quando.js?v=3" defer></script>
     <link rel="alternate" hreflang="pt-BR" href="https://cerrado.linupedia.com.br/expedicoes">
     <link rel="alternate" hreflang="pt-PT" href="https://cerrado.linupedia.com.br/pt-pt/expedicoes">
     <link rel="alternate" hreflang="es-ES" href="https://cerrado.linupedia.com.br/es/expedicoes">
@@ -49,42 +59,43 @@
         </section>
         <section class="secao">
             <div class="container expedicoes">
-                <aside class="quando" aria-labelledby="quando-titulo" hidden>
+                <aside class="quando" aria-labelledby="quando-titulo">
                     <h2 class="sub" id="quando-titulo">いつ行く？</h2>
                     <p>月を選ぶと、そのころのセラードの様子と、いちばん良い時期のツアーがわかります。</p>
                     <div class="meses" role="group" aria-label="旅行の月"></div>
                     <div class="estacao" aria-live="polite"><p class="estacao-nome"></p><p class="estacao-nota"></p></div>
                 </aside>
                 <div class="lista-expedicoes">
-                <article class="expedicao" data-meses="6 7 8 9">
-                    <img src="../img/lobo-guara.webp" srcset="../img/lobo-guara-640.webp 640w, ../img/lobo-guara.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="草原を歩くタテガミオオカミ" width="1000" height="647" loading="lazy">
+                <article class="expedicao" id="veadeiros" data-meses="6 7 8 9">
+                    <img src="../img/lobo-guara.webp" srcset="../img/lobo-guara-640.webp 640w, ../img/lobo-guara.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="草原を歩くタテガミオオカミ" width="1000" height="647" loading="eager">
                     <div class="texto">
                         <h2 class="sub">シャパーダ・ドス・ヴェアデイロス（ゴイアス州）</h2>
                         <p>岩場の草原とヤシの湿地。タテガミオオカミは夕暮れどきが狙い目です。</p>
                         <dl><dt>日数</dt><dd>3日</dd><dt>ベストシーズン</dt><dd>6月〜9月（乾季）</dd><dt>人数</dt><dd>最大8名</dd></dl>
-                        <a class="botao" href="contato.html">参加したい</a>
+                        <a class="botao" href="contato.html?expedicao=veadeiros">参加したい</a>
                     </div>
                 </article>
-                <article class="expedicao" data-meses="5 6 7 8">
+                <article class="expedicao" id="emas" data-meses="5 6 7 8">
                     <img src="../img/tamandua-bandeira.webp" srcset="../img/tamandua-bandeira-640.webp 640w, ../img/tamandua-bandeira.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="草むらのオオアリクイ" width="1000" height="667" loading="lazy">
                     <div class="texto">
                         <h2 class="sub">エマス国立公園（ゴイアス州）</h2>
                         <p>広大な草原が広がり、オオアリクイがよく見られます。</p>
                         <dl><dt>日数</dt><dd>4日</dd><dt>ベストシーズン</dt><dd>5月〜8月</dd><dt>人数</dt><dd>最大8名</dd></dl>
-                        <a class="botao" href="contato.html">参加したい</a>
+                        <a class="botao" href="contato.html?expedicao=emas">参加したい</a>
                     </div>
                 </article>
-                <article class="expedicao" data-meses="1 2 3 4 5 6 7 8 9 10 11 12">
+                <article class="expedicao" id="brasilia" data-meses="1 2 3 4 5 6 7 8 9 10 11 12">
                     <img src="../img/tucano-toco.webp" srcset="../img/tucano-toco-640.webp 640w, ../img/tucano-toco.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="横から見たオニオオハシ" width="1000" height="589" loading="lazy">
                     <div class="texto">
                         <h2 class="sub">ブラジリア国立公園（連邦直轄区）</h2>
                         <p>初心者向けの短いツアー。平らな道で、水辺に鳥がたくさんいます。</p>
                         <dl><dt>日数</dt><dd>1日</dd><dt>ベストシーズン</dt><dd>通年</dd><dt>人数</dt><dd>最大8名</dd></dl>
-                        <a class="botao" href="contato.html">参加したい</a>
+                        <a class="botao" href="contato.html?expedicao=brasilia">参加したい</a>
                     </div>
                 </article>
                 </div>
             </div>
+
             <div class="container">
                 <h2 class="sub espaco">現地でのルール</h2>
                 <ul class="lista">

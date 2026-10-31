@@ -5,13 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contato — Fotografia do Cerrado</title>
     <meta name="description" content="Fale com a Fotografia do Cerrado sobre expedições e fotos.">
+    <link rel="icon" href="img/icone.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="img/icone-180.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Fotografia do Cerrado">
+    <meta property="og:title" content="Contato — Fotografia do Cerrado">
+    <meta property="og:description" content="Fale com a Fotografia do Cerrado sobre expedições e fotos.">
+    <meta property="og:image" content="https://cerrado.linupedia.com.br/img/compartilhar.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="theme-color" content="#814F12">
-    <script src="js/tema-inicio.js?v=2"></script>
+    <script src="js/tema-inicio.js?v=3"></script>
     <link rel="preload" href="fontes/newsreader-600.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="css/estilo.css?v=4">
     <script src="js/tema.js?v=2" defer></script>
     <script src="js/menu.js?v=2" defer></script>
-    <script src="js/contato.js?v=2" defer></script>
+    <script src="js/contato.js?v=3" defer></script>
     <link rel="alternate" hreflang="pt-BR" href="https://cerrado.linupedia.com.br/contato">
     <link rel="alternate" hreflang="pt-PT" href="https://cerrado.linupedia.com.br/pt-pt/contato">
     <link rel="alternate" hreflang="es-ES" href="https://cerrado.linupedia.com.br/es/contato">
@@ -35,7 +45,7 @@
             <button class="botao-tema" type="button" data-escuro="Mudar para o modo escuro" data-claro="Mudar para o modo claro" aria-label="Mudar para o modo escuro"><svg class="lua" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg><svg class="sol" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1"/></svg></button>
             <button class="botao-menu" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
             <nav aria-label="Navegação principal">
-                <ul class="menu" id="menu"><li><a href="index.html">Início</a></li><li><a href="galeria.html">Galeria</a></li><li><a href="expedicoes.html">Expedições</a></li><li><a href="sobre.html">Sobre</a></li><li><a href="contato.html" aria-current="page">Contato</a></li></ul>
+                <ul class="menu" id="menu"><li><a href="index.html">Início</a></li><li><a href="galeria.html">Galeria</a></li><li><a href="expedicoes.html">Expedições</a></li><li><a href="diario.html">Diário</a></li><li><a href="sobre.html">Sobre</a></li><li><a href="contato.html" aria-current="page">Contato</a></li></ul>
             </nav>
         </div>
     </header>
@@ -49,21 +59,48 @@
         </section>
         <section class="secao">
             <div class="container">
+                <div class="contato-layout">
                 <form class="contato" novalidate>
                     <div><label for="nome">Nome</label><input id="nome" name="nome" type="text" autocomplete="name" required></div>
                     <div><label for="email">E-mail</label><input id="email" name="email" type="email" autocomplete="email" required></div>
                     <div><label for="assunto">Assunto</label>
                         <select id="assunto" name="assunto">
-                            <option>Expedição na Chapada dos Veadeiros</option>
-                            <option>Expedição no Parque Nacional das Emas</option>
-                            <option>Saída no Parque Nacional de Brasília</option>
-                            <option>Uso de uma foto</option>
-                            <option>Outro assunto</option>
+                            <option value="veadeiros">Expedição na Chapada dos Veadeiros</option>
+                            <option value="emas">Expedição no Parque Nacional das Emas</option>
+                            <option value="brasilia">Saída no Parque Nacional de Brasília</option>
+                            <option value="foto">Uso de uma foto</option>
+                            <option value="outro">Outro assunto</option>
                         </select></div>
+
+                    <div class="campo-mes"><label for="mes">Mês da viagem <span class="opcional">(se já souber)</span></label>
+                        <select id="mes" name="mes">
+                            <option value="">Ainda não sei</option>
+                            <option value="1">Janeiro</option><option value="2">Fevereiro</option><option value="3">Março</option>
+                            <option value="4">Abril</option><option value="5">Maio</option><option value="6">Junho</option>
+                            <option value="7">Julho</option><option value="8">Agosto</option><option value="9">Setembro</option>
+                            <option value="10">Outubro</option><option value="11">Novembro</option><option value="12">Dezembro</option>
+                        </select></div>
+
                     <div><label for="mensagem">Mensagem</label><textarea id="mensagem" name="mensagem" rows="5" required></textarea></div>
                     <div><button class="botao" type="submit">Enviar</button></div>
                     <p class="aviso" id="aviso" role="status" tabindex="-1" hidden></p>
                 </form>
+
+                <aside class="resumo" aria-labelledby="resumo-titulo">
+                    <h2 class="sub" id="resumo-titulo">Sua saída</h2>
+                    <div class="resumo-corpo" aria-live="polite">
+                        <p>Escolha uma expedição no assunto para ver aqui a duração, o tamanho do grupo e a melhor época.</p>
+                    </div>
+                    <h3 class="resumo-sub">Como a gente responde</h3>
+                    <ul class="lista">
+                        <li>Em até dois dias úteis, por e-mail.</li>
+                        <li>Com as datas das próximas saídas e o que levar.</li>
+                        <li>Sem compromisso: a vaga só fica sua depois de você confirmar.</li>
+                    </ul>
+                </aside>
+                <script type="application/json" id="expedicoes-dados">{"veadeiros":{"nome":"Chapada dos Veadeiros (GO)","dias":"3 dias","meses":[6,7,8,9],"epoca":"junho a setembro, na seca"},"emas":{"nome":"Parque Nacional das Emas (GO)","dias":"4 dias","meses":[5,6,7,8],"epoca":"maio a agosto"},"brasilia":{"nome":"Parque Nacional de Brasília (DF)","dias":"1 dia","meses":[1,2,3,4,5,6,7,8,9,10,11,12],"epoca":"o ano todo"}}</script>
+
+                </div>
             </div>
         </section>
     </main>
@@ -72,7 +109,7 @@
         <div class="container">
             <nav class="idiomas-rodape" aria-label="Região e idioma"><a href="./contato.html" hreflang="pt-BR" lang="pt-BR" aria-current="true">Português (Brasil)</a> · <a href="pt-pt/contato.html" hreflang="pt-PT" lang="pt-PT">Português (Portugal)</a> · <a href="es/contato.html" hreflang="es-ES" lang="es-ES">Español</a> · <a href="ca/contato.html" hreflang="ca" lang="ca">Català</a> · <a href="nl/contato.html" hreflang="nl" lang="nl">Nederlands</a> · <a href="en/contato.html" hreflang="en-GB" lang="en-GB">English (UK &amp; Europe)</a> · <a href="fr/contato.html" hreflang="fr-FR" lang="fr-FR">Français</a> · <a href="de/contato.html" hreflang="de-DE" lang="de-DE">Deutsch</a> · <a href="it/contato.html" hreflang="it-IT" lang="it-IT">Italiano</a> · <a href="intl/contato.html" hreflang="en" lang="en">English (international)</a> · <a href="ja/contato.html" hreflang="ja-JP" lang="ja-JP">日本語</a> · <a href="ko/contato.html" hreflang="ko-KR" lang="ko-KR">한국어</a> · <a href="zh-hant/contato.html" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></nav>
             <p>© 2026 Fotografia do Cerrado · empresa fictícia, projeto de estudo de Luiz Matheus Moraes Vega</p>
-            <p><a href="creditos.html">Créditos das fotos</a></p>
+            <p><a href="creditos.html">Créditos das fotos</a> · <a href="como-fotografamos.html">Como fotografamos</a></p>
         </div>
     </footer>
 </body>

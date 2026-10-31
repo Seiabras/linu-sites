@@ -5,13 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galeria — Fotografia do Cerrado</title>
     <meta name="description" content="Galeria de fotos de animais do cerrado: lobo-guará, tamanduá-bandeira, arara-canindé, seriema e tucano-toco.">
+    <link rel="icon" href="img/icone.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="img/icone-180.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Fotografia do Cerrado">
+    <meta property="og:title" content="Galeria — Fotografia do Cerrado">
+    <meta property="og:description" content="Galeria de fotos de animais do cerrado: lobo-guará, tamanduá-bandeira, arara-canindé, seriema e tucano-toco.">
+    <meta property="og:image" content="https://cerrado.linupedia.com.br/img/compartilhar.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="theme-color" content="#814F12">
-    <script src="js/tema-inicio.js?v=2"></script>
+    <script src="js/tema-inicio.js?v=3"></script>
     <link rel="preload" href="fontes/newsreader-600.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="css/estilo.css?v=4">
     <script src="js/tema.js?v=2" defer></script>
     <script src="js/menu.js?v=2" defer></script>
-    <script src="js/galeria.js?v=5" defer></script>
+    <script src="js/galeria.js?v=6" defer></script>
     <link rel="alternate" hreflang="pt-BR" href="https://cerrado.linupedia.com.br/galeria">
     <link rel="alternate" hreflang="pt-PT" href="https://cerrado.linupedia.com.br/pt-pt/galeria">
     <link rel="alternate" hreflang="es-ES" href="https://cerrado.linupedia.com.br/es/galeria">
@@ -35,7 +45,7 @@
             <button class="botao-tema" type="button" data-escuro="Mudar para o modo escuro" data-claro="Mudar para o modo claro" aria-label="Mudar para o modo escuro"><svg class="lua" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg><svg class="sol" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1"/></svg></button>
             <button class="botao-menu" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
             <nav aria-label="Navegação principal">
-                <ul class="menu" id="menu"><li><a href="index.html">Início</a></li><li><a href="galeria.html" aria-current="page">Galeria</a></li><li><a href="expedicoes.html">Expedições</a></li><li><a href="sobre.html">Sobre</a></li><li><a href="contato.html">Contato</a></li></ul>
+                <ul class="menu" id="menu"><li><a href="index.html">Início</a></li><li><a href="galeria.html" aria-current="page">Galeria</a></li><li><a href="expedicoes.html">Expedições</a></li><li><a href="diario.html">Diário</a></li><li><a href="sobre.html">Sobre</a></li><li><a href="contato.html">Contato</a></li></ul>
             </nav>
         </div>
     </header>
@@ -56,11 +66,12 @@
                 </div>
                 <div class="grade">
                 <article class="foto" data-grupo="mamiferos">
-                    <button type="button" aria-label="Ampliar a foto: Lobo-guará"><img src="img/lobo-guara.webp" srcset="img/lobo-guara-640.webp 640w, img/lobo-guara.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="Lobo-guará de pelagem laranja e pernas pretas andando na grama" width="1000" height="647" loading="lazy"></button>
+                    <button type="button" aria-label="Ampliar a foto: Lobo-guará"><img src="img/lobo-guara.webp" srcset="img/lobo-guara-640.webp 640w, img/lobo-guara.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="Lobo-guará de pelagem laranja e pernas pretas andando na grama" width="1000" height="647" loading="eager"></button>
                     <div class="legenda">
                         <h2>Lobo-guará</h2>
                         <p class="cientifico">Chrysocyon brachyurus</p>
                         <p>O maior canídeo da América do Sul. Caça à noite e come também muitos frutos, como a lobeira, ajudando a espalhar as sementes.</p>
+                        <p class="ficha-link"><a href="especie-lobo-guara.html">Ver a ficha</a></p>
                         <span class="selo">Vulnerável (ICMBio)</span>
                     </div>
                 </article>
@@ -70,6 +81,7 @@
                         <h2>Tamanduá-bandeira</h2>
                         <p class="cientifico">Myrmecophaga tridactyla</p>
                         <p>Usa a língua comprida, de até 60 cm, para comer formigas e cupins. Não tem dentes.</p>
+                        <p class="ficha-link"><a href="especie-tamandua-bandeira.html">Ver a ficha</a></p>
                         <span class="selo">Vulnerável (ICMBio)</span>
                     </div>
                 </article>
@@ -79,6 +91,7 @@
                         <h2>Arara-canindé</h2>
                         <p class="cientifico">Ara ararauna</p>
                         <p>Vive em casais e faz ninho em ocos de palmeiras mortas, como o buriti.</p>
+                        <p class="ficha-link"><a href="especie-arara-caninde.html">Ver a ficha</a></p>
 
                     </div>
                 </article>
@@ -88,6 +101,7 @@
                         <h2>Seriema</h2>
                         <p class="cientifico">Cariama cristata</p>
                         <p>O canto alto, ouvido de longe ao amanhecer, é um dos sons mais típicos do cerrado.</p>
+                        <p class="ficha-link"><a href="especie-seriema.html">Ver a ficha</a></p>
 
                     </div>
                 </article>
@@ -97,20 +111,42 @@
                         <h2>Tucano-toco</h2>
                         <p class="cientifico">Ramphastos toco</p>
                         <p>O maior dos tucanos. O bico, apesar do tamanho, é leve e ajuda a controlar a temperatura do corpo.</p>
+                        <p class="ficha-link"><a href="especie-tucano-toco.html">Ver a ficha</a></p>
 
                     </div>
                 </article>
                 </div>
             </div>
         </section>
+
+        <section class="secao creme" aria-labelledby="tamanhos-titulo">
+            <div class="container">
+                <h2 id="tamanhos-titulo">Do tamanho de quê?</h2>
+                <p class="intro">O comprimento de cada um, do focinho (ou do bico) à ponta da cauda, perto da altura de uma pessoa. Toque num bicho para abrir a ficha dele.</p>
+                <ul class="tamanhos-lista">
+                    <li><a href="especie-tamandua-bandeira.html"><span class="tamanho-nome">Tamanduá-bandeira</span> <span class="tamanho-medida">2 m</span>
+                        <svg viewBox="0 0 220 20" preserveAspectRatio="none" aria-hidden="true"><rect class="barra" x="0" y="2" width="200" height="16"/></svg></a></li>
+                    <li><a href="especie-lobo-guara.html"><span class="tamanho-nome">Lobo-guará</span> <span class="tamanho-medida">1,5 m</span>
+                        <svg viewBox="0 0 220 20" preserveAspectRatio="none" aria-hidden="true"><rect class="barra" x="0" y="2" width="150" height="16"/></svg></a></li>
+                    <li><a href="especie-arara-caninde.html"><span class="tamanho-nome">Arara-canindé</span> <span class="tamanho-medida">85 cm</span>
+                        <svg viewBox="0 0 220 20" preserveAspectRatio="none" aria-hidden="true"><rect class="barra" x="0" y="2" width="85" height="16"/></svg></a></li>
+                    <li><a href="especie-seriema.html"><span class="tamanho-nome">Seriema</span> <span class="tamanho-medida">85 cm</span>
+                        <svg viewBox="0 0 220 20" preserveAspectRatio="none" aria-hidden="true"><rect class="barra" x="0" y="2" width="85" height="16"/></svg></a></li>
+                    <li><a href="especie-tucano-toco.html"><span class="tamanho-nome">Tucano-toco</span> <span class="tamanho-medida">60 cm</span>
+                        <svg viewBox="0 0 220 20" preserveAspectRatio="none" aria-hidden="true"><rect class="barra" x="0" y="2" width="60" height="16"/></svg></a></li>
+                </ul>
+                <p class="tamanhos-legenda"><svg viewBox="0 0 10 20" width="10" height="20" aria-hidden="true"><line class="pessoa-linha" x1="5" y1="0" x2="5" y2="20"/></svg> A linha tracejada é a altura de uma pessoa: 1,70 m.</p>
+            </div>
+        </section>
+
         <dialog class="ampliada" id="ampliada" aria-label="Foto ampliada">
             <div class="moldura">
-                <img src="img/lobo-guara.webp" alt="" width="1000" height="647">
+                <img src="img/lobo-guara.webp" alt="" width="1000" height="647" loading="lazy">
                 <button type="button" class="seta anterior" aria-label="Foto anterior"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
                 <button type="button" class="seta proxima" aria-label="Próxima foto"><svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
             </div>
             <div class="rodape-foto">
-                <div class="ficha"><p class="titulo"></p><p class="cientifico"></p><p class="texto"></p></div>
+                <div class="ficha"><p class="titulo"></p><p class="cientifico"></p><p class="texto"></p><p class="ver-ficha"><a href="galeria.html">Ver a ficha completa</a></p></div>
                 <div class="acoes-foto"><span class="posicao" aria-live="polite"></span><button type="button" class="fechar">Fechar</button></div>
             </div>
         </dialog>
@@ -120,7 +156,7 @@
         <div class="container">
             <nav class="idiomas-rodape" aria-label="Região e idioma"><a href="./galeria.html" hreflang="pt-BR" lang="pt-BR" aria-current="true">Português (Brasil)</a> · <a href="pt-pt/galeria.html" hreflang="pt-PT" lang="pt-PT">Português (Portugal)</a> · <a href="es/galeria.html" hreflang="es-ES" lang="es-ES">Español</a> · <a href="ca/galeria.html" hreflang="ca" lang="ca">Català</a> · <a href="nl/galeria.html" hreflang="nl" lang="nl">Nederlands</a> · <a href="en/galeria.html" hreflang="en-GB" lang="en-GB">English (UK &amp; Europe)</a> · <a href="fr/galeria.html" hreflang="fr-FR" lang="fr-FR">Français</a> · <a href="de/galeria.html" hreflang="de-DE" lang="de-DE">Deutsch</a> · <a href="it/galeria.html" hreflang="it-IT" lang="it-IT">Italiano</a> · <a href="intl/galeria.html" hreflang="en" lang="en">English (international)</a> · <a href="ja/galeria.html" hreflang="ja-JP" lang="ja-JP">日本語</a> · <a href="ko/galeria.html" hreflang="ko-KR" lang="ko-KR">한국어</a> · <a href="zh-hant/galeria.html" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></nav>
             <p>© 2026 Fotografia do Cerrado · empresa fictícia, projeto de estudo de Luiz Matheus Moraes Vega</p>
-            <p><a href="creditos.html">Créditos das fotos</a></p>
+            <p><a href="creditos.html">Créditos das fotos</a> · <a href="como-fotografamos.html">Como fotografamos</a></p>
         </div>
     </footer>
 </body>

@@ -23,8 +23,16 @@
         const data = new Date(2026, i, 15);
         const b = document.createElement('button');
         b.type = 'button';
-        b.textContent = curto.format(data).replace(/\.$/, '');
-        b.setAttribute('aria-label', longo.format(data));
+        // o botão mostra "jan" e se chama "janeiro": o resto da palavra vai só para o leitor de tela
+        const c = curto.format(data).replace(/\.$/, '');
+        const l = longo.format(data);
+        if (l.toLowerCase().startsWith(c.toLowerCase())) {
+            b.append(c, Object.assign(document.createElement('span'), { className: 'so-leitor', textContent: l.slice(c.length) }));
+        } else {
+            b.textContent = c;
+            b.setAttribute('aria-label', l);
+        }
+        b.dataset.nome = l;
         b.dataset.mes = String(i + 1);
         b.dataset.estacao = estacao(i + 1);
         b.setAttribute('aria-pressed', 'false');
@@ -50,6 +58,13 @@
                 selo.textContent = t.boa_epoca;
                 exp.querySelector('.texto').prepend(selo);
             } else if (!dentro && selo) selo.remove();
+            // o "Quero participar" leva o mês junto, e o Contato já chega com ele marcado
+            const link = exp.querySelector('a.botao');
+            if (link) {
+                const url = new URL(link.getAttribute('href'), location.href);
+                url.searchParams.set('mes', String(mes));
+                link.setAttribute('href', url.pathname.split('/').pop() + url.search);
+            }
         }
     }
 

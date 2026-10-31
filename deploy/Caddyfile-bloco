@@ -58,6 +58,12 @@ cerrado.linupedia.com.br {
 	root * /opt/linu-sites/app/_sitios/fotografia-do-cerrado
 	try_files {path} {path}.html {path}/index.html
 	file_server
+	# página de erro própria (31/10/2026)
+	handle_errors {
+		@nao_achei expression {err.status_code} == 404
+		rewrite @nao_achei /404.html
+		file_server
+	}
 }
 
 # Abelhas sem Ferrão (sitios/abelhas-sem-ferrao)

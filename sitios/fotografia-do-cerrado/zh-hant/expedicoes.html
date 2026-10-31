@@ -5,13 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>攝影之旅 — Fotografia do Cerrado</title>
     <meta name="description" content="塞拉多野生動物攝影之旅：維阿德魯斯高原、艾瑪斯國家公園與巴西利亞國家公園。">
+    <link rel="icon" href="../img/icone.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../img/icone-180.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Fotografia do Cerrado">
+    <meta property="og:title" content="攝影之旅 — Fotografia do Cerrado">
+    <meta property="og:description" content="塞拉多野生動物攝影之旅：維阿德魯斯高原、艾瑪斯國家公園與巴西利亞國家公園。">
+    <meta property="og:image" content="https://cerrado.linupedia.com.br/img/compartilhar.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="theme-color" content="#814F12">
-    <script src="../js/tema-inicio.js?v=2"></script>
+    <script src="../js/tema-inicio.js?v=3"></script>
     <link rel="preload" href="../fontes/newsreader-600.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="../css/estilo.css?v=4">
     <script src="../js/tema.js?v=2" defer></script>
     <script src="../js/menu.js?v=2" defer></script>
-    <script src="../js/quando.js?v=1" defer></script>
+    <script src="../js/quando.js?v=3" defer></script>
     <link rel="alternate" hreflang="pt-BR" href="https://cerrado.linupedia.com.br/expedicoes">
     <link rel="alternate" hreflang="pt-PT" href="https://cerrado.linupedia.com.br/pt-pt/expedicoes">
     <link rel="alternate" hreflang="es-ES" href="https://cerrado.linupedia.com.br/es/expedicoes">
@@ -49,42 +59,43 @@
         </section>
         <section class="secao">
             <div class="container expedicoes">
-                <aside class="quando" aria-labelledby="quando-titulo" hidden>
+                <aside class="quando" aria-labelledby="quando-titulo">
                     <h2 class="sub" id="quando-titulo">什麼時候去？</h2>
                     <p>選一個月份，我們告訴你那時塞拉多的樣子，以及哪些行程正值最佳季節。</p>
                     <div class="meses" role="group" aria-label="旅行月份"></div>
                     <div class="estacao" aria-live="polite"><p class="estacao-nome"></p><p class="estacao-nota"></p></div>
                 </aside>
                 <div class="lista-expedicoes">
-                <article class="expedicao" data-meses="6 7 8 9">
-                    <img src="../img/lobo-guara.webp" srcset="../img/lobo-guara-640.webp 640w, ../img/lobo-guara.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="在草原上行走的鬃狼" width="1000" height="647" loading="lazy">
+                <article class="expedicao" id="veadeiros" data-meses="6 7 8 9">
+                    <img src="../img/lobo-guara.webp" srcset="../img/lobo-guara-640.webp 640w, ../img/lobo-guara.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="在草原上行走的鬃狼" width="1000" height="647" loading="eager">
                     <div class="texto">
                         <h2 class="sub">維阿德魯斯高原（戈亞斯州）</h2>
                         <p>岩石草原與棕櫚濕地；觀察鬃狼的最佳時間是黃昏。</p>
                         <dl><dt>天數</dt><dd>3 天</dd><dt>最佳季節</dt><dd>6 月至 9 月（乾季）</dd><dt>人數</dt><dd>最多 8 人</dd></dl>
-                        <a class="botao" href="contato.html">我想參加</a>
+                        <a class="botao" href="contato.html?expedicao=veadeiros">我想參加</a>
                     </div>
                 </article>
-                <article class="expedicao" data-meses="5 6 7 8">
+                <article class="expedicao" id="emas" data-meses="5 6 7 8">
                     <img src="../img/tamandua-bandeira.webp" srcset="../img/tamandua-bandeira-640.webp 640w, ../img/tamandua-bandeira.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="草叢中的大食蟻獸" width="1000" height="667" loading="lazy">
                     <div class="texto">
                         <h2 class="sub">艾瑪斯國家公園（戈亞斯州）</h2>
                         <p>遼闊的開放草原，經常能看到大食蟻獸。</p>
                         <dl><dt>天數</dt><dd>4 天</dd><dt>最佳季節</dt><dd>5 月至 8 月</dd><dt>人數</dt><dd>最多 8 人</dd></dl>
-                        <a class="botao" href="contato.html">我想參加</a>
+                        <a class="botao" href="contato.html?expedicao=emas">我想參加</a>
                     </div>
                 </article>
-                <article class="expedicao" data-meses="1 2 3 4 5 6 7 8 9 10 11 12">
+                <article class="expedicao" id="brasilia" data-meses="1 2 3 4 5 6 7 8 9 10 11 12">
                     <img src="../img/tucano-toco.webp" srcset="../img/tucano-toco-640.webp 640w, ../img/tucano-toco.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="側面的鞭笞巨嘴鳥" width="1000" height="589" loading="lazy">
                     <div class="texto">
                         <h2 class="sub">巴西利亞國家公園（聯邦區）</h2>
                         <p>適合新手的短程行程，路線平坦，水邊有許多鳥類。</p>
                         <dl><dt>天數</dt><dd>1 天</dd><dt>最佳季節</dt><dd>全年</dd><dt>人數</dt><dd>最多 8 人</dd></dl>
-                        <a class="botao" href="contato.html">我想參加</a>
+                        <a class="botao" href="contato.html?expedicao=brasilia">我想參加</a>
                     </div>
                 </article>
                 </div>
             </div>
+
             <div class="container">
                 <h2 class="sub espaco">野外守則</h2>
                 <ul class="lista">

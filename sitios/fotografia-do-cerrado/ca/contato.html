@@ -5,13 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contacte — Fotografia do Cerrado</title>
     <meta name="description" content="Parla amb Fotografia do Cerrado sobre expedicions i fotos.">
+    <link rel="icon" href="../img/icone.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../img/icone-180.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Fotografia do Cerrado">
+    <meta property="og:title" content="Contacte — Fotografia do Cerrado">
+    <meta property="og:description" content="Parla amb Fotografia do Cerrado sobre expedicions i fotos.">
+    <meta property="og:image" content="https://cerrado.linupedia.com.br/img/compartilhar.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="theme-color" content="#814F12">
-    <script src="../js/tema-inicio.js?v=2"></script>
+    <script src="../js/tema-inicio.js?v=3"></script>
     <link rel="preload" href="../fontes/newsreader-600.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="../css/estilo.css?v=4">
     <script src="../js/tema.js?v=2" defer></script>
     <script src="../js/menu.js?v=2" defer></script>
-    <script src="../js/contato.js?v=2" defer></script>
+    <script src="../js/contato.js?v=3" defer></script>
     <link rel="alternate" hreflang="pt-BR" href="https://cerrado.linupedia.com.br/contato">
     <link rel="alternate" hreflang="pt-PT" href="https://cerrado.linupedia.com.br/pt-pt/contato">
     <link rel="alternate" hreflang="es-ES" href="https://cerrado.linupedia.com.br/es/contato">
@@ -49,21 +59,25 @@
         </section>
         <section class="secao">
             <div class="container">
+                <div class="contato-layout">
                 <form class="contato" novalidate>
                     <div><label for="nome">Nom</label><input id="nome" name="nome" type="text" autocomplete="name" required></div>
                     <div><label for="email">Correu electrònic</label><input id="email" name="email" type="email" autocomplete="email" required></div>
                     <div><label for="assunto">Assumpte</label>
                         <select id="assunto" name="assunto">
-                            <option>Expedició a la Chapada dos Veadeiros</option>
-                            <option>Expedició al Parc Nacional das Emas</option>
-                            <option>Sortida al Parc Nacional de Brasília</option>
-                            <option>Ús d’una foto</option>
-                            <option>Un altre assumpte</option>
+                            <option value="veadeiros">Expedició a la Chapada dos Veadeiros</option>
+                            <option value="emas">Expedició al Parc Nacional das Emas</option>
+                            <option value="brasilia">Sortida al Parc Nacional de Brasília</option>
+                            <option value="foto">Ús d’una foto</option>
+                            <option value="outro">Un altre assumpte</option>
                         </select></div>
+
                     <div><label for="mensagem">Missatge</label><textarea id="mensagem" name="mensagem" rows="5" required></textarea></div>
                     <div><button class="botao" type="submit">Envia</button></div>
                     <p class="aviso" id="aviso" role="status" tabindex="-1" hidden></p>
                 </form>
+
+                </div>
             </div>
         </section>
     </main>
