@@ -149,9 +149,12 @@ a.cartao:hover { border-color: var(--link); }
 .creditos img { border-radius: 10px; aspect-ratio: 3/2; object-fit: cover; }
 .rodape { background: var(--marrom); color: var(--creme); padding: 1.8rem 0; margin-top: 2rem; font-size: .92rem; }
 .rodape .container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
-.rodape a { color: var(--creme); }
+.rodape a { color: var(--creme); display: inline-block; padding-block: 3px; } /* alvo de 24 px */
 
 /* Os idiomas do site, no rodapé (ferramentas/gerar-estudo.mjs do linu-sites) */
 .idiomas-rodape { width: 100%; font-size: .85rem; line-height: 1.9; }
-.idiomas-rodape a { white-space: nowrap; }
+.idiomas-rodape a { white-space: nowrap; display: inline-block; padding-block: 4px; } /* alvo de 24 px (WCAG 2.2, 2.5.8) */
 .idiomas-rodape a[aria-current] { font-weight: 700; text-decoration: none; }
+
+/* O título do percurso (31/10/2026): a página precisa de um h1 antes das telas */
+.etapa-titulo { font-size: clamp(1.6rem, 3.4vw, 2.2rem); margin-bottom: .6rem; }

@@ -135,7 +135,16 @@
     "sobre_133": "Quiénes somos",
     "sobre_134": "<a href=\"sobre.html\" aria-current=\"page\">Quiénes somos</a>",
     "sobre_135": "Quiénes somos — Fotografia do Cerrado",
-    "sobre_136": "Misión, público y paleta de colores de Fotografia do Cerrado."
+    "sobre_136": "Misión, público y paleta de colores de Fotografia do Cerrado.",
+    "faq_titulo": "Preguntas frecuentes",
+    "faq_q1": "¿Necesito una cámara profesional?",
+    "faq_r1": "No. Un móvil con zoom ya hace buenas fotos de aves cerca del agua, y el guía ayuda con la luz y el encuadre. Si tienes cámara, puedes traer un objetivo de 300 mm o más.",
+    "faq_q2": "¿Qué llevo?",
+    "faq_r2": "Ropa de colores neutros, gorro, protector solar, repelente, una botella de agua y una linterna de luz roja para el final de la tarde.",
+    "faq_q3": "¿Pueden ir niños?",
+    "faq_r3": "En la salida de un día al Parque Nacional de Brasilia, sí, a partir de 10 años y con un adulto responsable. Las expediciones más largas son a partir de 16 años.",
+    "faq_q4": "¿Y si llueve?",
+    "faq_r4": "Con lluvia débil la salida se hace: muchos animales aparecen justo después. Con tormenta, la cambiamos de fecha sin coste."
   },
   "js": {
     "obrigado": "¡Gracias, {nome}! Esta es una página de demostración: el mensaje no se ha enviado de verdad."

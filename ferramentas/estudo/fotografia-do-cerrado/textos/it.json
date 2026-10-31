@@ -135,7 +135,16 @@
     "sobre_133": "Chi siamo",
     "sobre_134": "<a href=\"sobre.html\" aria-current=\"page\">Chi siamo</a>",
     "sobre_135": "Chi siamo — Fotografia do Cerrado",
-    "sobre_136": "Missione, pubblico e palette di colori di Fotografia do Cerrado."
+    "sobre_136": "Missione, pubblico e palette di colori di Fotografia do Cerrado.",
+    "faq_titulo": "Domande frequenti",
+    "faq_q1": "Mi serve una macchina fotografica professionale?",
+    "faq_r1": "No. Uno smartphone con zoom fa già belle foto di uccelli vicino all’acqua, e la guida aiuta con la luce e l’inquadratura. Se hai una fotocamera, porta un obiettivo da 300 mm o più.",
+    "faq_q2": "Cosa devo portare?",
+    "faq_r2": "Vestiti di colori neutri, un cappello, crema solare, repellente, una borraccia e una torcia a luce rossa per il tardo pomeriggio.",
+    "faq_q3": "Possono venire i bambini?",
+    "faq_r3": "Nell’uscita di un giorno al Parco Nazionale di Brasília sì, dai 10 anni e con un adulto responsabile. Le spedizioni più lunghe sono dai 16 anni.",
+    "faq_q4": "E se piove?",
+    "faq_r4": "Con pioggia leggera l’uscita si fa: molti animali si fanno vedere subito dopo. Con il temporale la spostiamo senza costi."
   },
   "js": {
     "obrigado": "Grazie, {nome}! Questa è una pagina dimostrativa: il messaggio non è stato inviato davvero."

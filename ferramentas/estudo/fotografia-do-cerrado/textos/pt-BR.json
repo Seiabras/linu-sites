@@ -135,7 +135,16 @@
     "sobre_133": "Sobre",
     "sobre_134": "<a href=\"sobre.html\" aria-current=\"page\">Sobre</a>",
     "sobre_135": "Sobre — Fotografia do Cerrado",
-    "sobre_136": "Missão, público e paleta de cores da Fotografia do Cerrado."
+    "sobre_136": "Missão, público e paleta de cores da Fotografia do Cerrado.",
+    "faq_titulo": "Perguntas frequentes",
+    "faq_q1": "Preciso de câmera profissional?",
+    "faq_r1": "Não. Um celular com zoom já faz boas fotos de aves perto da água, e o guia ajuda com a luz e o enquadramento. Quem tem câmera pode trazer uma lente de 300 mm ou mais.",
+    "faq_q2": "O que levar?",
+    "faq_r2": "Roupa de cores neutras, chapéu, protetor solar, repelente, garrafa de água e uma lanterna de luz vermelha para o fim da tarde.",
+    "faq_q3": "Crianças podem ir?",
+    "faq_r3": "Na saída de um dia no Parque Nacional de Brasília, sim, a partir de 10 anos e com um responsável. As expedições mais longas são a partir de 16 anos.",
+    "faq_q4": "E se chover?",
+    "faq_r4": "Com chuva fraca a saída acontece: muitos animais aparecem logo depois. Com tempestade, a gente remarca sem custo."
   },
   "js": {
     "obrigado": "Obrigado, {nome}! Esta é uma página de demonstração: a mensagem não foi enviada de verdade."

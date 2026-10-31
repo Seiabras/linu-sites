@@ -135,7 +135,16 @@
     "sobre_133": "Über uns",
     "sobre_134": "<a href=\"sobre.html\" aria-current=\"page\">Über uns</a>",
     "sobre_135": "Über uns — Fotografia do Cerrado",
-    "sobre_136": "Mission, Zielgruppe und Farbpalette von Fotografia do Cerrado."
+    "sobre_136": "Mission, Zielgruppe und Farbpalette von Fotografia do Cerrado.",
+    "faq_titulo": "Häufige Fragen",
+    "faq_q1": "Brauche ich eine Profikamera?",
+    "faq_r1": "Nein. Ein Handy mit Zoom macht schon gute Fotos von Vögeln am Wasser, und der Guide hilft bei Licht und Bildausschnitt. Wer eine Kamera hat, bringt ein Objektiv ab 300 mm mit.",
+    "faq_q2": "Was soll ich mitbringen?",
+    "faq_r2": "Kleidung in gedeckten Farben, einen Hut, Sonnencreme, Mückenschutz, eine Wasserflasche und eine Taschenlampe mit Rotlicht für den späten Nachmittag.",
+    "faq_q3": "Dürfen Kinder mit?",
+    "faq_r3": "Beim Tagesausflug in den Nationalpark Brasília ja, ab 10 Jahren und mit einer Begleitperson. Die längeren Expeditionen sind ab 16 Jahren.",
+    "faq_q4": "Und wenn es regnet?",
+    "faq_r4": "Bei leichtem Regen findet der Ausflug statt: Viele Tiere zeigen sich gleich danach. Bei Gewitter verschieben wir kostenlos."
   },
   "js": {
     "obrigado": "Danke, {nome}! Dies ist eine Demoseite: Ihre Nachricht wurde nicht wirklich gesendet."

@@ -135,7 +135,16 @@
     "sobre_133": "À propos",
     "sobre_134": "<a href=\"sobre.html\" aria-current=\"page\">À propos</a>",
     "sobre_135": "À propos — Fotografia do Cerrado",
-    "sobre_136": "Mission, public et palette de couleurs de Fotografia do Cerrado."
+    "sobre_136": "Mission, public et palette de couleurs de Fotografia do Cerrado.",
+    "faq_titulo": "Questions fréquentes",
+    "faq_q1": "Faut-il un appareil professionnel ?",
+    "faq_r1": "Non. Un téléphone avec zoom fait déjà de belles photos d’oiseaux près de l’eau, et le guide aide pour la lumière et le cadrage. Si vous avez un appareil, apportez un objectif de 300 mm ou plus.",
+    "faq_q2": "Que faut-il emporter ?",
+    "faq_r2": "Des vêtements de couleurs neutres, un chapeau, de la crème solaire, un répulsif, une gourde et une lampe à lumière rouge pour la fin d’après-midi.",
+    "faq_q3": "Les enfants peuvent-ils venir ?",
+    "faq_r3": "Pour la sortie d’une journée au parc national de Brasília, oui, dès 10 ans et avec un adulte responsable. Les expéditions plus longues sont à partir de 16 ans.",
+    "faq_q4": "Et s’il pleut ?",
+    "faq_r4": "Par petite pluie, la sortie est maintenue : beaucoup d’animaux se montrent juste après. En cas d’orage, nous la reportons sans frais."
   },
   "js": {
     "obrigado": "Merci, {nome} ! Ceci est une page de démonstration : votre message n’a pas vraiment été envoyé."

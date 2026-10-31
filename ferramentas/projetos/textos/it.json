@@ -195,5 +195,59 @@
       "Accesso senza password, con codice via e-mail o con Google, e notifiche sul telefono con Trupe chiusa.",
       "Oltre 80 test automatici, backup giornaliero cifrato e installazione sul telefono come app."
     ]
+  },
+  "cafe-aurora": {
+    "etiqueta": "Sito con effetti",
+    "alt": "Pagina iniziale del Café Aurora: il nome in neon blu e rosa su una città cyberpunk di notte",
+    "resumo": "Una caffetteria cyberpunk che non esiste, con schermata d’apertura, sfondo animato, menù e un laboratorio per creare la tua bevanda.",
+    "url": "https://cafe.linupedia.com.br/it/",
+    "desafio": "Nel corso di Sviluppo di Interfacce, la stessa richiesta è stata fatta a tre IA: ChatGPT, Gemini e DeepSeek. Il lavoro era scegliere la pagina migliore, capire ogni riga e rifare il codice a mano, senza perdere nessun effetto.",
+    "feito": [
+      "Una caffetteria cyberpunk con schermata d’apertura, cursore proprio, sfondo di particelle, menù e un laboratorio per comporre la bevanda, con la tazza disegnata solo in CSS.",
+      "Dalle 6 alle 18 il sito diventa il Forno Aurora: altri colori, un altro menù e un laboratorio del pane, scelti dall’orologio di chi visita prima che la pagina compaia.",
+      "La stessa pagina in tre versioni, CSS puro, Bootstrap e Tailwind, per confrontare cosa cambia ogni modo di scrivere CSS.",
+      "È il sito d’esempio del simulatore di Linu Sites: ogni parte lì si accende e si spegne, e il prezzo cambia insieme."
+    ],
+    "dentro": [
+      "13 lingue generate da un solo modello, con i font serviti dal sito stesso, senza CDN.",
+      "Contrasto AA di giorno e di notte e bersagli di almeno 24 px, controllati con axe; con “riduci movimento” attivo, le animazioni si fermano.",
+      "Accetta i comandi del simulatore solo se arrivano dall’indirizzo di Linu Sites."
+    ]
+  },
+  "fotografia-do-cerrado": {
+    "etiqueta": "Sito di presentazione",
+    "alt": "Pagina iniziale di Fotografia do Cerrado: una seriema nell’erba dorata, con un ipê rosa in fiore sullo sfondo",
+    "resumo": "Azienda di fotografia naturalistica, con galleria filtrabile, spedizioni e contatti. La palette viene dal bioma stesso e ogni colore è stato misurato secondo la regola di contrasto delle WCAG.",
+    "url": "https://cerrado.linupedia.com.br/it/",
+    "desafio": "Era un esercizio su palette di colori e WCAG: costruire una piccola interfaccia con i colori scelti e dimostrare che ogni testo era leggibile. È diventato un sito intero, senza rinunciare alla regola.",
+    "feito": [
+      "Sei pagine di uno studio di fotografia naturalistica che non esiste: galleria con filtro e foto ingrandita, spedizioni con domande frequenti, chi siamo e contatti.",
+      "La palette viene dal bioma stesso, il marrone dei tronchi, l’erba secca e la terra, e la pagina Chi siamo mostra il contrasto misurato di ogni colore.",
+      "Modalità chiara e scura, che segue il sistema e ricorda la scelta, senza che la pagina chiara lampeggi all’apertura.",
+      "Foto libere da Wikimedia Commons, con l’autore e la licenza di ciascuna in una pagina di crediti."
+    ],
+    "dentro": [
+      "HTML, CSS e JavaScript senza librerie e senza alcuno stile dentro l’HTML.",
+      "Tutto il testo sopra 4,5:1 in entrambe le modalità, focus visibile e un menù che funziona da tastiera.",
+      "13 lingue, con il modulo dimostrativo che risponde nella lingua della pagina."
+    ]
+  },
+  "abelhas-sem-ferrao": {
+    "etiqueta": "Sito educativo",
+    "alt": "Pagina iniziale di Abelhas sem Ferrão: la domanda sulle 250 specie accanto alle foto della jataí, della uruçu e della mandaçaia",
+    "resumo": "Per chi non ha mai sentito parlare delle api senza pungiglione del Brasile: un percorso di 3 minuti, cosa fare se trovi un nido e un breve quiz. Nato da un esercizio di Design Thinking.",
+    "url": "https://abelhas.linupedia.com.br/it/",
+    "desafio": "Nell’esercizio di Design Thinking, l’intervista ha mostrato che molti trovano un nido di api native, pensano che pungano e lo distruggono. Il sito doveva cambiare le cose in pochi minuti.",
+    "feito": [
+      "Un percorso di tre schermate, con barra di avanzamento, per chi non ha mai sentito parlare delle api senza pungiglione.",
+      "Passo dopo passo, cosa fare quando si trova un nido e come chiedere il salvataggio.",
+      "Una pagina per chi vuole allevare api native in casa, seguendo le regole della meliponicoltura.",
+      "Un quiz di cinque domande che dice a parole se la risposta è giusta, non solo con il colore."
+    ],
+    "dentro": [
+      "È nato come prototipo su Lovable ed è stato rifatto da zero in HTML, CSS e JavaScript.",
+      "Il focus va al titolo di ogni schermata e lo screen reader annuncia ogni cambiamento; il testo principale ha un contrasto di 13,56:1.",
+      "13 lingue, modalità chiara e scura e foto libere, ognuna con i suoi crediti."
+    ]
   }
 }

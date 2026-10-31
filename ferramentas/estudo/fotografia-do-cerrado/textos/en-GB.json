@@ -135,7 +135,16 @@
     "sobre_133": "About",
     "sobre_134": "<a href=\"sobre.html\" aria-current=\"page\">About</a>",
     "sobre_135": "About — Fotografia do Cerrado",
-    "sobre_136": "Mission, audience and colour palette of Fotografia do Cerrado."
+    "sobre_136": "Mission, audience and colour palette of Fotografia do Cerrado.",
+    "faq_titulo": "Frequently asked questions",
+    "faq_q1": "Do I need a professional camera?",
+    "faq_r1": "No. A phone with zoom already takes good photos of birds near the water, and the guide helps with light and framing. If you have a camera, bring a 300 mm lens or longer.",
+    "faq_q2": "What should I bring?",
+    "faq_r2": "Neutral-coloured clothes, a hat, sun cream, insect repellent, a water bottle and a red-light torch for late afternoon.",
+    "faq_q3": "Can children come?",
+    "faq_r3": "On the one-day trip to Brasília National Park, yes, from age 10 with a responsible adult. The longer expeditions are for ages 16 and up.",
+    "faq_q4": "What if it rains?",
+    "faq_r4": "In light rain the trip goes ahead: many animals show up right afterwards. In a storm, we rebook at no cost."
   },
   "js": {
     "obrigado": "Thank you, {nome}! This is a demo page: your message was not actually sent."

@@ -74,7 +74,24 @@
     "teste_072": "O teste precisa de JavaScript ligado.",
     "teste_073": "<a href=\"teste.html\" aria-current=\"page\">Teste rápido</a>",
     "teste_074": "Teste rápido — Abelhas sem Ferrão",
-    "teste_075": "Cinco perguntas para reconhecer as abelhas nativas."
+    "teste_075": "Cinco perguntas para reconhecer as abelhas nativas.",
+    "descobrir_h1": "Descobrir em 3 minutos",
+    "criar_titulo": "Posso criar? Abelhas sem ferrão em casa — Abelhas sem Ferrão",
+    "criar_descricao": "Como começar a criar abelhas sem ferrão em casa, da forma certa e dentro das regras.",
+    "criar_h1": "Posso criar abelhas sem ferrão?",
+    "criar_abre": "Pode, e muita gente começa com uma única caixa, no quintal ou na varanda. Criar abelhas nativas chama-se meliponicultura, e tem regras para proteger as espécies.",
+    "criar_passos": "Como começar",
+    "criar_p1": "<strong>Escolha uma espécie da sua região.</strong><br>No Brasil, a Resolução CONAMA n.º 496/2020 pede que se criem só espécies nativas do sítio onde se vive. Uma abelha trazida de longe pode prejudicar as abelhas locais.",
+    "criar_p2": "<strong>Comece por uma espécie mansa.</strong><br>A jataí é pequena, mansa e vive bem na cidade; por isso costuma ser a primeira caixa de quem começa. Pergunte a um meliponicultor qual é a melhor para o seu sítio.",
+    "criar_p3": "<strong>Obtenha o enxame da forma certa.</strong><br>Compre a um meliponário legalizado, receba as abelhas de um resgate ou use uma isca, uma garrafa preparada que atrai um enxame novo.",
+    "criar_p4": "<strong>Cuide da caixa.</strong><br>Deixe a caixa à sombra, protegida da chuva e longe de venenos. Nos primeiros meses, limite-se a observar: abrir a caixa a toda a hora enfraquece a colónia.",
+    "criar_legenda": "Uruçus sobre os favos de criação: a colónia cresce de dentro para fora.",
+    "criar_mel_titulo": "E o mel?",
+    "criar_mel_texto": "É pouco: uma caixa de jataí costuma dar perto de um litro por ano, ou menos. O maior presente delas é polinizar as plantas à volta.",
+    "criar_nao_titulo": "O que não fazer",
+    "criar_n1": "Não retire ninhos da natureza: isso quase sempre mata a colónia. O certo é o resgate, feito por quem sabe.",
+    "criar_n2": "Não compre enxames de outra região, mesmo que sejam baratos.",
+    "criar_n3": "Para vender mel ou enxames, informe-se antes junto do órgão ambiental do estado."
   },
   "js": {
     "perguntas": [

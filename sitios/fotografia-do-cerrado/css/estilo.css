@@ -121,7 +121,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .foto button { border: none; padding: 0; background: none; cursor: zoom-in; display: block; }
 .foto img { aspect-ratio: 3 / 2; object-fit: cover; width: 100%; }
 .foto .legenda { padding: 1rem 1.1rem 1.2rem; }
-.foto h3 { font-size: 1.15rem; }
+.foto h2, .foto h3 { font-size: 1.15rem; } /* na galeria o nome é h2: vem logo depois do h1 */
 .foto .cientifico { color: var(--texto-suave); font-style: italic; font-size: .92rem; }
 .foto p { font-size: .95rem; margin-top: .4rem; }
 .selo { display: inline-block; background: var(--areia); color: var(--preto); font-size: .78rem; font-weight: 700; padding: .15rem .55rem; border-radius: 4px; margin-top: .6rem; }
@@ -132,15 +132,22 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .numeros strong { display: block; font-size: 1.8rem; color: var(--destaque); }
 
 .mais { margin-top: 1.5rem; }
+.mais a { display: inline-block; padding-block: 2px; }
 .sub { font-size: 1.4rem; }
 .sub.espaco { margin-top: 2rem; }
 .lista { margin: .6rem 0 0 1.2rem; }
+
+/* Perguntas frequentes das expedições (31/10/2026): abrem e fecham sem JavaScript */
+.perguntas { display: grid; gap: .6rem; margin-top: .8rem; }
+.perguntas details { background: var(--superficie); border: 1px solid var(--borda); border-radius: var(--raio); }
+.perguntas summary { cursor: pointer; font-weight: 600; padding: .9rem 1.1rem; }
+.perguntas details p { padding: 0 1.1rem 1rem; color: var(--texto-suave); }
 .numeros .cor-primaria { border-color: var(--primaria); }
 .numeros .cor-oliva { border-color: var(--oliva); }
 .numeros .cor-oliva strong { color: var(--oliva-texto); }
 .numeros .cor-areia { border-color: var(--areia); background: var(--areia); }
 .numeros .cor-terra { border-color: var(--terra); background: var(--terra); }
-.numeros .cor-areia strong, .numeros .cor-terra strong { color: var(--preto); }
+.numeros .cor-areia, .numeros .cor-terra, .numeros .cor-areia strong, .numeros .cor-terra strong { color: var(--preto); }
 
 /* Filtro da galeria */
 .filtros { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.5rem; }
@@ -176,7 +183,7 @@ form.contato input, form.contato textarea, form.contato select { width: 100%; pa
 /* Rodapé */
 .rodape { background: var(--preto); color: var(--branco); padding: 2rem 0; font-size: .92rem; }
 .rodape .container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
-.rodape a { color: var(--branco); }
+.rodape a { color: var(--branco); display: inline-block; padding-block: 3px; } /* alvo de 24 px */
 
 @media (prefers-reduced-motion: no-preference) {
     .foto { transition: transform .2s; }
@@ -185,5 +192,5 @@ form.contato input, form.contato textarea, form.contato select { width: 100%; pa
 
 /* Os idiomas do site, no rodapé (ferramentas/gerar-estudo.mjs do linu-sites) */
 .idiomas-rodape { width: 100%; font-size: .85rem; line-height: 1.9; }
-.idiomas-rodape a { white-space: nowrap; }
+.idiomas-rodape a { white-space: nowrap; display: inline-block; padding-block: 4px; } /* alvo de 24 px (WCAG 2.2, 2.5.8) */
 .idiomas-rodape a[aria-current] { font-weight: 700; text-decoration: none; }

@@ -593,8 +593,8 @@ main{position:relative;z-index:2}
 .chip input:focus-visible+span{outline:2px solid var(--cyan);outline-offset:3px}
 
 input[type=range]{
-  -webkit-appearance:none;appearance:none;width:100%;height:3px;
-  background:linear-gradient(90deg,var(--cyan),var(--magenta));
+  -webkit-appearance:none;appearance:none;width:100%;height:24px;
+  background:linear-gradient(90deg,var(--cyan),var(--magenta)) center/100% 3px no-repeat;
   border-radius:99px;outline:none;cursor:none;
 }
 input[type=range]::-webkit-slider-thumb{
@@ -746,7 +746,7 @@ input[type=range]::-moz-range-thumb{
 }
 @media(max-width:820px){.foot{grid-template-columns:1fr 1fr}}
 @media(max-width:540px){.foot{grid-template-columns:1fr}}
-.foot h4{
+.foot h3{
   font-family:var(--font-display);font-size:.68rem;font-weight:600;
   letter-spacing:.26em;text-transform:uppercase;color:var(--cyan);
   margin-bottom:1.1rem;
@@ -763,14 +763,14 @@ input[type=range]::-moz-range-thumb{
   border-radius:2px;color:var(--text);font-size:.9rem;cursor:none;
   transition:border-color .3s;
 }
-.newsletter input::placeholder{color:#6b6390}
+.newsletter input::placeholder{color:#8a82ad}
 .newsletter input:focus{border-color:var(--cyan);outline:none;box-shadow:0 0 16px hsl(185 100% 55% / .3)}
 
 .foot__bottom{
   grid-column:1/-1;display:flex;justify-content:space-between;
   align-items:center;gap:1rem;flex-wrap:wrap;
   padding-top:1.8rem;border-top:1px solid var(--stroke);
-  font-size:.78rem;color:#6b6390;letter-spacing:.06em;
+  font-size:.78rem;color:var(--muted);letter-spacing:.06em;
 }
 .foot__bottom .dot{color:var(--magenta)}
 
@@ -835,7 +835,7 @@ input[type=range]::-moz-range-thumb{
 .news-msg{font-size:.78rem;margin-top:.6rem;color:var(--cyan)}
 .foot__h4-espaco{margin-top:1.4rem}
 .dim__titulo{display:flex;align-items:center;gap:.5rem}
-.foot__bottom a{color:var(--cyan)}
+.foot__bottom a{color:var(--cyan);text-decoration:underline;text-underline-offset:3px}
 
 /* Cada parte entra e sai com um fade curto, em vez de sumir seco */
 #transmissoes,#laboratorio,.newsletter,.dim,.cur,.cur-dot,#bg,.noise,.scanlines{transition:opacity .2s ease-out}
@@ -1115,3 +1115,11 @@ html:not([data-modo="dia"]) .so-dia,[data-modo="dia"] .so-noite{display:none !im
 }
 @keyframes nasce{0%{transform:translateY(55vh)}62%{transform:none}100%{transform:translateY(-6vh)}}
 @keyframes desce{0%{transform:translateY(-55vh)}62%{transform:none}100%{transform:translateY(6vh)}}
+
+/* ============================================================
+   ALVOS DE TOQUE (31/10/2026): todo link e botão solto tem pelo menos
+   24 px de altura (WCAG 2.2, 2.5.8); o desenho não muda.
+   ============================================================ */
+.nav__links a{display:inline-block;padding-block:4px}
+.foot li a,.foot__bottom a{display:inline-block;padding-block:4px}
+.dim__head{min-height:24px}

@@ -195,5 +195,59 @@
       "Connexion sans mot de passe, par code e-mail ou avec Google, et notifications sur le téléphone quand Trupe est fermée.",
       "Plus de 80 tests automatisés, sauvegarde quotidienne chiffrée et installation sur le téléphone comme une application."
     ]
+  },
+  "cafe-aurora": {
+    "etiqueta": "Site avec effets",
+    "alt": "Page d’accueil du Café Aurora : le nom en néon bleu et rose sur une ville cyberpunk la nuit",
+    "resumo": "Un café cyberpunk qui n’existe pas, avec écran d’accueil, fond animé, carte et un laboratoire pour composer sa boisson.",
+    "url": "https://cafe.linupedia.com.br/fr/",
+    "desafio": "Dans le cours de Développement d’interfaces, la même demande a été faite à trois IA : ChatGPT, Gemini et DeepSeek. Le travail : choisir la meilleure page, comprendre chaque ligne et refaire le code à la main, sans perdre un seul effet.",
+    "feito": [
+      "Un café cyberpunk avec écran d’ouverture, curseur personnalisé, fond de particules, carte et un laboratoire pour composer sa boisson, la tasse étant dessinée uniquement en CSS.",
+      "De 6 h à 18 h, le site devient la Boulangerie Aurora : d’autres couleurs, une autre carte et un laboratoire à pain, choisis selon l’horloge du visiteur avant que la page s’affiche.",
+      "La même page en trois versions, CSS pur, Bootstrap et Tailwind, pour comparer ce que change chaque façon d’écrire le CSS.",
+      "C’est le site d’exemple du simulateur de Linu Sites : chaque partie s’y allume et s’éteint, et le prix change avec elle."
+    ],
+    "dentro": [
+      "13 langues générées à partir d’un seul modèle, avec des polices servies par le site lui-même, sans CDN.",
+      "Contraste AA de jour comme de nuit et cibles d’au moins 24 px, vérifiés avec axe ; avec « réduire les animations », tout s’arrête.",
+      "Il n’accepte les commandes du simulateur que si elles viennent de l’adresse de Linu Sites."
+    ]
+  },
+  "fotografia-do-cerrado": {
+    "etiqueta": "Site vitrine",
+    "alt": "Page d’accueil de Fotografia do Cerrado : un cariama dans les herbes dorées, avec un ipê rose en fleurs à l’arrière-plan",
+    "resumo": "Entreprise de photographie animalière, avec galerie filtrable, expéditions et contact. La palette vient du biome lui-même et chaque couleur a été mesurée selon la règle de contraste des WCAG.",
+    "url": "https://cerrado.linupedia.com.br/fr/",
+    "desafio": "C’était un exercice sur les palettes de couleurs et les WCAG : construire une petite interface avec les couleurs choisies et prouver que tout le texte était lisible. C’est devenu un site complet, sans renoncer à la règle.",
+    "feito": [
+      "Six pages d’un studio de photo animalière qui n’existe pas : galerie avec filtre et photo agrandie, expéditions avec questions fréquentes, à propos et contact.",
+      "La palette vient du biome lui-même, le brun des troncs, l’herbe sèche et la terre, et la page À propos montre le contraste mesuré de chaque couleur.",
+      "Modes clair et sombre, qui suivent le système et retiennent le choix, sans que la page claire clignote à l’ouverture.",
+      "Des photos libres de Wikimedia Commons, avec l’auteur et la licence de chacune sur une page de crédits."
+    ],
+    "dentro": [
+      "HTML, CSS et JavaScript sans bibliothèque et sans aucun style dans le HTML.",
+      "Tout le texte au-dessus de 4,5:1 dans les deux modes, focus visible et menu utilisable au clavier.",
+      "13 langues, et le formulaire de démonstration répond dans la langue de la page."
+    ]
+  },
+  "abelhas-sem-ferrao": {
+    "etiqueta": "Site pédagogique",
+    "alt": "Page d’accueil d’Abelhas sem Ferrão : la question sur les 250 espèces à côté des photos de la jataí, de l’uruçu et de la mandaçaia",
+    "resumo": "Pour qui n’a jamais entendu parler des abeilles sans dard du Brésil : un parcours de 3 minutes, que faire si l’on trouve un nid et un petit quiz. Né d’un exercice de Design Thinking.",
+    "url": "https://abelhas.linupedia.com.br/fr/",
+    "desafio": "Dans l’exercice de Design Thinking, l’entretien a montré que beaucoup de gens trouvent un nid d’abeilles indigènes, croient qu’elles piquent et le détruisent. Le site devait changer cela en quelques minutes.",
+    "feito": [
+      "Un parcours de trois écrans, avec barre de progression, pour qui n’a jamais entendu parler des abeilles sans dard.",
+      "La marche à suivre quand on trouve un nid et comment demander un sauvetage.",
+      "Une page pour qui veut élever des abeilles indigènes chez soi, dans le respect des règles de la méliponiculture.",
+      "Un quiz de cinq questions qui dit par écrit si la réponse est juste, pas seulement par la couleur."
+    ],
+    "dentro": [
+      "Il a commencé comme prototype sur Lovable avant d’être refait de zéro en HTML, CSS et JavaScript.",
+      "Le focus va au titre de chaque écran et le lecteur d’écran annonce chaque changement ; le texte principal a un contraste de 13,56:1.",
+      "13 langues, modes clair et sombre et photos libres, chacune créditée."
+    ]
   }
 }

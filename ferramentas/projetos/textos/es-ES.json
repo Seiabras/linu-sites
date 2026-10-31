@@ -195,5 +195,59 @@
       "Acceso sin contraseña, con un código por correo o con Google, y avisos en el móvil con Trupe cerrada.",
       "Más de 80 pruebas automáticas, copia diaria cifrada e instalación en el móvil como app."
     ]
+  },
+  "cafe-aurora": {
+    "etiqueta": "Web con efectos",
+    "alt": "Página de inicio de Café Aurora: el nombre en neón azul y rosa sobre una ciudad cyberpunk de noche",
+    "resumo": "Cafetería cyberpunk que no existe, con pantalla de entrada, fondo animado, carta y un laboratorio para crear tu bebida.",
+    "url": "https://cafe.linupedia.com.br/es/",
+    "desafio": "En la asignatura de Desarrollo de Interfaces, se hizo el mismo encargo a tres IA: ChatGPT, Gemini y DeepSeek. El trabajo era elegir la mejor página, entender cada línea y rehacer el código a mano, sin perder ningún efecto.",
+    "feito": [
+      "Una cafetería cyberpunk con pantalla de entrada, cursor propio, fondo de partículas, carta y un laboratorio para montar la bebida, con la taza dibujada solo con CSS.",
+      "De 6:00 a 18:00 la web se convierte en la Panadería Aurora: otros colores, otra carta y un laboratorio de pan, elegidos por el reloj de quien visita antes de que aparezca la página.",
+      "La misma página en tres versiones, CSS puro, Bootstrap y Tailwind, para comparar lo que cambia cada forma de escribir CSS.",
+      "Es la web de ejemplo del simulador de Linu Sites: cada parte se enciende y se apaga allí, y el precio cambia con ella."
+    ],
+    "dentro": [
+      "13 idiomas generados desde una sola plantilla, con las fuentes servidas por la propia web, sin CDN.",
+      "Contraste AA de día y de noche y objetivos de al menos 24 px, comprobados con axe; con “reducir movimiento” activado, las animaciones se detienen.",
+      "Solo acepta las órdenes del simulador cuando llegan desde la dirección de Linu Sites."
+    ]
+  },
+  "fotografia-do-cerrado": {
+    "etiqueta": "Web de presentación",
+    "alt": "Página de inicio de Fotografia do Cerrado: una chuña patirroja en la hierba dorada, con un lapacho rosado en flor al fondo",
+    "resumo": "Empresa de fotografía de fauna, con galería filtrable, expediciones y contacto. La paleta sale del propio bioma y cada color se midió con la regla de contraste de las WCAG.",
+    "url": "https://cerrado.linupedia.com.br/es/",
+    "desafio": "Era una actividad de paletas de color y WCAG: montar una interfaz pequeña con los colores elegidos y demostrar que todo el texto era legible. Se convirtió en una web entera, sin renunciar a la regla.",
+    "feito": [
+      "Seis páginas de un estudio de fotografía de fauna que no existe: galería con filtro y foto ampliada, expediciones con preguntas frecuentes, quiénes somos y contacto.",
+      "La paleta salió del propio bioma, el marrón del tronco, la hierba seca y la tierra, y cada color tiene su contraste medido en la página Sobre nosotros.",
+      "Modo claro y oscuro, que sigue al sistema y recuerda la elección, sin que la página clara parpadee al abrir.",
+      "Fotos libres de Wikimedia Commons, con el autor y la licencia de cada una en una página de créditos."
+    ],
+    "dentro": [
+      "HTML, CSS y JavaScript sin librerías y sin ningún estilo dentro del HTML.",
+      "Todo el texto por encima de 4,5:1 en los dos modos, foco visible y un menú que funciona con el teclado.",
+      "13 idiomas, con el formulario de demostración respondiendo en el idioma de la página."
+    ]
+  },
+  "abelhas-sem-ferrao": {
+    "etiqueta": "Web educativa",
+    "alt": "Página de inicio de Abelhas sem Ferrão: la pregunta sobre las 250 especies junto a las fotos de la jataí, la uruçu y la mandaçaia",
+    "resumo": "Para quien nunca ha oído hablar de las abejas sin aguijón de Brasil: un recorrido de 3 minutos, qué hacer si encuentras un nido y un test rápido. Nació de un ejercicio de Design Thinking.",
+    "url": "https://abelhas.linupedia.com.br/es/",
+    "desafio": "En el ejercicio de Design Thinking, la entrevista mostró que mucha gente encuentra un nido de abeja nativa, cree que pica y lo destruye. La web tenía que cambiar eso en pocos minutos.",
+    "feito": [
+      "Un recorrido de tres pantallas, con barra de progreso, para quien nunca ha oído hablar de las abejas sin aguijón.",
+      "El paso a paso de qué hacer al encontrar un nido y de cómo pedir el rescate.",
+      "Una página para quien quiere criar abejas nativas en casa, siguiendo las normas de la meliponicultura.",
+      "Un test de cinco preguntas que dice por escrito si la respuesta es correcta, no solo con el color."
+    ],
+    "dentro": [
+      "Empezó como prototipo en Lovable y se rehízo desde cero en HTML, CSS y JavaScript.",
+      "El foco va al título de cada pantalla y el lector de pantalla anuncia cada cambio; el texto principal tiene un contraste de 13,56:1.",
+      "13 idiomas, modo claro y oscuro y fotos libres, con los créditos de cada una."
+    ]
   }
 }

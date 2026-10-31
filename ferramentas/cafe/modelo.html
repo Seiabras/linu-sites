@@ -17,7 +17,7 @@
      que muda tem as duas versões, .so-noite e .so-dia, e o data-modo do <html> esconde uma delas (ver inicio.js). Na página principal, ele aparece embutido
      (iframe) no simulador de preço, que liga e desliga as partes dele (ver script.js, "módulos"). -->
 <script src="{{raiz}}inicio.js?v=2"></script>
-<link rel="stylesheet" href="{{raiz}}estilo.css?v=3">
+<link rel="stylesheet" href="{{raiz}}estilo.css?v=4">
 <script src="{{raiz}}script.js?v=4" defer></script>
 </head>
 
@@ -394,7 +394,7 @@
     </div>
 
     <div>
-      <h4>{{coord}}</h4>
+      <h3>{{coord}}</h3>
       <ul>
         <li>{{addr1}}</li>
         <li>{{addr2}}</li>
@@ -403,13 +403,13 @@
     </div>
 
     <div>
-      <h4>{{horario}}</h4>
+      <h3>{{horario}}</h3>
       <ul>
         <li><span class="so-noite">{{hora1}}</span><span class="so-dia">{{d_hora1}}</span></li>
         <li><span class="so-noite">{{hora2}}</span><span class="so-dia">{{d_hora2}}</span></li>
         <li><span class="so-noite">{{hora3}}</span><span class="so-dia">{{d_hora3}}</span></li>
       </ul>
-      <h4 class="foot__h4-espaco">{{sinal}}</h4>
+      <h3 class="foot__h4-espaco">{{sinal}}</h3>
       <ul>
         <li><a href="#inicio">@cafeaurora.omega</a></li>
         <li><a href="#inicio">+Ω 07 2087-0000</a></li>

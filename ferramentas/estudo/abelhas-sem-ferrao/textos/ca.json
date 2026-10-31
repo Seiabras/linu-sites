@@ -74,7 +74,24 @@
     "teste_072": "El test necessita el JavaScript activat.",
     "teste_073": "<a href=\"teste.html\" aria-current=\"page\">Test ràpid</a>",
     "teste_074": "Test ràpid — Abelles sense Fibló",
-    "teste_075": "Cinc preguntes per reconèixer les abelles natives."
+    "teste_075": "Cinc preguntes per reconèixer les abelles natives.",
+    "descobrir_h1": "Descobreix-les en 3 minuts",
+    "criar_titulo": "Les puc criar? Abelles sense fibló a casa — Abelles sense Fibló",
+    "criar_descricao": "Com començar a criar abelles sense fibló a casa, de la manera correcta i dins de les normes.",
+    "criar_h1": "Puc criar abelles sense fibló?",
+    "criar_abre": "Sí, i molta gent comença amb una sola caixa, al pati o al balcó. Criar abelles natives s’anomena meliponicultura, i té normes per protegir les espècies.",
+    "criar_passos": "Com començar",
+    "criar_p1": "<strong>Tria una espècie de la teva regió.</strong><br>Al Brasil, la Resolució CONAMA núm. 496/2020 demana criar només espècies natives del lloc on vius. Una abella portada de lluny pot perjudicar les abelles d’aquí.",
+    "criar_p2": "<strong>Comença per una espècie mansa.</strong><br>La jataí és petita, mansa i viu bé a la ciutat; per això sol ser la primera caixa de qui comença. Pregunta a un meliponicultor quina és la millor per al teu lloc.",
+    "criar_p3": "<strong>Aconsegueix l’eixam de la manera correcta.</strong><br>Compra’l a un meliponari registrat, rep les abelles d’un rescat o fes servir un esquer, una ampolla preparada que atreu un eixam nou.",
+    "criar_p4": "<strong>Cuida la caixa.</strong><br>Deixa-la a l’ombra, protegida de la pluja i lluny de verins. Els primers mesos, només observa: obrir la caixa cada dos per tres afebleix la colònia.",
+    "criar_legenda": "Uruçus sobre les bresques de cria: la colònia creix de dins cap a fora.",
+    "criar_mel_titulo": "I la mel?",
+    "criar_mel_texto": "N’hi ha poca: una caixa de jataí sol donar prop d’un litre l’any, o menys. El seu regal més gran és pol·linitzar les plantes del voltant.",
+    "criar_nao_titulo": "El que no s’ha de fer",
+    "criar_n1": "No treguis nius de la natura: gairebé sempre mor la colònia. El correcte és el rescat, fet per algú que en sàpiga.",
+    "criar_n2": "No compris eixams d’una altra regió, encara que siguin barats.",
+    "criar_n3": "Per vendre mel o eixams, consulta abans l’organisme ambiental del teu estat."
   },
   "js": {
     "perguntas": [

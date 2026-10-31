@@ -135,7 +135,16 @@
     "sobre_133": "Over ons",
     "sobre_134": "<a href=\"sobre.html\" aria-current=\"page\">Over ons</a>",
     "sobre_135": "Over ons — Fotografia do Cerrado",
-    "sobre_136": "Missie, doelgroep en kleurenpalet van Fotografia do Cerrado."
+    "sobre_136": "Missie, doelgroep en kleurenpalet van Fotografia do Cerrado.",
+    "faq_titulo": "Veelgestelde vragen",
+    "faq_q1": "Heb ik een professionele camera nodig?",
+    "faq_r1": "Nee. Met een telefoon met zoom maak je al mooie foto’s van vogels bij het water, en de gids helpt met licht en kader. Heb je een camera, neem dan een lens van 300 mm of meer mee.",
+    "faq_q2": "Wat neem ik mee?",
+    "faq_r2": "Kleding in neutrale kleuren, een hoed, zonnebrand, insectenwerend middel, een fles water en een zaklamp met rood licht voor het eind van de middag.",
+    "faq_q3": "Mogen kinderen mee?",
+    "faq_r3": "Op de dagtocht in het Nationaal Park van Brasília wel, vanaf 10 jaar en met een begeleider. De langere expedities zijn vanaf 16 jaar.",
+    "faq_q4": "En als het regent?",
+    "faq_r4": "Bij lichte regen gaat de tocht door: veel dieren laten zich vlak daarna zien. Bij onweer verzetten we de datum zonder kosten."
   },
   "js": {
     "obrigado": "Bedankt, {nome}! Dit is een demopagina: je bericht is niet echt verstuurd."

@@ -1,18 +1,18 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Café Aurora — Cafeteria Cyberpunk em Outra Dimensão (Tailwind)</title>
-<meta name="description" content="Café Aurora: onde o café atravessa dimensões. Uma cafeteria cyberpunk futurista com blends quânticos, neon e surrealismo." />
-<meta name="theme-color" content="#05030a" />
+<meta name="description" content="Café Aurora: onde o café atravessa dimensões. Uma cafeteria cyberpunk futurista com blends quânticos, neon e surrealismo.">
+<meta name="theme-color" content="#05030a">
 
 
 <link rel="preload" href="../fontes/orbitron.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="../icone.png" type="image/png" sizes="128x128">
 <script src="../inicio.js"></script>
 <link rel="stylesheet" href="tailwind.css">
-<link rel="stylesheet" href="estilo.css">
+<link rel="stylesheet" href="estilo.css?v=2">
 </head>
 
 <body>
@@ -52,7 +52,7 @@
 
   <div class="nav__right flex items-center gap-3.5">
     <a href="#laboratorio" class="btn btn--magenta magnetic">Pedir agora</a>
-    <button class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
+    <button type="button" class="burger" id="burger" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks">
       <span></span><span></span><span></span>
     </button>
   </div>
@@ -241,7 +241,7 @@
 
     <div class="lab mt-12 grid items-center gap-10 min-[900px]:grid-cols-2 lg:gap-16">
       <!-- Painel -->
-      <form class="lab__panel reveal" data-d="2" id="labForm">
+      <div class="lab__panel reveal" data-d="2" id="labForm" role="group" aria-label="Monte sua bebida">
         <div class="lab__group">
           <div class="lab__label"><span>01 · Base molecular</span></div>
           <div class="chips" role="radiogroup" aria-label="Base molecular">
@@ -277,19 +277,19 @@
           <div class="lab__label"><span>03 · Modificadores</span></div>
           <div class="chips">
             <label class="chip">
-              <input type="checkbox" name="top" value="Poeira de Cometa">
+              <input type="checkbox" name="top[]" value="Poeira de Cometa">
               <span>Poeira de Cometa</span>
             </label>
             <label class="chip">
-              <input type="checkbox" name="top" value="Espuma de Plasma">
+              <input type="checkbox" name="top[]" value="Espuma de Plasma">
               <span>Espuma de Plasma</span>
             </label>
             <label class="chip">
-              <input type="checkbox" name="top" value="Cristal de Açúcar">
+              <input type="checkbox" name="top[]" value="Cristal de Açúcar">
               <span>Cristal de Açúcar</span>
             </label>
             <label class="chip">
-              <input type="checkbox" name="top" value="Flor de Neon">
+              <input type="checkbox" name="top[]" value="Flor de Neon">
               <span>Flor de Neon</span>
             </label>
           </div>
@@ -300,7 +300,7 @@
           <div id="drinkName">Expresso Quântico · Nível 7</div>
           <span id="drinkPrice">₡ 21,50</span>
         </div>
-      </form>
+      </div>
 
       <!-- Xícara -->
       <div class="cup-stage reveal" data-d="3">
@@ -372,7 +372,7 @@
     </div>
 
     <div>
-      <h4>Coordenadas</h4>
+      <h3>Coordenadas</h3>
       <ul>
         <li>Rua Vex, 2087 — Setor Neon-07</li>
         <li>Metrópole Baixa · Subsolo 3</li>
@@ -381,13 +381,13 @@
     </div>
 
     <div>
-      <h4>Horário</h4>
+      <h3>Horário</h3>
       <ul>
         <li>Seg–Sex · 06h — 04h</li>
         <li>Sáb–Dom · sempre</li>
         <li>Feriados dimensionais · fechado</li>
       </ul>
-      <h4 class="e-5a7715">Sinal</h4>
+      <h3 class="e-5a7715">Sinal</h3>
       <ul>
         <li><a href="#inicio">@cafeaurora.omega</a></li>
         <li><a href="#inicio">+Ω 07 2087-0000</a></li>
@@ -403,7 +403,7 @@
 
 <!-- PAINEL DE DIMENSÃO -->
 <aside class="dim" id="dim" aria-label="Ajuste de dimensão cromática">
-  <button class="dim__head" id="dimHead" aria-expanded="true" aria-controls="dimBody">
+  <button type="button" class="dim__head" id="dimHead" aria-expanded="true" aria-controls="dimBody">
     <span class="e-fd99b2"><i aria-hidden="true"></i>Sintonizar dimensão</span>
     <span aria-hidden="true" id="dimChevron">▾</span>
   </button>
@@ -414,6 +414,6 @@
   </div>
 </aside>
 
-<script src="script.js" defer></script>
+<script src="script.js?v=2" defer></script>
 </body>
 </html>

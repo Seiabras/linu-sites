@@ -23,7 +23,7 @@
   <!-- Os textos que os scripts escrevem (menu, luz), no idioma da página -->
   <script type="application/json" id="textos-js">{{textos_js}}</script>
   <script src="{{raiz}}js/tema-inicio.js?v=6"></script>
-  <link rel="stylesheet" href="{{raiz}}css/estilo.css?v=22">
+  <link rel="stylesheet" href="{{raiz}}css/estilo.css?v=23">
   <script src="{{raiz}}js/tema.js?v=8" defer></script>
   <script src="{{raiz}}js/menu.js?v=7" defer></script>
 </head>
@@ -65,7 +65,7 @@
         <h1>{{x_nome}}</h1>
         <p class="abertura-sub">{{x_resumo}}</p>
         <div class="botoes">
-          <a class="botao" href="{{x_url}}" target="_blank" rel="noopener">{{x_abrir}}</a>
+          <a class="botao" href="{{x_url}}" target="_blank" rel="noopener">{{x_abrir}}</a>{{x_codigo}}
         </div>
         <img class="caso-imagem" src="{{raiz}}img/projetos/{{x_imagem}}" alt="{{x_alt}}" width="960" height="600">
       </div>

@@ -21,7 +21,7 @@ if (janela) {
             const img = botao.querySelector('img');
             imagem.src = img.src;
             imagem.alt = img.alt;
-            titulo.textContent = botao.closest('.foto').querySelector('h3').textContent;
+            titulo.textContent = botao.closest('.foto').querySelector('h2, h3').textContent;
             janela.showModal();
         });
     });
