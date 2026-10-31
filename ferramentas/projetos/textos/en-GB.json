@@ -195,5 +195,60 @@
       "Password-free sign-in, by email code or with Google, and phone notifications with Trupe closed.",
       "More than 80 automated tests, encrypted daily backups and installation on the phone as an app."
     ]
+  },
+  "cafe-aurora": {
+    "etiqueta": "Website with effects",
+    "alt": "Café Aurora home page: the name in blue and pink neon over a cyberpunk city at night",
+    "resumo": "A cyberpunk café that doesn't exist, with an intro screen, animated background, menu and a lab to build your drink.",
+    "url": "https://cafe.linupedia.com.br/en/",
+    "desafio": "For the Interface Development course, the same brief went to three AIs: ChatGPT, Gemini and DeepSeek. The job was to pick the best page, understand every line and rebuild the code by hand without losing a single effect.",
+    "feito": [
+      "A cyberpunk café with an opening screen, its own cursor, a particle background, a menu and a lab to build your drink, with the cup drawn in CSS alone.",
+      "From 6 am to 6 pm the site becomes the Aurora Bakery: other colours, another menu and a bread lab, chosen by the visitor’s clock before the page appears.",
+      "The same page in three builds, plain CSS, Bootstrap and Tailwind, to compare what each way of writing CSS changes.",
+      "It’s the example site in the Linu Sites simulator: each part switches on and off there, and the price changes with it."
+    ],
+    "dentro": [
+      "13 languages generated from one template, with fonts served by the site itself and no CDN.",
+      "AA contrast by day and by night and targets of at least 24 px, checked with axe; with “reduce motion” on, the animations stop.",
+      "It only accepts the simulator’s commands when they come from the Linu Sites address."
+    ]
+  },
+  "fotografia-do-cerrado": {
+    "etiqueta": "Business website",
+    "alt": "Fotografia do Cerrado home page: a seriema in golden grass, with a flowering pink ipê tree behind",
+    "resumo": "Wildlife photography company, with a filterable gallery, expeditions and contact. The palette comes from the Cerrado itself and every colour was checked against the WCAG contrast rules.",
+    "url": "https://cerrado.linupedia.com.br/en/",
+    "desafio": "It was a colour palette and WCAG assignment: build a small interface with the chosen colours and prove every piece of text was readable. It grew into a whole site without dropping the rule.",
+    "feito": [
+      "Six pages for a wildlife photography studio that doesn’t exist: a gallery with a filter and enlarged photos, expeditions with FAQs, about and contact.",
+      "On the Expeditions page you pick a month and see what the cerrado is like and which trips are at their best; in the gallery you move between enlarged photos with the arrows or a swipe.",
+      "The palette comes from the biome itself, the brown of tree bark, dry grass and earth, and the About page shows each colour’s measured contrast.",
+      "Light and dark modes that follow the system and remember the choice, without the light page flashing on load.",
+      "Free photos from Wikimedia Commons, with each one’s author and licence on a credits page."
+    ],
+    "dentro": [
+      "HTML, CSS and JavaScript with no library and no inline styles.",
+      "All text above 4.5:1 in both modes, visible focus and a menu that works by keyboard.",
+      "13 languages, with the demo form replying in the page’s language."
+    ]
+  },
+  "abelhas-sem-ferrao": {
+    "etiqueta": "Educational website",
+    "alt": "Abelhas sem Ferrão home page: the question about the 250 species next to photos of the jataí, uruçu and mandaçaia bees",
+    "resumo": "For people who have never heard of Brazil's native stingless bees: a 3-minute tour, what to do if you find a nest and a quick quiz. It grew out of a Design Thinking exercise.",
+    "url": "https://abelhas.linupedia.com.br/en/",
+    "desafio": "In the Design Thinking exercise, the interview showed that many people find a native bee nest, assume the bees sting and destroy it. The site had to change that in a few minutes.",
+    "feito": [
+      "A three-screen journey with a progress bar, for people who have never heard of stingless bees.",
+      "Step-by-step help on what to do when you find a nest and how to ask for a rescue.",
+      "A page for people who want to keep native bees at home, following the rules of meliponiculture.",
+      "A five-question quiz that says in words whether the answer is right, not just with colour."
+    ],
+    "dentro": [
+      "It started as a prototype in Lovable and was rebuilt from scratch in HTML, CSS and JavaScript.",
+      "Focus moves to each screen’s heading and screen readers announce every change; the main text has 13.56:1 contrast.",
+      "13 languages, light and dark modes and free photos, each one credited."
+    ]
   }
 }

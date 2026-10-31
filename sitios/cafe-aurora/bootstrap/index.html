@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="pt-BR" data-bs-theme="dark">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Café Aurora — Cafeteria Cyberpunk em Outra Dimensão</title>
-<meta name="description" content="Café Aurora: onde o café atravessa dimensões. Uma cafeteria cyberpunk futurista com blends quânticos, neon e surrealismo." />
-<meta name="theme-color" content="#05030a" />
+<meta name="description" content="Café Aurora: onde o café atravessa dimensões. Uma cafeteria cyberpunk futurista com blends quânticos, neon e surrealismo.">
+<meta name="theme-color" content="#05030a">
 
 <!-- Bootstrap 5.3 -->
 <link href="vendor/bootstrap.min.css" rel="stylesheet">
@@ -15,7 +15,7 @@
 <link rel="preload" href="../fontes/orbitron.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="../icone.png" type="image/png" sizes="128x128">
 <script src="../inicio.js"></script>
-<link rel="stylesheet" href="estilo.css">
+<link rel="stylesheet" href="estilo.css?v=2">
 </head>
 
 <body>
@@ -274,7 +274,7 @@
       <div class="row g-5 mt-4 align-items-center">
         <!-- Painel -->
         <div class="col-12 col-lg-6">
-          <form class="lab__panel reveal" data-d="2" id="labForm" novalidate>
+          <div class="lab__panel reveal" data-d="2" id="labForm" role="group" aria-label="Monte sua bebida">
             <div class="lab__group">
               <div class="lab__label"><span>01 · Base molecular</span></div>
               <div class="chips" role="radiogroup" aria-label="Base molecular">
@@ -311,19 +311,19 @@
               <div class="lab__label"><span>03 · Modificadores</span></div>
               <div class="chips">
                 <label class="chip">
-                  <input type="checkbox" name="top" value="Poeira de Cometa">
+                  <input type="checkbox" name="top[]" value="Poeira de Cometa">
                   <span>Poeira de Cometa</span>
                 </label>
                 <label class="chip">
-                  <input type="checkbox" name="top" value="Espuma de Plasma">
+                  <input type="checkbox" name="top[]" value="Espuma de Plasma">
                   <span>Espuma de Plasma</span>
                 </label>
                 <label class="chip">
-                  <input type="checkbox" name="top" value="Cristal de Açúcar">
+                  <input type="checkbox" name="top[]" value="Cristal de Açúcar">
                   <span>Cristal de Açúcar</span>
                 </label>
                 <label class="chip">
-                  <input type="checkbox" name="top" value="Flor de Neon">
+                  <input type="checkbox" name="top[]" value="Flor de Neon">
                   <span>Flor de Neon</span>
                 </label>
               </div>
@@ -334,7 +334,7 @@
               <div id="drinkName">Expresso Quântico · Nível 7</div>
               <span id="drinkPrice">₡ 21,50</span>
             </div>
-          </form>
+          </div>
         </div>
 
         <!-- Xícara -->
@@ -423,7 +423,7 @@
         </div>
 
         <div class="col-6 col-lg-3">
-          <h4>Coordenadas</h4>
+          <h3>Coordenadas</h3>
           <ul>
             <li>Rua Vex, 2087 — Setor Neon-07</li>
             <li>Metrópole Baixa · Subsolo 3</li>
@@ -432,13 +432,13 @@
         </div>
 
         <div class="col-6 col-lg-4">
-          <h4>Horário</h4>
+          <h3>Horário</h3>
           <ul>
             <li>Seg–Sex · 06h — 04h</li>
             <li>Sáb–Dom · sempre</li>
             <li>Feriados dimensionais · fechado</li>
           </ul>
-          <h4 class="e-5a7715">Sinal</h4>
+          <h3 class="e-5a7715">Sinal</h3>
           <ul>
             <li><a href="#inicio">@cafeaurora.omega</a></li>
             <li><a href="#inicio">+Ω 07 2087-0000</a></li>
@@ -473,6 +473,6 @@
 <!-- Bootstrap JS -->
 <script src="vendor/bootstrap.bundle.min.js" defer></script>
 
-<script src="script.js" defer></script>
+<script src="script.js?v=2" defer></script>
 </body>
 </html>

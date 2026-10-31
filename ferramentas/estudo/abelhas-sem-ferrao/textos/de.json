@@ -74,7 +74,24 @@
     "teste_072": "Für das Quiz muss JavaScript aktiviert sein.",
     "teste_073": "<a href=\"teste.html\" aria-current=\"page\">Kurzes Quiz</a>",
     "teste_074": "Kurzes Quiz — Stachellose Bienen",
-    "teste_075": "Fünf Fragen, um heimische Bienen zu erkennen."
+    "teste_075": "Fünf Fragen, um heimische Bienen zu erkennen.",
+    "descobrir_h1": "In 3 Minuten entdecken",
+    "criar_titulo": "Darf ich sie halten? Stachellose Bienen zu Hause — Stachellose Bienen",
+    "criar_descricao": "So fängst du zu Hause mit stachellosen Bienen an, richtig und nach den Regeln.",
+    "criar_h1": "Darf ich stachellose Bienen halten?",
+    "criar_abre": "Ja, und viele fangen mit einem einzigen Kasten an, im Garten oder auf dem Balkon. Das Halten einheimischer Bienen heißt Meliponikultur, und es gibt Regeln zum Schutz der Arten.",
+    "criar_passos": "So fängst du an",
+    "criar_p1": "<strong>Wähle eine Art aus deiner Region.</strong><br>In Brasilien verlangt die CONAMA-Resolution Nr. 496/2020, nur Arten zu halten, die dort heimisch sind, wo man wohnt. Eine Biene von weit her kann den Bienen vor Ort schaden.",
+    "criar_p2": "<strong>Fang mit einer sanften Art an.</strong><br>Die Jataí ist klein, sanft und kommt in der Stadt gut zurecht; deshalb ist sie oft der erste Kasten von Anfängern. Frag eine Imkerin oder einen Imker, welche Art an deinen Ort passt.",
+    "criar_p3": "<strong>Besorg das Volk auf dem richtigen Weg.</strong><br>Kauf es bei einer gemeldeten Imkerei, übernimm Bienen aus einer Rettung oder nutze einen Köder, eine vorbereitete Flasche, die einen neuen Schwarm anlockt.",
+    "criar_p4": "<strong>Kümmere dich um den Kasten.</strong><br>Stell ihn in den Schatten, geschützt vor Regen und fern von Gift. In den ersten Monaten nur beobachten: Wer den Kasten ständig öffnet, schwächt das Volk.",
+    "criar_legenda": "Uruçus auf den Brutwaben: Das Volk wächst von innen nach außen.",
+    "criar_mel_titulo": "Und der Honig?",
+    "criar_mel_texto": "Es ist wenig: Ein Jataí-Kasten gibt meist etwa einen Liter im Jahr, oder weniger. Ihr größtes Geschenk ist, dass sie die Pflanzen ringsum bestäuben.",
+    "criar_nao_titulo": "Was du lassen solltest",
+    "criar_n1": "Nimm keine Nester aus der Natur: Das Volk stirbt dabei fast immer. Richtig ist eine Rettung durch jemanden, der sich auskennt.",
+    "criar_n2": "Kauf kein Volk aus einer anderen Region, auch wenn es billig ist.",
+    "criar_n3": "Wer Honig oder Völker verkaufen will, fragt vorher bei der Umweltbehörde seines Bundesstaats nach."
   },
   "js": {
     "perguntas": [

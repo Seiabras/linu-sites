@@ -104,9 +104,9 @@
     "cafe_alt": "Página inicial do Café Aurora: o nome em neon azul e rosa sobre uma cidade cyberpunk à noite",
     "cafe_etiqueta": "Site com efeitos",
     "cafe_texto": "Cafeteria cyberpunk que não existe, com tela de abertura, fundo animado, cardápio e um laboratório para montar a bebida. É o site do simulador aqui de cima, também em versões com Bootstrap e Tailwind.",
-    "cerrado_alt": "Página inicial da Fotografia do Cerrado: uma seriema no capim dourado, com um ipê-rosa florido ao fundo",
-    "cerrado_etiqueta": "Site de apresentação",
-    "cerrado_texto": "Empresa de fotografia de fauna, com galeria filtrável, expedições e contato. A paleta saiu do próprio bioma e cada cor foi medida pela regra de contraste da WCAG.",
+    "cerrado_alt": "Página inicial do Guia do Cerrado: uma seriema no capim dourado, com um ipê-rosa florido ao fundo",
+    "cerrado_etiqueta": "Guia educativo",
+    "cerrado_texto": "Um guia da savana mais rica do mundo, com fonte para cada número: o mapa dos biomas, as 11 paisagens num corte desenhado, 70 espécies com filtros, a água, os povos, o desmatamento e um quiz.",
     "abelhas_alt": "Página inicial do Abelhas sem Ferrão: a pergunta sobre as 250 espécies ao lado das fotos da jataí, da uruçu e da mandaçaia",
     "abelhas_etiqueta": "Site educativo",
     "abelhas_texto": "Para quem nunca ouviu falar das abelhas nativas: percurso de 3 minutos, o que fazer ao achar um ninho e um teste rápido. Nasceu de um exercício de Design Thinking.",
@@ -219,7 +219,8 @@
     "proj_cta_titulo": "Quer algo assim para o seu negócio?",
     "proj_cta_texto": "Conte o que você faz e o que imagina. Pode ser só uma ideia: a resposta vem com perguntas e próximos passos.",
     "proj_og_titulo": "{nome}, por Linu Sites",
-    "proj_whats": "Olá! Vi o projeto {nome} e quero conversar sobre um site."
+    "proj_whats": "Olá! Vi o projeto {nome} e quero conversar sobre um site.",
+    "cerrado_nome": "Guia do Cerrado"
   },
   "js": {
     "menu_abrir": "Abrir o menu",

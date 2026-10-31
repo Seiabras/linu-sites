@@ -235,7 +235,8 @@
     "proj_cta_titulo": "Want something like this for your business?",
     "proj_cta_texto": "Tell us what you do and what you have in mind. It can be just an idea: the reply comes with questions and next steps.",
     "proj_og_titulo": "{nome}, by Linu Sites",
-    "proj_whats": "Hello! I saw the {nome} project and would like to talk about a website."
+    "proj_whats": "Hello! I saw the {nome} project and would like to talk about a website.",
+    "cerrado_nome": "Fotografia do Cerrado"
   },
   "js": {
     "menu_abrir": "Open the menu",

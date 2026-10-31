@@ -195,5 +195,60 @@
       "Inloggen zonder wachtwoord, met een code per e-mail of met Google, en meldingen op de telefoon terwijl Trupe dicht is.",
       "Meer dan 80 geautomatiseerde tests, dagelijkse versleutelde back-up en installatie op de telefoon als app."
     ]
+  },
+  "cafe-aurora": {
+    "etiqueta": "Website met effecten",
+    "alt": "Homepage van Café Aurora: de naam in blauw en roze neon boven een cyberpunkstad bij nacht",
+    "resumo": "Een cyberpunkcafé dat niet bestaat, met introscherm, bewegende achtergrond, menukaart en een lab om je drankje samen te stellen.",
+    "url": "https://cafe.linupedia.com.br/nl/",
+    "desafio": "Bij het vak Interfaceontwikkeling kregen drie AI’s dezelfde opdracht: ChatGPT, Gemini en DeepSeek. Het werk was de beste pagina kiezen, elke regel begrijpen en de code met de hand opnieuw schrijven, zonder één effect te verliezen.",
+    "feito": [
+      "Een cyberpunkcafé met een openingsscherm, een eigen cursor, een achtergrond van deeltjes, een menukaart en een lab om je drankje samen te stellen, met het kopje volledig in CSS getekend.",
+      "Van 6 tot 18 uur wordt de site Bakkerij Aurora: andere kleuren, een andere kaart en een broodlab, gekozen op de klok van de bezoeker voordat de pagina verschijnt.",
+      "Dezelfde pagina in drie versies, pure CSS, Bootstrap en Tailwind, om te vergelijken wat elke manier van CSS schrijven verandert.",
+      "Het is de voorbeeldsite van de simulator van Linu Sites: elk onderdeel gaat daar aan en uit, en de prijs verandert mee."
+    ],
+    "dentro": [
+      "13 talen uit één sjabloon, met de lettertypes vanaf de site zelf, zonder CDN.",
+      "AA-contrast overdag en ’s nachts en klikdoelen van minstens 24 px, nagekeken met axe; met “minder beweging” aan stoppen de animaties.",
+      "Accepteert de opdrachten van de simulator alleen als ze van het adres van Linu Sites komen."
+    ]
+  },
+  "fotografia-do-cerrado": {
+    "etiqueta": "Bedrijfswebsite",
+    "alt": "Homepage van Fotografia do Cerrado: een seriema in goudkleurig gras, met een bloeiende roze ipê op de achtergrond",
+    "resumo": "Natuurfotografiebedrijf, met filterbare galerij, expedities en contact. Het kleurenpalet komt uit het biotoop zelf en elke kleur is getoetst aan de contrastregels van de WCAG.",
+    "url": "https://cerrado.linupedia.com.br/nl/",
+    "desafio": "Het was een opdracht over kleurenpaletten en WCAG: een kleine interface bouwen met de gekozen kleuren en bewijzen dat alle tekst leesbaar was. Het werd een hele site, zonder de regel los te laten.",
+    "feito": [
+      "Zes pagina’s van een natuurfotostudio die niet bestaat: een galerij met filter en vergrote foto, expedities met veelgestelde vragen, over ons en contact.",
+      "Bij Expedities kies je de maand en zie je hoe de cerrado erbij ligt en welke tochten op hun best zijn; in de galerij ga je van de ene vergrote foto naar de andere met de pijlen of door te vegen.",
+      "Het palet komt uit het bioom zelf, het bruin van de stam, het droge gras en de aarde, en van elke kleur staat het gemeten contrast op de pagina Over ons.",
+      "Lichte en donkere modus, die het systeem volgt en de keuze onthoudt, zonder dat de lichte pagina bij het openen flitst.",
+      "Vrije foto’s van Wikimedia Commons, met de maker en licentie van elke foto op een pagina met bronnen."
+    ],
+    "dentro": [
+      "HTML, CSS en JavaScript zonder bibliotheek en zonder enige stijl in de HTML.",
+      "Alle tekst boven 4,5:1 in beide modi, zichtbare focus en een menu dat met het toetsenbord werkt.",
+      "13 talen, met het demoformulier dat antwoordt in de taal van de pagina."
+    ]
+  },
+  "abelhas-sem-ferrao": {
+    "etiqueta": "Educatieve website",
+    "alt": "Homepage van Abelhas sem Ferrão: de vraag over de 250 soorten naast foto's van de jataí, de uruçu en de mandaçaia",
+    "resumo": "Voor wie nog nooit van de angelloze bijen van Brazilië heeft gehoord: een tour van 3 minuten, wat te doen als je een nest vindt en een korte quiz. Ontstaan uit een Design Thinking-opdracht.",
+    "url": "https://abelhas.linupedia.com.br/nl/",
+    "desafio": "Bij de Design Thinking-opdracht bleek uit het interview dat veel mensen een nest van een inheemse bij vinden, denken dat ze steekt en het nest vernielen. De site moest dat in een paar minuten veranderen.",
+    "feito": [
+      "Een route van drie schermen met voortgangsbalk, voor wie nog nooit van angelloze bijen heeft gehoord.",
+      "Stap voor stap wat je doet als je een nest vindt en hoe je om een redding vraagt.",
+      "Een pagina voor wie thuis inheemse bijen wil houden, volgens de regels van de meliponicultuur.",
+      "Een quiz van vijf vragen die in woorden zegt of het antwoord goed is, niet alleen met kleur."
+    ],
+    "dentro": [
+      "Begon als prototype in Lovable en werd helemaal opnieuw gebouwd in HTML, CSS en JavaScript.",
+      "De focus gaat naar de titel van elk scherm en de schermlezer meldt elke verandering; de hoofdtekst heeft een contrast van 13,56:1.",
+      "13 talen, lichte en donkere modus en vrije foto’s, met de bron van elke foto."
+    ]
   }
 }

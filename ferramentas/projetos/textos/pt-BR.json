@@ -195,5 +195,63 @@
       "Entrada sem senha, por código no e-mail ou pelo Google, e avisos no celular com a Trupe fechada.",
       "Mais de 80 testes automáticos, cópia diária criptografada e instalação no celular como app."
     ]
+  },
+  "cafe-aurora": {
+    "etiqueta": "Site com efeitos",
+    "alt": "Página inicial do Café Aurora: o nome em neon azul e rosa sobre uma cidade cyberpunk à noite",
+    "resumo": "Cafeteria cyberpunk que não existe, com tela de abertura, fundo animado, cardápio e um laboratório para montar a bebida.",
+    "url": "https://cafe.linupedia.com.br/",
+    "desafio": "Na disciplina de Desenvolvimento de Interfaces, o mesmo pedido foi feito a três IAs: ChatGPT, Gemini e DeepSeek. O trabalho era escolher a melhor página, entender cada linha e refazer o código à mão, sem perder nenhum efeito.",
+    "feito": [
+      "Uma cafeteria cyberpunk com tela de abertura, cursor próprio, fundo de partículas, cardápio e um laboratório para montar a bebida, com a xícara desenhada só em CSS.",
+      "Das 6h às 18h o site vira a Padaria Aurora: outras cores, outro cardápio e um laboratório de pão, escolhidos pelo relógio de quem visita antes de a página aparecer.",
+      "A mesma página em três versões, CSS puro, Bootstrap e Tailwind, para comparar o que cada jeito de escrever CSS muda.",
+      "É o site de exemplo do simulador do Linu Sites: cada parte liga e desliga ali, e o preço muda junto."
+    ],
+    "dentro": [
+      "13 idiomas gerados de um modelo só, com as fontes servidas pelo próprio site, sem CDN.",
+      "Contraste AA de dia e de noite e alvos de pelo menos 24 px, conferidos com o axe; com “menos movimento” ligado, as animações param.",
+      "Só aceita os comandos do simulador quando vêm do endereço do Linu Sites."
+    ]
+  },
+  "fotografia-do-cerrado": {
+    "etiqueta": "Guia educativo",
+    "alt": "Página inicial da Fotografia do Cerrado: uma seriema no capim dourado, com um ipê-rosa florido ao fundo",
+    "resumo": "Um guia da savana mais rica do mundo, com fonte para cada número: o mapa dos biomas, as 11 paisagens num corte desenhado, 70 espécies com filtros, a água, os povos, o desmatamento e um quiz.",
+    "url": "https://cerrado.linupedia.com.br/",
+    "desafio": "Era uma atividade de paletas de cores e WCAG: montar uma interface pequena com as cores escolhidas e provar que todo texto era legível. Virou um site inteiro, sem abrir mão da regra.",
+    "feito": [
+      "Começou como um estúdio de fotografia de fauna que não existe e virou um guia do Cerrado, em português primeiro: o bioma, as 11 paisagens, 70 espécies, a água, os povos, as ameaças e um quiz, com 32 fontes numeradas.",
+      "Seis páginas de um estúdio de fotografia de fauna que não existe: galeria com filtro e foto ampliada, expedições com perguntas frequentes, sobre e contato.",
+      "Nas Expedições, a pessoa escolhe o mês e vê como está o cerrado e quais saídas estão na melhor época; na galeria, passa de uma foto ampliada para a outra pelas setas ou deslizando o dedo.",
+      "Uma ficha para cada espécie, com a comparação de tamanho com uma pessoa, um diário de campo, um mapa dos três parques, um testador de contraste das cores da paleta e o contato que já chega com a expedição e o mês escolhidos.",
+      "A paleta saiu do próprio bioma, o marrom do tronco, o capim seco e a terra, e cada cor tem o contraste medido na página Sobre.",
+      "Modo claro e escuro, que segue o sistema e lembra a escolha, sem a página clara piscar ao abrir.",
+      "Fotos livres do Wikimedia Commons, com o autor e a licença de cada uma numa página de créditos."
+    ],
+    "dentro": [
+      "HTML, CSS e JavaScript sem biblioteca e sem nenhum estilo dentro do HTML.",
+      "Todo texto acima de 4,5:1 nos dois modos, foco visível e menu que funciona pelo teclado.",
+      "13 idiomas, com o formulário de demonstração respondendo no idioma da página."
+    ],
+    "nome": "Guia do Cerrado"
+  },
+  "abelhas-sem-ferrao": {
+    "etiqueta": "Site educativo",
+    "alt": "Página inicial do Abelhas sem Ferrão: a pergunta sobre as 250 espécies ao lado das fotos da jataí, da uruçu e da mandaçaia",
+    "resumo": "Para quem nunca ouviu falar das abelhas nativas: percurso de 3 minutos, o que fazer ao achar um ninho e um teste rápido. Nasceu de um exercício de Design Thinking.",
+    "url": "https://abelhas.linupedia.com.br/",
+    "desafio": "No exercício de Design Thinking, a entrevista mostrou que muita gente acha um ninho de abelha nativa, pensa que ela pica e destrói o ninho. O site tinha que mudar isso em poucos minutos.",
+    "feito": [
+      "Um percurso de três telas, com barra de progresso, para quem nunca ouviu falar das abelhas sem ferrão.",
+      "O passo a passo do que fazer ao achar um ninho e de como pedir o resgate.",
+      "Uma página para quem quer criar abelhas nativas em casa, seguindo as regras da meliponicultura.",
+      "Um teste de cinco perguntas que diz por escrito se a resposta está certa, não só pela cor."
+    ],
+    "dentro": [
+      "Começou como protótipo no Lovable e foi refeito do zero em HTML, CSS e JavaScript.",
+      "O foco vai para o título de cada tela e o leitor de tela ouve cada mudança; o texto principal tem contraste de 13,56:1.",
+      "13 idiomas, modo claro e escuro e fotos livres, com os créditos de cada uma."
+    ]
   }
 }

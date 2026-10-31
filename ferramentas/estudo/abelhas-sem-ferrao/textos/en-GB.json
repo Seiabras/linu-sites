@@ -74,7 +74,24 @@
     "teste_072": "The quiz needs JavaScript turned on.",
     "teste_073": "<a href=\"teste.html\" aria-current=\"page\">Quick quiz</a>",
     "teste_074": "Quick quiz — Stingless Bees",
-    "teste_075": "Five questions to recognise native bees."
+    "teste_075": "Five questions to recognise native bees.",
+    "descobrir_h1": "Discover in 3 minutes",
+    "criar_titulo": "Can I keep them? Stingless bees at home — Stingless Bees",
+    "criar_descricao": "How to start keeping stingless bees at home, the right way and within the rules.",
+    "criar_h1": "Can I keep stingless bees?",
+    "criar_abre": "Yes, and many people start with a single box, in the garden or on the balcony. Keeping native bees is called meliponiculture, and it has rules to protect the species.",
+    "criar_passos": "How to start",
+    "criar_p1": "<strong>Choose a species from your region.</strong><br>In Brazil, CONAMA Resolution No. 496/2020 asks keepers to raise only species native to where they live. A bee brought from far away can harm the local bees.",
+    "criar_p2": "<strong>Start with a gentle species.</strong><br>The jataí is small, gentle and does well in cities, so it is often a beginner’s first box. Ask a stingless-bee keeper which one suits your area best.",
+    "criar_p3": "<strong>Get your colony the right way.</strong><br>Buy it from a registered meliponary, take in bees from a rescue or use a bait, a prepared bottle that attracts a new swarm.",
+    "criar_p4": "<strong>Look after the box.</strong><br>Keep it in the shade, sheltered from rain and away from pesticides. For the first few months, just watch: opening the box all the time weakens the colony.",
+    "criar_legenda": "Uruçus on the brood combs: the colony grows from the inside out.",
+    "criar_mel_titulo": "What about honey?",
+    "criar_mel_texto": "There isn’t much: a jataí box usually gives about a litre a year, or less. Their biggest gift is pollinating the plants around them.",
+    "criar_nao_titulo": "What not to do",
+    "criar_n1": "Don’t take nests from the wild: the colony almost always dies. The right way is a rescue, done by someone who knows how.",
+    "criar_n2": "Don’t buy a colony from another region, even if it’s cheap.",
+    "criar_n3": "To sell honey or colonies, check with your state’s environmental agency first."
   },
   "js": {
     "perguntas": [

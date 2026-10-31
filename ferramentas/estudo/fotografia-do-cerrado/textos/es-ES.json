@@ -135,9 +135,33 @@
     "sobre_133": "Quiénes somos",
     "sobre_134": "<a href=\"sobre.html\" aria-current=\"page\">Quiénes somos</a>",
     "sobre_135": "Quiénes somos — Fotografia do Cerrado",
-    "sobre_136": "Misión, público y paleta de colores de Fotografia do Cerrado."
+    "sobre_136": "Misión, público y paleta de colores de Fotografia do Cerrado.",
+    "faq_titulo": "Preguntas frecuentes",
+    "faq_q1": "¿Necesito una cámara profesional?",
+    "faq_r1": "No. Un móvil con zoom ya hace buenas fotos de aves cerca del agua, y el guía ayuda con la luz y el encuadre. Si tienes cámara, puedes traer un objetivo de 300 mm o más.",
+    "faq_q2": "¿Qué llevo?",
+    "faq_r2": "Ropa de colores neutros, gorro, protector solar, repelente, una botella de agua y una linterna de luz roja para el final de la tarde.",
+    "faq_q3": "¿Pueden ir niños?",
+    "faq_r3": "En la salida de un día al Parque Nacional de Brasilia, sí, a partir de 10 años y con un adulto responsable. Las expediciones más largas son a partir de 16 años.",
+    "faq_q4": "¿Y si llueve?",
+    "faq_r4": "Con lluvia débil la salida se hace: muchos animales aparecen justo después. Con tormenta, la cambiamos de fecha sin coste.",
+    "quando_titulo": "¿Cuándo ir?",
+    "quando_intro": "Elige el mes: te mostramos cómo está el cerrado y qué salidas están en su mejor época.",
+    "quando_rotulo": "Mes del viaje",
+    "foto_anterior": "Foto anterior",
+    "foto_proxima": "Foto siguiente"
   },
   "js": {
-    "obrigado": "¡Gracias, {nome}! Esta es una página de demostración: el mensaje no se ha enviado de verdad."
+    "obrigado": "¡Gracias, {nome}! Esta es una página de demostración: el mensaje no se ha enviado de verdad.",
+    "est_chuvas": "Temporada de lluvias",
+    "est_seca": "Inicio de la seca",
+    "est_auge": "Plena seca",
+    "nota_chuvas": "El cerrado se vuelve verde, muchas aves anidan y el pequi da fruto de octubre a enero. Los senderos pueden tener barro: las salidas cortas funcionan mejor.",
+    "nota_seca": "La hierba se seca y baja, y es más fácil ver a los animales de lejos. Florecen los lapachos morados, y el final de la tarde es la hora del aguará guazú.",
+    "nota_auge": "Florecen los lapachos amarillos y blancos, y los animales se reúnen cerca del agua. Días calurosos, madrugadas frías y mucho cuidado con los incendios.",
+    "boa_epoca": "Mejor época",
+    "anterior": "Foto anterior",
+    "proxima": "Foto siguiente",
+    "posicao": "{n} de {total}"
   }
 }

@@ -713,7 +713,7 @@ input[type=range]::-moz-range-thumb{
    ============================================================ */
 .foot{
 }
-.foot h4{
+.foot h3{
   font-family:var(--font-display);font-size:.68rem;font-weight:600;
   letter-spacing:.26em;text-transform:uppercase;color:var(--cyan);
   margin-bottom:1.1rem;
@@ -729,12 +729,12 @@ input[type=range]::-moz-range-thumb{
   border-radius:2px;color:var(--text);font-size:.9rem;cursor:none;
   transition:border-color .3s;
 }
-.newsletter input::placeholder{color:#6b6390}
+.newsletter input::placeholder{color:#8a82ad}
 .newsletter input:focus{border-color:var(--cyan);outline:none;box-shadow:0 0 16px hsl(185 100% 55% / .3)}
 
 .foot__bottom{
   padding-top:1.8rem;border-top:1px solid var(--stroke);
-  font-size:.78rem;color:#6b6390;letter-spacing:.06em;
+  font-size:.78rem;color:var(--muted);letter-spacing:.06em;
 }
 .foot__bottom .dot{color:var(--magenta)}
 

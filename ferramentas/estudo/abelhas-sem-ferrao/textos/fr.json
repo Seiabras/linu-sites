@@ -74,7 +74,24 @@
     "teste_072": "Le quiz a besoin de JavaScript.",
     "teste_073": "<a href=\"teste.html\" aria-current=\"page\">Quiz express</a>",
     "teste_074": "Quiz express — Abeilles sans Dard",
-    "teste_075": "Cinq questions pour reconnaître les abeilles natives."
+    "teste_075": "Cinq questions pour reconnaître les abeilles natives.",
+    "descobrir_h1": "Découvrir en 3 minutes",
+    "criar_titulo": "Élever des abeilles sans dard chez soi — Abeilles sans Dard",
+    "criar_descricao": "Comment commencer à élever des abeilles sans dard chez soi, correctement et dans les règles.",
+    "criar_h1": "Puis-je élever des abeilles sans dard ?",
+    "criar_abre": "Oui, et beaucoup de gens commencent avec une seule ruche, au jardin ou sur le balcon. Élever des abeilles indigènes s’appelle la méliponiculture, et des règles protègent les espèces.",
+    "criar_passos": "Pour commencer",
+    "criar_p1": "<strong>Choisissez une espèce de votre région.</strong><br>Au Brésil, la résolution CONAMA n° 496/2020 demande de n’élever que des espèces indigènes de l’endroit où l’on vit. Une abeille venue de loin peut nuire aux abeilles locales.",
+    "criar_p2": "<strong>Commencez par une espèce docile.</strong><br>La jataí est petite, docile et se plaît en ville ; c’est souvent la première ruche des débutants. Demandez à un méliponiculteur laquelle convient le mieux chez vous.",
+    "criar_p3": "<strong>Obtenez la colonie correctement.</strong><br>Achetez-la à un méliponaire déclaré, accueillez des abeilles d’un sauvetage ou utilisez un piège, une bouteille préparée qui attire un nouvel essaim.",
+    "criar_p4": "<strong>Prenez soin de la ruche.</strong><br>Placez-la à l’ombre, à l’abri de la pluie et loin des pesticides. Les premiers mois, contentez-vous d’observer : ouvrir la ruche sans cesse affaiblit la colonie.",
+    "criar_legenda": "Des uruçus sur les rayons de couvain : la colonie grandit de l’intérieur vers l’extérieur.",
+    "criar_mel_titulo": "Et le miel ?",
+    "criar_mel_texto": "Il y en a peu : une ruche de jataí donne en général près d’un litre par an, ou moins. Leur plus beau cadeau, c’est de polliniser les plantes alentour.",
+    "criar_nao_titulo": "Ce qu’il ne faut pas faire",
+    "criar_n1": "Ne prélevez pas de nids dans la nature : la colonie en meurt presque toujours. La bonne voie, c’est le sauvetage, fait par quelqu’un qui s’y connaît.",
+    "criar_n2": "N’achetez pas de colonie d’une autre région, même bon marché.",
+    "criar_n3": "Pour vendre du miel ou des colonies, renseignez-vous d’abord auprès de l’organisme environnemental de votre État."
   },
   "js": {
     "perguntas": [

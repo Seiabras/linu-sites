@@ -74,7 +74,24 @@
     "teste_072": "Voor de quiz moet JavaScript aan staan.",
     "teste_073": "<a href=\"teste.html\" aria-current=\"page\">Korte quiz</a>",
     "teste_074": "Korte quiz — Angelloze Bijen",
-    "teste_075": "Vijf vragen om de inheemse bijen te herkennen."
+    "teste_075": "Vijf vragen om de inheemse bijen te herkennen.",
+    "descobrir_h1": "Ontdekken in 3 minuten",
+    "criar_titulo": "Mag ik ze houden? Angelloze bijen thuis — Angelloze Bijen",
+    "criar_descricao": "Zo begin je thuis met angelloze bijen, op de goede manier en volgens de regels.",
+    "criar_h1": "Mag ik angelloze bijen houden?",
+    "criar_abre": "Ja, en veel mensen beginnen met één kast, in de tuin of op het balkon. Inheemse bijen houden heet meliponicultuur, en er zijn regels om de soorten te beschermen.",
+    "criar_passos": "Zo begin je",
+    "criar_p1": "<strong>Kies een soort uit je eigen streek.</strong><br>In Brazilië vraagt Resolutie CONAMA nr. 496/2020 om alleen soorten te houden die inheems zijn waar je woont. Een bij van ver weg kan de bijen hier schaden.",
+    "criar_p2": "<strong>Begin met een rustige soort.</strong><br>De jataí is klein, rustig en voelt zich thuis in de stad; daarom is zij vaak de eerste kast van een beginner. Vraag een imker welke soort het best bij jouw plek past.",
+    "criar_p3": "<strong>Kom op de goede manier aan een volk.</strong><br>Koop het bij een geregistreerde bijenhouderij, neem bijen over van een redding of gebruik een lokfles, een geprepareerde fles die een nieuwe zwerm aantrekt.",
+    "criar_p4": "<strong>Zorg goed voor de kast.</strong><br>Zet hem in de schaduw, beschut tegen regen en ver van gif. Kijk de eerste maanden alleen: de kast steeds openen verzwakt het volk.",
+    "criar_legenda": "Uruçu’s op de broedraten: het volk groeit van binnen naar buiten.",
+    "criar_mel_titulo": "En de honing?",
+    "criar_mel_texto": "Weinig: een kast jataí geeft meestal rond een liter per jaar, of minder. Hun grootste cadeau is dat ze de planten in de buurt bestuiven.",
+    "criar_nao_titulo": "Wat je niet doet",
+    "criar_n1": "Haal geen nesten uit de natuur: het volk gaat dan bijna altijd dood. Het juiste is een redding door iemand die het kan.",
+    "criar_n2": "Koop geen volk uit een andere streek, ook al is het goedkoop.",
+    "criar_n3": "Wil je honing of volken verkopen, vraag het dan eerst na bij de milieudienst van je staat."
   },
   "js": {
     "perguntas": [

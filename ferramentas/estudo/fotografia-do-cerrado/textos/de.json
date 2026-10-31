@@ -135,9 +135,33 @@
     "sobre_133": "Über uns",
     "sobre_134": "<a href=\"sobre.html\" aria-current=\"page\">Über uns</a>",
     "sobre_135": "Über uns — Fotografia do Cerrado",
-    "sobre_136": "Mission, Zielgruppe und Farbpalette von Fotografia do Cerrado."
+    "sobre_136": "Mission, Zielgruppe und Farbpalette von Fotografia do Cerrado.",
+    "faq_titulo": "Häufige Fragen",
+    "faq_q1": "Brauche ich eine Profikamera?",
+    "faq_r1": "Nein. Ein Handy mit Zoom macht schon gute Fotos von Vögeln am Wasser, und der Guide hilft bei Licht und Bildausschnitt. Wer eine Kamera hat, bringt ein Objektiv ab 300 mm mit.",
+    "faq_q2": "Was soll ich mitbringen?",
+    "faq_r2": "Kleidung in gedeckten Farben, einen Hut, Sonnencreme, Mückenschutz, eine Wasserflasche und eine Taschenlampe mit Rotlicht für den späten Nachmittag.",
+    "faq_q3": "Dürfen Kinder mit?",
+    "faq_r3": "Beim Tagesausflug in den Nationalpark Brasília ja, ab 10 Jahren und mit einer Begleitperson. Die längeren Expeditionen sind ab 16 Jahren.",
+    "faq_q4": "Und wenn es regnet?",
+    "faq_r4": "Bei leichtem Regen findet der Ausflug statt: Viele Tiere zeigen sich gleich danach. Bei Gewitter verschieben wir kostenlos.",
+    "quando_titulo": "Wann hinfahren?",
+    "quando_intro": "Wähle den Monat: Wir zeigen, wie der Cerrado gerade aussieht und welche Touren dann ihre beste Zeit haben.",
+    "quando_rotulo": "Reisemonat",
+    "foto_anterior": "Vorheriges Foto",
+    "foto_proxima": "Nächstes Foto"
   },
   "js": {
-    "obrigado": "Danke, {nome}! Dies ist eine Demoseite: Ihre Nachricht wurde nicht wirklich gesendet."
+    "obrigado": "Danke, {nome}! Dies ist eine Demoseite: Ihre Nachricht wurde nicht wirklich gesendet.",
+    "est_chuvas": "Regenzeit",
+    "est_seca": "Beginn der Trockenzeit",
+    "est_auge": "Mitten in der Trockenzeit",
+    "nota_chuvas": "Der Cerrado wird grün, viele Vögel brüten, und der Pequi trägt von Oktober bis Januar Früchte. Die Wege können schlammig sein: Kurze Touren sind dann besser.",
+    "nota_seca": "Das Gras trocknet und wird niedriger, Tiere sind von Weitem leichter zu sehen. Die violetten Ipês blühen, und der späte Nachmittag gehört dem Mähnenwolf.",
+    "nota_auge": "Die gelben und weißen Ipês blühen, und die Tiere sammeln sich am Wasser. Heiße Tage, kalte Morgen und besondere Vorsicht wegen Bränden.",
+    "boa_epoca": "Beste Zeit",
+    "anterior": "Vorheriges Foto",
+    "proxima": "Nächstes Foto",
+    "posicao": "{n} von {total}"
   }
 }

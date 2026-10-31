@@ -195,5 +195,60 @@
       "Accés sense contrasenya, amb un codi per correu o amb Google, i avisos al mòbil amb Trupe tancada.",
       "Més de 80 proves automàtiques, còpia diària xifrada i instal·lació al mòbil com a app."
     ]
+  },
+  "cafe-aurora": {
+    "etiqueta": "Web amb efectes",
+    "alt": "Pàgina d'inici del Café Aurora: el nom en neó blau i rosa sobre una ciutat cyberpunk de nit",
+    "resumo": "Cafeteria cyberpunk que no existeix, amb pantalla d'entrada, fons animat, carta i un laboratori per crear la beguda.",
+    "url": "https://cafe.linupedia.com.br/ca/",
+    "desafio": "A l’assignatura de Desenvolupament d’Interfícies, es va fer el mateix encàrrec a tres IA: ChatGPT, Gemini i DeepSeek. La feina era triar la millor pàgina, entendre cada línia i refer el codi a mà, sense perdre cap efecte.",
+    "feito": [
+      "Una cafeteria cyberpunk amb pantalla d’entrada, cursor propi, fons de partícules, carta i un laboratori per muntar la beguda, amb la tassa dibuixada només amb CSS.",
+      "De 6.00 a 18.00 el web es converteix en la Fleca Aurora: altres colors, una altra carta i un laboratori de pa, triats pel rellotge de qui visita abans que aparegui la pàgina.",
+      "La mateixa pàgina en tres versions, CSS pur, Bootstrap i Tailwind, per comparar què canvia cada manera d’escriure CSS.",
+      "És el web d’exemple del simulador de Linu Sites: cada part s’hi encén i s’apaga, i el preu canvia amb ella."
+    ],
+    "dentro": [
+      "13 idiomes generats a partir d’una sola plantilla, amb les fonts servides pel mateix web, sense CDN.",
+      "Contrast AA de dia i de nit i objectius d’almenys 24 px, comprovats amb axe; amb “reduir el moviment” activat, les animacions s’aturen.",
+      "Només accepta les ordres del simulador quan arriben de l’adreça de Linu Sites."
+    ]
+  },
+  "fotografia-do-cerrado": {
+    "etiqueta": "Web de presentació",
+    "alt": "Pàgina d'inici de Fotografia do Cerrado: una seriema a l'herba daurada, amb un ipê rosa florit al fons",
+    "resumo": "Empresa de fotografia de fauna, amb galeria filtrable, expedicions i contacte. La paleta surt del mateix bioma i cada color es va mesurar amb la regla de contrast de les WCAG.",
+    "url": "https://cerrado.linupedia.com.br/ca/",
+    "desafio": "Era una activitat de paletes de colors i WCAG: muntar una interfície petita amb els colors triats i demostrar que tot el text era llegible. Es va convertir en un web sencer, sense renunciar a la regla.",
+    "feito": [
+      "Sis pàgines d’un estudi de fotografia de fauna que no existeix: galeria amb filtre i foto ampliada, expedicions amb preguntes freqüents, qui som i contacte.",
+      "A Expedicions, tries el mes i veus com és el cerrado i quines sortides són a la millor època; a la galeria, passes d’una foto ampliada a l’altra amb les fletxes o lliscant el dit.",
+      "La paleta va sortir del mateix bioma, el marró del tronc, l’herba seca i la terra, i cada color té el contrast mesurat a la pàgina Qui som.",
+      "Mode clar i fosc, que segueix el sistema i recorda l’elecció, sense que la pàgina clara parpellegi en obrir-se.",
+      "Fotos lliures de Wikimedia Commons, amb l’autor i la llicència de cadascuna en una pàgina de crèdits."
+    ],
+    "dentro": [
+      "HTML, CSS i JavaScript sense biblioteques i sense cap estil dins de l’HTML.",
+      "Tot el text per sobre de 4,5:1 en els dos modes, focus visible i un menú que funciona amb el teclat.",
+      "13 idiomes, amb el formulari de demostració responent en l’idioma de la pàgina."
+    ]
+  },
+  "abelhas-sem-ferrao": {
+    "etiqueta": "Web educativa",
+    "alt": "Pàgina d'inici d'Abelhas sem Ferrão: la pregunta sobre les 250 espècies al costat de les fotos de la jataí, la uruçu i la mandaçaia",
+    "resumo": "Per a qui no ha sentit mai a parlar de les abelles sense fibló del Brasil: un recorregut de 3 minuts, què fer si trobes un niu i un test ràpid. Va néixer d'un exercici de Design Thinking.",
+    "url": "https://abelhas.linupedia.com.br/ca/",
+    "desafio": "A l’exercici de Design Thinking, l’entrevista va mostrar que molta gent troba un niu d’abella nativa, creu que pica i el destrueix. El web havia de canviar això en pocs minuts.",
+    "feito": [
+      "Un recorregut de tres pantalles, amb barra de progrés, per a qui no ha sentit mai a parlar de les abelles sense fibló.",
+      "El pas a pas del que cal fer en trobar un niu i de com demanar el rescat.",
+      "Una pàgina per a qui vol criar abelles natives a casa, seguint les normes de la meliponicultura.",
+      "Un test de cinc preguntes que diu per escrit si la resposta és correcta, no només amb el color."
+    ],
+    "dentro": [
+      "Va començar com a prototip a Lovable i es va refer des de zero en HTML, CSS i JavaScript.",
+      "El focus va al títol de cada pantalla i el lector de pantalla anuncia cada canvi; el text principal té un contrast de 13,56:1.",
+      "13 idiomes, mode clar i fosc i fotos lliures, amb els crèdits de cadascuna."
+    ]
   }
 }

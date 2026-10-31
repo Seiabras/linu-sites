@@ -143,7 +143,7 @@
     "passo4_titulo": "Online",
     "passo4_texto": "Die Website kommt sicher auf Ihre Domain und wird auch danach weiter gepflegt.",
     "europa_acess_titulo": "Barrierefreiheit",
-    "europa_acess_texto": "Der European Accessibility Act gilt seit Juni 2025, und WCAG 2.2 ist die aktuelle Fassung der Richtlinien für barrierefreie Webinhalte. Was diese Seite schon tut: Kontrast auf AA-Niveau im hellen und dunklen Modus, sichtbarer Fokus, alles per Tastatur erreichbar und, mit „Bewegung reduzieren“, stoppen die Bewegungsanimationen. Das Café Aurora im Simulator gehört nicht dazu: Es ist eine eigene Beispiel-Website. Das ist weder eine Zertifizierung noch eine Garantie für rechtliche Konformität.",
+    "europa_acess_texto": "Der European Accessibility Act gilt seit Juni 2025, und WCAG 2.2 ist die aktuelle Fassung der Richtlinien für barrierefreie Webinhalte. Was diese Seite schon tut: Kontrast auf AA-Niveau im hellen und dunklen Modus, sichtbarer Fokus, alles per Tastatur erreichbar und, mit „Bewegung reduzieren“, stoppen die Bewegungsanimationen. Das ist weder eine Zertifizierung noch eine Garantie für rechtliche Konformität.",
     "europa_priv_titulo": "Datenschutz (DSGVO)",
     "europa_priv_texto": "Diese Website hat keine Cookies, keine Tracker, kein CDN und keine Google Fonts: Alles kommt von unserem eigenen Server. Das gewählte Design und die Sprache bleiben nur in Ihrem Browser gespeichert.",
     "detalhe_titulo": "",
@@ -222,7 +222,8 @@
     "proj_cta_titulo": "So etwas für Ihr Unternehmen?",
     "proj_cta_texto": "Erzählen Sie, was Sie machen und was Ihnen vorschwebt. Es darf auch nur eine Idee sein: Die Antwort kommt mit Fragen und nächsten Schritten.",
     "proj_og_titulo": "{nome}, von Linu Sites",
-    "proj_whats": "Hallo! Ich habe das Projekt {nome} gesehen und möchte über eine Website sprechen."
+    "proj_whats": "Hallo! Ich habe das Projekt {nome} gesehen und möchte über eine Website sprechen.",
+    "cerrado_nome": "Fotografia do Cerrado"
   },
   "js": {
     "menu_abrir": "Menü öffnen",

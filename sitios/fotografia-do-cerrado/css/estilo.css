@@ -1,4 +1,12 @@
 /* Fotografia do Cerrado — estilos
+
+   Caderno de campo (31/10/2026): os títulos e os nomes científicos na Newsreader (licença OFL, fontes/OFL.txt), servida
+   pelo próprio site; o texto continua na fonte do aparelho. Só o alfabeto latino: em japonês, coreano e chinês os
+   títulos ficam na fonte do aparelho. */
+@font-face { font-family: "Newsreader"; font-style: normal; font-weight: 600; font-display: swap; src: url(../fontes/newsreader-600.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+@font-face { font-family: "Newsreader"; font-style: italic; font-weight: 400; font-display: swap; src: url(../fontes/newsreader-400-italic.woff2) format("woff2"); unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD; }
+
+/* Fotografia do Cerrado — paleta
    Paleta da Atividade 4 (contrastes medidos pela fórmula da WCAG 2.2):
    texto branco só sobre a primária e o oliva; as cores claras só com texto preto. */
 :root {
@@ -121,7 +129,7 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .foto button { border: none; padding: 0; background: none; cursor: zoom-in; display: block; }
 .foto img { aspect-ratio: 3 / 2; object-fit: cover; width: 100%; }
 .foto .legenda { padding: 1rem 1.1rem 1.2rem; }
-.foto h3 { font-size: 1.15rem; }
+.foto h2, .foto h3 { font-size: 1.15rem; } /* na galeria o nome é h2: vem logo depois do h1 */
 .foto .cientifico { color: var(--texto-suave); font-style: italic; font-size: .92rem; }
 .foto p { font-size: .95rem; margin-top: .4rem; }
 .selo { display: inline-block; background: var(--areia); color: var(--preto); font-size: .78rem; font-weight: 700; padding: .15rem .55rem; border-radius: 4px; margin-top: .6rem; }
@@ -132,27 +140,28 @@ a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visib
 .numeros strong { display: block; font-size: 1.8rem; color: var(--destaque); }
 
 .mais { margin-top: 1.5rem; }
+.mais a { display: inline-block; padding-block: 2px; }
 .sub { font-size: 1.4rem; }
 .sub.espaco { margin-top: 2rem; }
 .lista { margin: .6rem 0 0 1.2rem; }
+
+/* Perguntas frequentes das expedições (31/10/2026): abrem e fecham sem JavaScript */
+.perguntas { display: grid; gap: .6rem; margin-top: .8rem; }
+.perguntas details { background: var(--superficie); border: 1px solid var(--borda); border-radius: var(--raio); }
+.perguntas summary { cursor: pointer; font-weight: 600; padding: .9rem 1.1rem; }
+.perguntas details p { padding: 0 1.1rem 1rem; color: var(--texto-suave); }
 .numeros .cor-primaria { border-color: var(--primaria); }
 .numeros .cor-oliva { border-color: var(--oliva); }
 .numeros .cor-oliva strong { color: var(--oliva-texto); }
 .numeros .cor-areia { border-color: var(--areia); background: var(--areia); }
 .numeros .cor-terra { border-color: var(--terra); background: var(--terra); }
-.numeros .cor-areia strong, .numeros .cor-terra strong { color: var(--preto); }
+.numeros .cor-areia, .numeros .cor-terra, .numeros .cor-areia strong, .numeros .cor-terra strong { color: var(--preto); }
 
 /* Filtro da galeria */
 .filtros { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1.5rem; }
 .filtros button { background: var(--superficie); color: var(--texto); border: 2px solid var(--primaria); padding: .45rem 1rem; border-radius: 999px; font: inherit; font-weight: 600; cursor: pointer; }
 .filtros button[aria-pressed="true"] { background: var(--primaria); color: var(--branco); }
 
-/* Foto ampliada */
-dialog.ampliada { border: none; border-radius: var(--raio); padding: 0; max-width: min(960px, 94vw); background: var(--preto); color: var(--branco); }
-dialog.ampliada::backdrop { background: rgba(0,0,0,.8); }
-dialog.ampliada img { max-height: 75vh; width: 100%; object-fit: contain; }
-dialog.ampliada .rodape-foto { display: flex; justify-content: space-between; align-items: center; gap: 1rem; padding: .8rem 1rem; }
-dialog.ampliada button { background: var(--branco); color: var(--preto); border: none; border-radius: 6px; padding: .4rem .9rem; font: inherit; font-weight: 700; cursor: pointer; }
 
 /* Expedições */
 .expedicao { display: grid; grid-template-columns: 1fr 1.3fr; gap: 1.5rem; background: var(--superficie); border: 1px solid var(--borda); border-radius: var(--raio); overflow: hidden; margin-bottom: 1.5rem; }
@@ -176,7 +185,7 @@ form.contato input, form.contato textarea, form.contato select { width: 100%; pa
 /* Rodapé */
 .rodape { background: var(--preto); color: var(--branco); padding: 2rem 0; font-size: .92rem; }
 .rodape .container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1rem; }
-.rodape a { color: var(--branco); }
+.rodape a { color: var(--branco); display: inline-block; padding-block: 3px; } /* alvo de 24 px */
 
 @media (prefers-reduced-motion: no-preference) {
     .foto { transition: transform .2s; }
@@ -185,5 +194,602 @@ form.contato input, form.contato textarea, form.contato select { width: 100%; pa
 
 /* Os idiomas do site, no rodapé (ferramentas/gerar-estudo.mjs do linu-sites) */
 .idiomas-rodape { width: 100%; font-size: .85rem; line-height: 1.9; }
-.idiomas-rodape a { white-space: nowrap; }
+.idiomas-rodape a { white-space: nowrap; display: inline-block; padding-block: 4px; } /* alvo de 24 px (WCAG 2.2, 2.5.8) */
 .idiomas-rodape a[aria-current] { font-weight: 700; text-decoration: none; }
+
+/* ============================================================
+   Caderno de campo (31/10/2026)
+   ============================================================ */
+h1, h2, h3, .marca, .fatos strong, dialog.ampliada .titulo { font-family: "Newsreader", Georgia, serif; font-weight: 600; letter-spacing: -.01em; }
+.cientifico, dialog.ampliada .cientifico { font-family: "Newsreader", Georgia, serif; font-style: italic; font-weight: 400; }
+:lang(ja) :is(h1, h2, h3, .fatos strong, dialog.ampliada .titulo), :lang(ko) :is(h1, h2, h3, .fatos strong, dialog.ampliada .titulo),
+:lang(zh-Hant) :is(h1, h2, h3, .fatos strong, dialog.ampliada .titulo) { font-family: inherit; letter-spacing: 0; }
+.abertura h1 { font-size: clamp(2.4rem, 6vw, 4rem); line-height: 1.02; }
+
+/* As fotos sem caixa em volta: a foto, o nome e o texto, como numa revista */
+.foto { border: none; background: none; border-radius: 0; overflow: visible; }
+.foto img { border-radius: var(--raio); }
+.foto .legenda { padding: .9rem 0 0; }
+.foto h2, .foto h3 { font-size: 1.35rem; }
+
+/* No computador, a primeira foto da inicial ocupa a altura das outras duas */
+@media (min-width: 900px) {
+    .grade.destaque { grid-template-columns: 1.5fr 1fr; grid-auto-flow: dense; column-gap: 2rem; row-gap: 1.5rem; }
+    .grade.destaque .foto:first-child { grid-row: span 2; }
+    /* a grande cresce até a altura das duas menores, sem deixar vão */
+    .grade.destaque .foto:first-child img { flex: 1; min-height: 0; aspect-ratio: auto; object-position: 75% 50%; }
+    .grade.destaque .foto:first-child h3 { font-size: 1.8rem; }
+    .grade.destaque .foto:not(:first-child) img { aspect-ratio: 2 / 1; }
+}
+
+/* Os números do cerrado: tipografia grande separada por fios, sem cartões */
+.fatos { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--borda); }
+.fatos div { padding: 1.4rem 1.5rem 0 0; color: var(--texto); }
+.fatos div + div { border-left: 1px solid var(--borda); padding-left: 1.5rem; }
+.fatos strong { display: block; font-size: clamp(2.6rem, 6vw, 3.8rem); line-height: 1; color: var(--destaque); margin-bottom: .5rem; }
+@media (max-width: 700px) {
+    .fatos { grid-template-columns: 1fr; border-top: 0; }
+    .fatos div, .fatos div + div { border-left: 0; border-top: 1px solid var(--borda); padding: 1.1rem 0; }
+}
+
+/* Foto ampliada: anterior e próxima pelos botões, pelas setas do teclado e deslizando o dedo */
+/* o * { margin: 0 } do começo tirava a centralização do <dialog> */
+dialog.ampliada { margin: auto; border: none; border-radius: var(--raio); padding: 0; width: min(1000px, 94vw); max-height: 94vh; background: #0D0A07; color: var(--branco); overflow: auto; }
+dialog.ampliada::backdrop { background: rgba(0, 0, 0, .82); }
+dialog.ampliada .moldura { position: relative; background: #000; touch-action: pan-y; }
+dialog.ampliada .moldura img { width: 100%; height: auto; max-height: 68vh; object-fit: contain; display: block; }
+dialog.ampliada .seta { position: absolute; top: 50%; translate: 0 -50%; width: 48px; height: 48px; border-radius: 50%; border: none; background: rgba(0, 0, 0, .6); color: var(--branco); display: grid; place-items: center; cursor: pointer; }
+dialog.ampliada .seta:hover { background: rgba(0, 0, 0, .85); }
+dialog.ampliada .seta svg { fill: none; stroke: currentColor; stroke-width: 2.5; stroke-linecap: round; stroke-linejoin: round; }
+dialog.ampliada .anterior { left: .75rem; }
+dialog.ampliada .proxima { right: .75rem; }
+dialog.ampliada .rodape-foto { display: flex; justify-content: space-between; align-items: flex-start; gap: 1.5rem; padding: 1rem 1.2rem 1.2rem; }
+dialog.ampliada .titulo { font-size: 1.5rem; line-height: 1.2; }
+dialog.ampliada .cientifico { color: #D9CDBE; }
+dialog.ampliada .texto { margin-top: .4rem; max-width: 60ch; color: #EFE7DC; }
+dialog.ampliada .acoes-foto { display: flex; align-items: center; gap: 1rem; flex-shrink: 0; }
+dialog.ampliada .posicao { color: #D9CDBE; font-variant-numeric: tabular-nums; }
+dialog.ampliada .fechar { background: var(--branco); color: var(--preto); border: none; border-radius: 6px; padding: .5rem 1rem; font: inherit; font-weight: 700; cursor: pointer; }
+dialog.ampliada :focus-visible { outline-color: var(--branco); }
+@media (max-width: 600px) {
+    dialog.ampliada .rodape-foto { flex-direction: column; gap: .8rem; }
+    dialog.ampliada .acoes-foto { width: 100%; justify-content: space-between; }
+    dialog.ampliada .seta { width: 44px; height: 44px; }
+}
+
+/* Quando ir? No computador fica parado ao lado das expedições; no celular, os meses rolam de lado */
+.quando { margin-bottom: 2rem; }
+.quando > p { color: var(--texto-suave); }
+.meses { display: grid; grid-template-columns: repeat(4, 1fr); gap: .4rem; margin: 1rem 0; }
+.meses button { font: inherit; font-weight: 600; text-transform: capitalize; padding: .55rem .2rem .45rem; border-radius: 6px; border: 1px solid var(--borda); border-bottom: 4px solid var(--estacao, var(--borda)); background: var(--superficie); color: var(--texto); cursor: pointer; }
+.meses button[data-estacao="chuvas"] { --estacao: var(--oliva); }
+.meses button[data-estacao="seca"] { --estacao: var(--areia); }
+.meses button[data-estacao="auge"] { --estacao: var(--primaria); }
+.meses button:hover { border-color: var(--texto-suave); border-bottom-color: var(--estacao); }
+.meses button[aria-pressed="true"] { background: var(--primaria); color: var(--branco); border-color: var(--primaria); border-bottom-color: var(--estacao); }
+.estacao { border-left: 4px solid var(--destaque); padding: .2rem 0 .2rem 1rem; }
+.estacao-nome { font-family: "Newsreader", Georgia, serif; font-weight: 600; font-size: 1.25rem; }
+:lang(ja) .estacao-nome, :lang(ko) .estacao-nome, :lang(zh-Hant) .estacao-nome { font-family: inherit; }
+.estacao-nota { color: var(--texto-suave); margin-top: .3rem; }
+.selo-epoca { display: inline-block; margin-bottom: .5rem; background: var(--oliva); color: var(--branco); font-size: .82rem; font-weight: 700; padding: .2rem .6rem; border-radius: 4px; }
+/* sem apagar as outras (opacidade baixaria o contraste do texto): a da época ganha borda e selo */
+.expedicao { transition: border-color .2s ease-out, box-shadow .2s ease-out; }
+.expedicao.na-epoca { border-color: var(--oliva); box-shadow: 0 0 0 1px var(--oliva); }
+@media (max-width: 999px) {
+    .meses { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: .4rem; }
+    .meses button { flex: 0 0 auto; min-width: 64px; scroll-snap-align: start; }
+}
+@media (min-width: 1000px) {
+    .expedicoes { display: grid; grid-template-columns: 300px 1fr; gap: 2.5rem; align-items: start; }
+    .quando { position: sticky; top: 88px; margin-bottom: 0; }
+    .expedicao { grid-template-columns: 1fr 1.2fr; }
+}
+
+/* Troca de página suave (View Transitions); o cabeçalho fica parado */
+@media (prefers-reduced-motion: no-preference) {
+    @view-transition { navigation: auto; }
+    .topo { view-transition-name: topo; }
+    .meses button, .filtros button, dialog.ampliada .seta { transition: background-color .18s ease-out, border-color .18s ease-out, color .18s ease-out; }
+    dialog.ampliada .moldura img { transition: opacity .18s ease-out; }
+    dialog.ampliada .moldura img.trocando { opacity: 0; }
+}
+
+/* O nome do site numa linha só no celular, com a fonte de título mais larga */
+.marca { white-space: nowrap; }
+@media (max-width: 420px) { .marca { font-size: 1.02rem; } .marca svg { width: 22px; height: 22px; } }
+
+/* Tablet: os 12 meses cabem numa linha, e a primeira foto da inicial vai de lado a lado, com as outras duas embaixo */
+@media (min-width: 700px) and (max-width: 999px) {
+    .meses { display: grid; grid-template-columns: repeat(12, 1fr); overflow: visible; }
+    .meses button { min-width: 0; padding-inline: 0; }
+}
+@media (min-width: 560px) and (max-width: 899px) {
+    .grade.destaque { grid-template-columns: 1fr 1fr; }
+    .grade.destaque .foto:first-child { grid-column: 1 / -1; }
+    .grade.destaque .foto:first-child img { aspect-ratio: 2 / 1; object-position: 75% 50%; }
+}
+
+/* Contato (31/10/2026): no computador, o formulário e o quadro "Sua saída" lado a lado; o erro embaixo de cada campo */
+:root { --erro: #A3221A; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) { --erro: #FFA494; } }
+:root[data-theme="dark"] { --erro: #FFA494; }
+.contato-layout { display: grid; gap: 2rem; }
+@media (min-width: 900px) {
+    .contato-layout { grid-template-columns: minmax(0, 560px) minmax(0, 380px); gap: 4rem; align-items: start; }
+    .resumo { position: sticky; top: 88px; }
+}
+.opcional { font-weight: 400; color: var(--texto-suave); }
+form.contato [aria-invalid="true"] { border-color: var(--erro); }
+.erro { color: var(--erro); font-weight: 600; font-size: .92rem; margin-top: .35rem; }
+.resumo { background: var(--fundo-alt); border-radius: var(--raio); padding: 1.4rem 1.5rem; border-top: 4px solid var(--primaria); }
+.resumo-corpo { margin: .6rem 0 1.2rem; color: var(--texto-suave); }
+.resumo-corpo dl { display: grid; grid-template-columns: auto 1fr; gap: .25rem 1rem; color: var(--texto); }
+.resumo-corpo dt { font-weight: 700; }
+.resumo-nota { margin-top: .8rem; padding-left: .8rem; border-left: 3px solid var(--areia); color: var(--texto); }
+.resumo-nota.boa { border-left-color: var(--oliva); }
+.resumo-sub { font-size: 1.1rem; }
+
+/* ============================================================
+   Fichas de espécie, diário de campo e "Como fotografamos" (31/10/2026, só em português por enquanto)
+   ============================================================ */
+.ficha-link { margin-top: .5rem; }
+.ficha-link a, .ver-ficha a { font-weight: 700; display: inline-block; padding-block: 2px; }
+.ficha-link a::after { content: " →"; }
+dialog.ampliada .ver-ficha { margin-top: .5rem; }
+dialog.ampliada .ver-ficha a { color: var(--branco); }
+
+.ficha-especie { padding: 1.5rem 0 4rem; }
+.trilha { color: var(--texto-suave); margin-bottom: 1.2rem; }
+.trilha a { display: inline-block; padding-block: 2px; }
+.ficha-topo { display: grid; gap: 1.5rem; align-items: center; }
+.ficha-topo img { border-radius: var(--raio); width: 100%; }
+.ficha-grupo { text-transform: none; color: var(--texto-suave); font-weight: 600; }
+.ficha-resumo h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); line-height: 1.05; }
+.ficha-resumo .cientifico { font-size: 1.2rem; margin: .2rem 0 1rem; }
+.ficha-abre { font-size: 1.1rem; max-width: 52ch; }
+.selo-calmo { background: var(--fundo-alt); color: var(--texto); border: 1px solid var(--borda); }
+.ficha-corpo { display: grid; gap: 2.2rem; margin-top: 3rem; }
+.ficha-corpo section > p { max-width: 65ch; }
+.ficha-fatos { display: grid; grid-template-columns: auto 1fr; gap: .45rem 1.2rem; margin-top: .6rem; }
+.ficha-fatos dt { font-weight: 700; }
+.ficha-fatos dd { max-width: 55ch; }
+.ficha-onde { border-left: 4px solid var(--oliva); padding-left: 1rem; }
+.ficha-navegar { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-top: 3rem; padding-top: 1.2rem; border-top: 1px solid var(--borda); }
+.ficha-navegar a { font-weight: 700; padding: .4rem 0; }
+.ficha-nota { color: var(--texto-suave); font-size: .9rem; margin-top: 1.5rem; }
+@media (min-width: 900px) {
+    .ficha-topo { grid-template-columns: 1.15fr 1fr; gap: 3rem; }
+    .ficha-corpo { grid-template-columns: 1fr 1fr; column-gap: 3.5rem; }
+    .ficha-onde { grid-column: 1 / -1; }
+}
+
+/* "Do tamanho de quê?": a pessoa e o bicho na mesma escala */
+.escala { margin-top: .8rem; }
+.escala svg { width: 100%; max-width: 460px; height: auto; display: block; }
+.escala .chao { stroke: var(--texto-suave); stroke-width: 2; }
+.escala .pessoa { fill: var(--texto-suave); }
+.escala .bicho { fill: var(--areia); }
+.escala text { fill: var(--texto); font-size: 17px; font-weight: 600; }
+.escala figcaption { color: var(--texto-suave); font-size: .92rem; margin-top: .3rem; }
+
+/* Diário de campo */
+.diario { display: grid; gap: 3.5rem; }
+.relato { display: grid; gap: 1.2rem; }
+.relato img { border-radius: var(--raio); width: 100%; }
+.relato h2 { font-size: clamp(1.5rem, 3vw, 2rem); line-height: 1.15; margin: .2rem 0 .8rem; }
+.relato p + p { margin-top: .8rem; }
+.relato > div > p:not(.relato-data):not(.relato-links) { max-width: 62ch; }
+.relato-data { color: var(--texto-suave); font-weight: 600; }
+.relato-links { color: var(--texto-suave); }
+.relato-links a { display: inline-block; padding-block: 2px; }
+@media (min-width: 900px) {
+    .relato { grid-template-columns: 2fr 3fr; gap: 2.5rem; align-items: start; }
+    .relato img { position: sticky; top: 88px; }
+}
+
+/* Como fotografamos: texto corrido, numa coluna de leitura */
+.texto-longo { max-width: 70ch; }
+.texto-longo p + p { margin-top: .8rem; }
+.texto-longo .sub + p, .texto-longo .sub + ul { margin-top: .5rem; }
+
+/* Teste as cores (página Sobre, só em português por enquanto) */
+.testador { display: grid; gap: 2rem; }
+@media (min-width: 900px) { .testador { grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; } .testador-resultado { position: sticky; top: 88px; } }
+.cores-grupo { border: 0; margin-bottom: 1.2rem; }
+.cores-grupo legend { font-weight: 700; margin-bottom: .5rem; }
+.amostras { display: flex; flex-wrap: wrap; gap: .4rem; }
+.amostra { position: relative; display: inline-flex; align-items: center; gap: .45rem; padding: .4rem .75rem .4rem .45rem; border: 1px solid var(--borda); border-radius: 999px; background: var(--superficie); cursor: pointer; font-size: .92rem; min-height: 36px; }
+.amostra input { position: absolute; opacity: 0; inset: 0; margin: 0; cursor: pointer; }
+.amostra:has(input:checked) { border-color: var(--texto); box-shadow: 0 0 0 1px var(--texto); font-weight: 700; }
+.amostra:has(input:focus-visible) { outline: 3px solid var(--texto); outline-offset: 2px; }
+.bolinha { width: 22px; height: 22px; border-radius: 50%; border: 1px solid rgba(0, 0, 0, .35); flex: none; }
+.cor-814f12 { background: #814F12; } .cor-5e3a0d { background: #5E3A0D; } .cor-7e7450 { background: #7E7450; }
+.cor-c8985a { background: #C8985A; } .cor-cfa58c { background: #CFA58C; } .cor-6e6465 { background: #6E6465; }
+.cor-fbf7f1 { background: #FBF7F1; } .cor-ffffff { background: #FFFFFF; } .cor-000000 { background: #000000; }
+.botao-linha { background: transparent; color: var(--link); border: 2px solid currentColor; }
+.botao-linha:hover { background: var(--fundo-alt); }
+.previa { border-radius: var(--raio); padding: 1.6rem; border: 1px solid var(--borda); transition: color .2s ease-out, background-color .2s ease-out; }
+.previa-grande { font-family: "Newsreader", Georgia, serif; font-weight: 600; font-size: 1.6rem; line-height: 1.2; margin-bottom: .5rem; }
+.razao { margin: 1rem 0 .4rem; }
+.razao strong { font-family: "Newsreader", Georgia, serif; font-size: 2.6rem; line-height: 1; }
+.veredito { list-style: none; display: grid; gap: .35rem; }
+.veredito li { padding-left: 1.6rem; position: relative; }
+.veredito li::before { position: absolute; left: 0; font-weight: 700; }
+.veredito .passa::before { content: "✓"; color: var(--oliva-texto); }
+.veredito .nao-passa::before { content: "✗"; color: var(--erro); }
+.veredito .nao-passa { color: var(--texto-suave); }
+
+/* Do tamanho de quê? (galeria): os comprimentos na mesma régua (0 a 2,2 m), com a altura de uma pessoa tracejada */
+.tamanhos-lista { list-style: none; display: grid; gap: .9rem; max-width: 760px; }
+.tamanhos-lista a { display: block; color: var(--texto); text-decoration: none; }
+.tamanho-nome { font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.tamanho-medida { color: var(--texto-suave); margin-left: .3rem; }
+.tamanhos-lista svg, .tamanhos-legenda svg { display: block; }
+.tamanhos-lista svg { width: 100%; height: 20px; margin-top: .3rem; }
+.tamanhos-lista .barra { fill: var(--areia); transition: fill .18s ease-out; }
+.tamanhos-lista a:hover .barra, .tamanhos-lista a:focus-visible .barra { fill: var(--primaria); }
+.pessoa-linha { stroke: var(--texto); stroke-width: 2; stroke-dasharray: 4 3; vector-effect: non-scaling-stroke; }
+.tamanhos-legenda { display: flex; align-items: center; gap: .6rem; color: var(--texto-suave); margin-top: 1rem; }
+/* a altura de uma pessoa: uma linha só, de cima a baixo, em 1,70 m da régua de 2,2 m */
+.tamanhos-lista { position: relative; padding-bottom: .2rem; }
+.tamanhos-lista::after { content: ""; position: absolute; top: 0; bottom: 0; left: calc(170 / 220 * 100%); border-left: 2px dashed var(--texto); pointer-events: none; }
+
+/* Onde ficam os parques (Expedições, só em português por enquanto): o mapa do Centro-Oeste, com contorno do IBGE */
+.onde-layout { display: grid; gap: 1.5rem; }
+@media (min-width: 900px) { .onde-layout { grid-template-columns: 3fr 2fr; gap: 3rem; align-items: center; } }
+.mapa { width: 100%; height: auto; display: block; border-radius: var(--raio); background: var(--fundo-alt); }
+.mapa .estado { fill: var(--superficie); stroke: var(--borda); stroke-width: 1.2; stroke-linejoin: round; }
+.mapa .destaque { fill: var(--areia); stroke: var(--primaria); }
+.mapa .sigla { fill: var(--texto-suave); font-size: 18px; font-weight: 700; }
+.mapa .destaque + .sigla, .mapa .sigla-df { fill: var(--preto); }
+.mapa .sigla-df { font-size: 12px; }
+.mapa .parque text { fill: var(--texto); font-size: 19px; font-weight: 700; paint-order: stroke; stroke: var(--fundo-alt); stroke-width: 4px; stroke-linejoin: round; }
+.mapa .ponto { fill: var(--primaria); stroke: var(--branco); stroke-width: 2.5; transition: r .18s ease-out; }
+.mapa .alvo { fill: transparent; }
+.mapa .parque:hover .ponto, .mapa .parque:focus-visible .ponto { r: 9; }
+.mapa .parque:focus-visible { outline: 3px solid var(--texto); }
+.mapa .mini-fundo { fill: var(--superficie); stroke: var(--borda); }
+.mapa .mini-brasil { fill: var(--areia); }
+.mapa .mini-recorte { fill: none; stroke: var(--primaria); stroke-width: 4; }
+.mapa-figura figcaption { color: var(--texto-suave); font-size: .9rem; margin-top: .4rem; }
+.distancias { list-style: none; display: grid; gap: 1rem; }
+.distancias li { border-left: 3px solid var(--areia); padding-left: .9rem; }
+.distancias a { font-weight: 700; display: inline-block; padding-block: 2px; }
+.distancias span { display: block; color: var(--texto-suave); }
+.expedicao:target { border-color: var(--primaria); box-shadow: 0 0 0 2px var(--primaria); }
+html { scroll-padding-top: 80px; }
+
+/* Página de erro (404) */
+.pagina-erro { min-height: calc(100vh - 64px - 160px); display: grid; align-items: center; }
+.pagina-erro h1 { font-size: clamp(2rem, 5vw, 3rem); line-height: 1.1; max-width: 18ch; margin-bottom: .8rem; }
+.erro-codigo { color: var(--texto-suave); font-weight: 700; }
+.pagina-erro .botao { margin: .3rem .4rem .3rem 0; }
+
+/* Sem a página pular (31/10/2026): o "Quando ir?" só aparece com JavaScript, mas o espaço dele já está reservado desde
+   o primeiro quadro (a classe .js vem do tema-inicio.js), e o selo "Melhor época" fica no canto do cartão */
+.quando { display: none; }
+.js .quando { display: block; }
+.js .meses { min-height: 50px; }
+.js .estacao { min-height: 9.5em; }
+@media (min-width: 700px) { .js .estacao { min-height: 6.5em; } }
+@media (min-width: 1000px) { .js .meses { min-height: 150px; } .js .estacao { min-height: 9em; } }
+.expedicao { position: relative; }
+.selo-epoca { position: absolute; top: .8rem; left: .8rem; margin: 0; z-index: 1; box-shadow: 0 1px 4px rgba(0, 0, 0, .25); }
+.so-leitor { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.ficha-onde a { display: inline-block; padding-block: 3px; }
+
+/* ============================================================
+   Guia do cerrado (31/10/2026, em português): o bioma, as paisagens e as fontes
+   ============================================================ */
+.guia-chapeu { font-weight: 700; color: var(--destaque); margin-bottom: .2rem; }
+.guia-chapeu.claro { color: var(--areia); }
+.guia-topo p { max-width: 65ch; }
+sup.nota { font-size: .7em; line-height: 0; margin-left: 1px; }
+sup.nota a { display: inline-block; min-width: 1.4em; min-height: 24px; line-height: 24px; text-align: center; font-weight: 700; text-decoration: none; border-radius: 4px; }
+sup.nota a:hover { background: var(--fundo-alt); text-decoration: underline; }
+
+/* Página com índice: no computador, o índice fica parado à esquerda; no celular, vira uma faixa que rola de lado */
+.guia-layout { display: grid; gap: 1.5rem; padding-top: 2rem; padding-bottom: 4rem; }
+.indice { position: sticky; top: 64px; z-index: 3; background: var(--fundo); padding: .6rem 0; border-bottom: 1px solid var(--borda); margin: 0 -1.25rem; padding-inline: 1.25rem; }
+.indice-titulo { display: none; }
+.indice ol { list-style: none; display: flex; gap: .4rem; overflow-x: auto; scrollbar-width: none; }
+.indice a { display: block; white-space: nowrap; padding: .4rem .8rem; border-radius: 999px; border: 1px solid var(--borda); text-decoration: none; color: var(--texto); font-weight: 600; font-size: .92rem; transition: background-color .18s ease-out, color .18s ease-out; }
+.indice a[aria-current] { background: var(--primaria); border-color: var(--primaria); color: var(--branco); }
+.guia-texto > section { padding-top: 1rem; margin-bottom: 2.5rem; scroll-margin-top: 130px; }
+.guia-texto h2 { font-size: clamp(1.6rem, 3.4vw, 2.1rem); margin-bottom: .6rem; }
+.guia-texto p { max-width: 68ch; }
+.guia-texto p + p { margin-top: .8rem; }
+@media (min-width: 1000px) {
+    .guia-layout { grid-template-columns: 220px minmax(0, 1fr); gap: 3.5rem; align-items: start; }
+    .indice { top: 88px; margin: 0; padding: 0; border: 0; background: none; }
+    .indice-titulo { display: block; font-weight: 700; color: var(--texto-suave); margin-bottom: .5rem; }
+    .indice ol { flex-direction: column; overflow: visible; border-left: 2px solid var(--borda); gap: 0; }
+    .indice a { border: 0; border-radius: 0; margin-left: -2px; border-left: 2px solid transparent; padding: .45rem .9rem; }
+    .indice a[aria-current] { background: none; color: var(--destaque); border-left-color: var(--destaque); }
+    .guia-texto > section { scroll-margin-top: 90px; }
+}
+
+/* O mapa dos biomas */
+.biomas-figura { margin-top: 1.2rem; }
+.biomas-botoes { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1rem; }
+.biomas-botoes button { display: inline-flex; align-items: center; gap: .45rem; font: inherit; font-weight: 600; font-size: .92rem; padding: .4rem .8rem; border-radius: 999px; border: 1px solid var(--borda); background: var(--superficie); color: var(--texto); cursor: pointer; min-height: 36px; transition: border-color .18s ease-out, box-shadow .18s ease-out; }
+.biomas-botoes button[aria-pressed="true"] { border-color: var(--texto); box-shadow: 0 0 0 1px var(--texto); }
+.bioma-pct { color: var(--texto-suave); font-weight: 400; }
+.cor-bioma { width: 16px; height: 16px; border-radius: 4px; flex: none; }
+.mapa-biomas { width: 100%; max-width: 560px; height: auto; display: block; }
+.mapa-biomas .bioma { cursor: pointer; transition: opacity .2s ease-out; }
+.mapa-biomas .estados { fill: none; stroke: var(--fundo); stroke-width: .6; stroke-linejoin: round; pointer-events: none; }
+.bioma-cerrado, .cor-cerrado { fill: #C8985A; background: #C8985A; }
+.bioma-amazonia, .cor-amazonia { fill: #5E7F55; background: #5E7F55; }
+.bioma-mata-atlantica, .cor-mata-atlantica { fill: #8FAE7A; background: #8FAE7A; }
+.bioma-caatinga, .cor-caatinga { fill: #B9A88A; background: #B9A88A; }
+.bioma-pampa, .cor-pampa { fill: #A7B46B; background: #A7B46B; }
+.bioma-pantanal, .cor-pantanal { fill: #6E9A9B; background: #6E9A9B; }
+.mapa-biomas[data-destaque] .bioma { opacity: .28; }
+.mapa-biomas[data-destaque="cerrado"] .bioma-cerrado, .mapa-biomas[data-destaque="amazonia"] .bioma-amazonia,
+.mapa-biomas[data-destaque="mata-atlantica"] .bioma-mata-atlantica, .mapa-biomas[data-destaque="caatinga"] .bioma-caatinga,
+.mapa-biomas[data-destaque="pampa"] .bioma-pampa, .mapa-biomas[data-destaque="pantanal"] .bioma-pantanal { opacity: 1; }
+.biomas-figura figcaption, .nota-calculo { color: var(--texto-suave); font-size: .9rem; margin-top: .6rem; }
+.bioma-legenda { font-weight: 700; color: var(--texto); }
+
+/* Estado por estado */
+.estados-lista { list-style: none; display: grid; gap: .55rem; margin-top: 1rem; max-width: 640px; }
+.estados-lista li { display: grid; grid-template-columns: 1fr auto; column-gap: 1rem; }
+.estado-nome { font-weight: 600; }
+.estado-pct { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--destaque); }
+.estados-lista svg { grid-column: 1 / -1; width: 100%; height: 10px; display: block; border-radius: 3px; overflow: hidden; }
+.estado-fundo { fill: var(--fundo-alt); }
+.estado-barra { fill: var(--areia); }
+
+/* Clima */
+.estacoes { display: grid; grid-template-columns: repeat(12, 1fr); gap: 3px; margin: 1.2rem 0 .4rem; max-width: 640px; }
+.estacao-faixa { text-align: center; font-size: .8rem; font-weight: 700; padding: .55rem 0; border-radius: 4px; }
+.estacao-faixa.chuva { background: var(--oliva); color: var(--branco); }
+.estacao-faixa.seca { background: var(--areia); color: var(--preto); }
+.estacoes-legenda { display: flex; align-items: center; gap: .4rem; color: var(--texto-suave); font-size: .9rem; }
+.chave { width: 14px; height: 14px; border-radius: 3px; display: inline-block; margin-left: .6rem; }
+.chave.chuva { background: var(--oliva); margin-left: 0; } .chave.seca { background: var(--areia); }
+.numeros-guia { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1rem; margin: 1.2rem 0; border-top: 1px solid var(--borda); }
+.numeros-guia div { padding-top: .8rem; }
+.numeros-guia dt { font-family: "Newsreader", Georgia, serif; font-weight: 600; font-size: 1.9rem; color: var(--destaque); line-height: 1.1; }
+.numeros-guia dd { color: var(--texto-suave); }
+.adaptacoes { margin: .8rem 0 1rem 1.2rem; display: grid; gap: .5rem; max-width: 68ch; }
+.aviso-guia { border-left: 4px solid var(--erro); padding-left: 1rem; }
+
+/* As paisagens: o corte desenhado e as fichas */
+.corte-figura { margin-bottom: 2rem; }
+.corte-rolagem { overflow-x: auto; border-radius: var(--raio); background: var(--fundo-alt); scroll-snap-type: x proximity; }
+.corte-rolagem:focus-visible { outline: 3px solid var(--texto); outline-offset: 2px; }
+.corte { display: block; width: 100%; min-width: 1050px; height: auto; }
+.corte .trecho { cursor: pointer; scroll-snap-align: center; }
+.corte .trecho-fundo { fill: transparent; transition: fill .18s ease-out; }
+.corte .trecho:hover .trecho-fundo { fill: rgba(200, 152, 90, .14); }
+.corte .trecho.escolhido .trecho-fundo { fill: rgba(200, 152, 90, .28); }
+.corte .chao { stroke: var(--texto-suave); stroke-width: 2; }
+.corte text { fill: var(--texto); font-size: 11px; font-weight: 600; }
+.corte .trecho.escolhido text { font-weight: 800; }
+.corte .grupo { fill: var(--texto-suave); font-size: 12px; font-weight: 700; }
+.corte .divisa { stroke: var(--borda); stroke-dasharray: 3 4; }
+.corte .tronco { stroke: #6B4A2B; stroke-width: 3; fill: none; stroke-linecap: round; }
+.corte .tronco.fino { stroke-width: 1.6; }
+.corte .copa { fill: #6F8F4E; }
+.corte .copa.seca { fill: #B49A6A; }
+.corte .folha { stroke: #5F7F44; stroke-width: 3; fill: none; stroke-linecap: round; }
+.corte .capim { stroke: #B8A45A; stroke-width: 1.5; fill: none; }
+.corte .arbusto { fill: #8A9A55; }
+.corte .rocha { fill: #9C928A; }
+.corte .murundu { fill: #C2A878; }
+.corte .agua { fill: #6E9FB8; }
+.corte-figura figcaption { color: var(--texto-suave); font-size: .9rem; margin-top: .5rem; }
+.paisagens-layout { display: grid; gap: 1.5rem; }
+.tipos { display: flex; flex-wrap: wrap; gap: .4rem; }
+.tipo { font: inherit; font-weight: 600; text-align: left; padding: .5rem .85rem; border-radius: 8px; border: 1px solid var(--borda); background: var(--superficie); color: var(--texto); cursor: pointer; transition: border-color .18s ease-out, background-color .18s ease-out; }
+.tipo .tipo-formacao { display: block; font-size: .78rem; font-weight: 600; color: var(--texto-suave); }
+.tipo[aria-pressed="true"] { background: var(--primaria); border-color: var(--primaria); color: var(--branco); }
+.tipo[aria-pressed="true"] .tipo-formacao { color: #F4EDE3; }
+.paisagem { background: var(--superficie); border: 1px solid var(--borda); border-radius: var(--raio); padding: 1.4rem 1.5rem; margin-bottom: 1rem; scroll-margin-top: 80px; }
+.paisagem h2 { font-size: clamp(1.6rem, 3.2vw, 2rem); margin: .1rem 0 .6rem; }
+.paisagem .tipo-formacao { color: var(--destaque); font-weight: 700; }
+.paisagem-dados { display: grid; grid-template-columns: auto 1fr; gap: .3rem 1rem; margin: 1rem 0; }
+.paisagem-dados dt { font-weight: 700; }
+.paisagem-reconhecer { border-left: 3px solid var(--areia); padding-left: .9rem; }
+@media (min-width: 1000px) {
+    .paisagens-layout.uma-por-vez { grid-template-columns: 340px minmax(0, 1fr); gap: 2.5rem; align-items: start; }
+    .uma-por-vez .tipos { flex-direction: column; flex-wrap: nowrap; position: sticky; top: 88px; }
+    .corte { min-width: 0; }
+}
+
+/* A inicial do guia: as portas de entrada */
+.guia-portas { display: grid; gap: 1rem; }
+@media (min-width: 760px) { .guia-portas { grid-template-columns: 1.4fr 1fr 1fr; } .porta-grande { grid-row: span 2; } }
+.porta { display: flex; flex-direction: column; gap: .3rem; padding: 1.3rem 1.4rem; border-radius: var(--raio); background: var(--superficie); border: 1px solid var(--borda); color: var(--texto); text-decoration: none; transition: border-color .18s ease-out, transform .18s ease-out; }
+.porta:hover { border-color: var(--destaque); }
+.porta strong { font-family: "Newsreader", Georgia, serif; font-weight: 600; font-size: 1.4rem; line-height: 1.2; }
+.porta-grande { background: var(--primaria); border-color: var(--primaria); color: var(--branco); justify-content: flex-end; min-height: 220px; }
+.porta-grande strong { font-size: 2rem; }
+.porta-chapeu { font-weight: 700; color: var(--destaque); font-size: .9rem; }
+.porta-grande .porta-chapeu { color: var(--areia); }
+.porta span:last-child { color: var(--texto-suave); }
+.porta-grande span:last-child { color: #F4EDE3; }
+.foto h3 a { color: inherit; text-decoration: none; }
+.foto h3 a:hover { text-decoration: underline; }
+@media (prefers-reduced-motion: no-preference) { .porta:hover { transform: translateY(-2px); } }
+
+/* Fontes */
+.fontes-lista { list-style: none; display: grid; gap: 1rem; }
+.fontes-lista li { display: grid; grid-template-columns: 2.2rem 1fr; gap: .2rem .6rem; scroll-margin-top: 90px; }
+.fontes-lista li:target { background: var(--fundo-alt); border-radius: 8px; padding: .4rem; }
+.fonte-numero { grid-row: span 2; font-family: "Newsreader", Georgia, serif; font-weight: 600; font-size: 1.3rem; color: var(--destaque); }
+.fontes-lista a { justify-self: start; display: inline-block; padding-block: 2px; font-weight: 600; }
+/* contraste e alvos de toque (conferido com o axe e a medida de 24 px) */
+.porta-grande .porta-chapeu { color: var(--creme); }
+sup.nota a { min-width: 24px; }
+.foto h3 a { display: inline-block; padding-block: 1px; }
+
+/* Espécies: o catálogo com filtros (no computador, os filtros ficam parados ao lado) e o calendário das frutas */
+.especies-layout { display: grid; gap: 1.5rem; }
+@media (min-width: 1000px) { .especies-layout { grid-template-columns: 280px minmax(0, 1fr); gap: 3rem; align-items: start; } .filtros-especies { position: sticky; top: 88px; } }
+.filtros-especies { display: grid; gap: .5rem; align-content: start; }
+.filtros-especies > label, .filtros-especies legend { font-weight: 700; }
+.filtros-especies fieldset { border: 0; margin: .4rem 0; }
+.filtros-especies input[type="search"], .filtros-especies select { width: 100%; padding: .65rem .8rem; border: 2px solid var(--cinza); border-radius: 6px; font: inherit; background: var(--superficie); color: var(--texto); }
+.chips { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: .4rem; }
+.chip { font: inherit; font-weight: 600; font-size: .9rem; padding: .35rem .75rem; min-height: 32px; border-radius: 999px; border: 1px solid var(--borda); background: var(--superficie); color: var(--texto); cursor: pointer; transition: background-color .18s ease-out, color .18s ease-out; }
+.chip[aria-pressed="true"] { background: var(--primaria); border-color: var(--primaria); color: var(--branco); }
+.so-ameacadas { display: flex; align-items: center; gap: .5rem; font-weight: 600; margin-top: .4rem; min-height: 32px; cursor: pointer; }
+.so-ameacadas input { width: 24px; height: 24px; accent-color: var(--primaria); }
+.contagem { margin-top: .6rem; font-size: 1.05rem; }
+.especies-lista { list-style: none; display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 1.6rem 1.4rem; }
+/* cada espécie: a miniatura (foto ou ícone do grupo) ao lado do texto, para a lista não ficar comprida demais */
+.esp { display: grid; grid-template-columns: 72px minmax(0, 1fr); gap: .9rem; align-items: start; }
+.esp img, .esp-icone { width: 72px; height: 72px; object-fit: cover; border-radius: 10px; }
+.esp-icone { display: grid; place-items: center; }
+.esp-icone svg { fill: currentColor; stroke: currentColor; stroke-width: 0; }
+.esp-icone svg [fill="none"] { stroke-width: 2; }
+.esp-fauna { background: var(--fundo-alt); color: var(--primaria); border: 1px solid var(--borda); }
+.esp-flora { background: var(--fundo-alt); color: var(--oliva-texto); border: 1px solid var(--borda); }
+.esp-texto { padding-top: 0; }
+.esp-grupo { color: var(--texto-suave); font-weight: 600; font-size: .85rem; }
+.esp h2 { font-size: 1.2rem; line-height: 1.2; }
+.esp h2 a { color: inherit; display: inline-block; padding-block: 1px; }
+.esp .cientifico { margin-bottom: .3rem; font-size: .92rem; }
+.esp p { font-size: .94rem; }
+.esp-onde { color: var(--texto-suave); font-size: .88rem !important; margin-top: .3rem; }
+.vazio { padding: 1.5rem; background: var(--fundo-alt); border-radius: var(--raio); display: flex; gap: 1rem; align-items: center; flex-wrap: wrap; }
+.calendario-rolagem { overflow-x: auto; margin-top: 1rem; }
+.calendario-rolagem:focus-visible { outline: 3px solid var(--texto); outline-offset: 2px; }
+.calendario { border-collapse: separate; border-spacing: 3px; min-width: 560px; width: 100%; max-width: 820px; }
+.calendario th { font-weight: 700; text-align: left; padding: .3rem .5rem .3rem 0; font-size: .92rem; }
+.calendario thead th { text-align: center; color: var(--texto-suave); font-weight: 600; text-transform: capitalize; }
+.calendario td { height: 28px; background: var(--superficie); border-radius: 4px; }
+.calendario td.tem { background: var(--oliva); }
+
+/* no celular, os grupos rolam de lado numa linha só, para a lista aparecer logo */
+@media (max-width: 999px) {
+    .filtros-especies .chips { flex-wrap: nowrap; overflow-x: auto; padding-bottom: .3rem; scrollbar-width: thin; }
+    .filtros-especies .chip { flex: none; }
+    .filtros-especies .nota-calculo { display: none; }
+}
+
+/* Água, povos e ameaças (parte 3 do guia) */
+.bacias-lista, .desmate-lista { list-style: none; display: grid; gap: .7rem; margin: 1.2rem 0 .4rem; max-width: 640px; }
+.bacias-lista li { display: grid; grid-template-columns: 1fr auto; column-gap: 1rem; }
+.bacia-nome { font-weight: 700; }
+.bacia-pct { font-family: "Newsreader", Georgia, serif; font-weight: 600; font-size: 1.4rem; color: var(--destaque); line-height: 1; }
+.bacias-lista svg { grid-column: 1 / -1; width: 100%; height: 14px; display: block; border-radius: 3px; overflow: hidden; margin-top: .25rem; }
+.bacia-barra { fill: #6E9FB8; }
+.desmate-lista li { display: grid; grid-template-columns: 3.2rem minmax(0, 1fr) auto; gap: .8rem; align-items: center; }
+.desmate-lista .ano { font-weight: 700; font-variant-numeric: tabular-nums; }
+.desmate-lista svg { width: 100%; height: 18px; display: block; }
+.desmate-barra { fill: var(--primaria); }
+.desmate-valor { font-variant-numeric: tabular-nums; font-weight: 600; min-width: 6.5em; text-align: right; }
+.povos-layout { display: grid; gap: 2rem; }
+@media (min-width: 900px) { .povos-layout { grid-template-columns: minmax(0, 1fr) 300px; gap: 3.5rem; align-items: start; } .povos-numero { position: sticky; top: 88px; } }
+.povos-lista { display: grid; gap: .7rem; }
+.povo { background: var(--superficie); border: 1px solid var(--borda); border-radius: var(--raio); }
+.povo summary { cursor: pointer; padding: 1rem 1.2rem; list-style-position: inside; }
+.povo-nome { font-family: "Newsreader", Georgia, serif; font-weight: 600; font-size: 1.35rem; }
+.povo p { padding: 0 1.2rem 1.2rem; max-width: 68ch; }
+.povo[open] { border-color: var(--destaque); }
+.povos-numero { background: var(--fundo-alt); border-radius: var(--raio); padding: 1.4rem 1.5rem; border-top: 4px solid var(--oliva); }
+.povos-grande { font-family: "Newsreader", Georgia, serif; font-weight: 600; font-size: 3rem; line-height: 1; color: var(--destaque); margin-top: .8rem; }
+.povos-grande:first-child { margin-top: 0; }
+
+/* Aprender brincando: o quiz, o "Qual paisagem é esta?" e o glossário */
+.quiz-caixa, .adivinha-caixa { background: var(--fundo-alt); border-radius: var(--raio); padding: 1.4rem 1.5rem; margin-top: 1rem; max-width: 720px; }
+.quiz-contador, .adivinha-placar { color: var(--texto-suave); font-weight: 600; }
+.quiz-pergunta { font-size: 1.4rem; line-height: 1.25; margin: .3rem 0 1rem; }
+.quiz-pergunta:focus { outline: none; }
+.quiz-opcoes { display: grid; gap: .5rem; }
+.quiz-opcoes button { font: inherit; font-weight: 600; text-align: left; padding: .8rem 1rem; border-radius: 8px; border: 2px solid var(--borda); background: var(--superficie); color: var(--texto); cursor: pointer; transition: border-color .18s ease-out, background-color .18s ease-out; }
+.quiz-opcoes button:hover:not([disabled]) { border-color: var(--texto); }
+.quiz-opcoes button[disabled] { cursor: default; }
+.quiz-opcoes button.certa { border-color: var(--oliva); background: color-mix(in srgb, var(--oliva) 18%, var(--superficie)); }
+.quiz-opcoes button.errada { border-color: var(--erro); }
+.quiz-opcoes .botao { justify-self: start; }
+.quiz-retorno { margin-top: 1rem; padding: .9rem 1rem; border-radius: 8px; background: var(--superficie); border-left: 4px solid var(--oliva); }
+.quiz-retorno.errado { border-left-color: var(--erro); }
+.quiz-retorno a { display: inline-block; padding-block: 2px; font-weight: 700; }
+.quiz-acoes { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; }
+.quiz-acoes .botao { margin-left: auto; }
+.adivinha-figura { background: var(--fundo); border-radius: 8px; margin-bottom: 1rem; min-height: 150px; }
+.adivinha-desenho { display: block; width: 100%; max-width: 360px; height: auto; margin: 0 auto; }
+.adivinha-desenho .tronco { stroke: #6B4A2B; stroke-width: 3; fill: none; stroke-linecap: round; }
+.adivinha-desenho .tronco.fino { stroke-width: 1.6; }
+.adivinha-desenho .copa { fill: #6F8F4E; } .adivinha-desenho .copa.seca { fill: #B49A6A; }
+.adivinha-desenho .folha { stroke: #5F7F44; stroke-width: 3; fill: none; stroke-linecap: round; }
+.adivinha-desenho .capim { stroke: #B8A45A; stroke-width: 1.5; fill: none; }
+.adivinha-desenho .arbusto { fill: #8A9A55; } .adivinha-desenho .rocha { fill: #9C928A; }
+.adivinha-desenho .murundu { fill: #C2A878; } .adivinha-desenho .agua { fill: #6E9FB8; }
+.adivinha-desenho .chao { stroke: var(--texto-suave); stroke-width: 2; }
+.adivinha-desenho .trecho-fundo { fill: transparent; }
+.busca-termo { width: 100%; max-width: 420px; padding: .65rem .8rem; border: 2px solid var(--cinza); border-radius: 6px; font: inherit; background: var(--superficie); color: var(--texto); margin: .6rem 0 1.2rem; }
+.glossario { display: grid; gap: .9rem; max-width: 70ch; }
+.termo dt { font-family: "Newsreader", Georgia, serif; font-weight: 600; font-size: 1.25rem; scroll-margin-top: 130px; }
+.termo dd a { display: inline-block; padding-block: 2px; font-weight: 600; }
+.quiz-opcoes .marca { font-weight: 800; }
+.esp-credito { color: var(--texto-suave); font-size: .8rem !important; margin-top: .3rem; }
+.paisagem-foto { margin: -.4rem -.5rem 1rem; }
+.paisagem-foto img { border-radius: 8px; width: 100%; height: auto; }
+.paisagem-foto figcaption { color: var(--texto-suave); font-size: .85rem; margin-top: .3rem; }
+
+/* Onde ver o Cerrado: o mapa com os parques numerados e a lista ao lado */
+.onde-ver { display: grid; gap: 2rem; }
+@media (min-width: 900px) { .onde-ver { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3rem; align-items: start; } .onde-mapa { position: sticky; top: 88px; } }
+.mapa-parques .pino circle { fill: var(--primaria); stroke: var(--branco); stroke-width: 1.5; transition: r .18s ease-out; }
+.mapa-parques .pino text { fill: var(--branco); font-size: 8px; font-weight: 800; pointer-events: none; }
+.mapa-parques .pino:hover circle, .mapa-parques .pino:focus-visible circle { r: 9; }
+.mapa-parques .bioma { cursor: default; }
+.onde-mapa figcaption { color: var(--texto-suave); font-size: .9rem; margin-top: .5rem; }
+.parques-lista { list-style: none; display: grid; gap: 1rem; }
+.parques-lista li { display: grid; grid-template-columns: 2.2rem minmax(0, 1fr); gap: .8rem; padding: .8rem; border-radius: var(--raio); scroll-margin-top: 90px; transition: background-color .2s ease-out; }
+.parques-lista li:target { background: var(--fundo-alt); }
+.parque-num { width: 2rem; height: 2rem; border-radius: 50%; background: var(--primaria); color: var(--branco); display: grid; place-items: center; font-weight: 800; }
+.parques-lista h2 { font-size: 1.25rem; line-height: 1.2; }
+.parque-uf { color: var(--texto-suave); font-weight: 600; font-size: .9rem; }
+.mapa-parques .pino circle.pino-alvo { fill: transparent; stroke: none; }
+
+/* A página de cada paisagem */
+.paisagem-topo { background: var(--fundo-alt); padding: 1.5rem 0 2.5rem; }
+.paisagem-topo-grade { display: grid; gap: 1.5rem; align-items: center; }
+@media (min-width: 900px) { .paisagem-topo-grade { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3rem; } }
+.paisagem-topo h1 { font-size: clamp(2.2rem, 5vw, 3.2rem); line-height: 1.05; margin: .2rem 0 .8rem; }
+.paisagem-abre { font-size: 1.08rem; max-width: 60ch; }
+.paisagem-figura { margin: 0; }
+.paisagem-desenho { display: block; width: 100%; max-width: 440px; height: auto; margin: 0 auto; background: var(--fundo); border-radius: var(--raio); }
+.paisagem-desenho .tronco { stroke: #6B4A2B; stroke-width: 3; fill: none; stroke-linecap: round; }
+.paisagem-desenho .tronco.fino { stroke-width: 1.6; }
+.paisagem-desenho .copa { fill: #6F8F4E; } .paisagem-desenho .copa.seca { fill: #B49A6A; }
+.paisagem-desenho .folha { stroke: #5F7F44; stroke-width: 3; fill: none; stroke-linecap: round; }
+.paisagem-desenho .capim { stroke: #B8A45A; stroke-width: 1.5; fill: none; }
+.paisagem-desenho .arbusto { fill: #8A9A55; } .paisagem-desenho .rocha { fill: #9C928A; }
+.paisagem-desenho .murundu { fill: #C2A878; } .paisagem-desenho .agua { fill: #6E9FB8; }
+.paisagem-desenho .chao { stroke: var(--texto-suave); stroke-width: 2; }
+.paisagem-desenho .trecho-fundo { fill: transparent; }
+.paisagem-figura figcaption { color: var(--texto-suave); font-size: .9rem; margin-top: .5rem; text-align: center; }
+.paisagem-figura figcaption a { display: inline-block; padding-block: 2px; font-weight: 600; }
+.paisagem-corpo { display: grid; gap: 2rem; padding-top: 2.5rem; padding-bottom: 2.5rem; }
+@media (min-width: 900px) { .paisagem-corpo { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 2.5rem; } }
+.paisagem-corpo .sub { margin-bottom: .5rem; }
+.paisagem-links { display: flex; gap: 1.2rem; flex-wrap: wrap; }
+.paisagem-links a, .esp-onde a { display: inline-block; padding-block: 2px; }
+.pagina-paisagem .ficha-navegar { margin-bottom: 3rem; }
+.paisagem-corpo .lista a, .pagina-paisagem .intro a { display: inline-block; padding-block: 2px; }
+.paisagem-desenho { max-width: 560px; }
+.paisagem-desenho .vizinho { opacity: .3; }
+/* nas páginas das paisagens, no celular, as espécies viram uma faixa que rola de lado (a página não fica comprida demais) */
+@media (max-width: 759px) {
+    .pagina-paisagem .especies-lista { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 1rem; padding-bottom: .6rem; }
+    .pagina-paisagem .esp { flex: 0 0 82%; scroll-snap-align: start; background: var(--superficie); border: 1px solid var(--borda); border-radius: var(--raio); padding: .9rem; }
+}
+
+/* As fichas das espécies sem foto: o ícone do grupo no lugar da foto, até ela chegar */
+.ficha-sem-foto { aspect-ratio: 3 / 2; border-radius: var(--raio); display: grid; place-items: center; align-content: center; gap: .4rem; }
+.ficha-sem-foto svg { fill: currentColor; stroke: currentColor; stroke-width: 0; }
+.ficha-sem-foto svg [fill="none"] { stroke-width: 2; }
+.ficha-sem-foto p { color: var(--texto-suave); font-weight: 600; font-size: .9rem; }
+.escala .pessoa-barra { fill: var(--texto-suave); }
+.escala .tronco-escala { stroke: #6B4A2B; stroke-width: 5; stroke-linecap: round; }
+.escala .copa-escala { fill: #6F8F4E; }
+.escala .folha-escala { stroke: #5F7F44; stroke-width: 4; fill: none; stroke-linecap: round; }
+.ficha-onde a, .ficha-nota a { display: inline-block; padding-block: 2px; }

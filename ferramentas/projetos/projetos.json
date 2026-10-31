@@ -10,7 +10,10 @@
     "omega",
     "barreto",
     "minhocao",
-    "trupe"
+    "trupe",
+    "cafe-aurora",
+    "fotografia-do-cerrado",
+    "abelhas-sem-ferrao"
   ],
   "fixos": {
     "linupedia": {
@@ -78,6 +81,27 @@
       "url": "https://trupe.linupedia.com.br",
       "endereco": "trupe.linupedia.com.br",
       "imagem": "trupe.webp?v=2"
+    },
+    "cafe-aurora": {
+      "nome": "Café Aurora",
+      "url": "https://cafe.linupedia.com.br/",
+      "endereco": "cafe.linupedia.com.br",
+      "imagem": "cafe-aurora.webp",
+      "codigo": "https://github.com/Seiabras/cafe-aurora"
+    },
+    "fotografia-do-cerrado": {
+      "nome": "Fotografia do Cerrado",
+      "url": "https://cerrado.linupedia.com.br/",
+      "endereco": "cerrado.linupedia.com.br",
+      "imagem": "fotografia-do-cerrado.webp",
+      "codigo": "https://github.com/Seiabras/fotografia-do-cerrado"
+    },
+    "abelhas-sem-ferrao": {
+      "nome": "Abelhas sem Ferrão",
+      "url": "https://abelhas.linupedia.com.br/",
+      "endereco": "abelhas.linupedia.com.br",
+      "imagem": "abelhas-sem-ferrao.webp",
+      "codigo": "https://github.com/Seiabras/abelhas-sem-ferrao"
     }
   }
 }

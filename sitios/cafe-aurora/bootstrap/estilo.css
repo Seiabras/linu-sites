@@ -665,7 +665,7 @@ a:hover{ color:var(--aurora-cyan) }
    FOOTER
    ============================================================ */
 .foot{padding:clamp(3rem,7vw,5rem) 0 2.4rem;position:relative;z-index:2}
-.foot h4{
+.foot h3{
   font-family:var(--font-display);font-size:.68rem;font-weight:600;
   letter-spacing:.26em;text-transform:uppercase;color:var(--aurora-cyan);
   margin-bottom:1.1rem;
@@ -676,7 +676,7 @@ a:hover{ color:var(--aurora-cyan) }
 .foot__bottom{
   margin-top:2.4rem;padding-top:1.8rem;
   border-top:1px solid var(--bs-border-color);
-  font-size:.78rem;color:#6b6390;letter-spacing:.06em;
+  font-size:.78rem;color:var(--bs-secondary-color);letter-spacing:.06em;
 }
 .foot__bottom .dot{color:var(--aurora-magenta)}
 
@@ -687,7 +687,7 @@ a:hover{ color:var(--aurora-cyan) }
   font-size:.9rem;cursor:none;
   transition:border-color .3s, box-shadow .3s;
 }
-.newsletter .form-control::placeholder{color:#6b6390}
+.newsletter .form-control::placeholder{color:#8a82ad}
 .newsletter .form-control:focus{
   background:rgba(255,255,255,.04);
   border-color:var(--aurora-cyan);

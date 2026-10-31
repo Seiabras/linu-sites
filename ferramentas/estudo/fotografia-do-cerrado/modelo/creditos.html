@@ -5,9 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{creditos_036}}</title>
     <meta name="description" content="{{creditos_037}}">
+    <link rel="icon" href="{{raiz}}img/icone.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="{{raiz}}img/icone-180.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="{{!pt-BR}}Fotografia do Cerrado{{/!pt-BR}}{{?pt-BR}}Guia do Cerrado{{/pt-BR}}">
+    <meta property="og:title" content="{{creditos_036}}">
+    <meta property="og:description" content="{{creditos_037}}">
+    <meta property="og:image" content="https://cerrado.linupedia.com.br/img/compartilhar.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="theme-color" content="#814F12">
-    <script src="{{raiz}}js/tema-inicio.js?v=2"></script>
-    <link rel="stylesheet" href="{{raiz}}css/estilo.css?v=2">
+    <script src="{{raiz}}js/tema-inicio.js?v=3"></script>
+    <link rel="preload" href="{{raiz}}fontes/newsreader-600.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="{{raiz}}css/estilo.css?v=4">
     <script src="{{raiz}}js/tema.js?v=2" defer></script>
     <script src="{{raiz}}js/menu.js?v=2" defer></script>
 {{alternativas}}
@@ -17,11 +28,11 @@
     <a class="pular" href="#conteudo">{{contato_021}}</a>
     <header class="topo">
         <div class="container">
-            <a class="marca" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#C8985A"/><circle cx="16" cy="16" r="8" fill="#5E3A0D"/><circle cx="16" cy="16" r="4" fill="#FBF7F1"/></svg> Fotografia do Cerrado</a>
+            <a class="marca" href="index.html"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#C8985A"/><circle cx="16" cy="16" r="8" fill="#5E3A0D"/><circle cx="16" cy="16" r="4" fill="#FBF7F1"/></svg> {{!pt-BR}}Fotografia do Cerrado{{/!pt-BR}}{{?pt-BR}}Guia do Cerrado{{/pt-BR}}</a>
             <button class="botao-tema" type="button" data-escuro="{{contato_023}}" data-claro="{{contato_024}}" aria-label="{{contato_023}}"><svg class="lua" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg><svg class="sol" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1"/></svg></button>
             <button class="botao-menu" type="button" aria-expanded="false" aria-controls="menu">{{contato_020}}</button>
             <nav aria-label="{{contato_025}}">
-                <ul class="menu" id="menu"><li>{{contato_019}}</li><li>{{contato_018}}</li><li>{{contato_017}}</li><li>{{contato_016}}</li><li>{{creditos_035}}</li></ul>
+                {{!pt-BR}}<ul class="menu" id="menu"><li>{{contato_019}}</li><li>{{contato_018}}</li><li>{{contato_017}}</li><li>{{contato_016}}</li><li>{{creditos_035}}</li></ul>{{/!pt-BR}}{{?pt-BR}}<ul class="menu" id="menu"><li><a href="index.html">Início</a></li><li><a href="bioma.html">O bioma</a></li><li><a href="paisagens.html">Paisagens</a></li><li><a href="especies.html">Espécies</a></li><li><a href="agua.html">Água</a></li><li><a href="povos.html">Povos</a></li><li><a href="ameacas.html">Ameaças</a></li><li><a href="aprender.html">Aprender</a></li></ul>{{/pt-BR}}
             </nav>
         </div>
     </header>
@@ -36,13 +47,21 @@
         <section class="secao">
             <div class="container">
                 <ul class="creditos">
-                    <li><img src="{{raiz}}img/abertura-seriema-ipe.jpg" alt="" width="1000" height="667" loading="lazy"><div>{{creditos_032}}</div></li>
-                    <li><img src="{{raiz}}img/lobo-guara.jpg" alt="" width="1000" height="647" loading="lazy"><div>{{creditos_031}}</div></li>
-                    <li><img src="{{raiz}}img/tamandua-bandeira.jpg" alt="" width="1000" height="667" loading="lazy"><div>{{creditos_030}}</div></li>
-                    <li><img src="{{raiz}}img/arara-caninde.jpg" alt="" width="1000" height="772" loading="lazy"><div>{{creditos_029}}</div></li>
-                    <li><img src="{{raiz}}img/seriema.jpg" alt="" width="1000" height="729" loading="lazy"><div>{{creditos_028}}</div></li>
-                    <li><img src="{{raiz}}img/tucano-toco.jpg" alt="" width="1000" height="589" loading="lazy"><div>{{creditos_027}}</div></li>
+                    <li><img src="{{raiz}}img/abertura-seriema-ipe.webp" srcset="{{raiz}}img/abertura-seriema-ipe-640.webp 640w, {{raiz}}img/abertura-seriema-ipe.webp 1000w" sizes="120px" alt="" width="1000" height="667" loading="lazy"><div>{{creditos_032}}</div></li>
+                    <li><img src="{{raiz}}img/lobo-guara.webp" srcset="{{raiz}}img/lobo-guara-640.webp 640w, {{raiz}}img/lobo-guara.webp 1000w" sizes="120px" alt="" width="1000" height="647" loading="lazy"><div>{{creditos_031}}</div></li>
+                    <li><img src="{{raiz}}img/tamandua-bandeira.webp" srcset="{{raiz}}img/tamandua-bandeira-640.webp 640w, {{raiz}}img/tamandua-bandeira.webp 1000w" sizes="120px" alt="" width="1000" height="667" loading="lazy"><div>{{creditos_030}}</div></li>
+                    <li><img src="{{raiz}}img/arara-caninde.webp" srcset="{{raiz}}img/arara-caninde-640.webp 640w, {{raiz}}img/arara-caninde.webp 1000w" sizes="120px" alt="" width="1000" height="772" loading="lazy"><div>{{creditos_029}}</div></li>
+                    <li><img src="{{raiz}}img/seriema.webp" srcset="{{raiz}}img/seriema-640.webp 640w, {{raiz}}img/seriema.webp 1000w" sizes="120px" alt="" width="1000" height="729" loading="lazy"><div>{{creditos_028}}</div></li>
+                    <li><img src="{{raiz}}img/tucano-toco.webp" srcset="{{raiz}}img/tucano-toco-640.webp 640w, {{raiz}}img/tucano-toco.webp 1000w" sizes="120px" alt="" width="1000" height="589" loading="lazy"><div>{{creditos_027}}</div></li>
                 </ul>
+{{?pt-BR}}
+                <h2 class="sub espaco">Mapa e fontes</h2>
+                <ul class="lista">
+                    <li>Mapa das Expedições: contorno dos estados do IBGE, publicado pela Code for America no projeto click_that_hood (licença MIT).</li>
+                    <li>Títulos na fonte Newsreader, da Production Type (licença SIL Open Font License 1.1).</li>
+                    <li>Medidas e hábitos das espécies: valores aproximados, de adultos; a situação de ameaça é a da lista nacional do ICMBio.</li>
+                </ul>
+{{/pt-BR}}
             </div>
         </section>
     </main>
@@ -51,7 +70,7 @@
         <div class="container">
             {{idiomas}}
             <p>{{contato_002}}</p>
-            <p>{{contato_001}}</p>
+            <p>{{contato_001}}{{?pt-BR}} · <a href="onde-ver.html">Onde ver</a> · <a href="expedicoes.html">Expedições</a> · <a href="diario.html">Diário de campo</a> · <a href="como-fotografamos.html">Como fotografamos</a> · <a href="sobre.html">Sobre</a> · <a href="contato.html">Contato</a> · <a href="fontes.html">Fontes</a>{{/pt-BR}}</p>
         </div>
     </footer>
 </body>

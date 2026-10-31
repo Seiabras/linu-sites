@@ -135,9 +135,33 @@
     "sobre_133": "Sobre",
     "sobre_134": "<a href=\"sobre.html\" aria-current=\"page\">Sobre</a>",
     "sobre_135": "Sobre — Fotografia do Cerrado",
-    "sobre_136": "Missão, público e paleta de cores da Fotografia do Cerrado."
+    "sobre_136": "Missão, público e paleta de cores da Fotografia do Cerrado.",
+    "faq_titulo": "Perguntas frequentes",
+    "faq_q1": "Preciso de uma câmara profissional?",
+    "faq_r1": "Não. Um telemóvel com zoom já faz boas fotografias de aves perto da água, e o guia ajuda com a luz e o enquadramento. Quem tem câmara pode trazer uma objetiva de 300 mm ou mais.",
+    "faq_q2": "O que levar?",
+    "faq_r2": "Roupa de cores neutras, chapéu, protetor solar, repelente, garrafa de água e uma lanterna de luz vermelha para o fim da tarde.",
+    "faq_q3": "As crianças podem ir?",
+    "faq_r3": "Na saída de um dia no Parque Nacional de Brasília, sim, a partir dos 10 anos e com um responsável. As expedições mais longas são a partir dos 16 anos.",
+    "faq_q4": "E se chover?",
+    "faq_r4": "Com chuva fraca a saída mantém-se: muitos animais aparecem logo a seguir. Com tempestade, remarcamos sem custos.",
+    "quando_titulo": "Quando ir?",
+    "quando_intro": "Escolha o mês: mostramos como está o cerrado e que saídas estão na melhor época.",
+    "quando_rotulo": "Mês da viagem",
+    "foto_anterior": "Fotografia anterior",
+    "foto_proxima": "Fotografia seguinte"
   },
   "js": {
-    "obrigado": "Obrigado, {nome}! Esta é uma página de demonstração: a mensagem não foi enviada a sério."
+    "obrigado": "Obrigado, {nome}! Esta é uma página de demonstração: a mensagem não foi enviada a sério.",
+    "est_chuvas": "Época das chuvas",
+    "est_seca": "Início da seca",
+    "est_auge": "Pico da seca",
+    "nota_chuvas": "O cerrado fica verde, muitas aves fazem ninho e o pequi dá fruto de outubro a janeiro. Os trilhos podem ter lama: as saídas curtas funcionam melhor.",
+    "nota_seca": "O capim seca e baixa, e torna-se mais fácil ver os animais ao longe. Os ipês-roxos florescem, e o fim da tarde é a hora do lobo-guará.",
+    "nota_auge": "Os ipês-amarelos e os brancos florescem, e os animais juntam-se perto da água. Dias quentes, madrugadas frias e cuidado redobrado com os incêndios.",
+    "boa_epoca": "Melhor época",
+    "anterior": "Fotografia anterior",
+    "proxima": "Fotografia seguinte",
+    "posicao": "{n} de {total}"
   }
 }

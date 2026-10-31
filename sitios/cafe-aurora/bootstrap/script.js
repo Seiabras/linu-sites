@@ -215,7 +215,7 @@
     const baseKey = form.querySelector('input[name="base"]:checked').value;
     const base = BASES[baseKey];
     const intensity = Number(intEl.value);
-    const tops = $$('input[name="top"]:checked', form).map(i => i.value);
+    const tops = $$('input[name="top[]"]:checked', form).map(i => i.value);
 
     intVal.textContent = intensity;
 

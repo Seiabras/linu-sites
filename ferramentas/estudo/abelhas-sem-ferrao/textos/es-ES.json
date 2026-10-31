@@ -74,7 +74,24 @@
     "teste_072": "El test necesita JavaScript activado.",
     "teste_073": "<a href=\"teste.html\" aria-current=\"page\">Test rápido</a>",
     "teste_074": "Test rápido — Abejas sin Aguijón",
-    "teste_075": "Cinco preguntas para reconocer las abejas nativas."
+    "teste_075": "Cinco preguntas para reconocer las abejas nativas.",
+    "descobrir_h1": "Descubrir en 3 minutos",
+    "criar_titulo": "¿Puedo criarlas? Abejas sin aguijón en casa — Abejas sin Aguijón",
+    "criar_descricao": "Cómo empezar a criar abejas sin aguijón en casa, de forma correcta y dentro de las normas.",
+    "criar_h1": "¿Puedo criar abejas sin aguijón?",
+    "criar_abre": "Sí, y mucha gente empieza con una sola caja, en el patio o en el balcón. Criar abejas nativas se llama meliponicultura, y tiene normas para proteger las especies.",
+    "criar_passos": "Cómo empezar",
+    "criar_p1": "<strong>Elige una especie de tu región.</strong><br>En Brasil, la Resolución CONAMA n.º 496/2020 pide criar solo especies nativas del lugar donde vives. Una abeja traída de lejos puede perjudicar a las abejas locales.",
+    "criar_p2": "<strong>Empieza por una especie mansa.</strong><br>La jataí es pequeña, mansa y vive bien en la ciudad; por eso suele ser la primera caja de quien empieza. Pregunta a un meliponicultor cuál es la mejor para tu zona.",
+    "criar_p3": "<strong>Consigue el enjambre de la forma correcta.</strong><br>Cómpralo en un meliponario registrado, recibe las abejas de un rescate o usa un cebo, una botella preparada que atrae un enjambre nuevo.",
+    "criar_p4": "<strong>Cuida la caja.</strong><br>Déjala a la sombra, protegida de la lluvia y lejos de venenos. Los primeros meses, solo observa: abrir la caja a cada rato debilita la colonia.",
+    "criar_legenda": "Uruçus sobre los panales de cría: la colonia crece de dentro hacia fuera.",
+    "criar_mel_titulo": "¿Y la miel?",
+    "criar_mel_texto": "Es poca: una caja de jataí suele dar cerca de un litro al año, o menos. Su mayor regalo es polinizar las plantas de alrededor.",
+    "criar_nao_titulo": "Lo que no hay que hacer",
+    "criar_n1": "No saques nidos de la naturaleza: casi siempre muere la colonia. Lo correcto es el rescate, hecho por alguien que sepa.",
+    "criar_n2": "No compres enjambres de otra región, aunque sean baratos.",
+    "criar_n3": "Para vender miel o enjambres, consulta antes al organismo ambiental de tu estado."
   },
   "js": {
     "perguntas": [

@@ -218,7 +218,8 @@
     "proj_cta_titulo": "あなたのビジネスにも、こんなサイトを",
     "proj_cta_texto": "どんなお仕事か、どんなものを考えているかをお聞かせください。アイデアだけでも大丈夫です。質問と次のステップをお返しします。",
     "proj_og_titulo": "{nome} — Linu Sites の実績",
-    "proj_whats": "こんにちは。{nome}の実績を見て、ウェブサイトについて相談したいと思いました。"
+    "proj_whats": "こんにちは。{nome}の実績を見て、ウェブサイトについて相談したいと思いました。",
+    "cerrado_nome": "Fotografia do Cerrado"
   },
   "js": {
     "menu_abrir": "メニューを開く",

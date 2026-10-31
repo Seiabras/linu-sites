@@ -106,9 +106,10 @@ vazia dentro de um bloco que entra faz o gerador recusar a gravação.
   preso, alvos de pelo menos 24 × 24 px e, com “menos movimento”, nada se mexe (a troca de luz fica só na opacidade e na cor). Para isso, em 30/10 subiram os
   contrastes das abas e das áreas e do número dos passos, o anel de foco ficou azul-claro nas partes escuras e por
   dentro da captura dos projetos, e o topo preso não cobre mais o que recebe foco (`scroll-padding-top`).
-- **O Café Aurora fica de fora** e o texto diz isso: é um site à parte, e ali o rodapé tem contraste de 3,7:1 e há alvos
-  menores que 24 px. Se o Café for acertado, tire a frase. Mudou a página a ponto de um item deixar de valer, tire o
-  item do texto nos 8 idiomas.
+- **O Café Aurora não fica mais de fora** (31/10/2026): o rodapé subiu para o `--muted` (antes 3,7:1), o link do rodapé
+  ganhou sublinhado, os títulos do rodapé viraram `h3` e todo link e botão solto tem pelo menos 24 px (`estilo.css`, bloco
+  “Alvos de toque”). Conferido com o axe 4.10, de dia e de noite, sem nenhuma falha, nas três versões; a frase que deixava o
+  Café de fora saiu dos 8 idiomas. Mudou a página a ponto de um item deixar de valer, tire o item do texto nos 8 idiomas.
 
 - **Privacidade** (`europa_priv_titulo`, `europa_priv_texto`): diz que o site não tem cookies, rastreador, CDN nem Google
   Fonts e que o tema e o idioma escolhidos ficam só no navegador. Conferido em 30/10/2026: nenhum `Set-Cookie` nem
@@ -126,9 +127,9 @@ não baixam nada disso: as famílias só entram no `--texto` dessas línguas, no
 
 | Língua | Caracteres | Regular + Bold |
 |---|---:|---:|
-| Japonês | 737 | 203 KB |
-| Coreano | 564 | 76 KB |
-| Chinês tradicional | 922 | 302 KB |
+| Japonês | 761 | 209 KB |
+| Coreano | 597 | 80 KB |
+| Chinês tradicional | 954 | 311 KB |
 
 - **Refazer:** nada a fazer na hora. O `node ferramentas/gerar-idiomas.mjs` compara os caracteres das páginas com o
   `ferramentas/fontes/<pasta>.txt` e refaz a fonte que mudou; depois, suba o `?v=` dela no `css/estilo.css` e o do
@@ -138,6 +139,9 @@ não baixam nada disso: as famílias só entram no `--texto` dessas línguas, no
   e o `pyftsubset`, com o brotli. O gerador procura em `PYFTSUBSET`, no `PATH` e no ambiente separado que uso aqui:
   `python3 -m venv ~/.local/share/linu-sites-fontes && ~/.local/share/linu-sites-fontes/bin/pip install fonttools brotli`.
   Sem eles, o gerador avisa e segue: a página sai normal, e o caractere novo aparece na fonte do aparelho.
+  Sem o pacote do Arch (numa sessão na nuvem, por exemplo), os dois `.ttc` saem de
+  `https://raw.githubusercontent.com/notofonts/noto-cjk/main/Sans/OTC/NotoSansCJK-{Regular,Bold}.ttc` para uma pasta
+  qualquer, apontada pelo `NOTO_CJK` (foi assim em 31/10/2026).
 - **Limite:** 400 KB somados por página. O `deploy/conferir-pagina.py` não deixa publicar acima disso. O chinês é o que
   tem menos folga; se apertar, o próximo passo é deixar no Bold só os caracteres que aparecem em negrito.
 - **Entrelinha e quebra de linha** (`css/estilo.css`): 1,85 em japonês e chinês e 1,75 em coreano; `line-break: strict` nas
@@ -200,19 +204,49 @@ node ferramentas/gerar-estudo.mjs abelhas-sem-ferrao
   `<script type="application/json" id="textos-estudo">`; sem o bloco, os scripts usam o português.
 - **Modo claro e escuro**: botão no cabeçalho (`js/tema.js`, e `js/tema-inicio.js` no `<head>` para não piscar), com as
   cores por função no CSS. No escuro, os contrastes passam do AAA (medidos: texto do Cerrado 16,1:1, do teste das
-  Abelhas acima de 7,5:1). Os CSS e scripts levam `?v=2`: mudou um deles, suba o número no modelo.
-- Os repositórios `Seiabras/fotografia-do-cerrado` e `Seiabras/abelhas-sem-ferrao` ainda não têm nada disso.
+  Abelhas acima de 7,5:1). Os CSS e scripts levam `?v=`: mudou um deles, suba o número no modelo (o CSS está em `?v=3`
+  desde 31/10/2026).
+- **O que entrou em 31/10/2026:** nas Abelhas, a página `criar.html` (“Posso criar?”: como começar, o mel e o que não
+  fazer), aberta pelo cartão “Posso criar?” da inicial, e um `h1` no percurso; no Cerrado, as perguntas frequentes no fim
+  das Expedições (`<details>`, sem JavaScript), o nome de cada foto da galeria como `h2` e a paleta do Sobre legível no
+  modo escuro. Nos dois, os links do rodapé com 24 px de altura. O axe 4.10 não acha nenhuma falha em nenhuma página, nos
+  dois modos.
+- **O Cerrado como caderno de campo (31/10/2026):** títulos e nomes científicos na Newsreader (em `fontes/`), fotos sem
+  caixa, os números em tipografia grande, o “Quando ir?” nas Expedições (`js/quando.js`; as frases em `js` do JSON, os
+  meses pelo `Intl`), a foto ampliada com anterior e próxima e fotos em WebP com versão de 640 px. Detalhes no README de
+  `Seiabras/fotografia-do-cerrado`.
+- **Só em português por enquanto (31/10/2026):** o `gerar-estudo.mjs` gera só em pt-BR as páginas listadas em
+  `ferramentas/estudo/<site>/so-pt.json` (sem alternativas nem lista de idiomas) e põe só na página em pt-BR o que estiver
+  entre `{{?pt-BR}}` e `{{/pt-BR}}` num modelo. O Cerrado usa os dois (fichas, diário, mapa, testador de contraste); a
+  lista está no README de `Seiabras/fotografia-do-cerrado`. Para traduzir, trocar o texto por chaves e tirar daqui.
+  **O Cerrado virou o Guia do Cerrado** (31/10/2026, pedido de “o site mais completo sobre o cerrado do mundo”; o nome novo vale
+  em português, e as outras línguas ficam com “Fotografia do Cerrado” até a tradução, pela chave `cerrado_nome`): em português, a
+  inicial e o menu são os do guia, com as páginas “O bioma” (mapa dos biomas do IBGE 2019, quanto de cada estado é Cerrado,
+  clima, solo, fogo), “Paisagens” (as 11 fitofisionomias de Ribeiro e Walter num corte desenhado) e “Fontes”. Saem do
+  `guia-pt.py` (rodar depois do `paginas-pt.py`); o mapa, do `biomas.py`. `{{!pt-BR}}…{{/!pt-BR}}` num modelo entra em todas
+  as línguas menos o português: é o que mantém a inicial e o menu antigos nas outras 12 até a tradução.
+  As fichas, o diário, “Como fotografamos” e a 404 do Cerrado saem do `ferramentas/estudo/fotografia-do-cerrado/paginas-pt.py`
+  (mude o texto lá e rode antes do `gerar-estudo.mjs`); o mapa das Expedições, do `mapa.py` da mesma pasta.
+  Fotos novas entram sozinhas: `img/especies/<id>.webp` e `<id>-640.webp` (com o crédito em `img/especies/creditos.json`) no
+  catálogo, e `img/paisagens/<id>…` nas fichas das paisagens; a série do desmatamento fica no `prodes.json`.
+- **A 404 do Cerrado** (`sitios/fotografia-do-cerrado/404.html`) só aparece depois de o bloco novo do `deploy/Caddyfile-bloco`
+  (`handle_errors` no `cerrado.linupedia.com.br`) ser posto na VM, como diz o `deploy/ORACLE.md`.
+- Os repositórios `Seiabras/fotografia-do-cerrado` e `Seiabras/abelhas-sem-ferrao` recebem uma cópia de
+  `sitios/<site>/` a cada mudança (o README e o CLAUDE.md de lá não vêm daqui).
 
 ## O que tem na página
 
 - **Abertura:** o que o estúdio faz e o botão de orçamento.
 - **O que fazemos:** sites de apresentação, ferramentas e painéis, apps que instalam, hospedagem.
 - **Página de cada projeto** (`/projetos/linupedia`, `/v2tech`, `/losvega`, `/marginalia`, `/minhocao`, `/trupe`, `/iconvet`,
-  `/ajoriente`, `/dojo-legacy`, `/omega`, `/barreto`): o desafio, o que foi feito e como funciona por dentro, com os fatos
+  `/ajoriente`, `/dojo-legacy`, `/omega`, `/barreto` e, desde 31/10/2026, os de estudo: `/cafe-aurora`,
+  `/fotografia-do-cerrado` e `/abelhas-sem-ferrao`): o desafio, o que foi feito e como funciona por dentro, com os fatos
   dos READMEs de cada repositório (nos cinco de clientes, do que o próprio site mostra no ar). Em todos os idiomas da página
   (`/<pasta>/projetos/<nome>`), geradas pelo `ferramentas/gerar-idiomas.mjs` junto com a inicial: o modelo é o
   `ferramentas/projetos/modelo.html`, o nome, o endereço e a captura ficam no `ferramentas/projetos/projetos.json` e
-  o texto de cada idioma no `ferramentas/projetos/textos/<código>.json`. No computador, o `python3 -m
+  o texto de cada idioma no `ferramentas/projetos/textos/<código>.json`. Um projeto com `"codigo"` no `projetos.json`
+  ganha o botão “Código no GitHub” ao lado do “Abrir”, e um `"url"` no texto do idioma troca o endereço do botão (os
+  sites de estudo abrem no mesmo idioma; a etiqueta, o resumo e o alt são os do cartão). No computador, o `python3 -m
   http.server` não completa o `.html` como o Caddy; abra `projetos/<nome>.html`.
 - **Projetos** (`#projetos`): duas abas lado a lado, “No ar” e “De estudo” (`js/movimento.js`, com setas, Home e
   End). O endereço com `#estudo` abre a segunda; sem JavaScript, as duas listas aparecem uma embaixo da outra.
@@ -231,8 +265,8 @@ node ferramentas/gerar-estudo.mjs abelhas-sem-ferrao
   alternativo nos 13 idiomas.
   O NeuroSim fica de fora por enquanto, até sair do começo.
 - **De estudo** (`#estudo`, 29/10/2026): os sites que fiz na disciplina Desenvolvimento de Interfaces, com
-  empresas fictícias: Café Aurora, Fotografia do Cerrado e Abelhas sem Ferrão. Cada cartão leva ao subdomínio e ao
-  código no GitHub; as capturas também ficam em `public/img/projetos/`.
+  empresas fictícias: Café Aurora, Fotografia do Cerrado e Abelhas sem Ferrão. Cada cartão leva à página “Como foi
+  feito” (desde 31/10/2026), ao subdomínio e ao código no GitHub; as capturas também ficam em `public/img/projetos/`.
 - **Como funciona** e **contato**: WhatsApp (61) 99667-2610 e `contato@linupedia.com.br`.
 - **Como funciona mais detalhado, só em japonês, coreano e chinês** (bloco `{{?cjk}}` do modelo, 30/10/2026): as quatro
   etapas, os prazos e o orçamento em PDF. As chaves `detalhe_*` ficam vazias nos outros 10 idiomas. Os prazos vêm das

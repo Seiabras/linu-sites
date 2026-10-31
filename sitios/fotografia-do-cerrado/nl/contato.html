@@ -5,12 +5,23 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact — Fotografia do Cerrado</title>
     <meta name="description" content="Neem contact op met Fotografia do Cerrado over expedities en foto's.">
+    <link rel="icon" href="../img/icone.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="../img/icone-180.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Fotografia do Cerrado">
+    <meta property="og:title" content="Contact — Fotografia do Cerrado">
+    <meta property="og:description" content="Neem contact op met Fotografia do Cerrado over expedities en foto's.">
+    <meta property="og:image" content="https://cerrado.linupedia.com.br/img/compartilhar.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="theme-color" content="#814F12">
-    <script src="../js/tema-inicio.js?v=2"></script>
-    <link rel="stylesheet" href="../css/estilo.css?v=2">
+    <script src="../js/tema-inicio.js?v=3"></script>
+    <link rel="preload" href="../fontes/newsreader-600.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="../css/estilo.css?v=4">
     <script src="../js/tema.js?v=2" defer></script>
     <script src="../js/menu.js?v=2" defer></script>
-    <script src="../js/contato.js?v=2" defer></script>
+    <script src="../js/contato.js?v=3" defer></script>
     <link rel="alternate" hreflang="pt-BR" href="https://cerrado.linupedia.com.br/contato">
     <link rel="alternate" hreflang="pt-PT" href="https://cerrado.linupedia.com.br/pt-pt/contato">
     <link rel="alternate" hreflang="es-ES" href="https://cerrado.linupedia.com.br/es/contato">
@@ -24,7 +35,7 @@
     <link rel="alternate" hreflang="ja-JP" href="https://cerrado.linupedia.com.br/ja/contato">
     <link rel="alternate" hreflang="ko-KR" href="https://cerrado.linupedia.com.br/ko/contato">
     <link rel="alternate" hreflang="zh-Hant" href="https://cerrado.linupedia.com.br/zh-hant/contato">
-<script type="application/json" id="textos-estudo">{"obrigado":"Bedankt, {nome}! Dit is een demopagina: je bericht is niet echt verstuurd."}</script>
+<script type="application/json" id="textos-estudo">{"obrigado":"Bedankt, {nome}! Dit is een demopagina: je bericht is niet echt verstuurd.","est_chuvas":"Regentijd","est_seca":"Begin van de droge tijd","est_auge":"Hartje droge tijd","nota_chuvas":"De cerrado wordt groen, veel vogels broeden en de pequi draagt vrucht van oktober tot januari. Paden kunnen modderig zijn: korte tochten werken het best.","nota_seca":"Het gras droogt op en wordt lager, zodat je dieren van ver ziet. De paarse ipês bloeien, en de late middag is het uur van de manenwolf.","nota_auge":"De gele en witte ipês bloeien, en de dieren verzamelen zich bij het water. Warme dagen, koude nachten en extra opletten voor natuurbranden.","boa_epoca":"Beste tijd","anterior":"Vorige foto","proxima":"Volgende foto","posicao":"{n} van {total}"}</script>
 </head>
 <body>
     <a class="pular" href="#conteudo">Naar de inhoud</a>
@@ -48,21 +59,25 @@
         </section>
         <section class="secao">
             <div class="container">
+                <div class="contato-layout">
                 <form class="contato" novalidate>
                     <div><label for="nome">Naam</label><input id="nome" name="nome" type="text" autocomplete="name" required></div>
                     <div><label for="email">E-mail</label><input id="email" name="email" type="email" autocomplete="email" required></div>
                     <div><label for="assunto">Onderwerp</label>
                         <select id="assunto" name="assunto">
-                            <option>Expeditie naar de Chapada dos Veadeiros</option>
-                            <option>Expeditie naar Nationaal Park Emas</option>
-                            <option>Uitstapje naar Nationaal Park Brasília</option>
-                            <option>Een foto gebruiken</option>
-                            <option>Iets anders</option>
+                            <option value="veadeiros">Expeditie naar de Chapada dos Veadeiros</option>
+                            <option value="emas">Expeditie naar Nationaal Park Emas</option>
+                            <option value="brasilia">Uitstapje naar Nationaal Park Brasília</option>
+                            <option value="foto">Een foto gebruiken</option>
+                            <option value="outro">Iets anders</option>
                         </select></div>
+
                     <div><label for="mensagem">Bericht</label><textarea id="mensagem" name="mensagem" rows="5" required></textarea></div>
                     <div><button class="botao" type="submit">Versturen</button></div>
                     <p class="aviso" id="aviso" role="status" tabindex="-1" hidden></p>
                 </form>
+
+                </div>
             </div>
         </section>
     </main>

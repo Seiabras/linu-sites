@@ -135,9 +135,33 @@
     "sobre_133": "About",
     "sobre_134": "<a href=\"sobre.html\" aria-current=\"page\">About</a>",
     "sobre_135": "About — Fotografia do Cerrado",
-    "sobre_136": "Mission, audience and colour palette of Fotografia do Cerrado."
+    "sobre_136": "Mission, audience and colour palette of Fotografia do Cerrado.",
+    "faq_titulo": "Frequently asked questions",
+    "faq_q1": "Do I need a professional camera?",
+    "faq_r1": "No. A phone with zoom already takes good photos of birds near the water, and the guide helps with light and framing. If you have a camera, bring a 300 mm lens or longer.",
+    "faq_q2": "What should I bring?",
+    "faq_r2": "Neutral-coloured clothes, a hat, sun cream, insect repellent, a water bottle and a red-light torch for late afternoon.",
+    "faq_q3": "Can children come?",
+    "faq_r3": "On the one-day trip to Brasília National Park, yes, from age 10 with a responsible adult. The longer expeditions are for ages 16 and up.",
+    "faq_q4": "What if it rains?",
+    "faq_r4": "In light rain the trip goes ahead: many animals show up right afterwards. In a storm, we rebook at no cost.",
+    "quando_titulo": "When to go?",
+    "quando_intro": "Pick a month: we’ll show you what the cerrado is like and which trips are at their best.",
+    "quando_rotulo": "Month of the trip",
+    "foto_anterior": "Previous photo",
+    "foto_proxima": "Next photo"
   },
   "js": {
-    "obrigado": "Thank you, {nome}! This is a demo page: your message was not actually sent."
+    "obrigado": "Thank you, {nome}! This is a demo page: your message was not actually sent.",
+    "est_chuvas": "Rainy season",
+    "est_seca": "Early dry season",
+    "est_auge": "Height of the dry season",
+    "nota_chuvas": "The cerrado turns green, many birds nest and the pequi fruits from October to January. Trails can be muddy, so shorter trips work best.",
+    "nota_seca": "The grass dries and drops, making animals easier to spot from afar. The purple ipês bloom, and late afternoon is maned wolf time.",
+    "nota_auge": "The yellow and white ipês bloom, and animals gather near water. Hot days, cold early mornings and extra care with wildfires.",
+    "boa_epoca": "Best time",
+    "anterior": "Previous photo",
+    "proxima": "Next photo",
+    "posicao": "{n} of {total}"
   }
 }

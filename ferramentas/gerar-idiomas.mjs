@@ -196,6 +196,8 @@ for (const i of idiomas) {
       x_feito: lista(p.feito),
       x_dentro: lista(p.dentro),
       x_abrir: eComercial(i.textos.proj_abrir.replace('{endereco}', p.endereco)),
+      // os projetos de estudo têm o código aberto: o botão só entra quando o projeto diz onde ("codigo" no projetos.json)
+      x_codigo: p.codigo ? `\n          <a class="botao botao-linha" href="${p.codigo}" target="_blank" rel="noopener">${eComercial(i.textos.codigo_github)}</a>` : '',
       proj_og_titulo: aspas(i.textos.proj_og_titulo.replace('{nome}', p.nome)),
       x_whatsapp: encodeURIComponent(i.textos.proj_whats.replace('{nome}', p.nome)),
     };

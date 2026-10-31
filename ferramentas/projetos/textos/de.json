@@ -195,5 +195,60 @@
       "Anmeldung ohne Passwort, per E-Mail-Code oder mit Google, und Benachrichtigungen auf dem Handy bei geschlossener Trupe.",
       "Mehr als 80 automatische Tests, tägliche verschlüsselte Sicherung und Installation auf dem Handy als App."
     ]
+  },
+  "cafe-aurora": {
+    "etiqueta": "Website mit Effekten",
+    "alt": "Startseite des Café Aurora: der Name in blauem und rosa Neon über einer Cyberpunk-Stadt bei Nacht",
+    "resumo": "Ein Cyberpunk-Café, das es nicht gibt, mit Startbildschirm, animiertem Hintergrund, Speisekarte und einem Labor, um das eigene Getränk zu mixen.",
+    "url": "https://cafe.linupedia.com.br/de/",
+    "desafio": "Im Kurs Interface-Entwicklung bekamen drei KIs denselben Auftrag: ChatGPT, Gemini und DeepSeek. Die Aufgabe war, die beste Seite zu wählen, jede Zeile zu verstehen und den Code von Hand neu zu schreiben, ohne einen einzigen Effekt zu verlieren.",
+    "feito": [
+      "Ein Cyberpunk-Café mit Startbildschirm, eigenem Cursor, Partikel-Hintergrund, Speisekarte und einem Labor, in dem man sein Getränk zusammenstellt; die Tasse ist nur mit CSS gezeichnet.",
+      "Von 6 bis 18 Uhr wird die Website zur Bäckerei Aurora: andere Farben, eine andere Karte und ein Brotlabor, ausgewählt nach der Uhr der Besucher, bevor die Seite erscheint.",
+      "Dieselbe Seite in drei Fassungen, reines CSS, Bootstrap und Tailwind, um zu vergleichen, was jede Art, CSS zu schreiben, verändert.",
+      "Sie ist die Beispiel-Website im Simulator von Linu Sites: Jeder Teil lässt sich dort ein- und ausschalten, und der Preis ändert sich mit."
+    ],
+    "dentro": [
+      "13 Sprachen aus einer einzigen Vorlage, mit Schriften von der Website selbst, ohne CDN.",
+      "AA-Kontrast bei Tag und bei Nacht und Klickziele von mindestens 24 px, geprüft mit axe; mit „Bewegung reduzieren“ stoppen die Animationen.",
+      "Sie nimmt Befehle des Simulators nur an, wenn sie von der Adresse von Linu Sites kommen."
+    ]
+  },
+  "fotografia-do-cerrado": {
+    "etiqueta": "Firmenwebsite",
+    "alt": "Startseite von Fotografia do Cerrado: eine Seriema im goldenen Gras, im Hintergrund ein blühender rosa Ipê-Baum",
+    "resumo": "Unternehmen für Tierfotografie, mit filterbarer Galerie, Expeditionen und Kontakt. Die Farbpalette stammt aus dem Biom selbst, und jede Farbe wurde nach den Kontrastregeln der WCAG geprüft.",
+    "url": "https://cerrado.linupedia.com.br/de/",
+    "desafio": "Es war eine Aufgabe zu Farbpaletten und WCAG: eine kleine Oberfläche mit den gewählten Farben bauen und beweisen, dass jeder Text lesbar ist. Daraus wurde eine ganze Website, ohne die Regel aufzugeben.",
+    "feito": [
+      "Sechs Seiten eines Tierfoto-Studios, das es nicht gibt: Galerie mit Filter und vergrößertem Foto, Expeditionen mit häufigen Fragen, Über uns und Kontakt.",
+      "Bei den Expeditionen wählt man den Monat und sieht, wie der Cerrado gerade ist und welche Touren ihre beste Zeit haben; in der Galerie wechselt man mit den Pfeilen oder per Wischen zwischen den vergrößerten Fotos.",
+      "Die Palette stammt aus dem Biom selbst, dem Braun der Baumrinde, dem trockenen Gras und der Erde, und auf der Seite Über uns steht der gemessene Kontrast jeder Farbe.",
+      "Heller und dunkler Modus, der dem System folgt und die Wahl speichert, ohne dass die helle Seite beim Öffnen aufblitzt.",
+      "Freie Fotos von Wikimedia Commons, mit Urheber und Lizenz jedes Bildes auf einer Seite mit Bildnachweisen."
+    ],
+    "dentro": [
+      "HTML, CSS und JavaScript ohne Bibliothek und ohne Stile im HTML.",
+      "Jeder Text über 4,5:1 in beiden Modi, sichtbarer Fokus und ein Menü, das per Tastatur funktioniert.",
+      "13 Sprachen, und das Demo-Formular antwortet in der Sprache der Seite."
+    ]
+  },
+  "abelhas-sem-ferrao": {
+    "etiqueta": "Lernwebsite",
+    "alt": "Startseite von Abelhas sem Ferrão: die Frage nach den 250 Arten neben Fotos der Jataí, der Uruçu und der Mandaçaia",
+    "resumo": "Für alle, die noch nie von Brasiliens stachellosen Bienen gehört haben: ein 3-Minuten-Rundgang, was man tut, wenn man ein Nest findet, und ein kurzes Quiz. Entstanden aus einer Design-Thinking-Übung.",
+    "url": "https://abelhas.linupedia.com.br/de/",
+    "desafio": "Bei der Design-Thinking-Übung zeigte das Interview: Viele finden ein Nest einheimischer Bienen, glauben, dass sie stechen, und zerstören es. Die Website sollte das in wenigen Minuten ändern.",
+    "feito": [
+      "Ein Rundgang über drei Bildschirme mit Fortschrittsbalken, für alle, die noch nie von stachellosen Bienen gehört haben.",
+      "Schritt für Schritt, was zu tun ist, wenn man ein Nest findet, und wie man um eine Rettung bittet.",
+      "Eine Seite für alle, die einheimische Bienen zu Hause halten wollen, nach den Regeln der Meliponikultur.",
+      "Ein Quiz mit fünf Fragen, das in Worten sagt, ob die Antwort stimmt, nicht nur mit Farbe."
+    ],
+    "dentro": [
+      "Begonnen als Prototyp in Lovable und von Grund auf neu gebaut in HTML, CSS und JavaScript.",
+      "Der Fokus springt zur Überschrift jedes Bildschirms und Screenreader melden jede Änderung; der Haupttext hat einen Kontrast von 13,56:1.",
+      "13 Sprachen, heller und dunkler Modus und freie Fotos, jedes mit Nachweis."
+    ]
   }
 }

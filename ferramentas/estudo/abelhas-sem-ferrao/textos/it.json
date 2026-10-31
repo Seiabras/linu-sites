@@ -74,7 +74,24 @@
     "teste_072": "Il quiz ha bisogno di JavaScript attivo.",
     "teste_073": "<a href=\"teste.html\" aria-current=\"page\">Quiz veloce</a>",
     "teste_074": "Quiz veloce — Api senza Pungiglione",
-    "teste_075": "Cinque domande per riconoscere le api native."
+    "teste_075": "Cinque domande per riconoscere le api native.",
+    "descobrir_h1": "Scoprile in 3 minuti",
+    "criar_titulo": "Posso allevarle? Api senza pungiglione in casa — Api senza Pungiglione",
+    "criar_descricao": "Come iniziare ad allevare api senza pungiglione in casa, nel modo giusto e secondo le regole.",
+    "criar_h1": "Posso allevare api senza pungiglione?",
+    "criar_abre": "Sì, e tanti iniziano con una sola cassetta, in giardino o sul balcone. Allevare api native si chiama meliponicoltura, e ci sono regole per proteggere le specie.",
+    "criar_passos": "Come iniziare",
+    "criar_p1": "<strong>Scegli una specie della tua zona.</strong><br>In Brasile, la Risoluzione CONAMA n. 496/2020 chiede di allevare solo specie native del luogo in cui si vive. Un’ape portata da lontano può danneggiare le api del posto.",
+    "criar_p2": "<strong>Inizia da una specie docile.</strong><br>La jataí è piccola, docile e vive bene in città; per questo è spesso la prima cassetta di chi comincia. Chiedi a un meliponicoltore quale sia la migliore per la tua zona.",
+    "criar_p3": "<strong>Procurati la colonia nel modo giusto.</strong><br>Comprala da un meliponario registrato, accogli api da un salvataggio o usa un’esca, una bottiglia preparata che attira un nuovo sciame.",
+    "criar_p4": "<strong>Cura la cassetta.</strong><br>Tienila all’ombra, al riparo dalla pioggia e lontana dai veleni. Nei primi mesi limitati a osservare: aprire la cassetta di continuo indebolisce la colonia.",
+    "criar_legenda": "Uruçu sui favi di covata: la colonia cresce dall’interno verso l’esterno.",
+    "criar_mel_titulo": "E il miele?",
+    "criar_mel_texto": "È poco: una cassetta di jataí di solito dà circa un litro all’anno, o meno. Il loro regalo più grande è impollinare le piante intorno.",
+    "criar_nao_titulo": "Cosa non fare",
+    "criar_n1": "Non prelevare nidi in natura: la colonia quasi sempre muore. La strada giusta è il salvataggio, fatto da chi sa come.",
+    "criar_n2": "Non comprare colonie di un’altra regione, anche se costano poco.",
+    "criar_n3": "Per vendere miele o colonie, informati prima presso l’ente ambientale del tuo stato."
   },
   "js": {
     "perguntas": [

@@ -135,9 +135,33 @@
     "sobre_133": "Qui som",
     "sobre_134": "<a href=\"sobre.html\" aria-current=\"page\">Qui som</a>",
     "sobre_135": "Qui som — Fotografia do Cerrado",
-    "sobre_136": "Missió, públic i paleta de colors de Fotografia do Cerrado."
+    "sobre_136": "Missió, públic i paleta de colors de Fotografia do Cerrado.",
+    "faq_titulo": "Preguntes freqüents",
+    "faq_q1": "Necessito una càmera professional?",
+    "faq_r1": "No. Un mòbil amb zoom ja fa bones fotos d’ocells a prop de l’aigua, i el guia ajuda amb la llum i l’enquadrament. Si tens càmera, pots portar un objectiu de 300 mm o més.",
+    "faq_q2": "Què he de portar?",
+    "faq_r2": "Roba de colors neutres, barret, protector solar, repel·lent, una ampolla d’aigua i una llanterna de llum vermella per al final de la tarda.",
+    "faq_q3": "Hi poden venir infants?",
+    "faq_r3": "A la sortida d’un dia al Parc Nacional de Brasília, sí, a partir de 10 anys i amb un adult responsable. Les expedicions més llargues són a partir de 16 anys.",
+    "faq_q4": "I si plou?",
+    "faq_r4": "Amb pluja fluixa la sortida es fa: molts animals apareixen just després. Amb tempesta, la canviem de data sense cap cost.",
+    "quando_titulo": "Quan hi vas?",
+    "quando_intro": "Tria el mes: et mostrem com és el cerrado i quines sortides són a la millor època.",
+    "quando_rotulo": "Mes del viatge",
+    "foto_anterior": "Foto anterior",
+    "foto_proxima": "Foto següent"
   },
   "js": {
-    "obrigado": "Gràcies, {nome}! Aquesta és una pàgina de demostració: el missatge no s’ha enviat de debò."
+    "obrigado": "Gràcies, {nome}! Aquesta és una pàgina de demostració: el missatge no s’ha enviat de debò.",
+    "est_chuvas": "Època de pluges",
+    "est_seca": "Inici de la seca",
+    "est_auge": "Ple de la seca",
+    "nota_chuvas": "El cerrado es torna verd, molts ocells fan niu i el pequi fa fruit d’octubre a gener. Els camins poden tenir fang: les sortides curtes funcionen millor.",
+    "nota_seca": "L’herba s’asseca i s’abaixa, i és més fàcil veure els animals de lluny. Floreixen els ipês morats, i el final de la tarda és l’hora del llop de crinera.",
+    "nota_auge": "Floreixen els ipês grocs i blancs, i els animals s’apleguen a prop de l’aigua. Dies calorosos, matinades fredes i molt de compte amb els incendis.",
+    "boa_epoca": "Millor època",
+    "anterior": "Foto anterior",
+    "proxima": "Foto següent",
+    "posicao": "{n} de {total}"
   }
 }
