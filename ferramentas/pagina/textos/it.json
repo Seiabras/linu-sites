@@ -222,7 +222,8 @@
     "proj_cta_titulo": "Vuoi qualcosa del genere per la tua attività?",
     "proj_cta_texto": "Raccontaci cosa fai e cosa immagini. Può essere anche solo un’idea: la risposta arriva con domande e prossimi passi.",
     "proj_og_titulo": "{nome}, di Linu Sites",
-    "proj_whats": "Ciao! Ho visto il progetto {nome} e vorrei parlare di un sito."
+    "proj_whats": "Ciao! Ho visto il progetto {nome} e vorrei parlare di un sito.",
+    "cerrado_nome": "Fotografia do Cerrado"
   },
   "js": {
     "menu_abrir": "Apri il menù",

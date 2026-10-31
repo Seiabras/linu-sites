@@ -120,7 +120,7 @@ bioma = f'''        <section class="titulo-pagina guia-topo">
                     <h2 id="estados-titulo">Estado por estado</h2>
                     <p>Quanto do território de cada estado é Cerrado. Goiás e o Distrito Federal são quase inteiros; em Mato Grosso, o Cerrado divide espaço com a Amazônia e o Pantanal.</p>
                     <ul class="estados-lista">{linhas_estados}</ul>
-                    <p class="nota-calculo">Calculado pela Fotografia do Cerrado cruzando os limites do bioma (IBGE, 2019) com o contorno dos estados, numa projeção de áreas iguais. São aproximações: o total deu 1.991.688 km², 0,4% acima do número oficial.{fonte(3)}</p>
+                    <p class="nota-calculo">Calculado aqui no guia, cruzando os limites do bioma (IBGE, 2019) com o contorno dos estados, numa projeção de áreas iguais. São aproximações: o total deu 1.991.688 km², 0,4% acima do número oficial.{fonte(3)}</p>
                 </section>
                 <section id="clima" aria-labelledby="clima-titulo">
                     <h2 id="clima-titulo">Clima: duas estações</h2>
@@ -160,7 +160,7 @@ bioma = f'''        <section class="titulo-pagina guia-topo">
             </div>
         </div>
 '''
-pagina('bioma.html', 'O bioma Cerrado: onde fica, clima, solo e fogo — Fotografia do Cerrado',
+pagina('bioma.html', 'O bioma Cerrado: onde fica, clima, solo e fogo — Guia do Cerrado',
        'O Cerrado ocupa 23,3% do Brasil: onde fica, quanto de cada estado é Cerrado, as duas estações, o solo ácido e as adaptações ao fogo, com fontes.',
        bioma, scripts=['guia.js?v=1'])
 
@@ -259,8 +259,18 @@ faixas = ''.join(f'<text class="grupo" x="{a * W + 6}" y="18">{n}</text><line cl
 corte = (f'<svg class="corte" viewBox="0 0 {W * len(P)} 250" aria-hidden="true" focusable="false">{faixas}'
          + ''.join(desenho(i, p) for i, p in enumerate(P)) + '</svg>')
 botoes = ''.join(f'<button type="button" class="tipo" data-tipo="{p["id"]}" aria-controls="tipo-{p["id"]}" aria-pressed="false"><span class="tipo-formacao">{p["formacao"]}</span> {p["nome"]}</button>' for p in P)
+SITIO_P = AQUI.parents[2] / 'sitios' / 'fotografia-do-cerrado' / 'img' / 'paisagens'
+CRED_P = {c['arquivo']: c for c in json.loads((SITIO_P / 'creditos.json').read_text())}
+def foto_paisagem(p):
+    # uma foto salva em img/paisagens/<id>.webp e <id>-640.webp entra sozinha na ficha (NO-COMPUTADOR.md, 9.1)
+    if not (SITIO_P / f"{p['id']}-640.webp").exists(): return ''
+    c = CRED_P.get(f"{p['id']}.webp")
+    leg = f'<figcaption>{p["nome"]}. Foto: {c["autor"]}, {c["licenca"]}.</figcaption>' if c else ''
+    return (f'<figure class="paisagem-foto"><img src="{{{{raiz}}}}img/paisagens/{p["id"]}-640.webp" srcset="{{{{raiz}}}}img/paisagens/{p["id"]}-640.webp 640w, '
+            f'{{{{raiz}}}}img/paisagens/{p["id"]}.webp 1000w" sizes="(max-width: 900px) 100vw, 50vw" alt="{c["alt"] if c else p["nome"]}" width="1000" height="667" loading="lazy">{leg}</figure>')
 fichas = ''.join(f'''
                     <article class="paisagem" id="tipo-{p['id']}" data-tipo="{p['id']}">
+                        {foto_paisagem(p)}
                         <p class="tipo-formacao">Formação {p['formacao'].lower()}</p>
                         <h2>{p['nome']}</h2>
                         <p>{p['texto']}{''.join(fonte(n) for n in p['f'])}</p>
@@ -289,7 +299,7 @@ paisagens = f'''        <section class="titulo-pagina guia-topo">
             </div>
         </section>
 '''
-pagina('paisagens.html', 'As 11 paisagens do Cerrado — Fotografia do Cerrado',
+pagina('paisagens.html', 'As 11 paisagens do Cerrado — Guia do Cerrado',
        'As onze fitofisionomias do Cerrado, de Ribeiro e Walter: campos, savanas e florestas, num corte desenhado para explorar, com fontes.',
        paisagens, scripts=['guia.js?v=1'])
 
@@ -310,7 +320,7 @@ fontes = f'''        <section class="titulo-pagina guia-topo">
             </div>
         </section>
 '''
-pagina('fontes.html', 'Fontes do guia — Fotografia do Cerrado', 'As fontes de cada número do guia do Cerrado: IBGE, Embrapa, ICMBio, MMA, FAPESP e artigos científicos.', fontes)
+pagina('fontes.html', 'Fontes do guia — Guia do Cerrado', 'As fontes de cada número do guia do Cerrado: IBGE, Embrapa, ICMBio, MMA, FAPESP e artigos científicos.', fontes)
 
 # ---------------------------------------------------------------- a inicial do guia (só em português)
 p = M / 'index.html'
@@ -320,7 +330,7 @@ if '{{!pt-BR}}' not in s.split('<main id="conteudo">')[1]:
     antiga = s[ini:fim]
     s = s[:ini] + '{{!pt-BR}}\n' + antiga + '{{/!pt-BR}}\n{{?pt-BR}}\n' + '<!--INICIAL-->' + '{{/pt-BR}}\n' + s[fim:]
     # título e descrição da inicial em português
-    s = re.sub(r'<title>(\{\{index_119\}\})</title>', r'<title>{{!pt-BR}}\1{{/!pt-BR}}{{?pt-BR}}Guia do Cerrado: a savana mais rica do mundo — Fotografia do Cerrado{{/pt-BR}}</title>', s)
+    s = re.sub(r'<title>(\{\{index_119\}\})</title>', r'<title>{{!pt-BR}}\1{{/!pt-BR}}{{?pt-BR}}Guia do Cerrado: a savana mais rica do mundo{{/pt-BR}}</title>', s)
 inicial = '''        <section class="abertura">
             <img src="{{raiz}}img/abertura-seriema-ipe.webp" srcset="{{raiz}}img/abertura-seriema-ipe-640.webp 640w, {{raiz}}img/abertura-seriema-ipe.webp 1000w" sizes="100vw" alt="Seriema no campo de capim dourado, com um ipê-rosa florido ao fundo" width="1000" height="667" loading="eager" fetchpriority="high">
             <div class="faixa">
@@ -439,8 +449,46 @@ ESP = [
  ('canela-de-ema', 'Canela-de-ema', 'Vellozia spp.', 'Ervas e arbustos', 'flora', None, ['campo-rupestre'], 'Planta das pedras do campo rupestre. O “tronco” é feito de restos de folhas, que protegem do fogo e da seca.', None, False, []),
  ('sempre-viva', 'Sempre-viva', 'Comanthera elegans', 'Ervas e arbustos', 'flora', None, ['campo-rupestre'], 'Flores que secam sem perder a forma; colhidas para arranjos e artesanato na Serra do Espinhaço.', None, False, []),
  ('capim-dourado', 'Capim-dourado', 'Syngonanthus nitens', 'Ervas e arbustos', 'flora', None, ['campo-limpo', 'vereda'], 'A haste dourada vira o artesanato mais conhecido do Jalapão, no Tocantins.', None, False, []),
+
+ # mais espécies (31/10/2026, noite): textos curtos, só com o que é bem estabelecido; sem categoria de ameaça onde não foi conferida
+ ('capivara', 'Capivara', 'Hydrochoerus hydrochaeris', 'Mamíferos', 'fauna', None, ['vereda', 'mata-ciliar', 'mata-de-galeria'], 'O maior roedor do mundo. Vive em grupos perto da água e mergulha para fugir.', None, False, []),
+ ('cachorro-do-mato', 'Cachorro-do-mato', 'Cerdocyon thous', 'Mamíferos', 'fauna', None, ['cerrado-sentido-restrito', 'campo-sujo', 'mata-de-galeria'], 'O canídeo mais comum do Cerrado: anda em casal, à noite, e come de tudo, de frutos a insetos.', None, False, []),
+ ('tatu-peba', 'Tatu-peba', 'Euphractus sexcinctus', 'Mamíferos', 'fauna', None, ['campo-sujo', 'cerrado-sentido-restrito'], 'Tatu de pelos claros que cava muito rápido e anda de dia nos campos.', None, False, []),
+ ('quati', 'Quati', 'Nasua nasua', 'Mamíferos', 'fauna', None, ['mata-de-galeria', 'cerradao'], 'Anda em bandos, com a cauda listrada em pé, revirando folhas atrás de bichinhos e frutos.', None, False, []),
+ ('macaco-prego', 'Macaco-prego', 'Sapajus libidinosus', 'Mamíferos', 'fauna', None, ['cerradao', 'mata-seca', 'mata-de-galeria'], 'Usa pedras como martelo para quebrar cocos duros: um dos poucos animais que fazem isso na natureza.', None, False, []),
+ ('sagui', 'Sagui-de-tufos-pretos', 'Callithrix penicillata', 'Mamíferos', 'fauna', None, ['cerradao', 'mata-de-galeria', 'cerrado-sentido-restrito'], 'Macaquinho de tufos pretos nas orelhas, comum até nas cidades do Cerrado. Come a goma que escorre das árvores.', None, False, []),
+ ('jaguatirica', 'Jaguatirica', 'Leopardus pardalis', 'Mamíferos', 'fauna', None, ['mata-de-galeria', 'cerradao'], 'Felino de pelagem pintada, do tamanho de um cachorro médio. Caça à noite.', None, False, []),
+ ('lontra', 'Lontra', 'Lontra longicaudis', 'Mamíferos', 'fauna', None, ['mata-ciliar', 'mata-de-galeria'], 'Nadadora de rios de água limpa: onde ela aparece, o rio está bem.', None, False, []),
+ ('papagaio-galego', 'Papagaio-galego', 'Alipiopsitta xanthops', 'Aves', 'fauna', None, ['cerrado-sentido-restrito', 'campo-sujo'], 'Papagaio de cabeça amarela que vive quase só no Cerrado.', None, False, []),
+ ('gralha-do-campo', 'Gralha-do-campo', 'Cyanocorax cristatellus', 'Aves', 'fauna', None, ['cerrado-sentido-restrito', 'cerradao'], 'Azul, branca e de topete, anda em bandos barulhentos. Uma das aves mais típicas do Cerrado.', None, False, []),
+ ('pica-pau-do-campo', 'Pica-pau-do-campo', 'Colaptes campestris', 'Aves', 'fauna', None, ['campo-limpo', 'campo-sujo'], 'Um pica-pau que procura formigas e cupins no chão, em vez de bicar troncos.', None, False, []),
+ ('beija-flor-tesoura', 'Beija-flor-tesoura', 'Eupetomena macroura', 'Aves', 'fauna', None, ['cerrado-sentido-restrito', 'cerradao'], 'Beija-flor grande, azul e verde, com a cauda aberta em tesoura. Defende as flores dele dos outros.', None, False, []),
+ ('urubu-rei', 'Urubu-rei', 'Sarcoramphus papa', 'Aves', 'fauna', None, ['cerradao', 'mata-de-galeria'], 'Branco e preto, com a cabeça colorida de laranja e roxo. Plana alto atrás de carcaças.', None, False, []),
+ ('curicaca', 'Curicaca', 'Theristicus caudatus', 'Aves', 'fauna', None, ['campo-limpo', 'campo-sujo'], 'Bico longo e curvo para tirar insetos do chão; o grito alto, em dupla, se ouve de longe.', None, False, []),
+ ('coral', 'Cobra-coral-verdadeira', 'Micrurus spp.', 'Répteis', 'fauna', None, ['cerrado-sentido-restrito', 'mata-de-galeria'], 'Venenosa, de anéis vermelhos, pretos e brancos ou amarelos. Há falsas-corais muito parecidas: na dúvida, não mexa em nenhuma.', None, False, []),
+ ('jabuti-piranga', 'Jabuti-piranga', 'Chelonoidis carbonarius', 'Répteis', 'fauna', None, ['cerradao', 'mata-seca'], 'Tartaruga de terra com manchas vermelhas nas patas e na cabeça. Come frutos caídos.', None, False, []),
+ ('sapo-cururu', 'Sapo-cururu', 'Rhinella diptycha', 'Anfíbios', 'fauna', None, ['vereda', 'mata-de-galeria'], 'Sapo grande, de glândulas com veneno atrás dos olhos. Aparece em massa nas primeiras chuvas.', None, False, []),
+ ('dourado', 'Dourado', 'Salminus brasiliensis', 'Peixes', 'fauna', None, ['mata-ciliar'], 'Peixe dourado e forte, que sobe os rios para desovar. Vive nos grandes rios que nascem no Cerrado.', None, False, []),
+ ('cupim-de-montículo', 'Cupim de montículo', 'Cornitermes cumulans', 'Insetos', 'fauna', None, ['campo-limpo', 'campo-sujo'], 'Constrói os cupinzeiros duros dos campos, que viram casa de corujas, lagartos e vaga-lumes.', None, False, []),
+ ('ipe-roxo', 'Ipê-roxo', 'Handroanthus impetiginosus', 'Árvores', 'flora', None, ['cerradao', 'mata-seca'], 'Floresce rosa-arroxeado no meio da seca, sem folhas, antes dos ipês amarelos.', None, False, []),
+ ('copaiba', 'Copaíba', 'Copaifera langsdorffii', 'Árvores', 'flora', None, ['cerradao', 'mata-de-galeria'], 'O óleo que escorre do tronco é usado há muito tempo na medicina popular.', None, False, []),
+ ('sucupira-branca', 'Sucupira-branca', 'Pterodon emarginatus', 'Árvores', 'flora', None, ['cerrado-sentido-restrito', 'cerradao'], 'Árvore de flores lilás e sementes aladas, usadas na medicina popular.', None, False, []),
+ ('murici', 'Murici', 'Byrsonima spp.', 'Arbustos', 'flora', None, ['cerrado-sentido-restrito', 'campo-sujo'], 'Frutinhas amarelas de cheiro forte, que viram doce e licor.', None, False, []),
+ ('cajuzinho', 'Cajuzinho-do-cerrado', 'Anacardium humile', 'Arbustos', 'flora', None, ['campo-sujo', 'cerrado-sentido-restrito'], 'Um cajueiro anão: quase toda a planta fica embaixo da terra, o que a protege do fogo. Por cima, só os galhos e os cajuzinhos.', None, False, []),
+ ('gabiroba', 'Gabiroba', 'Campomanesia spp.', 'Arbustos', 'flora', None, ['campo-sujo', 'cerrado-sentido-restrito'], 'Parente da goiaba, com frutinhas verde-amareladas doces.', None, False, []),
+ ('jenipapo', 'Jenipapo', 'Genipa americana', 'Árvores', 'flora', None, ['mata-ciliar', 'mata-de-galeria'], 'O fruto verde dá uma tinta preta usada por muitos povos indígenas para pintar o corpo.', None, False, []),
+ ('guariroba', 'Guariroba', 'Syagrus oleracea', 'Palmeiras', 'flora', None, ['palmeiral', 'cerradao'], 'Palmeira de palmito amargo, ingrediente da cozinha de Goiás.', None, False, []),
+ ('faveiro', 'Faveiro', 'Dimorphandra mollis', 'Árvores', 'flora', None, ['cerrado-sentido-restrito'], 'As favas são colhidas para a indústria de remédios: uma renda para muitas comunidades.', None, False, []),
+ ('chuveirinho', 'Chuveirinho', 'Paepalanthus spp.', 'Ervas e arbustos', 'flora', None, ['campo-rupestre', 'campo-limpo'], 'Sempre-viva de flores brancas que se abrem como a ducha de um chuveiro.', None, False, []),
+ ('lixeira', 'Lixeira', 'Curatella americana', 'Árvores', 'flora', None, ['cerrado-sentido-restrito'], 'As folhas são tão ásperas que já foram usadas como lixa.', None, False, []),
+ ('pau-santo', 'Pau-santo', 'Kielmeyera coriacea', 'Árvores', 'flora', None, ['cerrado-sentido-restrito', 'campo-sujo'], 'Casca de cortiça grossa e flores brancas perfumadas na seca.', None, False, []),
 ]
 NOME_PAISAGEM = {p['id']: p['nome'] for p in P}
+SITIO = AQUI.parents[2] / 'sitios' / 'fotografia-do-cerrado'
+CRED_ESP = {c['arquivo']: c for c in json.loads((SITIO / 'img' / 'especies' / 'creditos.json').read_text())}
+def foto_nova(id_):
+    # uma foto salva em img/especies/<id>.webp e <id>-640.webp entra sozinha no catálogo (NO-COMPUTADOR.md, 9.1)
+    return (SITIO / 'img' / 'especies' / f'{id_}-640.webp').exists()
 
 ICONES = {
  'Mamíferos': '<path d="M12 21c-3 0-6-2-6-4.5S8.5 12 12 12s6 2 6 4.5-3 4.5-6 4.5Z"/><circle cx="6" cy="9" r="2"/><circle cx="10" cy="6" r="2"/><circle cx="14" cy="6" r="2"/><circle cx="18" cy="9" r="2"/>',
@@ -451,11 +499,18 @@ ICONES = {
  'Palmeiras': '<path d="M12 21V9M12 9c-2-3-6-3-8-1M12 9c2-3 6-3 8-1M12 9c-1-3-1-5 0-6M12 9c-3-1-5 1-6 3M12 9c3-1 5 1 6 3" fill="none" stroke-width="2" stroke-linecap="round"/>',
  'Arbustos': '<ellipse cx="8" cy="15" rx="5" ry="4"/><ellipse cx="16" cy="15" rx="5" ry="4"/><ellipse cx="12" cy="11" rx="5" ry="4"/>',
  'Ervas e arbustos': '<path d="M12 21V11M12 11l-4-6M12 11l4-6M12 14l-6-3M12 14l6-3" fill="none" stroke-width="2" stroke-linecap="round"/><circle cx="8" cy="5" r="1.8"/><circle cx="16" cy="5" r="1.8"/>',
+ 'Anfíbios': '<ellipse cx="12" cy="14" rx="7" ry="5"/><circle cx="8.5" cy="8.5" r="2.4"/><circle cx="15.5" cy="8.5" r="2.4"/>',
+ 'Peixes': '<path d="M3 12c3-4 8-5 12-3l5-3v12l-5-3c-4 2-9 1-12-3Z"/>',
 }
 def cartao(e):
     id_, nome, cien, grupo, reino, am, pais, texto, foto, ficha, fs = e
+    credito = ''
     if foto:
         img = f'<img src="{{{{raiz}}}}img/{foto}-640.webp" alt="" width="72" height="72" loading="lazy">'
+    elif foto_nova(id_):
+        img = f'<img src="{{{{raiz}}}}img/especies/{id_}-640.webp" alt="" width="72" height="72" loading="lazy">'
+        c = CRED_ESP.get(f'{id_}.webp')
+        if c: credito = f'<p class="esp-credito">Foto: {c["autor"]}, {c["licenca"]}</p>'
     else:
         img = f'<div class="esp-icone esp-{reino}" aria-hidden="true"><svg viewBox="0 0 24 24" width="36" height="36">{ICONES[grupo]}</svg></div>'
     selo = f'<span class="selo">{AMEACA[am]}</span>' if am else ''
@@ -465,9 +520,9 @@ def cartao(e):
     onde = ', '.join(NOME_PAISAGEM[x].lower().replace('cerrado sentido restrito', 'cerrado') for x in pais)
     return (f'<li class="esp" data-reino="{reino}" data-grupo="{grupo}" data-ameaca="{am or ""}" data-paisagens="{" ".join(pais)}" '
             f'data-busca="{(nome + " " + cien).lower()}">{img}<div class="esp-texto"><p class="esp-grupo">{grupo}</p><h2>{link}</h2>'
-            f'<p class="cientifico">{cien}</p><p>{texto}{"".join(fonte(n) for n in fs)}</p><p class="esp-onde">Onde: {onde}</p>{selo}</div></li>')
+            f'<p class="cientifico">{cien}</p><p>{texto}{"".join(fonte(n) for n in fs)}</p><p class="esp-onde">Onde: {onde}</p>{selo}{credito}</div></li>')
 
-grupos_fauna = ['Mamíferos', 'Aves', 'Répteis', 'Insetos']
+grupos_fauna = ['Mamíferos', 'Aves', 'Répteis', 'Anfíbios', 'Peixes', 'Insetos']
 grupos_flora = ['Árvores', 'Palmeiras', 'Arbustos', 'Ervas e arbustos']
 chips = ''.join(f'<button type="button" class="chip" data-filtro-grupo="{g}" aria-pressed="false">{g}</button>' for g in grupos_fauna + grupos_flora)
 opcoes_paisagem = ''.join(f'<option value="{p["id"]}">{p["nome"]}</option>' for p in P)
@@ -515,7 +570,7 @@ especies = f'''        <section class="titulo-pagina guia-topo">
             </div>
         </section>
 '''
-pagina('especies.html', 'Espécies do Cerrado: fauna e flora — Fotografia do Cerrado',
+pagina('especies.html', 'Espécies do Cerrado: fauna e flora — Guia do Cerrado',
        f'{n_fauna} bichos e {n_flora} plantas do Cerrado, com busca, filtros por grupo e paisagem, as espécies ameaçadas e o calendário das frutas.',
        especies, scripts=['guia.js?v=1'])
 
@@ -602,7 +657,7 @@ agua = f'''        <section class="titulo-pagina guia-topo">
             </div>
         </div>
 '''
-pagina('agua.html', 'O berço das águas — Fotografia do Cerrado',
+pagina('agua.html', 'O berço das águas — Guia do Cerrado',
        'Quanto da água do São Francisco, do Tocantins e do Paraná vem do Cerrado, os aquíferos e as veredas, com fontes.', agua, scripts=['guia.js?v=1'])
 
 # ---- Povos
@@ -638,11 +693,11 @@ povos = f'''        <section class="titulo-pagina guia-topo">
             </div>
         </section>
 '''
-pagina('povos.html', 'Os povos do Cerrado — Fotografia do Cerrado',
+pagina('povos.html', 'Os povos do Cerrado — Guia do Cerrado',
        'Povos indígenas, quilombolas Kalunga, geraizeiros, quebradeiras de coco babaçu e outras comunidades que vivem do Cerrado de pé.', povos)
 
 # ---- Ameaças
-PRODES = [('2019', 6319), ('2023', 11011), ('2024', 8174), ('2025', 7235), ('2026', 5517)]
+PRODES = sorted(json.loads((AQUI / 'prodes.json').read_text())['anos'].items())
 maior = max(v for _, v in PRODES)
 barras_prodes = ''.join(f'<li><span class="ano">{a}</span><svg viewBox="0 0 100 18" preserveAspectRatio="none" aria-hidden="true"><rect class="desmate-barra" width="{100 * v / maior:.1f}" height="18"/></svg><span class="desmate-valor">{v:,} km²</span></li>'.replace(',', '.') for a, v in PRODES)
 ameacas = f'''        <section class="titulo-pagina guia-topo">
@@ -667,7 +722,7 @@ ameacas = f'''        <section class="titulo-pagina guia-topo">
                     <h2 id="ritmo-titulo">O ritmo do desmatamento</h2>
                     <p>O INPE mede todo ano, pelo sistema PRODES, quanto de vegetação nativa foi derrubada no Cerrado entre agosto de um ano e julho do seguinte. Depois de cinco anos seguidos de alta, o desmatamento chegou a 11.011 km² em 2023 e começou a cair; em 2026 foi o menor da série, que começa em 2001.{fonte(24)}{fonte(25)}{fonte(26)}</p>
                     <p class="so-leitor" id="desmate-legenda">Área desmatada no Cerrado por ano, em quilômetros quadrados:</p><ul class="desmate-lista" aria-describedby="desmate-legenda">{barras_prodes}</ul>
-                    <p class="nota-calculo">Só os anos com o número conferido nas fontes; o PRODES publica a série completa. Cada ano vai de agosto do ano anterior a julho. Para comparar: 5.517 km² é mais de três vezes a área da cidade de São Paulo.{fonte(24)}{fonte(25)}{fonte(26)}</p>
+                    <p class="nota-calculo">{'Só os anos com o número conferido nas fontes; o PRODES publica a série completa. ' if len(PRODES) < 10 else ''} Cada ano vai de agosto do ano anterior a julho. Para comparar: 5.517 km² é mais de três vezes a área da cidade de São Paulo.{fonte(24)}{fonte(25)}{fonte(26)}</p>
                 </section>
                 <section id="onde" aria-labelledby="onde2-titulo">
                     <h2 id="onde2-titulo">Onde se desmata</h2>
@@ -692,7 +747,7 @@ ameacas = f'''        <section class="titulo-pagina guia-topo">
             </div>
         </div>
 '''
-pagina('ameacas.html', 'O que ameaça o Cerrado — Fotografia do Cerrado',
+pagina('ameacas.html', 'O que ameaça o Cerrado — Guia do Cerrado',
        'Quanto o Cerrado já perdeu, o desmatamento medido pelo INPE ano a ano, onde ele acontece e quanto está protegido, com fontes.', ameacas, scripts=['guia.js?v=1'])
 
 # ---- o menu do guia com as partes novas; Expedições e Sobre vão para o rodapé
@@ -821,7 +876,7 @@ aprender = f'''        <section class="titulo-pagina guia-topo">
             </div>
         </div>
 '''
-pagina('aprender.html', 'Aprender brincando — Fotografia do Cerrado',
+pagina('aprender.html', 'Aprender brincando — Guia do Cerrado',
        'Quiz sobre o Cerrado por tema, o jogo “Qual paisagem é esta?” e um glossário, tudo com base no guia.', aprender, scripts=['guia.js?v=1', 'aprender.js?v=1'])
 
 MENU.append(('aprender.html', 'Aprender'))

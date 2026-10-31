@@ -218,7 +218,8 @@
     "proj_cta_titulo": "¿Quieres algo así para tu negocio?",
     "proj_cta_texto": "Cuéntanos a qué te dedicas y qué imaginas. Puede ser solo una idea: la respuesta llega con preguntas y próximos pasos.",
     "proj_og_titulo": "{nome}, por Linu Sites",
-    "proj_whats": "¡Hola! He visto el proyecto {nome} y quiero hablar sobre una web."
+    "proj_whats": "¡Hola! He visto el proyecto {nome} y quiero hablar sobre una web.",
+    "cerrado_nome": "Fotografia do Cerrado"
   },
   "js": {
     "menu_abrir": "Abrir el menú",

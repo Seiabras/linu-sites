@@ -1,0 +1,5 @@
+{
+  "explica": "Desmatamento no Cerrado medido pelo PRODES (INPE), em km², de agosto do ano anterior a julho do ano indicado. Complete com a série inteira do TerraBrasilis (terrabrasilis.dpi.inpe.br, PRODES Cerrado, taxas anuais) e rode o guia-pt.py: o gráfico de Ameaças se ajusta sozinho.",
+  "conferidos_em": "31/10/2026, pela busca na web (só estes anos)",
+  "anos": {"2019": 6319, "2023": 11011, "2024": 8174, "2025": 7235, "2026": 5517}
+}

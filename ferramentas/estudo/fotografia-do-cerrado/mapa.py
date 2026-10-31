@@ -1,6 +1,6 @@
 # Rodar: baixar o br-estados.geojson (link abaixo) para esta pasta e python3 mapa.py; o SVG sai em mapa.svg, para colar no
 # modelo/expedicoes.html no lugar do <svg class="mapa">. Fonte: https://raw.githubusercontent.com/codeforgermany/click_that_hood/main/public/data/brazil-states.geojson
-# Gera o SVG do mapa "Onde ficam os parques" (Fotografia do Cerrado, 31/10/2026).
+# Gera o SVG do mapa "Onde ficam os parques" (Guia do Cerrado, 31/10/2026).
 # Contorno dos estados: IBGE, via Code for America (click_that_hood, licença MIT).
 import json, math, pathlib
 d = json.load(open(pathlib.Path(__file__).resolve().parent / 'br-estados.geojson'))

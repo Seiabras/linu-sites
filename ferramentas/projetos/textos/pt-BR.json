@@ -215,13 +215,13 @@
     ]
   },
   "fotografia-do-cerrado": {
-    "etiqueta": "Site de apresentação",
+    "etiqueta": "Guia educativo",
     "alt": "Página inicial da Fotografia do Cerrado: uma seriema no capim dourado, com um ipê-rosa florido ao fundo",
-    "resumo": "Empresa de fotografia de fauna, com galeria filtrável, expedições e contato. A paleta saiu do próprio bioma e cada cor foi medida pela regra de contraste da WCAG.",
+    "resumo": "Um guia da savana mais rica do mundo, com fonte para cada número: o mapa dos biomas, as 11 paisagens num corte desenhado, 70 espécies com filtros, a água, os povos, o desmatamento e um quiz.",
     "url": "https://cerrado.linupedia.com.br/",
     "desafio": "Era uma atividade de paletas de cores e WCAG: montar uma interface pequena com as cores escolhidas e provar que todo texto era legível. Virou um site inteiro, sem abrir mão da regra.",
     "feito": [
-      "Virou um guia do Cerrado, com fonte para cada número: o bioma e o mapa dos biomas do IBGE, as 11 paisagens num corte desenhado, um catálogo de 39 espécies com filtros, a água, os povos, o desmatamento ano a ano e um quiz.",
+      "Começou como um estúdio de fotografia de fauna que não existe e virou um guia do Cerrado, em português primeiro: o bioma, as 11 paisagens, 70 espécies, a água, os povos, as ameaças e um quiz, com 32 fontes numeradas.",
       "Seis páginas de um estúdio de fotografia de fauna que não existe: galeria com filtro e foto ampliada, expedições com perguntas frequentes, sobre e contato.",
       "Nas Expedições, a pessoa escolhe o mês e vê como está o cerrado e quais saídas estão na melhor época; na galeria, passa de uma foto ampliada para a outra pelas setas ou deslizando o dedo.",
       "Uma ficha para cada espécie, com a comparação de tamanho com uma pessoa, um diário de campo, um mapa dos três parques, um testador de contraste das cores da paleta e o contato que já chega com a expedição e o mês escolhidos.",
@@ -233,7 +233,8 @@
       "HTML, CSS e JavaScript sem biblioteca e sem nenhum estilo dentro do HTML.",
       "Todo texto acima de 4,5:1 nos dois modos, foco visível e menu que funciona pelo teclado.",
       "13 idiomas, com o formulário de demonstração respondendo no idioma da página."
-    ]
+    ],
+    "nome": "Guia do Cerrado"
   },
   "abelhas-sem-ferrao": {
     "etiqueta": "Site educativo",

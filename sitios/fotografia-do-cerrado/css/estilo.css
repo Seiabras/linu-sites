@@ -728,3 +728,7 @@ sup.nota a { min-width: 24px; }
 .termo dt { font-family: "Newsreader", Georgia, serif; font-weight: 600; font-size: 1.25rem; scroll-margin-top: 130px; }
 .termo dd a { display: inline-block; padding-block: 2px; font-weight: 600; }
 .quiz-opcoes .marca { font-weight: 800; }
+.esp-credito { color: var(--texto-suave); font-size: .8rem !important; margin-top: .3rem; }
+.paisagem-foto { margin: -.4rem -.5rem 1rem; }
+.paisagem-foto img { border-radius: 8px; width: 100%; height: auto; }
+.paisagem-foto figcaption { color: var(--texto-suave); font-size: .85rem; margin-top: .3rem; }

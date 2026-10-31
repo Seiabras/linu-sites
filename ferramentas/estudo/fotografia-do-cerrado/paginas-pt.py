@@ -1,5 +1,5 @@
 # Rodar: python3 ferramentas/estudo/fotografia-do-cerrado/paginas-pt.py e depois node ferramentas/gerar-estudo.mjs fotografia-do-cerrado
-# Gera os modelos das páginas novas da Fotografia do Cerrado que, por enquanto, só existem em português (31/10/2026):
+# Gera os modelos das páginas novas da Guia do Cerrado que, por enquanto, só existem em português (31/10/2026):
 # as cinco fichas de espécie, o diário de campo e "Como fotografamos". O cabeçalho e o rodapé vêm do modelo da galeria.
 import html, json, os, re
 
@@ -150,7 +150,7 @@ for n, e in enumerate(ESPECIES):
         </article>
 '''
     f = f'especie-{e["id"]}.html'
-    open(M + f, 'w').write(pagina(f'{e["nome"]} ({e["cientifico"]}) — Fotografia do Cerrado',
+    open(M + f, 'w').write(pagina(f'{e["nome"]} ({e["cientifico"]}) — Guia do Cerrado',
                                   f'{e["nome"]}: como reconhecer, do que se alimenta, como fotografar e onde ver no cerrado.', corpo, script=False))
     paginas.append(f)
 
@@ -199,13 +199,13 @@ corpo = f'''        <section class="titulo-pagina">
             </div>
         </section>
 '''
-open(M + 'diario.html', 'w').write(pagina('Diário de campo — Fotografia do Cerrado', 'Relatos das últimas expedições de fotografia de fauna no cerrado: Emas, Chapada dos Veadeiros e Parque Nacional de Brasília.', corpo, atual='diario'))
+open(M + 'diario.html', 'w').write(pagina('Diário de campo — Guia do Cerrado', 'Relatos das últimas expedições de fotografia de fauna no cerrado: Emas, Chapada dos Veadeiros e Parque Nacional de Brasília.', corpo, atual='diario'))
 paginas.append('diario.html')
 
 corpo = '''        <section class="titulo-pagina">
             <div class="container">
                 <h1>Como fotografamos</h1>
-                <p>O jeito de trabalhar da Fotografia do Cerrado: a foto nunca vale mais do que o bicho.</p>
+                <p>O jeito de trabalhar da Guia do Cerrado: a foto nunca vale mais do que o bicho.</p>
             </div>
         </section>
         <section class="secao">
@@ -225,12 +225,12 @@ corpo = '''        <section class="titulo-pagina">
                 <h2 class="sub espaco">Depois da saída</h2>
                 <p>Na edição, só ajuste de luz, cor e corte. Nada de juntar duas fotos, tirar elementos ou mudar o lugar de um bicho: a foto mostra o que aconteceu.</p>
                 <h2 class="sub espaco">As fotos deste site</h2>
-                <p>A Fotografia do Cerrado é uma empresa fictícia, de um projeto de estudo. As fotos são de fotógrafos de verdade, publicadas com licença livre no Wikimedia Commons; o nome de cada um está nos <a href="creditos.html">créditos</a>.</p>
+                <p>O Guia do Cerrado é um projeto de estudo, e as expedições e o diário de campo são de mentira. As fotos são de fotógrafos de verdade, publicadas com licença livre no Wikimedia Commons; o nome de cada um está nos <a href="creditos.html">créditos</a>.</p>
                 <p class="mais"><a class="botao" href="expedicoes.html">Ver as expedições</a></p>
             </div>
         </section>
 '''
-open(M + 'como-fotografamos.html', 'w').write(pagina('Como fotografamos — Fotografia do Cerrado', 'O jeito de trabalhar da Fotografia do Cerrado: distância, silêncio, a luz certa e nenhuma montagem.', corpo))
+open(M + 'como-fotografamos.html', 'w').write(pagina('Como fotografamos — Guia do Cerrado', 'O jeito de trabalhar da Guia do Cerrado: distância, silêncio, a luz certa e nenhuma montagem.', corpo))
 paginas.append('como-fotografamos.html')
 
 json.dump(paginas, open(BASE + 'so-pt.json', 'w'), ensure_ascii=False, indent=2)
@@ -243,7 +243,7 @@ pagina404 = '''<!DOCTYPE html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Página não encontrada — Fotografia do Cerrado</title>
+    <title>Página não encontrada — Guia do Cerrado</title>
     <meta name="robots" content="noindex">
     <meta name="theme-color" content="#814F12">
     <link rel="icon" href="/img/icone.svg" type="image/svg+xml">
@@ -257,7 +257,7 @@ pagina404 = '''<!DOCTYPE html>
     <a class="pular" href="#conteudo">Pular para o conteúdo</a>
     <header class="topo">
         <div class="container">
-            <a class="marca" href="/"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#C8985A"/><circle cx="16" cy="16" r="8" fill="#5E3A0D"/><circle cx="16" cy="16" r="4" fill="#FBF7F1"/></svg> Fotografia do Cerrado</a>
+            <a class="marca" href="/"><svg viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="#C8985A"/><circle cx="16" cy="16" r="8" fill="#5E3A0D"/><circle cx="16" cy="16" r="4" fill="#FBF7F1"/></svg> Guia do Cerrado</a>
             <button class="botao-tema" type="button" data-escuro="Mudar para o modo escuro" data-claro="Mudar para o modo claro" aria-label="Mudar para o modo escuro"><svg class="lua" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg><svg class="sol" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1"/></svg></button>
             <button class="botao-menu" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
             <nav aria-label="Navegação principal">
@@ -277,7 +277,7 @@ pagina404 = '''<!DOCTYPE html>
     </main>
     <footer class="rodape">
         <div class="container">
-            <p>© 2026 Fotografia do Cerrado · empresa fictícia, projeto de estudo de Luiz Matheus Moraes Vega</p>
+            <p>© 2026 Guia do Cerrado · projeto de estudo de Luiz Matheus Moraes Vega</p>
             <p><a href="/creditos">Créditos das fotos</a> · <a href="/como-fotografamos">Como fotografamos</a></p>
         </div>
     </footer>
