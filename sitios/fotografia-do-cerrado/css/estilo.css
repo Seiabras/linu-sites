@@ -727,7 +727,8 @@ sup.nota a { min-width: 24px; }
 .glossario { display: grid; gap: .9rem; max-width: 70ch; }
 .termo dt { font-family: "Newsreader", Georgia, serif; font-weight: 600; font-size: 1.25rem; scroll-margin-top: 130px; }
 .termo dd a { display: inline-block; padding-block: 2px; font-weight: 600; }
-.quiz-opcoes .marca { font-weight: 800; }
+/* .marca também é o logo do topo (branco, em flex): aqui volta a ser só o ✓ ou o ✗, na cor do texto */
+.quiz-opcoes .marca { display: inline; color: inherit; font: inherit; font-weight: 800; white-space: normal; }
 .esp-credito { color: var(--texto-suave); font-size: .8rem !important; margin-top: .3rem; }
 .paisagem-foto { margin: -.4rem -.5rem 1rem; }
 .paisagem-foto img { border-radius: 8px; width: 100%; height: auto; }
@@ -793,3 +794,30 @@ sup.nota a { min-width: 24px; }
 .escala .copa-escala { fill: #6F8F4E; }
 .escala .folha-escala { stroke: #5F7F44; stroke-width: 4; fill: none; stroke-linecap: round; }
 .ficha-onde a, .ficha-nota a { display: inline-block; padding-block: 2px; }
+
+/* ---- "Qual é esta espécie?" e "Não confunda com" (1/11/2026) */
+.qual-caixa { background: var(--fundo-alt); border-radius: var(--raio); padding: 1.4rem 1.5rem; margin-top: 1rem; max-width: 720px; }
+.qual-placar { color: var(--texto-suave); font-weight: 600; }
+.qual-pistas { margin: .6rem 0 1rem; padding-left: 1.4rem; display: grid; gap: .45rem; font-size: 1.05rem; }
+.qual-pistas li.nova { animation: pista-entra .22s ease-out; }
+@keyframes pista-entra { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.qual-mais { margin-bottom: 1rem; padding: .55rem 1.1rem; }
+.comparar .par { border: 1px solid var(--borda); border-radius: var(--raio); padding: 1rem 1.1rem; background: var(--superficie); }
+.comparar .par + .par { margin-top: 1rem; }
+.par-lados { display: grid; gap: .6rem; }
+/* no celular, a pessoa já está na ficha desta espécie: o par mostra só a outra e a diferença */
+.par-lados .lado.este, .par-x { display: none; }
+.par-lados .lado p { margin: 0; }
+.par-lados .lado p + p { margin-top: .25rem; }
+.lado-nome { font-weight: 800; font-size: 1.1rem; }
+.lado-nome a { display: inline-block; padding-block: 2px; }
+.lado.este .lado-nome::after { content: " (esta ficha)"; font-weight: 600; font-size: .85rem; color: var(--texto-suave); }
+.par-x { justify-self: center; font-size: 1.4rem; color: var(--texto-suave); line-height: 1; }
+.par-diferenca { margin: .9rem 0 0; padding-top: .8rem; border-top: 1px dashed var(--borda); max-width: 65ch; }
+@media (min-width: 640px) {
+    .par-lados { grid-template-columns: 1fr auto 1fr; align-items: start; gap: 1.2rem; }
+    .par-lados .lado.este { display: block; }
+    .par-x { display: block; }
+    .par-x { align-self: center; }
+}
+@media (prefers-reduced-motion: reduce) { .qual-pistas li.nova { animation: none; } }

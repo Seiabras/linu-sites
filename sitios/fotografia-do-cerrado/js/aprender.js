@@ -75,6 +75,51 @@
         q.comecar();
     }
 
+    // ---- qual é esta espécie? (1/11/2026): dez espécies por partida; as erradas são do mesmo grupo, quando dá
+    const dadosQual = ler('qual-dados');
+    const caixaQual = document.querySelector('.qual-caixa');
+    if (dadosQual && caixaQual) {
+        const placar = caixaQual.querySelector('.qual-placar');
+        const lista = caixaQual.querySelector('.qual-pistas');
+        const mais = caixaQual.querySelector('.qual-mais');
+        let atual = null, vistas = 0;
+        const pista = (texto) => Object.assign(document.createElement('li'), { textContent: texto });
+        mais.addEventListener('click', () => {
+            if (!atual || vistas >= atual.p.length) return;
+            const li = pista(atual.p[vistas++]);
+            li.classList.add('nova');
+            lista.append(li);
+            mais.hidden = vistas >= atual.p.length;
+        });
+        const rodadas = () => embaralhar(dadosQual).slice(0, 10).map((s) => {
+            const mesmoGrupo = dadosQual.filter((o) => o.id !== s.id && o.g === s.g);
+            const mesmoReino = dadosQual.filter((o) => o.id !== s.id && o.r === s.r && o.g !== s.g);
+            const outras = [...embaralhar(mesmoGrupo), ...embaralhar(mesmoReino)].slice(0, 2);
+            const opcoes = embaralhar([s, ...outras]);
+            return { s, opcoes: opcoes.map((o) => o.n), certa: opcoes.indexOf(s), explicacao: `É ${s.n}. ${s.e}`, link: `especie-${s.id}.html` };
+        });
+        const q = jogo({
+            caixa: caixaQual, proxima: document.getElementById('qual-proxima'), rodadas,
+            mostrar: (r, i, n) => {
+                atual = r.s; vistas = 2;
+                placar.textContent = `Espécie ${i + 1} de ${n} · ${r.s.g}`;
+                lista.replaceChildren(...r.s.p.slice(0, 2).map(pista));
+                mais.hidden = r.s.p.length <= 2;
+            },
+            fim: (ac, n) => {
+                atual = null;
+                placar.textContent = `Você reconheceu ${ac} de ${n} espécies.`;
+                lista.replaceChildren(); mais.hidden = true;
+                const b = Object.assign(document.createElement('button'), { type: 'button', className: 'botao', textContent: 'Jogar de novo' });
+                b.addEventListener('click', () => q.comecar());
+                caixaQual.querySelector('.quiz-opcoes').replaceChildren(b);
+                caixaQual.querySelector('.quiz-retorno').hidden = true;
+                document.getElementById('qual-proxima').hidden = true;
+            },
+        });
+        q.comecar();
+    }
+
     // ---- qual paisagem é esta?
     const dadosAdivinha = ler('adivinha-dados');
     const caixaAdv = document.querySelector('.adivinha-caixa');

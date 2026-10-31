@@ -1162,15 +1162,37 @@ GLOSSARIO = [
 ]
 gloss = ''.join(f'<div class="termo" data-termo="{t.lower()}"><dt id="g-{re.sub(r"[^a-z]", "", t.lower())}">{t}</dt><dd>{d} <a href="{l}">Ler mais</a></dd></div>' for t, d, l in GLOSSARIO)
 botoes_temas = ''.join(f'<button type="button" class="chip" data-tema="{i}" aria-pressed="{"true" if i == "" else "false"}">{n}</button>' for i, n in TEMAS)
+# "Qual é esta espécie?" (1/11/2026): as pistas saem das fichas; o nome da espécie vira "esta espécie"
+def pistas_de(id_):
+    if id_ in FICHAS:
+        f = FICHAS[id_]
+        return list(f['reconhecer']) + [f'{k}: {v}.' for k, v in f['fatos'][:2]]
+    h = (M / f'especie-{id_}.html').read_text()
+    m = re.search(r'id="reconhecer-titulo".*?<ul[^>]*>(.*?)</ul>', h, re.S)
+    return [re.sub(r'<[^>]+>', '', x).strip() for x in re.findall(r'<li>(.*?)</li>', m.group(1), re.S)] if m else []
+def sem_nome(texto, nome):
+    for parte in sorted({nome, *[w for w in re.split(r'[\s-]+', nome) if len(w) > 3 and w.lower() not in ('campo', 'cerrado', 'mato')]}, key=len, reverse=True):
+        texto = re.sub(r'(?i)(?<![\w-])' + re.escape(parte) + r's?(?![\w-])', 'esta espécie', texto)
+    return texto
+QUAL = []
+for e in ESP:
+    id_, nome, cien, grupo, reino = e[0], e[1], e[2], e[3], e[4]
+    pistas = [sem_nome(x, nome) for x in pistas_de(id_)]
+    pistas = [x for x in pistas if x][:4]
+    if len(pistas) < 2: continue
+    abre = FICHAS[id_]['abre'] if id_ in FICHAS else e[7]
+    QUAL.append({'id': id_, 'n': nome, 'g': grupo, 'r': reino, 'p': pistas, 'e': abre})
+qual_json = json.dumps(QUAL, ensure_ascii=False).replace('</', '<\\/')
+
 aprender = f'''        <section class="titulo-pagina guia-topo">
             <div class="container">
                 <p class="guia-chapeu">Guia do cerrado</p>
                 <h1>Aprender brincando</h1>
-                <p>Um quiz por tema, um jogo de reconhecer as paisagens e um glossário. Tudo o que está aqui foi explicado no guia, com fonte.</p>
+                <p>Um quiz por tema, dois jogos (reconhecer as espécies pelas pistas e as paisagens pelo desenho) e um glossário. Tudo o que está aqui foi explicado no guia, com fonte.</p>
             </div>
         </section>
         <div class="container guia-layout">
-            {indice([('quiz', 'Quiz'), ('adivinha', 'Qual paisagem é esta?'), ('glossario', 'Glossário')])}
+            {indice([('quiz', 'Quiz'), ('qual-e', 'Qual é esta espécie?'), ('adivinha', 'Qual paisagem é esta?'), ('glossario', 'Glossário')])}
             <div class="guia-texto">
                 <section id="quiz" aria-labelledby="quiz-titulo">
                     <h2 id="quiz-titulo">Quiz</h2>
@@ -1183,6 +1205,19 @@ aprender = f'''        <section class="titulo-pagina guia-topo">
                         <div class="quiz-acoes"><button type="button" class="botao" id="quiz-proxima" hidden>Próxima</button></div>
                     </div>
                     <script type="application/json" id="quiz-dados">{quiz_json}</script>
+                </section>
+                <section id="qual-e" aria-labelledby="qual-titulo">
+                    <h2 id="qual-titulo">Qual é esta espécie?</h2>
+                    <p>Leia as pistas e escolha o nome. Se não souber, peça mais uma pista. As pistas saem das <a href="especies.html">fichas das {len(QUAL)} espécies</a>; cada partida tem dez.</p>
+                    <div class="qual-caixa" aria-live="polite">
+                        <p class="qual-placar"></p>
+                        <ol class="qual-pistas"><li>O jogo precisa de JavaScript ligado.</li></ol>
+                        <button type="button" class="botao botao-linha qual-mais" hidden>Mais uma pista</button>
+                        <div class="quiz-opcoes qual-opcoes"></div>
+                        <p class="quiz-retorno qual-retorno" hidden></p>
+                        <div class="quiz-acoes"><button type="button" class="botao" id="qual-proxima" hidden>Próxima espécie</button></div>
+                    </div>
+                    <script type="application/json" id="qual-dados">{qual_json}</script>
                 </section>
                 <section id="adivinha" aria-labelledby="adivinha-titulo">
                     <h2 id="adivinha-titulo">Qual paisagem é esta?</h2>
@@ -1206,7 +1241,7 @@ aprender = f'''        <section class="titulo-pagina guia-topo">
         </div>
 '''
 pagina('aprender.html', 'Aprender brincando — Guia do Cerrado',
-       'Quiz sobre o Cerrado por tema, o jogo “Qual paisagem é esta?” e um glossário, tudo com base no guia.', aprender, scripts=['guia.js?v=1', 'aprender.js?v=1'])
+       'Quiz sobre o Cerrado por tema, os jogos “Qual é esta espécie?” e “Qual paisagem é esta?” e um glossário, tudo com base no guia.', aprender, scripts=['guia.js?v=1', 'aprender.js?v=3'])
 
 MENU.append(('aprender.html', 'Aprender'))
 for f in COMPARTILHADAS:
@@ -1486,6 +1521,43 @@ def escala_ficha(id_, nome, esc):
             f'<figcaption>Na mesma escala: {txt}, ao lado de uma pessoa de 1,70 m.</figcaption></figure>')
 
 POR_ID = {e[0]: e for e in ESP}
+
+# "Não confunda com" (1/11/2026): pares de espécies parecidas, lado a lado, com a diferença numa frase
+PARES = [
+ ('onca-pintada', 'onca-parda', 'A pintada tem rosetas pelo corpo todo; a parda é lisa, de uma cor só (só os filhotes nascem pintados).'),
+ ('onca-pintada', 'jaguatirica', 'A jaguatirica é do tamanho de um cachorro médio e tem manchas em correntes; a onça passa de 1,7 m e tem rosetas.'),
+ ('lobo-guara', 'cachorro-do-mato', 'O lobo-guará é alto, de pernas pretas e compridas e pelagem ruiva; o cachorro-do-mato é baixo e cinza-amarelado.'),
+ ('raposa-do-campo', 'cachorro-do-mato', 'A raposa-do-campo é menor, de focinho curto e dentes miúdos de comer cupim; o cachorro-do-mato é maior e come de tudo.'),
+ ('cachorro-vinagre', 'cachorro-do-mato', 'O vinagre tem pernas curtas, corpo marrom-avermelhado e orelhas redondas, e anda em bando; o cachorro-do-mato anda em casal.'),
+ ('tamandua-bandeira', 'tamandua-mirim', 'O bandeira é grande, de cauda peluda em forma de bandeira e vive no chão; o mirim é menor, tem um colete preto e sobe em árvores com a cauda pelada.'),
+ ('tatu-canastra', 'tatu-peba', 'O canastra é enorme (1,5 m) e só sai à noite; o peba é bem menor, peludo, e anda de dia.'),
+ ('anta', 'capivara', 'A anta tem uma tromba curta e pode passar de 250 kg; a capivara é um roedor de cabeça quadrada e uns 50 a 80 kg.'),
+ ('ema', 'seriema', 'A ema não voa e passa de 1,3 m; a seriema é bem menor, tem um topete na base do bico e voa quando precisa.'),
+ ('seriema', 'curicaca', 'A seriema tem pernas compridas e topete; a curicaca tem um bico longo e curvo. As duas gritam alto nos campos.'),
+ ('papagaio-verdadeiro', 'papagaio-galego', 'O verdadeiro tem a testa azul e o rosto amarelo; o galego tem a cabeça toda amarela, sem azul.'),
+ ('carcara', 'urubu-rei', 'O carcará anda pelo chão e tem um boné preto; o urubu-rei é branco e preto, de cabeça pelada colorida, e plana alto.'),
+ ('jiboia', 'cascavel', 'A cascavel tem o chocalho na ponta da cauda e veneno; a jiboia não tem chocalho nem veneno e mata apertando.'),
+ ('coral', 'jiboia', 'A coral tem anéis coloridos que dão a volta no corpo e é venenosa; a jiboia tem desenhos de sela nas costas e não tem veneno.'),
+ ('ipe-amarelo', 'ipe-roxo', 'O roxo floresce primeiro, de junho a agosto; o amarelo vem depois, de julho a setembro. Os dois sem folhas.'),
+ ('buriti', 'babacu', 'O buriti tem folhas em leque e cresce na água das veredas; o babaçu tem folhas em pena e forma palmeirais em terra firme.'),
+ ('macauba', 'guariroba', 'A macaúba tem espinhos pretos no tronco e nas folhas; a guariroba não tem espinhos, e o palmito é amargo.'),
+ ('capim-dourado', 'sempre-viva', 'O capim-dourado é a haste dourada do Jalapão; as sempre-vivas da Serra do Espinhaço têm cabecinhas de flores brancas ou douradas.'),
+ ('sempre-viva', 'chuveirinho', 'A sempre-viva tem uma haste com uma cabecinha; o chuveirinho abre muitas hastes do mesmo ponto, como uma ducha.'),
+ ('cagaita', 'gabiroba', 'A cagaita é uma árvore de até 10 m; a gabiroba é um arbusto baixo. As duas são primas da goiaba, de frutos amarelados.'),
+ ('pau-terra', 'pau-santo', 'O pau-terra tem flores amarelas e tronco cor de terra; o pau-santo tem flores brancas e casca de cortiça.'),
+]
+def comparar(id_):
+    pares = [(b if a == id_ else a, txt) for a, b, txt in PARES if id_ in (a, b)]
+    if not pares: return ''
+    este = POR_ID[id_]
+    def lado(e, link):
+        pist = pistas_de(e[0])
+        nome = f'<a href="especie-{e[0]}.html">{e[1]}</a>' if link else e[1]
+        return (f'<div class="lado{"" if link else " este"}"><p class="lado-nome">{nome}</p><p class="cientifico">{e[2]}</p>'
+                f'<p>{pist[0] if pist else e[7]}</p></div>')
+    blocos = ''.join(f'<div class="par"><div class="par-lados">{lado(este, False)}<span class="par-x" aria-hidden="true">×</span>{lado(POR_ID[o], True)}</div>'
+                     f'<p class="par-diferenca"><strong>A diferença:</strong> {txt}</p></div>' for o, txt in pares)
+    return (f'<section class="comparar" aria-labelledby="comparar-titulo"><h2 class="sub" id="comparar-titulo">Não confunda com</h2>{blocos}</section>')
 ORDEM_F = list(FICHAS)
 for n, id_ in enumerate(ORDEM_F):
     e = POR_ID[id_]; f = FICHAS[id_]
@@ -1528,6 +1600,7 @@ for n, id_ in enumerate(ORDEM_F):
                         <h2 class="sub" id="importa-titulo">Por que importa</h2>
                         <p>{f['importa']}</p>
                     </section>
+                    {comparar(id_)}
                     <section class="ficha-onde" aria-labelledby="onde-titulo">
                         <h2 class="sub" id="onde-titulo">Em que paisagens</h2>
                         <p>Aparece em: {pais_links}.</p>
@@ -1544,6 +1617,15 @@ for n, id_ in enumerate(ORDEM_F):
     titulo = f'{nome} ({cien}) — Guia do Cerrado'
     if len(titulo) > 70: titulo = f'{nome} — Guia do Cerrado'  # o limite do validador
     pagina(f'especie-{id_}.html', titulo, f'{nome}: como reconhecer, do que vive, o tamanho, por que importa e em que paisagens do Cerrado aparece.', corpo)
+
+
+for id_ in [e[0] for e in ESP if e[0] not in FICHAS]:
+    q = M / f'especie-{id_}.html'
+    if not q.exists(): continue
+    h = re.sub(r'\s*<section class="comparar".*?</section>', '', q.read_text(), flags=re.S)
+    c = comparar(id_)
+    if c: h = h.replace('<section class="ficha-onde"', c + '\n                    <section class="ficha-onde"', 1)
+    q.write_text(h)
 
 so_pt = json.loads((AQUI / 'so-pt.json').read_text())
 for id_ in FICHAS:
