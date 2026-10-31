@@ -838,3 +838,23 @@ svg.esp-icone { display: block; flex: none; fill: currentColor; stroke: currentC
     .menu:has(> li:nth-child(8)) { display: none; position: absolute; top: 64px; left: 0; right: 0; flex-direction: column; background: var(--primaria); padding: .5rem 1.25rem 1rem; }
     .menu.aberto:has(> li:nth-child(8)) { display: flex; }
 }
+
+/* O Cerrado mês a mês (1/11/2026): a faixa de meses em cima; os quatro grupos em colunas no computador */
+.mes-escolha { margin-bottom: 1.5rem; }
+.mes-titulo { font-family: "Newsreader", Georgia, serif; font-weight: 600; font-size: 1.3rem; margin-top: .4rem; }
+.mes-grupos { display: grid; gap: 2rem; }
+@media (min-width: 700px) { .mes-grupos { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1100px) { .mes-grupos { grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 1.6rem; } }
+@media (min-width: 700px) { .mes-a-mes .meses { grid-template-columns: repeat(12, minmax(0, 1fr)); } .mes-a-mes .meses button { min-width: 0; padding-inline: 0; } }
+.mes-grupo[hidden] { display: none; }
+.eventos { list-style: none; display: grid; gap: .9rem; margin-top: .6rem; }
+.evento { background: var(--superficie); border: 1px solid var(--borda); border-radius: var(--raio); padding: .8rem 1rem; animation: evento-entra .2s ease-out; }
+.evento p { margin: 0; }
+.evento p + p { margin-top: .25rem; }
+.evento-nome { font-weight: 800; }
+.evento-nome a { display: inline-block; padding-block: 2px; }
+.evento-quando { color: var(--texto-suave); font-size: .88rem; text-transform: none; }
+@keyframes evento-entra { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) { .evento { animation: none; } }
+@media (min-width: 1000px) { .mes-escolha { position: sticky; top: 64px; z-index: 2; background: var(--fundo); padding: .6rem 0 .4rem; } }
+.js .mes-a-mes .meses { min-height: 50px; }

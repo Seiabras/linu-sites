@@ -1354,7 +1354,7 @@ MENU[:] = [('index.html', 'Início'), ('bioma.html', 'O bioma'), ('paisagens.htm
            ('agua.html', 'Água'), ('povos.html', 'Povos'), ('ameacas.html', 'Ameaças')]
 RODAPE_PT = ' · <a href="expedicoes.html">Expedições</a> · <a href="diario.html">Diário de campo</a> · <a href="como-fotografamos.html">Como fotografamos</a> · <a href="sobre.html">Sobre</a> · <a href="contato.html">Contato</a> · <a href="fontes.html">Fontes</a>'
 def com_rodape_novo(t):
-    return re.sub(r'\{\{\?pt-BR\}\} · <a href="(?:expedicoes|diario)\.html">.*?\{\{/pt-BR\}\}', '{{?pt-BR}}' + RODAPE_PT + '{{/pt-BR}}', t)
+    return re.sub(r'\{\{\?pt-BR\}\} · <a href="(?:expedicoes|diario|onde-ver|mes-a-mes)\.html">.*?\{\{/pt-BR\}\}', '{{?pt-BR}}' + RODAPE_PT + '{{/pt-BR}}', t)
 for f in COMPARTILHADAS:
     q = M / f; t = q.read_text()
     t = re.sub(r'\{\{\?pt-BR\}\}<ul class="menu" id="menu">.*?</ul>\{\{/pt-BR\}\}', lambda m: '{{?pt-BR}}' + menu_pt(f) + '{{/pt-BR}}', t)
@@ -1980,3 +1980,79 @@ q = M / 'fontes.html'; t = q.read_text()
 t = re.sub(r'<ol class="fontes-lista">.*?</ol>', '<ol class="fontes-lista">' + lista + '</ol>', t, flags=re.S)
 q.write_text(t)
 print('fichas novas:', len(FICHAS))
+
+# ================================================================ O Cerrado mês a mês (1/11/2026): o que floresce, o que amadurece, o que aparece
+NOMES_MES = ['janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho', 'julho', 'agosto', 'setembro', 'outubro', 'novembro', 'dezembro']
+def meses(a, b):
+    """De a até b (1 a 12), passando de dezembro para janeiro se for preciso."""
+    return [((a - 1 + i) % 12) + 1 for i in range(((b - a) % 12) + 1)]
+def quando_txt(m):
+    if len(m) == 1: return f'em {NOMES_MES[m[0] - 1]}'
+    return f'de {NOMES_MES[m[0] - 1]} a {NOMES_MES[m[-1] - 1]}'
+CATS = [('paisagem', 'Na paisagem'), ('flores', 'Florescendo'), ('frutas', 'Frutas maduras'), ('bichos', 'Bichos')]
+EVENTOS = [
+ ('paisagem', 'As chuvas', 'bioma.html', meses(10, 4), 'Chove muito, os rios enchem e o cerrado fica verde de novo.', [4]),
+ ('paisagem', 'A seca', 'bioma.html', meses(5, 9), 'Quase não chove. O capim seca, muitas árvores perdem as folhas e os bichos se juntam perto da água.', [4]),
+ ('paisagem', 'O auge da seca e do fogo', 'ameacas.html#fazer', meses(8, 9), 'O ar fica seco e o fogo se espalha fácil. Não solte fogo, nem para limpar terreno.', [4, 6]),
+ ('paisagem', 'Colheita do capim-dourado', 'especie-capim-dourado.html', meses(9, 11), 'No Jalapão, só de 20 de setembro a 30 de novembro, e só com as hastes secas.', [50]),
+ ('paisagem', 'A piracema', 'especie-dourado.html', meses(11, 1), 'Peixes como o dourado sobem os rios para desovar na cheia. Em muitas bacias, a pesca fica proibida nessa época: confira as datas da sua.', [75]),
+ ('flores', 'Ipê-roxo', 'especie-ipe-roxo.html', meses(6, 8), 'O primeiro ipê a florir na seca, sem folhas.', [78]),
+ ('flores', 'Ipê-amarelo', 'especie-ipe-amarelo.html', meses(7, 9), 'Floresce inteiro de amarelo, sem nenhuma folha, por poucos dias.', [77]),
+ ('flores', 'Cagaita', 'especie-cagaita.html', meses(8, 9), 'A copa fica toda branca, quase sem folhas, no fim da seca.', [49]),
+ ('flores', 'Cajuzinho-do-cerrado', 'especie-cajuzinho.html', meses(7, 9), 'O cajueiro anão floresce rente ao chão.', [88]),
+ ('flores', 'Pau-de-tucano', 'especie-pau-de-tucano.html', meses(11, 1), 'Cachos de flores amarelas no começo das chuvas.', [139]),
+ ('frutas', 'Baru', 'especie-baru.html', meses(9, 10), 'Os frutos caem na seca, quando falta comida para os bichos.', [39]),
+ ('frutas', 'Cajuzinho-do-cerrado', 'especie-cajuzinho.html', meses(8, 10), 'Os cajuzinhos amarelos e vermelhos do campo.', [88]),
+ ('frutas', 'Cagaita', 'especie-cagaita.html', meses(10, 10), 'Amadurece com as primeiras chuvas, em poucas semanas.', [49]),
+ ('frutas', 'Pequi', 'especie-pequi.html', meses(10, 3), 'A safra muda de região para região. Não morda o caroço: tem espinhos.', [39]),
+ ('frutas', 'Mangaba', 'especie-mangaba.html', meses(10, 12), 'No Cerrado, em geral de outubro a dezembro. Só presta madura, caída.', [57]),
+ ('frutas', 'Bacupari-do-cerrado', 'especie-bacupari.html', meses(11, 5), 'A fruta amarela e doce da época das chuvas.', [135]),
+ ('frutas', 'Buriti', 'especie-buriti.html', meses(12, 6), 'Os cachos de frutos cor de vinho, nas veredas.', [39]),
+ ('frutas', 'Araticum', 'especie-araticum.html', meses(2, 4), 'O fruto grande e perfumado, que pode pesar alguns quilos.', [79]),
+ ('frutas', 'Murici', 'especie-murici.html', meses(2, 6), 'As frutinhas amarelas que cheiram de longe.', [87]),
+ ('bichos', 'Cigarras cantando', 'especie-cigarra.html', meses(9, 12), 'Os machos cantam depois de anos embaixo da terra.', [124]),
+ ('bichos', 'Cupinzeiros que brilham', 'especie-vaga-lume-cupinzeiro.html', meses(9, 11), 'Nas noites quentes e úmidas, as larvas de vaga-lume acendem os cupinzeiros das Emas.', [47]),
+ ('bichos', 'Rã-pimenta no ninho', 'especie-ra-pimenta.html', meses(10, 1), 'Nas noites de chuva, os machos cavam bacias na margem para o ninho de espuma.', [118]),
+ ('bichos', 'Teiú na toca', 'especie-teiu.html', meses(5, 8), 'No frio, o maior lagarto do Cerrado passa meses parado embaixo da terra.', [55]),
+]
+def evento_li(e):
+    cat, nome, link, ms, txt, fs = e
+    return (f'<li class="evento" data-meses="{" ".join(map(str, ms))}"><p class="evento-nome"><a href="{link}">{nome}</a></p>'
+            f'<p class="evento-quando">{quando_txt(ms)}</p><p>{txt}{"".join(fonte(n) for n in fs)}</p></li>')
+grupos_ev = ''.join(f'<section class="mes-grupo" data-cat="{c}" aria-labelledby="mes-{c}"><h2 class="sub" id="mes-{c}">{n}</h2>'
+                    f'<ul class="eventos">{"".join(evento_li(e) for e in EVENTOS if e[0] == c)}</ul></section>' for c, n in CATS)
+mes = f'''        <section class="titulo-pagina guia-topo">
+            <div class="container">
+                <p class="guia-chapeu">Guia do cerrado</p>
+                <h1>O Cerrado mês a mês</h1>
+                <p>O que floresce, que fruta está madura, que bicho aparece e o que acontece na paisagem em cada mês do ano. Escolha um mês.</p>
+            </div>
+        </section>
+        <section class="secao">
+            <div class="container mes-a-mes">
+                <div class="mes-escolha" hidden>
+                    <div class="meses" role="group" aria-label="Mês"></div>
+                    <p class="mes-titulo" aria-live="polite"></p>
+                </div>
+                <div class="mes-grupos">{grupos_ev}</div>
+                <p class="vazio mes-vazio" hidden>Nada marcado neste mês por enquanto.</p>
+                <p class="nota-calculo">As épocas mudam de uma região para outra e de um ano para o outro, com as chuvas. Cada uma vem da ficha da espécie, com a fonte.</p>
+            </div>
+        </section>
+'''
+pagina('mes-a-mes.html', 'O Cerrado mês a mês — Guia do Cerrado',
+       'O que floresce, que fruta amadurece, que bicho aparece e o que acontece na paisagem do Cerrado em cada mês do ano.', mes, scripts=['mes-a-mes.js?v=1'])
+RODAPE_PT = RODAPE_PT.replace(' · <a href="onde-ver.html">Onde ver</a>', ' · <a href="mes-a-mes.html">Mês a mês</a> · <a href="onde-ver.html">Onde ver</a>')
+so_pt = json.loads((AQUI / 'so-pt.json').read_text())
+if 'mes-a-mes.html' not in so_pt: so_pt.append('mes-a-mes.html')
+(AQUI / 'so-pt.json').write_text(json.dumps(so_pt, ensure_ascii=False, indent=2) + '\n')
+for f in COMPARTILHADAS:
+    q = M / f; t = q.read_text(); t = com_rodape_novo(t)
+    porta = '<a class="porta" href="mes-a-mes.html"><span class="porta-chapeu">Mês a mês</span><strong>O ano no Cerrado</strong><span>O que floresce, amadurece e aparece em cada mês.</span></a>'
+    if porta not in t:
+        t = re.sub(r'(<a class="porta" href="onde-ver\.html">.*?</a>)', lambda m: m.group(1) + '\n                    ' + porta, t, count=1, flags=re.S)
+    q.write_text(t)
+for f in so_pt:
+    if f == '404.html': continue
+    q = M / f; t = q.read_text(); t = com_rodape_novo(t); q.write_text(t)
+print('mês a mês:', len(EVENTOS), 'acontecimentos')
