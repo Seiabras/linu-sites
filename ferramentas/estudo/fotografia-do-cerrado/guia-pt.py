@@ -8,7 +8,7 @@
 # - escreve as páginas novas do guia (bioma.html, paisagens.html e fontes.html), só em português;
 # - marca no menu a página atual de cada uma.
 # O mapa dos biomas sai do biomas.py (mesma pasta); os números de cada estado estão em estados-cerrado.json.
-import json, pathlib, re
+import json, unicodedata, pathlib, re
 
 AQUI = pathlib.Path(__file__).resolve().parent
 M = AQUI / 'modelo'
@@ -510,6 +510,22 @@ ESP = [
  ('mamangava', 'Mamangava', 'Xylocopa spp.', 'Insetos', 'fauna', None, ['cerrado-sentido-restrito', 'mata-de-galeria', 'cerradao'], 'Abelha grande e preta, que faz o ninho cavando madeira seca. Poliniza o maracujá.', None, False, []),
  ('rola-bosta', 'Rola-bosta', 'Scarabaeinae', 'Insetos', 'fauna', None, ['campo-limpo', 'campo-sujo', 'cerradao'], 'Besouros que fazem bolas de esterco e as enterram: limpam o chão e adubam o solo.', None, False, []),
  ('cigarra', 'Cigarra', 'Cicadidae', 'Insetos', 'fauna', None, ['cerrado-sentido-restrito', 'cerradao', 'mata-seca'], 'O canto do fim da seca. As ninfas passam anos embaixo da terra antes de sair e cantar.', None, False, []),
+ ('caraiba', 'Caraíba', 'Tabebuia aurea', 'Árvores', 'flora', None, ['cerrado-sentido-restrito', 'parque-de-cerrado', 'campo-sujo'], 'O ipê de casca de cortiça e folhas prateadas, que floresce amarelo na seca.', None, False, []),
+ ('angico', 'Angico', 'Anadenanthera colubrina', 'Árvores', 'flora', None, ['mata-seca', 'cerradao'], 'Árvore de casca rica em taninos, usada há séculos para curtir couro.', None, False, []),
+ ('aroeira', 'Aroeira', 'Myracrodruon urundeuva', 'Árvores', 'flora', None, ['mata-seca', 'cerradao'], 'A árvore da madeira que não apodrece. Tanto foi cortada que entrou na lista de ameaçadas.', None, False, []),
+ ('sucupira-preta', 'Sucupira-preta', 'Bowdichia virgilioides', 'Árvores', 'flora', None, ['cerrado-sentido-restrito', 'cerradao'], 'Árvore de flores roxas e madeira dura e escura, das mais típicas do cerrado.', None, False, []),
+ ('pimenta-de-macaco', 'Pimenta-de-macaco', 'Xylopia aromatica', 'Árvores', 'flora', None, ['cerrado-sentido-restrito', 'cerradao'], 'As sementes ardem como pimenta-do-reino e são usadas como tempero.', None, False, []),
+ ('caliandra', 'Caliandra', 'Calliandra dysantha', 'Arbustos', 'flora', None, ['cerrado-sentido-restrito', 'campo-sujo'], 'Arbusto de flores que parecem pincéis vermelhos. Uma das flores-símbolo do Cerrado.', None, False, []),
+ ('arnica', 'Arnica-do-cerrado', 'Lychnophora ericoides', 'Arbustos', 'flora', None, ['campo-rupestre'], 'Arbusto dos campos rupestres, usado na medicina popular e por isso muito arrancado.', None, False, []),
+ ('algodaozinho', 'Algodãozinho-do-campo', 'Cochlospermum regium', 'Ervas e arbustos', 'flora', None, ['campo-sujo', 'cerrado-sentido-restrito'], 'Flores amarelas grandes e frutos que soltam paina, como algodão. A raiz grossa rebrota depois do fogo.', None, False, []),
+ ('abacaxi-do-cerrado', 'Abacaxi-do-cerrado', 'Ananas ananassoides', 'Ervas e arbustos', 'flora', None, ['cerrado-sentido-restrito', 'campo-sujo'], 'Um abacaxi pequeno e azedo, nativo, que vira suco e doce.', None, False, []),
+ ('tingui', 'Tingui', 'Magonia pubescens', 'Árvores', 'flora', None, ['mata-seca', 'cerradao'], 'Árvore de frutos lenhosos e sementes com asas. Já foi usada para fazer sabão.', None, False, []),
+ ('bacupari', 'Bacupari-do-cerrado', 'Salacia crassifolia', 'Arbustos', 'flora', None, ['cerrado-sentido-restrito', 'campo-sujo'], 'Fruta amarela e doce, parecida com a lichia, colhida na época das chuvas.', None, False, []),
+ ('jacaranda-do-cerrado', 'Jacarandá-do-cerrado', 'Dalbergia miscolobium', 'Árvores', 'flora', None, ['cerrado-sentido-restrito', 'cerradao'], 'Árvore de flores roxas, das mais típicas do cerrado.', None, False, []),
+ ('orquidea-cyrtopodium', 'Sumaré', 'Cyrtopodium spp.', 'Ervas e arbustos', 'flora', None, ['campo-sujo', 'campo-limpo', 'cerrado-sentido-restrito'], 'Orquídea de chão, de flores amarelas pintadas, que floresce em massa depois das queimadas.', None, False, []),
+ ('capim-flecha', 'Capim-flecha', 'Tristachya leiostachya', 'Ervas e arbustos', 'flora', None, ['campo-limpo', 'campo-sujo'], 'Capim alto dos campos das Emas, que rebrota depressa depois do fogo e domina onde cresce.', None, False, []),
+ ('pau-de-tucano', 'Pau-de-tucano', 'Vochysia tucanorum', 'Árvores', 'flora', None, ['cerrado-sentido-restrito', 'cerradao', 'mata-de-galeria'], 'Árvore de cachos de flores amarelas no começo das chuvas.', None, False, []),
+ ('puca', 'Puçá', 'Mouriri pusa', 'Árvores', 'flora', None, ['cerrado-sentido-restrito', 'cerradao'], 'Frutinha escura e doce, chamada de jabuticaba-do-cerrado.', None, False, []),
 ]
 
 # as fichas completas das espécies sem foto (31/10/2026, noite): os números com fonte; onde as fontes divergem, o texto diz
@@ -979,6 +995,86 @@ FICHAS = {
    reconhecer=['Inseto de corpo grosso e asas transparentes, dobradas como um telhado.', 'Cascas vazias das ninfas presas nos troncos.', 'Um canto alto e contínuo, nas tardes quentes.'],
    importa='É comida de muitas aves e lagartos, e as ninfas arejam o solo. Não, a cigarra não canta até estourar: a casca que fica é a da ninfa, que ela deixa ao virar adulta.',
    escala=None),
+ 'caraiba': dict(fontes=[125], abre='Um ipê do cerrado aberto, de casca grossa como cortiça e folhas prateadas. Perde as folhas na seca e se cobre de flores amarelas em forma de sino.',
+   fatos=[('Altura', 'em geral de 5 a 8 m, no cerrado'), ('Casca', 'cinza-amarronzada, com sulcos, que fica corticosa com a idade'), ('Floração', 'na seca, quando as folhas caem'), ('Onde', 'Cerrado e Pantanal; também chamada de cinco-folhas-do-campo')],
+   reconhecer=['Folhas com cinco folíolos acinzentados, quase prateados.', 'Casca grossa, de cortiça, que aguenta o fogo.', 'Flores amarelas em cachos, na árvore sem folhas.'],
+   importa='Floresce quando falta comida para abelhas e beija-flores. A casca grossa é um bom exemplo de como as árvores do cerrado aberto se protegem do fogo.',
+   escala=('arvore', 8, 'até uns 8 m')),
+ 'angico': dict(fontes=[126], abre='A árvore dos curtumes. A casca é tão rica em taninos que foi, por séculos, a principal fonte para curtir couro no sertão.',
+   fatos=[('Altura', 'de 3 a 15 m no Cerrado e na Caatinga; mais nas matas'), ('Taninos', 'cerca de 14% na casca, num estudo da UFCG'), ('Folhas', 'caem na seca'), ('Onde', 'matas secas, cerradões e florestas estacionais')],
+   reconhecer=['Casca escura, com saliências e espinhos rombudos no tronco.', 'Folhas muito divididas, com folíolos miúdos.', 'Vagens finas e achatadas, marrons.'],
+   importa='Os curtumes tradicionais do Nordeste ainda usam a casca. Tirar a casca de forma cuidadosa, sem anelar o tronco, deixa a árvore viva.',
+   escala=('arvore', 15, 'até 15 m no cerrado')),
+ 'aroeira': dict(fontes=[127], abre='A árvore da madeira que não apodrece. Pesada, dura e resistente em contato com o chão, foi tão cortada para mourões e vigas que entrou na lista de espécies ameaçadas.',
+   fatos=[('Madeira', 'muito pesada e resistente; considerada das mais duráveis do Brasil'), ('Usos', 'mourões, vigas, caibros e tacos'), ('Situação', 'já esteve na lista oficial de ameaçadas, como vulnerável (a conferir na lista atual)'), ('Onde', 'matas secas e cerradões, sobre solos mais férteis')],
+   reconhecer=['Casca escura, que solta em placas, com cheiro de resina.', 'Folhas compostas, que caem na seca.', 'Na seca, sem folhas, fica coberta de cachinhos de flores miúdas.'],
+   importa='A procura pela madeira acabou com muitas matas secas. Hoje é plantada para recuperar áreas, e o corte de árvores nativas depende de autorização.',
+   escala=None),
+ 'sucupira-preta': dict(fontes=[128], abre='Uma das árvores mais típicas do cerrado, de flores roxas e madeira escura, densa e resistente, chamada de madeira de lei.',
+   fatos=[('Madeira', 'densa e resistente, usada em construção e móveis'), ('Flores', 'roxas, em cachos'), ('Usos', 'também é usada na medicina popular'), ('Onde', 'cerrados do Planalto Central e outras savanas da América do Sul')],
+   reconhecer=['Na florada, a copa fica roxa.', 'Folhas compostas, de folíolos com pelinhos.', 'Vagens achatadas e finas.'],
+   importa='É uma das árvores que dão a cara do cerrado. A madeira valiosa fez muitas serem derrubadas.',
+   escala=None),
+ 'pimenta-de-macaco': dict(fontes=[129], abre='Uma arvoreta do cerrado cujas sementes ardem como pimenta-do-reino. Povos tradicionais e indígenas as usam como tempero.',
+   fatos=[('Altura', 'de 2,5 a 6 m'), ('Fruto', 'cachinhos de frutos escuros que se abrem mostrando uma polpa vermelha'), ('Sementes', 'de 3 a 6 por fruto, pretas e brilhantes; amassadas, viram tempero'), ('Quem espalha', 'as aves')],
+   reconhecer=['Tronco reto e folhas alinhadas em dois lados do galho, que cheiram ao serem amassadas.', 'Frutos em feixes, como dedos, que se abrem em duas metades.', 'Sementes pretas sobre um arilo vermelho.'],
+   importa='Está na Arca do Gosto do Slow Food, a lista de alimentos tradicionais que correm o risco de ser esquecidos. É pioneira: cresce em áreas abertas e ajuda o cerrado a voltar.',
+   escala=('arvore', 6, 'até 6 m')),
+ 'caliandra': dict(fontes=[130], abre='Um arbusto de flores que parecem pincéis vermelhos: os estames longos e coloridos são o que mais aparece. É considerada uma das flores-símbolo do Cerrado.',
+   fatos=[('Altura', 'em geral cerca de 1 m'), ('Flores', 'pompons de estames vermelhos'), ('Folhas', 'divididas em folíolos miúdos, com pelos'), ('Onde', 'cerrados do Brasil Central, inclusive em Brasília')],
+   reconhecer=['Arbusto baixo, com flores como pincéis vermelhos.', 'Folhas finamente divididas.', 'Vagens achatadas com pelinhos.'],
+   importa='As flores vermelhas atraem visitantes como beija-flores. É muito usada em jardins de Brasília e virou símbolo do bioma em materiais educativos.',
+   escala=None),
+ 'arnica': dict(fontes=[131], abre='Um arbusto dos campos rupestres, de folhas finas e cheirosas. É usado na medicina popular contra dores e machucados, e por isso é muito arrancado.',
+   fatos=[('Onde', 'campos rupestres de 800 a 2.000 m, de Goiás e do DF à Bahia e a São Paulo'), ('Uso popular', 'em infusões e pomadas, só por fora: não deve ser tomada'), ('Ameaças', 'a coleta e os incêndios frequentes, que podem acabar com populações locais'), ('Gênero', 'Lychnophora tem espécies vulneráveis e em perigo')],
+   reconhecer=['Arbusto ramificado como um candelabro, com folhas finas, como agulhas.', 'Galhos com folhas só nas pontas.', 'Cabecinhas de flores roxas no alto dos galhos.'],
+   importa='A "arnica" vendida em muitas feiras vem de plantas arrancadas na natureza. Comprar de cultivo, ou não comprar, ajuda a mantê-la nas serras.',
+   escala=None),
+ 'algodaozinho': dict(fontes=[132], abre='Uma planta baixa, de flores amarelas grandes e brilhantes, que solta paina como algodão. Embaixo da terra, guarda um xilopódio grosso que rebrota depois do fogo.',
+   fatos=[('Embaixo da terra', 'um xilopódio lenhoso e uma raiz grossa'), ('Flores', 'grandes, amarelo-vivas, no fim da seca'), ('Uso popular', 'a raiz e a casca, como depurativo e anti-inflamatório'), ('Cuidado', 'estudos em ratas indicam que o uso constante do extrato pode fazer mal')],
+   reconhecer=['Flores amarelas grandes, de cinco pétalas, sobre hastes quase sem folhas.', 'Frutos que se abrem soltando sementes com paina branca.', 'Folhas divididas como uma mão.'],
+   importa='Como a parte usada é a raiz, cada coleta pode matar a planta. A Embrapa estuda produzir mudas para aliviar a coleta. Remédio, só com orientação.',
+   escala=None),
+ 'abacaxi-do-cerrado': dict(fontes=[133], abre='O abacaxizinho nativo do cerrado. É pequeno, bem azedo e cheio de fibras, e vira suco, doce e geleia.',
+   fatos=[('Família', 'bromélias, como o abacaxi comum'), ('Fruto', 'bem menor e mais ácido que o abacaxi de feira'), ('Nutrição', 'rico em proteínas e fibras, segundo um estudo de 2025'), ('Ornamental', 'flores e frutos de haste longa duram até 40 dias em arranjos')],
+   reconhecer=['Uma roseta de folhas duras e serrilhadas, no chão do cerrado.', 'Um abacaxi pequeno no alto de uma haste longa.', 'Brácteas rosadas em volta das flores.'],
+   importa='É um parente selvagem do abacaxi, útil para os pesquisadores que melhoram a fruta. O consumo ainda é quase só local.',
+   escala=None),
+ 'tingui': dict(fontes=[134], abre='Uma árvore de frutos lenhosos e redondos, que se abrem e soltam sementes achatadas com asas. A casca e os frutos já foram usados para fazer sabão.',
+   fatos=[('Altura', 'em geral de 5 a 9 m; as maiores chegam perto de 16 m'), ('Sementes', 'achatadas e aladas, levadas pelo vento'), ('Usos', 'sabão caseiro e, na tradição, contra insetos'), ('Nome', 'para alguns, vem do tupi "que embriaga peixes"; não há consenso')],
+   reconhecer=['Frutos grandes, redondos e lenhosos, que se abrem em três partes.', 'Folhas compostas, de folíolos arredondados.', 'Sementes finas como papel, com uma asa larga.'],
+   importa='Aguenta solos pobres e é indicada para recuperar áreas degradadas. Estudos testam o extrato contra larvas do mosquito da dengue.',
+   escala=('arvore', 9, 'até uns 9 m')),
+ 'bacupari': dict(fontes=[135], abre='Uma fruta amarela, doce, parecida com a lichia. O arbusto cresce no cerrado e dá frutos na época das chuvas.',
+   fatos=[('Altura', 'arbusto de 1,5 a 3 m'), ('Fruto', 'amarelo, com três sementes e polpa doce'), ('Safra', 'no período chuvoso, de novembro a maio'), ('Usos', 'comida fresca, suco, sorvete e doce')],
+   reconhecer=['Arbusto de casca cinza e áspera.', 'Folhas grossas e duras.', 'Frutos redondos e amarelos, de casca lisa.'],
+   importa='Está na Arca do Gosto do Slow Food e é uma renda extra para quem coleta. As moscas-das-frutas atacam muito os frutos.',
+   escala=None),
+ 'jacaranda-do-cerrado': dict(fontes=[136], abre='Uma das árvores mais típicas do cerrado, de flores roxas e tronco tortuoso. Também é chamada de caviúna-do-cerrado.',
+   fatos=[('Altura', 'cerca de 8 m; algumas chegam a 12 ou 16 m'), ('Tronco', 'mais de 35 cm de diâmetro'), ('Flores', 'roxo-escuras, em cachos'), ('Onde', 'do Piauí a São Paulo e Minas Gerais, sobretudo no cerrado')],
+   reconhecer=['Copa aberta, com folhas compostas de muitos folíolos.', 'Na florada, cachos de flores roxas pequenas.', 'Vagens achatadas e finas, com uma ou duas sementes.'],
+   importa='É uma das árvores que dão a cara do cerrado sentido restrito. Como os outros jacarandás, tem madeira bonita e por isso sofreu com o corte.',
+   escala=('arvore', 8, 'cerca de 8 m')),
+ 'orquidea-cyrtopodium': dict(fontes=[137], abre='Uma orquídea de chão, de flores amarelas pintadas de marrom. Em muitos cerrados, floresce em massa nos meses depois de uma queimada.',
+   fatos=[('Hábito', 'terrestre, com pseudobulbos que guardam água'), ('Flores', 'amarelas, pintadas de marrom ou vinho, em hastes altas'), ('Fogo', 'registros de herbário anotam florada logo depois de queimadas'), ('No DF', '18 tipos do gênero, uma das áreas mais ricas')],
+   reconhecer=['Uma haste alta e ramificada de flores amarelas saindo do chão do campo.', 'Pseudobulbos grossos, como charutos, na base.', 'Folhas longas e finas, que caem na seca.'],
+   importa='Mostra que o fogo faz parte da vida de muitas plantas do Cerrado. Arrancar orquídeas da natureza é crime e quase sempre mata a planta.',
+   escala=None),
+ 'capim-flecha': dict(fontes=[138], abre='Um capim alto dos campos das Emas. Rebrota rápido depois do fogo e forma manchas onde quase só ele cresce.',
+   fatos=[('Fogo', 'rebrota rápido; a biomassa aumenta de 3 a 4 anos depois da queima'), ('Sementes', 'só floresce e dá semente na segunda estação de chuvas depois do fogo'), ('Queimas anuais', 'atrapalham a reprodução por semente'), ('Onde', 'campos do Brasil Central; dominante em partes do Parque Nacional das Emas')],
+   reconhecer=['Touceiras altas de capim, com hastes finas e retas.', 'Espiguetas com aristas longas, como flechas.', 'Manchas grandes onde quase não há outras plantas.'],
+   importa='O manejo do fogo nas Emas leva o capim-flecha em conta: queimar todo ano favorece a rebrota, mas impede as sementes.',
+   escala=None),
+ 'pau-de-tucano': dict(fontes=[139], abre='Uma árvore que se enche de cachos de flores amarelas no começo das chuvas, quando o cerrado começa a ficar verde de novo.',
+   fatos=[('Altura', 'de 3 a 8 m no cerrado; até perto de 20 m em matas'), ('Flores', 'amarelas, de 1,2 a 2,5 cm, em cachos'), ('Floração', 'principalmente de novembro a janeiro'), ('Família', 'Vochysiaceae, a mesma do pau-terra')],
+   reconhecer=['Cachos em pé de flores amarelas, com um esporão curvo.', 'Folhas opostas ou em grupos de três ou quatro, no mesmo nó.', 'Frutos secos, que se abrem em três partes.'],
+   importa='Floresce numa época em que o cerrado se renova, e é usada em jardins e na recuperação de áreas. É da mesma família do pau-terra, a das árvores que acumulam alumínio.',
+   escala=('arvore', 8, 'até 8 m no cerrado')),
+ 'puca': dict(fontes=[140], abre='Uma frutinha escura e doce, chamada de jabuticaba-do-cerrado. É considerada a mais saborosa de todo o seu gênero.',
+   fatos=[('Porte', 'arvoreta de uns 4 a 5 m'), ('Fruto', 'bago redondo, de polpa doce, com 1 a 4 sementes'), ('Variedades', 'amarela, marrom e preta, pela cor da casca'), ('Nutrição', 'vitamina C e compostos fenólicos')],
+   reconhecer=['Arvoreta de folhas opostas, verdes e lisas.', 'Flores brancas pequenas.', 'Frutos que ficam cor de vinho ou pretos quando maduros.'],
+   importa='Os frutos são renda para comunidades locais e quase não são conhecidos fora delas. É uma das frutas do Cerrado que ainda podem ganhar o país.',
+   escala=('arvore', 4, 'cerca de 4 m')),
 }
 NOME_PAISAGEM = {p['id']: p['nome'] for p in P}
 SITIO = AQUI.parents[2] / 'sitios' / 'fotografia-do-cerrado'
@@ -999,6 +1095,10 @@ ICONES = {
  'Anfíbios': '<ellipse cx="12" cy="14" rx="7" ry="5"/><circle cx="8.5" cy="8.5" r="2.4"/><circle cx="15.5" cy="8.5" r="2.4"/>',
  'Peixes': '<path d="M3 12c3-4 8-5 12-3l5-3v12l-5-3c-4 2-9 1-12-3Z"/>',
 }
+SLUG_GRUPO = {g: re.sub(r'[^a-z]', '', unicodedata.normalize('NFD', g.lower()).encode('ascii', 'ignore').decode()) for g in ICONES}
+def icones_defs():
+    simbolos = ''.join(f'<symbol id="ic-{SLUG_GRUPO[g]}" viewBox="0 0 24 24">{d.replace('fill="none"', 'fill="none" stroke-width="2"')}</symbol>' for g, d in ICONES.items())
+    return f'<svg class="icones-defs" width="0" height="0" aria-hidden="true" focusable="false">{simbolos}</svg>'
 def cartao(e):
     id_, nome, cien, grupo, reino, am, pais, texto, foto, ficha, fs = e
     credito = ''
@@ -1009,12 +1109,14 @@ def cartao(e):
         c = CRED_ESP.get(f'{id_}.webp')
         if c: credito = f'<p class="esp-credito">Foto: {c["autor"]}, {c["licenca"]}</p>'
     else:
-        img = f'<div class="esp-icone esp-{reino}" aria-hidden="true"><svg viewBox="0 0 24 24" width="36" height="36">{ICONES[grupo]}</svg></div>'
+        # um <svg> só, que usa o desenho do grupo definido uma vez na página (menos elementos: orçamento de DOM)
+        img = f'<svg class="esp-icone esp-{reino}" viewBox="-12 -12 48 48" width="72" height="72" aria-hidden="true" focusable="false"><use href="#ic-{SLUG_GRUPO[grupo]}" width="24" height="24"/></svg>'
     selo = f'<span class="selo">{AMEACA[am]}</span>' if am else ''
     link = f'<a href="especie-{id_}.html">{nome}</a>' if ficha or id_ in FICHAS else nome
     if id_ == 'jatai':
         texto = texto.replace('Veja o site Abelhas sem Ferrão.', 'Veja o site <a href="https://abelhas.linupedia.com.br/" rel="noopener">Abelhas sem Ferrão</a>.')
-    onde = ', '.join(f'<a href="paisagem-{x}.html">{NOME_PAISAGEM[x].lower().replace("cerrado sentido restrito", "cerrado")}</a>' for x in pais)
+    # só o texto: os links para as paisagens ficam na ficha (e o filtro por paisagem continua na lista)
+    onde = ', '.join(NOME_PAISAGEM[x].lower().replace("cerrado sentido restrito", "cerrado") for x in pais)
     return (f'<li class="esp" data-reino="{reino}" data-grupo="{grupo}" data-ameaca="{am or ""}" data-paisagens="{" ".join(pais)}" '
             f'data-busca="{(nome + " " + cien).lower()}">{img}<div class="esp-texto"><p class="esp-grupo">{grupo}</p><h2>{link}</h2>'
             f'<p class="cientifico">{cien}</p><p>{texto}{"".join(fonte(n) for n in fs)}</p><p class="esp-onde">Onde: {onde}</p>{selo}{credito}</div></li>')
@@ -1051,7 +1153,7 @@ especies = f'''        <section class="titulo-pagina guia-topo">
                     <p class="nota-calculo">A situação de ameaça é a da lista nacional (Portaria MMA nº 148/2022){fonte(15)}; confira cada espécie no SALVE, do ICMBio.{fonte(16)}</p>
                 </div>
                 <div>
-                    <ul class="especies-lista">{"".join(cartao(e) for e in ESP)}</ul>
+                    {icones_defs()}<ul class="especies-lista">{"".join(cartao(e) for e in ESP)}</ul>
                     <p class="vazio" hidden>Nenhuma espécie com esses filtros. <button type="button" class="botao botao-linha" id="limpar-filtros">Limpar os filtros</button></p>
                     <p class="mais"><a href="galeria.html">Ver as fotos da galeria →</a></p>
                 </div>
@@ -1557,7 +1659,7 @@ for i, p in enumerate(P):
                 <div class="container">
                     <h2 id="esp-titulo">Espécies desta paisagem</h2>
                     <p class="intro">{n_esp} espécies do catálogo aparecem nesta paisagem. <a href="especies.html?paisagem={p['id']}">Ver com os filtros</a></p>
-                    <ul class="especies-lista">{cartoes_esp}</ul>
+                    {icones_defs()}<ul class="especies-lista">{cartoes_esp}</ul>
                 </div>
             </section>
             <div class="container">
@@ -1687,6 +1789,22 @@ FONTES += [
  (122, 'Ciência Rural (2003) e UFC (tese, 2018): as mamangavas, os ninhos em madeira e a polinização do maracujá.', 'https://repositorio.ufc.br/bitstream/riufc/59829/7/2018_tese_admbezerra.pdf'),
  (123, 'Pacheco e outros (PPBio, INPA): os rola-bostas e os serviços ao solo; e UEMS, 29 espécies entre o Cerrado e o Pantanal.', 'https://ppbio.inpa.gov.br/sites/default/files/Pacheco_T_L_et_al_2021_capitulo_livro.pdf'),
  (124, 'Jornal de Brasília (Agência Brasil): as cigarras na primavera de Brasília; e anais da UEG, as cigarras em Goiás.', 'https://jornaldebrasilia.com.br/brasilia/cigarras-voltam-e-anunciam-chegada-da-primavera-em-brasilia/'),
+ (125, 'Virginia Tech, ficha de dendrologia: Tabebuia aurea, a casca corticosa e a floração na seca; e Universidade da Flórida.', 'https://dendro.cnre.vt.edu/dendrology/syllabus/factsheet.cfm?ID=904'),
+ (126, 'Embrapa. Espécies arbóreas brasileiras, vol. 1: o angico-vermelho; e UFCG, os taninos da casca.', 'https://www.alice.cnptia.embrapa.br/alice/bitstream/doc/1137299/1/Especies-Arboreas-Brasileiras-vol-1-Angico-Vermelho.pdf'),
+ (127, 'IPEF, Scientia Forestalis: a aroeira, a madeira e a situação de ameaça.', 'https://www.ipef.br/publicacoes/scientia/nr87/cap17.pdf'),
+ (128, 'Revisão (MDPI, Life) e anais: a sucupira-preta, árvore do cerrado de madeira densa e resistente.', 'https://www.mdpi.com/2075-1729/16/2/358'),
+ (129, 'Embrapa. Espécies arbóreas brasileiras, vol. 4: a pimenta-de-macaco; e a Arca do Gosto do Slow Food.', 'https://www.alice.cnptia.embrapa.br/alice/bitstream/doc/1140063/1/Especies-Arboreas-Brasileiras-vol-4-Pimenta-de-Macaco.pdf'),
+ (130, 'Registros de herbário (IBGE, Jardim Botânico de Brasília) e Museu do Cerrado: a caliandra.', 'https://museucerrado.com.br/wp-content/uploads/2021/01/LETRA_C.pdf'),
+ (131, 'Revista Pesquisa FAPESP. A essência da arnica; e Edinburgh Journal of Botany (2017), o fogo e a coleta.', 'https://revistapesquisa.fapesp.br/a-essencia-da-arnica/'),
+ (132, 'Embrapa, Documentos 370 e Plantas para o Futuro: o algodãozinho-do-campo, o xilopódio e os cuidados com a raiz.', 'https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/1124921/1/documentos-370-1.pdf'),
+ (133, 'Embrapa. Plantas para o Futuro, Centro-Oeste: o abacaxi-do-cerrado; e o estudo de 2025 sobre frutas do Cerrado.', 'https://www.alice.cnptia.embrapa.br/alice/bitstream/doc/1073536/1/regio-centro-oeste-26-07-20171-913-920.pdf'),
+ (134, 'Embrapa. Espécies arbóreas brasileiras, vol. 4: o tingui.', 'https://www.alice.cnptia.embrapa.br/alice/bitstream/doc/1140267/1/Especies-Arboreas-Brasileiras-vol-4-Tingui.pdf'),
+ (135, 'Slow Food, Arca do Gosto: o bacupari-do-cerrado; e Ibram-DF, folder dos frutos.', 'https://www.fondazioneslowfood.com/en/ark-of-taste-slow-food/bacupari-do-cerrado/'),
+ (136, 'Embrapa. Espécies arbóreas brasileiras, vol. 5: o jacarandá-do-cerrado; e UniCEUB, monografia.', 'https://www.alice.cnptia.embrapa.br/alice/bitstream/doc/1140511/1/Especies-Arboreas-Brasileiras-vol-5-Jacaranda-do-Cerrado.pdf'),
+ (137, 'Embrapa: uma espécie nova de Cyrtopodium do Cerrado e os 18 táxons do DF; e registros de herbário do IBGE sobre a florada depois do fogo.', 'https://www.alice.cnptia.embrapa.br/alice/bitstream/doc/187926/1/ID276141.pdf'),
+ (138, 'Ibama, plano operativo do Parque Nacional das Emas; e anais do XI Congresso de Ecologia do Brasil: o capim-flecha e o fogo.', 'https://seb-ecologia.org.br/revistas/indexar/anais/xiceb/pdf/574.pdf'),
+ (139, 'Embrapa. Espécies arbóreas brasileiras, vol. 2: o pau-de-tucano; e IPE, a floração.', 'https://www.alice.cnptia.embrapa.br/alice/bitstream/doc/1140880/1/Especies-Arboreas-Brasileiras-vol-2-Pau-de-Tucano.pdf'),
+ (140, 'UFMG e Acta Scientiarum (2023): o puçá, o fruto e as variedades; e Embrapa, o puçá-preto.', 'https://repositorio.ufmg.br/handle/1843/76872'),
 ]
 FONTES.sort()
 
@@ -1751,6 +1869,11 @@ PARES = [
  ('sucuri', 'jiboia', 'A sucuri vive na água, é bem maior e tem manchas pretas redondas; a jiboia vive em terra firme e tem desenhos de sela.'),
  ('pacu', 'piranha', 'O pacu tem dentes de amassar e come frutos; a piranha tem dentes cortantes e come principalmente peixes.'),
  ('jatai', 'mamangava', 'A jataí é minúscula, amarela e não pica; a mamangava é grande, preta e faz o ninho em madeira seca.'),
+ ('caraiba', 'ipe-amarelo', 'A caraíba tem folhas prateadas e casca de cortiça e vive no cerrado aberto; o ipê-amarelo-do-cerrado tem folhas verdes e casca mais fina.'),
+ ('jacaranda-do-cerrado', 'sucupira-preta', 'As duas têm flores roxas; o jacarandá tem folíolos lisos e vagem com uma ou duas sementes, e a sucupira-preta tem folíolos com pelinhos e a copa toda roxa na florada.'),
+ ('pau-de-tucano', 'pau-terra', 'Os dois são da mesma família e têm flores amarelas com esporão; o pau-de-tucano tem cachos em pé de flores menores, e o pau-terra tem flores grandes de uma pétala só.'),
+ ('puca', 'cagaita', 'O puçá dá frutinhas escuras, cor de vinho; a cagaita dá frutos amarelo-claros e ácidos.'),
+ ('caliandra', 'chuveirinho', 'A caliandra é um arbusto de pincéis vermelhos; o chuveirinho é uma erva de cabecinhas brancas no alto de hastes finas.'),
 ]
 def comparar(id_):
     pares = [(b if a == id_ else a, txt) for a, b, txt in PARES if id_ in (a, b)]

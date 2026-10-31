@@ -489,7 +489,7 @@ sup.nota a { display: inline-block; min-width: 1.4em; min-height: 24px; line-hei
 sup.nota a:hover { background: var(--fundo-alt); text-decoration: underline; }
 
 /* Página com índice: no computador, o índice fica parado à esquerda; no celular, vira uma faixa que rola de lado */
-.guia-layout { display: grid; gap: 1.5rem; padding-top: 2rem; padding-bottom: 4rem; }
+.guia-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.5rem; padding-top: 2rem; padding-bottom: 4rem; }
 .indice { position: sticky; top: 64px; z-index: 3; background: var(--fundo); padding: .6rem 0; border-bottom: 1px solid var(--borda); margin: 0 -1.25rem; padding-inline: 1.25rem; }
 .indice-titulo { display: none; }
 .indice ol { list-style: none; display: flex; gap: .4rem; overflow-x: auto; scrollbar-width: none; }
@@ -627,11 +627,12 @@ sup.nota a { min-width: 24px; }
 .foto h3 a { display: inline-block; padding-block: 1px; }
 
 /* Espécies: o catálogo com filtros (no computador, os filtros ficam parados ao lado) e o calendário das frutas */
-.especies-layout { display: grid; gap: 1.5rem; }
+/* minmax(0, 1fr) e min-width: 0 no fieldset: sem isso, a faixa de chips (que rola de lado no celular) esticava a página */
+.especies-layout { display: grid; grid-template-columns: minmax(0, 1fr); gap: 1.5rem; }
 @media (min-width: 1000px) { .especies-layout { grid-template-columns: 280px minmax(0, 1fr); gap: 3rem; align-items: start; } .filtros-especies { position: sticky; top: 88px; } }
 .filtros-especies { display: grid; gap: .5rem; align-content: start; }
 .filtros-especies > label, .filtros-especies legend { font-weight: 700; }
-.filtros-especies fieldset { border: 0; margin: .4rem 0; }
+.filtros-especies fieldset { border: 0; margin: .4rem 0; min-width: 0; }
 .filtros-especies input[type="search"], .filtros-especies select { width: 100%; padding: .65rem .8rem; border: 2px solid var(--cinza); border-radius: 6px; font: inherit; background: var(--superficie); color: var(--texto); }
 .chips { display: flex; flex-wrap: wrap; gap: .35rem; margin-top: .4rem; }
 .chip { font: inherit; font-weight: 600; font-size: .9rem; padding: .35rem .75rem; min-height: 32px; border-radius: 999px; border: 1px solid var(--borda); background: var(--superficie); color: var(--texto); cursor: pointer; transition: background-color .18s ease-out, color .18s ease-out; }
@@ -821,3 +822,19 @@ sup.nota a { min-width: 24px; }
     .par-x { align-self: center; }
 }
 @media (prefers-reduced-motion: reduce) { .qual-pistas li.nova { animation: none; } }
+
+/* Ícones do catálogo (1/11/2026): um <svg> por cartão com <use>; os desenhos ficam uma vez só na página */
+.icones-defs { position: absolute; width: 0; height: 0; overflow: hidden; }
+svg.esp-icone { display: block; flex: none; fill: currentColor; stroke: currentColor; stroke-width: 0; }
+
+/* Rolagem lateral no celular (1/11/2026): as faixas que rolam de lado guardam dentro delas os textos só para leitor
+   de tela (position: absolute); sem isso, eles escapavam e alargavam a página */
+.meses, .chips, .indice ol, .especies-lista, .calendario-rolagem { position: relative; }
+
+/* Menu do guia (8 itens, em português) no tablet (1/11/2026): não cabe entre 761 e 1099 px e esticava a página.
+   Nessa faixa, ele vira o botão "Menu", como no celular. Os menus curtos das outras línguas continuam abertos. */
+@media (min-width: 761px) and (max-width: 1099px) {
+    .topo:has(.menu > li:nth-child(8)) .botao-menu { display: block; }
+    .menu:has(> li:nth-child(8)) { display: none; position: absolute; top: 64px; left: 0; right: 0; flex-direction: column; background: var(--primaria); padding: .5rem 1.25rem 1rem; }
+    .menu.aberto:has(> li:nth-child(8)) { display: flex; }
+}
