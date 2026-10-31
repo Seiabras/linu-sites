@@ -477,3 +477,151 @@ html { scroll-padding-top: 80px; }
 .selo-epoca { position: absolute; top: .8rem; left: .8rem; margin: 0; z-index: 1; box-shadow: 0 1px 4px rgba(0, 0, 0, .25); }
 .so-leitor { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .ficha-onde a { display: inline-block; padding-block: 3px; }
+
+/* ============================================================
+   Guia do cerrado (31/10/2026, em português): o bioma, as paisagens e as fontes
+   ============================================================ */
+.guia-chapeu { font-weight: 700; color: var(--destaque); margin-bottom: .2rem; }
+.guia-chapeu.claro { color: var(--areia); }
+.guia-topo p { max-width: 65ch; }
+sup.nota { font-size: .7em; line-height: 0; margin-left: 1px; }
+sup.nota a { display: inline-block; min-width: 1.4em; min-height: 24px; line-height: 24px; text-align: center; font-weight: 700; text-decoration: none; border-radius: 4px; }
+sup.nota a:hover { background: var(--fundo-alt); text-decoration: underline; }
+
+/* Página com índice: no computador, o índice fica parado à esquerda; no celular, vira uma faixa que rola de lado */
+.guia-layout { display: grid; gap: 1.5rem; padding-top: 2rem; padding-bottom: 4rem; }
+.indice { position: sticky; top: 64px; z-index: 3; background: var(--fundo); padding: .6rem 0; border-bottom: 1px solid var(--borda); margin: 0 -1.25rem; padding-inline: 1.25rem; }
+.indice-titulo { display: none; }
+.indice ol { list-style: none; display: flex; gap: .4rem; overflow-x: auto; scrollbar-width: none; }
+.indice a { display: block; white-space: nowrap; padding: .4rem .8rem; border-radius: 999px; border: 1px solid var(--borda); text-decoration: none; color: var(--texto); font-weight: 600; font-size: .92rem; transition: background-color .18s ease-out, color .18s ease-out; }
+.indice a[aria-current] { background: var(--primaria); border-color: var(--primaria); color: var(--branco); }
+.guia-texto > section { padding-top: 1rem; margin-bottom: 2.5rem; scroll-margin-top: 130px; }
+.guia-texto h2 { font-size: clamp(1.6rem, 3.4vw, 2.1rem); margin-bottom: .6rem; }
+.guia-texto p { max-width: 68ch; }
+.guia-texto p + p { margin-top: .8rem; }
+@media (min-width: 1000px) {
+    .guia-layout { grid-template-columns: 220px minmax(0, 1fr); gap: 3.5rem; align-items: start; }
+    .indice { top: 88px; margin: 0; padding: 0; border: 0; background: none; }
+    .indice-titulo { display: block; font-weight: 700; color: var(--texto-suave); margin-bottom: .5rem; }
+    .indice ol { flex-direction: column; overflow: visible; border-left: 2px solid var(--borda); gap: 0; }
+    .indice a { border: 0; border-radius: 0; margin-left: -2px; border-left: 2px solid transparent; padding: .45rem .9rem; }
+    .indice a[aria-current] { background: none; color: var(--destaque); border-left-color: var(--destaque); }
+    .guia-texto > section { scroll-margin-top: 90px; }
+}
+
+/* O mapa dos biomas */
+.biomas-figura { margin-top: 1.2rem; }
+.biomas-botoes { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: 1rem; }
+.biomas-botoes button { display: inline-flex; align-items: center; gap: .45rem; font: inherit; font-weight: 600; font-size: .92rem; padding: .4rem .8rem; border-radius: 999px; border: 1px solid var(--borda); background: var(--superficie); color: var(--texto); cursor: pointer; min-height: 36px; transition: border-color .18s ease-out, box-shadow .18s ease-out; }
+.biomas-botoes button[aria-pressed="true"] { border-color: var(--texto); box-shadow: 0 0 0 1px var(--texto); }
+.bioma-pct { color: var(--texto-suave); font-weight: 400; }
+.cor-bioma { width: 16px; height: 16px; border-radius: 4px; flex: none; }
+.mapa-biomas { width: 100%; max-width: 560px; height: auto; display: block; }
+.mapa-biomas .bioma { cursor: pointer; transition: opacity .2s ease-out; }
+.mapa-biomas .estados { fill: none; stroke: var(--fundo); stroke-width: .6; stroke-linejoin: round; pointer-events: none; }
+.bioma-cerrado, .cor-cerrado { fill: #C8985A; background: #C8985A; }
+.bioma-amazonia, .cor-amazonia { fill: #5E7F55; background: #5E7F55; }
+.bioma-mata-atlantica, .cor-mata-atlantica { fill: #8FAE7A; background: #8FAE7A; }
+.bioma-caatinga, .cor-caatinga { fill: #B9A88A; background: #B9A88A; }
+.bioma-pampa, .cor-pampa { fill: #A7B46B; background: #A7B46B; }
+.bioma-pantanal, .cor-pantanal { fill: #6E9A9B; background: #6E9A9B; }
+.mapa-biomas[data-destaque] .bioma { opacity: .28; }
+.mapa-biomas[data-destaque="cerrado"] .bioma-cerrado, .mapa-biomas[data-destaque="amazonia"] .bioma-amazonia,
+.mapa-biomas[data-destaque="mata-atlantica"] .bioma-mata-atlantica, .mapa-biomas[data-destaque="caatinga"] .bioma-caatinga,
+.mapa-biomas[data-destaque="pampa"] .bioma-pampa, .mapa-biomas[data-destaque="pantanal"] .bioma-pantanal { opacity: 1; }
+.biomas-figura figcaption, .nota-calculo { color: var(--texto-suave); font-size: .9rem; margin-top: .6rem; }
+.bioma-legenda { font-weight: 700; color: var(--texto); }
+
+/* Estado por estado */
+.estados-lista { list-style: none; display: grid; gap: .55rem; margin-top: 1rem; max-width: 640px; }
+.estados-lista li { display: grid; grid-template-columns: 1fr auto; column-gap: 1rem; }
+.estado-nome { font-weight: 600; }
+.estado-pct { font-variant-numeric: tabular-nums; font-weight: 700; color: var(--destaque); }
+.estados-lista svg { grid-column: 1 / -1; width: 100%; height: 10px; display: block; border-radius: 3px; overflow: hidden; }
+.estado-fundo { fill: var(--fundo-alt); }
+.estado-barra { fill: var(--areia); }
+
+/* Clima */
+.estacoes { display: grid; grid-template-columns: repeat(12, 1fr); gap: 3px; margin: 1.2rem 0 .4rem; max-width: 640px; }
+.estacao-faixa { text-align: center; font-size: .8rem; font-weight: 700; padding: .55rem 0; border-radius: 4px; }
+.estacao-faixa.chuva { background: var(--oliva); color: var(--branco); }
+.estacao-faixa.seca { background: var(--areia); color: var(--preto); }
+.estacoes-legenda { display: flex; align-items: center; gap: .4rem; color: var(--texto-suave); font-size: .9rem; }
+.chave { width: 14px; height: 14px; border-radius: 3px; display: inline-block; margin-left: .6rem; }
+.chave.chuva { background: var(--oliva); margin-left: 0; } .chave.seca { background: var(--areia); }
+.numeros-guia { display: grid; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); gap: 1rem; margin: 1.2rem 0; border-top: 1px solid var(--borda); }
+.numeros-guia div { padding-top: .8rem; }
+.numeros-guia dt { font-family: "Newsreader", Georgia, serif; font-weight: 600; font-size: 1.9rem; color: var(--destaque); line-height: 1.1; }
+.numeros-guia dd { color: var(--texto-suave); }
+.adaptacoes { margin: .8rem 0 1rem 1.2rem; display: grid; gap: .5rem; max-width: 68ch; }
+.aviso-guia { border-left: 4px solid var(--erro); padding-left: 1rem; }
+
+/* As paisagens: o corte desenhado e as fichas */
+.corte-figura { margin-bottom: 2rem; }
+.corte-rolagem { overflow-x: auto; border-radius: var(--raio); background: var(--fundo-alt); scroll-snap-type: x proximity; }
+.corte-rolagem:focus-visible { outline: 3px solid var(--texto); outline-offset: 2px; }
+.corte { display: block; width: 100%; min-width: 1050px; height: auto; }
+.corte .trecho { cursor: pointer; scroll-snap-align: center; }
+.corte .trecho-fundo { fill: transparent; transition: fill .18s ease-out; }
+.corte .trecho:hover .trecho-fundo { fill: rgba(200, 152, 90, .14); }
+.corte .trecho.escolhido .trecho-fundo { fill: rgba(200, 152, 90, .28); }
+.corte .chao { stroke: var(--texto-suave); stroke-width: 2; }
+.corte text { fill: var(--texto); font-size: 11px; font-weight: 600; }
+.corte .trecho.escolhido text { font-weight: 800; }
+.corte .grupo { fill: var(--texto-suave); font-size: 12px; font-weight: 700; }
+.corte .divisa { stroke: var(--borda); stroke-dasharray: 3 4; }
+.corte .tronco { stroke: #6B4A2B; stroke-width: 3; fill: none; stroke-linecap: round; }
+.corte .tronco.fino { stroke-width: 1.6; }
+.corte .copa { fill: #6F8F4E; }
+.corte .copa.seca { fill: #B49A6A; }
+.corte .folha { stroke: #5F7F44; stroke-width: 3; fill: none; stroke-linecap: round; }
+.corte .capim { stroke: #B8A45A; stroke-width: 1.5; fill: none; }
+.corte .arbusto { fill: #8A9A55; }
+.corte .rocha { fill: #9C928A; }
+.corte .murundu { fill: #C2A878; }
+.corte .agua { fill: #6E9FB8; }
+.corte-figura figcaption { color: var(--texto-suave); font-size: .9rem; margin-top: .5rem; }
+.paisagens-layout { display: grid; gap: 1.5rem; }
+.tipos { display: flex; flex-wrap: wrap; gap: .4rem; }
+.tipo { font: inherit; font-weight: 600; text-align: left; padding: .5rem .85rem; border-radius: 8px; border: 1px solid var(--borda); background: var(--superficie); color: var(--texto); cursor: pointer; transition: border-color .18s ease-out, background-color .18s ease-out; }
+.tipo .tipo-formacao { display: block; font-size: .78rem; font-weight: 600; color: var(--texto-suave); }
+.tipo[aria-pressed="true"] { background: var(--primaria); border-color: var(--primaria); color: var(--branco); }
+.tipo[aria-pressed="true"] .tipo-formacao { color: #F4EDE3; }
+.paisagem { background: var(--superficie); border: 1px solid var(--borda); border-radius: var(--raio); padding: 1.4rem 1.5rem; margin-bottom: 1rem; scroll-margin-top: 80px; }
+.paisagem h2 { font-size: clamp(1.6rem, 3.2vw, 2rem); margin: .1rem 0 .6rem; }
+.paisagem .tipo-formacao { color: var(--destaque); font-weight: 700; }
+.paisagem-dados { display: grid; grid-template-columns: auto 1fr; gap: .3rem 1rem; margin: 1rem 0; }
+.paisagem-dados dt { font-weight: 700; }
+.paisagem-reconhecer { border-left: 3px solid var(--areia); padding-left: .9rem; }
+@media (min-width: 1000px) {
+    .paisagens-layout.uma-por-vez { grid-template-columns: 340px minmax(0, 1fr); gap: 2.5rem; align-items: start; }
+    .uma-por-vez .tipos { flex-direction: column; flex-wrap: nowrap; position: sticky; top: 88px; }
+    .corte { min-width: 0; }
+}
+
+/* A inicial do guia: as portas de entrada */
+.guia-portas { display: grid; gap: 1rem; }
+@media (min-width: 760px) { .guia-portas { grid-template-columns: 1.4fr 1fr 1fr; } .porta-grande { grid-row: span 2; } }
+.porta { display: flex; flex-direction: column; gap: .3rem; padding: 1.3rem 1.4rem; border-radius: var(--raio); background: var(--superficie); border: 1px solid var(--borda); color: var(--texto); text-decoration: none; transition: border-color .18s ease-out, transform .18s ease-out; }
+.porta:hover { border-color: var(--destaque); }
+.porta strong { font-family: "Newsreader", Georgia, serif; font-weight: 600; font-size: 1.4rem; line-height: 1.2; }
+.porta-grande { background: var(--primaria); border-color: var(--primaria); color: var(--branco); justify-content: flex-end; min-height: 220px; }
+.porta-grande strong { font-size: 2rem; }
+.porta-chapeu { font-weight: 700; color: var(--destaque); font-size: .9rem; }
+.porta-grande .porta-chapeu { color: var(--areia); }
+.porta span:last-child { color: var(--texto-suave); }
+.porta-grande span:last-child { color: #F4EDE3; }
+.foto h3 a { color: inherit; text-decoration: none; }
+.foto h3 a:hover { text-decoration: underline; }
+@media (prefers-reduced-motion: no-preference) { .porta:hover { transform: translateY(-2px); } }
+
+/* Fontes */
+.fontes-lista { list-style: none; display: grid; gap: 1rem; }
+.fontes-lista li { display: grid; grid-template-columns: 2.2rem 1fr; gap: .2rem .6rem; scroll-margin-top: 90px; }
+.fontes-lista li:target { background: var(--fundo-alt); border-radius: 8px; padding: .4rem; }
+.fonte-numero { grid-row: span 2; font-family: "Newsreader", Georgia, serif; font-weight: 600; font-size: 1.3rem; color: var(--destaque); }
+.fontes-lista a { justify-self: start; display: inline-block; padding-block: 2px; font-weight: 600; }
+/* contraste e alvos de toque (conferido com o axe e a medida de 24 px) */
+.porta-grande .porta-chapeu { color: var(--creme); }
+sup.nota a { min-width: 24px; }
+.foto h3 a { display: inline-block; padding-block: 1px; }

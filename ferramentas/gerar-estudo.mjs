@@ -45,7 +45,11 @@ const paginas = fs.readdirSync(path.join(pasta, 'modelo')).filter((f) => f.endsW
 const soPt = fs.existsSync(path.join(pasta, 'so-pt.json')) ? ler(path.join(pasta, 'so-pt.json')) : [];
 for (const f of soPt) if (!paginas.includes(f)) erros.push(`so-pt.json: ${f} não existe em modelo/`);
 // os trechos {{?código}}…{{/código}} entram só naquele idioma
-const soNeste = (modelo, codigo) => modelo.replace(/\{\{\?([A-Za-z-]+)\}\}([\s\S]*?)\{\{\/\1\}\}/g, (_, c, dentro) => (c === codigo ? dentro : ''));
+// e os trechos {{!código}}…{{/!código}} entram em todos os idiomas menos naquele (31/10/2026: a inicial e o menu em
+// português já são o guia do cerrado; nas outras línguas, o site continua como estava até a tradução)
+const soNeste = (modelo, codigo) => modelo
+  .replace(/\{\{\?([A-Za-z-]+)\}\}([\s\S]*?)\{\{\/\1\}\}/g, (_, c, dentro) => (c === codigo ? dentro : ''))
+  .replace(/\{\{!([A-Za-z-]+)\}\}([\s\S]*?)\{\{\/!\1\}\}/g, (_, c, dentro) => (c === codigo ? '' : dentro));
 const saidas = [];
 for (const arquivo of paginas) {
   const modeloBruto = fs.readFileSync(path.join(pasta, 'modelo', arquivo), 'utf8');

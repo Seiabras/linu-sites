@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Início — Fotografia do Cerrado</title>
+    <title>Guia do Cerrado: a savana mais rica do mundo — Fotografia do Cerrado</title>
     <meta name="description" content="Fotografias da fauna do cerrado brasileiro, para aproximar as pessoas da natureza e ajudar a preservá-la.">
     <link rel="icon" href="img/icone.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="img/icone-180.png">
@@ -44,89 +44,67 @@
             <button class="botao-tema" type="button" data-escuro="Mudar para o modo escuro" data-claro="Mudar para o modo claro" aria-label="Mudar para o modo escuro"><svg class="lua" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg><svg class="sol" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1"/></svg></button>
             <button class="botao-menu" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
             <nav aria-label="Navegação principal">
-                <ul class="menu" id="menu"><li><a href="index.html" aria-current="page">Início</a></li><li><a href="galeria.html">Galeria</a></li><li><a href="expedicoes.html">Expedições</a></li><li><a href="diario.html">Diário</a></li><li><a href="sobre.html">Sobre</a></li><li><a href="contato.html">Contato</a></li></ul>
+                <ul class="menu" id="menu"><li><a href="index.html" aria-current="page">Início</a></li><li><a href="bioma.html">O bioma</a></li><li><a href="paisagens.html">Paisagens</a></li><li><a href="galeria.html">Espécies</a></li><li><a href="expedicoes.html">Expedições</a></li><li><a href="sobre.html">Sobre</a></li></ul>
             </nav>
         </div>
     </header>
 
     <main id="conteudo">
+
+
         <section class="abertura">
             <img src="img/abertura-seriema-ipe.webp" srcset="img/abertura-seriema-ipe-640.webp 640w, img/abertura-seriema-ipe.webp 1000w" sizes="100vw" alt="Seriema no campo de capim dourado, com um ipê-rosa florido ao fundo" width="1000" height="667" loading="eager" fetchpriority="high">
             <div class="faixa">
                 <div class="container">
-                    <h1>A fauna do cerrado, de perto</h1>
-                    <p>Fotografias de animais do segundo maior bioma do Brasil, para aproximar as pessoas da natureza e ajudar a preservá-la.</p>
-                    <a class="botao" href="galeria.html">Ver a galeria</a>
+                    <p class="guia-chapeu claro">Guia do cerrado</p>
+                    <h1>O cerrado, de perto</h1>
+                    <p>A savana mais rica do mundo, explicada sem pressa: as paisagens, os bichos e as plantas, o clima, o fogo e a água que nasce aqui. Tudo com fonte.</p>
+                    <a class="botao" href="bioma.html">Comece pelo bioma</a>
                 </div>
             </div>
         </section>
-
         <section class="secao">
             <div class="container">
-                <h2>Últimas fotos</h2>
-                <p class="intro">Alguns dos animais que mais aparecem nas nossas expedições.</p>
-                <div class="grade destaque">
-                <article class="foto" data-grupo="mamiferos">
-                    <img src="img/lobo-guara.webp" srcset="img/lobo-guara-640.webp 640w, img/lobo-guara.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="Lobo-guará de pelagem laranja e pernas pretas andando na grama" width="1000" height="647" loading="lazy">
-                    <div class="legenda">
-                        <h3>Lobo-guará</h3>
-                        <p class="cientifico">Chrysocyon brachyurus</p>
-                        <p>O maior canídeo da América do Sul. Caça à noite e come também muitos frutos, como a lobeira, ajudando a espalhar as sementes.</p>
-                        <p class="ficha-link"><a href="especie-lobo-guara.html">Ver a ficha</a></p>
-                        <span class="selo">Vulnerável (ICMBio)</span>
-                    </div>
-                </article>
-                <article class="foto" data-grupo="mamiferos">
-                    <img src="img/tamandua-bandeira.webp" srcset="img/tamandua-bandeira-640.webp 640w, img/tamandua-bandeira.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="Tamanduá-bandeira cinza, com a faixa preta no ombro, procurando alimento no capim" width="1000" height="667" loading="lazy">
-                    <div class="legenda">
-                        <h3>Tamanduá-bandeira</h3>
-                        <p class="cientifico">Myrmecophaga tridactyla</p>
-                        <p>Usa a língua comprida, de até 60 cm, para comer formigas e cupins. Não tem dentes.</p>
-                        <p class="ficha-link"><a href="especie-tamandua-bandeira.html">Ver a ficha</a></p>
-                        <span class="selo">Vulnerável (ICMBio)</span>
-                    </div>
-                </article>
-                <article class="foto" data-grupo="aves">
-                    <img src="img/arara-caninde.webp" srcset="img/arara-caninde-640.webp 640w, img/arara-caninde.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="Arara-canindé azul e amarela voando de asas abertas sobre a mata" width="1000" height="772" loading="lazy">
-                    <div class="legenda">
-                        <h3>Arara-canindé</h3>
-                        <p class="cientifico">Ara ararauna</p>
-                        <p>Vive em casais e faz ninho em ocos de palmeiras mortas, como o buriti.</p>
-                        <p class="ficha-link"><a href="especie-arara-caninde.html">Ver a ficha</a></p>
-
-                    </div>
-                </article>
+                <h2>O cerrado em três números</h2>
+                <div class="fatos">
+                    <div><strong>23,3%</strong>do Brasil, quase 2 milhões de km²<sup class="nota"><a href="fontes.html#f1" aria-label="Fonte 1">1</a></sup></div>
+                    <div><strong>+11 mil</strong>espécies de plantas nativas<sup class="nota"><a href="fontes.html#f11" aria-label="Fonte 11">11</a></sup></div>
+                    <div><strong>~4.400</strong>plantas que só existem aqui<sup class="nota"><a href="fontes.html#f12" aria-label="Fonte 12">12</a></sup></div>
                 </div>
-                <p class="mais"><a href="galeria.html">Ver todas as fotos →</a></p>
             </div>
         </section>
-
         <section class="secao creme">
             <div class="container">
-                <h2>Por que o cerrado</h2>
-                <p class="intro">É a savana com mais espécies do mundo e, ao mesmo tempo, um dos biomas que mais perderam vegetação nativa no Brasil.</p>
-                <div class="fatos">
-                    <div><strong>2º</strong>maior bioma do Brasil, depois da Amazônia</div>
-                    <div><strong>≈ 24%</strong>do território brasileiro</div>
-                    <div><strong>3</strong>grandes bacias hidrográficas nascem nele: Amazônica, São Francisco e Paraná</div>
+                <h2>Explore o guia</h2>
+                <div class="guia-portas">
+                    <a class="porta porta-grande" href="paisagens.html"><span class="porta-chapeu">Paisagens</span><strong>Do campo limpo à mata ciliar</strong><span>As 11 paisagens do Cerrado num corte desenhado para explorar.</span></a>
+                    <a class="porta" href="bioma.html"><span class="porta-chapeu">O bioma</span><strong>Onde fica, clima, solo e fogo</strong><span>E quanto de cada estado é Cerrado.</span></a>
+                    <a class="porta" href="galeria.html"><span class="porta-chapeu">Espécies</span><strong>Bichos do Cerrado</strong><span>Fichas com medidas, hábitos e como fotografar.</span></a>
+                    <a class="porta" href="expedicoes.html"><span class="porta-chapeu">Expedições</span><strong>Ver de perto</strong><span>Quando ir e onde ficam os parques.</span></a>
+                    <a class="porta" href="fontes.html"><span class="porta-chapeu">Fontes</span><strong>De onde vem cada número</strong><span>IBGE, Embrapa, ICMBio e artigos científicos.</span></a>
                 </div>
             </div>
         </section>
-
-        <section class="secao terra">
+        <section class="secao">
             <div class="container">
-                <h2>Fotografe com a gente</h2>
-                <p class="intro">Saídas em pequenos grupos, com guia local e foco em observar sem perturbar os animais.</p>
-                <a class="botao" href="expedicoes.html">Conhecer as expedições</a>
+                <h2>Algumas espécies</h2>
+                <p class="intro">Toque para abrir a ficha de cada uma.</p>
+                <div class="grade destaque">
+                <article class="foto"><a href="especie-lobo-guara.html"><img src="img/lobo-guara.webp" srcset="img/lobo-guara-640.webp 640w, img/lobo-guara.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="Lobo-guará de pelagem laranja e pernas pretas andando na grama" width="1000" height="647" loading="lazy"></a><div class="legenda"><h3><a href="especie-lobo-guara.html">Lobo-guará</a></h3><p class="cientifico">Chrysocyon brachyurus</p><p>O maior canídeo da América do Sul, que come muita fruta e espalha as sementes da lobeira.</p></div></article>
+                <article class="foto"><a href="especie-tamandua-bandeira.html"><img src="img/tamandua-bandeira.webp" srcset="img/tamandua-bandeira-640.webp 640w, img/tamandua-bandeira.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="Tamanduá-bandeira cinza, com a faixa preta no ombro, procurando alimento no capim" width="1000" height="667" loading="lazy"></a><div class="legenda"><h3><a href="especie-tamandua-bandeira.html">Tamanduá-bandeira</a></h3><p class="cientifico">Myrmecophaga tridactyla</p><p>Sem dentes, come formigas e cupins com uma língua de mais de meio metro.</p></div></article>
+                <article class="foto"><a href="especie-arara-caninde.html"><img src="img/arara-caninde.webp" srcset="img/arara-caninde-640.webp 640w, img/arara-caninde.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="Arara-canindé azul e amarela voando de asas abertas sobre a mata" width="1000" height="772" loading="lazy"></a><div class="legenda"><h3><a href="especie-arara-caninde.html">Arara-canindé</a></h3><p class="cientifico">Ara ararauna</p><p>Faz ninho em palmeiras mortas, como o buriti das veredas.</p></div></article>
+                </div>
+                <p class="mais"><a href="galeria.html">Ver todas as espécies →</a></p>
             </div>
         </section>
+
     </main>
 
     <footer class="rodape">
         <div class="container">
             <nav class="idiomas-rodape" aria-label="Região e idioma"><a href="./" hreflang="pt-BR" lang="pt-BR" aria-current="true">Português (Brasil)</a> · <a href="pt-pt/" hreflang="pt-PT" lang="pt-PT">Português (Portugal)</a> · <a href="es/" hreflang="es-ES" lang="es-ES">Español</a> · <a href="ca/" hreflang="ca" lang="ca">Català</a> · <a href="nl/" hreflang="nl" lang="nl">Nederlands</a> · <a href="en/" hreflang="en-GB" lang="en-GB">English (UK &amp; Europe)</a> · <a href="fr/" hreflang="fr-FR" lang="fr-FR">Français</a> · <a href="de/" hreflang="de-DE" lang="de-DE">Deutsch</a> · <a href="it/" hreflang="it-IT" lang="it-IT">Italiano</a> · <a href="intl/" hreflang="en" lang="en">English (international)</a> · <a href="ja/" hreflang="ja-JP" lang="ja-JP">日本語</a> · <a href="ko/" hreflang="ko-KR" lang="ko-KR">한국어</a> · <a href="zh-hant/" hreflang="zh-Hant" lang="zh-Hant">繁體中文</a></nav>
             <p>© 2026 Fotografia do Cerrado · empresa fictícia, projeto de estudo de Luiz Matheus Moraes Vega</p>
-            <p><a href="creditos.html">Créditos das fotos</a> · <a href="como-fotografamos.html">Como fotografamos</a></p>
+            <p><a href="creditos.html">Créditos das fotos</a> · <a href="diario.html">Diário de campo</a> · <a href="como-fotografamos.html">Como fotografamos</a> · <a href="contato.html">Contato</a> · <a href="fontes.html">Fontes</a></p>
         </div>
     </footer>
 </body>

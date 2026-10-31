@@ -219,6 +219,11 @@ node ferramentas/gerar-estudo.mjs abelhas-sem-ferrao
   `ferramentas/estudo/<site>/so-pt.json` (sem alternativas nem lista de idiomas) e põe só na página em pt-BR o que estiver
   entre `{{?pt-BR}}` e `{{/pt-BR}}` num modelo. O Cerrado usa os dois (fichas, diário, mapa, testador de contraste); a
   lista está no README de `Seiabras/fotografia-do-cerrado`. Para traduzir, trocar o texto por chaves e tirar daqui.
+  **O Cerrado virou um guia do bioma** (31/10/2026, pedido de “o site mais completo sobre o cerrado do mundo”): em português, a
+  inicial e o menu são os do guia, com as páginas “O bioma” (mapa dos biomas do IBGE 2019, quanto de cada estado é Cerrado,
+  clima, solo, fogo), “Paisagens” (as 11 fitofisionomias de Ribeiro e Walter num corte desenhado) e “Fontes”. Saem do
+  `guia-pt.py` (rodar depois do `paginas-pt.py`); o mapa, do `biomas.py`. `{{!pt-BR}}…{{/!pt-BR}}` num modelo entra em todas
+  as línguas menos o português: é o que mantém a inicial e o menu antigos nas outras 12 até a tradução.
   As fichas, o diário, “Como fotografamos” e a 404 do Cerrado saem do `ferramentas/estudo/fotografia-do-cerrado/paginas-pt.py`
   (mude o texto lá e rode antes do `gerar-estudo.mjs`); o mapa das Expedições, do `mapa.py` da mesma pasta.
 - **A 404 do Cerrado** (`sitios/fotografia-do-cerrado/404.html`) só aparece depois de o bloco novo do `deploy/Caddyfile-bloco`

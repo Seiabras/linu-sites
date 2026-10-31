@@ -1,0 +1,386 @@
+# O guia do cerrado, em português (31/10/2026). Rodar depois do paginas-pt.py e antes do gerar-estudo.mjs:
+#   python3 ferramentas/estudo/fotografia-do-cerrado/paginas-pt.py
+#   python3 ferramentas/estudo/fotografia-do-cerrado/guia-pt.py
+#   node ferramentas/gerar-estudo.mjs fotografia-do-cerrado
+#
+# - Troca, só na página em português, o menu de todas as páginas pelo do guia e a inicial pela do guia (as outras línguas
+#   continuam como estavam, até a tradução: {{!pt-BR}} … {{/!pt-BR}} no modelo);
+# - escreve as páginas novas do guia (bioma.html, paisagens.html e fontes.html), só em português;
+# - marca no menu a página atual de cada uma.
+# O mapa dos biomas sai do biomas.py (mesma pasta); os números de cada estado estão em estados-cerrado.json.
+import json, pathlib, re
+
+AQUI = pathlib.Path(__file__).resolve().parent
+M = AQUI / 'modelo'
+COMPARTILHADAS = ['index.html', 'galeria.html', 'expedicoes.html', 'sobre.html', 'contato.html', 'creditos.html']
+
+# ---------------------------------------------------------------- menu e rodapé do guia (só em português)
+MENU = [('index.html', 'Início'), ('bioma.html', 'O bioma'), ('paisagens.html', 'Paisagens'), ('galeria.html', 'Espécies'),
+        ('expedicoes.html', 'Expedições'), ('sobre.html', 'Sobre')]
+ATUAL = {'especie-': 'galeria.html'}  # as fichas ficam dentro de Espécies
+
+def menu_pt(arquivo):
+    atual = next((v for k, v in ATUAL.items() if arquivo.startswith(k)), arquivo)
+    itens = ''.join(f'<li><a href="{h}"{" aria-current=\"page\"" if h == atual else ""}>{t}</a></li>' for h, t in MENU)
+    return f'<ul class="menu" id="menu">{itens}</ul>'
+
+RODAPE_PT = ' · <a href="diario.html">Diário de campo</a> · <a href="como-fotografamos.html">Como fotografamos</a> · <a href="contato.html">Contato</a> · <a href="fontes.html">Fontes</a>'
+
+def com_menu_do_guia(s, arquivo):
+    """Põe o menu do guia na página em português; nas outras línguas fica o de antes."""
+    s = s.replace('{{?pt-BR}}<li><a href="diario.html">Diário</a></li>{{/pt-BR}}', '')
+    s = s.replace('{{?pt-BR}}<li><a href="diario.html" aria-current="page">Diário</a></li>{{/pt-BR}}', '')
+    m = re.search(r'(\{\{!pt-BR\}\})?<ul class="menu" id="menu">.*?</ul>(\{\{/!pt-BR\}\}\{\{\?pt-BR\}\}<ul class="menu" id="menu">.*?</ul>\{\{/pt-BR\}\})?', s)
+    antigo = re.search(r'<ul class="menu" id="menu">.*?</ul>', m.group(0)).group(0)
+    return s[:m.start()] + '{{!pt-BR}}' + antigo + '{{/!pt-BR}}{{?pt-BR}}' + menu_pt(arquivo) + '{{/pt-BR}}' + s[m.end():]
+
+def com_rodape_do_guia(s):
+    s = re.sub(r'\{\{\?pt-BR\}\} · <a href="como-fotografamos\.html">Como fotografamos</a>.*?\{\{/pt-BR\}\}', '{{?pt-BR}}' + RODAPE_PT + '{{/pt-BR}}', s)
+    return s
+
+for f in COMPARTILHADAS:
+    p = M / f
+    s = com_rodape_do_guia(com_menu_do_guia(p.read_text(), f))
+    p.write_text(s)
+
+# ---------------------------------------------------------------- o molde das páginas novas (cabeça e rodapé da galeria)
+galeria = (M / 'galeria.html').read_text()
+cabeca, resto = galeria.split('    <main id="conteudo">', 1)
+rodape = resto.split('    </main>', 1)[1]
+cabeca = re.sub(r'    <script src="\{\{raiz\}\}js/galeria\.js\?v=\d+" defer></script>\n', '', cabeca)
+cabeca = re.sub(r'\{\{!pt-BR\}\}<ul class="menu".*?\{\{/!pt-BR\}\}', '', cabeca)
+rodape = re.sub(r'\{\{!pt-BR\}\}.*?\{\{/!pt-BR\}\}', '', rodape, flags=re.S)
+
+def pagina(arquivo, titulo, descricao, corpo, scripts=()):
+    s = cabeca.replace('{{galeria_090}}', titulo).replace('{{galeria_103}}', descricao)
+    s = re.sub(r'<ul class="menu" id="menu">.*?</ul>', menu_pt(arquivo), s)
+    extra = ''.join(f'    <script src="{{{{raiz}}}}js/{n}" defer></script>\n' for n in scripts)
+    s = s.replace('{{alternativas}}', extra + '{{alternativas}}')
+    (M / arquivo).write_text(s + '    <main id="conteudo">\n' + corpo + '    </main>' + rodape)
+
+def indice(itens):
+    """O índice da página: fica parado ao lado no computador e vira uma faixa que rola de lado no celular."""
+    li = ''.join(f'<li><a href="#{i}">{t}</a></li>' for i, t in itens)
+    return f'<nav class="indice" aria-label="Nesta página"><p class="indice-titulo">Nesta página</p><ol>{li}</ol></nav>'
+
+def fonte(n):
+    return f'<sup class="nota"><a href="fontes.html#f{n}" aria-label="Fonte {n}">{n}</a></sup>'
+
+# ---------------------------------------------------------------- as fontes (a página fontes.html e as notas)
+FONTES = [
+ (1, 'IBGE. Biomas e sistema costeiro-marinho do Brasil, compatível com a escala 1:250.000. 2019. Área do Cerrado, 1.983.017 km², nos metadados de “Limites dos Biomas” do INPE.', 'https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/25798-ibge-lanca-mapa-inedito-de-biomas-e-sistema-costeiro-marinho'),
+ (2, 'INPE. Limites dos Biomas (catálogo de dados, ajustado ao IBGE 2019).', 'https://data.inpe.br/geonetwork/srv/api/records/0d88678e-4cdb-44f3-9b1d-8edc00bc4122'),
+ (3, 'Ipea. Pacote geobr, função read_biomes(2019): os limites do IBGE usados no mapa e nos números de cada estado.', 'https://github.com/ipeaGIT/geobr'),
+ (4, 'Revista Pesquisa FAPESP. As chuvas do Cerrado (2023): média anual de 1.421 mm em 1960–1990, cerca de 5% a menos em 1991–2021, e cerca de 120 mm de junho a setembro.', 'https://revistapesquisa.fapesp.br/wp-content/uploads/2023/11/052-053_chuvas-cerrado_333novo.pdf'),
+ (5, 'Embrapa. Avaliação, manejo e conservação de solos no Cerrado (1997): cerca de 90% dos solos muito ácidos e com alta saturação de alumínio.', 'https://www.alice.cnptia.embrapa.br/alice/bitstream/doc/1171496/1/Avaliacao-manejo-e-conservacao-de-solos-no-cerrado-1997.pdf'),
+ (6, 'ICMBio. Colorindo o aprender: Cerrado. O fogo no Cerrado há mais de dez milhões de anos e as adaptações das plantas.', 'https://www.gov.br/icmbio/pt-br/centrais-de-conteudo/publicacoes/publicacoes-diversas/colorindo_o_aprender_cerrado.pdf'),
+ (7, 'Agência FAPESP. Plantas do Cerrado combinam pelo menos duas estratégias para resistir ao fogo (estudo da Unesp na revista Flora).', 'https://agencia.fapesp.br/plantas-do-cerrado-combinam-pelo-menos-duas-estrategias-para-resistir-ao-fogo-revela-estudo/49925'),
+ (8, 'Ribeiro, J. F.; Walter, B. M. T. As principais fitofisionomias do bioma Cerrado. In: Sano, S. M.; Almeida, S. P.; Ribeiro, J. F. (ed.). Cerrado: ecologia e flora. Brasília: Embrapa Informação Tecnológica, 2008. v. 1, cap. 6.', 'https://www.alice.cnptia.embrapa.br/alice/bitstream/doc/186922/1/CERRADO-Ecologia-e-flora-VOL-1-152-213.pdf'),
+ (9, 'Embrapa Cerrados. Bioma Cerrado: cerradão, cerrado sentido restrito (denso, típico, ralo e rupestre) e as outras fitofisionomias.', 'https://www.embrapa.br/en/web/cerrados/colecao-entomologica/bioma-cerrado'),
+ (10, 'Embrapa. Veredas (capítulo VI.3): os dois estratos da vereda e o buriti.', 'https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/1176629/1/VI.3-Veredas.pdf'),
+ (11, 'Ministério do Meio Ambiente. O Bioma Cerrado (página do antigo site do MMA): 11.627 espécies de plantas nativas catalogadas, número repetido por muitas fontes.', 'http://antigo.mma.gov.br/biomas/cerrado.html'),
+ (12, 'Myers, N. et al. Biodiversity hotspots for conservation priorities. Nature, v. 403, p. 853–858, 2000. O Cerrado como um dos 25 hotspots do mundo, com cerca de 4.400 plantas endêmicas.', 'https://www.nature.com/articles/35002501'),
+ (14, 'Governo de Goiás. Campos do Cerrado: mais de 13 mil espécies vegetais registradas no Cerrado, segundo a Flora do Brasil 2020.', 'https://goias.gov.br/camposdocerrado/?p=11'),
+ (13, 'Jardim Botânico de Brasília. Flora do Cerrado: as fitofisionomias e as alturas das árvores.', 'https://www.jardimbotanico.df.gov.br/educacao-ambiental/flora-cerrado'),
+]
+
+# ---------------------------------------------------------------- O bioma
+estados = json.loads((AQUI / 'estados-cerrado.json').read_text())
+NOMES = {'GO': 'Goiás', 'DF': 'Distrito Federal', 'TO': 'Tocantins', 'MA': 'Maranhão', 'MS': 'Mato Grosso do Sul', 'MG': 'Minas Gerais',
+         'PI': 'Piauí', 'MT': 'Mato Grosso', 'SP': 'São Paulo', 'BA': 'Bahia', 'PR': 'Paraná', 'PA': 'Pará', 'RO': 'Rondônia'}
+linhas_estados = ''.join(
+    f'<li><span class="estado-nome">{NOMES[s]}</span><span class="estado-pct">{pct}%</span>'
+    f'<svg viewBox="0 0 100 10" preserveAspectRatio="none" aria-hidden="true"><rect class="estado-fundo" width="100" height="10"/><rect class="estado-barra" width="{pct}" height="10"/></svg></li>'
+    for s, (km2, pct) in sorted(estados.items(), key=lambda kv: -kv[1][1]))
+mapa_biomas = (AQUI / 'biomas.svg').read_text()
+BIOMAS = [('cerrado', 'Cerrado', '23,3%'), ('amazonia', 'Amazônia', '49,5%'), ('mata-atlantica', 'Mata Atlântica', '13%'),
+          ('caatinga', 'Caatinga', '10,1%'), ('pampa', 'Pampa', '2,3%'), ('pantanal', 'Pantanal', '1,8%')]
+botoes_biomas = ''.join(f'<button type="button" data-bioma="{i}" aria-pressed="{"true" if i == "cerrado" else "false"}"><span class="cor-bioma cor-{i}" aria-hidden="true"></span>{n} <span class="bioma-pct">{p}</span></button>' for i, n, p in BIOMAS)
+
+bioma = f'''        <section class="titulo-pagina guia-topo">
+            <div class="container">
+                <p class="guia-chapeu">Guia do cerrado</p>
+                <h1>O bioma</h1>
+                <p>A savana mais rica do mundo ocupa o meio do Brasil. Aqui está onde ela fica, como é o clima, por que o solo é do jeito que é e o que o fogo tem a ver com tudo isso.</p>
+            </div>
+        </section>
+        <div class="container guia-layout">
+            {indice([('onde', 'Onde fica'), ('estados', 'Estado por estado'), ('clima', 'Clima'), ('solo', 'Solo'), ('fogo', 'Fogo'), ('vida', 'Biodiversidade')])}
+            <div class="guia-texto">
+                <section id="onde" aria-labelledby="onde-titulo">
+                    <h2 id="onde-titulo">Onde fica</h2>
+                    <p>O Cerrado é o segundo maior bioma do Brasil, depois da Amazônia: são 1.983.017 km², cerca de 23,3% do país.{fonte(1)}{fonte(2)} É o único bioma que aparece em todas as regiões brasileiras, do Maranhão ao Paraná.{fonte(1)}</p>
+                    <figure class="biomas-figura">
+                        <div class="biomas-botoes" role="group" aria-label="Destacar um bioma no mapa">{botoes_biomas}</div>
+                        {mapa_biomas}
+                        <figcaption><span class="bioma-legenda" aria-live="polite">Cerrado: 23,3% do Brasil.</span> Limites dos biomas do IBGE, 2019.{fonte(1)}{fonte(3)}</figcaption>
+                    </figure>
+                </section>
+                <section id="estados" aria-labelledby="estados-titulo">
+                    <h2 id="estados-titulo">Estado por estado</h2>
+                    <p>Quanto do território de cada estado é Cerrado. Goiás e o Distrito Federal são quase inteiros; em Mato Grosso, o Cerrado divide espaço com a Amazônia e o Pantanal.</p>
+                    <ul class="estados-lista">{linhas_estados}</ul>
+                    <p class="nota-calculo">Calculado pela Fotografia do Cerrado cruzando os limites do bioma (IBGE, 2019) com o contorno dos estados, numa projeção de áreas iguais. São aproximações: o total deu 1.991.688 km², 0,4% acima do número oficial.{fonte(3)}</p>
+                </section>
+                <section id="clima" aria-labelledby="clima-titulo">
+                    <h2 id="clima-titulo">Clima: duas estações</h2>
+                    <p>O ano no Cerrado se divide em dois. De outubro a abril chove, e muito; de maio a setembro quase não chove. Entre junho e setembro, o bioma inteiro recebe em média só uns 120 mm, menos do que um único mês de chuva.{fonte(4)}</p>
+                    <div class="estacoes" role="img" aria-label="O ano em duas estações: chuvas de outubro a abril, seca de maio a setembro">
+                        <span class="estacao-faixa chuva">Out</span><span class="estacao-faixa chuva">Nov</span><span class="estacao-faixa chuva">Dez</span><span class="estacao-faixa chuva">Jan</span><span class="estacao-faixa chuva">Fev</span><span class="estacao-faixa chuva">Mar</span><span class="estacao-faixa chuva">Abr</span><span class="estacao-faixa seca">Mai</span><span class="estacao-faixa seca">Jun</span><span class="estacao-faixa seca">Jul</span><span class="estacao-faixa seca">Ago</span><span class="estacao-faixa seca">Set</span>
+                    </div>
+                    <p class="estacoes-legenda"><span class="chave chuva" aria-hidden="true"></span> chuvas <span class="chave seca" aria-hidden="true"></span> seca</p>
+                    <dl class="numeros-guia">
+                        <div><dt>1.421 mm</dt><dd>de chuva por ano, na média de 1960 a 1990{fonte(4)}</dd></div>
+                        <div><dt>cerca de 5%</dt><dd>menos chuva por ano entre 1991 e 2021{fonte(4)}</dd></div>
+                        <div><dt>~120 mm</dt><dd>somando junho, julho, agosto e setembro{fonte(4)}</dd></div>
+                    </dl>
+                    <p>Na seca, o capim fica dourado, muitas árvores perdem parte das folhas e a umidade do ar cai muito à tarde. Na chuva, tudo rebrota em poucas semanas. Quase tudo o que vive aqui tem um jeito de atravessar os meses secos.</p>
+                </section>
+                <section id="solo" aria-labelledby="solo-titulo">
+                    <h2 id="solo-titulo">Solo: velho, fundo e ácido</h2>
+                    <p>Os solos do Cerrado são antigos, profundos e bem drenados, mas pobres em nutrientes. Cerca de 90% deles são muito ácidos e têm muito alumínio, que é tóxico para a maioria das plantas cultivadas.{fonte(5)}</p>
+                    <p>As plantas nativas convivem com isso. Muitas árvores mandam raízes a vários metros de profundidade, até a água que fica guardada embaixo mesmo no auge da seca. Por isso tanta árvore do Cerrado continua verde quando o capim em volta já secou: a parte que a gente não vê é maior do que a que aparece.</p>
+                </section>
+                <section id="fogo" aria-labelledby="fogo-titulo">
+                    <h2 id="fogo-titulo">Fogo: parte da história</h2>
+                    <p>O fogo faz parte do Cerrado há mais de dez milhões de anos, e muitas espécies estão adaptadas a ele.{fonte(6)} As principais estratégias:</p>
+                    <ul class="adaptacoes">
+                        <li><strong>Casca grossa.</strong> A cortiça do tronco funciona como isolante e protege os tecidos vivos do calor.{fonte(6)}</li>
+                        <li><strong>Partes embaixo da terra.</strong> Raízes grossas, xilopódios e rizomas guardam gemas que rebrotam depois que a parte de cima queima.{fonte(7)}</li>
+                        <li><strong>As duas coisas juntas.</strong> Um estudo da Unesp mostrou que muitas árvores do Cerrado investem ao mesmo tempo em casca e em órgãos subterrâneos, e por isso aguentam queimadas de intensidades diferentes.{fonte(7)}</li>
+                    </ul>
+                    <p class="aviso-guia">Adaptado ao fogo não quer dizer que qualquer fogo faz bem. As queimadas muito fortes, no auge da seca, matam até árvores de casca grossa.{fonte(6)} O fogo natural é uma coisa; a queimada fora de hora, outra.</p>
+                </section>
+                <section id="vida" aria-labelledby="vida-titulo">
+                    <h2 id="vida-titulo">Biodiversidade</h2>
+                    <p>O Cerrado é considerado a savana mais rica do mundo. São mais de 11 mil espécies de plantas nativas: o Ministério do Meio Ambiente fala em 11.627 catalogadas,{fonte(11)} e a Flora do Brasil 2020, que segue somando registros, passa de 13 mil.{fonte(14)} Cerca de 4.400 delas só existem aqui.{fonte(12)}</p>
+                    <p>Em 2000, um estudo publicado na Nature pôs o Cerrado entre os 25 “hotspots” do planeta: lugares com muitas espécies que só existem neles e que já perderam boa parte da vegetação original.{fonte(12)}</p>
+                    <p class="mais"><a class="botao" href="paisagens.html">Conheça as 11 paisagens do Cerrado</a></p>
+                </section>
+            </div>
+        </div>
+'''
+pagina('bioma.html', 'O bioma Cerrado: onde fica, clima, solo e fogo — Fotografia do Cerrado',
+       'O Cerrado ocupa 23,3% do Brasil: onde fica, quanto de cada estado é Cerrado, as duas estações, o solo ácido e as adaptações ao fogo, com fontes.',
+       bioma, scripts=['guia.js?v=1'])
+
+# ---------------------------------------------------------------- Paisagens: as 11 fitofisionomias e o corte desenhado
+P = [
+ dict(id='campo-limpo', nome='Campo limpo', formacao='Campestre', cobertura='quase nenhuma árvore', altura='capim e ervas',
+      texto='Um mar de capim e ervas, com raríssimos arbustos e nenhuma árvore. Aparece nas encostas, nas chapadas e em volta das veredas e das nascentes.',
+      reconhecer='Dá para ver o horizonte em todas as direções. Na seca, fica dourado; logo depois das primeiras chuvas, verde.', f=[8]),
+ dict(id='campo-sujo', nome='Campo sujo', formacao='Campestre', cobertura='arbustos espalhados', altura='arbustos baixos',
+      texto='Capim com arbustos e subarbustos espaçados no meio, como se o campo limpo tivesse sido salpicado. Costuma estar em solos rasos ou muito pobres.',
+      reconhecer='O capim domina, mas a cada poucos passos tem um arbusto. Nada passa muito da altura de uma pessoa.', f=[8]),
+ dict(id='campo-rupestre', nome='Campo rupestre', formacao='Campestre', cobertura='capim e arbustos entre as pedras', altura='em geral acima de 900 m de altitude',
+      texto='Vegetação de capim e arbustos crescendo entre afloramentos de rocha, nas serras e chapadas mais altas. Muitas plantas daqui só existem nessas pedras, como várias canelas-de-ema e sempre-vivas.',
+      reconhecer='Pedras à mostra por todo lado, ventos fortes e plantas pequenas, de folhas duras. Comum na Chapada dos Veadeiros e na Serra do Espinhaço.', f=[8]),
+ dict(id='parque-de-cerrado', nome='Parque de cerrado', formacao='Savânica', cobertura='árvores em ilhas', altura='árvores do cerrado em montinhos',
+      texto='As árvores crescem agrupadas em pequenas elevações do terreno, os murundus, e entre elas fica um campo que encharca na época de chuva.',
+      reconhecer='Visto de longe, parece um campo cheio de ilhas redondas de árvores, todas mais ou menos do mesmo tamanho.', f=[8]),
+ dict(id='cerrado-sentido-restrito', nome='Cerrado sentido restrito', formacao='Savânica', cobertura='de 5% a 70%', altura='de 2 a 8 m, conforme o tipo',
+      texto='O “cerrado” que a maioria das pessoas imagina: árvores baixas, tortas, de casca grossa, no meio de capim e arbustos. Conforme a densidade, tem quatro tipos: o denso (50% a 70% de cobertura, árvores de 5 a 8 m), o típico (20% a 50%, de 3 a 6 m), o ralo (5% a 20%, de 2 a 3 m) e o rupestre, sobre as rochas.',
+      reconhecer='Troncos retorcidos, galhos tortos, marcas de queimadas antigas e muitas árvores com casca de cortiça. Pequizeiro, lobeira e pau-terra são comuns.', f=[8, 9, 13]),
+ dict(id='palmeiral', nome='Palmeiral', formacao='Savânica', cobertura='uma palmeira domina', altura='altura da palmeira',
+      texto='Uma única espécie de palmeira domina a paisagem: babaçu, macaúba, guariroba ou buriti, conforme o lugar e a umidade do solo.',
+      reconhecer='Muitas palmeiras iguais, quase sem outras árvores entre elas.', f=[8]),
+ dict(id='vereda', nome='Vereda', formacao='Savânica', cobertura='buritis no meio do campo úmido', altura='buritis altos sobre capim',
+      texto='Uma faixa de campo encharcado, com os buritis alinhados no meio, onde a água do subsolo aflora. As veredas protegem nascentes e são o caminho de muita água que vai formar os rios.',
+      reconhecer='Dois andares: embaixo, o capim úmido, que cobre quase tudo; em cima, os buritis. Onde tem vereda, tem água.', f=[8, 10]),
+ dict(id='cerradao', nome='Cerradão', formacao='Florestal', cobertura='de 50% a 90%', altura='de 8 a 15 m',
+      texto='Uma floresta de árvores do cerrado: as copas se tocam e formam um teto quase contínuo, mais fechado na chuva e mais aberto na seca. Mistura espécies do cerrado com espécies de mata.',
+      reconhecer='Por fora parece mata; por dentro, os troncos ainda têm o jeito torto e a casca grossa do cerrado.', f=[9, 13]),
+ dict(id='mata-seca', nome='Mata seca', formacao='Florestal', cobertura='copa contínua', altura='as maiores árvores chegam perto de 25 m',
+      texto='Floresta que não depende de rio, em solos mais férteis, muitas vezes sobre calcário. Conforme o lugar, pode ficar sempre verde, perder parte das folhas ou perder quase todas na seca.',
+      reconhecer='Na seca, um bosque cinzento de troncos sem folhas; na chuva, uma mata verde e fechada.', f=[8]),
+ dict(id='mata-de-galeria', nome='Mata de galeria', formacao='Florestal', cobertura='as copas fecham sobre o riacho', altura='floresta alta',
+      texto='Floresta que acompanha os córregos e riachos pequenos. As copas das duas margens se encontram por cima da água e formam um corredor fechado, a galeria. Fica verde o ano inteiro.',
+      reconhecer='Uma faixa escura de mata seguindo o fundo do vale, no meio do cerrado aberto. Dentro, sombra e ar úmido.', f=[8]),
+ dict(id='mata-ciliar', nome='Mata ciliar', formacao='Florestal', cobertura='as copas não cobrem o rio', altura='floresta alta',
+      texto='Floresta das margens dos rios médios e grandes. Ao contrário da mata de galeria, as copas das duas margens não se encontram: o rio é largo demais. Parte das árvores perde folhas na seca.',
+      reconhecer='Duas fileiras de mata, uma em cada margem, com o rio aberto entre elas.', f=[8]),
+]
+
+def tufo(x, y, r, cls='copa'):
+    # uma copa em três volumes, mais larga do que alta, como as árvores de verdade
+    return (f'<ellipse class="{cls}" cx="{x - r * .55:.0f}" cy="{y + r * .25:.0f}" rx="{r * .7:.0f}" ry="{r * .5:.0f}"/>'
+            f'<ellipse class="{cls}" cx="{x + r * .55:.0f}" cy="{y + r * .25:.0f}" rx="{r * .7:.0f}" ry="{r * .5:.0f}"/>'
+            f'<ellipse class="{cls}" cx="{x}" cy="{y - r * .15:.0f}" rx="{r * .8:.0f}" ry="{r * .6:.0f}"/>')
+def arvore(x, chao, h, r, cls='copa'):
+    if cls == 'copa seca':
+        # sem folhas na seca: só os galhos
+        y = chao - h + r * .6
+        galhos = f'<path class="tronco fino" d="M{x} {y:.0f} l {-r * .8:.0f} {-r * .7:.0f} M{x} {y:.0f} l {r * .8:.0f} {-r * .7:.0f} M{x} {y:.0f} l {r * .1:.0f} {-r:.0f} M{x - r * .45:.0f} {y - r * .4:.0f} l {-r * .3:.0f} {-r * .5:.0f} M{x + r * .45:.0f} {y - r * .4:.0f} l {r * .35:.0f} {-r * .45:.0f}"/>'
+        return f'<line class="tronco" x1="{x}" y1="{chao}" x2="{x}" y2="{y:.0f}"/>{galhos}'
+    return f'<line class="tronco" x1="{x}" y1="{chao}" x2="{x}" y2="{chao - h + r * .3:.0f}"/>' + tufo(x, chao - h, r, cls)
+def torta(x, chao, h, r):
+    return f'<path class="tronco" d="M{x} {chao} q {r * .6:.0f} {-h * .45:.0f} {-r * .3:.0f} {-h + r * .3:.0f}"/>' + tufo(x - r * .3, chao - h, r)
+def palmeira(x, chao, h):
+    folhas = ''.join(f'<path class="folha" d="M{x} {chao - h} q {dx * .5:.0f} -10 {dx} {dy}"/>' for dx, dy in [(-18, 6), (-12, -8), (0, -12), (12, -8), (18, 6)])
+    return f'<line class="tronco" x1="{x}" y1="{chao}" x2="{x}" y2="{chao - h}"/>{folhas}'
+def capim(x0, x1, chao):
+    return ''.join(f'<path class="capim" d="M{x} {chao} l -2 -7 M{x} {chao} l 0 -9 M{x} {chao} l 2 -7"/>' for x in range(x0 + 4, x1 - 2, 8))
+def arbusto(x, chao, r=6):
+    return f'<ellipse class="arbusto" cx="{x}" cy="{chao - r * .6:.1f}" rx="{r}" ry="{r * .7:.1f}"/>'
+
+W, CHAO = 100, 210
+def desenho(i, p):
+    x0 = i * W; x1 = x0 + W; c = CHAO; m = 8  # 1 m = 8 unidades
+    d = ''
+    if p['id'] == 'campo-limpo': d += capim(x0, x1, c)
+    elif p['id'] == 'campo-sujo': d += capim(x0, x1, c) + arbusto(x0 + 22, c) + arbusto(x0 + 55, c, 7) + arbusto(x0 + 80, c, 5)
+    elif p['id'] == 'campo-rupestre':
+        d += f'<path class="rocha" d="M{x0 + 6} {c} l 10 -18 l 16 -4 l 8 22 Z M{x0 + 52} {c} l 6 -26 l 18 -6 l 12 32 Z"/>' + capim(x0 + 36, x0 + 54, c) + arbusto(x0 + 44, c, 5) + arbusto(x0 + 92, c, 4)
+    elif p['id'] == 'parque-de-cerrado':
+        d += capim(x0, x1, c) + f'<ellipse class="murundu" cx="{x0 + 28}" cy="{c}" rx="22" ry="9"/><ellipse class="murundu" cx="{x0 + 74}" cy="{c}" rx="20" ry="8"/>'
+        d += torta(x0 + 22, c - 6, 4 * m, 9) + torta(x0 + 34, c - 6, 3 * m, 8) + torta(x0 + 74, c - 5, 4 * m, 9)
+    elif p['id'] == 'cerrado-sentido-restrito':
+        d += capim(x0, x1, c) + torta(x0 + 16, c, 4 * m, 10) + torta(x0 + 44, c, 6 * m, 12) + arbusto(x0 + 62, c) + torta(x0 + 82, c, 3 * m, 9)
+    elif p['id'] == 'palmeiral':
+        d += capim(x0, x1, c) + ''.join(palmeira(x0 + dx, c, h * m) for dx, h in [(16, 8), (40, 10), (64, 9), (88, 8)])
+    elif p['id'] == 'vereda':
+        d += f'<path class="agua" d="M{x0} {c} h {W} v 6 h -{W} Z"/>' + capim(x0, x1, c) + palmeira(x0 + 30, c, 15 * m) + palmeira(x0 + 70, c, 13 * m)
+    elif p['id'] == 'cerradao':
+        d += ''.join(torta(x0 + dx, c, h * m, 16) for dx, h in [(14, 11), (38, 13), (60, 12), (84, 14)])
+    elif p['id'] == 'mata-seca':
+        d += arvore(x0 + 16, c, 17 * m, 16, 'copa seca') + arvore(x0 + 44, c, 21 * m, 20) + arvore(x0 + 72, c, 16 * m, 16, 'copa seca') + arvore(x0 + 92, c, 12 * m, 12)
+    elif p['id'] == 'mata-de-galeria':
+        # as copas das duas margens se encontram por cima do riacho
+        d += f'<path class="agua" d="M{x0 + 42} {c} h 16 v 6 h -16 Z"/>' + arvore(x0 + 12, c, 14 * m, 16) + arvore(x0 + 34, c, 17 * m, 22) + arvore(x0 + 66, c, 17 * m, 22) + arvore(x0 + 90, c, 13 * m, 14)
+    elif p['id'] == 'mata-ciliar':
+        # o rio é largo: as copas das margens não se tocam
+        d += f'<path class="agua" d="M{x0 + 30} {c} h 42 v 6 h -42 Z"/>' + arvore(x0 + 10, c, 18 * m, 12) + arvore(x0 + 22, c, 20 * m, 11) + arvore(x0 + 80, c, 19 * m, 11) + arvore(x0 + 93, c, 17 * m, 10)
+    nome = p['nome'].replace('Cerrado sentido restrito', 'Cerrado s. restrito')
+    return (f'<g class="trecho" data-tipo="{p["id"]}"><rect class="trecho-fundo" x="{x0}" y="0" width="{W}" height="250"/>{d}'
+            f'<line class="chao" x1="{x0}" y1="{c}" x2="{x1}" y2="{c}"/><text x="{x0 + W / 2}" y="{c + 30}" text-anchor="middle">{nome}</text></g>')
+
+grupos = [(0, 3, 'Campestres'), (3, 7, 'Savânicas'), (7, 11, 'Florestais')]
+faixas = ''.join(f'<text class="grupo" x="{a * W + 6}" y="18">{n}</text><line class="divisa" x1="{b * W}" y1="0" x2="{b * W}" y2="250"/>' for a, b, n in grupos[:3])
+corte = (f'<svg class="corte" viewBox="0 0 {W * len(P)} 250" aria-hidden="true" focusable="false">{faixas}'
+         + ''.join(desenho(i, p) for i, p in enumerate(P)) + '</svg>')
+botoes = ''.join(f'<button type="button" class="tipo" data-tipo="{p["id"]}" aria-controls="tipo-{p["id"]}" aria-pressed="false"><span class="tipo-formacao">{p["formacao"]}</span> {p["nome"]}</button>' for p in P)
+fichas = ''.join(f'''
+                    <article class="paisagem" id="tipo-{p['id']}" data-tipo="{p['id']}">
+                        <p class="tipo-formacao">Formação {p['formacao'].lower()}</p>
+                        <h2>{p['nome']}</h2>
+                        <p>{p['texto']}{''.join(fonte(n) for n in p['f'])}</p>
+                        <dl class="paisagem-dados"><dt>Cobertura</dt><dd>{p['cobertura']}</dd><dt>Altura</dt><dd>{p['altura']}</dd></dl>
+                        <p class="paisagem-reconhecer"><strong>Como reconhecer:</strong> {p['reconhecer']}</p>
+                    </article>''' for p in P)
+paisagens = f'''        <section class="titulo-pagina guia-topo">
+            <div class="container">
+                <p class="guia-chapeu">Guia do cerrado</p>
+                <h1>As 11 paisagens do Cerrado</h1>
+                <p>“Cerrado” não é um tipo só de vegetação. Do campo sem nenhuma árvore à floresta alta na beira do rio, os botânicos José Felipe Ribeiro e Bruno Walter, da Embrapa, descrevem onze paisagens, em três grupos.{fonte(8)}</p>
+            </div>
+        </section>
+        <section class="secao paisagens-secao">
+            <div class="container">
+                <figure class="corte-figura">
+                    <section class="corte-rolagem" tabindex="0" aria-label="Corte desenhado das onze paisagens, do campo à mata; role de lado no celular">{corte}</section>
+                    <figcaption>Do campo à mata: um corte desenhado, sem escala exata entre os trechos. Toque num trecho, ou escolha abaixo, para ler sobre ele.</figcaption>
+                </figure>
+                <div class="paisagens-layout">
+                    <div class="tipos" role="group" aria-label="Escolha uma paisagem">{botoes}</div>
+                    <div class="paisagens-fichas">{fichas}
+                    </div>
+                </div>
+            </div>
+        </section>
+'''
+pagina('paisagens.html', 'As 11 paisagens do Cerrado — Fotografia do Cerrado',
+       'As onze fitofisionomias do Cerrado, de Ribeiro e Walter: campos, savanas e florestas, num corte desenhado para explorar, com fontes.',
+       paisagens, scripts=['guia.js?v=1'])
+
+# ---------------------------------------------------------------- Fontes
+FONTES.sort()
+lista = ''.join(f'<li id="f{n}"><span class="fonte-numero">{n}</span> {t} <a href="{u}" rel="noopener">Abrir a fonte</a></li>' for n, t, u in FONTES)
+fontes = f'''        <section class="titulo-pagina guia-topo">
+            <div class="container">
+                <p class="guia-chapeu">Guia do cerrado</p>
+                <h1>Fontes</h1>
+                <p>De onde vem cada número do guia. Os números pequenos nos textos levam até aqui. Onde as fontes discordam, o guia usa a mais oficial e diz isso no texto.</p>
+            </div>
+        </section>
+        <section class="secao">
+            <div class="container texto-longo">
+                <ol class="fontes-lista">{lista}</ol>
+                <p class="nota-calculo">Os números de cada estado na página “O bioma” foram calculados aqui, cruzando os limites do IBGE com o contorno dos estados; são aproximações.</p>
+            </div>
+        </section>
+'''
+pagina('fontes.html', 'Fontes do guia — Fotografia do Cerrado', 'As fontes de cada número do guia do Cerrado: IBGE, Embrapa, ICMBio, MMA, FAPESP e artigos científicos.', fontes)
+
+# ---------------------------------------------------------------- a inicial do guia (só em português)
+p = M / 'index.html'
+s = p.read_text()
+if '{{!pt-BR}}' not in s.split('<main id="conteudo">')[1]:
+    ini = s.index('    <main id="conteudo">\n') + len('    <main id="conteudo">\n'); fim = s.index('    </main>')
+    antiga = s[ini:fim]
+    s = s[:ini] + '{{!pt-BR}}\n' + antiga + '{{/!pt-BR}}\n{{?pt-BR}}\n' + '<!--INICIAL-->' + '{{/pt-BR}}\n' + s[fim:]
+    # título e descrição da inicial em português
+    s = re.sub(r'<title>(\{\{index_119\}\})</title>', r'<title>{{!pt-BR}}\1{{/!pt-BR}}{{?pt-BR}}Guia do Cerrado: a savana mais rica do mundo — Fotografia do Cerrado{{/pt-BR}}</title>', s)
+inicial = '''        <section class="abertura">
+            <img src="{{raiz}}img/abertura-seriema-ipe.webp" srcset="{{raiz}}img/abertura-seriema-ipe-640.webp 640w, {{raiz}}img/abertura-seriema-ipe.webp 1000w" sizes="100vw" alt="Seriema no campo de capim dourado, com um ipê-rosa florido ao fundo" width="1000" height="667" loading="eager" fetchpriority="high">
+            <div class="faixa">
+                <div class="container">
+                    <p class="guia-chapeu claro">Guia do cerrado</p>
+                    <h1>O cerrado, de perto</h1>
+                    <p>A savana mais rica do mundo, explicada sem pressa: as paisagens, os bichos e as plantas, o clima, o fogo e a água que nasce aqui. Tudo com fonte.</p>
+                    <a class="botao" href="bioma.html">Comece pelo bioma</a>
+                </div>
+            </div>
+        </section>
+        <section class="secao">
+            <div class="container">
+                <h2>O cerrado em três números</h2>
+                <div class="fatos">
+                    <div><strong>23,3%</strong>do Brasil, quase 2 milhões de km²<sup class="nota"><a href="fontes.html#f1" aria-label="Fonte 1">1</a></sup></div>
+                    <div><strong>+11 mil</strong>espécies de plantas nativas<sup class="nota"><a href="fontes.html#f11" aria-label="Fonte 11">11</a></sup></div>
+                    <div><strong>~4.400</strong>plantas que só existem aqui<sup class="nota"><a href="fontes.html#f12" aria-label="Fonte 12">12</a></sup></div>
+                </div>
+            </div>
+        </section>
+        <section class="secao creme">
+            <div class="container">
+                <h2>Explore o guia</h2>
+                <div class="guia-portas">
+                    <a class="porta porta-grande" href="paisagens.html"><span class="porta-chapeu">Paisagens</span><strong>Do campo limpo à mata ciliar</strong><span>As 11 paisagens do Cerrado num corte desenhado para explorar.</span></a>
+                    <a class="porta" href="bioma.html"><span class="porta-chapeu">O bioma</span><strong>Onde fica, clima, solo e fogo</strong><span>E quanto de cada estado é Cerrado.</span></a>
+                    <a class="porta" href="galeria.html"><span class="porta-chapeu">Espécies</span><strong>Bichos do Cerrado</strong><span>Fichas com medidas, hábitos e como fotografar.</span></a>
+                    <a class="porta" href="expedicoes.html"><span class="porta-chapeu">Expedições</span><strong>Ver de perto</strong><span>Quando ir e onde ficam os parques.</span></a>
+                    <a class="porta" href="fontes.html"><span class="porta-chapeu">Fontes</span><strong>De onde vem cada número</strong><span>IBGE, Embrapa, ICMBio e artigos científicos.</span></a>
+                </div>
+            </div>
+        </section>
+        <section class="secao">
+            <div class="container">
+                <h2>Algumas espécies</h2>
+                <p class="intro">Toque para abrir a ficha de cada uma.</p>
+                <div class="grade destaque">
+                <article class="foto"><a href="especie-lobo-guara.html"><img src="{{raiz}}img/lobo-guara.webp" srcset="{{raiz}}img/lobo-guara-640.webp 640w, {{raiz}}img/lobo-guara.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="Lobo-guará de pelagem laranja e pernas pretas andando na grama" width="1000" height="647" loading="lazy"></a><div class="legenda"><h3><a href="especie-lobo-guara.html">Lobo-guará</a></h3><p class="cientifico">Chrysocyon brachyurus</p><p>O maior canídeo da América do Sul, que come muita fruta e espalha as sementes da lobeira.</p></div></article>
+                <article class="foto"><a href="especie-tamandua-bandeira.html"><img src="{{raiz}}img/tamandua-bandeira.webp" srcset="{{raiz}}img/tamandua-bandeira-640.webp 640w, {{raiz}}img/tamandua-bandeira.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="Tamanduá-bandeira cinza, com a faixa preta no ombro, procurando alimento no capim" width="1000" height="667" loading="lazy"></a><div class="legenda"><h3><a href="especie-tamandua-bandeira.html">Tamanduá-bandeira</a></h3><p class="cientifico">Myrmecophaga tridactyla</p><p>Sem dentes, come formigas e cupins com uma língua de mais de meio metro.</p></div></article>
+                <article class="foto"><a href="especie-arara-caninde.html"><img src="{{raiz}}img/arara-caninde.webp" srcset="{{raiz}}img/arara-caninde-640.webp 640w, {{raiz}}img/arara-caninde.webp 1000w" sizes="(max-width: 760px) 100vw, 50vw" alt="Arara-canindé azul e amarela voando de asas abertas sobre a mata" width="1000" height="772" loading="lazy"></a><div class="legenda"><h3><a href="especie-arara-caninde.html">Arara-canindé</a></h3><p class="cientifico">Ara ararauna</p><p>Faz ninho em palmeiras mortas, como o buriti das veredas.</p></div></article>
+                </div>
+                <p class="mais"><a href="galeria.html">Ver todas as espécies →</a></p>
+            </div>
+        </section>
+'''
+s = re.sub(r'\{\{\?pt-BR\}\}\n.*?\{\{/pt-BR\}\}\n(?=    </main>)', lambda m: '{{?pt-BR}}\n' + inicial + '{{/pt-BR}}\n', s, flags=re.S)
+s = s.replace('<!--INICIAL-->', inicial)
+p.write_text(s)
+
+# ---------------------------------------------------------------- o menu certo em cada página só em português
+so_pt = json.loads((AQUI / 'so-pt.json').read_text())
+for f in ['bioma.html', 'paisagens.html', 'fontes.html']:
+    if f not in so_pt: so_pt.append(f)
+(AQUI / 'so-pt.json').write_text(json.dumps(so_pt, ensure_ascii=False, indent=2) + '\n')
+for f in so_pt:
+    if f == '404.html': continue
+    q = M / f; t = q.read_text()
+    t = re.sub(r'\{\{!pt-BR\}\}<ul class="menu".*?\{\{/!pt-BR\}\}', '', t)
+    t = re.sub(r'(\{\{\?pt-BR\}\})?<ul class="menu" id="menu">.*?</ul>(\{\{/pt-BR\}\})?', menu_pt(f), t, count=1)
+    t = re.sub(r'\{\{!pt-BR\}\}.*?\{\{/!pt-BR\}\}', '', t, flags=re.S)
+    t = com_rodape_do_guia(t)
+    q.write_text(t)
+print('guia pronto:', so_pt)
