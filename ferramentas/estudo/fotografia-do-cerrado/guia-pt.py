@@ -725,3 +725,119 @@ q = M / 'fontes.html'; t = q.read_text()
 t = re.sub(r'<ol class="fontes-lista">.*?</ol>', '<ol class="fontes-lista">' + lista + '</ol>', t, flags=re.S)
 q.write_text(t)
 print('parte 3 pronta')
+
+# ================================================================ Parte 4: aprender brincando (quiz, qual paisagem é esta? e glossário)
+# o quiz só usa o que o guia já diz, com a página onde está a explicação
+QUIZ = [
+ ('bioma', 'Quanto do Brasil o Cerrado ocupa?', ['Cerca de 5%', 'Cerca de 23%', 'Cerca de 50%'], 1, 'São 1.983.017 km², cerca de 23,3% do país, segundo o IBGE (2019).', 'bioma.html#onde'),
+ ('bioma', 'Em quantas regiões do Brasil o Cerrado aparece?', ['Só no Centro-Oeste', 'Em três', 'Em todas as cinco'], 2, 'É o único bioma presente em todas as regiões brasileiras.', 'bioma.html#onde'),
+ ('bioma', 'Por que tantas árvores do Cerrado continuam verdes no meio da seca?', ['Porque não perdem água', 'Porque as raízes buscam água lá no fundo', 'Porque chove de madrugada'], 1, 'Muitas mandam raízes a vários metros de profundidade, até a água que fica guardada no solo.', 'bioma.html#solo'),
+ ('bioma', 'O que protege muitas plantas do Cerrado do fogo?', ['Folhas molhadas', 'Casca grossa e partes que rebrotam embaixo da terra', 'Espinhos'], 1, 'A casca de cortiça isola o calor, e raízes grossas e xilopódios rebrotam depois da queimada.', 'bioma.html#fogo'),
+ ('paisagens', 'Em que paisagem os buritis crescem alinhados num campo encharcado?', ['Vereda', 'Campo rupestre', 'Mata seca'], 0, 'A vereda tem dois andares: o capim úmido embaixo e os buritis em cima. Onde tem vereda, tem água.', 'paisagens.html#tipo-vereda'),
+ ('paisagens', 'O que diferencia a mata de galeria da mata ciliar?', ['A galeria é mais baixa', 'Na galeria, as copas se fecham sobre o riacho', 'A galeria não tem árvores'], 1, 'A mata de galeria acompanha córregos pequenos e forma um túnel sobre a água; na ciliar, o rio é largo demais.', 'paisagens.html#tipo-mata-de-galeria'),
+ ('paisagens', 'Quantas paisagens (fitofisionomias) o Cerrado tem, na classificação de Ribeiro e Walter?', ['3', '7', '11'], 2, 'São onze, em três grupos: campestres, savânicas e florestais.', 'paisagens.html'),
+ ('especies', 'Qual destes é o único canídeo que só existe no Cerrado?', ['Lobo-guará', 'Raposa-do-campo', 'Cachorro-vinagre'], 1, 'A raposa-do-campo (Lycalopex vetulus) é endêmica do Cerrado e vulnerável na lista nacional.', 'especies.html'),
+ ('especies', 'Quem choca os ovos da ema?', ['A fêmea', 'O macho', 'Os dois se revezam'], 1, 'É o macho que choca os ovos e cuida dos filhotes.', 'especies.html'),
+ ('especies', 'Por que não se morde o caroço do pequi?', ['Porque é amargo', 'Porque tem espinhos finos por dentro', 'Porque é venenoso'], 1, 'Os espinhos ficam escondidos embaixo da polpa: rói-se com cuidado, sem morder.', 'especies.html'),
+ ('agua', 'Quanto da vazão do Rio São Francisco nasce no Cerrado?', ['Cerca de 20%', 'Cerca de 50%', 'Cerca de 94%'], 2, 'Segundo a Embrapa, cerca de 94%.', 'agua.html#rios'),
+ ('agua', 'O que tem de especial a Estação Ecológica de Águas Emendadas, no DF?', ['Um lago gigante', 'Uma vereda que manda água para duas bacias', 'A maior cachoeira do Brasil'], 1, 'Uma parte da água vai para a bacia do Tocantins e outra para a do Paraná.', 'agua.html#emendadas'),
+ ('povos', 'Quem são as quebradeiras de coco babaçu?', ['Mulheres que vivem da coleta e da quebra do babaçu', 'Um time de futebol', 'Uma empresa de óleo'], 0, 'No Maranhão, no Tocantins e no Piauí; desde os anos 1990, organizadas no MIQCB.', 'povos.html#quebradeiras'),
+ ('povos', 'Quanto da vegetação nativa continua de pé nas terras indígenas do Cerrado?', ['Cerca de 30%', 'Cerca de 60%', 'Cerca de 97%'], 2, 'Segundo o MapBiomas, 97%.', 'povos.html'),
+ ('ameacas', 'Em que região está a maior parte do desmatamento recente do Cerrado?', ['No MATOPIBA', 'No Distrito Federal', 'Em São Paulo'], 0, 'Maranhão, Tocantins, Piauí e Bahia somaram 74,3% do desmatamento de 2025 a 2026.', 'ameacas.html#onde'),
+ ('ameacas', 'O que aconteceu com o desmatamento do Cerrado desde 2023?', ['Dobrou', 'Ficou igual', 'Vem caindo'], 2, 'Do pico de 11.011 km² em 2023, caiu para 5.517 km² em 2026, o menor da série.', 'ameacas.html#ritmo'),
+]
+TEMAS = [('', 'Todos'), ('bioma', 'O bioma'), ('paisagens', 'Paisagens'), ('especies', 'Espécies'), ('agua', 'Água'), ('povos', 'Povos'), ('ameacas', 'Ameaças')]
+quiz_json = json.dumps([{'t': t, 'p': p, 'o': o, 'c': c, 'e': e, 'l': l} for t, p, o, c, e, l in QUIZ], ensure_ascii=False).replace('</', '<\\/')
+# "Qual paisagem é esta?": cada trecho do corte desenhado vira uma figura própria
+trechos = {}
+for i, p in enumerate(P):
+    g = desenho(i, p)
+    g = re.sub(r'<text [^>]*>[^<]*</text>', '', g)  # sem o nome embaixo: é isso que a pessoa tem de adivinhar
+    trechos[p['id']] = f'<svg class="adivinha-desenho" viewBox="{i * W} 0 {W} 225" aria-hidden="true" focusable="false">{g}</svg>'
+adivinha_json = json.dumps({'nomes': {p['id']: p['nome'] for p in P}, 'desenhos': trechos, 'dicas': {p['id']: p['reconhecer'] for p in P}}, ensure_ascii=False).replace('</', '<\\/')
+GLOSSARIO = [
+ ('Aquífero', 'Camada de rocha ou de solo que guarda água embaixo da terra. Sob o Cerrado estão o Guarani, o Bambuí e o Urucuia.', 'agua.html#aquiferos'),
+ ('Bioma', 'Uma grande região com clima, vegetação e bichos parecidos. O Brasil tem seis: Amazônia, Cerrado, Mata Atlântica, Caatinga, Pampa e Pantanal.', 'bioma.html#onde'),
+ ('Campo rupestre', 'Campo de capim e arbustos entre afloramentos de rocha, nas serras mais altas; cheio de plantas que só existem ali.', 'paisagens.html#tipo-campo-rupestre'),
+ ('Cerradão', 'A floresta de árvores do cerrado, de copas quase fechadas, com 8 a 15 m de altura.', 'paisagens.html#tipo-cerradao'),
+ ('Endêmica', 'Espécie que só existe num lugar. Cerca de 4.400 plantas são endêmicas do Cerrado.', 'bioma.html#vida'),
+ ('Fitofisionomia', 'O “jeito” de uma vegetação: a altura, a densidade das árvores, o tipo de plantas. O Cerrado tem onze.', 'paisagens.html'),
+ ('Geraizeiros', 'Comunidades tradicionais das chapadas (os “gerais”) do norte de Minas Gerais.', 'povos.html#geraizeiros'),
+ ('Hotspot', 'Lugar com muitas espécies endêmicas e que já perdeu grande parte da vegetação original. O Cerrado é um dos hotspots do planeta.', 'bioma.html#vida'),
+ ('Latossolo', 'Solo velho, fundo e bem drenado, mas pobre e ácido; o tipo mais comum no Cerrado.', 'bioma.html#solo'),
+ ('MATOPIBA', 'A fronteira agrícola formada por Maranhão, Tocantins, Piauí e Bahia, onde está a maior parte do desmatamento recente.', 'ameacas.html#onde'),
+ ('Murundu', 'Pequena elevação arredondada de terra, onde as árvores crescem no parque de cerrado; a origem (cupinzeiros antigos ou erosão) ainda é discutida.', 'paisagens.html#tipo-parque-de-cerrado'),
+ ('PRODES', 'O sistema do INPE que mede, por satélite, quanto de vegetação nativa é derrubada a cada ano.', 'ameacas.html#ritmo'),
+ ('Proteção integral', 'Tipo de unidade de conservação, como os parques nacionais, onde não se pode morar nem tirar recursos.', 'ameacas.html#protegido'),
+ ('Quilombola', 'Pessoa de comunidade formada por descendentes de africanos escravizados, como os Kalunga, em Goiás.', 'povos.html#kalunga'),
+ ('Reserva legal', 'A parte de cada propriedade rural que, pela lei, tem de ficar com vegetação nativa. No Cerrado, a maior parte da propriedade pode ser desmatada.', 'ameacas.html#protegido'),
+ ('Savana', 'Vegetação de árvores espaçadas no meio de capim. O Cerrado é a savana mais rica do mundo.', 'bioma.html'),
+ ('TICCA', 'Território e Área Conservada por Comunidades Indígenas e Locais, um reconhecimento da ONU. O território Kalunga foi o primeiro do Brasil.', 'povos.html#kalunga'),
+ ('Vereda', 'Campo encharcado com buritis, onde a água do subsolo aflora; protege nascentes.', 'paisagens.html#tipo-vereda'),
+ ('Xilopódio', 'Órgão grosso embaixo da terra que guarda reservas e gemas: a planta rebrota dele depois do fogo ou da seca.', 'bioma.html#fogo'),
+]
+gloss = ''.join(f'<div class="termo" data-termo="{t.lower()}"><dt id="g-{re.sub(r"[^a-z]", "", t.lower())}">{t}</dt><dd>{d} <a href="{l}">Ler mais</a></dd></div>' for t, d, l in GLOSSARIO)
+botoes_temas = ''.join(f'<button type="button" class="chip" data-tema="{i}" aria-pressed="{"true" if i == "" else "false"}">{n}</button>' for i, n in TEMAS)
+aprender = f'''        <section class="titulo-pagina guia-topo">
+            <div class="container">
+                <p class="guia-chapeu">Guia do cerrado</p>
+                <h1>Aprender brincando</h1>
+                <p>Um quiz por tema, um jogo de reconhecer as paisagens e um glossário. Tudo o que está aqui foi explicado no guia, com fonte.</p>
+            </div>
+        </section>
+        <div class="container guia-layout">
+            {indice([('quiz', 'Quiz'), ('adivinha', 'Qual paisagem é esta?'), ('glossario', 'Glossário')])}
+            <div class="guia-texto">
+                <section id="quiz" aria-labelledby="quiz-titulo">
+                    <h2 id="quiz-titulo">Quiz</h2>
+                    <div class="chips" role="group" aria-label="Tema do quiz">{botoes_temas}</div>
+                    <div class="quiz-caixa" aria-live="polite">
+                        <p class="quiz-contador"></p>
+                        <h3 class="quiz-pergunta" tabindex="-1">O quiz precisa de JavaScript ligado.</h3>
+                        <div class="quiz-opcoes"></div>
+                        <p class="quiz-retorno" hidden></p>
+                        <div class="quiz-acoes"><button type="button" class="botao" id="quiz-proxima" hidden>Próxima</button></div>
+                    </div>
+                    <script type="application/json" id="quiz-dados">{quiz_json}</script>
+                </section>
+                <section id="adivinha" aria-labelledby="adivinha-titulo">
+                    <h2 id="adivinha-titulo">Qual paisagem é esta?</h2>
+                    <p>Olhe o desenho e escolha o nome. São as onze paisagens do <a href="paisagens.html">corte do Cerrado</a>, em ordem aleatória.</p>
+                    <div class="adivinha-caixa" aria-live="polite">
+                        <div class="adivinha-figura"></div>
+                        <div class="quiz-opcoes adivinha-opcoes"></div>
+                        <p class="quiz-retorno adivinha-retorno" hidden></p>
+                        <div class="quiz-acoes"><p class="adivinha-placar"></p><button type="button" class="botao" id="adivinha-proxima" hidden>Próxima paisagem</button></div>
+                    </div>
+                    <script type="application/json" id="adivinha-dados">{adivinha_json}</script>
+                </section>
+                <section id="glossario" aria-labelledby="glossario-titulo">
+                    <h2 id="glossario-titulo">Glossário</h2>
+                    <label for="busca-termo" class="so-leitor">Procurar no glossário</label>
+                    <input id="busca-termo" class="busca-termo" type="search" placeholder="Procurar uma palavra" autocomplete="off">
+                    <dl class="glossario">{gloss}</dl>
+                    <p class="vazio-glossario" hidden>Nenhuma palavra com esse nome. Experimente outra.</p>
+                </section>
+            </div>
+        </div>
+'''
+pagina('aprender.html', 'Aprender brincando — Fotografia do Cerrado',
+       'Quiz sobre o Cerrado por tema, o jogo “Qual paisagem é esta?” e um glossário, tudo com base no guia.', aprender, scripts=['guia.js?v=1', 'aprender.js?v=1'])
+
+MENU.append(('aprender.html', 'Aprender'))
+for f in COMPARTILHADAS:
+    q = M / f; t = q.read_text()
+    t = re.sub(r'\{\{\?pt-BR\}\}<ul class="menu" id="menu">.*?</ul>\{\{/pt-BR\}\}', lambda m: '{{?pt-BR}}' + menu_pt(f) + '{{/pt-BR}}', t)
+    t = t.replace('<a class="porta" href="ameacas.html"><span class="porta-chapeu">Ameaças</span><strong>O que ameaça o Cerrado</strong><span>O desmatamento ano a ano e o que dá para fazer.</span></a>',
+                  '<a class="porta" href="ameacas.html"><span class="porta-chapeu">Ameaças</span><strong>O que ameaça o Cerrado</strong><span>O desmatamento ano a ano e o que dá para fazer.</span></a>\n'
+                  '                    <a class="porta" href="aprender.html"><span class="porta-chapeu">Aprender</span><strong>Quiz e jogos</strong><span>Teste o que você sabe e reconheça as paisagens.</span></a>')
+    q.write_text(t)
+so_pt = json.loads((AQUI / 'so-pt.json').read_text())
+if 'aprender.html' not in so_pt: so_pt.append('aprender.html')
+(AQUI / 'so-pt.json').write_text(json.dumps(so_pt, ensure_ascii=False, indent=2) + '\n')
+for f in so_pt:
+    if f == '404.html': continue
+    q = M / f; t = q.read_text()
+    t = re.sub(r'<ul class="menu" id="menu">.*?</ul>', menu_pt(f), t, count=1)
+    q.write_text(t)
+print('parte 4 pronta')

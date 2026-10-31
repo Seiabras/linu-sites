@@ -694,3 +694,37 @@ sup.nota a { min-width: 24px; }
 .povos-numero { background: var(--fundo-alt); border-radius: var(--raio); padding: 1.4rem 1.5rem; border-top: 4px solid var(--oliva); }
 .povos-grande { font-family: "Newsreader", Georgia, serif; font-weight: 600; font-size: 3rem; line-height: 1; color: var(--destaque); margin-top: .8rem; }
 .povos-grande:first-child { margin-top: 0; }
+
+/* Aprender brincando: o quiz, o "Qual paisagem é esta?" e o glossário */
+.quiz-caixa, .adivinha-caixa { background: var(--fundo-alt); border-radius: var(--raio); padding: 1.4rem 1.5rem; margin-top: 1rem; max-width: 720px; }
+.quiz-contador, .adivinha-placar { color: var(--texto-suave); font-weight: 600; }
+.quiz-pergunta { font-size: 1.4rem; line-height: 1.25; margin: .3rem 0 1rem; }
+.quiz-pergunta:focus { outline: none; }
+.quiz-opcoes { display: grid; gap: .5rem; }
+.quiz-opcoes button { font: inherit; font-weight: 600; text-align: left; padding: .8rem 1rem; border-radius: 8px; border: 2px solid var(--borda); background: var(--superficie); color: var(--texto); cursor: pointer; transition: border-color .18s ease-out, background-color .18s ease-out; }
+.quiz-opcoes button:hover:not([disabled]) { border-color: var(--texto); }
+.quiz-opcoes button[disabled] { cursor: default; }
+.quiz-opcoes button.certa { border-color: var(--oliva); background: color-mix(in srgb, var(--oliva) 18%, var(--superficie)); }
+.quiz-opcoes button.errada { border-color: var(--erro); }
+.quiz-opcoes .botao { justify-self: start; }
+.quiz-retorno { margin-top: 1rem; padding: .9rem 1rem; border-radius: 8px; background: var(--superficie); border-left: 4px solid var(--oliva); }
+.quiz-retorno.errado { border-left-color: var(--erro); }
+.quiz-retorno a { display: inline-block; padding-block: 2px; font-weight: 700; }
+.quiz-acoes { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; }
+.quiz-acoes .botao { margin-left: auto; }
+.adivinha-figura { background: var(--fundo); border-radius: 8px; margin-bottom: 1rem; min-height: 150px; }
+.adivinha-desenho { display: block; width: 100%; max-width: 360px; height: auto; margin: 0 auto; }
+.adivinha-desenho .tronco { stroke: #6B4A2B; stroke-width: 3; fill: none; stroke-linecap: round; }
+.adivinha-desenho .tronco.fino { stroke-width: 1.6; }
+.adivinha-desenho .copa { fill: #6F8F4E; } .adivinha-desenho .copa.seca { fill: #B49A6A; }
+.adivinha-desenho .folha { stroke: #5F7F44; stroke-width: 3; fill: none; stroke-linecap: round; }
+.adivinha-desenho .capim { stroke: #B8A45A; stroke-width: 1.5; fill: none; }
+.adivinha-desenho .arbusto { fill: #8A9A55; } .adivinha-desenho .rocha { fill: #9C928A; }
+.adivinha-desenho .murundu { fill: #C2A878; } .adivinha-desenho .agua { fill: #6E9FB8; }
+.adivinha-desenho .chao { stroke: var(--texto-suave); stroke-width: 2; }
+.adivinha-desenho .trecho-fundo { fill: transparent; }
+.busca-termo { width: 100%; max-width: 420px; padding: .65rem .8rem; border: 2px solid var(--cinza); border-radius: 6px; font: inherit; background: var(--superficie); color: var(--texto); margin: .6rem 0 1.2rem; }
+.glossario { display: grid; gap: .9rem; max-width: 70ch; }
+.termo dt { font-family: "Newsreader", Georgia, serif; font-weight: 600; font-size: 1.25rem; scroll-margin-top: 130px; }
+.termo dd a { display: inline-block; padding-block: 2px; font-weight: 600; }
+.quiz-opcoes .marca { font-weight: 800; }
