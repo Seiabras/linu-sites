@@ -543,3 +543,185 @@ q = M / 'fontes.html'; t = q.read_text()
 t = re.sub(r'<ol class="fontes-lista">.*?</ol>', '<ol class="fontes-lista">' + lista + '</ol>', t, flags=re.S)
 q.write_text(t)
 print('espécies:', len(ESP))
+
+# ================================================================ Parte 3: água, povos e ameaças
+FONTES += [
+ (21, 'Lima, J. E. F. W.; Silva, E. M. Contribuição hídrica do cerrado para as grandes bacias hidrográficas brasileiras. Embrapa Cerrados, 2002.', 'https://www.infoteca.cnptia.embrapa.br/infoteca/handle/doc/567621'),
+ (22, 'Embrapa. Pantanal é dependente das águas do Cerrado (notícia): o Cerrado contribui com cerca de 94% da vazão do São Francisco e 71% da do Tocantins-Araguaia.', 'https://www.embrapa.br/en/busca-de-noticias/-/noticia/18023883/pantanal-e-dependente-das-aguas-do-cerrado-'),
+ (23, 'Embrapa. Águas Emendadas, v. 3: Hidrografia. A vereda que manda água para duas bacias.', 'https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/571673/1/V.3-Hidrografia.pdf'),
+ (24, 'INPE. Brasil alcança menores taxas de desmatamento da série histórica na Amazônia e no Cerrado (PRODES): 5.516,69 km² no Cerrado de agosto de 2025 a julho de 2026, 23,8% a menos que os 7.235,27 km² do ano anterior; 74,3% nos estados do MATOPIBA.', 'https://www.gov.br/inpe/pt-br/assuntos/ultimas-noticias/brasil-alcanca-menores-taxas-de-desmatamento-da-serie-historica-na-amazonia-e-no-cerrado'),
+ (25, 'Agência Gov. Desmatamento cai 30,6% na Amazônia e 25,8% no Cerrado em 2024: 8.174 km², o menor desde 2019 (6.319 km²), depois de cinco anos seguidos de alta.', 'https://agenciagov.ebc.com.br/noticias/202411/desmatamento-cai-30-6-na-amazonia-e-25-8-no-cerrado-em-2024'),
+ (26, 'WWF-Brasil. Desmatamento cai 11% na Amazônia e no Cerrado em um ano: o pico de 11.011 km² no Cerrado em 2023.', 'https://www.wwf.org.br/?93220%2FDesmatamento-cai-11-na-Amazonia-e-no-Cerrado-em-um-ano='),
+ (27, 'MapBiomas, 2025 (reportagem do Diario de Pernambuco): o Cerrado perdeu 28% da vegetação nativa em 40 anos, 40,5 milhões de hectares; somando o que mudou antes de 1985, 47,9% do bioma já foi transformado; as terras indígenas mantêm 97% de vegetação nativa.', 'https://www.diariodepernambuco.com.br/brasil/2025/10/11697115-cerrado-brasileiro-perdeu-28-da-vegetacao-nativa-em-40-anos.html'),
+ (28, 'MMA. Consolidação do SNUC (apresentação, 2011): unidades de proteção integral em cerca de 3,1% do Cerrado e de uso sustentável em 5,1%.', 'https://antigo.mma.gov.br/estruturas/201/_arquivos/consolidao_do_snuc__ana_paula_prates_201.pdf'),
+ (29, 'ISPN. Povos indígenas e comunidades tradicionais do Cerrado: geraizeiros, quebradeiras de coco babaçu (MIQCB, anos 1990) e outros.', 'https://ispn.org.br/en/biomas/cerrado/povos-indigenas-e-comunidades-tradicionais-do-cerrado/'),
+ (30, 'Jornal Opção. Povos do Cerrado, os guardiões do bioma: o território Kalunga reconhecido pela ONU como TICCA em 2021, com 83% da área conservada.', 'https://www.jornalopcao.com.br/todo-ambiente/povos-do-cerrado-os-guardioes-do-bioma-mais-ameacado-do-brasil-744014/'),
+ (31, 'Le Monde Diplomatique Brasil. Povos do Cerrado: os povos indígenas de troncos Macro-Jê (como os Xavante), Tupi-Guarani e Arawak, e as comunidades tradicionais.', 'https://diplomatique.org.br/sociobiodiversidade-e-defesa-da-soberania-alimentar/'),
+ (32, 'Agência Brasil (2015). Berço das águas: os aquíferos Guarani, Bambuí e Urucuia, embaixo do Cerrado, alimentam rios importantes do continente.', 'https://ihu.unisinos.br/noticias/541069-berco-das-aguas-cerrado-precisa-de-protecao-para-garantir-abastecimento-no-pais'),
+]
+FONTES.sort()
+
+# ---- Água
+BACIAS = [('São Francisco', 94), ('Tocantins-Araguaia', 71), ('Paraná', 50)]
+barras = ''.join(f'<li><span class="bacia-nome">{n}</span><span class="bacia-pct">{v}%</span><svg viewBox="0 0 100 14" preserveAspectRatio="none" aria-hidden="true"><rect class="estado-fundo" width="100" height="14"/><rect class="bacia-barra" width="{v}" height="14"/></svg></li>' for n, v in BACIAS)
+agua = f'''        <section class="titulo-pagina guia-topo">
+            <div class="container">
+                <p class="guia-chapeu">Guia do cerrado</p>
+                <h1>O berço das águas</h1>
+                <p>Boa parte da água que corre pelos rios do Brasil nasce no Cerrado. As chapadas funcionam como esponjas: a chuva entra no chão e sai, devagar, nas nascentes e nas veredas, mesmo no meio da seca.</p>
+            </div>
+        </section>
+        <div class="container guia-layout">
+            {indice([('rios', 'Os rios'), ('esponja', 'A esponja'), ('aquiferos', 'Os aquíferos'), ('emendadas', 'Águas Emendadas'), ('cuidar', 'Por que importa')])}
+            <div class="guia-texto">
+                <section id="rios" aria-labelledby="rios-titulo">
+                    <h2 id="rios-titulo">Quanto de cada rio vem do Cerrado</h2>
+                    <p>O Cerrado manda água para oito das doze grandes regiões hidrográficas do país.{fonte(21)} Um estudo da Embrapa calculou quanto da vazão de cada grande bacia é gerada dentro do bioma:{fonte(21)}{fonte(22)}</p>
+                    <ul class="bacias-lista">{barras}</ul>
+                    <p class="nota-calculo">Parte da vazão de cada bacia que nasce no Cerrado (Embrapa, 2002). Em duas bacias a conta passa de 100%: no Parnaíba e no Paraguai, a água que sai do Cerrado é mais do que a vazão medida mais abaixo, porque parte dela evapora ou se espalha no caminho, como no Pantanal.{fonte(21)}{fonte(22)}</p>
+                </section>
+                <section id="esponja" aria-labelledby="esponja-titulo">
+                    <h2 id="esponja-titulo">A esponja</h2>
+                    <p>Os solos fundos do Cerrado e as raízes profundas da vegetação nativa deixam a chuva entrar no chão em vez de escorrer. Essa água desce devagar e reaparece nas nascentes, nas veredas e nas matas de galeria, e é por isso que muitos rios do Cerrado não secam mesmo depois de cinco meses quase sem chuva.</p>
+                    <p>Quando a vegetação nativa sai, a chuva escorre mais e infiltra menos: chega mais terra aos rios na chuva e menos água às nascentes na seca.</p>
+                    <p class="mais"><a href="paisagens.html#tipo-vereda">Veja como é uma vereda →</a></p>
+                </section>
+                <section id="aquiferos" aria-labelledby="aquiferos-titulo">
+                    <h2 id="aquiferos-titulo">Os aquíferos</h2>
+                    <p>Embaixo do Cerrado estão três grandes reservas de água subterrânea: os aquíferos Guarani, Bambuí e Urucuia. Elas alimentam rios importantes do continente.{fonte(32)} É a água guardada nesses aquíferos que sai devagar nas nascentes e mantém muitos rios correndo durante a seca.</p>
+                </section>
+                <section id="emendadas" aria-labelledby="emendadas-titulo">
+                    <h2 id="emendadas-titulo">Águas Emendadas</h2>
+                    <p>No Distrito Federal, a Estação Ecológica de Águas Emendadas guarda uma vereda que manda água para dois lados ao mesmo tempo: uma parte desce para a bacia do Tocantins, rumo ao Norte, e outra para a do Paraná, rumo ao Sul.{fonte(23)} É o retrato do Cerrado como divisor de águas do Brasil.</p>
+                </section>
+                <section id="cuidar" aria-labelledby="cuidar-titulo">
+                    <h2 id="cuidar-titulo">Por que importa</h2>
+                    <p>A água do Cerrado abastece cidades, irrigação e usinas hidrelétricas bem longe dele, e é a que enche o Pantanal.{fonte(22)} Proteger nascentes, veredas e matas de galeria é proteger a água de boa parte do país.</p>
+                    <p class="mais"><a class="botao" href="ameacas.html">O que ameaça o Cerrado</a></p>
+                </section>
+            </div>
+        </div>
+'''
+pagina('agua.html', 'O berço das águas — Fotografia do Cerrado',
+       'Quanto da água do São Francisco, do Tocantins e do Paraná vem do Cerrado, os aquíferos e as veredas, com fontes.', agua, scripts=['guia.js?v=1'])
+
+# ---- Povos
+POVOS = [
+ ('indigenas', 'Povos indígenas', 'Muitos povos vivem no Cerrado há milhares de anos. Os de tronco linguístico Macro-Jê, como os Xavante, estão entre os mais ligados ao bioma, ao lado de povos Tupi-Guarani e Arawak.{f31} Nas terras indígenas, 97% da vegetação nativa do Cerrado continua de pé.{f27}'),
+ ('kalunga', 'Quilombolas Kalunga', 'Em Goiás, perto da Chapada dos Veadeiros, vivem os Kalunga, descendentes de pessoas escravizadas que fugiram e formaram comunidades nos vales. Em 2021, a ONU reconheceu o território como o primeiro do Brasil conservado por comunidades locais (TICCA): 83% da área continua conservada.{f30}'),
+ ('geraizeiros', 'Geraizeiros', 'Vivem nos “gerais”, as chapadas do norte de Minas Gerais, criando gado solto, plantando nos vales e colhendo frutos nativos. Desde os anos 1970, o avanço das plantações de eucalipto sobre as chapadas é a maior ameaça ao seu modo de vida.{f29}'),
+ ('quebradeiras', 'Quebradeiras de coco babaçu', 'Mulheres que vivem da coleta e da quebra do coco babaçu, no Maranhão, no Tocantins e no Piauí: tiram óleo, farinha e carvão. Nos anos 1990, formaram o Movimento Interestadual das Quebradeiras de Coco Babaçu, o MIQCB, para defender o acesso aos babaçuais.{f29}'),
+ ('outros', 'Vazanteiros, ribeirinhos, raizeiros e outros', 'Vazanteiros, que plantam nas margens dos rios quando a água baixa; ribeirinhos; raizeiras e raizeiros, que conhecem as plantas que curam; apanhadores de sempre-viva; artesãs do capim-dourado. Cada um desses jeitos de viver depende do Cerrado de pé.{f31}'),
+]
+cartoes_povos = ''.join(f'''
+                    <details class="povo" id="{i}">
+                        <summary><span class="povo-nome">{n}</span></summary>
+                        <p>{t.format(f27=fonte(27), f29=fonte(29), f30=fonte(30), f31=fonte(31))}</p>
+                    </details>''' for i, n, t in POVOS)
+povos = f'''        <section class="titulo-pagina guia-topo">
+            <div class="container">
+                <p class="guia-chapeu">Guia do cerrado</p>
+                <h1>Os povos do Cerrado</h1>
+                <p>O Cerrado não é só paisagem: é casa de povos indígenas, quilombolas e comunidades que vivem do que ele dá, sem derrubar. Onde eles estão, o Cerrado costuma estar mais inteiro.</p>
+            </div>
+        </section>
+        <section class="secao">
+            <div class="container povos-layout">
+                <div class="povos-lista">{cartoes_povos}
+                </div>
+                <aside class="povos-numero">
+                    <p class="povos-grande">97%</p>
+                    <p>da vegetação nativa do Cerrado continua de pé dentro das terras indígenas.{fonte(27)}</p>
+                    <p class="povos-grande">83%</p>
+                    <p>do território Kalunga, em Goiás, está conservado.{fonte(30)}</p>
+                </aside>
+            </div>
+        </section>
+'''
+pagina('povos.html', 'Os povos do Cerrado — Fotografia do Cerrado',
+       'Povos indígenas, quilombolas Kalunga, geraizeiros, quebradeiras de coco babaçu e outras comunidades que vivem do Cerrado de pé.', povos)
+
+# ---- Ameaças
+PRODES = [('2019', 6319), ('2023', 11011), ('2024', 8174), ('2025', 7235), ('2026', 5517)]
+maior = max(v for _, v in PRODES)
+barras_prodes = ''.join(f'<li><span class="ano">{a}</span><svg viewBox="0 0 100 18" preserveAspectRatio="none" aria-hidden="true"><rect class="desmate-barra" width="{100 * v / maior:.1f}" height="18"/></svg><span class="desmate-valor">{v:,} km²</span></li>'.replace(',', '.') for a, v in PRODES)
+ameacas = f'''        <section class="titulo-pagina guia-topo">
+            <div class="container">
+                <p class="guia-chapeu">Guia do cerrado</p>
+                <h1>O que ameaça o Cerrado</h1>
+                <p>O Cerrado é um dos biomas brasileiros que mais perderam vegetação nativa nas últimas décadas, quase sempre para virar pasto e lavoura. A boa notícia: o desmatamento vem caindo desde 2023.</p>
+            </div>
+        </section>
+        <div class="container guia-layout">
+            {indice([('perda', 'Quanto já se perdeu'), ('ritmo', 'O ritmo do desmatamento'), ('onde', 'Onde se desmata'), ('protegido', 'Quanto está protegido'), ('fazer', 'O que dá para fazer')])}
+            <div class="guia-texto">
+                <section id="perda" aria-labelledby="perda-titulo">
+                    <h2 id="perda-titulo">Quanto já se perdeu</h2>
+                    <dl class="numeros-guia">
+                        <div><dt>28%</dt><dd>da vegetação nativa perdida de 1985 a 2024, 40,5 milhões de hectares{fonte(27)}</dd></div>
+                        <div><dt>47,9%</dt><dd>do Cerrado já transformado, somando o que mudou antes de 1985{fonte(27)}</dd></div>
+                        <div><dt>97%</dt><dd>de vegetação nativa ainda de pé dentro das terras indígenas{fonte(27)}</dd></div>
+                    </dl>
+                </section>
+                <section id="ritmo" aria-labelledby="ritmo-titulo">
+                    <h2 id="ritmo-titulo">O ritmo do desmatamento</h2>
+                    <p>O INPE mede todo ano, pelo sistema PRODES, quanto de vegetação nativa foi derrubada no Cerrado entre agosto de um ano e julho do seguinte. Depois de cinco anos seguidos de alta, o desmatamento chegou a 11.011 km² em 2023 e começou a cair; em 2026 foi o menor da série, que começa em 2001.{fonte(24)}{fonte(25)}{fonte(26)}</p>
+                    <p class="so-leitor" id="desmate-legenda">Área desmatada no Cerrado por ano, em quilômetros quadrados:</p><ul class="desmate-lista" aria-describedby="desmate-legenda">{barras_prodes}</ul>
+                    <p class="nota-calculo">Só os anos com o número conferido nas fontes; o PRODES publica a série completa. Cada ano vai de agosto do ano anterior a julho. Para comparar: 5.517 km² é mais de três vezes a área da cidade de São Paulo.{fonte(24)}{fonte(25)}{fonte(26)}</p>
+                </section>
+                <section id="onde" aria-labelledby="onde2-titulo">
+                    <h2 id="onde2-titulo">Onde se desmata</h2>
+                    <p>A maior parte do desmatamento recente está no norte do Cerrado, no MATOPIBA, a fronteira agrícola formada por Maranhão, Tocantins, Piauí e Bahia: 74,3% do que foi derrubado de 2025 a 2026. O Maranhão sozinho perdeu 1.718 km².{fonte(24)} É também ali que está a maior parte do Cerrado que ainda resta.{fonte(27)}</p>
+                </section>
+                <section id="protegido" aria-labelledby="protegido-titulo">
+                    <h2 id="protegido-titulo">Quanto está protegido</h2>
+                    <p>Pouco. Pelos dados do Ministério do Meio Ambiente de 2011, as unidades de proteção integral, como os parques nacionais, cobriam só cerca de 3% do Cerrado, e as de uso sustentável, outros 5%.{fonte(28)} Os números de hoje são um pouco maiores, mas o Cerrado continua sendo um dos biomas menos protegidos do país.</p>
+                    <p>Fora das áreas protegidas, a lei permite desmatar a maior parte de uma propriedade no Cerrado, ao contrário do que acontece na Amazônia. Por isso, as terras indígenas e os territórios tradicionais fazem tanta diferença.</p>
+                    <p class="mais"><a href="povos.html">Os povos que mantêm o Cerrado de pé →</a></p>
+                </section>
+                <section id="fazer" aria-labelledby="fazer-titulo">
+                    <h2 id="fazer-titulo">O que dá para fazer</h2>
+                    <ul class="adaptacoes">
+                        <li><strong>Conhecer.</strong> Pouca gente sabe nomear três plantas do Cerrado. Comece pelo <a href="especies.html">catálogo de espécies</a>.</li>
+                        <li><strong>Comprar dos povos do Cerrado.</strong> Baru, pequi, óleo de babaçu, capim-dourado e mel de abelhas nativas vindos de comunidades e cooperativas mantêm o Cerrado de pé.</li>
+                        <li><strong>Não soltar fogo na seca.</strong> Queimada de lixo e de pasto fora de hora vira incêndio.</li>
+                        <li><strong>Plantar nativa.</strong> No quintal, na calçada ou numa nascente: ipê, pequi, baru, cagaita e buriti, cada um no seu lugar.</li>
+                        <li><strong>Visitar as unidades de conservação.</strong> Parque visitado é parque defendido.</li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+'''
+pagina('ameacas.html', 'O que ameaça o Cerrado — Fotografia do Cerrado',
+       'Quanto o Cerrado já perdeu, o desmatamento medido pelo INPE ano a ano, onde ele acontece e quanto está protegido, com fontes.', ameacas, scripts=['guia.js?v=1'])
+
+# ---- o menu do guia com as partes novas; Expedições e Sobre vão para o rodapé
+MENU[:] = [('index.html', 'Início'), ('bioma.html', 'O bioma'), ('paisagens.html', 'Paisagens'), ('especies.html', 'Espécies'),
+           ('agua.html', 'Água'), ('povos.html', 'Povos'), ('ameacas.html', 'Ameaças')]
+RODAPE_PT = ' · <a href="expedicoes.html">Expedições</a> · <a href="diario.html">Diário de campo</a> · <a href="como-fotografamos.html">Como fotografamos</a> · <a href="sobre.html">Sobre</a> · <a href="contato.html">Contato</a> · <a href="fontes.html">Fontes</a>'
+def com_rodape_novo(t):
+    return re.sub(r'\{\{\?pt-BR\}\} · <a href="(?:expedicoes|diario)\.html">.*?\{\{/pt-BR\}\}', '{{?pt-BR}}' + RODAPE_PT + '{{/pt-BR}}', t)
+for f in COMPARTILHADAS:
+    q = M / f; t = q.read_text()
+    t = re.sub(r'\{\{\?pt-BR\}\}<ul class="menu" id="menu">.*?</ul>\{\{/pt-BR\}\}', lambda m: '{{?pt-BR}}' + menu_pt(f) + '{{/pt-BR}}', t)
+    t = com_rodape_novo(t)
+    t = t.replace('<a class="porta" href="fontes.html"><span class="porta-chapeu">Fontes</span><strong>De onde vem cada número</strong><span>IBGE, Embrapa, ICMBio e artigos científicos.</span></a>',
+                  '<a class="porta" href="agua.html"><span class="porta-chapeu">Água</span><strong>O berço das águas</strong><span>94% do São Francisco nasce aqui.</span></a>\n'
+                  '                    <a class="porta" href="povos.html"><span class="porta-chapeu">Povos</span><strong>Quem vive no Cerrado</strong><span>Indígenas, Kalunga, geraizeiros, quebradeiras de coco.</span></a>\n'
+                  '                    <a class="porta" href="ameacas.html"><span class="porta-chapeu">Ameaças</span><strong>O que ameaça o Cerrado</strong><span>O desmatamento ano a ano e o que dá para fazer.</span></a>')
+    q.write_text(t)
+so_pt = json.loads((AQUI / 'so-pt.json').read_text())
+for f in ['agua.html', 'povos.html', 'ameacas.html']:
+    if f not in so_pt: so_pt.append(f)
+(AQUI / 'so-pt.json').write_text(json.dumps(so_pt, ensure_ascii=False, indent=2) + '\n')
+for f in so_pt:
+    if f == '404.html': continue
+    q = M / f; t = q.read_text()
+    t = re.sub(r'<ul class="menu" id="menu">.*?</ul>', menu_pt(f), t, count=1)
+    t = com_rodape_novo(t)
+    q.write_text(t)
+lista = ''.join(f'<li id="f{n}"><span class="fonte-numero">{n}</span> {t} <a href="{u}" rel="noopener">Abrir a fonte</a></li>' for n, t, u in FONTES)
+q = M / 'fontes.html'; t = q.read_text()
+t = re.sub(r'<ol class="fontes-lista">.*?</ol>', '<ol class="fontes-lista">' + lista + '</ol>', t, flags=re.S)
+q.write_text(t)
+print('parte 3 pronta')
