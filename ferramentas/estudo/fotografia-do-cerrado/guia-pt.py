@@ -266,6 +266,7 @@ fichas = ''.join(f'''
                         <p>{p['texto']}{''.join(fonte(n) for n in p['f'])}</p>
                         <dl class="paisagem-dados"><dt>Cobertura</dt><dd>{p['cobertura']}</dd><dt>Altura</dt><dd>{p['altura']}</dd></dl>
                         <p class="paisagem-reconhecer"><strong>Como reconhecer:</strong> {p['reconhecer']}</p>
+                        <p class="mais"><a href="especies.html?paisagem={p['id']}">Espécies desta paisagem →</a></p>
                     </article>''' for p in P)
 paisagens = f'''        <section class="titulo-pagina guia-topo">
             <div class="container">
@@ -384,3 +385,161 @@ for f in so_pt:
     t = com_rodape_do_guia(t)
     q.write_text(t)
 print('guia pronto:', so_pt)
+
+# ================================================================ Espécies: o catálogo de fauna e flora (parte 2 do guia)
+FONTES += [
+ (15, 'Ministério do Meio Ambiente. Portaria MMA nº 148, de 7 de junho de 2022: a lista nacional de espécies ameaçadas (atualiza as portarias 443, 444 e 445 de 2014).', 'https://www.in.gov.br/en/web/dou/-/portaria-mma-n-148-de-7-de-%20%20%20%20%20%20%20%20%20%20%20%20%20%20junho-de-2022-406272733'),
+ (16, 'ICMBio. SALVE, o sistema de avaliação do risco de extinção da fauna: as fichas de cada espécie.', 'https://salve.icmbio.gov.br'),
+ (17, 'Lycalopex vetulus (Carnivora: Canidae). Mammalian Species, American Society of Mammalogists: o único canídeo endêmico do Cerrado, vulnerável na lista nacional.', 'https://academic.oup.com/mspecies/article/doi/10.1644/847.1/2600889'),
+ (18, 'Wikipédia, com os dados da Lista Vermelha da IUCN: Mergus octosetaceus (pato-mergulhão), criticamente em perigo, menos de 250 adultos, todos no Cerrado.', 'https://en.wikipedia.org/wiki/Brazilian_merganser'),
+ (19, 'Características e potencialidades dos frutos do Cerrado na indústria de alimentos. Brazilian Journal of Food Technology (SciELO): as épocas de frutificação.', 'http://www.scielo.br/j/bjft/a/F3N9GCfWzJRx77Py3ShRmRq/?lang=pt'),
+ (20, 'Avaliação do risco de extinção da onça-parda Puma concolor no Brasil. Biodiversidade Brasileira (ICMBio).', 'https://revistaeletronica.icmbio.gov.br/BioBR/article/view/377'),
+]
+FONTES.sort()
+
+AMEACA = {'VU': 'Vulnerável', 'EN': 'Em perigo', 'CR': 'Criticamente em perigo'}
+# (id, nome, científico, grupo, reino, ameaça, paisagens, texto, foto, ficha, fontes)
+ESP = [
+ ('lobo-guara', 'Lobo-guará', 'Chrysocyon brachyurus', 'Mamíferos', 'fauna', 'VU', ['campo-sujo', 'cerrado-sentido-restrito'], 'O maior canídeo da América do Sul. Come muita fruta, principalmente a lobeira, e espalha as sementes.', 'lobo-guara', True, [15]),
+ ('tamandua-bandeira', 'Tamanduá-bandeira', 'Myrmecophaga tridactyla', 'Mamíferos', 'fauna', 'VU', ['campo-limpo', 'campo-sujo', 'cerrado-sentido-restrito'], 'Não tem dentes: come formigas e cupins com uma língua de mais de meio metro.', 'tamandua-bandeira', True, [15]),
+ ('tatu-canastra', 'Tatu-canastra', 'Priodontes maximus', 'Mamíferos', 'fauna', 'VU', ['cerrado-sentido-restrito', 'cerradao'], 'O maior tatu do mundo. As tocas enormes que ele cava viram abrigo para dezenas de outros bichos.', None, False, [15, 16]),
+ ('onca-pintada', 'Onça-pintada', 'Panthera onca', 'Mamíferos', 'fauna', 'VU', ['mata-de-galeria', 'mata-ciliar', 'cerradao'], 'O maior felino das Américas. No Cerrado, vive sobretudo nas matas ao longo dos rios.', None, False, [15]),
+ ('onca-parda', 'Onça-parda', 'Puma concolor', 'Mamíferos', 'fauna', 'VU', ['cerrado-sentido-restrito', 'cerradao', 'mata-de-galeria'], 'Também chamada de suçuarana. Anda muito e ocupa quase todas as paisagens; na lista nacional, as subespécies ameaçadas são vulneráveis.', None, False, [20]),
+ ('veado-campeiro', 'Veado-campeiro', 'Ozotoceros bezoarticus', 'Mamíferos', 'fauna', 'VU', ['campo-limpo', 'campo-sujo'], 'O veado dos campos abertos. O Parque Nacional das Emas é um dos lugares onde ele ainda é visto em bandos.', None, False, [15, 16]),
+ ('cachorro-vinagre', 'Cachorro-vinagre', 'Speothos venaticus', 'Mamíferos', 'fauna', 'VU', ['mata-de-galeria', 'cerradao'], 'Um canídeo pequeno e de pernas curtas, que caça em grupo. Raríssimo de ver.', None, False, [15, 16]),
+ ('raposa-do-campo', 'Raposa-do-campo', 'Lycalopex vetulus', 'Mamíferos', 'fauna', 'VU', ['campo-limpo', 'campo-sujo', 'cerrado-sentido-restrito'], 'O único canídeo que só existe no Cerrado. Pequena, come muitos cupins e insetos.', None, False, [17]),
+ ('anta', 'Anta', 'Tapirus terrestris', 'Mamíferos', 'fauna', 'VU', ['vereda', 'mata-de-galeria', 'mata-ciliar'], 'O maior mamífero terrestre do Brasil. Nada bem, vive perto da água e espalha sementes de muitas árvores.', None, False, [15]),
+ ('tamandua-mirim', 'Tamanduá-mirim', 'Tamandua tetradactyla', 'Mamíferos', 'fauna', None, ['cerradao', 'mata-de-galeria', 'cerrado-sentido-restrito'], 'O primo menor do tamanduá-bandeira: sobe em árvores e se segura com a cauda.', None, False, []),
+ ('ema', 'Ema', 'Rhea americana', 'Aves', 'fauna', None, ['campo-limpo', 'campo-sujo'], 'A maior ave do Brasil. Não voa, corre muito, e quem choca os ovos é o macho.', None, False, []),
+ ('seriema', 'Seriema', 'Cariama cristata', 'Aves', 'fauna', None, ['campo-limpo', 'campo-sujo', 'cerrado-sentido-restrito'], 'O canto alto, que parece uma risada, é um dos sons mais típicos das manhãs do Cerrado.', 'seriema', True, []),
+ ('arara-caninde', 'Arara-canindé', 'Ara ararauna', 'Aves', 'fauna', None, ['vereda', 'palmeiral'], 'Faz ninho em palmeiras mortas, como o buriti das veredas.', 'arara-caninde', True, []),
+ ('tucano-toco', 'Tucano-toco', 'Ramphastos toco', 'Aves', 'fauna', None, ['cerradao', 'mata-de-galeria'], 'O maior dos tucanos: o bico oco ajuda a perder calor nos dias quentes.', 'tucano-toco', True, []),
+ ('pato-mergulhao', 'Pato-mergulhão', 'Mergus octosetaceus', 'Aves', 'fauna', 'CR', ['mata-de-galeria', 'mata-ciliar'], 'Um dos patos mais raros do mundo: são menos de 250 adultos, todos em rios de água limpa e corredeira do Cerrado.', None, False, [18]),
+ ('coruja-buraqueira', 'Coruja-buraqueira', 'Athene cunicularia', 'Aves', 'fauna', None, ['campo-limpo', 'campo-sujo'], 'Mora em tocas no chão e fica de pé na entrada, de dia, vigiando o campo.', None, False, []),
+ ('carcara', 'Carcará', 'Caracara plancus', 'Aves', 'fauna', None, ['campo-limpo', 'campo-sujo', 'cerrado-sentido-restrito'], 'Come de tudo e aparece onde tem comida fácil, até atrás de tratores e na beira das queimadas.', None, False, []),
+ ('papagaio-verdadeiro', 'Papagaio-verdadeiro', 'Amazona aestiva', 'Aves', 'fauna', None, ['cerradao', 'cerrado-sentido-restrito'], 'Anda em casais e bandos barulhentos; é dos bichos mais tirados da natureza para o comércio ilegal.', None, False, []),
+ ('jiboia', 'Jiboia', 'Boa constrictor', 'Répteis', 'fauna', None, ['cerradao', 'mata-de-galeria', 'cerrado-sentido-restrito'], 'Não tem veneno: mata a presa apertando. Ajuda a controlar roedores.', None, False, []),
+ ('cascavel', 'Cascavel', 'Crotalus durissus', 'Répteis', 'fauna', None, ['campo-sujo', 'cerrado-sentido-restrito'], 'Venenosa, avisa antes com o chocalho na ponta da cauda. Prefere fugir a atacar.', None, False, []),
+ ('teiu', 'Teiú', 'Salvator merianae', 'Répteis', 'fauna', None, ['cerrado-sentido-restrito', 'mata-de-galeria'], 'O maior lagarto do Cerrado. Passa os meses mais frios e secos enterrado, quase sem se mexer.', None, False, []),
+ ('vaga-lume-cupinzeiro', 'Vaga-lume dos cupinzeiros', 'Pyrearinus termitilluminans', 'Insetos', 'fauna', None, ['campo-limpo', 'campo-sujo'], 'Nas primeiras noites de chuva, as larvas acendem luzes verdes nos cupinzeiros para atrair insetos. As Emas são famosas pelos cupinzeiros que brilham.', None, False, []),
+ ('jatai', 'Jataí', 'Tetragonisca angustula', 'Insetos', 'fauna', None, ['cerradao', 'mata-de-galeria', 'cerrado-sentido-restrito'], 'Uma das abelhas sem ferrão mais comuns. Não pica e poliniza muitas plantas. Veja o site Abelhas sem Ferrão.', None, False, []),
+ ('pequi', 'Pequi', 'Caryocar brasiliense', 'Árvores', 'flora', None, ['cerrado-sentido-restrito', 'cerradao'], 'O fruto mais famoso do Cerrado. Atenção: o caroço tem espinhos finos por dentro, e não se morde.', None, False, [19]),
+ ('baru', 'Baru', 'Dipteryx alata', 'Árvores', 'flora', None, ['cerradao', 'mata-seca', 'cerrado-sentido-restrito'], 'A castanha torrada é uma das mais nutritivas do Brasil. Os frutos caem na seca, quando falta comida para os bichos.', None, False, [19]),
+ ('buriti', 'Buriti', 'Mauritia flexuosa', 'Palmeiras', 'flora', None, ['vereda', 'palmeiral'], 'A palmeira das veredas: onde tem buriti, tem água. Os frutos alimentam araras, antas e gente.', None, False, [19]),
+ ('macauba', 'Macaúba', 'Acrocomia aculeata', 'Palmeiras', 'flora', None, ['palmeiral', 'cerradao'], 'Palmeira de tronco com espinhos e cocos amarelos, de onde se tira óleo.', None, False, []),
+ ('babacu', 'Babaçu', 'Attalea speciosa', 'Palmeiras', 'flora', None, ['palmeiral'], 'Forma palmeirais imensos no norte do Cerrado. A quebra do coco é o trabalho das quebradeiras de coco do Maranhão e do Tocantins.', None, False, []),
+ ('ipe-amarelo', 'Ipê-amarelo', 'Handroanthus spp.', 'Árvores', 'flora', None, ['cerrado-sentido-restrito', 'cerradao', 'mata-seca'], 'Floresce na seca, sem nenhuma folha: as árvores ficam inteiras amarelas por poucos dias.', None, False, []),
+ ('lobeira', 'Lobeira', 'Solanum lycocarpum', 'Arbustos', 'flora', None, ['campo-sujo', 'cerrado-sentido-restrito'], 'A fruta-do-lobo: o lobo-guará come muito dela e espalha as sementes.', None, False, []),
+ ('cagaita', 'Cagaita', 'Eugenia dysenterica', 'Árvores', 'flora', None, ['cerrado-sentido-restrito', 'cerradao'], 'Fruta ácida e suculenta. O nome científico avisa: comida em excesso, solta o intestino.', None, False, [19]),
+ ('mangaba', 'Mangaba', 'Hancornia speciosa', 'Árvores', 'flora', None, ['cerrado-sentido-restrito', 'campo-sujo'], 'Fruta doce, de leite branco, que só presta bem madura.', None, False, [19]),
+ ('araticum', 'Araticum', 'Annona crassiflora', 'Árvores', 'flora', None, ['cerrado-sentido-restrito'], 'Parente da fruta-do-conde, com fruto grande e perfumado.', None, False, []),
+ ('jatoba', 'Jatobá-do-cerrado', 'Hymenaea stigonocarpa', 'Árvores', 'flora', None, ['cerrado-sentido-restrito', 'cerradao'], 'Dentro da vagem dura, uma farinha doce que vira bolo e mingau.', None, False, []),
+ ('pau-terra', 'Pau-terra', 'Qualea grandiflora', 'Árvores', 'flora', None, ['cerrado-sentido-restrito', 'cerradao'], 'Uma das árvores mais comuns do cerrado, de flores amarelas grandes e casca grossa.', None, False, []),
+ ('barbatimao', 'Barbatimão', 'Stryphnodendron adstringens', 'Árvores', 'flora', None, ['cerrado-sentido-restrito'], 'A casca, rica em taninos, é usada há muito tempo na medicina popular para cicatrizar.', None, False, []),
+ ('canela-de-ema', 'Canela-de-ema', 'Vellozia spp.', 'Ervas e arbustos', 'flora', None, ['campo-rupestre'], 'Planta das pedras do campo rupestre. O “tronco” é feito de restos de folhas, que protegem do fogo e da seca.', None, False, []),
+ ('sempre-viva', 'Sempre-viva', 'Comanthera elegans', 'Ervas e arbustos', 'flora', None, ['campo-rupestre'], 'Flores que secam sem perder a forma; colhidas para arranjos e artesanato na Serra do Espinhaço.', None, False, []),
+ ('capim-dourado', 'Capim-dourado', 'Syngonanthus nitens', 'Ervas e arbustos', 'flora', None, ['campo-limpo', 'vereda'], 'A haste dourada vira o artesanato mais conhecido do Jalapão, no Tocantins.', None, False, []),
+]
+NOME_PAISAGEM = {p['id']: p['nome'] for p in P}
+
+ICONES = {
+ 'Mamíferos': '<path d="M12 21c-3 0-6-2-6-4.5S8.5 12 12 12s6 2 6 4.5-3 4.5-6 4.5Z"/><circle cx="6" cy="9" r="2"/><circle cx="10" cy="6" r="2"/><circle cx="14" cy="6" r="2"/><circle cx="18" cy="9" r="2"/>',
+ 'Aves': '<path d="M3 13c4 0 6-2 8-6 1 3 4 4 7 3l3-1-3 4c-2 3-6 5-10 5H6l-3-5Z"/>',
+ 'Répteis': '<path d="M4 18c4 0 4-5 8-5s4 5 8 5M6 10c3 0 3-4 6-4s3 4 6 4" fill="none" stroke-width="2.2" stroke-linecap="round"/>',
+ 'Insetos': '<ellipse cx="12" cy="14" rx="4" ry="6"/><path d="M12 8V5M8 11 4 9M16 11l4-2M8 15H4M16 15h4M8 18l-3 2M16 18l3 2" fill="none" stroke-width="1.8" stroke-linecap="round"/>',
+ 'Árvores': '<path d="M12 3c4 0 7 3 7 6.5S16 15 12 15 5 13 5 9.5 8 3 12 3Z"/><path d="M12 14v7" fill="none" stroke-width="2.5" stroke-linecap="round"/>',
+ 'Palmeiras': '<path d="M12 21V9M12 9c-2-3-6-3-8-1M12 9c2-3 6-3 8-1M12 9c-1-3-1-5 0-6M12 9c-3-1-5 1-6 3M12 9c3-1 5 1 6 3" fill="none" stroke-width="2" stroke-linecap="round"/>',
+ 'Arbustos': '<ellipse cx="8" cy="15" rx="5" ry="4"/><ellipse cx="16" cy="15" rx="5" ry="4"/><ellipse cx="12" cy="11" rx="5" ry="4"/>',
+ 'Ervas e arbustos': '<path d="M12 21V11M12 11l-4-6M12 11l4-6M12 14l-6-3M12 14l6-3" fill="none" stroke-width="2" stroke-linecap="round"/><circle cx="8" cy="5" r="1.8"/><circle cx="16" cy="5" r="1.8"/>',
+}
+def cartao(e):
+    id_, nome, cien, grupo, reino, am, pais, texto, foto, ficha, fs = e
+    if foto:
+        img = f'<img src="{{{{raiz}}}}img/{foto}-640.webp" alt="" width="72" height="72" loading="lazy">'
+    else:
+        img = f'<div class="esp-icone esp-{reino}" aria-hidden="true"><svg viewBox="0 0 24 24" width="36" height="36">{ICONES[grupo]}</svg></div>'
+    selo = f'<span class="selo">{AMEACA[am]}</span>' if am else ''
+    link = f'<a href="especie-{id_}.html">{nome}</a>' if ficha else nome
+    if id_ == 'jatai':
+        texto = texto.replace('Veja o site Abelhas sem Ferrão.', 'Veja o site <a href="https://abelhas.linupedia.com.br/" rel="noopener">Abelhas sem Ferrão</a>.')
+    onde = ', '.join(NOME_PAISAGEM[x].lower().replace('cerrado sentido restrito', 'cerrado') for x in pais)
+    return (f'<li class="esp" data-reino="{reino}" data-grupo="{grupo}" data-ameaca="{am or ""}" data-paisagens="{" ".join(pais)}" '
+            f'data-busca="{(nome + " " + cien).lower()}">{img}<div class="esp-texto"><p class="esp-grupo">{grupo}</p><h2>{link}</h2>'
+            f'<p class="cientifico">{cien}</p><p>{texto}{"".join(fonte(n) for n in fs)}</p><p class="esp-onde">Onde: {onde}</p>{selo}</div></li>')
+
+grupos_fauna = ['Mamíferos', 'Aves', 'Répteis', 'Insetos']
+grupos_flora = ['Árvores', 'Palmeiras', 'Arbustos', 'Ervas e arbustos']
+chips = ''.join(f'<button type="button" class="chip" data-filtro-grupo="{g}" aria-pressed="false">{g}</button>' for g in grupos_fauna + grupos_flora)
+opcoes_paisagem = ''.join(f'<option value="{p["id"]}">{p["nome"]}</option>' for p in P)
+n_fauna = sum(1 for e in ESP if e[4] == 'fauna'); n_flora = len(ESP) - n_fauna
+
+# o calendário das frutas (épocas do artigo do SciELO; variam muito de região para região)
+FRUTAS = [('Pequi', [1, 2, 3]), ('Baru', [9, 10]), ('Cagaita', [9, 10]), ('Mangaba', [10, 11, 12]), ('Buriti', [12, 1, 2, 3, 4, 5, 6])]
+MESES = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez']
+cab = ''.join(f'<th scope="col">{m}</th>' for m in MESES)
+linhas = ''.join(f'<tr><th scope="row">{f}</th>' + ''.join(f'<td class="{"tem" if i + 1 in ms else ""}">{"<span class=\"so-leitor\">tem</span>" if i + 1 in ms else ""}</td>' for i in range(12)) + '</tr>' for f, ms in FRUTAS)
+
+especies = f'''        <section class="titulo-pagina guia-topo">
+            <div class="container">
+                <p class="guia-chapeu">Guia do cerrado</p>
+                <h1>Espécies do Cerrado</h1>
+                <p>{n_fauna} bichos e {n_flora} plantas, para começar. Procure pelo nome, filtre pelo grupo ou pela paisagem, ou veja só as que estão ameaçadas de extinção.</p>
+            </div>
+        </section>
+        <section class="secao especies-secao">
+            <div class="container especies-layout">
+                <div class="filtros-especies" role="search">
+                    <label for="busca-especie">Procurar</label>
+                    <input id="busca-especie" type="search" placeholder="Nome comum ou científico" autocomplete="off">
+                    <fieldset><legend>Grupo</legend><div class="chips"><button type="button" class="chip" data-filtro-grupo="" aria-pressed="true">Todos</button>{chips}</div></fieldset>
+                    <label for="paisagem-especie">Paisagem</label>
+                    <select id="paisagem-especie"><option value="">Todas as paisagens</option>{opcoes_paisagem}</select>
+                    <label class="so-ameacadas"><input type="checkbox" id="so-ameacadas"> Só as ameaçadas de extinção</label>
+                    <p class="contagem" aria-live="polite"><strong id="contagem">{len(ESP)}</strong> espécies</p>
+                    <p class="nota-calculo">A situação de ameaça é a da lista nacional (Portaria MMA nº 148/2022){fonte(15)}; confira cada espécie no SALVE, do ICMBio.{fonte(16)}</p>
+                </div>
+                <div>
+                    <ul class="especies-lista">{"".join(cartao(e) for e in ESP)}</ul>
+                    <p class="vazio" hidden>Nenhuma espécie com esses filtros. <button type="button" class="botao botao-linha" id="limpar-filtros">Limpar os filtros</button></p>
+                    <p class="mais"><a href="galeria.html">Ver as fotos da galeria →</a></p>
+                </div>
+            </div>
+        </section>
+        <section class="secao creme" aria-labelledby="frutas-titulo">
+            <div class="container">
+                <h2 id="frutas-titulo">Quando tem fruta</h2>
+                <p class="intro">A época em que cada fruta nativa amadurece, segundo um estudo sobre os frutos do Cerrado.{fonte(19)} Ela muda bastante de região para região e de um ano para o outro: no Distrito Federal e em Goiás, por exemplo, o pequi costuma aparecer bem antes, a partir de outubro.</p>
+                <div class="calendario-rolagem" tabindex="0" role="group" aria-label="Calendário das frutas; role de lado no celular">
+                    <table class="calendario"><caption class="so-leitor">Meses em que cada fruta amadurece</caption><thead><tr><th scope="col">Fruta</th>{cab}</tr></thead><tbody>{linhas}</tbody></table>
+                </div>
+            </div>
+        </section>
+'''
+pagina('especies.html', 'Espécies do Cerrado: fauna e flora — Fotografia do Cerrado',
+       f'{n_fauna} bichos e {n_flora} plantas do Cerrado, com busca, filtros por grupo e paisagem, as espécies ameaçadas e o calendário das frutas.',
+       especies, scripts=['guia.js?v=1'])
+
+# o menu passa a levar "Espécies" para o catálogo; a galeria e as fichas ficam dentro dele
+MENU[3] = ('especies.html', 'Espécies')
+ATUAL.update({'especie-': 'especies.html', 'galeria.html': 'especies.html'})
+for f in COMPARTILHADAS:
+    q = M / f; t = q.read_text()
+    t = re.sub(r'\{\{\?pt-BR\}\}<ul class="menu" id="menu">.*?</ul>\{\{/pt-BR\}\}', lambda m: '{{?pt-BR}}' + menu_pt(f) + '{{/pt-BR}}', t)
+    t = t.replace('<a class="porta" href="galeria.html"><span class="porta-chapeu">Espécies</span><strong>Bichos do Cerrado</strong><span>Fichas com medidas, hábitos e como fotografar.</span></a>',
+                  f'<a class="porta" href="especies.html"><span class="porta-chapeu">Espécies</span><strong>Fauna e flora</strong><span>{len(ESP)} espécies com busca, filtros e o calendário das frutas.</span></a>')
+    t = t.replace('<p class="mais"><a href="galeria.html">Ver todas as espécies →</a></p>', '<p class="mais"><a href="especies.html">Ver todas as espécies →</a></p>')
+    q.write_text(t)
+so_pt = json.loads((AQUI / 'so-pt.json').read_text())
+if 'especies.html' not in so_pt: so_pt.append('especies.html')
+(AQUI / 'so-pt.json').write_text(json.dumps(so_pt, ensure_ascii=False, indent=2) + '\n')
+for f in so_pt:
+    if f == '404.html': continue
+    q = M / f; t = q.read_text()
+    t = re.sub(r'<ul class="menu" id="menu">.*?</ul>', menu_pt(f), t, count=1)
+    q.write_text(t)
+# a página de fontes é refeita no fim, com as fontes novas
+lista = ''.join(f'<li id="f{n}"><span class="fonte-numero">{n}</span> {t} <a href="{u}" rel="noopener">Abrir a fonte</a></li>' for n, t, u in FONTES)
+q = M / 'fontes.html'; t = q.read_text()
+t = re.sub(r'<ol class="fontes-lista">.*?</ol>', '<ol class="fontes-lista">' + lista + '</ol>', t, flags=re.S)
+q.write_text(t)
+print('espécies:', len(ESP))

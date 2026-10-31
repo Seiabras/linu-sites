@@ -80,3 +80,51 @@
         secoes.forEach((s) => obs.observe(s));
     }
 })();
+
+// ---- o catálogo de espécies: busca, grupo, paisagem e "só as ameaçadas", tudo junto
+(() => {
+    const lista = document.querySelector('.especies-lista');
+    if (!lista) return;
+    const itens = [...lista.querySelectorAll('.esp')];
+    const busca = document.getElementById('busca-especie');
+    const paisagem = document.getElementById('paisagem-especie');
+    const ameacadas = document.getElementById('so-ameacadas');
+    const chips = [...document.querySelectorAll('[data-filtro-grupo]')];
+    const contagem = document.getElementById('contagem');
+    const vazio = document.querySelector('.vazio');
+    let grupo = '';
+    // sem acento e em minúsculas: "tamandua" acha "Tamanduá"
+    const limpo = (t) => t.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim();
+    const filtrar = () => {
+        const q = limpo(busca.value);
+        let n = 0;
+        for (const it of itens) {
+            const ok = (!q || limpo(it.dataset.busca).includes(q))
+                && (!grupo || it.dataset.grupo === grupo)
+                && (!paisagem.value || it.dataset.paisagens.split(' ').includes(paisagem.value))
+                && (!ameacadas.checked || it.dataset.ameaca);
+            it.hidden = !ok;
+            if (ok) n++;
+        }
+        contagem.textContent = n;
+        vazio.hidden = n > 0;
+    };
+    chips.forEach((c) => c.addEventListener('click', () => {
+        grupo = c.dataset.filtroGrupo;
+        chips.forEach((o) => o.setAttribute('aria-pressed', String(o === c)));
+        filtrar();
+    }));
+    busca.addEventListener('input', filtrar);
+    paisagem.addEventListener('change', filtrar);
+    ameacadas.addEventListener('change', filtrar);
+    document.getElementById('limpar-filtros').addEventListener('click', () => {
+        busca.value = ''; paisagem.value = ''; ameacadas.checked = false; grupo = '';
+        chips.forEach((o) => o.setAttribute('aria-pressed', String(o.dataset.filtroGrupo === '')));
+        filtrar();
+        busca.focus();
+    });
+    // vindo de uma paisagem (especies.html?paisagem=vereda), já chega filtrado
+    const p = new URLSearchParams(location.search).get('paisagem');
+    if (p && [...paisagem.options].some((o) => o.value === p)) paisagem.value = p;
+    filtrar();
+})();

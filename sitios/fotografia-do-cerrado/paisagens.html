@@ -33,7 +33,7 @@
             <button class="botao-tema" type="button" data-escuro="Mudar para o modo escuro" data-claro="Mudar para o modo claro" aria-label="Mudar para o modo escuro"><svg class="lua" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg><svg class="sol" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1"/></svg></button>
             <button class="botao-menu" type="button" aria-expanded="false" aria-controls="menu">Menu</button>
             <nav aria-label="Navegação principal">
-                <ul class="menu" id="menu"><li><a href="index.html">Início</a></li><li><a href="bioma.html">O bioma</a></li><li><a href="paisagens.html" aria-current="page">Paisagens</a></li><li><a href="galeria.html">Espécies</a></li><li><a href="expedicoes.html">Expedições</a></li><li><a href="sobre.html">Sobre</a></li></ul>
+                <ul class="menu" id="menu"><li><a href="index.html">Início</a></li><li><a href="bioma.html">O bioma</a></li><li><a href="paisagens.html" aria-current="page">Paisagens</a></li><li><a href="especies.html">Espécies</a></li><li><a href="expedicoes.html">Expedições</a></li><li><a href="sobre.html">Sobre</a></li></ul>
             </nav>
         </div>
     </header>
@@ -61,6 +61,7 @@
                         <p>Um mar de capim e ervas, com raríssimos arbustos e nenhuma árvore. Aparece nas encostas, nas chapadas e em volta das veredas e das nascentes.<sup class="nota"><a href="fontes.html#f8" aria-label="Fonte 8">8</a></sup></p>
                         <dl class="paisagem-dados"><dt>Cobertura</dt><dd>quase nenhuma árvore</dd><dt>Altura</dt><dd>capim e ervas</dd></dl>
                         <p class="paisagem-reconhecer"><strong>Como reconhecer:</strong> Dá para ver o horizonte em todas as direções. Na seca, fica dourado; logo depois das primeiras chuvas, verde.</p>
+                        <p class="mais"><a href="especies.html?paisagem=campo-limpo">Espécies desta paisagem →</a></p>
                     </article>
                     <article class="paisagem" id="tipo-campo-sujo" data-tipo="campo-sujo">
                         <p class="tipo-formacao">Formação campestre</p>
@@ -68,6 +69,7 @@
                         <p>Capim com arbustos e subarbustos espaçados no meio, como se o campo limpo tivesse sido salpicado. Costuma estar em solos rasos ou muito pobres.<sup class="nota"><a href="fontes.html#f8" aria-label="Fonte 8">8</a></sup></p>
                         <dl class="paisagem-dados"><dt>Cobertura</dt><dd>arbustos espalhados</dd><dt>Altura</dt><dd>arbustos baixos</dd></dl>
                         <p class="paisagem-reconhecer"><strong>Como reconhecer:</strong> O capim domina, mas a cada poucos passos tem um arbusto. Nada passa muito da altura de uma pessoa.</p>
+                        <p class="mais"><a href="especies.html?paisagem=campo-sujo">Espécies desta paisagem →</a></p>
                     </article>
                     <article class="paisagem" id="tipo-campo-rupestre" data-tipo="campo-rupestre">
                         <p class="tipo-formacao">Formação campestre</p>
@@ -75,6 +77,7 @@
                         <p>Vegetação de capim e arbustos crescendo entre afloramentos de rocha, nas serras e chapadas mais altas. Muitas plantas daqui só existem nessas pedras, como várias canelas-de-ema e sempre-vivas.<sup class="nota"><a href="fontes.html#f8" aria-label="Fonte 8">8</a></sup></p>
                         <dl class="paisagem-dados"><dt>Cobertura</dt><dd>capim e arbustos entre as pedras</dd><dt>Altura</dt><dd>em geral acima de 900 m de altitude</dd></dl>
                         <p class="paisagem-reconhecer"><strong>Como reconhecer:</strong> Pedras à mostra por todo lado, ventos fortes e plantas pequenas, de folhas duras. Comum na Chapada dos Veadeiros e na Serra do Espinhaço.</p>
+                        <p class="mais"><a href="especies.html?paisagem=campo-rupestre">Espécies desta paisagem →</a></p>
                     </article>
                     <article class="paisagem" id="tipo-parque-de-cerrado" data-tipo="parque-de-cerrado">
                         <p class="tipo-formacao">Formação savânica</p>
@@ -82,6 +85,7 @@
                         <p>As árvores crescem agrupadas em pequenas elevações do terreno, os murundus, e entre elas fica um campo que encharca na época de chuva.<sup class="nota"><a href="fontes.html#f8" aria-label="Fonte 8">8</a></sup></p>
                         <dl class="paisagem-dados"><dt>Cobertura</dt><dd>árvores em ilhas</dd><dt>Altura</dt><dd>árvores do cerrado em montinhos</dd></dl>
                         <p class="paisagem-reconhecer"><strong>Como reconhecer:</strong> Visto de longe, parece um campo cheio de ilhas redondas de árvores, todas mais ou menos do mesmo tamanho.</p>
+                        <p class="mais"><a href="especies.html?paisagem=parque-de-cerrado">Espécies desta paisagem →</a></p>
                     </article>
                     <article class="paisagem" id="tipo-cerrado-sentido-restrito" data-tipo="cerrado-sentido-restrito">
                         <p class="tipo-formacao">Formação savânica</p>
@@ -89,6 +93,7 @@
                         <p>O “cerrado” que a maioria das pessoas imagina: árvores baixas, tortas, de casca grossa, no meio de capim e arbustos. Conforme a densidade, tem quatro tipos: o denso (50% a 70% de cobertura, árvores de 5 a 8 m), o típico (20% a 50%, de 3 a 6 m), o ralo (5% a 20%, de 2 a 3 m) e o rupestre, sobre as rochas.<sup class="nota"><a href="fontes.html#f8" aria-label="Fonte 8">8</a></sup><sup class="nota"><a href="fontes.html#f9" aria-label="Fonte 9">9</a></sup><sup class="nota"><a href="fontes.html#f13" aria-label="Fonte 13">13</a></sup></p>
                         <dl class="paisagem-dados"><dt>Cobertura</dt><dd>de 5% a 70%</dd><dt>Altura</dt><dd>de 2 a 8 m, conforme o tipo</dd></dl>
                         <p class="paisagem-reconhecer"><strong>Como reconhecer:</strong> Troncos retorcidos, galhos tortos, marcas de queimadas antigas e muitas árvores com casca de cortiça. Pequizeiro, lobeira e pau-terra são comuns.</p>
+                        <p class="mais"><a href="especies.html?paisagem=cerrado-sentido-restrito">Espécies desta paisagem →</a></p>
                     </article>
                     <article class="paisagem" id="tipo-palmeiral" data-tipo="palmeiral">
                         <p class="tipo-formacao">Formação savânica</p>
@@ -96,6 +101,7 @@
                         <p>Uma única espécie de palmeira domina a paisagem: babaçu, macaúba, guariroba ou buriti, conforme o lugar e a umidade do solo.<sup class="nota"><a href="fontes.html#f8" aria-label="Fonte 8">8</a></sup></p>
                         <dl class="paisagem-dados"><dt>Cobertura</dt><dd>uma palmeira domina</dd><dt>Altura</dt><dd>altura da palmeira</dd></dl>
                         <p class="paisagem-reconhecer"><strong>Como reconhecer:</strong> Muitas palmeiras iguais, quase sem outras árvores entre elas.</p>
+                        <p class="mais"><a href="especies.html?paisagem=palmeiral">Espécies desta paisagem →</a></p>
                     </article>
                     <article class="paisagem" id="tipo-vereda" data-tipo="vereda">
                         <p class="tipo-formacao">Formação savânica</p>
@@ -103,6 +109,7 @@
                         <p>Uma faixa de campo encharcado, com os buritis alinhados no meio, onde a água do subsolo aflora. As veredas protegem nascentes e são o caminho de muita água que vai formar os rios.<sup class="nota"><a href="fontes.html#f8" aria-label="Fonte 8">8</a></sup><sup class="nota"><a href="fontes.html#f10" aria-label="Fonte 10">10</a></sup></p>
                         <dl class="paisagem-dados"><dt>Cobertura</dt><dd>buritis no meio do campo úmido</dd><dt>Altura</dt><dd>buritis altos sobre capim</dd></dl>
                         <p class="paisagem-reconhecer"><strong>Como reconhecer:</strong> Dois andares: embaixo, o capim úmido, que cobre quase tudo; em cima, os buritis. Onde tem vereda, tem água.</p>
+                        <p class="mais"><a href="especies.html?paisagem=vereda">Espécies desta paisagem →</a></p>
                     </article>
                     <article class="paisagem" id="tipo-cerradao" data-tipo="cerradao">
                         <p class="tipo-formacao">Formação florestal</p>
@@ -110,6 +117,7 @@
                         <p>Uma floresta de árvores do cerrado: as copas se tocam e formam um teto quase contínuo, mais fechado na chuva e mais aberto na seca. Mistura espécies do cerrado com espécies de mata.<sup class="nota"><a href="fontes.html#f9" aria-label="Fonte 9">9</a></sup><sup class="nota"><a href="fontes.html#f13" aria-label="Fonte 13">13</a></sup></p>
                         <dl class="paisagem-dados"><dt>Cobertura</dt><dd>de 50% a 90%</dd><dt>Altura</dt><dd>de 8 a 15 m</dd></dl>
                         <p class="paisagem-reconhecer"><strong>Como reconhecer:</strong> Por fora parece mata; por dentro, os troncos ainda têm o jeito torto e a casca grossa do cerrado.</p>
+                        <p class="mais"><a href="especies.html?paisagem=cerradao">Espécies desta paisagem →</a></p>
                     </article>
                     <article class="paisagem" id="tipo-mata-seca" data-tipo="mata-seca">
                         <p class="tipo-formacao">Formação florestal</p>
@@ -117,6 +125,7 @@
                         <p>Floresta que não depende de rio, em solos mais férteis, muitas vezes sobre calcário. Conforme o lugar, pode ficar sempre verde, perder parte das folhas ou perder quase todas na seca.<sup class="nota"><a href="fontes.html#f8" aria-label="Fonte 8">8</a></sup></p>
                         <dl class="paisagem-dados"><dt>Cobertura</dt><dd>copa contínua</dd><dt>Altura</dt><dd>as maiores árvores chegam perto de 25 m</dd></dl>
                         <p class="paisagem-reconhecer"><strong>Como reconhecer:</strong> Na seca, um bosque cinzento de troncos sem folhas; na chuva, uma mata verde e fechada.</p>
+                        <p class="mais"><a href="especies.html?paisagem=mata-seca">Espécies desta paisagem →</a></p>
                     </article>
                     <article class="paisagem" id="tipo-mata-de-galeria" data-tipo="mata-de-galeria">
                         <p class="tipo-formacao">Formação florestal</p>
@@ -124,6 +133,7 @@
                         <p>Floresta que acompanha os córregos e riachos pequenos. As copas das duas margens se encontram por cima da água e formam um corredor fechado, a galeria. Fica verde o ano inteiro.<sup class="nota"><a href="fontes.html#f8" aria-label="Fonte 8">8</a></sup></p>
                         <dl class="paisagem-dados"><dt>Cobertura</dt><dd>as copas fecham sobre o riacho</dd><dt>Altura</dt><dd>floresta alta</dd></dl>
                         <p class="paisagem-reconhecer"><strong>Como reconhecer:</strong> Uma faixa escura de mata seguindo o fundo do vale, no meio do cerrado aberto. Dentro, sombra e ar úmido.</p>
+                        <p class="mais"><a href="especies.html?paisagem=mata-de-galeria">Espécies desta paisagem →</a></p>
                     </article>
                     <article class="paisagem" id="tipo-mata-ciliar" data-tipo="mata-ciliar">
                         <p class="tipo-formacao">Formação florestal</p>
@@ -131,6 +141,7 @@
                         <p>Floresta das margens dos rios médios e grandes. Ao contrário da mata de galeria, as copas das duas margens não se encontram: o rio é largo demais. Parte das árvores perde folhas na seca.<sup class="nota"><a href="fontes.html#f8" aria-label="Fonte 8">8</a></sup></p>
                         <dl class="paisagem-dados"><dt>Cobertura</dt><dd>as copas não cobrem o rio</dd><dt>Altura</dt><dd>floresta alta</dd></dl>
                         <p class="paisagem-reconhecer"><strong>Como reconhecer:</strong> Duas fileiras de mata, uma em cada margem, com o rio aberto entre elas.</p>
+                        <p class="mais"><a href="especies.html?paisagem=mata-ciliar">Espécies desta paisagem →</a></p>
                     </article>
                     </div>
                 </div>
