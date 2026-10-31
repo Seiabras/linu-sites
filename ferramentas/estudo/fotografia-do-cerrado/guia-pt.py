@@ -1335,6 +1335,7 @@ ameacas = f'''        <section class="titulo-pagina guia-topo">
                 </section>
                 <section id="fazer" aria-labelledby="fazer-titulo">
                     <h2 id="fazer-titulo">O que dá para fazer</h2>
+                    <p>Os canais para denunciar, socorrer um bicho e comprar do Cerrado estão em <a href="como-ajudar.html">Como ajudar</a>.</p>
                     <ul class="adaptacoes">
                         <li><strong>Conhecer.</strong> Pouca gente sabe nomear três plantas do Cerrado. Comece pelo <a href="especies.html">catálogo de espécies</a>.</li>
                         <li><strong>Comprar dos povos do Cerrado.</strong> Baru, pequi, óleo de babaçu, capim-dourado e mel de abelhas nativas vindos de comunidades e cooperativas mantêm o Cerrado de pé.</li>
@@ -2056,3 +2057,66 @@ for f in so_pt:
     if f == '404.html': continue
     q = M / f; t = q.read_text(); t = com_rodape_novo(t); q.write_text(t)
 print('mês a mês:', len(EVENTOS), 'acontecimentos')
+
+# ================================================================ Como ajudar (1/11/2026): o que qualquer pessoa pode fazer, com os canais oficiais
+FONTES += [
+ (149, 'Tribuna de Minas (2026): o WikiAves como fonte de dados para a ciência, com mais de 3 mil citações em artigos; e UFSCar, inventário de aves com o WikiAves e o iNaturalist.', 'https://tribunademinas.com.br/colunas/bichoseacidade/31-05-2026/juiz-de-fora-como-potencia-na-observacao-de-aves.html'),
+ (150, 'Governo federal (gov.br): apresentar denúncia ambiental ao Ibama, pela Central de Atendimento (0800 061 8080) ou pelo Fala.BR, com ou sem identificação.', 'https://www.gov.br/pt-br/servicos/apresentar-denuncia-ambiental'),
+ (151, 'Governo federal (gov.br): entregar animal silvestre num Centro de Triagem (Cetas); e o folder dos Cetas do Ibama.', 'https://www.gov.br/pt-br/servicos/realizar-a-entrega-de-animal-silvestre-no-centro-de-triagem-de-animais-silvestres-cetas'),
+ (152, 'Brasil de Fato (2020): a Central do Cerrado, cooperativa de associações de agricultores e extrativistas do DF e de nove estados, e a loja virtual.', 'https://www.brasildefato.com.br/2020/06/24/do-cerrado-para-a-mesa-a-loja-virtual-que-auxilia-nas-vendas-de-povos-tradicionais/'),
+ (153, 'National Geographic Brasil (2023): os coletores de sementes e de capim que restauram o Cerrado; e relatórios do CEPF sobre a Rede de Sementes do Cerrado.', 'https://www.nationalgeographicbrasil.com/meio-ambiente/2023/04/dia-da-terra-quem-sao-os-coletores-de-sementes-e-grama-que-protegem-o-cerrado-brasileiro-de-desaparecer'),
+ (154, 'Brasil de Fato (2025): o incêndio de Cavalcante (GO), controlado depois de atingir mais de 77 mil hectares, com Prevfogo, ICMBio e brigadas voluntárias.', 'https://www.brasildefato.com.br/2025/10/06/incendio-em-cavalcante-go-e-controlado-apos-atingir-mais-de-77-mil-hectares/'),
+]
+FONTES.sort()
+ACOES = [
+ ('registrar', 'Registrar o que você vê', 'Uma foto com data e lugar vira dado para a ciência. No WikiAves (aves) e no iNaturalist (qualquer bicho ou planta), outras pessoas ajudam a identificar, e os pesquisadores usam os registros: o WikiAves já foi citado em mais de 3 mil artigos científicos.', [149],
+  ['Fotografe sem perturbar: não chegue perto de ninhos nem use som para atrair aves.', 'Anote o lugar e a data. Não divulgue a posição exata de espécies raras ou ameaçadas.', 'Comece pelas espécies deste guia: cada ficha diz como reconhecer.']),
+ ('denunciar', 'Denunciar', 'Desmatamento, fogo posto, caça, venda de bichos silvestres em feira ou na internet: tudo isso é crime e pode ser denunciado ao Ibama, com ou sem identificação.', [150],
+  ['Ibama: <a href="tel:08000618080">0800&nbsp;061&nbsp;8080</a>, ou pelo Fala.BR, na internet.', 'Fogo começando: Corpo de Bombeiros, <a href="tel:193">193</a>. Crime acontecendo: Polícia, <a href="tel:190">190</a>.', 'Anote o que puder: lugar, placa de carro, data, fotos tiradas sem se arriscar.']),
+ ('bicho', 'Achou um bicho ferido ou um filhote?', 'O melhor quase sempre é não levar para casa. Tratar ou criar um animal silvestre em casa piora o estado dele, estressa e pode passar doenças, para ele e para você.', [151],
+  ['Filhote de ave no chão, já com penas, em geral está aprendendo a voar, e os pais continuam dando comida: deixe onde está.', 'Bicho ferido: chame a Polícia Ambiental, a Guarda Municipal ou os Bombeiros (<a href="tel:193">193</a>), que levam ao Centro de Triagem (Cetas).', 'Se tem um animal silvestre em casa, dá para entregar ao Ibama de forma voluntária.']),
+ ('comprar', 'Comprar do Cerrado em pé', 'Baru, pequi, óleo de babaçu, farinha de jatobá, capim-dourado e mel de abelhas nativas comprados de quem coleta sem derrubar mantêm as árvores e as comunidades no lugar.', [152],
+  ['A Central do Cerrado reúne associações de agricultores e extrativistas do DF e de nove estados e vende pela internet.', 'Prefira produtos com a origem dita: a comunidade, a cooperativa, o município.', 'Desconfie de "arnica" e outras plantas medicinais arrancadas da natureza: muitas estão sumindo.']),
+ ('plantar', 'Plantar nativa', 'Quintal, calçada, sítio ou beira de nascente: cada lugar tem as suas espécies. A restauração do Cerrado usa muitas sementes de capins e ervas nativas, colhidas por comunidades.', [153],
+  ['Escolha a espécie pelo lugar: buriti só onde o solo fica encharcado; pequi, baru e cagaita no cerrado de terra firme.', 'Compre mudas e sementes de viveiros e redes que trabalham com nativas, como a Rede de Sementes do Cerrado.', 'Não plante capins africanos, como a braquiária, perto de áreas nativas: eles invadem os campos.']),
+ ('fogo', 'Não soltar fogo, e ajudar a apagá-lo', 'Na seca, uma queima de lixo ou de pasto vira incêndio em minutos. Em 2025, um só incêndio em Cavalcante (GO) passou de 77 mil hectares e precisou de Prevfogo, ICMBio e brigadas voluntárias.', [154],
+  ['Não queime lixo nem folhas; não jogue bituca de cigarro na beira da estrada.', 'Viu fumaça no mato? Ligue <a href="tel:193">193</a> e diga o lugar.', 'Muitas cidades do Cerrado têm brigadas voluntárias, que treinam gente para ajudar: procure a da sua região.']),
+]
+CURTO = {'registrar': 'Registrar', 'denunciar': 'Denunciar', 'bicho': 'Bicho ferido', 'comprar': 'Comprar', 'plantar': 'Plantar', 'fogo': 'Fogo'}
+def acao_html(i, t, txt, fs, dicas):
+    li = ''.join(f'<li>{d}</li>' for d in dicas)
+    return (f'<section class="acao" id="{i}" aria-labelledby="acao-{i}"><h2 id="acao-{i}">{t}</h2><p>{txt}{"".join(fonte(n) for n in fs)}</p>'
+            f'<ul class="lista">{li}</ul><label class="acao-marcar"><input type="checkbox" data-acao="{i}"> Vou fazer isto</label></section>')
+ajudar = f'''        <section class="titulo-pagina guia-topo">
+            <div class="container">
+                <p class="guia-chapeu">Guia do cerrado</p>
+                <h1>Como ajudar o Cerrado</h1>
+                <p>Seis coisas que qualquer pessoa pode fazer, de onde estiver, com os canais oficiais. Marque as que você vai fazer: a lista fica guardada só no seu navegador.</p>
+            </div>
+        </section>
+        <div class="container guia-layout">
+            {indice([(i, CURTO[i]) for i, *_ in ACOES])}
+            <div class="guia-texto">
+                <p class="acoes-placar" aria-live="polite" hidden></p>
+                {"".join(acao_html(*a) for a in ACOES)}
+                <p class="nota-calculo">Mais sobre o que ameaça o Cerrado em <a href="ameacas.html">Ameaças</a>. Os telefones e serviços são os oficiais na data desta página: confira no site de cada órgão.</p>
+            </div>
+        </div>
+'''
+pagina('como-ajudar.html', 'Como ajudar o Cerrado — Guia do Cerrado',
+       'Seis coisas que qualquer pessoa pode fazer pelo Cerrado: registrar, denunciar, socorrer um bicho, comprar, plantar e evitar o fogo.', ajudar, scripts=['guia.js?v=1', 'como-ajudar.js?v=1'])
+RODAPE_PT = RODAPE_PT.replace(' · <a href="mes-a-mes.html">Mês a mês</a>', ' · <a href="mes-a-mes.html">Mês a mês</a> · <a href="como-ajudar.html">Como ajudar</a>')
+so_pt = json.loads((AQUI / 'so-pt.json').read_text())
+if 'como-ajudar.html' not in so_pt: so_pt.append('como-ajudar.html')
+(AQUI / 'so-pt.json').write_text(json.dumps(so_pt, ensure_ascii=False, indent=2) + '\n')
+for f in COMPARTILHADAS:
+    q = M / f; t = q.read_text(); q.write_text(com_rodape_novo(t))
+for f in so_pt:
+    if f == '404.html': continue
+    q = M / f; t = q.read_text(); t = com_rodape_novo(t)
+    q.write_text(t)
+lista = ''.join(f'<li id="f{n}"><span class="fonte-numero">{n}</span> {t} <a href="{u}" rel="noopener">Abrir a fonte</a></li>' for n, t, u in FONTES)
+q = M / 'fontes.html'; t = q.read_text()
+t = re.sub(r'<ol class="fontes-lista">.*?</ol>', '<ol class="fontes-lista">' + lista + '</ol>', t, flags=re.S)
+q.write_text(t)
+print('como ajudar:', len(ACOES), 'ações; fontes:', len(FONTES))

@@ -858,3 +858,14 @@ svg.esp-icone { display: block; flex: none; fill: currentColor; stroke: currentC
 @media (prefers-reduced-motion: reduce) { .evento { animation: none; } }
 @media (min-width: 1000px) { .mes-escolha { position: sticky; top: 64px; z-index: 2; background: var(--fundo); padding: .6rem 0 .4rem; } }
 .js .mes-a-mes .meses { min-height: 50px; }
+
+/* Como ajudar (1/11/2026): cada ação num cartão, com o "Vou fazer isto" embaixo */
+.acao { background: var(--superficie); border: 1px solid var(--borda); border-left: 4px solid var(--borda); border-radius: var(--raio); padding: 1.1rem 1.2rem; margin-bottom: 1.2rem; transition: border-color .2s ease-out; }
+.acao.marcada { border-left-color: var(--oliva); }
+.acao h2 { font-size: 1.45rem; margin-bottom: .4rem; }
+.acao > p { max-width: 65ch; }
+.acao .lista { margin: .6rem 0 .8rem; padding-left: 1.2rem; display: grid; gap: .3rem; }
+.acao .lista a { display: inline-block; padding-block: 2px; font-weight: 700; }
+.acao-marcar { display: inline-flex; align-items: center; gap: .55rem; min-height: 44px; font-weight: 700; cursor: pointer; }
+.acao-marcar input { width: 24px; height: 24px; accent-color: var(--oliva); }
+.acoes-placar { font-weight: 700; margin-bottom: 1rem; }
