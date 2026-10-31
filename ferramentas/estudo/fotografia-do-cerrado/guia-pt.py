@@ -536,6 +536,51 @@ FICHAS = {
    reconhecer=['Folhas enormes em forma de leque, no alto de um tronco reto e liso.', 'Cachos pendurados de frutos cobertos de escamas cor de vinho.', 'Cresce em fileira, seguindo o fio de água da vereda.'],
    importa='Os frutos alimentam araras, antas e gente. E o buriti mostra onde está a água: proteger as veredas é proteger as nascentes.',
    escala=('palmeira', 25, '25 m (pode chegar a 35)')),
+ 'cachorro-vinagre': dict(fontes=[42, 15], abre='Um canídeo pequeno, de pernas curtas e corpo comprido, que vive e caça em bando. É tão raro de ver que cada registro em armadilha fotográfica vira notícia.',
+   fatos=[('Comprimento', 'de 50 a 75 cm de cabeça e corpo, mais 12 a 15 cm de cauda'), ('Peso', 'de 5 a 7 kg'), ('Come', 'pacas, cutias, tatus e outros bichos, que caça em grupo (as fontes divergem sobre o tamanho dos bandos)'), ('Situação', 'vulnerável na lista nacional')],
+   reconhecer=['Pelagem marrom-avermelhada, mais escura nas patas e na cauda.', 'Orelhas pequenas e redondas, focinho curto.', 'Pernas curtas, quase um bassê do mato; nada bem e entra na água.'],
+   importa='Depende de matas de galeria e cerradões ligados entre si, e some quando a paisagem fica picada em pedaços. Já foi filmado no Parque Nacional das Emas.',
+   escala=(0.88, 0.3, '88 cm do focinho à ponta da cauda')),
+ 'capivara': dict(fontes=[43], abre='O maior roedor do mundo. Vive em grupos perto da água, passa as horas quentes dentro dela e mergulha para fugir dos predadores.',
+   fatos=[('Comprimento', 'cerca de 1,3 m (de 1 a 1,5 m)'), ('Altura', 'até uns 60 cm'), ('Peso', 'de 50 a 80 kg; algumas fontes falam em até 100 kg'), ('Come', 'capins e plantas da beira da água')],
+   reconhecer=['Corpo grande e arredondado, sem cauda à vista.', 'Cabeça quadrada, com olhos, orelhas e narinas no alto, para ficar de fora quando nada.', 'Patas com uma membrana entre os dedos.'],
+   importa='É uma das presas principais da onça-pintada e da sucuri. Nas veredas e nas matas ciliares, onde há capivara há água o ano todo.',
+   escala=(1.3, 0.6, '1,3 m de comprimento, 60 cm de altura')),
+ 'macaco-prego': dict(fontes=[44], abre='O macaco que usa ferramentas. No Cerrado do Piauí, os macacos-prego quebram cocos duros batendo com pedras sobre uma rocha, como num pilão.',
+   fatos=[('Ferramentas', 'pedras de até 2 kg, usadas como martelo, na Fazenda Boa Vista (PI)'), ('Come', 'frutos, insetos e cocos de piaçava, catulé e tucum'), ('Acerto', 'cerca de 90% com os frutos menos duros'), ('Há quanto tempo', 'cerca de 3.000 anos de marcas de uso de pedras na Serra da Capivara (PI)')],
+   reconhecer=['Macaco de porte médio, de pelagem marrom-amarelada.', 'Um tufo de pelos escuros no alto da cabeça, como um topete.', 'Cauda forte, que ajuda a segurar nos galhos.'],
+   importa='É um dos poucos animais que usam ferramentas na natureza, e os sítios onde quebra cocos são estudados como uma espécie de arqueologia dos macacos. Também espalha sementes dos frutos que come.',
+   escala=None),
+ 'coruja-buraqueira': dict(fontes=[45], abre='A coruja que mora no chão. Fica de pé na entrada da toca, de dia, e vira a cabeça para vigiar o campo.',
+   fatos=[('Tamanho', 'de 22 a 28 cm'), ('Peso', 'cerca de 150 g'), ('Casa', 'tocas no chão, muitas vezes as que os tatus abandonam; também cava a própria'), ('Quando aparece', 'de dia e à noite; evita o calor do meio-dia')],
+   reconhecer=['Pequena, marrom com pintas claras, de pernas compridas para uma coruja.', 'Olhos amarelos e sobrancelhas brancas.', 'Balança o corpo e pia alto quando alguém chega perto da toca.'],
+   importa='Come muitos insetos e pequenos roedores. É fácil de ver nos campos e nas beiras de estrada, e por isso é uma ótima porta de entrada para quem começa a observar aves.',
+   escala=(0.15, 0.25, '25 cm de altura')),
+ 'cascavel': dict(fontes=[46], abre='A cobra do chocalho. Antes de se defender, ela avisa: levanta a cauda e faz o guizo chiar.',
+   fatos=[('Comprimento', 'em geral até 1,5 m, podendo passar disso'), ('No Brasil', 'é a única espécie de cascavel'), ('Veneno', 'age sobre os nervos e os músculos: picada é caso de soro, no hospital'), ('Onde vive', 'campos e cerrados abertos, mais secos')],
+   reconhecer=['Um chocalho (guizo) de anéis secos na ponta da cauda.', 'Corpo grosso, marrom ou cinza, com desenhos de losangos claros no dorso.', 'Cabeça triangular, mais larga que o pescoço.'],
+   importa='Come roedores e ajuda a controlar as populações deles. Não ataca à toa: quase todas as picadas acontecem quando alguém pisa nela ou põe a mão onde não vê. Use botas e não tente pegar.',
+   escala=(1.5, 0.08, '1,5 m de comprimento')),
+ 'vaga-lume-cupinzeiro': dict(fontes=[47], abre='Os cupinzeiros que brilham. Nas noites quentes e úmidas da primavera, as larvas deste vaga-lume acendem luzes verdes nos túneis dos cupinzeiros das Emas.',
+   fatos=[('Quem brilha', 'as larvas, dentro de túneis na parede dos cupinzeiros'), ('Para quê', 'a luz atrai insetos, que as larvas comem'), ('Quando', 'nas noites quentes e úmidas da primavera, com as primeiras chuvas'), ('Onde', 'famoso no Parque Nacional das Emas (GO)')],
+   reconhecer=['Pontinhos de luz verde fixos, espalhados num cupinzeiro de campo.', 'A luz fica parada, sem piscar como a dos vaga-lumes que voam.', 'Só se vê em noite escura, longe das luzes da cidade.'],
+   importa='O espetáculo está ficando mais raro, e os pesquisadores ligam isso às lavouras que cercam o parque. Para ver, só com guia credenciado e sem lanterna apontada para os cupinzeiros.',
+   escala=None),
+ 'lobeira': dict(fontes=[48], abre='A fruta-do-lobo. Um arbusto de folhas largas e frutos grandes e verdes, que o lobo-guará come tanto que ganhou o nome dele.',
+   fatos=[('Para o lobo-guará', 'cerca de um terço da dieta, num estudo da USP'), ('A dieta do lobo', 'mais ou menos metade frutos e metade bichos'), ('Fruto', 'grande, redondo e verde, com muitas sementes'), ('Onde cresce', 'campos sujos, cerrados e beiras de estrada')],
+   reconhecer=['Folhas grandes, acinzentadas e cobertas de pelos, com espinhos no caule.', 'Flores roxas, em forma de estrela, com o miolo amarelo.', 'Frutos verdes do tamanho de uma laranja grande, caídos no chão.'],
+   importa='O lobo-guará come o fruto e espalha as sementes nas fezes, longe da planta-mãe: os dois dependem um do outro. A lobeira também é uma das primeiras plantas a voltar em áreas abertas.',
+   escala=None),
+ 'cagaita': dict(fontes=[49, 19], abre='Uma árvore que floresce quase sem folhas, com a copa toda branca, e dá uma fruta amarela, ácida e suculenta no começo das chuvas.',
+   fatos=[('Altura', 'até uns 10 m'), ('Flores', 'brancas, cobrindo a copa quase sem folhas, no fim da seca'), ('Frutos', 'amadurecem com as primeiras chuvas, em poucas semanas'), ('Usos', 'comida fresca, em suco, sorvete e geleia')],
+   reconhecer=['Tronco tortuoso, de casca grossa e cheia de sulcos.', 'Frutos amarelo-claros, redondos e lisos, do tamanho de uma ameixa.', 'Na florada, a árvore inteira fica branca por poucos dias.'],
+   importa='O nome científico avisa: comida em excesso, ou caída e fermentada, solta o intestino. Os frutos alimentam muitos bichos e são renda para quem coleta na safra.',
+   escala=('arvore', 10, 'até uns 10 m')),
+ 'capim-dourado': dict(fontes=[50], abre='A haste que brilha como ouro. Colhido nos campos úmidos do Jalapão, no Tocantins, vira bolsas, chapéus e bijuterias costuradas com seda de buriti.',
+   fatos=[('Colheita', 'de 20 de setembro a 30 de novembro, só com as hastes secas'), ('Quem colhe', 'só artesãos credenciados; cerca de 400 têm autorização do Naturatins'), ('Regras', 'portaria do Naturatins de 2007 e uma lei estadual de 2019 (as fontes divergem nos detalhes)'), ('Onde', 'campos úmidos e beiras de vereda')],
+   reconhecer=['Hastes finas e douradas, de uns palmos de altura, com uma florzinha branca na ponta.', 'Folhas em roseta, rentes ao chão.', 'Cresce em campos úmidos, perto das veredas.'],
+   importa='A colheita na época certa, depois de as sementes caírem, deixa o capim se renovar. É o artesanato que deu renda e fama às comunidades quilombolas do Jalapão, como a Mumbuca.',
+   escala=None),
 }
 NOME_PAISAGEM = {p['id']: p['nome'] for p in P}
 SITIO = AQUI.parents[2] / 'sitios' / 'fotografia-do-cerrado'
@@ -1126,6 +1171,15 @@ FONTES += [
  (39, 'Embrapa e trabalhos acadêmicos: o pequizeiro (6 a 10 m, até mais de 12 m; 500 a 2.000 frutos por safra), o baru (até 25 m, Embrapa) e o buriti (até 35 m, folder da Embrapa).', 'https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/859495/1/folderburiti.pdf'),
  (40, 'Prefeitura de Belo Horizonte. Dia Mundial da Anta: mais de 2 m de comprimento, mais de 1 m de altura e até 250 kg (outras fontes falam em 300 kg).', 'https://prefeitura.pbh.gov.br/noticias/dia-mundial-da-anta'),
  (41, 'Oiseaux.net. Brazilian Merganser: cerca de 56 cm e de 600 a 700 g; e o sumário do Plano de Ação Nacional do pato-mergulhão (ICMBio).', 'https://oiseaux.net/birds/brazilian.merganser.html'),
+ (42, 'Procarnívoros. Cachorro-vinagre: de 50 a 75 cm de cabeça e corpo, cauda de 12 a 15 cm e de 5 a 7 kg; caça em grupo.', 'https://procarnivoros.org.br/animais/cachorro-vinagre/'),
+ (43, 'National Geographic Brasil. As 6 curiosidades sobre a capivara (2023): cerca de 1,3 m, até 60 cm de altura e de 50 a 80 kg.', 'https://www.nationalgeographicbrasil.com/animais/2023/04/as-6-curiosidades-sobre-a-capivara-o-maior-roedor-do-mundo'),
+ (44, 'Revista Pesquisa FAPESP. Como o macaco-prego quebra castanha, e as transformações milenares nas ferramentas de pedra da Serra da Capivara.', 'https://revistapesquisa.fapesp.br/como-o-macaco-prego-quebra-castanha/'),
+ (45, 'InfoEscola. Coruja-buraqueira: de 22 a 28 cm e cerca de 150 g; mora em tocas, muitas vezes deixadas por tatus.', 'https://www.infoescola.com/aves/coruja-buraqueira/'),
+ (46, 'National Geographic Brasil (2024), com o Instituto Butantan: a cascavel, a única espécie do gênero no Brasil, pode passar de 1,5 m.', 'https://www.nationalgeographicbrasil.com/animais/2024/01/conheca-5-caracteristicas-da-cascavel-uma-das-cobras-mais-perigosas-do-mundo'),
+ (47, 'Agência FAPESP. Os cupinzeiros luminosos do Parque Nacional das Emas e o sumiço dos vaga-lumes perto das lavouras.', 'https://agencia.fapesp.br/luzes-de-alerta/12138'),
+ (48, 'Revista Pesquisa FAPESP. A dieta equilibrada do lobo-guará: cerca de metade frutos, com a lobeira perto de um terço do total.', 'https://revistapesquisa.fapesp.br/a-dieta-equilibrada-do-lobo-guara/'),
+ (49, 'Embrapa Cerrados, comunicado técnico 358 (2015), e Revista Brasileira de Fruticultura (v. 23, n. 2): a cagaiteira, sua florada e a safra.', 'https://scielo.br/pdf/rbf/v23n2/7976.pdf'),
+ (50, 'Conexão Tocantins e Jornal Opção: a colheita do capim-dourado, de 20 de setembro a 30 de novembro, por artesãos credenciados pelo Naturatins.', 'https://jornalopcao.com.br/tocantins/festa-no-jalapao-celebra-colheita-do-capim-dourado-531164/'),
 ]
 FONTES.sort()
 
@@ -1211,7 +1265,9 @@ for n, id_ in enumerate(ORDEM_F):
             </div>
         </article>
 '''
-    pagina(f'especie-{id_}.html', f'{nome} ({cien}) — Guia do Cerrado', f'{nome}: como reconhecer, do que vive, o tamanho, por que importa e em que paisagens do Cerrado aparece.', corpo)
+    titulo = f'{nome} ({cien}) — Guia do Cerrado'
+    if len(titulo) > 70: titulo = f'{nome} — Guia do Cerrado'  # o limite do validador
+    pagina(f'especie-{id_}.html', titulo, f'{nome}: como reconhecer, do que vive, o tamanho, por que importa e em que paisagens do Cerrado aparece.', corpo)
 
 so_pt = json.loads((AQUI / 'so-pt.json').read_text())
 for id_ in FICHAS:
