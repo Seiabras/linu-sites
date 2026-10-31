@@ -896,3 +896,61 @@ for f in so_pt:
     t = re.sub(r'<ul class="menu" id="menu">.*?</ul>', menu_pt(f), t, count=1)
     q.write_text(t)
 print('parte 4 pronta')
+
+# ================================================================ Onde ver o Cerrado: os parques num mapa (base, 31/10/2026)
+# posições aproximadas (o centro de cada parque), na mesma projeção do biomas.py
+import math as _m
+def _xy(lon, lat):
+    return ((lon + 74.5) * 9.0 * _m.cos(_m.radians(-14)), (5.6 - lat) * 9.0)
+PARQUES = [
+ ('Parque Nacional da Chapada dos Veadeiros', 'GO', -47.65, -14.05, 'Campos rupestres, cachoeiras e cânions; lobo-guará ao entardecer.'),
+ ('Parque Nacional das Emas', 'GO e MS', -52.9, -18.15, 'Campos abertos, tamanduá-bandeira, veado-campeiro e os cupinzeiros que brilham no começo das chuvas.'),
+ ('Parque Nacional de Brasília', 'DF', -48.0, -15.65, 'A saída mais fácil: trilhas planas, matas de galeria e aves perto da água.'),
+ ('Parque Nacional da Serra da Canastra', 'MG', -46.6, -20.25, 'Onde nasce o São Francisco; campos de altitude e um dos últimos refúgios do pato-mergulhão.'),
+ ('Parque Nacional Grande Sertão Veredas', 'MG e BA', -45.9, -15.3, 'Veredas e buritis sem fim, a paisagem do livro de Guimarães Rosa.'),
+ ('Parque Nacional da Chapada dos Guimarães', 'MT', -55.85, -15.35, 'Paredões de arenito e cachoeiras, entre o Cerrado e o Pantanal.'),
+ ('Parque Nacional da Serra do Cipó', 'MG', -43.55, -19.35, 'Campos rupestres da Serra do Espinhaço, com muitas plantas que só existem ali.'),
+ ('Parque Estadual do Jalapão', 'TO', -47.4, -10.7, 'Dunas, fervedouros e o capim-dourado.'),
+ ('Parque Nacional das Nascentes do Rio Parnaíba', 'PI, MA, TO e BA', -45.6, -9.9, 'Chapadas e nascentes no norte do Cerrado.'),
+ ('Parque Nacional Cavernas do Peruaçu', 'MG', -44.25, -15.1, 'Cavernas gigantes, pinturas rupestres e mata seca sobre calcário.'),
+ ('Parque Nacional das Sempre-Vivas', 'MG', -43.8, -17.9, 'Campos de sempre-vivas e as comunidades que vivem de colhê-las.'),
+ ('Parque Nacional da Chapada das Mesas', 'MA', -47.3, -7.0, 'Morros de topo reto e cachoeiras no Cerrado do Maranhão.'),
+ ('Parque Nacional do Araguaia', 'TO', -50.2, -10.6, 'Na Ilha do Bananal, onde o Cerrado encontra a Amazônia e as várzeas do Araguaia.'),
+]
+mapa_parques = (AQUI / 'biomas.svg').read_text()
+pinos = ''.join(f'<a href="#parque-{n}" class="pino" data-parque="{n}"><circle class="pino-alvo" cx="{_xy(lon, lat)[0]:.1f}" cy="{_xy(lon, lat)[1]:.1f}" r="13"/><circle cx="{_xy(lon, lat)[0]:.1f}" cy="{_xy(lon, lat)[1]:.1f}" r="7"/><text x="{_xy(lon, lat)[0]:.1f}" y="{_xy(lon, lat)[1] + 3:.1f}" text-anchor="middle">{n}</text></a>'
+                for n, (nome, uf, lon, lat, t) in enumerate(PARQUES, 1))
+mapa_parques = mapa_parques.replace('class="mapa-biomas"', 'class="mapa-biomas mapa-parques" data-destaque="cerrado"').replace('</svg>', pinos + '</svg>')
+mapa_parques = mapa_parques.replace('role="img" aria-labelledby="biomas-titulo"', 'role="group" aria-labelledby="parques-titulo"').replace('<title id="biomas-titulo">', '<title id="parques-titulo">').replace(
+    'Mapa dos biomas do Brasil: o Cerrado ocupa o centro do país, entre a Amazônia, a Caatinga, a Mata Atlântica e o Pantanal', 'Mapa do Brasil com o Cerrado e 13 parques numerados')
+lista_parques = ''.join(f'<li id="parque-{n}"><span class="parque-num">{n}</span><div><h2>{nome}</h2><p class="parque-uf">{uf}</p><p>{t}</p></div></li>' for n, (nome, uf, lon, lat, t) in enumerate(PARQUES, 1))
+onde = f'''        <section class="titulo-pagina guia-topo">
+            <div class="container">
+                <p class="guia-chapeu">Guia do cerrado</p>
+                <h1>Onde ver o Cerrado</h1>
+                <p>Treze parques para conhecer o Cerrado de perto, do Maranhão a Minas Gerais. Toque num número do mapa para ler sobre o parque.</p>
+            </div>
+        </section>
+        <section class="secao">
+            <div class="container onde-ver">
+                <figure class="onde-mapa">{mapa_parques}<figcaption>Posições aproximadas. Em cor, o Cerrado (IBGE, 2019).{fonte(1)}</figcaption></figure>
+                <ol class="parques-lista">{lista_parques}</ol>
+            </div>
+            <div class="container"><p class="nota-calculo">Antes de ir, confira no site de cada parque (ICMBio ou o órgão do estado) se ele está aberto à visitação, o que precisa de guia e as regras de cada trilha. As expedições deste guia são de mentira; os parques, não.</p></div>
+        </section>
+'''
+pagina('onde-ver.html', 'Onde ver o Cerrado — Guia do Cerrado', 'Treze parques para conhecer o Cerrado de perto, num mapa: Chapada dos Veadeiros, Emas, Canastra, Grande Sertão Veredas, Jalapão e outros.', onde)
+RODAPE_PT = RODAPE_PT.replace(' · <a href="expedicoes.html">Expedições</a>', ' · <a href="onde-ver.html">Onde ver</a> · <a href="expedicoes.html">Expedições</a>')
+for f in COMPARTILHADAS:
+    q = M / f; t = q.read_text()
+    t = com_rodape_novo(t)
+    t = t.replace('<a class="porta" href="expedicoes.html"><span class="porta-chapeu">Expedições</span><strong>Ver de perto</strong><span>Quando ir e onde ficam os parques.</span></a>',
+                  '<a class="porta" href="onde-ver.html"><span class="porta-chapeu">Onde ver</span><strong>13 parques do Cerrado</strong><span>Do Maranhão a Minas, num mapa.</span></a>')
+    q.write_text(t)
+so_pt = json.loads((AQUI / 'so-pt.json').read_text())
+if 'onde-ver.html' not in so_pt: so_pt.append('onde-ver.html')
+(AQUI / 'so-pt.json').write_text(json.dumps(so_pt, ensure_ascii=False, indent=2) + '\n')
+for f in so_pt:
+    if f == '404.html': continue
+    q = M / f; t = q.read_text(); t = com_rodape_novo(t); q.write_text(t)
+print('onde ver pronto')

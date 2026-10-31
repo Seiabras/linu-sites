@@ -732,3 +732,19 @@ sup.nota a { min-width: 24px; }
 .paisagem-foto { margin: -.4rem -.5rem 1rem; }
 .paisagem-foto img { border-radius: 8px; width: 100%; height: auto; }
 .paisagem-foto figcaption { color: var(--texto-suave); font-size: .85rem; margin-top: .3rem; }
+
+/* Onde ver o Cerrado: o mapa com os parques numerados e a lista ao lado */
+.onde-ver { display: grid; gap: 2rem; }
+@media (min-width: 900px) { .onde-ver { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 3rem; align-items: start; } .onde-mapa { position: sticky; top: 88px; } }
+.mapa-parques .pino circle { fill: var(--primaria); stroke: var(--branco); stroke-width: 1.5; transition: r .18s ease-out; }
+.mapa-parques .pino text { fill: var(--branco); font-size: 8px; font-weight: 800; pointer-events: none; }
+.mapa-parques .pino:hover circle, .mapa-parques .pino:focus-visible circle { r: 9; }
+.mapa-parques .bioma { cursor: default; }
+.onde-mapa figcaption { color: var(--texto-suave); font-size: .9rem; margin-top: .5rem; }
+.parques-lista { list-style: none; display: grid; gap: 1rem; }
+.parques-lista li { display: grid; grid-template-columns: 2.2rem minmax(0, 1fr); gap: .8rem; padding: .8rem; border-radius: var(--raio); scroll-margin-top: 90px; transition: background-color .2s ease-out; }
+.parques-lista li:target { background: var(--fundo-alt); }
+.parque-num { width: 2rem; height: 2rem; border-radius: 50%; background: var(--primaria); color: var(--branco); display: grid; place-items: center; font-weight: 800; }
+.parques-lista h2 { font-size: 1.25rem; line-height: 1.2; }
+.parque-uf { color: var(--texto-suave); font-weight: 600; font-size: .9rem; }
+.mapa-parques .pino circle.pino-alvo { fill: transparent; stroke: none; }
