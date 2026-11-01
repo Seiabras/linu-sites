@@ -30,8 +30,8 @@
      (iframe) no simulador de preço, que liga e desliga as partes dele (ver script.js, "módulos"). -->
 <script src="inicio.js?v=2"></script>
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="stylesheet" href="estilo.css?v=8">
-<script src="script.js?v=7" defer></script>
+<link rel="stylesheet" href="estilo.css?v=9">
+<script src="script.js?v=8" defer></script>
 </head>
 
 <body>
@@ -183,6 +183,7 @@
         <button type="button" class="filtro" data-filtro="quentinho" aria-pressed="false">Saindo do forno</button>
         <button type="button" class="filtro" data-filtro="sem-lactose" aria-pressed="false">Sem lactose</button>
         <button type="button" class="filtro" data-filtro="sem-gluten" aria-pressed="false">Sem glúten</button>
+        <button type="button" class="filtro" data-filtro="vegano" aria-pressed="false">Vegano</button>
       </div>
       <p class="menu-filtros__fim"><span id="menuConta" aria-live="polite"></span>
         <button type="button" class="btn btn--ghost" id="quizAbrir"><span class="so-noite">Não sabe o que pedir? Faça o teste</span><span class="so-dia">Não sabe que pão levar? Faça o teste</span></button></p>
@@ -205,12 +206,12 @@
         <details class="card__info so-completo">
           <summary>Detalhes</summary>
           <dl class="so-noite"><div><dt>Temperatura</dt><dd>68 °C</dd></div><div><dt>Cafeína</dt><dd>140 mg</dd></div><div><dt>kcal</dt><dd>5</dd></div><div><dt>Alérgenos</dt><dd>nenhum</dd></div></dl>
-          <dl class="so-dia"><div><dt>Forno</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>280</dd></div><div><dt>Alérgenos</dt><dd>glúten, leite, ovo</dd></div></dl>
+          <dl class="so-dia"><div><dt>Forno</dt><dd>220 °C</dd></div><div><dt>Peso</dt><dd>90 g</dd></div><div><dt>kcal</dt><dd>280</dd></div><div><dt>Alérgenos</dt><dd>glúten, leite, ovo</dd></div></dl>
         </details>
         <button type="button" class="card__add so-completo" data-item="1" hidden>+ Pedido</button>
       </article>
 
-      <article class="card card--m reveal tilt" data-d="2" data-item="2" data-preco-noite="24" data-preco-dia="7" data-filtros-noite="quente doce" data-filtros-dia="salgado sem-lactose">
+      <article class="card card--m reveal tilt" data-d="2" data-item="2" data-preco-noite="24" data-preco-dia="7" data-filtros-noite="quente doce" data-filtros-dia="salgado sem-lactose vegano">
         <div class="card__top">
           <div class="card__icon" aria-hidden="true"><span class="so-noite">🌌</span><span class="so-dia">🍞</span></div>
           <span class="card__id"><span class="so-noite">LX-014</span><span class="so-dia">FN-006</span></span>
@@ -225,12 +226,12 @@
         <details class="card__info so-completo">
           <summary>Detalhes</summary>
           <dl class="so-noite"><div><dt>Temperatura</dt><dd>72 °C</dd></div><div><dt>Cafeína</dt><dd>90 mg</dd></div><div><dt>kcal</dt><dd>180</dd></div><div><dt>Alérgenos</dt><dd>leite</dd></div></dl>
-          <dl class="so-dia"><div><dt>Forno</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>150</dd></div><div><dt>Alérgenos</dt><dd>glúten</dd></div></dl>
+          <dl class="so-dia"><div><dt>Forno</dt><dd>220 °C</dd></div><div><dt>Peso</dt><dd>120 g</dd></div><div><dt>kcal</dt><dd>150</dd></div><div><dt>Alérgenos</dt><dd>glúten</dd></div></dl>
         </details>
         <button type="button" class="card__add so-completo" data-item="2" hidden>+ Pedido</button>
       </article>
 
-      <article class="card card--v reveal tilt" data-d="3" data-item="3" data-preco-noite="22" data-preco-dia="8" data-filtros-noite="gelado intenso sem-lactose" data-filtros-dia="salgado quentinho sem-lactose">
+      <article class="card card--v reveal tilt" data-d="3" data-item="3" data-preco-noite="22" data-preco-dia="8" data-filtros-noite="gelado intenso sem-lactose" data-filtros-dia="salgado quentinho sem-lactose vegano">
         <div class="card__top">
           <div class="card__icon" aria-hidden="true"><span class="so-noite">❄️</span><span class="so-dia">🥖</span></div>
           <span class="card__id"><span class="so-noite">LX-027</span><span class="so-dia">FN-012</span></span>
@@ -245,7 +246,7 @@
         <details class="card__info so-completo">
           <summary>Detalhes</summary>
           <dl class="so-noite"><div><dt>Temperatura</dt><dd>4 °C</dd></div><div><dt>Cafeína</dt><dd>200 mg</dd></div><div><dt>kcal</dt><dd>10</dd></div><div><dt>Alérgenos</dt><dd>nenhum</dd></div></dl>
-          <dl class="so-dia"><div><dt>Forno</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>190</dd></div><div><dt>Alérgenos</dt><dd>glúten</dd></div></dl>
+          <dl class="so-dia"><div><dt>Forno</dt><dd>220 °C</dd></div><div><dt>Peso</dt><dd>250 g</dd></div><div><dt>kcal</dt><dd>190</dd></div><div><dt>Alérgenos</dt><dd>glúten</dd></div></dl>
         </details>
         <button type="button" class="card__add so-completo" data-item="3" hidden>+ Pedido</button>
       </article>
@@ -265,7 +266,7 @@
         <details class="card__info so-completo">
           <summary>Detalhes</summary>
           <dl class="so-noite"><div><dt>Temperatura</dt><dd>8 °C</dd></div><div><dt>Cafeína</dt><dd>70 mg</dd></div><div><dt>kcal</dt><dd>120</dd></div><div><dt>Alérgenos</dt><dd>nenhum</dd></div></dl>
-          <dl class="so-dia"><div><dt>Forno</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>320</dd></div><div><dt>Alérgenos</dt><dd>glúten, leite, ovo</dd></div></dl>
+          <dl class="so-dia"><div><dt>Forno</dt><dd>220 °C</dd></div><div><dt>Peso</dt><dd>110 g</dd></div><div><dt>kcal</dt><dd>320</dd></div><div><dt>Alérgenos</dt><dd>glúten, leite, ovo</dd></div></dl>
         </details>
         <button type="button" class="card__add so-completo" data-item="4" hidden>+ Pedido</button>
       </article>
@@ -285,7 +286,7 @@
         <details class="card__info so-completo">
           <summary>Detalhes</summary>
           <dl class="so-noite"><div><dt>Temperatura</dt><dd>60 °C</dd></div><div><dt>Cafeína</dt><dd>0 mg</dd></div><div><dt>kcal</dt><dd>210</dd></div><div><dt>Alérgenos</dt><dd>leite</dd></div></dl>
-          <dl class="so-dia"><div><dt>Forno</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>260</dd></div><div><dt>Alérgenos</dt><dd>glúten, ovo</dd></div></dl>
+          <dl class="so-dia"><div><dt>Forno</dt><dd>220 °C</dd></div><div><dt>Peso</dt><dd>100 g</dd></div><div><dt>kcal</dt><dd>260</dd></div><div><dt>Alérgenos</dt><dd>glúten, ovo</dd></div></dl>
         </details>
         <button type="button" class="card__add so-completo" data-item="5" hidden>+ Pedido</button>
       </article>
@@ -305,7 +306,7 @@
         <details class="card__info so-completo">
           <summary>Detalhes</summary>
           <dl class="so-noite"><div><dt>Temperatura</dt><dd>−2 °C</dd></div><div><dt>Cafeína</dt><dd>280 mg</dd></div><div><dt>kcal</dt><dd>15</dd></div><div><dt>Alérgenos</dt><dd>nenhum</dd></div></dl>
-          <dl class="so-dia"><div><dt>Forno</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>90</dd></div><div><dt>Alérgenos</dt><dd>leite, ovo</dd></div></dl>
+          <dl class="so-dia"><div><dt>Forno</dt><dd>220 °C</dd></div><div><dt>Peso</dt><dd>40 g</dd></div><div><dt>kcal</dt><dd>90</dd></div><div><dt>Alérgenos</dt><dd>leite, ovo</dd></div></dl>
         </details>
         <button type="button" class="card__add so-completo" data-item="6" hidden>+ Pedido</button>
       </article>
@@ -558,7 +559,7 @@
     <h2 id="pedidoTitulo">Seu pedido</h2>
     <button type="button" class="janela__fechar" data-fechar aria-label="Fechar">✕</button>
   </div>
-  <p class="pedido__vazio" id="pedidoVazio">O pedido está vazio. Toque em “+ Pedido” num item do cardápio ou no laboratório.</p>
+  <p class="pedido__vazio" id="pedidoVazio"><span class="so-noite">O pedido está vazio. Toque em “+ Pedido” num item do cardápio ou no laboratório.</span><span class="so-dia">O pedido está vazio. Toque em “+ Pedido” num pão do cardápio ou no “Monte o seu pão”.</span></p>
   <ul class="pedido__itens" id="pedidoItens"></ul>
   <p class="pedido__total" id="pedidoTotalLinha"><span>Total</span><b id="pedidoTotal"></b></p>
   <form class="pedido__form" id="pedidoForm" novalidate>
@@ -573,7 +574,7 @@
     <div class="campo"><label for="pObs">Observação (opcional)</label><textarea id="pObs" name="obs" rows="2" maxlength="200"></textarea></div>
     <p class="pedido__selo" id="pedidoSelo"></p>
     <button type="submit" class="btn btn--magenta">Mandar no WhatsApp</button>
-    <p class="pedido__nota">O Café é fictício: o WhatsApp abre sem número, para você escolher para quem mandar. Num site de verdade, o pedido iria direto para a loja.</p>
+    <p class="pedido__nota"><span class="so-noite">O Café é fictício: o WhatsApp abre sem número, para você escolher para quem mandar. Num site de verdade, o pedido iria direto para a loja.</span><span class="so-dia">A padaria é fictícia: o WhatsApp abre sem número, para você escolher para quem mandar. Num site de verdade, o pedido iria direto para a loja.</span></p>
   </form>
   <div class="pedido__feito" id="pedidoFeito" hidden tabindex="-1"></div>
 </dialog>

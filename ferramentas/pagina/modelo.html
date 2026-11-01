@@ -354,6 +354,13 @@
               <label><input type="checkbox" name="modulo[]" value="laboratorio" data-preco="{{n.laboratorio}}" checked><span>{{simulador_laboratorio}}</span><b>+ {{p.laboratorio}}</b></label>
               <label><input type="checkbox" name="modulo[]" value="assinatura" data-preco="{{n.assinatura}}" checked><span>{{simulador_assinatura}}</span><b>+ {{p.assinatura}}</b></label>
               <label><input type="checkbox" name="modulo[]" value="painel" data-preco="{{n.painel}}"><span>{{simulador_painel}}</span><b>+ {{p.painel}}</b></label>
+              {{?pt-BR}}
+              <label><input type="checkbox" name="modulo[]" value="pedido" data-preco="{{n.pedido}}"><span>Pedido com carrinho, direto no WhatsApp</span><b>+ {{p.pedido}}</b></label>
+              <label><input type="checkbox" name="modulo[]" value="cardapio" data-preco="{{n.cardapio}}"><span>Cardápio com filtros e detalhes</span><b>+ {{p.cardapio}}</b></label>
+              <label><input type="checkbox" name="modulo[]" value="teste" data-preco="{{n.teste}}"><span>Teste “o que combina com você”</span><b>+ {{p.teste}}</b></label>
+              <label><input type="checkbox" name="modulo[]" value="reservas" data-preco="{{n.reservas}}"><span>Reserva de mesa</span><b>+ {{p.reservas}}</b></label>
+              <label><input type="checkbox" name="modulo[]" value="fidelidade" data-preco="{{n.fidelidade}}"><span>Cartão fidelidade (carimbos)</span><b>+ {{p.fidelidade}}</b></label>
+              {{/pt-BR}}
             </fieldset>
             <div class="simulador-total" aria-live="polite">
               <p><span>{{simulador_total}}</span> <b data-simulador-total>{{p.simulador_inicial}}</b></p>

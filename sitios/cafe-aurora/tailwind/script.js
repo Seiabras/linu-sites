@@ -25,7 +25,7 @@
   const bootFill = $('#bootFill');
   const bootLog  = $('#bootLog');
 
-  const steps = T.boot;
+  const steps = (document.documentElement.dataset.modo === 'dia' && T.d_boot) || T.boot;
 
   let p = 0, si = 0;
   const bootTimer = setInterval(() => {

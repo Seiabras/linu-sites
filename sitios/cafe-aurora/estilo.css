@@ -1151,7 +1151,14 @@ html, body { overflow-x: clip; } /* o menu de gaveta e o halo do topo ficavam fo
    Celular: as janelas sobem de baixo; tablet: no meio; computador:
    o pedido é uma gaveta à direita e as reservas, duas colunas.
    ============================================================ */
-.embutido .so-completo{display:none !important}
+/* no simulador do Linu Sites, cada parte nova aparece só com o módulo dela ligado (classes "sem-..." no <html>) */
+.sem-pedido .card__add,.sem-pedido .lab__add,.sem-pedido .pedir-n,.sem-pedido #pedido{display:none !important}
+.sem-cardapio .menu-filtros .chips,.sem-cardapio #menuConta,.sem-cardapio .card__info,.sem-cardapio .menu-vazio{display:none !important}
+.sem-teste #quizAbrir{display:none !important}
+.sem-cardapio.sem-teste #menuFiltros{display:none !important}
+.sem-reservas .reserva,.sem-reservas .minhas,.sem-fidelidade .fidelidade,.sem-fidelidade .pedido__selo{display:none !important}
+.sem-reservas.sem-fidelidade #reservas,.sem-reservas.sem-fidelidade a[href="#reservas"]{display:none !important}
+.sem-reservas .reservas{grid-template-columns:1fr}
 .card[hidden],.menu-vazio[hidden]{display:none}
 
 /* filtros do cardápio */
@@ -1324,7 +1331,7 @@ html, body { overflow-x: clip; } /* o menu de gaveta e o halo do topo ficavam fo
 .tabela-versoes td b{font-family:var(--font-display);font-variant-numeric:tabular-nums}
 .tabela-versoes td:last-child{width:34%}
 .barra-v{display:block;height:12px;border-radius:0 4px 4px 0;background:var(--cyan);transform-origin:left}
-.b-puro{width:51.8%}.b-bootstrap{width:100%;background:var(--magenta)}.b-tailwind{width:26.7%;background:var(--violet)}
+.b-puro{width:47.8%}.b-bootstrap{width:100%;background:var(--magenta)}.b-tailwind{width:35.3%;background:var(--violet)}
 .versoes-fatos{display:grid;gap:.8rem;margin-top:1.4rem;max-width:80ch;list-style:none}
 .versoes-fatos code,.versoes-codigo figcaption code{font-size:.9em;color:var(--cyan)}
 .versoes-codigo{display:grid;gap:1rem}

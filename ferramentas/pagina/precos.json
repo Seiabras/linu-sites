@@ -12,7 +12,12 @@
     "efeitos": 400,
     "cores": 200,
     "laboratorio": 600,
-    "assinatura": 400
+    "assinatura": 400,
+    "pedido": 800,
+    "cardapio": 300,
+    "teste": 300,
+    "reservas": 600,
+    "fidelidade": 400
   },
   "EUR": {
     "apresentacao": 1500,
@@ -26,7 +31,12 @@
     "efeitos": 300,
     "cores": 150,
     "laboratorio": 450,
-    "assinatura": 300
+    "assinatura": 300,
+    "pedido": 600,
+    "cardapio": 220,
+    "teste": 220,
+    "reservas": 450,
+    "fidelidade": 300
   },
   "USD": {
     "apresentacao": 1600,
@@ -40,6 +50,11 @@
     "efeitos": 330,
     "cores": 160,
     "laboratorio": 500,
-    "assinatura": 330
+    "assinatura": 330,
+    "pedido": 650,
+    "cardapio": 240,
+    "teste": 240,
+    "reservas": 500,
+    "fidelidade": 330
   }
 }

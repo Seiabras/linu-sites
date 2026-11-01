@@ -13,7 +13,7 @@
 <link rel="preload" href="fontes/orbitron.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fontes/rajdhani-400.woff2" as="font" type="font/woff2" crossorigin>
 <script src="inicio.js?v=2"></script>
-<link rel="stylesheet" href="estilo.css?v=8">
+<link rel="stylesheet" href="estilo.css?v=9">
 </head>
 <!-- Para a disciplina (1/11/2026): a mesma página em três jeitos, medida. Os números são dos arquivos do site, comprimidos
      com gzip (como o servidor manda), sem as fontes, que são iguais nas três. Só em português. -->
@@ -43,15 +43,15 @@
       <table class="tabela-versoes">
         <thead><tr><th scope="col">Versão</th><th scope="col">HTML</th><th scope="col">CSS</th><th scope="col">JavaScript</th><th scope="col">Total</th><th scope="col"><span class="sr-only">Barra</span></th></tr></thead>
         <tbody>
-          <tr><th scope="row">CSS puro</th><td>10,6</td><td>15,0</td><td>12,5</td><td><b>38,1</b></td><td><span class="barra-v b-puro"></span></td></tr>
-          <tr><th scope="row">Bootstrap 5</th><td>6,5</td><td>7,7 + 31,0 do Bootstrap</td><td>4,6 + 23,7 do Bootstrap</td><td><b>73,5</b></td><td><span class="barra-v b-bootstrap"></span></td></tr>
-          <tr><th scope="row">Tailwind CSS</th><td>6,4</td><td>7,5 + 0,7 do Tailwind</td><td>5,0</td><td><b>19,6</b></td><td><span class="barra-v b-tailwind"></span></td></tr>
+          <tr><th scope="row">CSS puro</th><td>10,5</td><td>15,7</td><td>12,7</td><td><b>38,9</b></td><td><span class="barra-v b-puro"></span></td></tr>
+          <tr><th scope="row">Bootstrap 5</th><td>8,3</td><td>7,5 + 4,9 da padaria + 30,3 do Bootstrap</td><td>4,5 + 2,7 da padaria + 23,2 do Bootstrap</td><td><b>81,4</b></td><td><span class="barra-v b-bootstrap"></span></td></tr>
+          <tr><th scope="row">Tailwind CSS</th><td>8,1</td><td>7,4 + 4,9 da padaria + 0,7 do Tailwind</td><td>4,9 + 2,7 da padaria</td><td><b>28,7</b></td><td><span class="barra-v b-tailwind"></span></td></tr>
         </tbody>
       </table>
-      <p class="versoes-nota">A versão em CSS puro é a mais pesada das próprias porque é a única com tudo: o modo padaria de dia, o pedido com WhatsApp, os filtros do cardápio, o teste, as reservas e o cartão de carimbos. As outras duas são a página original, para comparar o jeito de fazer.</p>
+      <p class="versoes-nota">As três têm o café de noite e a padaria de dia. A versão em CSS puro é a mais pesada das próprias porque é a única com o pedido pelo WhatsApp, os filtros do cardápio, o teste, as reservas e o cartão de carimbos; as outras duas são a página original, para comparar o jeito de fazer. A padaria das versões Bootstrap e Tailwind vem de dois arquivos que as duas usam (<code>padaria.css</code> e <code>padaria.js</code>).</p>
     </figure>
     <ul class="versoes-fatos">
-      <li><b>Bootstrap:</b> quase metade do peso é do próprio Bootstrap (31 KB de CSS e 24 KB de JavaScript), mesmo usando só o grid, a barra de navegação e alguns utilitários. O CSS próprio cai para a metade, porque o grid já vem pronto.</li>
+      <li><b>Bootstrap:</b> dois terços do peso são do próprio Bootstrap (30 KB de CSS e 23 KB de JavaScript), mesmo usando só o grid, a barra de navegação e alguns utilitários. O CSS próprio cai para a metade, porque o grid já vem pronto.</li>
       <li><b>Tailwind:</b> o compilador deixa só as classes que a página usa: 0,7 KB. O layout passa para o HTML (<code>grid gap-6 sm:grid-cols-2</code>), e o CSS próprio fica só com o tema neon e as animações.</li>
       <li><b>CSS puro:</b> nada de fora; tudo o que a página faz está escrito à mão, o que dá mais trabalho e mais controle.</li>
     </ul>

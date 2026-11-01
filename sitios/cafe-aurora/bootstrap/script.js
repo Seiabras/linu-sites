@@ -20,7 +20,7 @@
 
   /* ---------- 1. BOOT ---------- */
   const boot = $('#boot'), bootFill = $('#bootFill'), bootLog = $('#bootLog');
-  const steps = T.boot;
+  const steps = (document.documentElement.dataset.modo === 'dia' && T.d_boot) || T.boot;
   let p = 0, si = 0;
   const bootTimer = setInterval(() => {
     p = Math.min(100, p + Math.random() * 18 + 6);

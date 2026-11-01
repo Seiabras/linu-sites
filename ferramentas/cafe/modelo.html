@@ -18,8 +18,8 @@
      (iframe) no simulador de preço, que liga e desliga as partes dele (ver script.js, "módulos"). -->
 <script src="{{raiz}}inicio.js?v=2"></script>
 <link rel="manifest" href="{{raiz}}manifest.webmanifest">
-<link rel="stylesheet" href="{{raiz}}estilo.css?v=8">
-<script src="{{raiz}}script.js?v=7" defer></script>
+<link rel="stylesheet" href="{{raiz}}estilo.css?v=9">
+<script src="{{raiz}}script.js?v=8" defer></script>
 </head>
 
 <body>
@@ -171,6 +171,7 @@
         <button type="button" class="filtro" data-filtro="quentinho" aria-pressed="false">{{d_f_quentinho}}</button>
         <button type="button" class="filtro" data-filtro="sem-lactose" aria-pressed="false">{{f_sem_lactose}}</button>
         <button type="button" class="filtro" data-filtro="sem-gluten" aria-pressed="false">{{d_f_sem_gluten}}</button>
+        <button type="button" class="filtro" data-filtro="vegano" aria-pressed="false">{{d_f_vegano}}</button>
       </div>
       <p class="menu-filtros__fim"><span id="menuConta" aria-live="polite"></span>
         <button type="button" class="btn btn--ghost" id="quizAbrir"><span class="so-noite">{{qz_abrir}}</span><span class="so-dia">{{d_qz_abrir}}</span></button></p>
@@ -193,12 +194,12 @@
         <details class="card__info so-completo">
           <summary>{{detalhes}}</summary>
           <dl class="so-noite"><div><dt>{{i_temp}}</dt><dd>68 °C</dd></div><div><dt>{{i_cafeina}}</dt><dd>140 mg</dd></div><div><dt>kcal</dt><dd>5</dd></div><div><dt>{{i_alergenos}}</dt><dd>{{al_nenhum}}</dd></div></dl>
-          <dl class="so-dia"><div><dt>{{i_forno}}</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>280</dd></div><div><dt>{{i_alergenos}}</dt><dd>{{al_gluten}}, {{al_leite}}, {{al_ovo}}</dd></div></dl>
+          <dl class="so-dia"><div><dt>{{i_forno}}</dt><dd>220 °C</dd></div><div><dt>{{i_peso}}</dt><dd>90 g</dd></div><div><dt>kcal</dt><dd>280</dd></div><div><dt>{{i_alergenos}}</dt><dd>{{al_gluten}}, {{al_leite}}, {{al_ovo}}</dd></div></dl>
         </details>
         <button type="button" class="card__add so-completo" data-item="1" hidden>+ {{add}}</button>
       </article>
 
-      <article class="card card--m reveal tilt" data-d="2" data-item="2" data-preco-noite="24" data-preco-dia="7" data-filtros-noite="quente doce" data-filtros-dia="salgado sem-lactose">
+      <article class="card card--m reveal tilt" data-d="2" data-item="2" data-preco-noite="24" data-preco-dia="7" data-filtros-noite="quente doce" data-filtros-dia="salgado sem-lactose vegano">
         <div class="card__top">
           <div class="card__icon" aria-hidden="true"><span class="so-noite">🌌</span><span class="so-dia">🍞</span></div>
           <span class="card__id"><span class="so-noite">LX-014</span><span class="so-dia">FN-006</span></span>
@@ -213,12 +214,12 @@
         <details class="card__info so-completo">
           <summary>{{detalhes}}</summary>
           <dl class="so-noite"><div><dt>{{i_temp}}</dt><dd>72 °C</dd></div><div><dt>{{i_cafeina}}</dt><dd>90 mg</dd></div><div><dt>kcal</dt><dd>180</dd></div><div><dt>{{i_alergenos}}</dt><dd>{{al_leite}}</dd></div></dl>
-          <dl class="so-dia"><div><dt>{{i_forno}}</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>150</dd></div><div><dt>{{i_alergenos}}</dt><dd>{{al_gluten}}</dd></div></dl>
+          <dl class="so-dia"><div><dt>{{i_forno}}</dt><dd>220 °C</dd></div><div><dt>{{i_peso}}</dt><dd>120 g</dd></div><div><dt>kcal</dt><dd>150</dd></div><div><dt>{{i_alergenos}}</dt><dd>{{al_gluten}}</dd></div></dl>
         </details>
         <button type="button" class="card__add so-completo" data-item="2" hidden>+ {{add}}</button>
       </article>
 
-      <article class="card card--v reveal tilt" data-d="3" data-item="3" data-preco-noite="22" data-preco-dia="8" data-filtros-noite="gelado intenso sem-lactose" data-filtros-dia="salgado quentinho sem-lactose">
+      <article class="card card--v reveal tilt" data-d="3" data-item="3" data-preco-noite="22" data-preco-dia="8" data-filtros-noite="gelado intenso sem-lactose" data-filtros-dia="salgado quentinho sem-lactose vegano">
         <div class="card__top">
           <div class="card__icon" aria-hidden="true"><span class="so-noite">❄️</span><span class="so-dia">🥖</span></div>
           <span class="card__id"><span class="so-noite">LX-027</span><span class="so-dia">FN-012</span></span>
@@ -233,7 +234,7 @@
         <details class="card__info so-completo">
           <summary>{{detalhes}}</summary>
           <dl class="so-noite"><div><dt>{{i_temp}}</dt><dd>4 °C</dd></div><div><dt>{{i_cafeina}}</dt><dd>200 mg</dd></div><div><dt>kcal</dt><dd>10</dd></div><div><dt>{{i_alergenos}}</dt><dd>{{al_nenhum}}</dd></div></dl>
-          <dl class="so-dia"><div><dt>{{i_forno}}</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>190</dd></div><div><dt>{{i_alergenos}}</dt><dd>{{al_gluten}}</dd></div></dl>
+          <dl class="so-dia"><div><dt>{{i_forno}}</dt><dd>220 °C</dd></div><div><dt>{{i_peso}}</dt><dd>250 g</dd></div><div><dt>kcal</dt><dd>190</dd></div><div><dt>{{i_alergenos}}</dt><dd>{{al_gluten}}</dd></div></dl>
         </details>
         <button type="button" class="card__add so-completo" data-item="3" hidden>+ {{add}}</button>
       </article>
@@ -253,7 +254,7 @@
         <details class="card__info so-completo">
           <summary>{{detalhes}}</summary>
           <dl class="so-noite"><div><dt>{{i_temp}}</dt><dd>8 °C</dd></div><div><dt>{{i_cafeina}}</dt><dd>70 mg</dd></div><div><dt>kcal</dt><dd>120</dd></div><div><dt>{{i_alergenos}}</dt><dd>{{al_nenhum}}</dd></div></dl>
-          <dl class="so-dia"><div><dt>{{i_forno}}</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>320</dd></div><div><dt>{{i_alergenos}}</dt><dd>{{al_gluten}}, {{al_leite}}, {{al_ovo}}</dd></div></dl>
+          <dl class="so-dia"><div><dt>{{i_forno}}</dt><dd>220 °C</dd></div><div><dt>{{i_peso}}</dt><dd>110 g</dd></div><div><dt>kcal</dt><dd>320</dd></div><div><dt>{{i_alergenos}}</dt><dd>{{al_gluten}}, {{al_leite}}, {{al_ovo}}</dd></div></dl>
         </details>
         <button type="button" class="card__add so-completo" data-item="4" hidden>+ {{add}}</button>
       </article>
@@ -273,7 +274,7 @@
         <details class="card__info so-completo">
           <summary>{{detalhes}}</summary>
           <dl class="so-noite"><div><dt>{{i_temp}}</dt><dd>60 °C</dd></div><div><dt>{{i_cafeina}}</dt><dd>0 mg</dd></div><div><dt>kcal</dt><dd>210</dd></div><div><dt>{{i_alergenos}}</dt><dd>{{al_leite}}</dd></div></dl>
-          <dl class="so-dia"><div><dt>{{i_forno}}</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>260</dd></div><div><dt>{{i_alergenos}}</dt><dd>{{al_gluten}}, {{al_ovo}}</dd></div></dl>
+          <dl class="so-dia"><div><dt>{{i_forno}}</dt><dd>220 °C</dd></div><div><dt>{{i_peso}}</dt><dd>100 g</dd></div><div><dt>kcal</dt><dd>260</dd></div><div><dt>{{i_alergenos}}</dt><dd>{{al_gluten}}, {{al_ovo}}</dd></div></dl>
         </details>
         <button type="button" class="card__add so-completo" data-item="5" hidden>+ {{add}}</button>
       </article>
@@ -293,7 +294,7 @@
         <details class="card__info so-completo">
           <summary>{{detalhes}}</summary>
           <dl class="so-noite"><div><dt>{{i_temp}}</dt><dd>−2 °C</dd></div><div><dt>{{i_cafeina}}</dt><dd>280 mg</dd></div><div><dt>kcal</dt><dd>15</dd></div><div><dt>{{i_alergenos}}</dt><dd>{{al_nenhum}}</dd></div></dl>
-          <dl class="so-dia"><div><dt>{{i_forno}}</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>90</dd></div><div><dt>{{i_alergenos}}</dt><dd>{{al_leite}}, {{al_ovo}}</dd></div></dl>
+          <dl class="so-dia"><div><dt>{{i_forno}}</dt><dd>220 °C</dd></div><div><dt>{{i_peso}}</dt><dd>40 g</dd></div><div><dt>kcal</dt><dd>90</dd></div><div><dt>{{i_alergenos}}</dt><dd>{{al_leite}}, {{al_ovo}}</dd></div></dl>
         </details>
         <button type="button" class="card__add so-completo" data-item="6" hidden>+ {{add}}</button>
       </article>
@@ -546,7 +547,7 @@
     <h2 id="pedidoTitulo">{{p_titulo}}</h2>
     <button type="button" class="janela__fechar" data-fechar aria-label="{{fechar}}">✕</button>
   </div>
-  <p class="pedido__vazio" id="pedidoVazio">{{p_vazio}}</p>
+  <p class="pedido__vazio" id="pedidoVazio"><span class="so-noite">{{p_vazio}}</span><span class="so-dia">{{d_p_vazio}}</span></p>
   <ul class="pedido__itens" id="pedidoItens"></ul>
   <p class="pedido__total" id="pedidoTotalLinha"><span>{{p_total}}</span><b id="pedidoTotal"></b></p>
   <form class="pedido__form" id="pedidoForm" novalidate>
@@ -561,7 +562,7 @@
     <div class="campo"><label for="pObs">{{p_obs}}</label><textarea id="pObs" name="obs" rows="2" maxlength="200"></textarea></div>
     <p class="pedido__selo" id="pedidoSelo"></p>
     <button type="submit" class="btn btn--magenta">{{p_enviar}}</button>
-    <p class="pedido__nota">{{p_nota}}</p>
+    <p class="pedido__nota"><span class="so-noite">{{p_nota}}</span><span class="so-dia">{{d_p_nota}}</span></p>
   </form>
   <div class="pedido__feito" id="pedidoFeito" hidden tabindex="-1"></div>
 </dialog>

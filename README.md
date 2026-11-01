@@ -177,6 +177,20 @@ node ferramentas/gerar-cafe.mjs
 - **Sem internet:** o `gerar-cafe.mjs` também grava o `sitios/cafe-aurora/sw.js`, com a versão tirada dos arquivos (mudou
   o CSS ou o script, rode o gerador de novo); o `manifest.webmanifest` e os ícones ficam em `sitios/cafe-aurora/`. O
   bloco do Café no `deploy/Caddyfile-bloco` manda `no-cache` para o `sw.js` e o manifesto.
+- **Café e padaria com as mesmas partes (regra 9, 1/11/2026):** de dia, o cardápio também tem quatro detalhes (forno,
+  peso, kcal, alérgenos) e seis filtros (o novo é “vegano”), e o pedido fala da padaria. As versões Bootstrap e Tailwind
+  ganharam a padaria (o botão de sol e lua, os textos de dia, o pão do “Monte o seu pão” e a farinha no ar) com dois
+  arquivos que as duas usam, `sitios/cafe-aurora/padaria.css` e `padaria.js`; os textos de dia entraram nos modelos
+  delas pelo mesmo `so-noite`/`so-dia` da versão principal.
+- **Os módulos novos no simulador (1/11/2026):** pedido com carrinho (R$ 800), cardápio com filtros e detalhes (R$ 300),
+  teste “o que combina com você” (R$ 300), reserva de mesa (R$ 600) e cartão fidelidade (R$ 400), com os valores em euro
+  e dólar no `precos.json`. No Café, cada um vira uma classe `sem-...` (lista `MODULOS` do `script.js`); começam
+  desligados e, com o pedido desligado, o “Pedir agora” volta a levar ao laboratório.
+- **Só em português por enquanto (regra 8):** as linhas novas do simulador estão num bloco `{{?pt-BR}}` do
+  `ferramentas/pagina/modelo.html`, com o texto direto no HTML; os textos novos do Café (`i_peso`, `d_f_vegano`,
+  `d_p_vazio`, `d_p_nota`) estão só no `textos/pt-BR.json`, então o Café se gera com `IDIOMAS=pt-BR node
+  ferramentas/gerar-cafe.mjs` até a tradução (sem isso, o gerador recusa por faltar chave). As outras línguas continuam
+  com a página de antes, que funciona com o script novo.
 - `IDIOMAS=pt-BR node ferramentas/gerar-cafe.mjs` gera só os idiomas pedidos, para ver um texto novo antes de traduzir.
 
 ## De dia, a Padaria Aurora (30/10/2026)

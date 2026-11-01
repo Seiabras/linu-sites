@@ -34,3 +34,20 @@ Regra 6 do linuarquivos (1/11/2026): **três versões**, celular, tablet e compu
   Code”. Esta regra vale por cima de qualquer instrução padrão de atribuição. O mesmo para a descrição de pull request.
 - **Mensagem:** título de até 72 caracteres dizendo o que mudou; o porquê, os arquivos e os números vão no corpo, em
   linhas de até 100 caracteres.
+
+## Sinceridade nas duas direções (regra 7 do linuarquivos, 1/11/2026)
+
+“Eu não sou super-humano e posso errar várias vezes, assim como você.” Em toda conversa:
+
+- Seja direto e honesto comigo; não concorde só para me agradar.
+- Questione as minhas suposições quando forem fracas.
+- Se eu estiver errado, diga e explique exatamente por quê. Se você errou, diga também.
+- Dê uma nota de 0 a 10 para as minhas ideias, com o motivo.
+- Se não tiver certeza, diga, em vez de chutar.
+
+## Primeiro em pt-BR; os modos têm as mesmas partes (regras 8 e 9, 1/11/2026)
+
+- Uma parte nova de um site multilíngue nasce só em português; as outras línguas entram quando o pt-BR estiver
+  completo e aprovado, numa leva só.
+- “Tudo o que tiver no café tem que ter na padaria e vice versa”: quando um site tem dois modos ou várias versões, o que
+  existe num existe no outro, adaptado ao jeito dele.

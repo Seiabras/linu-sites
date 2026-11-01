@@ -232,7 +232,11 @@
     "fid_usar": "Usar o prêmio",
     "tw_feito": "Feito com HTML, Tailwind CSS e um pouco de cafeína quântica",
     "versoes": "Também em",
-    "comparar": "comparar as três"
+    "comparar": "comparar as três",
+    "i_peso": "Peso",
+    "d_f_vegano": "Vegano",
+    "d_p_vazio": "O pedido está vazio. Toque em “+ Pedido” num pão do cardápio ou no “Monte o seu pão”.",
+    "d_p_nota": "A padaria é fictícia: o WhatsApp abre sem número, para você escolher para quem mandar. Num site de verdade, o pedido iria direto para a loja."
   },
   "js": {
     "boot": [

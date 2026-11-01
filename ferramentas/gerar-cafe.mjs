@@ -18,7 +18,15 @@ const cafe = path.join(aqui, '..', 'sitios', 'cafe-aurora');
 const CAFE = 'https://cafe.linupedia.com.br/';
 const SITES = 'https://sites.linupedia.com.br/';
 // IDIOMAS=pt-BR,en-GB gera só esses (para testar um texto novo antes de traduzir os outros)
-const ORDEM = process.env.IDIOMAS ? process.env.IDIOMAS.split(',') : ['pt-BR', 'pt-PT', 'es-ES', 'ca', 'nl', 'en-GB', 'fr', 'de', 'it', 'en-INTL', 'ja', 'ko', 'zh-Hant'];
+const TODOS = ['pt-BR', 'pt-PT', 'es-ES', 'ca', 'nl', 'en-GB', 'fr', 'de', 'it', 'en-INTL', 'ja', 'ko', 'zh-Hant'];
+const ORDEM = process.env.IDIOMAS ? process.env.IDIOMAS.split(',') : TODOS;
+// as alternativas de idioma (hreflang) sempre listam todos, mesmo gerando só alguns
+const NO_SITE = TODOS.flatMap((c) => {
+  const pagina = path.join(aqui, 'pagina', 'textos', c + '.json');
+  if (!fs.existsSync(pagina)) return [];
+  const p = JSON.parse(fs.readFileSync(pagina, 'utf8'));
+  return p.rascunho ? [] : [{ pasta: p.pasta, lang: p.lang }];
+});
 // os textos do HTML que o script também usa
 const DO_SCRIPT = ['expresso', 'coldbrew', 'matcha', 'estelar', 'nivel', 'editar', 'd_nome', 'lab_add'];
 
@@ -49,7 +57,7 @@ for (const i of idiomas.slice(1)) {
 const enderecoDe = (i) => CAFE + (i.pasta ? i.pasta + '/' : '');
 // um & solto vira &amp; (as entidades já escritas ficam); dentro de atributo, as aspas retas também
 const eComercial = (s) => String(s).replace(/&(?![a-zA-Z]+;|#\d+;)/g, '&amp;');
-const alternativas = idiomas.map((o) => `<link rel="alternate" hreflang="${o.lang}" href="${enderecoDe(o)}">`).join('\n');
+const alternativas = NO_SITE.map((o) => `<link rel="alternate" hreflang="${o.lang}" href="${enderecoDe(o)}">`).join('\n');
 
 const saidas = [];
 const preencher = (molde, i, extras, marcas = []) => molde.replace(/\{\{([a-z0-9_]+)\}\}/g, (_, k, onde, todo) => {
@@ -87,7 +95,7 @@ for (const i of idiomas) {
     const extrasV = {
       ...extras,
       url: end(i),
-      alternativas: idiomas.map((o) => `<link rel="alternate" hreflang="${o.lang}" href="${end(o)}">`).join('\n'),
+      alternativas: NO_SITE.map((o) => `<link rel="alternate" hreflang="${o.lang}" href="${end(o)}">`).join('\n'),
       base: i.pasta ? `../../${v}/` : '',
       up: i.pasta ? '../../' : '../',
     };
@@ -110,7 +118,7 @@ for (const [arquivo, html] of saidas) {
 // O Café sem internet (1/11/2026): o sw.js guarda a página principal e o que ela usa; os outros idiomas e as versões
 // Bootstrap e Tailwind entram na cache quando a pessoa os abre. A versão da cache muda quando muda qualquer arquivo.
 import crypto from 'node:crypto';
-const BASE_OFF = ['./', 'index.html', 'estilo.css?v=8', 'script.js?v=7', 'inicio.js?v=2', 'icone.png', 'img/icone-192.png', 'img/icone-512.png',
+const BASE_OFF = ['./', 'index.html', 'estilo.css?v=9', 'script.js?v=8', 'inicio.js?v=2', 'icone.png', 'img/icone-192.png', 'img/icone-512.png',
   'manifest.webmanifest', 'fontes/orbitron.woff2', 'fontes/rajdhani-400.woff2', 'fontes/rajdhani-500.woff2', 'fontes/rajdhani-600.woff2', 'fontes/rajdhani-700.woff2'];
 const hash = crypto.createHash('sha256');
 for (const a of BASE_OFF.filter((a) => !a.endsWith('/'))) hash.update(fs.readFileSync(path.join(cafe, a.split('?')[0])));

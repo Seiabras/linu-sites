@@ -627,7 +627,9 @@
      ---------------------------------------------------------- */
   // O simulador fica no Linu Sites, num endereço diferente do Café: só ele pode ligar e desligar as partes
   const ORIGEM_SIMULADOR = 'https://sites.linupedia.com.br';
-  const MODULOS = ['depoimentos', 'efeitos', 'cores', 'laboratorio', 'assinatura'];
+  const MODULOS = ['depoimentos', 'efeitos', 'cores', 'laboratorio', 'assinatura', 'pedido', 'cardapio', 'teste', 'reservas', 'fidelidade'];
+  // os módulos do site completo (1/11/2026) começam desligados no simulador, até ele dizer quais estão na conta
+  if (embutido) ['pedido', 'cardapio', 'teste', 'reservas', 'fidelidade'].forEach(m => raiz.classList.add('sem-' + m));
   const painel = $('#painelDemo');
   const painelBotao = $('#painelBotao');
   const painelAviso = $('#painelAviso');
@@ -655,6 +657,7 @@
       const comPainel = modulos.includes('painel');
       painel.hidden = !comPainel;
       if (!comPainel) editar(false);
+      raiz.dispatchEvent(new Event('modulos'));
     }
     if (typeof v === 'boolean') visivel = v;
     conferirQuadro();
@@ -668,10 +671,10 @@
      simulador só vende o que está na tabela dele. O que a pessoa faz
      fica no localStorage deste navegador.
      ---------------------------------------------------------- */
-  if (embutido) return;
+  if (!$('#pedido')) return; // página antiga, de antes destas partes
   $$('.so-completo').forEach(el => { el.hidden = false; });
-  // o Café sem internet: o sw.js fica na raiz do Café (as páginas dos idiomas estão um nível abaixo)
-  if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+  // o Café sem internet: o sw.js fica na raiz do Café (as páginas dos idiomas estão um nível abaixo); no simulador, não
+  if (!embutido && 'serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
     const raizCafe = new URL(document.querySelector('script[src*="script.js"]').getAttribute('src').replace(/script\.js.*$/, ''), location.href);
     navigator.serviceWorker.register(new URL('sw.js', raizCafe), { scope: raizCafe.href }).catch(() => {});
   }
@@ -731,7 +734,8 @@
   // os botões "Pedir agora" (o do topo e o preso embaixo no celular) abrem o pedido, com o número de itens
   $$('.nav__right .btn, .pedir-celular').forEach(b => {
     const n = el('span', 'pedir-n'); n.hidden = true; b.append(' ', n);
-    b.addEventListener('click', e => { e.preventDefault(); abrirPedido(); });
+    // com o módulo "pedido" desligado no simulador, o botão volta a levar ao laboratório, como antes
+    b.addEventListener('click', e => { if (raiz.classList.contains('sem-pedido')) return; e.preventDefault(); abrirPedido(); });
   });
   cartoes.forEach(c => {
     const b = c.querySelector('.card__add');
@@ -881,9 +885,10 @@
   desenharReservas();
 
   // o modo (café ou padaria) muda o cardápio: refaz os filtros e o que depende do nome dos itens
-  new MutationObserver(() => {
-    filtro = ''; $$('.filtro').forEach(o => o.setAttribute('aria-pressed', String(o.dataset.filtro === ''))); filtrar();
-  }).observe(raiz, { attributes: true, attributeFilter: ['data-modo'] });
+  const semFiltro = () => { filtro = ''; $$('.filtro').forEach(o => o.setAttribute('aria-pressed', String(o.dataset.filtro === ''))); filtrar(); };
+  new MutationObserver(semFiltro).observe(raiz, { attributes: true, attributeFilter: ['data-modo'] });
+  // o simulador desligou os filtros: o cardápio volta inteiro
+  raiz.addEventListener('modulos', () => { if (raiz.classList.contains('sem-cardapio')) semFiltro(); });
   desenharPedido();
 
 })();
