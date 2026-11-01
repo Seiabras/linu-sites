@@ -20,7 +20,7 @@
       "nome": "LinuPedia",
       "url": "https://linupedia.com.br",
       "endereco": "linupedia.com.br",
-      "imagem": "linupedia.webp"
+      "imagem": "linupedia.webp?v=2"
     },
     "v2tech": {
       "nome": "V²Tech COMBUSTÍVEL",
@@ -74,13 +74,13 @@
       "nome": "Minhocão",
       "url": "https://minhocao.linupedia.com.br",
       "endereco": "minhocao.linupedia.com.br",
-      "imagem": "minhocao.webp"
+      "imagem": "minhocao.webp?v=2"
     },
     "trupe": {
       "nome": "Trupe",
       "url": "https://trupe.linupedia.com.br",
       "endereco": "trupe.linupedia.com.br",
-      "imagem": "trupe.webp"
+      "imagem": "trupe.webp?v=2"
     },
     "cafe-aurora": {
       "nome": "Café Aurora",

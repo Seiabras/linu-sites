@@ -1,7 +1,7 @@
 {
   "linupedia": {
     "etiqueta": "App que s’instal·la",
-    "alt": "Pantalla principal de la LinuPedia: la llista del linuhub, amb la foguera, la tenda del Linu i les àrees d'estudi de la tenda principal",
+    "alt": "Portada de la LinuPedia: el Linu, un pingüí en pixel art, al refugi de l’Antàrtida, amb el nom de l’app en una nota subjecta amb cinta",
     "resumo": "Una app d’idiomes que es va convertir en una enciclopèdia jugable: 197 idiomes i 39 àrees del coneixement, al mòbil i a l’ordinador, i funciona fins i tot sense connexió.",
     "desafio": "Ensenyar idiomes, i després ciències, arts i lleure, a qui parla portuguès: gratis per a tothom, sense anuncis, sense dependre d’internet i sense inventar res. Cada dada i cada exemple ha de portar la font.",
     "feito": [
@@ -163,7 +163,7 @@
   },
   "minhocao": {
     "etiqueta": "Joc de terror al navegador",
-    "alt": "Pantalla d'inici del Minhocão: el títol sobre el passadís fosc de l'ICC, el camp del nom per passar llista i el botó d'entrar",
+    "alt": "Portada del Minhocão: el títol sobre el passadís fosc de l’ICC, amb un vigilant al lluny",
     "resumo": "Joc de terror en primera persona al Minhocão, l’edifici central de la Universitat de Brasília, amb la història real de la universitat durant la dictadura.",
     "desafio": "Fer que qui coneix l’ICC s’hi senti a dins, en un joc que s’obre directament al navegador, a l’ordinador i al mòbil, i explicar la història de la universitat durant la dictadura sense barrejar fets i ficció.",
     "feito": [
@@ -181,7 +181,7 @@
   },
   "trupe": {
     "etiqueta": "Xarxa d’artistes",
-    "alt": "El tauler de projectes de Trupe: notes subjectes amb cinta, cadascuna amb les àrees que busca i el tipus de participació",
+    "alt": "Portada de Trupe: el nom en vermell, la frase «Muntes alguna cosa i falta gent? Penja-ho aquí.» i dues notes de projecte subjectes amb cinta",
     "resumo": "Artistes de totes les àrees es troben per fer projectes junts: un tauler de projectes, un explorador amb fitxa i filtres, comunitats i converses al mateix lloc web.",
     "desafio": "Unir qui té un projecte amb qui vol treballar, des d’actors fins a tècnics de so, i aguantar el pic d’un gran anunci sense dependre de cap xarxa social.",
     "feito": [

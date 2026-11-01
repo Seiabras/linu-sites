@@ -1,7 +1,7 @@
 {
   "linupedia": {
     "etiqueta": "App que se instala",
-    "alt": "Pantalla principal de la LinuPedia: la lista del linuhub, con la hoguera, la tienda de Linu y las áreas de estudio de la carpa principal",
+    "alt": "Portada de LinuPedia: Linu, un pingüino en pixel art, en el refugio de la Antártida, con el nombre de la app en una nota sujeta con cinta",
     "resumo": "Una app de idiomas que se convirtió en una enciclopedia jugable: 197 idiomas y 39 áreas del conocimiento, en el móvil y en el ordenador, y funciona incluso sin conexión.",
     "desafio": "Enseñar idiomas, y después ciencias, artes y ocio, a hablantes de portugués: gratis para todos, sin anuncios, sin depender de internet y sin inventar nada. Cada dato y cada ejemplo tiene que llevar su fuente.",
     "feito": [
@@ -163,7 +163,7 @@
   },
   "minhocao": {
     "etiqueta": "Juego de terror en el navegador",
-    "alt": "Pantalla de inicio del Minhocão: el título sobre el pasillo oscuro del ICC, el campo del nombre para pasar lista y el botón de entrar",
+    "alt": "Portada de Minhocão: el título sobre el pasillo oscuro del ICC, con un vigilante a lo lejos",
     "resumo": "Juego de terror en primera persona en el Minhocão, el edificio central de la Universidad de Brasilia, con la historia real de la universidad durante la dictadura.",
     "desafio": "Hacer que quien conoce el ICC se sienta dentro, en un juego que se abre directamente en el navegador, en ordenador y móvil, y contar la historia de la universidad en la dictadura sin mezclar hechos y ficción.",
     "feito": [
@@ -181,7 +181,7 @@
   },
   "trupe": {
     "etiqueta": "Red de artistas",
-    "alt": "El tablón de proyectos de Trupe: notas sujetas con cinta, cada una con las áreas que busca y el tipo de participación",
+    "alt": "Portada de Trupe: el nombre en rojo, la frase «¿Estás montando algo y falta gente? Cuélgalo aquí.» y dos notas de proyecto sujetas con cinta",
     "resumo": "Artistas de todas las áreas se encuentran para hacer proyectos juntos: un tablón de proyectos, un explorador con ficha y filtros, comunidades y conversaciones en el propio sitio.",
     "desafio": "Unir a quien tiene un proyecto con quien quiere trabajar, desde actores hasta técnicos de sonido, y aguantar el pico de un gran anuncio sin depender de ninguna red social.",
     "feito": [

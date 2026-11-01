@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<!-- A capa da LinuPedia no portfólio (960 × 600): o abrigo do Linu inteiro. A arte vem do app, em múltiplo inteiro
+     para cada pixel ficar quadradinho. Gerada por ferramentas/gerar-imagens.mjs. -->
+<html lang="pt-BR"><head><meta charset="utf-8"><title>Capa da LinuPedia</title>
+<style>
+@font-face { font-family: "Kalam"; font-weight: 700; src: url("../../../LinuPedia/meu-app-idiomas/assets/fontes/kalam-700-latin.woff2") format("woff2"); }
+@font-face { font-family: "Atkinson"; font-weight: 200 800; src: url("../../../LinuPedia/meu-app-idiomas/assets/fontes/atkinson-next-latin.woff2") format("woff2"); }
+* { box-sizing: border-box; margin: 0; }
+body { width: 960px; height: 600px; overflow: hidden; position: relative; background: #0B1220; }
+img { position: absolute; image-rendering: pixelated; }
+/* 344 × 192 em 3×: sobram 24 px embaixo, que a segunda cópia preenche com o chão */
+.cena, .chao { width: 1032px; height: 576px; left: 0; top: 0; }
+.chao { top: 24px; }
+.sombra { position: absolute; left: 356px; top: 548px; width: 150px; height: 20px; border-radius: 50%; background: rgba(0, 0, 0, .42); }
+.linu { width: 172px; height: 190px; left: 344px; top: 370px; }
+.bilhete { position: absolute; right: 16px; top: 46px; width: 348px; padding: 32px 30px 26px; background: #FBF6EA; transform: rotate(1.6deg);
+  box-shadow: 0 2px 0 rgba(40, 30, 10, .14), 0 22px 40px -18px rgba(0, 0, 0, .75); }
+.bilhete::before { content: ""; position: absolute; top: -15px; left: 50%; width: 132px; height: 32px; margin-left: -66px; background: #F2C94C; opacity: .92; transform: rotate(-2.5deg); }
+h1 { font: 700 72px/1 "Kalam", cursive; color: #2563EB; letter-spacing: -.01em; }
+p { margin-top: 10px; font: 600 25px/1.28 "Atkinson", sans-serif; color: #24324A; }
+</style></head><body>
+<img class="chao" src="../../../LinuPedia/meu-app-idiomas/assets/pixel/abrigo-barraca-sol-da-meia-noite.png" alt="">
+<img class="cena" src="../../../LinuPedia/meu-app-idiomas/assets/pixel/abrigo-barraca-sol-da-meia-noite.png" alt="">
+<div class="sombra"></div>
+<img class="linu" src="../../public/img/linu/linu-frente.png" alt="">
+<div class="bilhete"><h1>LinuPedia</h1><p>Aprenda idiomas e muito mais com o Linu</p></div>
+</body></html>

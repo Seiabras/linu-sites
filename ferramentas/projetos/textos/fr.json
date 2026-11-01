@@ -1,7 +1,7 @@
 {
   "linupedia": {
     "etiqueta": "Application installable",
-    "alt": "Écran principal de LinuPedia : la liste du linuhub, avec le feu de camp, la tente de Linu et les domaines d'étude de la tente principale",
+    "alt": "Couverture de LinuPedia : Linu, un manchot en pixel art, dans l’abri en Antarctique, avec le nom de l’application sur un billet fixé au ruban adhésif",
     "resumo": "Une application de langues devenue une encyclopédie jouable : 197 langues et 39 domaines du savoir, sur téléphone et ordinateur, qui fonctionne même hors ligne.",
     "desafio": "Enseigner les langues, puis les sciences, les arts et les loisirs, aux lusophones : gratuitement pour tous, sans publicité, sans dépendre d’internet et sans rien inventer. Chaque fait et chaque exemple doit avoir sa source.",
     "feito": [
@@ -163,7 +163,7 @@
   },
   "minhocao": {
     "etiqueta": "Jeu d’horreur sur navigateur",
-    "alt": "Écran d'accueil du Minhocão : le titre sur le couloir sombre de l'ICC, le champ du nom pour l'appel et le bouton pour entrer",
+    "alt": "Couverture du Minhocão : le titre sur le couloir sombre de l’ICC, avec un surveillant au loin",
     "resumo": "Jeu d’horreur à la première personne dans le Minhocão, le bâtiment central de l’université de Brasília, avec l’histoire réelle de l’université sous la dictature.",
     "desafio": "Donner à ceux qui connaissent l’ICC le sentiment d’y être, dans un jeu qui s’ouvre directement dans le navigateur, sur ordinateur et téléphone, et raconter l’histoire de l’université sous la dictature sans mêler faits et fiction.",
     "feito": [
@@ -181,7 +181,7 @@
   },
   "trupe": {
     "etiqueta": "Réseau d’artistes",
-    "alt": "Le tableau de projets de Trupe : des notes fixées avec du ruban adhésif, chacune avec les disciplines recherchées et le type de participation",
+    "alt": "Couverture de Trupe : le nom en rouge, la phrase « Tu montes un projet et il manque du monde ? Accroche-le ici. » et deux billets de projet fixés au ruban adhésif",
     "resumo": "Des artistes de toutes les disciplines se trouvent pour monter des projets ensemble : un tableau de projets, un explorateur avec fiche et filtres, des communautés et des conversations sur le site même.",
     "desafio": "Rapprocher ceux qui ont un projet de ceux qui veulent travailler, des comédiens aux techniciens du son, et tenir le pic d’une grande annonce sans dépendre d’aucun réseau social.",
     "feito": [

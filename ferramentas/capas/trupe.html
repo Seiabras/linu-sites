@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<!-- A capa da Trupe no portfólio (960 × 600): o cartaz e os bilhetes do mural, com as fontes e as cores dela.
+     Sem o crédito que a imagem de compartilhar da Trupe leva. Gerada por ferramentas/gerar-imagens.mjs. -->
+<html lang="pt-BR"><head><meta charset="utf-8"><title>Capa da Trupe</title>
+<style>
+@font-face { font-family: "Bricolage Grotesque"; src: url("../../../trupe/public/fontes/bricolage.woff2") format("woff2"); font-weight: 200 800; }
+@font-face { font-family: "Atkinson Hyperlegible"; src: url("../../../trupe/public/fontes/atkinson-700.woff2") format("woff2"); font-weight: 700; }
+* { box-sizing: border-box; margin: 0; }
+body { width: 960px; height: 600px; overflow: hidden; background: #FBF7F0; color: #1C1917; font-family: "Atkinson Hyperlegible", sans-serif;
+  display: grid; grid-template-columns: 1fr 372px; grid-template-rows: minmax(0, 1fr); gap: 34px; padding: 56px 48px 54px 56px; }
+.esq { display: grid; align-content: space-between; }
+h1 { font: 800 148px/.86 "Bricolage Grotesque", sans-serif; letter-spacing: -.04em; color: #B42318; }
+.lema { font: 700 38px/1.14 "Bricolage Grotesque", sans-serif; margin-top: 30px; }
+.pincel { background: linear-gradient(transparent 60%, #F2C94C 60%, #F2C94C 90%, transparent 90%); }
+.pe { font-size: 22px; color: #5E554C; }
+.mural { background: #E7DCCB; border-radius: 4px; padding: 30px 26px; display: grid; gap: 42px; align-content: center; }
+.bilhete { position: relative; background: #FFFDF8; padding: 28px 24px 22px; box-shadow: 0 1px 0 rgba(60,40,20,.08), 0 8px 18px -10px rgba(60,40,20,.4); transform: rotate(-.8deg); }
+.bilhete:nth-child(2) { transform: rotate(1.2deg); }
+.bilhete::before { content: ""; position: absolute; top: -12px; left: 50%; width: 92px; height: 24px; margin-left: -46px; background: #F2C94C; opacity: .9; transform: rotate(-3deg); }
+.bilhete:nth-child(2)::before { transform: rotate(4deg); }
+.bilhete h2 { font: 800 28px/1.08 "Bricolage Grotesque", sans-serif; }
+.bilhete p { font-size: 18px; color: #5E554C; margin-top: 6px; }
+.area { display: inline-block; border: 2px solid #B42318; color: #B42318; font-size: 16px; padding: 1px 8px; border-radius: 3px; margin: 8px 6px 0 0; }
+</style></head><body>
+<div class="esq">
+  <div><h1>Trupe</h1><p class="lema">Tá montando algo e<br><span class="pincel">falta gente?</span><br>Pendura aqui.</p></div>
+  <p class="pe">Artistas do Brasil inteiro · de graça</p>
+</div>
+<div class="mural">
+  <div class="bilhete"><h2>Curta procura elenco e foto</h2><span class="area">Atuação</span><span class="area">Audiovisual</span><p>São Paulo · SP</p></div>
+  <div class="bilhete"><h2>Espetáculo de rua: circo e música</h2><span class="area">Circo</span><span class="area">Música</span><p>A distância</p></div>
+</div>
+</body></html>
