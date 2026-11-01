@@ -54,11 +54,24 @@
     const dados = ler('id-dados');
     const caixa = document.querySelector('.id-caixa');
     if (dados && caixa) {
-        const caminho = ['inicio'];
+        // o primeiro passo pergunta onde a pessoa está; as respostas que não levam a nenhum bicho daquele lugar somem
+        const caminho = ['lugar'];
+        let lugar = '';
+        const doLugar = (ids) => !lugar || ids.some((i) => dados.bichos[i].lug.split(' ').includes(lugar));
         const mostrar = () => {
             const atual = caminho[caminho.length - 1];
             const blocos = [];
-            if (atual.startsWith('=')) {
+            if (atual === 'lugar') {
+                blocos.push(el('p', 'id-passo', 'Para começar'));
+                const h = el('h2', 'id-pergunta', 'Onde você está?'); h.tabIndex = -1; blocos.push(h);
+                const ops = el('div', 'id-opcoes');
+                [...dados.lugares, ['', 'Prefiro pular']].forEach(([v, texto]) => {
+                    const b = el('button', null, texto); b.type = 'button';
+                    b.addEventListener('click', () => { lugar = v; caminho.push('inicio'); mostrar(); });
+                    ops.append(b);
+                });
+                blocos.push(ops);
+            } else if (atual.startsWith('=')) {
                 const b = dados.bichos[atual.slice(1)];
                 const r = el('div', `id-resultado perigo-caixa-${b.p}`);
                 r.append(el('p', 'id-passo', 'Pode ser:'));
@@ -73,10 +86,11 @@
                 blocos.push(r);
             } else {
                 const no = dados.arvore[atual];
-                blocos.push(el('p', 'id-passo', `Pergunta ${caminho.length}`));
+                blocos.push(el('p', 'id-passo', `Pergunta ${caminho.length - 1}`));
                 const h = el('h2', 'id-pergunta', no.p); h.tabIndex = -1; blocos.push(h);
                 const ops = el('div', 'id-opcoes');
-                no.o.forEach(([texto, destino]) => {
+                const opcoes = no.o.filter(([, , ids]) => doLugar(ids));
+                (opcoes.length ? opcoes : no.o).forEach(([texto, destino]) => {
                     const b = el('button', null, texto); b.type = 'button';
                     b.addEventListener('click', () => { caminho.push(destino); mostrar(); });
                     ops.append(b);
@@ -88,7 +102,7 @@
                 const volta = el('button', 'botao botao-claro', 'Voltar'); volta.type = 'button';
                 volta.addEventListener('click', () => { caminho.pop(); mostrar(); });
                 const zero = el('button', 'botao botao-claro', 'Começar de novo'); zero.type = 'button';
-                zero.addEventListener('click', () => { caminho.length = 1; mostrar(); });
+                zero.addEventListener('click', () => { caminho.length = 1; lugar = ''; mostrar(); });
                 nav.append(volta, zero); blocos.push(nav);
             }
             caixa.replaceChildren(...blocos);
@@ -204,6 +218,57 @@
         }));
     }
 
+    // ---- ouvir os passos (a voz do próprio aparelho)
+    const ouvir = document.querySelector('.ouvir');
+    if (ouvir && 'speechSynthesis' in window) {
+        ouvir.hidden = false;
+        const parar = () => { speechSynthesis.cancel(); ouvir.setAttribute('aria-pressed', 'false'); ouvir.textContent = 'Ouvir os passos'; };
+        ouvir.addEventListener('click', () => {
+            if (speechSynthesis.speaking) { parar(); return; }
+            const partes = [...document.querySelectorAll('.emerg-ja li')].map((li) => li.textContent.replace(/\d+$/, ''));
+            const r = document.querySelector('.emerg-resposta');
+            if (r && r.textContent.trim()) partes.push(...[...r.querySelectorAll('h3, li')].map((x) => x.textContent));
+            partes.push('Não faça: ' + [...document.querySelectorAll('.emerg-nunca li')].map((x) => x.textContent).join('. '));
+            const fala = new SpeechSynthesisUtterance(partes.join('. '));
+            fala.lang = 'pt-BR'; fala.rate = 0.95;
+            fala.onend = parar;
+            ouvir.setAttribute('aria-pressed', 'true'); ouvir.textContent = 'Parar a leitura';
+            speechSynthesis.speak(fala);
+        });
+        addEventListener('pagehide', parar);
+    }
+    // ---- avisar alguém: a mensagem pronta para o WhatsApp (bicho, hora, hospital e, se a pessoa quiser, onde está)
+    const avisar = document.querySelector('.avisar');
+    if (avisar) {
+        avisar.hidden = false;
+        const texto = avisar.querySelector('.avisar-texto'), link = avisar.querySelector('.avisar-botao'), local = avisar.querySelector('.avisar-local');
+        let onde = '';
+        const montarMsg = () => {
+            const c = guardado('pica-cartao') || {};
+            const esc = document.querySelector('.emerg-qual[aria-current="true"]');
+            const bicho = c.bicho || (esc ? esc.textContent.toLowerCase() : 'um bicho');
+            const d = new Date(); const hora = c.hora || `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
+            const h = guardado('pica-hospital');
+            let m = `Fui picado por ${bicho} às ${hora}.`;
+            m += h && h.nome ? ` Estou indo para o ${h.nome}${h.end ? ` (${h.end})` : ''}.` : ' Estou indo para o serviço de saúde.';
+            if (onde) m += ` Estou aqui: ${onde}`;
+            texto.textContent = m;
+            link.href = 'https://wa.me/?text=' + encodeURIComponent(m);
+        };
+        local.addEventListener('change', () => {
+            if (!local.checked) { onde = ''; montarMsg(); return; }
+            if (!navigator.geolocation) { texto.textContent = 'Este aparelho não informa a localização.'; local.checked = false; return; }
+            texto.textContent = 'Procurando onde você está…';
+            navigator.geolocation.getCurrentPosition((pos) => {
+                onde = `https://maps.google.com/?q=${pos.coords.latitude.toFixed(5)},${pos.coords.longitude.toFixed(5)}`; montarMsg();
+            }, () => { local.checked = false; onde = ''; montarMsg(); texto.append(' (Não deu para pegar a localização: diga onde está na mensagem.)'); }, { timeout: 10000, maximumAge: 60000 });
+        });
+        document.querySelectorAll('.emerg-qual').forEach((a) => a.addEventListener('click', montarMsg));
+        montarMsg();
+    }
+    const roteiroCartao = document.querySelector('.roteiro-cartao');
+    if (roteiroCartao && guardado('pica-cartao')) roteiroCartao.hidden = false;
+
     // ---- Cartão para o hospital (cartao.html): fica só neste aparelho
     const cf = document.querySelector('.cartao-form');
     const cartao = document.querySelector('.cartao-hospital');
@@ -262,21 +327,25 @@
     }
 
     // ---- Prevenir: o teste da casa e o mês de agora na época dos bichos
-    const casa = [...document.querySelectorAll('[data-casa]')];
+    const lista_ = (attr, chave, nSel, notaSel, barraSel, msgs) => {
+    const casa = [...document.querySelectorAll(`[${attr}]`)];
     if (casa.length) {
-        const n = document.querySelector('.casa-n'), nota = document.querySelector('.casa-nota'), barra = document.querySelector('.casa-barra span');
-        const marcados = new Set(guardado('pica-casa') || []);
+        const n = document.querySelector(nSel), nota = document.querySelector(notaSel), barra = document.querySelector(barraSel);
+        const marcados = new Set(guardado(chave) || []);
         const contar = () => {
             const k = casa.filter((c) => c.checked).length;
             n.textContent = k;
-            const msg = k === casa.length ? ' Casa em dia: continue assim.' : k >= 7 ? ' Quase lá.' : k >= 4 ? ' Bom começo: veja o que falta.' : '';
+            const msg = k === casa.length ? msgs[0] : k >= 7 ? ' Quase lá.' : k >= 4 ? ' Bom começo: veja o que falta.' : '';
             nota.lastChild.nodeType === 3 ? (nota.lastChild.textContent = ` de ${casa.length}.${msg}`) : nota.append(` de ${casa.length}.${msg}`);
-            barra.style.setProperty('transform', `scaleX(${k / casa.length})`);
-            guardar('pica-casa', casa.filter((c) => c.checked).map((c) => c.dataset.casa));
+            if (barra) barra.style.setProperty('transform', `scaleX(${k / casa.length})`);
+            guardar(chave, casa.filter((c) => c.checked).map((c) => c.getAttribute(attr)));
         };
-        casa.forEach((c) => { c.checked = marcados.has(c.dataset.casa); c.addEventListener('change', contar); });
+        casa.forEach((c) => { c.checked = marcados.has(c.getAttribute(attr)); c.addEventListener('change', contar); });
         contar();
     }
+    };
+    lista_('data-casa', 'pica-casa', '.casa-n', '.casa-nota', '.casa-barra span', [' Casa em dia: continue assim.']);
+    lista_('data-trilha', 'pica-trilha', '.trilha-n', '.trilha-nota', null, [' Tudo pronto: boa viagem.']);
     const agoraEpoca = document.querySelector('.epoca-agora');
     if (agoraEpoca) {
         const m = new Date().getMonth() + 1;
@@ -287,7 +356,10 @@
     }
 
     // ---- um jogo de perguntas com placar e recorde (o "Qual dos dois?" e o "Pica ou não pica?")
-    const jogoDe = (caixa, { rodadas, chave, montar, tempo }) => {
+    const jogoDe = (caixa, { rodadas, chave, montar, tempo, turma, times }) => {
+        let pontos = [0, 0];
+        const emTurma = () => !!(turma && turma.checked);
+        const placarTimes = () => { if (!times) return; times.hidden = !emTurma(); times.textContent = `Time A: ${pontos[0]} · Time B: ${pontos[1]} · agora joga o time ${'AB'[i % 2]}`; };
         const placar = caixa.querySelector('.jogo-placar'), pergunta = caixa.querySelector('.jogo-pergunta');
         const botoes = caixa.querySelector('.jogo-botoes'), retorno = caixa.querySelector('.jogo-retorno'), proxima = caixa.querySelector('.jogo-proxima');
         const barra = caixa.querySelector('.tempo span'), semTempo = caixa.querySelector('.sem-tempo-caixa');
@@ -295,7 +367,7 @@
         const parar = () => { clearTimeout(cronometro); if (barra) { barra.classList.remove('correndo'); barra.style.setProperty('transform', 'scaleX(1)'); } };
         const responder = (certa, explicacao, escolhido) => {
             parar();
-            if (certa) acertos++;
+            if (certa) { acertos++; pontos[i % 2]++; }
             botoes.querySelectorAll('button').forEach((b) => { b.disabled = true; });
             if (escolhido) escolhido.classList.add(certa ? 'certa' : 'errada');
             retorno.replaceChildren(el('strong', null, escolhido ? (certa ? 'Certo! ' : 'Não é. ') : 'Acabou o tempo. '), ...explicacao);
@@ -308,17 +380,25 @@
             retorno.hidden = true; proxima.hidden = true;
             q.pergunta(pergunta);
             botoes.replaceChildren(...q.botoes); botoes.hidden = false;
+            placarTimes();
             if (tempo && !(semTempo && semTempo.checked)) {
                 barra.style.setProperty('transform', 'scaleX(1)'); void barra.offsetWidth;
                 barra.style.setProperty('transition-duration', `${tempo}ms`); barra.classList.add('correndo'); barra.style.setProperty('transform', 'scaleX(0)');
                 cronometro = setTimeout(() => responder(false, q.explicacao(), null), tempo);
             }
         };
-        const comecar = () => { lista = embaralhar(montar.todos).slice(0, rodadas); i = 0; acertos = 0; fim = false; mostrar(); };
+        const comecar = () => { parar(); lista = embaralhar(montar.todos).slice(0, emTurma() ? rodadas * 2 : rodadas); i = 0; acertos = 0; pontos = [0, 0]; fim = false; mostrar(); };
         proxima.addEventListener('click', () => {
             if (fim) { comecar(); pergunta.focus(); return; }
             if (++i < lista.length) { mostrar(); pergunta.focus(); return; }
             fim = true;
+            if (emTurma()) {
+                placar.textContent = 'Resultado';
+                pergunta.textContent = pontos[0] === pontos[1] ? `Empate: ${pontos[0]} a ${pontos[1]}.` : `O time ${pontos[0] > pontos[1] ? 'A' : 'B'} venceu: ${Math.max(...pontos)} a ${Math.min(...pontos)}.`;
+                if (times) times.hidden = true;
+                botoes.hidden = true; retorno.hidden = true; proxima.textContent = 'Jogar de novo';
+                return;
+            }
             const antes = Number(guardado(chave) || 0); let rec = '';
             if (acertos > antes) { guardar(chave, acertos); rec = antes ? ' Novo recorde!' : ''; } else rec = ` Seu recorde: ${antes} de ${rodadas}.`;
             placar.textContent = 'Resultado';
@@ -326,7 +406,9 @@
             botoes.hidden = true; retorno.hidden = true; proxima.textContent = 'Jogar de novo';
         });
         addEventListener('pagehide', parar);
+        if (turma) turma.addEventListener('change', () => comecar());
         caixa.hidden = false; comecar();
+        return { comecar };
     };
     const botao = (texto, cls, quando) => { const b = el('button', cls, texto); b.type = 'button'; b.addEventListener('click', () => quando(b)); return b; };
 
@@ -348,8 +430,20 @@
     const bichosJogo = ler('jogo-dados'), picaCaixa = document.querySelector('.pica-jogo');
     if (bichosJogo && picaCaixa) {
         const grupo = picaCaixa.querySelector('.jogo-grupo');
+        let modo = 'pica';
+        const TIPOS = [['peconhento', 'Peçonhento'], ['venenoso', 'Venenoso'], ['outro', 'Nenhum dos dois']];
         const montar = (b, responder) => {
-            const explicacao = () => { const a = el('a', null, 'Ver a ficha'); a.href = `bicho-${b.id}.html`; return [`${b.n}: ${b.pica.toLowerCase()}. ${b.r} `, a]; };
+            const ficha = () => { const a = el('a', null, 'Ver a ficha'); a.href = `bicho-${b.id}.html`; return a; };
+            if (modo === 'tipo') {
+                const certo = ['peconhento', 'venenoso'].includes(b.t) ? b.t : 'outro';
+                const explicacao = () => [`${b.n}: ${b.tn}. `, ficha()];
+                return {
+                    pergunta: (p) => { p.textContent = b.n; grupo.textContent = `${b.g} · peçonhento, venenoso ou nenhum dos dois?`; },
+                    botoes: TIPOS.map(([v, t]) => botao(t, 'botao', (x) => responder(v === certo, explicacao(), x))),
+                    explicacao,
+                };
+            }
+            const explicacao = () => [`${b.n}: ${b.pica.toLowerCase()}. ${b.r} `, ficha()];
             return {
                 pergunta: (p) => { p.textContent = b.n; grupo.textContent = b.g; },
                 botoes: [botao('Cuidado!', 'botao botao-socorro', (x) => responder(b.cuidado, explicacao(), x)), botao('Sem perigo', 'botao', (x) => responder(!b.cuidado, explicacao(), x))],
@@ -357,7 +451,9 @@
             };
         };
         montar.todos = bichosJogo;
-        jogoDe(picaCaixa, { rodadas: 10, chave: 'pica-recorde-jogo', montar, tempo: 6000 });
+        const ctl = jogoDe(picaCaixa, { rodadas: 10, chave: 'pica-recorde-jogo', montar, tempo: 6000, turma: picaCaixa.querySelector('.modo-turma'), times: picaCaixa.querySelector('.jogo-times') });
+        const modos = [...picaCaixa.querySelectorAll('[data-modo]')];
+        modos.forEach((m) => m.addEventListener('click', () => { modo = m.dataset.modo; modos.forEach((o) => o.setAttribute('aria-pressed', String(o === m))); ctl.comecar(); }));
     }
 
     // ---- compartilhar: o menu do próprio celular quando existe; o link do WhatsApp sempre

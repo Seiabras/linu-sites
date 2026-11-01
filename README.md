@@ -250,6 +250,13 @@ node ferramentas/gerar-estudo.mjs abelhas-sem-ferrao
   data da revisão e o guia sem internet (`sw.js`, `manifest.webmanifest`, `js/offline.js`, copiados do modelo do Cerrado).
   As fotos dos bichos entram sozinhas quando existirem em `img/bichos/<id>.webp` (com `-640` e `creditos.json`). O
   Guia do Cerrado ganhou a sua página “Para a escola” (`escola.html`, CSS `?v=25`).
+  **Terceira leva (1/11, noite):** 37 bichos (jararacuçu, caninana, cobra-cipó, cobra-de-duas-cabeças, escorpião-preto
+  da Amazônia, aranha-de-grama, ouriço-do-mar e o grupo novo “Transmitem doença”: barbeiro, carrapato-estrela e
+  caramujo-africano), 57 fontes, o “Que bicho é?” começando por “Onde você está?” (cada resposta sabe que bichos alcança),
+  e no “Fui picado” os botões “Ouvir os passos” (a voz do aparelho), “Avisar alguém” (WhatsApp com o bicho, a hora, o
+  hospital e, se a pessoa quiser, a localização; por isso o bloco das Abelhas no `Caddyfile-bloco` tem
+  `geolocation=(self)`) e “O que dizer ao telefone”. No Prevenir, “Antes da trilha”; no jogo, o modo “Peçonhento ou
+  venenoso?” e o modo turma. CSS em `?v=8` e `guia.js?v=3`.
 - **A 404 do Cerrado** (`sitios/fotografia-do-cerrado/404.html`) só aparece depois de o bloco novo do `deploy/Caddyfile-bloco`
   (`handle_errors` no `cerrado.linupedia.com.br`) ser posto na VM, como diz o `deploy/ORACLE.md`.
 - Os repositórios `Seiabras/fotografia-do-cerrado` e `Seiabras/abelhas-sem-ferrao` recebem uma cópia de

@@ -18,7 +18,7 @@ ATUAL = {'bicho-': 'bichos.html', 'emergencia': 'socorro.html', 'cartao': 'socor
 URL_SITE = 'https://abelhas.linupedia.com.br/'
 REVISAO = '1/11/2026'
 SITIO = AQUI.parents[2] / 'sitios' / 'abelhas-sem-ferrao'
-JS = 'guia.js?v=2'
+JS = 'guia.js?v=3'
 
 def fui_picado(arquivo):
     atual = ' aria-current="page"' if arquivo == 'emergencia.html' else ''
@@ -75,9 +75,9 @@ def fonte(n):
 PERIGO = {'alto': ('Perigoso', 'Procure atendimento já'), 'medio': ('Atenção', 'Pode precisar de atendimento'),
           'baixo': ('Incomoda', 'Raramente é grave'), 'nenhum': ('Sem perigo', 'Não pica ou não tem veneno')}
 TIPO = {'peconhento': 'Peçonhento: injeta a toxina', 'venenoso': 'Venenoso: tem toxina, mas não injeta',
-        'urticante': 'Urticante: queima no contato', 'sem': 'Sem veneno'}
-GRUPOS = ['Cobras', 'Escorpiões', 'Aranhas e parecidos', 'Abelhas, vespas e formigas', 'Lagartas e besouros', 'Outros da terra', 'Da água']
-SOCORRO_DE = {'Cobras': 'cobra', 'Escorpiões': 'escorpiao', 'Aranhas e parecidos': 'aranha', 'Abelhas, vespas e formigas': 'abelha',
+        'urticante': 'Urticante: queima no contato', 'sem': 'Sem veneno', 'doenca': 'Transmite doença: o perigo não é veneno'}
+GRUPOS = ['Cobras', 'Escorpiões', 'Aranhas e parecidos', 'Abelhas, vespas e formigas', 'Lagartas e besouros', 'Outros da terra', 'Da água', 'Transmitem doença']
+SOCORRO_DE = {'Transmitem doença': 'doenca', 'Cobras': 'cobra', 'Escorpiões': 'escorpiao', 'Aranhas e parecidos': 'aranha', 'Abelhas, vespas e formigas': 'abelha',
               'Lagartas e besouros': 'lagarta', 'Outros da terra': 'geral', 'Da água': 'agua'}
 B = [
  dict(id='jararaca', n='Jararaca', c='Bothrops spp.', g='Cobras', p='alto', t='peconhento', pica='Pica, e é perigosa',
@@ -224,12 +224,69 @@ B = [
       onde='Praias de rio, mais na seca, quando a água baixa.', faz='Dor muito forte e longa; a ferida pode necrosar e infeccionar.',
       soc='agua', evitar='Arraste os pés na areia ao entrar no rio, em vez de dar passos: a arraia foge.', f=[19, 31]),
 ]
+# a terceira leva (1/11/2026, noite): mais bichos, e os que não picam com veneno mas transmitem doença
+B += [
+ dict(id='jararacucu', n='Jararacuçu', c='Bothrops jararacussu', g='Cobras', p='alto', t='peconhento', pica='Pica, e é perigosa',
+      r='Uma jararaca grande da Mata Atlântica, considerada uma das cobras mais venenosas do Brasil.',
+      rec=['Cabeça triangular e a fosseta entre o olho e a narina, como toda jararaca.', 'Grande e robusta, com desenhos escuros sobre fundo amarelado ou acinzentado.', 'Vive perto de rios e áreas úmidas da mata.'],
+      onde='Mata Atlântica, do sul da Bahia ao Rio Grande do Sul.', faz='Como a jararaca, mas em geral mais forte: dor, inchaço, sangramento, necrose e problema nos rins.',
+      soc='cobra', evitar='Botas e perneiras em trilhas de mata; cuidado perto de riachos.', f=[42, 43]),
+ dict(id='caninana', n='Caninana', c='Spilotes pullatus', g='Cobras', p='nenhum', t='sem', pica='Morde se acuada, mas não é peçonhenta',
+      r='Grande, rápida e brava quando ameaçada, mas não é peçonhenta. Anda de dia e sobe em árvores.',
+      rec=['Preta e amarela, em faixas ou manchas.', 'Pode passar de 2 m.', 'Ativa de dia; infla o pescoço e bate a cauda quando ameaçada.'],
+      onde='Matas e beiras de mata de quase todo o Brasil, também perto de casas e galinheiros.', faz='A mordida dói e pode infeccionar: lave e procure um posto. Não há veneno.',
+      soc='geral', evitar='Não tente pegar: chame os bombeiros (193).', f=[44]),
+ dict(id='cobra-cipo', n='Cobra-cipó', c='Chironius e outras', g='Cobras', p='baixo', t='sem', pica='Pode morder; o veneno, quando tem, é fraco',
+      r='Fina e muito ágil, parece um cipó. Não mata pessoas; algumas cobras-cipó têm um veneno fraco, nos dentes do fundo da boca.',
+      rec=['Muito fina e comprida, verde, marrom ou acinzentada.', 'Olhos grandes.', 'Rápida, sobe em galhos e arbustos.'],
+      onde='Em quase todo o Brasil, em árvores, arbustos e jardins.', faz='Dor e inchaço leves no local; a mordida pode infeccionar se não for lavada.',
+      soc='geral', evitar='Não pegue: toda cobra se defende.', f=[44, 45]),
+ dict(id='anfisbena', n='Cobra-de-duas-cabeças', c='Amphisbaena spp.', g='Cobras', p='nenhum', t='sem', pica='Não é cobra e não tem veneno',
+      r='Parece uma minhoca grande ou uma cobra, mas é outro réptil. Tem uma cabeça só: a cauda grossa e arredondada engana os predadores.',
+      rec=['Corpo em anéis, como uma minhoca grande.', 'A cabeça e a cauda parecem iguais.', 'Vive enterrada; aparece depois de chuva forte ou quando se mexe na terra.'],
+      onde='Em todo o Brasil, embaixo da terra, de folhas e de troncos.', faz='Pode morder se pega, e a mordida dói, mas não há veneno.',
+      soc='geral', evitar='Não precisa matar: devolva para um lugar com terra e folhas.', f=[46]),
+ dict(id='escorpiao-preto', n='Escorpião-preto da Amazônia', c='Tityus obscurus', g='Escorpiões', p='alto', t='peconhento', pica='Pica, e pode dar choques pelo corpo',
+      r='O principal escorpião dos acidentes na Amazônia. Em algumas regiões do Pará, a picada causa uma sensação de choque elétrico pelo corpo.',
+      rec=['Escorpião grande, todo escuro ou preto.', 'Comum em casas e quintais perto da mata.', 'Aparece à noite.'],
+      onde='Amazônia, sobretudo no Pará e no Amapá.', faz='Dor forte; em parte dos casos, sensação de choque, tremores, fala enrolada e desequilíbrio. Vá logo ao serviço de saúde.',
+      soc='escorpiao', evitar='Os mesmos cuidados do escorpião-amarelo: ralos, entulho, sapatos sacudidos.', f=[47]),
+ dict(id='aranha-de-grama', n='Aranha-de-grama', c='Lycosa spp.', g='Aranhas e parecidos', p='baixo', t='peconhento', pica='Pica, mas raramente é grave',
+      r='Comum em gramados e jardins, pica bastante, mas os acidentes são leves.',
+      rec=['Média, marrom ou acinzentada, com um desenho de seta no dorso.', 'Não faz teia: caça no chão, de dia e à noite.', 'Muitos olhos, dois deles grandes, que brilham com lanterna.'],
+      onde='Gramados, jardins e terrenos baldios de todo o Brasil.', faz='Dor e um pouco de vermelhidão no local, que passam.',
+      soc='aranha', evitar='Calçado e luvas no jardim. Na dúvida sobre a aranha, vá ao serviço de saúde.', f=[48]),
+ dict(id='ourico', n='Ouriço-do-mar', c='Echinoidea', g='Da água', p='baixo', t='peconhento', pica='Fura com os espinhos, e dói',
+      r='Os espinhos entram no pé de quem pisa nas pedras e quebram dentro da pele.',
+      rec=['Bola escura cheia de espinhos compridos.', 'Fica nas pedras e nos recifes, na água rasa.', 'Às vezes em grupos.'],
+      onde='Costões de pedra e recifes do litoral.', faz='Dor, inchaço e espinhos presos na pele, que podem infeccionar se ficarem.',
+      soc='agua', evitar='Use calçado para andar nas pedras do mar; olhe onde pisa.', f=[49]),
+ dict(id='barbeiro', n='Barbeiro', c='Triatomíneos', g='Transmitem doença', p='medio', t='doenca', pica='Pica para sugar sangue e pode transmitir a doença de Chagas',
+      r='O inseto que pode transmitir a doença de Chagas. O parasita não vem na picada: está nas fezes do inseto, que entram pela ferida ou pelos olhos.',
+      rec=['Inseto de corpo achatado, com uma borda listrada de laranja ou amarelo nos lados.', 'Cabeça comprida e fina, com o bico dobrado embaixo.', 'Aparece à noite, atraído pela luz.'],
+      onde='Em quase todo o Brasil, em frestas de casas de barro, galinheiros, pilhas de madeira e palmeiras.', faz='A picada quase não dói. A doença de Chagas pode dar febre e inchaço no olho no começo e, anos depois, problemas no coração.',
+      soc='doenca', evitar='Achou um? Não esmague: pegue com luva ou saco plástico, ponha num pote com tampa e leve ao posto de saúde.', f=[50, 51]),
+ dict(id='carrapato', n='Carrapato-estrela', c='Amblyomma sculptum', g='Transmitem doença', p='medio', t='doenca', pica='Gruda na pele e pode transmitir a febre maculosa',
+      r='O carrapato que transmite a febre maculosa, uma doença grave que pode parecer dengue no começo.',
+      rec=['Pequeno, achatado, com desenhos claros nas costas (a “estrela”).', 'Os filhotes (micuins) são minúsculos e vêm em grupo.', 'Fica no capim e nos arbustos, perto de cavalos e capivaras.'],
+      onde='Pastos, beiras de rio e parques com capivaras e cavalos, sobretudo no Sudeste.', faz='A febre maculosa começa com febre alta, dor de cabeça e no corpo, de 2 a 14 dias depois. Tem tratamento, mas precisa começar cedo.',
+      soc='doenca', evitar='Roupa clara e comprida, calça por dentro da meia, e conferir o corpo a cada poucas horas em área de carrapato.', f=[52, 53, 57]),
+ dict(id='caramujo-africano', n='Caramujo-africano', c='Achatina fulica', g='Transmitem doença', p='baixo', t='doenca', pica='Não pica, mas pode transmitir verme e meningite',
+      r='Um caramujo grande que veio de fora e virou praga. Pode carregar um verme que causa meningite em quem come o caramujo ou o muco dele.',
+      rec=['Concha grande e comprida, em espiral, marrom com listras.', 'Do tamanho da mão.', 'Aparece em quintais e hortas, mais com chuva.'],
+      onde='Em quase todo o Brasil, em quintais, hortas e terrenos.', faz='Encostar não faz mal; o perigo é comer cru ou levar o muco à boca. Lave bem as verduras.',
+      soc='doenca', evitar='Recolha com luva ou saco plástico, junte os ovos, feche bem o saco e lave as mãos depois.', f=[54, 56]),
+]
 POR_ID = {b['id']: b for b in B}
 # onde cada bicho aparece (os textos de "Onde vive" das fichas, resumidos para os filtros do catálogo)
 LUGARES = [('casa', 'Dentro de casa'), ('quintal', 'Quintal e cidade'), ('mata', 'Mata e trilha'), ('campo', 'Campo e roça'), ('praia', 'Praia e mar'), ('rio', 'Rio e lagoa')]
 REGIOES = {'N': 'Norte', 'NE': 'Nordeste', 'CO': 'Centro-Oeste', 'SE': 'Sudeste', 'S': 'Sul'}
 TODAS = 'N NE CO SE S'
 LUG_REG = {
+ 'jararacucu': ('mata rio', 'NE SE S'), 'caninana': ('mata quintal', TODAS), 'cobra-cipo': ('mata quintal', TODAS),
+ 'anfisbena': ('quintal mata campo', TODAS), 'escorpiao-preto': ('casa quintal mata', 'N'), 'aranha-de-grama': ('quintal campo', TODAS),
+ 'ourico': ('praia', 'N NE SE S'), 'barbeiro': ('casa quintal campo', TODAS), 'carrapato': ('campo rio mata', 'CO SE S'),
+ 'caramujo-africano': ('quintal', TODAS),
  'jararaca': ('mata campo quintal', TODAS), 'cascavel': ('campo', TODAS), 'surucucu': ('mata', 'N NE SE'),
  'coral': ('mata quintal campo', TODAS), 'falsa-coral': ('mata quintal campo', TODAS), 'jiboia': ('mata campo quintal', TODAS),
  'sucuri': ('rio', 'N CO'), 'escorpiao-amarelo': ('casa quintal', TODAS), 'escorpiao-marrom': ('quintal casa', 'CO SE S'),
@@ -269,6 +326,10 @@ PARES = [
  ('abelha-africanizada', 'abelha-sem-ferrao', 'A africanizada é peluda, pica e deixa o ferrão; a sem ferrão é pequena e não pica.'),
  ('escorpiao-amarelo', 'escorpiao-marrom', 'O amarelo é claro e tem a serrinha na cauda; o marrom é escuro e sem serrinha. Os dois picam.'),
  ('vespa', 'abelha-africanizada', 'A vespa é lisa, de cintura fina, e pode picar várias vezes; a abelha é peluda e deixa o ferrão.'),
+ ('jararacucu', 'jararaca', 'O jararacuçu é maior, mais robusto e vive na Mata Atlântica; os dois são jararacas, com a cabeça triangular e a fosseta, e os dois são perigosos.'),
+ ('escorpiao-preto', 'escorpiao-amarelo', 'O escorpião-preto é todo escuro e vive na Amazônia; o amarelo é claro, com a serrinha na cauda. Os dois são perigosos.'),
+ ('aranha-de-grama', 'armadeira', 'A aranha-de-grama vive no gramado e tem uma seta desenhada no dorso; a armadeira levanta as patas da frente. Na dúvida, serviço de saúde.'),
+ ('cobra-cipo', 'jararaca', 'A cobra-cipó é muito fina, de cabeça estreita, e anda nos galhos; a jararaca é mais grossa, de cabeça triangular.'),
  ('taturana', 'lagarta-urticante', 'A Lonomia tem espinhos ramificados como pinheirinhos e fica em grupos nos troncos; na dúvida, trate qualquer lagarta de fogo como Lonomia.'),
 ]
 
@@ -394,21 +455,24 @@ ARVORE = {
  'inicio': {'p': 'Como é o bicho?', 'o': [
    ('Comprido, sem patas (cobra)', 'cobra'), ('Oito patas: aranha ou parecido', 'aranha'), ('Pinças e uma cauda com ferrão', 'escorpiao'),
    ('Voa e pica: abelha ou vespa', 'voa'), ('Formiga', 'formiga'), ('Lagarta (com pelos ou espinhos)', 'lagarta'),
-   ('Muitas patas, achatado e comprido', '=lacraia'), ('Besourinho fino, preto e laranja', '=poto'), ('Sapo ou lagartixa', 'sapo'), ('Na água: mar ou rio', 'agua')]},
- 'cobra': {'p': 'Tem anéis coloridos (vermelho, preto e branco ou amarelo)?', 'o': [('Sim, anéis coloridos', '=coral'), ('Não', 'cobra2')]},
+   ('Muitas patas, achatado e comprido', '=lacraia'), ('Besourinho fino, preto e laranja', '=poto'), ('Sapo ou lagartixa', 'sapo'), ('Na água: mar ou rio', 'agua'),
+   ('Inseto achatado, de cabeça comprida, com borda listrada', '=barbeiro'), ('Carrapato grudado na pele', '=carrapato'), ('Caramujo grande, de concha comprida', '=caramujo-africano')]},
+ 'cobra': {'p': 'Tem anéis coloridos (vermelho, preto e branco ou amarelo)?', 'o': [('Sim, anéis coloridos', '=coral'), ('Não', 'cobra2'), ('Parece uma minhoca grande, com “cabeça” dos dois lados', '=anfisbena')]},
  'cobra2': {'p': 'Tem um chocalho na ponta da cauda?', 'o': [('Sim, um chocalho', '=cascavel'), ('Não', 'cobra3')]},
- 'cobra3': {'p': 'Como é a cabeça?', 'o': [('Triangular, bem destacada do pescoço, com desenhos em V no corpo', 'cobra4'), ('Grossa, sem pescoço marcado, desenhos de sela nas costas', '=jiboia'), ('Enorme, na água, verde com manchas pretas', '=sucuri'), ('Não sei', '=jararaca')]},
+ 'cobra3': {'p': 'Como é a cabeça?', 'o': [('Triangular, bem destacada do pescoço, com desenhos em V no corpo', 'cobra4'), ('Grossa, sem pescoço marcado, desenhos de sela nas costas', '=jiboia'), ('Enorme, na água, verde com manchas pretas', '=sucuri'), ('Muito fina, como um cipó, nos galhos', '=cobra-cipo'), ('Grande, preta e amarela, rápida, de dia', '=caninana'), ('Não sei', '=jararaca')]},
  'cobra4': {'p': 'Onde estava?', 'o': [('Mata fechada da Amazônia ou da Mata Atlântica, e era muito grande', '=surucucu'), ('Em outro lugar', '=jararaca')]},
- 'aranha': {'p': 'Como é o corpo?', 'o': [('Uma peça só, redonda, com pernas muito longas e finas', '=opiliao'), ('Grande e muito peluda', '=caranguejeira'), ('Pequena, marrom, em cantos escuros de casa', '=aranha-marrom'), ('Levanta as patas da frente para atacar', '=armadeira'), ('Preta, abdome redondo, mancha vermelha embaixo', '=viuva-negra')]},
- 'escorpiao': {'p': 'Qual é a cor?', 'o': [('Amarelo-claro, com o tronco escuro', '=escorpiao-amarelo'), ('Marrom-escuro', '=escorpiao-marrom'), ('Não sei', '=escorpiao-amarelo')]},
+ 'aranha': {'p': 'Como é o corpo?', 'o': [('Uma peça só, redonda, com pernas muito longas e finas', '=opiliao'), ('Grande e muito peluda', '=caranguejeira'), ('Pequena, marrom, em cantos escuros de casa', '=aranha-marrom'), ('Levanta as patas da frente para atacar', '=armadeira'), ('Preta, abdome redondo, mancha vermelha embaixo', '=viuva-negra'), ('Média, no chão do gramado, com uma seta desenhada nas costas', '=aranha-de-grama')]},
+ 'escorpiao': {'p': 'Qual é a cor?', 'o': [('Amarelo-claro, com o tronco escuro', '=escorpiao-amarelo'), ('Marrom-escuro', '=escorpiao-marrom'), ('Todo preto, na Amazônia', '=escorpiao-preto'), ('Não sei', '=escorpiao-amarelo')]},
  'voa': {'p': 'Como ela é?', 'o': [('Peluda, amarela e preta, deixou o ferrão', '=abelha-africanizada'), ('Lisa, de cintura fina', '=vespa'), ('Pequenina, não picou (só mordiscou)', '=abelha-sem-ferrao')]},
  'formiga': {'p': 'De que tamanho?', 'o': [('Grande (2 a 3 cm), escura, na mata', '=tocandira'), ('Pequena, avermelhada, de montes de terra', '=lava-pes')]},
  'lagarta': {'p': 'Como são os espinhos?', 'o': [('Ramificados como pinheirinhos, em grupo num tronco', '=taturana'), ('Outros pelos ou espinhos', '=lagarta-urticante'), ('Não sei', '=taturana')]},
  'sapo': {'p': 'Qual dos dois?', 'o': [('Sapo grande, de pele com verrugas', '=sapo-cururu'), ('Lagartixa de parede', '=lagartixa')]},
- 'agua': {'p': 'Onde foi?', 'o': [('No mar: bicho gelatinoso com tentáculos', '=agua-viva'), ('No rio: ferroada no pé, na areia', '=arraia')]},
+ 'agua': {'p': 'Onde foi?', 'o': [('No mar: bicho gelatinoso com tentáculos', '=agua-viva'), ('No mar: espinhos no pé, nas pedras', '=ourico'), ('No rio: ferroada no pé, na areia', '=arraia')]},
 }
-ID_DADOS = {b['id']: {'n': b['n'], 'pica': b['pica'], 'p': b['p'], 'pn': PERIGO[b['p']][0], 'ps': PERIGO[b['p']][1], 'r': b['r'], 'soc': b['soc']} for b in B}
-ident_json = json.dumps({'arvore': {k: {'p': v['p'], 'o': v['o']} for k, v in ARVORE.items()}, 'bichos': ID_DADOS}, ensure_ascii=False).replace('</', '<\\/')
+ID_DADOS = {b['id']: {'n': b['n'], 'pica': b['pica'], 'p': b['p'], 'pn': PERIGO[b['p']][0], 'ps': PERIGO[b['p']][1], 'r': b['r'], 'soc': b['soc'], 'lug': b['lug']} for b in B}
+def alcanca(destino):
+    return [destino[1:]] if destino.startswith('=') else sorted({i for _, d in ARVORE[destino]['o'] for i in alcanca(d)})
+ident_json = json.dumps({'arvore': {k: {'p': v['p'], 'o': [[t, d, alcanca(d)] for t, d in v['o']]} for k, v in ARVORE.items()}, 'bichos': ID_DADOS, 'lugares': LUGARES}, ensure_ascii=False).replace('</', '<\\/')
 sem_js = ''.join(f'<li><a href="bichos.html">{t}</a></li>' for t, _ in ARVORE['inicio']['o'])
 identificar = f'''        <section class="titulo-guia">
             <div class="container">
@@ -442,6 +506,7 @@ SOC = [
  ('lagarta', 'Lagarta (taturana) e potó', ['Lave o local com água fria e sabão; compressa fria alivia.', 'Se a lagarta tinha espinhos, vá ao serviço de saúde: pode ser Lonomia, que causa sangramento.', 'Fotografe a lagarta, sem tocar.', 'Potó: lave com água e sabão e não esfregue; procure o médico se pegar nos olhos ou for extenso.'], [8, 9, 16]),
  ('abelha', 'Abelhas, vespas e formigas', ['Tire os ferrões da abelha logo, raspando com a unha ou um cartão, sem apertar o saquinho de veneno.', 'Lave e ponha gelo enrolado num pano.', 'Muitas picadas, picada na boca ou na garganta, inchaço no rosto ou falta de ar: serviço de saúde na hora (192).', 'Quem tem alergia conhecida deve ir ao hospital mesmo com uma picada.'], [14, 15, 25]),
  ('agua', 'Água-viva, caravela e arraia', ['Água-viva e caravela: saia da água, lave com água do mar e tire os tentáculos com cuidado, sem esfregar. Nunca use água doce.', 'O vinagre ajuda em água-viva, mas não serve para a caravela.', 'Arraia: lave e ponha o pé em água quente (sem queimar) para a dor, e vá ao serviço de saúde: a ferida infecciona.'], [18, 17, 19]),
+ ('doenca', 'Barbeiro, carrapato e caramujo', ['Barbeiro: não esmague. Pegue com luva ou saco plástico, ponha num pote com tampa e leve ao posto de saúde. Se foi picado, conte ao médico.', 'Carrapato: tire logo, com pinça, puxando devagar e sem esmagar. Febre, dor de cabeça ou no corpo nas duas semanas seguintes: serviço de saúde, dizendo que teve carrapato.', 'Caramujo-africano: recolha com luva ou saco, lave as mãos. Dor de cabeça forte depois de comer verdura mal lavada: serviço de saúde.'], [50, 52, 53, 54]),
  ('geral', 'Outros bichos (lacraia, mordida de cobra sem veneno, sapo)', ['Lave com água e sabão, compressa fria, e procure o serviço de saúde se a dor for forte ou piorar.', 'Sapo: lave a boca e os olhos com água corrente se houve contato; cachorro que mordeu sapo vai ao veterinário.'], [27, 1]),
 ]
 NUNCA = ['Fazer torniquete ou amarrar o braço ou a perna.', 'Cortar, furar ou espremer o local.', 'Chupar o veneno.', 'Pôr folhas, pó de café, terra, álcool ou outras coisas no local.', 'Dar bebida alcoólica ou remédio por conta própria.', 'Esperar os sintomas aparecerem para ir ao médico.']
@@ -551,11 +616,27 @@ FONTES += [
  (39, 'Jornal de Brasília, com a Agência Brasil (2024): as aranhas são a segunda causa de acidentes, com 43.933 casos em 2023.', 'https://jornaldebrasilia.com.br/noticias/saude/picadas-de-aranhas-sao-segunda-causa-de-envenenamento-no-pais/'),
  (40, 'Petlove. Cachorro picado por escorpião: o que fazer (veterinário, sem remédio por conta própria).', 'https://www.petlove.com.br/dicas/cachorro-picado-por-escorpiao-o-que-fazer'),
  (41, 'CNN Brasil. Em 2023, 152 mortes por escorpião no Brasil (Ministério da Saúde).', 'https://www.cnnbrasil.com.br/tecnologia/todos-os-escorpioes-sao-perigosos/'),
+ (42, 'NSC Total, com a UFRGS: o jararacuçu, uma das cobras mais venenosas do Brasil, da Mata Atlântica do sul da Bahia ao Rio Grande do Sul.', 'https://www.nsctotal.com.br/?p=6715136'),
+ (43, 'UFRGS, Serpentes de Porto Alegre: a família das jararacas (Viperidae).', 'https://www.ufrgs.br/serpentespoa/?p=27'),
+ (44, 'Instituto Butantan. Desenhando serpentes: a caninana (não peçonhenta, diurna, até cerca de 2,5 m) e a cobra-cipó (fina, ágil, até cerca de 1 m).', 'https://publicacoeseducativas.butantan.gov.br/web/desenhando-cobra/pages/pdf/desenahndo-serprentes-pt.pdf'),
+ (45, 'UFSC. Ofidismo em Santa Catarina: as cobras de veneno fraco nos dentes de trás (opistóglifas), como a cobra-cipó, são menos perigosas.', 'https://repositorio.ufsc.br/bitstream/handle/123456789/208747/Ofidismo%20em%20Santa%20Catarina.pdf?sequence=3'),
+ (46, 'Portal Amazônia. A cobra-de-duas-cabeças não é cobra: é um réptil inofensivo, sem veneno, de uma cabeça só.', 'https://portalamazonia.com/meio-ambiente/cobra-de-duas-cabecas-nao-e-cobra/'),
+ (47, 'Pardal e outros (2014), Journal of Venomous Animals and Toxins: acidentes com Tityus obscurus no Pará, com sensação de choque, tremores e fala enrolada no oeste do estado.', 'https://jvat.biomedcentral.com/articles/10.1186/1678-9199-20-3'),
+ (48, 'Secretaria de Saúde do Distrito Federal. Boletim sobre aranhas (2013): a aranha-de-grama e a caranguejeira não representam grande perigo.', 'https://saude.df.gov.br/documents/37101/367987/BOLETIM-ARANHAS-24-04-2013.pdf/42ff7e18-4a39-0b54-ee7a-d4ff6597f6a4'),
+ (49, 'Manual MSD. Picadas de ouriços-do-mar: tirar os espinhos logo e pôr o local em água quente, sem queimar.', 'https://www.msdmanuals.com/pt/casa/les%C3%B5es-e-envenenamentos/mordidas-e-picadas/picadas-de-ouri%C3%A7os-do-mar'),
+ (50, 'Jornal de Brasília, com o Ministério da Saúde: ao achar um barbeiro, não esmagar, pegar com luva ou saco plástico, pôr num pote com tampa e levar ao posto de saúde.', 'https://jornaldebrasilia.com.br/estilo-de-vida/noticiaanimal/saiba-o-que-fazer-ao-encontrar-um-inseto-parecido-com-o-barbeiro-de-chagas/'),
+ (51, 'National Geographic Brasil (2023). Cinco curiosidades sobre o barbeiro: o parasita da doença de Chagas está nas fezes do inseto.', 'https://www.nationalgeographicbrasil.com/animais/2023/04/as-5-curiosidades-sobre-o-barbeiro-o-inseto-que-transmite-a-doenca-de-chagas'),
+ (52, 'CNN Brasil. O carrapato deve ser retirado delicadamente, com pinça, sem esmagar (infectologista).', 'https://www.cnnbrasil.com.br/saude/carrapato-deve-ser-retirado-delicadamente-para-evitar-febre-maculosa-diz-infectologista/'),
+ (53, 'Prefeitura de Belo Horizonte. Febre maculosa: transmissão pelo carrapato-estrela, sintomas e prevenção.', 'https://prefeitura.pbh.gov.br/saude/informacoes/vigilancia/vigilancia-epidemiologica/doencas-transmissiveis/febre-maculosa'),
+ (54, 'Poder360. A Fiocruz alerta para a meningite transmitida pelo caramujo (comer o caramujo ou o muco dele).', 'https://www.poder360.com.br/poder-saude/fiocruz-alerta-para-meningite-transmitida-por-caramujo-apos-morte/'),
+ (55, 'A Gazeta do Acre (2024), com o boletim do Ministério da Saúde: em 2023, Roraima (81,81), Pará (59,63) e Acre (51,83) tiveram mais acidentes com cobras por 100 mil habitantes.', 'https://agazetadoacre.com/2024/10/noticias/geral/acre-registra-470-acidentes-com-serpentes-e-tem-3a-maior-incidencia-do-brasil-em-2023-aponta-boletim'),
+ (56, 'Correio Braziliense. Caramujo-africano: recolher com luvas ou saco plástico, junto com os ovos, fechar o saco e lavar as mãos.', 'https://www.correiobraziliense.com.br/webstories/flipar/2024/05/6851894-infestacao-de-caramujos-africanos-e-perigosa-saiba-se-proteger.html'),
+ (57, 'Canaltech, com a Fiocruz: a febre maculosa pode parecer dengue no começo, e o tratamento precisa começar cedo.', 'https://canaltech.com.br/saude/fiocruz-alerta-sobre-casos-de-febre-maculosa-e-carrapato-estrela-no-br-entenda-200794/'),
 ]
 SOC_DADOS = {i: {'t': t, 'passos': passos} for i, t, passos, fs in SOC}
 NUNCA_CURTO = ['Torniquete ou amarrar', 'Cortar, furar ou espremer', 'Chupar o veneno', 'Pôr qualquer coisa no local', 'Bebida ou remédio por conta própria']
 TEL = '<p class="emerg-tel"><a class="botao botao-socorro" href="tel:192">Ligar&nbsp;192&nbsp;(SAMU)</a><a class="botao botao-claro" href="tel:08007226001">0800&nbsp;722&nbsp;6001</a><span class="emerg-tel-nota">Disque-Intoxicação, 24 horas</span></p>'
-QUAL = [('cobra', 'Cobra'), ('escorpiao', 'Escorpião'), ('aranha', 'Aranha'), ('abelha', 'Abelha, vespa ou formiga'), ('lagarta', 'Lagarta ou potó'), ('agua', 'Água-viva, caravela ou arraia'), ('geral', 'Outro bicho ou não sei')]
+QUAL = [('cobra', 'Cobra'), ('escorpiao', 'Escorpião'), ('aranha', 'Aranha'), ('abelha', 'Abelha, vespa ou formiga'), ('lagarta', 'Lagarta ou potó'), ('agua', 'Água-viva, caravela, ouriço ou arraia'), ('doenca', 'Barbeiro ou carrapato'), ('geral', 'Outro bicho ou não sei')]
 GUARDAR = ('<div class="guardar-guia" hidden><p class="guardar-titulo">Vai para sítio, trilha ou praia?</p>'
            '<p>Guarde o guia neste aparelho: o Socorro, o “Fui picado”, as fichas e o “Que bicho é?” funcionam sem internet.</p>'
            '<button type="button" class="botao guardar-botao">Guardar o guia</button><p class="guardar-estado" aria-live="polite"></p></div>')
@@ -572,6 +653,7 @@ pagina('emergencia.html', f'Fui picado: o que fazer agora — {NOME}', 'Picada d
                     <li><span><strong>Vá ao serviço de saúde</strong> ou ligue 192. O soro só existe lá, e é de graça.{fonte(2)}</span></li>
                 </ol>
                 {TEL}
+                <p class="ouvir-linha"><button type="button" class="botao botao-claro ouvir" hidden aria-pressed="false">Ouvir os passos</button></p>
                 <div class="meu-hospital" hidden></div>
                 <section class="emerg-bicho" aria-labelledby="qual-t">
                     <h2 id="qual-t">Que bicho foi?</h2>
@@ -582,6 +664,26 @@ pagina('emergencia.html', f'Fui picado: o que fazer agora — {NOME}', 'Picada d
                     <h2 id="nun-t">Não faça</h2>
                     <ul>{"".join(f"<li>{x}</li>" for x in NUNCA_CURTO)}</ul>
                 </section>
+                <div class="emerg-dois">
+                    <section class="avisar" aria-labelledby="av-t" hidden>
+                        <h2 id="av-t">Avisar alguém</h2>
+                        <p>Monta uma mensagem com o bicho, a hora e o hospital guardado, para mandar no WhatsApp.</p>
+                        <label class="marcar"><input type="checkbox" class="avisar-local"> Incluir onde estou (o celular pede permissão)</label>
+                        <p class="avisar-texto" aria-live="polite"></p>
+                        <p><a class="botao avisar-botao" href="https://wa.me/">Mandar no WhatsApp</a></p>
+                    </section>
+                    <section class="ao-telefone" aria-labelledby="tel2-t">
+                        <h2 id="tel2-t">O que dizer ao telefone</h2>
+                        <ol class="passos roteiro">
+                            <li>Seu nome e onde você está (endereço ou um ponto de referência).</li>
+                            <li>Que bicho foi, ou como ele era. Se tiver foto, diga.</li>
+                            <li>A hora da picada e a parte do corpo.</li>
+                            <li>O que a pessoa está sentindo agora.</li>
+                            <li>A idade, o peso e se tem alergia ou toma remédio.</li>
+                        </ol>
+                        <p class="roteiro-cartao" hidden><a href="cartao.html">Ver o cartão para o hospital</a>, com o que você já anotou.</p>
+                    </section>
+                </div>
                 <p class="emerg-mais"><a class="botao" href="cartao.html">Montar o cartão para o hospital</a> <a class="botao botao-claro" href="soro.html">Onde tem soro</a> <a class="botao botao-claro" href="identificar.html">Descobrir o bicho</a></p>
                 {GUARDAR}
                 <script type="application/json" id="emerg-dados">{emerg_json}</script>
@@ -734,6 +836,15 @@ def linha_epoca(t, e, ms, fs):
     cel = ''.join(f'<span class="mes{" mes-sim" if i + 1 in ms else ""}" data-mes="{i + 1}"><span class="mes-nome">{m}</span><span class="vh">{": mais" if i + 1 in ms else ""}</span></span>' for i, m in enumerate(MESES))
     return f'<li class="epoca"><p class="epoca-t">{t}</p><div class="meses">{cel}</div><p class="epoca-e">{e}{"".join(fonte(k) for k in fs)}</p></li>'
 epoca_html = ''.join(linha_epoca(*x) for x in EPOCA)
+TRILHA = [
+ ('Bota de cano alto ou perneira, e calça comprida', [3]), ('Lanterna para andar à noite e olhar onde pisa', [3]),
+ ('Olhar antes de pôr a mão em buracos, troncos e pedras', [3]), ('Sacudir o saco de dormir, as roupas e as botas antes de usar', [3]),
+ ('Roupa clara e calça por dentro da meia em área de carrapato; conferir o corpo a cada poucas horas', [53]),
+ ('No rio, arrastar os pés na areia em vez de dar passos', [19]), ('Na praia, respeitar as bandeiras e não andar nas pedras sem calçado', [18, 49]),
+ ('O hospital com soro mais perto anotado, e o número do 192', [32]), ('O guia guardado no celular para usar sem sinal', []), ('Avisar alguém aonde vai e quando volta', []),
+]
+trilha_html = ''.join(f'<li><label class="marcar"><input type="checkbox" data-trilha="{n}"> {t}</label></li>' for n, (t, fs) in enumerate(TRILHA))
+trilha_fontes = ''.join(fonte(k) for k in sorted({k for t, fs in TRILHA for k in fs}))
 pagina('prevenir.html', f'Prevenir: a casa, as crianças, cães e gatos — {NOME}', 'Sua casa está segura contra escorpiões e aranhas? Um teste de 10 itens, os cuidados com crianças, cães e gatos, e a época de cada bicho.', f'''        <section class="titulo-guia">
             <div class="container">
                 <h1>Prevenir</h1>
@@ -742,7 +853,7 @@ pagina('prevenir.html', f'Prevenir: a casa, as crianças, cães e gatos — {NOM
         </section>
         <section class="secao">
             <div class="container prevenir">
-                <nav class="indice-pagina" aria-label="Nesta página"><a href="#casa-t">Minha casa está segura?</a><a href="#cri-t">Crianças</a><a href="#pet-t">Cães e gatos</a><a href="#epo-t">A época</a></nav>
+                <nav class="indice-pagina" aria-label="Nesta página"><a href="#casa-t">Minha casa está segura?</a><a href="#trilha-t">Antes da trilha</a><a href="#cri-t">Crianças</a><a href="#pet-t">Cães e gatos</a><a href="#epo-t">A época</a></nav>
                 <div class="prevenir-texto">
                     <section class="casa" aria-labelledby="casa-t">
                         <h2 id="casa-t">Minha casa está segura?</h2>
@@ -751,6 +862,13 @@ pagina('prevenir.html', f'Prevenir: a casa, as crianças, cães e gatos — {NOM
                         <p class="casa-nota" aria-live="polite"><strong class="casa-n">0</strong> de {len(CASA)}</p>
                         <div class="casa-barra" aria-hidden="true"><span></span></div>
                         <p class="soc-fonte">Fontes:{casa_fontes}</p>
+                    </section>
+                    <section class="casa trilha" aria-labelledby="trilha-t">
+                        <h2 id="trilha-t">Antes da trilha, da pesca ou do camping</h2>
+                        <p>Confira antes de sair. Também fica guardado neste aparelho.</p>
+                        <ul class="casa-lista">{trilha_html}</ul>
+                        <p class="trilha-nota" aria-live="polite"><strong class="trilha-n">0</strong> de {len(TRILHA)}</p>
+                        <p class="soc-fonte">Fontes:{trilha_fontes}</p>
                     </section>
                     <section aria-labelledby="cri-t">
                         <h2 id="cri-t">Crianças</h2>
@@ -814,6 +932,7 @@ pagina('numeros.html', f'Os números das picadas no Brasil — {NOME}', 'Em 2023
                         <li><strong>O escorpião é o que mais pica</strong>, e em 2023 matou mais que as cobras.{fonte(34)}{fonte(41)} O escorpião-amarelo vive nas cidades, em ralos, esgoto e entulho: por isso vale o <a href="prevenir.html">teste da casa</a>.{fonte(4)}</li>
                         <li><strong>As aranhas vêm em segundo</strong>, com 43.933 casos.{fonte(39)}</li>
                         <li><strong>A cobra pica menos, mas pesa:</strong> sem soro, a picada de jararaca ou cascavel pode matar ou deixar sequela.{fonte(2)}</li>
+                        <li><strong>Onde as cobras mais picam:</strong> em 2023, por habitante, Roraima (81,8 por 100 mil), Pará (59,6) e Acre (51,8), todos no Norte.{fonte(55)}</li>
                         <li>Os acidentes sobem no calor e na chuva, de dezembro a março.{fonte(35)} Veja <a href="prevenir.html#epo-t">a época de cada bicho</a>.</li>
                     </ul>
                 </div>
@@ -822,17 +941,20 @@ pagina('numeros.html', f'Os números das picadas no Brasil — {NOME}', 'Em 2023
 ''', scripts=[JS])
 
 # ---------------------------------------------------------------- O jogo "Pica ou não pica?" (jogo.html)
-jogo_json = json.dumps([{'id': b['id'], 'n': b['n'], 'g': b['g'], 'cuidado': b['p'] != 'nenhum', 'pica': b['pica'], 'r': b['r']} for b in B], ensure_ascii=False).replace('</', '<\\/')
+jogo_json = json.dumps([{'id': b['id'], 'n': b['n'], 'g': b['g'], 'cuidado': b['p'] != 'nenhum', 'pica': b['pica'], 'r': b['r'], 't': b['t'], 'tn': TIPO[b['t']]} for b in B], ensure_ascii=False).replace('</', '<\\/')
 pagina('jogo.html', f'Jogo: pica ou não pica? — {NOME}', 'Aparece o bicho; você tem seis segundos para dizer se é de ter cuidado ou se não tem perigo. Dez rodadas e o seu recorde.', f'''        <section class="titulo-guia">
             <div class="container">
-                <h1>Pica ou não pica?</h1>
-                <p>Aparece um bicho: é de ter cuidado ou não tem perigo? Dez rodadas, seis segundos cada.</p>
+                <h1>Jogos: pica ou não pica?</h1>
+                <p>Aparece um bicho: é de ter cuidado ou não tem perigo? Ou: é peçonhento, venenoso ou nada disso? Dez rodadas, seis segundos cada, sozinho ou em dois times.</p>
             </div>
         </section>
         <section class="secao">
             <div class="container jogo-pagina">
                 <section class="pica-jogo jogo-caixa" aria-labelledby="pj-t" hidden>
                     <h2 id="pj-t" class="vh">O jogo</h2>
+                    <div class="jogo-modos"><div class="chips" role="group" aria-label="Qual jogo"><button type="button" class="chip" data-modo="pica" aria-pressed="true">Pica ou não pica?</button><button type="button" class="chip" data-modo="tipo" aria-pressed="false">Peçonhento ou venenoso?</button></div>
+                    <label class="marcar"><input type="checkbox" class="modo-turma"> Modo turma: dois times, um de cada vez</label></div>
+                    <p class="jogo-times" hidden></p>
                     <p class="jogo-placar"></p>
                     <div class="tempo" aria-hidden="true"><span></span></div>
                     <p class="jogo-grupo"></p>
@@ -845,6 +967,8 @@ pagina('jogo.html', f'Jogo: pica ou não pica? — {NOME}', 'Aparece o bicho; vo
                 <noscript><p>O jogo precisa de JavaScript. Veja <a href="bichos.html">todos os bichos</a>.</p></noscript>
                 <aside class="jogo-lado">
                     <h2>Como funciona</h2>
+                    <p><strong>Peçonhento ou venenoso?</strong> Peçonhento injeta a toxina (ferrão, presas); venenoso só faz mal se for mordido, apertado ou posto na boca. Há também os que queimam no contato, os que transmitem doença e os sem veneno.{fonte(1)}</p>
+                    <p><strong>Modo turma:</strong> para a sala de aula. Os times jogam um de cada vez e o placar mostra os dois.</p>
                     <p><strong>Cuidado!</strong> vale para quem pica, queima ou é venenoso, do perigoso ao que só incomoda. <strong>Sem perigo</strong> é para os que não picam ou não têm veneno.</p>
                     <p>Mais jogos: <a href="mitos.html">Verdade ou mito?</a> e <a href="diferencas.html">Qual é a diferença?</a></p>
                 </aside>
@@ -937,7 +1061,7 @@ pagina('fontes.html', f'Fontes — {NOME}', 'As fontes do guia: Ministério da S
 ''')
 
 # ---------------------------------------------------------------- A inicial e o menu em português (nas outras línguas, o site das Abelhas, como estava)
-perigosos = [b for b in B if b['p'] == 'alto']
+perigosos = [b for b in B if b['p'] == 'alto'][:8]  # 8: duas linhas de 4 no computador
 cartoes_perigo = ''.join(cartao(b) for b in perigosos)
 inicial = f'''{{{{?pt-BR}}}}        <section class="abertura-guia">
             <div class="container">

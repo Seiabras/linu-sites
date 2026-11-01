@@ -664,3 +664,18 @@ a.cartao:hover { border-color: var(--link); }
 }
 @media (min-width: 1100px) { .dif-lista { grid-template-columns: minmax(0, 1fr); } }
 .emerg-ja li > span { min-width: 0; }
+
+/* ================= terceira leva (1/11/2026, noite): ouvir, avisar alguém, o telefone, a trilha e os modos do jogo */
+.ouvir-linha { margin: -.4rem 0 .6rem; }
+.ouvir[aria-pressed="true"] { border-color: var(--alto); color: var(--errado-texto); }
+.emerg-dois { display: grid; gap: 1rem; margin-top: 1.4rem; }
+.avisar, .ao-telefone { background: var(--superficie); border: 1px solid var(--borda); border-radius: var(--raio); padding: 1rem 1.2rem; display: grid; gap: .5rem; align-content: start; }
+.avisar h2, .ao-telefone h2 { font-family: var(--titulo); font-size: 1.35rem; }
+.avisar-texto { background: var(--nao-fundo); border-radius: 10px; padding: .6rem .8rem; font-weight: 600; overflow-wrap: anywhere; }
+.avisar-texto:empty { display: none; }
+.roteiro { font-size: 1rem; }
+.trilha { margin-top: 0; }
+.jogo-modos { display: grid; gap: .3rem; padding-bottom: .6rem; border-bottom: 1px solid var(--borda); }
+.jogo-times { font-weight: 800; background: var(--destaque-fundo); border-radius: 10px; padding: .5rem .8rem; }
+@media (min-width: 700px) { .emerg-dois { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (min-width: 1100px) { .prevenir-texto > .trilha { grid-column: 1 / -1; } }
