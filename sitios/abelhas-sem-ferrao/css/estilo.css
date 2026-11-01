@@ -182,3 +182,200 @@ a.cartao:hover { border-color: var(--link); }
 @media (min-width: 1100px) {
     .cartoes { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
+
+/* ================= Pica ou Não Pica? (1/11/2026): o guia dos bichos, em português. Três versões: celular, tablet, computador */
+:root { --alto: #9B2C1F; --medio: #E9A23B; --baixo: #FBE3B8; --nenhum: #3F6B3A; }
+.botao-claro { background: var(--superficie); color: var(--texto); border: 2px solid var(--borda); }
+.botao-claro:hover { border-color: var(--texto); }
+.botao-socorro { background: var(--alto); color: #fff; }
+.botao, .botao-claro, .chip, .porta-guia, .bicho-cartao a, .id-opcoes button { transition: background-color .18s ease-out, border-color .18s ease-out, transform .18s ease-out, box-shadow .18s ease-out; }
+.botao:active, .id-opcoes button:active { transform: scale(.98); }
+.nota a { font-size: .75rem; font-weight: 700; padding: 0 .1rem; }
+.cientifico { font-style: italic; color: var(--texto-suave); }
+.lista { padding-left: 1.2rem; display: grid; gap: .35rem; }
+.chips { display: flex; flex-wrap: wrap; gap: .4rem; }
+.chip { font: inherit; font-weight: 600; font-size: .9rem; min-height: 36px; padding: .3rem .8rem; border-radius: 999px; border: 1px solid var(--borda); background: var(--superficie); color: var(--texto); cursor: pointer; }
+.chip[aria-pressed="true"] { background: var(--texto); color: var(--fundo); border-color: var(--texto); }
+.titulo-guia { background: var(--destaque-fundo); padding: 2.2rem 0 1.8rem; }
+.titulo-guia h1 { font-family: var(--titulo); font-size: clamp(2rem, 6vw, 3rem); line-height: 1.1; }
+.titulo-guia p { max-width: 62ch; margin-top: .5rem; }
+.titulo-socorro { background: var(--errado-fundo); }
+.secao-clara { background: var(--destaque-fundo); }
+
+/* o selo de perigo */
+.perigo { display: inline-flex; flex-wrap: wrap; gap: .35rem; align-items: baseline; padding: .25rem .7rem; border-radius: 999px; font-size: .85rem; line-height: 1.3; }
+.perigo strong { font-weight: 800; }
+.perigo-alto { background: var(--alto); color: #fff; }
+.perigo-medio { background: var(--medio); color: #2E2A1F; }
+.perigo-baixo { background: var(--baixo); color: #2E2A1F; border: 1px solid #E2C690; }
+.perigo-nenhum { background: var(--nenhum); color: #fff; }
+
+/* a inicial */
+.abertura-guia { padding: 2.5rem 0 2rem; background: linear-gradient(180deg, var(--destaque-fundo), var(--fundo)); }
+.abertura-guia h1 { font-family: var(--titulo); font-size: clamp(2.4rem, 8vw, 4rem); line-height: 1.05; }
+.abertura-guia > .container > p { max-width: 60ch; margin: .8rem 0 1.4rem; font-size: 1.08rem; }
+.portas-guia { display: grid; gap: .8rem; }
+.porta-guia { display: grid; gap: .25rem; padding: 1.1rem 1.2rem; border-radius: var(--raio); background: var(--superficie); border: 2px solid var(--borda); color: var(--texto); text-decoration: none; }
+.porta-guia strong { font-family: var(--titulo); font-size: 1.35rem; }
+.porta-guia span { color: var(--texto-suave); }
+.porta-guia:hover { border-color: var(--texto); transform: translateY(-2px); }
+.porta-identificar { background: var(--folha); border-color: var(--folha); color: #fff; }
+.porta-identificar span { color: #E6F0E2; }
+.porta-socorro { background: var(--alto); border-color: var(--alto); color: #fff; }
+.porta-socorro span { color: #F7DCD7; }
+.dois { display: grid; gap: 1rem; margin-top: 1rem; }
+.conceito { background: var(--superficie); border: 1px solid var(--borda); border-radius: var(--raio); padding: 1rem 1.2rem; }
+.conceito-nome { font-family: var(--titulo); font-size: 1.3rem; font-weight: 700; }
+.abelhas-chamada { display: grid; gap: 1.5rem; align-items: center; }
+.abelhas-chamada img { width: 100%; height: auto; border-radius: var(--raio); }
+
+/* os cartões dos bichos */
+.bichos-lista { list-style: none; display: grid; gap: .7rem; margin: 1rem 0; }
+.bicho-cartao[hidden] { display: none; }
+.bicho-cartao a { display: grid; gap: .3rem; height: 100%; padding: .9rem 1rem; border-radius: 14px; background: var(--superficie); border: 1px solid var(--borda); color: var(--texto); text-decoration: none; align-content: start; }
+.bicho-cartao a:hover { border-color: var(--texto); transform: translateY(-2px); }
+.bicho-cartao strong { font-family: var(--titulo); font-size: 1.25rem; }
+.bicho-grupo { font-size: .8rem; font-weight: 700; color: var(--texto-suave); }
+.bicho-pica { font-weight: 600; }
+.bicho-cartao .perigo { justify-self: start; border-radius: 8px; }
+
+/* o catálogo */
+.catalogo { display: grid; gap: 1.2rem; grid-template-columns: minmax(0, 1fr); }
+.filtros-bichos { display: grid; gap: .5rem; align-content: start; }
+.filtros-bichos label, .filtros-bichos legend { font-weight: 700; }
+.filtros-bichos fieldset { border: 0; margin: .3rem 0; min-width: 0; }
+.filtros-bichos input { width: 100%; min-height: 46px; padding: .6rem .8rem; border: 2px solid var(--borda); border-radius: 10px; font: inherit; background: var(--superficie); color: var(--texto); }
+.vazio { color: var(--texto-suave); }
+
+/* a ficha */
+.ficha-bicho { padding: 1.5rem 0 3rem; }
+.trilha { font-size: .92rem; margin-bottom: 1rem; }
+.trilha a { display: inline-block; padding-block: 4px; }
+.ficha-topo { display: grid; gap: 1.2rem; }
+.ficha-grupo { font-weight: 700; color: var(--texto-suave); }
+.ficha-titulo h1 { font-family: var(--titulo); font-size: clamp(2.2rem, 7vw, 3.4rem); line-height: 1.05; }
+.ficha-abre { font-size: 1.1rem; margin-top: .6rem; max-width: 60ch; }
+.ficha-resposta { border-radius: var(--raio); padding: 1.1rem 1.2rem; display: grid; gap: .5rem; justify-items: start; border: 2px solid var(--borda); background: var(--superficie); }
+.perigo-caixa-alto { border-color: var(--alto); } .perigo-caixa-medio { border-color: var(--medio); } .perigo-caixa-nenhum { border-color: var(--nenhum); }
+.resposta-pergunta { font-weight: 700; color: var(--texto-suave); }
+.resposta { font-family: var(--titulo); font-size: 1.5rem; font-weight: 700; line-height: 1.2; }
+.resposta-tipo { font-size: .92rem; color: var(--texto-suave); }
+.ficha-corpo { display: grid; gap: 1.6rem; margin-top: 2rem; }
+.ficha-corpo h2 { font-family: var(--titulo); font-size: 1.45rem; margin-bottom: .4rem; }
+.ficha-corpo p { max-width: 65ch; }
+.par { border: 1px solid var(--borda); border-radius: 14px; padding: .8rem 1rem; background: var(--superficie); margin-top: .6rem; }
+.par-nome { display: flex; flex-wrap: wrap; gap: .5rem; align-items: center; font-weight: 700; margin-bottom: .3rem; }
+.ficha-navegar { display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--borda); }
+.ficha-navegar a { font-weight: 700; padding: .4rem 0; }
+.ficha-nota { color: var(--texto-suave); font-size: .9rem; margin-top: 1.2rem; max-width: 70ch; }
+
+/* Que bicho é esse? */
+.identificar { display: grid; gap: 1.4rem; grid-template-columns: minmax(0, 1fr); }
+.id-caixa { background: var(--superficie); border: 1px solid var(--borda); border-radius: var(--raio); padding: 1.2rem; min-height: 340px; }
+.js .id-sem-js { display: none; }
+.id-caixa.entra > * { animation: id-entra .22s ease-out; }
+@keyframes id-entra { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+.id-passo { color: var(--texto-suave); font-weight: 700; }
+.id-pergunta { font-family: var(--titulo); font-size: 1.5rem; margin: .3rem 0 1rem; outline: none; }
+.id-opcoes { display: grid; gap: .5rem; }
+.id-opcoes button { font: inherit; font-weight: 600; text-align: left; min-height: 52px; padding: .7rem 1rem; border-radius: 12px; border: 2px solid var(--borda); background: var(--fundo); color: var(--texto); cursor: pointer; }
+.id-opcoes button:hover { border-color: var(--texto); }
+.id-resultado { display: grid; gap: .6rem; justify-items: start; border: 2px solid var(--borda); border-radius: 14px; padding: 1rem; }
+.id-resultado h2 { font-family: var(--titulo); font-size: 2rem; line-height: 1.1; }
+.id-resultado h2 a { color: var(--texto); }
+.id-acoes { display: flex; flex-wrap: wrap; gap: .5rem; }
+.id-aviso { font-size: .9rem; color: var(--texto-suave); }
+.id-navegar { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1rem; }
+.id-alerta { border-left: 5px solid var(--alto); background: var(--errado-fundo); border-radius: 12px; padding: 1rem 1.1rem; display: grid; gap: .5rem; align-content: start; }
+.id-alerta-titulo { font-family: var(--titulo); font-weight: 700; font-size: 1.3rem; }
+.id-tel a, .telefones a { font-weight: 800; }
+
+/* Socorro */
+.socorro { display: grid; gap: 1.6rem; grid-template-columns: minmax(0, 1fr); }
+.telefones { background: var(--superficie); border: 2px solid var(--alto); border-radius: var(--raio); padding: 1rem 1.2rem; align-self: start; }
+.telefones h2 { font-family: var(--titulo); font-size: 1.4rem; margin-bottom: .5rem; }
+.telefones ul { list-style: none; display: grid; gap: .5rem; }
+.telefones li { display: grid; gap: .1rem; padding: .6rem .8rem; border-radius: 12px; background: var(--errado-fundo); }
+.telefones li > a { font-size: 1.35rem; color: var(--errado-texto); text-decoration: none; display: inline-block; min-height: 32px; }
+.telefones li > a:hover { text-decoration: underline; }
+.tel-nota { font-size: .9rem; color: var(--texto-suave); margin-top: .6rem; }
+.socorro-texto { display: grid; gap: 1.6rem; }
+.socorro-texto h2 { font-family: var(--titulo); font-size: 1.6rem; margin-bottom: .5rem; }
+.passos { padding-left: 1.4rem; display: grid; gap: .45rem; font-size: 1.05rem; }
+.nunca { background: var(--errado-fundo); border-radius: var(--raio); padding: 1rem 1.2rem; }
+.nunca ul { list-style: none; display: grid; gap: .35rem; }
+.nunca li::before { content: "✗ "; font-weight: 800; color: var(--errado-texto); }
+.soc-bicho { border: 1px solid var(--borda); border-radius: 14px; background: var(--superficie); margin-bottom: .6rem; scroll-margin-top: 90px; }
+.soc-bicho summary { cursor: pointer; font-weight: 800; padding: .9rem 1rem; min-height: 48px; }
+.soc-bicho[open] summary { border-bottom: 1px solid var(--borda); }
+.soc-bicho ol { padding: .8rem 1rem .4rem 2.2rem; display: grid; gap: .4rem; }
+.soc-bicho[open] ol { animation: id-entra .2s ease-out; }
+.soc-fonte { font-size: .85rem; color: var(--texto-suave); padding: 0 1rem .8rem; }
+.ligar-192 { display: none; }
+
+/* Mitos */
+.mitos { display: grid; gap: 2rem; grid-template-columns: minmax(0, 1fr); }
+.mito-jogo { background: var(--superficie); border: 1px solid var(--borda); border-radius: var(--raio); padding: 1.2rem; display: grid; gap: .7rem; align-content: start; }
+.mito-jogo h2, .mitos h2 { font-family: var(--titulo); font-size: 1.5rem; }
+.mito-placar { color: var(--texto-suave); font-weight: 700; }
+.mito-pergunta { font-family: var(--titulo); font-size: 1.4rem; outline: none; }
+.mito-botoes { display: flex; gap: .6rem; flex-wrap: wrap; }
+.mito-botoes .botao[hidden] { display: none; }
+.mito-botoes .certa { background: var(--certo); } .mito-botoes .errada { background: var(--errado); }
+.mito-retorno { border-radius: 12px; padding: .8rem 1rem; }
+.mito-retorno.certo { background: var(--certo-fundo); } .mito-retorno.errado { background: var(--errado-fundo); }
+.mito-proxima { justify-self: start; }
+.mitos-lista { list-style: none; display: grid; gap: .8rem; margin-top: .8rem; }
+.mito-cartao { border-radius: 14px; padding: 1rem; background: var(--superficie); border: 1px solid var(--borda); border-left: 5px solid var(--borda); }
+.mito-cartao.mito-mito { border-left-color: var(--errado); } .mito-cartao.mito-verdade { border-left-color: var(--certo); } .mito-cartao.mito-emparte { border-left-color: var(--medio); }
+.mito-frase { font-family: var(--titulo); font-size: 1.15rem; font-weight: 700; }
+.mito-veredito { font-weight: 800; margin: .3rem 0; }
+.mito-mito .mito-veredito { color: var(--errado-texto); } .mito-verdade .mito-veredito { color: var(--certo-texto); }
+.fontes-lista { display: grid; gap: .7rem; padding-left: 0; list-style: none; max-width: 80ch; }
+.fonte-numero { display: inline-grid; place-items: center; min-width: 28px; height: 28px; border-radius: 999px; background: var(--destaque-fundo); font-weight: 800; margin-right: .3rem; }
+.fontes-lista a { font-weight: 700; display: inline-block; padding-block: 3px; }
+.fontes-lista li:target { outline: 3px solid var(--medio); outline-offset: 4px; border-radius: 6px; }
+
+/* --- Celular (até 699 px): cinco itens na barra de baixo; os perigosos numa faixa que rola de lado; o 192 preso à vista */
+@media (max-width: 699px) {
+    .topo .menu { grid-template-columns: none; grid-auto-flow: column; grid-auto-columns: minmax(0, 1fr); }
+    .topo .menu a { font-size: .74rem; }
+    .bichos-faixa { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: .5rem; position: relative; }
+    .bichos-faixa > li { flex: 0 0 78%; scroll-snap-align: start; }
+    .filtros-bichos .chips { flex-wrap: nowrap; overflow-x: auto; padding-bottom: .3rem; position: relative; }
+    .filtros-bichos .chip { flex: none; }
+    .ligar-192 { display: flex; justify-content: center; align-items: center; position: fixed; left: 16px; right: 16px; bottom: calc(66px + env(safe-area-inset-bottom)); z-index: 19;
+        min-height: 50px; border-radius: 999px; background: var(--alto); color: #fff; font-weight: 800; text-decoration: none; box-shadow: 0 6px 18px rgb(0 0 0 / .25); }
+    body:has(.ligar-192) { padding-bottom: calc(130px + env(safe-area-inset-bottom)); }
+}
+/* --- Tablet (700 a 1099 px): duas colunas */
+@media (min-width: 700px) {
+    .portas-guia { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .dois { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .bichos-lista { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .abelhas-chamada { grid-template-columns: 3fr 2fr; }
+    .ficha-topo { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); align-items: start; }
+    .ficha-corpo { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 2rem; }
+    .ficha-corpo > section:has(.par) { grid-column: 1 / -1; }
+    .telefones ul { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .mitos-lista { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+/* --- Computador (1100 px ou mais): o que é de consulta parado ao lado; listas em 3 colunas */
+@media (min-width: 1100px) {
+    .portas-guia { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .catalogo { grid-template-columns: 260px minmax(0, 1fr); column-gap: 2.5rem; align-items: start; }
+    .filtros-bichos { position: sticky; top: 88px; }
+    .catalogo .vazio { grid-column: 2; }
+    .bichos-lista { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .bichos-faixa { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .ficha-resposta { position: sticky; top: 88px; }
+    .identificar { grid-template-columns: minmax(0, 1fr) 320px; column-gap: 2.5rem; align-items: start; }
+    .id-alerta { position: sticky; top: 88px; }
+    .socorro { grid-template-columns: 330px minmax(0, 1fr); column-gap: 3rem; align-items: start; }
+    .telefones { position: sticky; top: 88px; }
+    .telefones ul { grid-template-columns: minmax(0, 1fr); }
+    .mitos { grid-template-columns: minmax(0, 380px) minmax(0, 1fr); column-gap: 2.5rem; align-items: start; }
+    .mito-jogo { position: sticky; top: 88px; }
+    .mitos-lista { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (prefers-reduced-motion: reduce) { .id-caixa.entra > *, .soc-bicho[open] ol { animation: none; } .porta-guia:hover, .bicho-cartao a:hover { transform: none; } }

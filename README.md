@@ -234,6 +234,13 @@ node ferramentas/gerar-estudo.mjs abelhas-sem-ferrao
   (pistas tiradas das fichas) e há duas páginas novas, “O Cerrado mês a mês” (lista `EVENTOS`) e “Como ajudar” (lista
   `ACOES`). Para caber no orçamento de DOM, os ícones do catálogo são um `<svg>` com `<use>` (os desenhos ficam uma vez
   só, em `icones_defs()`). No tablet, o menu de 8 itens do guia vira o botão “Menu” até 1099 px (regra por `:has()`).
+- **As Abelhas viraram o “Pica ou Não Pica?”** (1/11/2026, pedido de “o melhor site de reconhecer animais venenosos ou
+  não”; nome provisório, as abelhas continuam dentro): em português, a inicial e o menu são os do guia, com “Que bicho
+  é?” (perguntas em árvore até o bicho), “Bichos” (27 fichas com busca e filtros de grupo e perigo), “Socorro” (192, 193,
+  0800 722 6001 e o que fazer em cada picada), “Mitos” (17 mitos e o jogo “Verdade ou mito?”) e “Fontes” (31). Tudo sai do
+  `ferramentas/estudo/abelhas-sem-ferrao/guia-pt.py` (listas `B`, `ARVORE`, `MITOS`, `PARES`, `FONTES`; rodar antes do
+  `gerar-estudo.mjs`), com o script `js/guia.js`. As outras 12 línguas seguem com o site das Abelhas até a tradução, pelo
+  mesmo `{{!pt-BR}}` do Cerrado. O CSS das Abelhas está em `?v=6`.
 - **A 404 do Cerrado** (`sitios/fotografia-do-cerrado/404.html`) só aparece depois de o bloco novo do `deploy/Caddyfile-bloco`
   (`handle_errors` no `cerrado.linupedia.com.br`) ser posto na VM, como diz o `deploy/ORACLE.md`.
 - Os repositórios `Seiabras/fotografia-do-cerrado` e `Seiabras/abelhas-sem-ferrao` recebem uma cópia de

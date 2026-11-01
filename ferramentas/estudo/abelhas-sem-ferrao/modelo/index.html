@@ -3,27 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{index_067}}</title>
-    <meta name="description" content="{{index_071}}">
+    {{!pt-BR}}<title>{{index_067}}</title>{{/!pt-BR}}{{?pt-BR}}<title>Pica ou Não Pica? — o guia dos bichos que picam</title>{{/pt-BR}}
+    {{!pt-BR}}<meta name="description" content="{{index_071}}">{{/!pt-BR}}{{?pt-BR}}<meta name="description" content="Reconheça os bichos do Brasil que picam e os que não picam: cobras, escorpiões, aranhas, abelhas, lagartas. E o que fazer se picar.">{{/pt-BR}}
     <meta name="theme-color" content="#E9A23B">
     <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐝%3C/text%3E%3C/svg%3E">
     <script src="{{raiz}}js/tema-inicio.js?v=2"></script>
-    <link rel="stylesheet" href="{{raiz}}css/estilo.css?v=4">
+    <link rel="stylesheet" href="{{raiz}}css/estilo.css?v=6">
     <script src="{{raiz}}js/tema.js?v=2" defer></script>
-{{alternativas}}
+{{?pt-BR}}    <script src="{{raiz}}js/guia.js?v=1" defer></script>
+{{/pt-BR}}{{alternativas}}
 <script type="application/json" id="textos-estudo">{{textos_js}}</script>
 </head>
 <body>
     <a class="pular" href="#conteudo">{{achei_um_ninho_021}}</a>
     <header class="topo">
         <div class="container">
-            <a class="marca" href="index.html">{{achei_um_ninho_020}}</a>
-            <nav aria-label="{{achei_um_ninho_023}}"><ul class="menu"><li>{{index_066}}</li><li>{{achei_um_ninho_018}}</li><li>{{creditos_034}}</li><li>{{achei_um_ninho_016}}</li></ul></nav>
+            {{!pt-BR}}<a class="marca" href="index.html">{{achei_um_ninho_020}}</a>{{/!pt-BR}}{{?pt-BR}}<a class="marca" href="index.html"><span aria-hidden="true">🐍</span> Pica ou Não Pica?</a>{{/pt-BR}}
+            <nav aria-label="{{achei_um_ninho_023}}">{{!pt-BR}}<ul class="menu"><li>{{index_066}}</li><li>{{achei_um_ninho_018}}</li><li>{{creditos_034}}</li><li>{{achei_um_ninho_016}}</li></ul>{{/!pt-BR}}{{?pt-BR}}<ul class="menu"><li><a href="index.html" aria-current="page">Início</a></li><li><a href="identificar.html">Que bicho é?</a></li><li><a href="bichos.html">Bichos</a></li><li><a href="socorro.html">Socorro</a></li><li><a href="mitos.html">Mitos</a></li></ul>{{/pt-BR}}</nav>
             <button class="botao-tema" type="button" data-escuro="{{achei_um_ninho_024}}" data-claro="{{achei_um_ninho_025}}" aria-label="{{achei_um_ninho_024}}"><svg class="lua" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/></svg><svg class="sol" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 1.5v3M12 19.5v3M1.5 12h3M19.5 12h3M4.6 4.6l2.1 2.1M17.3 17.3l2.1 2.1M4.6 19.4l2.1-2.1M17.3 6.7l2.1-2.1"/></svg></button>
         </div>
     </header>
     <main id="conteudo">
-        <section class="abertura">
+{{!pt-BR}}        <section class="abertura">
             <div class="container">
                 <div>
                     <h1>{{index_065}}</h1>
@@ -48,12 +49,56 @@
                 </div>
             </div>
         </section>
+
+
+
+
+{{/!pt-BR}}{{?pt-BR}}        <section class="abertura-guia">
+            <div class="container">
+                <h1>Pica ou não pica?</h1>
+                <p>O guia para reconhecer os bichos do Brasil que picam, queimam ou só levam a fama: cobras, escorpiões, aranhas, abelhas, lagartas e bichos da água. E o que fazer se picar.</p>
+                <div class="portas-guia">
+                    <a class="porta-guia porta-identificar" href="identificar.html"><strong>Que bicho é esse?</strong><span>Responda algumas perguntas e descubra.</span></a>
+                    <a class="porta-guia porta-socorro" href="socorro.html"><strong>Picou? O que fazer</strong><span>Os primeiros passos e os telefones.</span></a>
+                    <a class="porta-guia" href="bichos.html"><strong>Todos os bichos</strong><span>27 bichos, do perigoso ao inofensivo.</span></a>
+                    <a class="porta-guia" href="mitos.html"><strong>Verdade ou mito?</strong><span>Chupar o veneno, galinha contra escorpião…</span></a>
+                </div>
+            </div>
+        </section>
+        <section class="secao">
+            <div class="container">
+                <h2>Venenoso ou peçonhento?</h2>
+                <div class="dois">
+                    <div class="conceito"><p class="conceito-nome">Peçonhento</p><p>Produz a toxina e tem como injetar: ferrão, presas, quelíceras. Cobras, escorpiões, aranhas, abelhas.<sup class="nota"><a href="fontes.html#f1" aria-label="Fonte 1">1</a></sup></p></div>
+                    <div class="conceito"><p class="conceito-nome">Venenoso</p><p>Tem a toxina, mas não injeta: o perigo é para quem morde, aperta ou põe na boca. O sapo é o exemplo clássico.<sup class="nota"><a href="fontes.html#f1" aria-label="Fonte 1">1</a></sup></p></div>
+                </div>
+            </div>
+        </section>
+        <section class="secao secao-clara">
+            <div class="container">
+                <h2>Os mais perigosos</h2>
+                <p>Se picar, é serviço de saúde na hora.</p>
+                <ul class="bichos-lista bichos-faixa"><li class="bicho-cartao" data-grupo="Cobras" data-perigo="alto" data-busca="jararaca bothrops spp."><a href="bicho-jararaca.html"><span class="bicho-grupo">Cobras</span><strong>Jararaca</strong><span class="bicho-pica">Pica, e é perigosa</span><span class="perigo perigo-alto"><strong>Perigoso</strong> Procure atendimento já</span></a></li><li class="bicho-cartao" data-grupo="Cobras" data-perigo="alto" data-busca="cascavel crotalus durissus"><a href="bicho-cascavel.html"><span class="bicho-grupo">Cobras</span><strong>Cascavel</strong><span class="bicho-pica">Pica, e é perigosa</span><span class="perigo perigo-alto"><strong>Perigoso</strong> Procure atendimento já</span></a></li><li class="bicho-cartao" data-grupo="Cobras" data-perigo="alto" data-busca="surucucu lachesis muta"><a href="bicho-surucucu.html"><span class="bicho-grupo">Cobras</span><strong>Surucucu</strong><span class="bicho-pica">Pica, e é perigosa</span><span class="perigo perigo-alto"><strong>Perigoso</strong> Procure atendimento já</span></a></li><li class="bicho-cartao" data-grupo="Cobras" data-perigo="alto" data-busca="coral-verdadeira micrurus spp."><a href="bicho-coral.html"><span class="bicho-grupo">Cobras</span><strong>Coral-verdadeira</strong><span class="bicho-pica">Pica, e é perigosa</span><span class="perigo perigo-alto"><strong>Perigoso</strong> Procure atendimento já</span></a></li><li class="bicho-cartao" data-grupo="Escorpiões" data-perigo="alto" data-busca="escorpião-amarelo tityus serrulatus"><a href="bicho-escorpiao-amarelo.html"><span class="bicho-grupo">Escorpiões</span><strong>Escorpião-amarelo</strong><span class="bicho-pica">Pica, e é perigoso para crianças</span><span class="perigo perigo-alto"><strong>Perigoso</strong> Procure atendimento já</span></a></li><li class="bicho-cartao" data-grupo="Aranhas e parecidos" data-perigo="alto" data-busca="aranha-marrom loxosceles spp."><a href="bicho-aranha-marrom.html"><span class="bicho-grupo">Aranhas e parecidos</span><strong>Aranha-marrom</strong><span class="bicho-pica">Pica, e pode ser grave</span><span class="perigo perigo-alto"><strong>Perigoso</strong> Procure atendimento já</span></a></li><li class="bicho-cartao" data-grupo="Lagartas e besouros" data-perigo="alto" data-busca="taturana (lonomia) lonomia spp."><a href="bicho-taturana.html"><span class="bicho-grupo">Lagartas e besouros</span><strong>Taturana (Lonomia)</strong><span class="bicho-pica">Queima no contato, e pode ser grave</span><span class="perigo perigo-alto"><strong>Perigoso</strong> Procure atendimento já</span></a></li></ul>
+                <p><a href="bichos.html">Ver todos os 27 bichos</a></p>
+            </div>
+        </section>
+        <section class="secao">
+            <div class="container abelhas-chamada">
+                <div>
+                    <h2>E as abelhas sem ferrão?</h2>
+                    <p>Nem toda abelha pica. As abelhas nativas do Brasil, como a jataí, não têm ferrão que funcione, polinizam as plantas e fazem um mel especial. Este guia nasceu delas.</p>
+                    <p><a class="botao" href="descobrir.html">Descobrir em 3 minutos</a> <a class="botao botao-claro" href="achei-um-ninho.html">Achei um ninho!</a></p>
+                </div>
+                <img src="{{raiz}}img/jatai.jpg" alt="Abelha jataí sobre uma flor branca" width="1000" height="667" loading="lazy">
+            </div>
+        </section>
+{{/pt-BR}}
     </main>
     <footer class="rodape">
         <div class="container">
             {{idiomas}}
-            <p>{{achei_um_ninho_002}}</p>
-            <p>{{achei_um_ninho_001}}</p>
+            {{?pt-BR}}<p>Pica ou Não Pica? é um guia de estudo: não substitui o atendimento médico. Em caso de acidente, ligue 192 ou vá ao serviço de saúde mais perto.</p><p><a href="fontes.html">Fontes</a> · <a href="descobrir.html">Abelhas sem ferrão</a> · <a href="creditos.html">Créditos das fotos</a> · Projeto de estudo de Luiz Matheus Moraes Vega</p>{{/pt-BR}}{{!pt-BR}}<p>{{achei_um_ninho_002}}</p>
+            <p>{{achei_um_ninho_001}}</p>{{/!pt-BR}}
         </div>
     </footer>
 </body>
