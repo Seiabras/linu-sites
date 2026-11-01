@@ -232,7 +232,16 @@
     "fid_usar": "Prämie einlösen",
     "tw_feito": "Gemacht mit HTML, Tailwind CSS und etwas Quantenkoffein",
     "versoes": "Auch in",
-    "comparar": "alle drei vergleichen (Portugiesisch)"
+    "comparar": "alle fünf vergleichen (Portugiesisch)",
+    "pular_abertura": "Intro überspringen",
+    "i_peso": "Gewicht",
+    "d_f_vegano": "Vegan",
+    "d_p_vazio": "Die Bestellung ist leer. Tippe bei einem Brot der Karte oder bei „Stell dein Brot zusammen“ auf „+ Bestellung“.",
+    "d_p_nota": "Die Bäckerei ist erfunden: WhatsApp öffnet sich ohne Nummer, damit du selbst wählst, an wen. Auf einer echten Website ginge die Bestellung direkt an den Laden.",
+    "d_dim_hint": "Ziehen, um das Spektrum der Bäckerei zu verschieben. Nichts brennt an — wahrscheinlich.",
+    "d_ficticia": "Fiktive Bäckerei · Beispielwebsite von",
+    "v_rotulo": "Die fünf Versionen",
+    "css_puro": "Reines CSS"
   },
   "js": {
     "boot": [
@@ -369,6 +378,7 @@
           ]
         ]
       ]
-    ]
+    ],
+    "d_titulo": "Bäckerei Aurora — Eine Cyberpunk-Bäckerei in einer anderen Dimension"
   }
 }

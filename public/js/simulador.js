@@ -39,19 +39,18 @@
   };
 
   // O Café avisa se está de noite (Café Aurora) ou de dia (Padaria Aurora); os textos que falam da bebida viram pão.
-  // Os textos de dia ficam no #simulador-dia (por enquanto, só na página em português); sem ele, nada muda.
-  const blocoDia = document.getElementById('simulador-dia');
-  const DIA = blocoDia ? JSON.parse(blocoDia.textContent) : null;
+  // O texto de dia de cada um fica no data-dia dele (nas 13 línguas desde 1/11/2026); sem ele, nada muda.
   const alvos = [...document.querySelectorAll('#exemplo [data-modo-texto]')];
+  const DIA = alvos.some((el) => el.dataset.dia);
   let modoCafe = 'noite';
   const trocarModo = (m) => {
     if (!DIA || (m !== 'dia' && m !== 'noite') || m === modoCafe) return;
     modoCafe = m;
     sim.dataset.modo = m;
     alvos.forEach((el) => {
-      const k = el.dataset.modoTexto, eIframe = el.tagName === 'IFRAME';
+      const eIframe = el.tagName === 'IFRAME';
       if (!el.dataset.noite) el.dataset.noite = eIframe ? el.title : el.textContent;
-      const v = m === 'dia' && DIA[k] ? DIA[k] : el.dataset.noite;
+      const v = m === 'dia' && el.dataset.dia ? el.dataset.dia : el.dataset.noite;
       if (eIframe) { el.title = v; return; }
       el.textContent = v;
       if (!calmo) el.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 200, easing: 'ease-out' });

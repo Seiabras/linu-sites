@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Café Aurora · Bulma</title>
+<meta name="description" content="Café Aurora, una cafeteria cyberpunk fictícia: web d’exemple de Linu Sites.">
+<meta name="theme-color" content="#05030a">
+<link rel="canonical" href="https://cafe.linupedia.com.br/ca/bulma/">
+<link rel="alternate" hreflang="pt-BR" href="https://cafe.linupedia.com.br/bulma/">
+<link rel="alternate" hreflang="pt-PT" href="https://cafe.linupedia.com.br/pt-pt/bulma/">
+<link rel="alternate" hreflang="es-ES" href="https://cafe.linupedia.com.br/es/bulma/">
+<link rel="alternate" hreflang="ca" href="https://cafe.linupedia.com.br/ca/bulma/">
+<link rel="alternate" hreflang="nl" href="https://cafe.linupedia.com.br/nl/bulma/">
+<link rel="alternate" hreflang="en-GB" href="https://cafe.linupedia.com.br/en/bulma/">
+<link rel="alternate" hreflang="fr-FR" href="https://cafe.linupedia.com.br/fr/bulma/">
+<link rel="alternate" hreflang="de-DE" href="https://cafe.linupedia.com.br/de/bulma/">
+<link rel="alternate" hreflang="it-IT" href="https://cafe.linupedia.com.br/it/bulma/">
+<link rel="alternate" hreflang="en" href="https://cafe.linupedia.com.br/intl/bulma/">
+<link rel="alternate" hreflang="ja-JP" href="https://cafe.linupedia.com.br/ja/bulma/">
+<link rel="alternate" hreflang="ko-KR" href="https://cafe.linupedia.com.br/ko/bulma/">
+<link rel="alternate" hreflang="zh-Hant" href="https://cafe.linupedia.com.br/zh-hant/bulma/">
+<script type="application/json" id="textos-cafe">{"boot":["Iniciant el portal…","Calibrant la mòlta quàntica…","Sincronitzant grans d’Ω-11…","Escalfant el reactor de vapor…","Benvingut a l’escletxa."],"news_erro":"Senyal no vàlid. Revisa les coordenades del teu correu.","news_ok":"Senyal rebut. Et contactaran des d’una altra dimensió.","terminar":"✓ Fet","painel_aviso":"Fes clic en un text i escriu. Al tauler de debò, el que canvies queda desat.","d_boot":["Encenent el forn…","Tancant l'escletxa…","Pastant la massa d'Ω-11…","Esperant que la crosta es dauri…","Bon dia."],"d_pao":["Pa de Blat Solar","Pa de Sègol de la Penombra","Pa Integral d'Òrbita","Brioix Estel·lar"],"d_min":"{n} min","add_aria":"Afegeix {nome} a la comanda","no_pedido":"{nome} afegit a la comanda.","menos":"Un {nome} menys","mais":"Un {nome} més","f_n":"{n} de {total} a la carta","msg_cab":"Comanda per a {loja}:","msg_total":"Total","msg_nome":"Nom","msg_aqui":"Per prendre aquí","msg_levar":"Per emportar","msg_hora":"A les","msg_obs":"Obs.:","feito":"Fet: el WhatsApp s’ha obert amb la comanda. Has guanyat un segell ({n} de 10).","feito_abrir":"Torna a obrir el WhatsApp","selo":"Aquesta comanda val un segell ({n} de 10 fins ara).","fid_n":"{n} de 10 segells.","fid_premio":"Targeta plena! La propera comanda la convida la casa.","fid_usado":"Premi fet servir. Targeta nova, sort.","r_ok":"Reservat: {mesa}, {pessoas} persones, {data} a les {hora}.","r_whats":"Confirma per WhatsApp","r_cancelar":"Cancel·la","r_msg":"Reserva a {loja}: {mesa}, {pessoas} persones, {data} a les {hora}, a nom de {nome}.","r_hora_erro":"Digues-nos l’hora.","r_hora_noite":"De 04:00 a 06:00 el cafè tanca per netejar l’escletxa.","r_hora_dia":"La fleca obre de 06:00 a 18:00.","qz_passo":"Pregunta {n} de {total}","qz_resultado":"Et va:","qz_de_novo":"Torna-hi","qz_noite":[["Calent o fred?",[["Calent","quente"],["Fred","gelado"]]],["Dolç o intens?",[["Dolç","doce"],["Intens","intenso"]]],["I la cafeïna?",[["Endavant","cafeina"],["Sense cafeïna","sem-cafeina"]]]],"qz_dia":[["Dolç o salat?",[["Dolç","doce"],["Salat","salgado"]]],["Acabat de fornejar?",[["Calentó","quentinho"],["Tant me fa",""]]],["I la llet?",[["Cap problema",""],["Sense lactosa","sem-lactose"]]]],"d_titulo":"Forn Aurora — Un Forn Cyberpunk en una Altra Dimensió","expresso":"Exprés Quàntic","coldbrew":"Cold Brew Neural","matcha":"Matcha del Buit","estelar":"Llet d’Estrella","nivel":"Nivell","editar":"✎ Edita els textos","d_nome":"Forn Aurora","lab_add":"Afegeix a la comanda"}</script>
+
+
+<link rel="preload" href="../../fontes/orbitron.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="../../icone.png" type="image/png" sizes="128x128">
+<script src="../../inicio.js?v=3"></script>
+<link rel="stylesheet" href="../../bulma/vendor/bulma.min.css">
+<link rel="stylesheet" href="../../bulma/estilo.css?v=2">
+<link rel="stylesheet" href="../../padaria.css?v=6">
+</head>
+
+<body>
+<a class="skip" href="#conteudo">Salta al contingut</a>
+
+<!-- BOOT -->
+<div class="boot" id="boot" role="status" aria-live="polite">
+  <div class="boot__logo"><span class="so-noite">CAFÉ AURORA</span><span class="so-dia">FORN AURORA</span></div>
+  <div class="boot__bar"><div class="boot__fill" id="bootFill"></div></div>
+  <div class="boot__log" id="bootLog"><span class="so-noite">Iniciant el portal…</span><span class="so-dia">Encenent el forn…</span></div>
+  <button type="button" class="boot__pular">Salta la intro</button>
+</div>
+
+<!-- CURSOR -->
+<div class="cur" id="cur" aria-hidden="true"></div>
+<div class="cur-dot" id="curDot" aria-hidden="true"></div>
+
+<!-- FUNDO -->
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="bg-veil" aria-hidden="true"></div>
+<div class="noise" aria-hidden="true"></div>
+<div class="scanlines" aria-hidden="true"></div>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <a href="#inicio" class="brand" aria-label="Café Aurora — inici" data-aria-dia="Forn Aurora — inici">
+    <span class="brand__orb" aria-hidden="true"></span>
+    <span class="so-noite">CAFÉ&nbsp;AURORA</span><span class="so-dia">FORN AURORA</span>
+  </a>
+
+  <nav class="nav__links" id="navLinks" aria-label="Navegació principal">
+    <a href="#inicio" class="active">Inici</a>
+    <a href="#sobre">Origen</a>
+    <a href="#menu">Carta</a>
+    <a href="#laboratorio"><span class="so-noite">Laboratori</span><span class="so-dia">Forn</span></a>
+    <a href="#transmissoes"><span class="so-noite">Transmissions</span><span class="so-dia">Notes</span></a>
+  </nav>
+
+  <div class="nav__right">
+    <button type="button" class="modo" id="modo" aria-label="Obrir el forn de pa (mode dia)" title="Obrir el forn de pa (mode dia)"
+            data-para-dia="Obrir el forn de pa (mode dia)" data-para-noite="Tornar al cafè (mode nit)">
+      <span class="modo__astro" aria-hidden="true"></span>
+    </button>
+    <a href="#laboratorio" class="btn btn--magenta magnetic">Demana ara</a>
+    <button type="button" class="burger" id="burger" aria-label="Obre el menú" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero__halo" aria-hidden="true"></div>
+    <div class="hero__rings" aria-hidden="true"><i></i><i></i><i></i></div>
+
+    <div>
+      <span class="hero__tag reveal"><span class="so-noite">☕ <b>OBERT</b> 24H · SECTOR NEÓ-07 · DIMENSIÓ Ω</span><span class="so-dia">🥐 <b>FORNADA</b> DE LES 6 · SECTOR SOL-07 · DIMENSIÓ ☉</span></span>
+
+      <h1 class="glitch" data-text="CAFÉ&#10;AURORA">
+        <span><span class="so-noite">CAFÉ</span><span class="so-dia">FORN</span></span>
+        <span><span class="so-noite">AURORA</span><span class="so-dia">AURORA</span></span>
+      </h1>
+
+      <p class="hero__sub reveal" data-d="1">
+        <span class="so-noite">Torrem grans collits en <b>realitats paral·leles</b>. Cada tassa és un petit col·lapse quàntic — i el teu paladar, l’única constant.</span><span class="so-dia">Quan surt el sol, l'escletxa es tanca i el forn s'encén. Coem pa amb farina molta en <b>realitats paral·leles</b>: cada llesca surt calenteta, cruixent i només una mica fora del temps.</span>
+      </p>
+
+      <div class="hero__cta reveal" data-d="2">
+        <a href="#menu" class="btn magnetic"><span class="so-noite">Explora la carta</span><span class="so-dia">Veure la fornada</span></a>
+        <a href="#sobre" class="btn btn--ghost magnetic"><span class="so-noite">Travessa el portal</span><span class="so-dia">Conèixer el forn</span></a>
+      </div>
+
+      <div class="hero__stats reveal" data-d="3">
+        <div><b>12</b><span class="so-noite">Dimensions actives</span><span class="so-dia">Fornades al dia</span></div>
+        <div><b>98,4 %</b><span class="so-noite">Precisió quàntica</span><span class="so-dia">Cruixent mesurat</span></div>
+        <div><b>∞</b><span class="so-noite">Recàrregues de somni</span><span class="so-dia">Molles perdonades</span></div>
+      </div>
+    </div>
+
+    <div class="scroll-hint" aria-hidden="true">
+      <span>Desplaça</span>
+      <i></i>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span><span class="so-noite">Exprés Quàntic</span><span class="so-dia">Croissant de 2087 Capes</span></span><span><span class="so-noite">Latte de Plasma</span><span class="so-dia">Pa de Gravetat Zero</span></span><span><span class="so-noite">Cold Brew Neural</span><span class="so-dia">Barra d'Òrbita</span></span>
+      <span><span class="so-noite">Matcha del Buit</span><span class="so-dia">Bunyol de Nebulosa</span></span><span><span class="so-noite">Llet d’Estrella</span><span class="so-dia">Rosca de l'Eclipsi</span></span><span><span class="so-noite">Pols de Cometa</span><span class="so-dia">Pa de Formatge Quàntic</span></span>
+      <span><span class="so-noite">Exprés Quàntic</span><span class="so-dia">Croissant de 2087 Capes</span></span><span><span class="so-noite">Latte de Plasma</span><span class="so-dia">Pa de Gravetat Zero</span></span><span><span class="so-noite">Cold Brew Neural</span><span class="so-dia">Barra d'Òrbita</span></span>
+      <span><span class="so-noite">Matcha del Buit</span><span class="so-dia">Bunyol de Nebulosa</span></span><span><span class="so-noite">Llet d’Estrella</span><span class="so-dia">Rosca de l'Eclipsi</span></span><span><span class="so-noite">Pols de Cometa</span><span class="so-dia">Pa de Formatge Quàntic</span></span>
+    </div>
+  </div>
+
+  <!-- SOBRE -->
+  <section class="section bulma-section bulma-container" id="sobre">
+    <div class="about bulma-columns bulma-is-vcentered">
+      <div class="about__text bulma-column bulma-is-7-desktop">
+        <span class="eyebrow reveal">Origen</span>
+        <h2 class="reveal" data-d="1"><span class="so-noite">Vam néixer d’un <em>curtcircuit</em> entre dos mons</span><span class="so-dia">De dia, l'escletxa es torna <em>forn</em></span></h2>
+
+        <div class="reveal" data-d="2">
+          <p class="lead">
+            <span class="so-noite">El 2087, una barista anomenada <strong>Aurora Vex</strong> va vessar cafè sobre un reactor de curvatura. El resultat no va ser una explosió — va ser una aroma.</span><span class="so-dia">Cada matí, quan el nostre sol i el d'Ω-11 surten alhora, l'escletxa que <strong>Aurora Vex</strong> va obrir amb cafè s'encongeix fins a quedar de la mida de la porta d'un forn.</span>
+          </p>
+          <p>
+            <span class="so-noite">L’aroma va obrir una escletxa. A l’altre costat hi havia una ciutat igual que la nostra, però amb llums que pensaven i pluja que recordava. Allà vam trobar els grans que avui servim.</span><span class="so-dia">La calor que s'escapa de l'altra banda no es perd: cou pa. La primera fornada surt a les sis, i l'olor travessa les dues ciutats abans que cap despertador.</span>
+          </p>
+          <p>
+            <span class="so-noite">El <strong>Café Aurora</strong> és l’únic punt de trobada entre les dues metròpolis. Aquí el vapor puja a poc a poc i el temps accepta aturar-se uns minuts — sempre que demanis la segona tassa.</span><span class="so-dia">El <strong>Forn Aurora</strong> és el mateix local del cafè, amb llum de dia. Els baristes de la nit es tornen forners, la barra es converteix en aparador i el neó descansa fins que es pon el sol.</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="portal reveal bulma-column" data-d="3" aria-hidden="true">
+        <div class="portal__ring"></div>
+        <div class="portal__ring"></div>
+        <div class="portal__ring"></div>
+        <div class="portal__core"></div>
+        <span class="portal__label"><span class="so-noite">Escletxa estable · 3.2 nm</span><span class="so-dia">Forn estable · 220 °C</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="section bulma-section bulma-container" id="menu">
+    <span class="eyebrow reveal">Carta</span>
+    <h2 class="reveal" data-d="1"><span class="so-noite">Mescles que <em>no existeixen</em> enlloc més</span><span class="so-dia">Fornades que <em>no esperen</em> que passi el temps</span></h2>
+    <p class="lead reveal" data-d="2">
+      <span class="so-noite">Sis receptes calibrades per a diferents freqüències cerebrals. Totes servides en tasses autoregeneratives.</span><span class="so-dia">Sis receptes que surten del forn diverses vegades al dia. Totes embolicades en un paper que guarda la calor unes hores, o dimensions.</span>
+    </p>
+
+    <div class="menu-grid bulma-columns bulma-is-multiline">
+      <div class="bulma-column bulma-is-6-tablet bulma-is-4-desktop">
+      <article class="card reveal tilt" data-d="1">
+        <div class="card__top bulma-level bulma-is-mobile">
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">⚡</span><span class="so-dia">🥐</span></div>
+          <span class="card__id"><span class="so-noite">LX-001</span><span class="so-dia">FN-001</span></span>
+        </div>
+        <h3><span class="so-noite">Exprés Quàntic</span><span class="so-dia">Croissant de 2087 Capes</span></h3>
+        <p><span class="so-noite">Dues extraccions simultànies en universos diferents. Tastes la mitjana de totes dues.</span><span class="so-dia">Pleguem la massa 2087 vegades, una per cada any fins a l'escletxa. Cada mossegada cruix en una capa diferent de la realitat.</span></p>
+        <div class="card__foot bulma-level bulma-is-mobile">
+          <span class="card__price"><span class="so-noite">₡ 18</span><span class="so-dia">₡ 9</span></span>
+          <span class="card__tag"><span class="so-noite">Intens</span><span class="so-dia">Fullat</span></span>
+        </div>
+      </article>
+      </div>
+
+      <div class="bulma-column bulma-is-6-tablet bulma-is-4-desktop">
+      <article class="card card--m reveal tilt" data-d="2">
+        <div class="card__top bulma-level bulma-is-mobile">
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">🌌</span><span class="so-dia">🍞</span></div>
+          <span class="card__id"><span class="so-noite">LX-014</span><span class="so-dia">FN-006</span></span>
+        </div>
+        <h3><span class="so-noite">Latte de Plasma</span><span class="so-dia">Pa de Gravetat Zero</span></h3>
+        <p><span class="so-noite">Llet vaporitzada a 340 °C en un camp magnètic. Brilla una mica quan la remenes.</span><span class="so-dia">Fermentat 72 h surant, sense res que l'estiri cap avall. És tan lleuger que ve lligat al plat.</span></p>
+        <div class="card__foot bulma-level bulma-is-mobile">
+          <span class="card__price"><span class="so-noite">₡ 24</span><span class="so-dia">₡ 7</span></span>
+          <span class="card__tag"><span class="so-noite">Brillant</span><span class="so-dia">Lleuger</span></span>
+        </div>
+      </article>
+      </div>
+
+      <div class="bulma-column bulma-is-6-tablet bulma-is-4-desktop">
+      <article class="card card--v reveal tilt" data-d="3">
+        <div class="card__top bulma-level bulma-is-mobile">
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">❄️</span><span class="so-dia">🥖</span></div>
+          <span class="card__id"><span class="so-noite">LX-027</span><span class="so-dia">FN-012</span></span>
+        </div>
+        <h3><span class="so-noite">Cold Brew Neural</span><span class="so-dia">Barra d'Òrbita</span></h3>
+        <p><span class="so-noite">Fermentat durant 72 h en una cambra de privació sensorial. Se sincronitza amb el teu ritme de concentració.</span><span class="so-dia">Cuita fent una volta sencera al forn orbital. La crosta canta quan l'estrenys.</span></p>
+        <div class="card__foot bulma-level bulma-is-mobile">
+          <span class="card__price"><span class="so-noite">₡ 22</span><span class="so-dia">₡ 8</span></span>
+          <span class="card__tag"><span class="so-noite">Lúcid</span><span class="so-dia">Cruixent</span></span>
+        </div>
+      </article>
+      </div>
+
+      <div class="bulma-column bulma-is-6-tablet bulma-is-4-desktop">
+      <article class="card card--a reveal tilt" data-d="4">
+        <div class="card__top bulma-level bulma-is-mobile">
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">🍃</span><span class="so-dia">🧁</span></div>
+          <span class="card__id"><span class="so-noite">LX-033</span><span class="so-dia">FN-019</span></span>
+        </div>
+        <h3><span class="so-noite">Matcha del Buit</span><span class="so-dia">Bunyol de Nebulosa</span></h3>
+        <p><span class="so-noite">Fulles cultivades on no hi ha llum. El gust arriba abans que l’aroma — no preguntis com.</span><span class="so-dia">Farcit de crema que brilla una mica, empolsinat amb sucre d'estrella. Menja-te'l abans que decideixi evaporar-se.</span></p>
+        <div class="card__foot bulma-level bulma-is-mobile">
+          <span class="card__price"><span class="so-noite">₡ 26</span><span class="so-dia">₡ 6</span></span>
+          <span class="card__tag"><span class="so-noite">Eteri</span><span class="so-dia">Dolç</span></span>
+        </div>
+      </article>
+      </div>
+
+      <div class="bulma-column bulma-is-6-tablet bulma-is-4-desktop">
+      <article class="card card--m reveal tilt" data-d="5">
+        <div class="card__top bulma-level bulma-is-mobile">
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">✨</span><span class="so-dia">🍩</span></div>
+          <span class="card__id"><span class="so-noite">LX-042</span><span class="so-dia">FN-024</span></span>
+        </div>
+        <h3><span class="so-noite">Llet d’Estrella</span><span class="so-dia">Rosca de l'Eclipsi</span></h3>
+        <p><span class="so-noite">Sense cafeïna. Fet de pols estel·lar condensada i una mica d’enyorança.</span><span class="so-dia">Una rosca amb la molla sempre a l'ombra. Per fora, sucre; per dins, una mica de nit.</span></p>
+        <div class="card__foot bulma-level bulma-is-mobile">
+          <span class="card__price"><span class="so-noite">₡ 20</span><span class="so-dia">₡ 5</span></span>
+          <span class="card__tag"><span class="so-noite">Suau</span><span class="so-dia">Rar</span></span>
+        </div>
+      </article>
+      </div>
+
+      <div class="bulma-column bulma-is-6-tablet bulma-is-4-desktop">
+      <article class="card card--v reveal tilt" data-d="5">
+        <div class="card__top bulma-level bulma-is-mobile">
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">☄️</span><span class="so-dia">🧀</span></div>
+          <span class="card__id"><span class="so-noite">LX-050</span><span class="so-dia">FN-031</span></span>
+        </div>
+        <h3><span class="so-noite">Pols de Cometa</span><span class="so-dia">Pa de Formatge Quàntic</span></h3>
+        <p><span class="so-noite">Un triple shot amb estelles de gel orbital. El gel no es fon mai — només es rendeix.</span><span class="so-dia">És calent i fred alhora fins que algú obre la bosseta. Sempre surt calent.</span></p>
+        <div class="card__foot bulma-level bulma-is-mobile">
+          <span class="card__price"><span class="so-noite">₡ 31</span><span class="so-dia">₡ 4</span></span>
+          <span class="card__tag"><span class="so-noite">Rar</span><span class="so-dia">Clàssic</span></span>
+        </div>
+      </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- LABORATÓRIO -->
+  <section class="section bulma-section bulma-container" id="laboratorio">
+    <span class="eyebrow reveal"><span class="so-noite">Laboratori</span><span class="so-dia">Forn</span></span>
+    <h2 class="reveal" data-d="1"><span class="so-noite">Sintetitza la teva <em>pròpia</em> tassa</span><span class="so-dia">Fes el <em>teu</em> pa</span></h2>
+    <p class="lead reveal" data-d="2">
+      <span class="so-noite">Ajusta els paràmetres. La beguda es recalcula en temps real — com tot per aquí.</span><span class="so-dia">Tria la farina, el temps de forn i què hi va a sobre. La crosta es daura mentre decideixes.</span>
+    </p>
+
+    <div class="lab bulma-columns bulma-is-vcentered">
+      <!-- Painel -->
+      <div class="lab__panel reveal bulma-column" data-d="2" id="labForm" role="group" aria-label="Crea la teva beguda" data-aria-dia="Fes el teu pa">
+        <div class="lab__group">
+          <div class="lab__label"><span><span class="so-noite">01 · Base molecular</span><span class="so-dia">01 · Farina</span></span></div>
+          <div class="chips" role="radiogroup" aria-label="Base molecular" data-aria-dia="Farina">
+            <label class="chip">
+              <input type="radio" name="base" value="expresso" checked>
+              <span><span class="so-noite">Exprés</span><span class="so-dia">Blat</span></span>
+            </label>
+            <label class="chip">
+              <input type="radio" name="base" value="coldbrew">
+              <span><span class="so-noite">Cold Brew</span><span class="so-dia">Sègol</span></span>
+            </label>
+            <label class="chip">
+              <input type="radio" name="base" value="matcha">
+              <span><span class="so-noite">Matcha</span><span class="so-dia">Integral</span></span>
+            </label>
+            <label class="chip">
+              <input type="radio" name="base" value="estelar">
+              <span><span class="so-noite">Llet Estel·lar</span><span class="so-dia">Brioix Estel·lar</span></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="lab__group">
+          <div class="lab__label">
+            <span><span class="so-noite">02 · Intensitat quàntica</span><span class="so-dia">02 · Temps de forn</span></span>
+            <b id="intVal">7</b>
+          </div>
+          <input type="range" id="intensity" min="1" max="10" value="7"
+                 aria-label="Intensitat quàntica, de l’1 al 10" data-aria-dia="Temps de forn, de l'1 al 10">
+        </div>
+
+        <div class="lab__group">
+          <div class="lab__label"><span><span class="so-noite">03 · Modificadors</span><span class="so-dia">03 · A sobre</span></span></div>
+          <div class="chips">
+            <label class="chip">
+              <input type="checkbox" name="top[]" value="Pols de Cometa" data-cob="1">
+              <span><span class="so-noite">Pols de Cometa</span><span class="so-dia">Sèsam</span></span>
+            </label>
+            <label class="chip">
+              <input type="checkbox" name="top[]" value="Escuma de Plasma" data-cob="2">
+              <span><span class="so-noite">Escuma de Plasma</span><span class="so-dia">Mantega</span></span>
+            </label>
+            <label class="chip">
+              <input type="checkbox" name="top[]" value="Cristall de Sucre" data-cob="3">
+              <span><span class="so-noite">Cristall de Sucre</span><span class="so-dia">Formatge</span></span>
+            </label>
+            <label class="chip">
+              <input type="checkbox" name="top[]" value="Flor de Neó" data-cob="4">
+              <span><span class="so-noite">Flor de Neó</span><span class="so-dia">Sucre de Cometa</span></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="lab__result">
+          <small><span class="so-noite">Sortida del sintetitzador</span><span class="so-dia">Sortint del forn</span></small>
+          <div id="drinkName">Exprés Quàntic · Nivell 7</div>
+          <span id="drinkPrice">₡ 21,50</span>
+        </div>
+      </div>
+
+      <!-- Xícara -->
+      <div class="cup-stage reveal bulma-column" data-d="3">
+        <div class="cup-wrap so-noite">
+          <div class="cup-glow" id="cupGlow" aria-hidden="true"></div>
+          <div class="steam" aria-hidden="true"><i></i><i></i><i></i></div>
+          <i class="cup__poeira" aria-hidden="true"></i>
+          <div class="cup">
+            <div class="liquid" id="liquid"><i class="liquid__espuma"></i><i class="liquid__cristais"></i><i class="liquid__flor"></i></div>
+          </div>
+          <div class="saucer" aria-hidden="true"></div>
+
+          <span class="badge-float">temp · 68 °C</span>
+          <span class="badge-float">ph · 5.4</span>
+          <span class="badge-float">dim · Ω-07</span>
+        </div>
+        <!-- O pão (modo dia): a casca doura com o tempo de forno; cada cobertura é uma classe com-N -->
+        <div class="pao-wrap so-dia">
+          <div class="cup-glow" id="forno" aria-hidden="true"></div>
+          <div class="steam" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="pao" id="pao" aria-hidden="true">
+            <i class="pao__queijo"></i><i class="pao__manteiga"></i>
+          </div>
+          <div class="tabua" aria-hidden="true"></div>
+
+          <span class="badge-float">forno · 220 °C</span>
+          <span class="badge-float">fermento · 72 h</span>
+          <span class="badge-float">dim · ☉-07</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANSMISSÕES -->
+  <section class="section bulma-section bulma-container" id="transmissoes">
+    <span class="eyebrow reveal"><span class="so-noite">Transmissions</span><span class="so-dia">Notes</span></span>
+    <h2 class="reveal" data-d="1"><span class="so-noite">Veus captades d’<em>altres</em> dimensions</span><span class="so-dia">Notes deixades <em>a la barra</em></span></h2>
+
+    <div class="trans-grid bulma-columns">
+      <blockquote class="trans reveal bulma-column" data-d="1">
+        <q><span class="so-noite">Vaig demanar un Exprés Quàntic i vaig començar a recordar una infància que no he tingut mai. Recomanat. Torno demà — o ahir.</span><span class="so-dia">Vaig comprar un croissant i hi vaig trobar, entre les capes, una nota que jo mateix escriuré demà. Era boníssim.</span></q>
+        <footer><b><span class="so-noite">Kira-09</span><span class="so-dia">Tomás-06</span></b><span class="so-noite">Sector Neó-07</span><span class="so-dia">Sector Sol-07</span></footer>
+      </blockquote>
+
+      <blockquote class="trans reveal bulma-column" data-d="2">
+        <q><span class="so-noite">El Latte de Plasma va brillar quan vaig plorar. Va ser incòmode per a tots dos, però el gust era impecable.</span><span class="so-dia">El pa de gravetat zero va pujar fins al sostre. Vaig esperar que baixés per esmorzar. Tornaré demà.</span></q>
+        <footer><b><span class="so-noite">Dr. Halven</span><span class="so-dia">Odila Prax</span></b><span class="so-noite">Clínica de Records</span><span class="so-dia">Rellotgeria de la Plaça</span></footer>
+      </blockquote>
+
+      <blockquote class="trans reveal bulma-column" data-d="3">
+        <q><span class="so-noite">Només venia a comprar cafè. Vaig sortir amb una teoria sobre el temps i un got que es nega a buidar-se.</span><span class="so-dia">Vaig demanar un pa de formatge i en vaig sortir amb dos: un d'aquí i un d'allà. Tots dos calentons.</span></q>
+        <footer><b>Anònima</b><span class="so-noite">Dimensió Ω-11</span><span class="so-dia">Dimensió ☉-03</span></footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2 class="reveal"><span class="so-noite">L’escletxa és oberta <em>fins tard</em></span><span class="so-dia">El forn s'encén <em>a les sis</em></span></h2>
+    <p class="reveal" data-d="1">
+      <span class="so-noite">No cal reservar. Només valor per travessar la porta equivocada.</span><span class="so-dia">Vine d'hora: la primera fornada s'acaba abans que el sol acabi de pujar.</span>
+    </p>
+    <div class="hero__cta reveal" data-d="2">
+      <a href="#menu" class="btn btn--magenta magnetic">Veure la carta completa</a>
+      <a href="#inicio" class="btn btn--ghost magnetic">Tornar a l’inici</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="foot bulma-container bulma-columns bulma-is-multiline">
+    <div class="bulma-column bulma-is-12-tablet bulma-is-5-desktop">
+      <div class="brand">
+        <span class="brand__orb" aria-hidden="true"></span><span class="so-noite">CAFÉ AURORA</span><span class="so-dia">FORN AURORA</span>
+      </div>
+      <p><span class="so-noite">Torrefacció interdimensional des del 2087. Grans collits amb ètica en universos que hi van donar el consentiment.</span><span class="so-dia">Fleca interdimensional des del 2087. Farina molta amb ètica en universos que hi han donat el consentiment.</span></p>
+
+      <form class="newsletter" id="newsForm" novalidate>
+        <label class="sr-only" for="email">El teu correu per rebre senyals</label>
+        <input type="email" id="email" placeholder="tu@correu.dim" autocomplete="email" required>
+        <button type="submit" class="btn magnetic">Subscriu-me</button>
+      </form>
+      <p id="newsMsg" role="status" aria-live="polite" class="e-879f25"></p>
+    </div>
+
+    <div class="bulma-column">
+      <h3>Coordenades</h3>
+      <ul>
+        <li>Carrer Vex, 2087 — Sector Neó-07</li>
+        <li>Metròpolis Baixa · Soterrani 3</li>
+        <li>Entrada per la porta que no hi era</li>
+      </ul>
+    </div>
+
+    <div class="bulma-column">
+      <h3>Horari</h3>
+      <ul>
+        <li><span class="so-noite">Dl–Dv · 06h — 04h</span><span class="so-dia">Cada dia · 06:00 — 18:00</span></li>
+        <li><span class="so-noite">Ds–Dg · sempre</span><span class="so-dia">Primera fornada · a les 06:00 en punt</span></li>
+        <li><span class="so-noite">Festius dimensionals · tancat</span><span class="so-dia">Després de la posta de sol · obre el cafè</span></li>
+      </ul>
+      <h3 class="e-5a7715">Senyal</h3>
+      <ul>
+        <li><a href="#inicio">@cafeaurora.omega</a></li>
+        <li><a href="#inicio">+Ω 07 2087-0000</a></li>
+      </ul>
+    </div>
+
+
+    <div class="bulma-column bulma-is-12">
+    <nav class="versoes-troca" aria-label="Les cinc versions">
+      <span>Les cinc versions:</span>
+      <a href="../">CSS pur</a> · <a href="../bootstrap/">Bootstrap</a> · <a href="../tailwind/">Tailwind</a> · <a href="../bulma/" aria-current="page">Bulma</a> · <a href="../pico/">Pico</a> · <a href="../../versoes.html">comparar les cinc (portuguès)</a>
+    </nav>
+    </div>
+    <div class="foot__bottom bulma-column bulma-is-12">
+      <span>© <span id="year"></span> <span class="so-noite">Café Aurora</span><span class="so-dia">Forn Aurora</span> <span class="dot">◆</span> Tots els universos reservats</span>
+      <span>Bulma 1.0 · HTML · CSS · JS</span>
+    </div>
+  </footer>
+</main>
+
+<!-- PAINEL DE DIMENSÃO -->
+<aside class="dim" id="dim" aria-label="Ajust de dimensió cromàtica">
+  <button type="button" class="dim__head" id="dimHead" aria-expanded="true" aria-controls="dimBody">
+    <span class="e-fd99b2"><i aria-hidden="true"></i>Sintonitza la dimensió</span>
+    <span aria-hidden="true" id="dimChevron">▾</span>
+  </button>
+  <div class="dim__body" id="dimBody">
+    <label for="hue">Desviació cromàtica · <span id="hueVal">0°</span></label>
+    <input type="range" id="hue" min="-70" max="70" value="0" aria-label="Desviació cromàtica en graus">
+    <p class="dim__hint"><span class="so-noite">Arrossega per desplaçar l’espectre de la cafeteria. No es trenca res — probablement.</span><span class="so-dia">Arrossega per desplaçar l’espectre del forn. No es crema res — probablement.</span></p>
+  </div>
+</aside>
+
+<!-- o mesmo script da versão Tailwind: JavaScript puro, que não depende do CSS -->
+<script src="../../tailwind/script.js?v=4" defer></script>
+<script src="../../padaria.js?v=3" defer></script>
+</body>
+</html>

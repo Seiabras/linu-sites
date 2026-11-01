@@ -232,7 +232,16 @@
     "fid_usar": "Use the reward",
     "tw_feito": "Made with HTML, Tailwind CSS and a little quantum caffeine",
     "versoes": "Also in",
-    "comparar": "compare all three (Portuguese)"
+    "comparar": "compare all five (Portuguese)",
+    "pular_abertura": "Skip intro",
+    "i_peso": "Weight",
+    "d_f_vegano": "Vegan",
+    "d_p_vazio": "Your order is empty. Tap “+ Order” on a loaf from the menu or in “Build your own loaf”.",
+    "d_p_nota": "The bakery is fictional: WhatsApp opens without a number, so you choose who to send it to. On a real site, the order would go straight to the shop.",
+    "d_dim_hint": "Drag to shift the bakery’s spectrum. Nothing burns — probably.",
+    "d_ficticia": "Fictional bakery · example website by",
+    "v_rotulo": "The five builds",
+    "css_puro": "Plain CSS"
   },
   "js": {
     "boot": [
@@ -369,6 +378,7 @@
           ]
         ]
       ]
-    ]
+    ],
+    "d_titulo": "Aurora Bakery — A Cyberpunk Bakery in Another Dimension"
   }
 }

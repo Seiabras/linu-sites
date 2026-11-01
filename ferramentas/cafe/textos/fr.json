@@ -232,7 +232,16 @@
     "fid_usar": "Utiliser la récompense",
     "tw_feito": "Fait avec HTML, Tailwind CSS et un peu de caféine quantique",
     "versoes": "Aussi en",
-    "comparar": "comparer les trois (portugais)"
+    "comparar": "comparer les cinq (portugais)",
+    "pular_abertura": "Passer l’intro",
+    "i_peso": "Poids",
+    "d_f_vegano": "Végan",
+    "d_p_vazio": "La commande est vide. Touchez « + Commande » sur un pain de la carte ou dans « Composez votre pain ».",
+    "d_p_nota": "La boulangerie est fictive : WhatsApp s’ouvre sans numéro, pour que vous choisissiez le destinataire. Sur un vrai site, la commande irait directement à la boutique.",
+    "d_dim_hint": "Faites glisser pour décaler le spectre de la boulangerie. Rien ne brûle — probablement.",
+    "d_ficticia": "Boulangerie fictive · site d’exemple réalisé par",
+    "v_rotulo": "Les cinq versions",
+    "css_puro": "CSS pur"
   },
   "js": {
     "boot": [
@@ -369,6 +378,7 @@
           ]
         ]
       ]
-    ]
+    ],
+    "d_titulo": "Boulangerie Aurora — Une Boulangerie Cyberpunk dans une Autre Dimension"
   }
 }

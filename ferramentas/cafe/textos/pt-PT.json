@@ -232,7 +232,16 @@
     "fid_usar": "Usar o prémio",
     "tw_feito": "Feito com HTML, Tailwind CSS e um pouco de cafeína quântica",
     "versoes": "Também em",
-    "comparar": "comparar as três"
+    "comparar": "comparar as cinco",
+    "pular_abertura": "Saltar abertura",
+    "i_peso": "Peso",
+    "d_f_vegano": "Vegano",
+    "d_p_vazio": "A encomenda está vazia. Toque em “+ Encomenda” num pão da ementa ou no “Monte o seu pão”.",
+    "d_p_nota": "A padaria é fictícia: o WhatsApp abre sem número, para escolher a quem enviar. Num site a sério, a encomenda iria diretamente para a loja.",
+    "d_dim_hint": "Arraste para deslocar o espectro da padaria. Nada se queima — provavelmente.",
+    "d_ficticia": "Padaria fictícia · site de exemplo feito por",
+    "v_rotulo": "As cinco versões",
+    "css_puro": "CSS puro"
   },
   "js": {
     "boot": [
@@ -369,6 +378,7 @@
           ]
         ]
       ]
-    ]
+    ],
+    "d_titulo": "Padaria Aurora — Uma Padaria Cyberpunk Noutra Dimensão"
   }
 }

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Café Aurora · Pico CSS</title>
+<meta name="description" content="Café Aurora, a fictional cyberpunk café: an example website by Linu Sites.">
+<meta name="theme-color" content="#05030a">
+<link rel="canonical" href="https://cafe.linupedia.com.br/intl/pico/">
+<link rel="alternate" hreflang="pt-BR" href="https://cafe.linupedia.com.br/pico/">
+<link rel="alternate" hreflang="pt-PT" href="https://cafe.linupedia.com.br/pt-pt/pico/">
+<link rel="alternate" hreflang="es-ES" href="https://cafe.linupedia.com.br/es/pico/">
+<link rel="alternate" hreflang="ca" href="https://cafe.linupedia.com.br/ca/pico/">
+<link rel="alternate" hreflang="nl" href="https://cafe.linupedia.com.br/nl/pico/">
+<link rel="alternate" hreflang="en-GB" href="https://cafe.linupedia.com.br/en/pico/">
+<link rel="alternate" hreflang="fr-FR" href="https://cafe.linupedia.com.br/fr/pico/">
+<link rel="alternate" hreflang="de-DE" href="https://cafe.linupedia.com.br/de/pico/">
+<link rel="alternate" hreflang="it-IT" href="https://cafe.linupedia.com.br/it/pico/">
+<link rel="alternate" hreflang="en" href="https://cafe.linupedia.com.br/intl/pico/">
+<link rel="alternate" hreflang="ja-JP" href="https://cafe.linupedia.com.br/ja/pico/">
+<link rel="alternate" hreflang="ko-KR" href="https://cafe.linupedia.com.br/ko/pico/">
+<link rel="alternate" hreflang="zh-Hant" href="https://cafe.linupedia.com.br/zh-hant/pico/">
+<script type="application/json" id="textos-cafe">{"boot":["Initializing portal…","Calibrating quantum grind…","Syncing beans from Ω-11…","Warming up the steam reactor…","Welcome to the rift."],"news_erro":"Invalid signal. Check your email coordinates.","news_ok":"Signal received. You’ll be contacted from another dimension.","terminar":"✓ Done","painel_aviso":"Click on a text and type. In a real dashboard, your changes are saved.","d_boot":["Lighting the oven…","Closing the rift…","Kneading the Ω-11 dough…","Waiting for the crust to brown…","Good morning."],"d_pao":["Solar Wheat Loaf","Twilight Rye Loaf","Orbit Whole Wheat Loaf","Stellar Brioche"],"d_min":"{n} min","add_aria":"Add {nome} to the order","no_pedido":"{nome} added to the order.","menos":"One less {nome}","mais":"One more {nome}","f_n":"{n} of {total} on the menu","msg_cab":"Order for {loja}:","msg_total":"Total","msg_nome":"Name","msg_aqui":"To eat in","msg_levar":"To take away","msg_hora":"At","msg_obs":"Note:","feito":"Done: WhatsApp opened with your order. You earned a stamp ({n} of 10).","feito_abrir":"Open WhatsApp again","selo":"This order earns a stamp ({n} of 10 so far).","fid_n":"{n} of 10 stamps.","fid_premio":"Card full! Your next order is on the house.","fid_usado":"Reward used. New card, good luck.","r_ok":"Booked: {mesa}, {pessoas} people, {data} at {hora}.","r_whats":"Confirm on WhatsApp","r_cancelar":"Cancel","r_msg":"Booking at {loja}: {mesa}, {pessoas} people, {data} at {hora}, under the name {nome}.","r_hora_erro":"Tell us the time.","r_hora_noite":"From 4 am to 6 am the café closes to clean the rift.","r_hora_dia":"The bakery is open from 6 am to 6 pm.","qz_passo":"Question {n} of {total}","qz_resultado":"Suits you:","qz_de_novo":"Try again","qz_noite":[["Hot or iced?",[["Hot","quente"],["Iced","gelado"]]],["Sweet or strong?",[["Sweet","doce"],["Strong","intenso"]]],["And caffeine?",[["Bring it on","cafeina"],["Caffeine-free","sem-cafeina"]]]],"qz_dia":[["Sweet or savory?",[["Sweet","doce"],["Savory","salgado"]]],["Fresh from the oven?",[["Warm","quentinho"],["Either way",""]]],["And milk?",[["That is fine",""],["Lactose-free","sem-lactose"]]]],"d_titulo":"Aurora Bakery — A Cyberpunk Bakery in Another Dimension","expresso":"Quantum Espresso","coldbrew":"Neural Cold Brew","matcha":"Void Matcha","estelar":"Star Milk","nivel":"Level","editar":"✎ Edit text","d_nome":"Aurora Bakery","lab_add":"Add to order"}</script>
+
+
+<link rel="preload" href="../../fontes/orbitron.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="../../icone.png" type="image/png" sizes="128x128">
+<script src="../../inicio.js?v=3"></script>
+<link rel="stylesheet" href="../../pico/vendor/pico.min.css">
+<link rel="stylesheet" href="../../pico/estilo.css?v=2">
+<link rel="stylesheet" href="../../padaria.css?v=6">
+</head>
+
+<body>
+<a class="skip" href="#conteudo">Skip to content</a>
+
+<!-- BOOT -->
+<div class="boot" id="boot" role="status" aria-live="polite">
+  <div class="boot__logo"><span class="so-noite">CAFÉ AURORA</span><span class="so-dia">AURORA BAKERY</span></div>
+  <div class="boot__bar"><div class="boot__fill" id="bootFill"></div></div>
+  <div class="boot__log" id="bootLog"><span class="so-noite">Initializing portal…</span><span class="so-dia">Lighting the oven…</span></div>
+  <button type="button" class="boot__pular">Skip intro</button>
+</div>
+
+<!-- CURSOR -->
+<div class="cur" id="cur" aria-hidden="true"></div>
+<div class="cur-dot" id="curDot" aria-hidden="true"></div>
+
+<!-- FUNDO -->
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="bg-veil" aria-hidden="true"></div>
+<div class="noise" aria-hidden="true"></div>
+<div class="scanlines" aria-hidden="true"></div>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <a href="#inicio" class="brand" aria-label="Café Aurora — home" data-aria-dia="Aurora Bakery — home">
+    <span class="brand__orb" aria-hidden="true"></span>
+    <span class="so-noite">CAFÉ&nbsp;AURORA</span><span class="so-dia">AURORA BAKERY</span>
+  </a>
+
+  <nav class="nav__links" id="navLinks" aria-label="Main navigation">
+    <a href="#inicio" class="active">Home</a>
+    <a href="#sobre">Origin</a>
+    <a href="#menu">Menu</a>
+    <a href="#laboratorio"><span class="so-noite">Lab</span><span class="so-dia">Oven</span></a>
+    <a href="#transmissoes"><span class="so-noite">Transmissions</span><span class="so-dia">Notes</span></a>
+  </nav>
+
+  <div class="nav__right">
+    <button type="button" class="modo" id="modo" aria-label="Open the bakery (day mode)" title="Open the bakery (day mode)"
+            data-para-dia="Open the bakery (day mode)" data-para-noite="Back to the café (night mode)">
+      <span class="modo__astro" aria-hidden="true"></span>
+    </button>
+    <a href="#laboratorio" class="btn btn--magenta magnetic">Order now</a>
+    <button type="button" class="burger" id="burger" aria-label="Open menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero__halo" aria-hidden="true"></div>
+    <div class="hero__rings" aria-hidden="true"><i></i><i></i><i></i></div>
+
+    <div>
+      <span class="hero__tag reveal"><span class="so-noite">☕ <b>OPEN</b> 24H · SECTOR NEON-07 · DIMENSION Ω</span><span class="so-dia">🥐 <b>6 A.M.</b> BATCH · SUN-07 SECTOR · DIMENSION ☉</span></span>
+
+      <h1 class="glitch" data-text="CAFÉ&#10;AURORA">
+        <span><span class="so-noite">CAFÉ</span><span class="so-dia">AURORA</span></span>
+        <span><span class="so-noite">AURORA</span><span class="so-dia">BAKERY</span></span>
+      </h1>
+
+      <p class="hero__sub reveal" data-d="1">
+        <span class="so-noite">We roast beans harvested from <b>parallel realities</b>. Every cup is a small quantum collapse — and your palate, the only constant.</span><span class="so-dia">When the sun comes up, the rift closes and the oven comes on. We bake bread with flour milled in <b>parallel realities</b>: every slice comes out warm, crusty and just slightly out of time.</span>
+      </p>
+
+      <div class="hero__cta reveal" data-d="2">
+        <a href="#menu" class="btn magnetic"><span class="so-noite">Explore the menu</span><span class="so-dia">See the batch</span></a>
+        <a href="#sobre" class="btn btn--ghost magnetic"><span class="so-noite">Step through the portal</span><span class="so-dia">Meet the bakery</span></a>
+      </div>
+
+      <div class="hero__stats reveal" data-d="3">
+        <div><b>12</b><span class="so-noite">Active dimensions</span><span class="so-dia">Batches a day</span></div>
+        <div><b>98.4%</b><span class="so-noite">Quantum precision</span><span class="so-dia">Measured crunch</span></div>
+        <div><b>∞</b><span class="so-noite">Dream refills</span><span class="so-dia">Crumbs forgiven</span></div>
+      </div>
+    </div>
+
+    <div class="scroll-hint" aria-hidden="true">
+      <span>Scroll</span>
+      <i></i>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span><span class="so-noite">Quantum Espresso</span><span class="so-dia">2087-Layer Croissant</span></span><span><span class="so-noite">Plasma Latte</span><span class="so-dia">Zero-Gravity Loaf</span></span><span><span class="so-noite">Neural Cold Brew</span><span class="so-dia">Orbit Baguette</span></span>
+      <span><span class="so-noite">Void Matcha</span><span class="so-dia">Nebula Donut</span></span><span><span class="so-noite">Star Milk</span><span class="so-dia">Eclipse Ring</span></span><span><span class="so-noite">Comet Dust</span><span class="so-dia">Quantum Cheese Bread</span></span>
+      <span><span class="so-noite">Quantum Espresso</span><span class="so-dia">2087-Layer Croissant</span></span><span><span class="so-noite">Plasma Latte</span><span class="so-dia">Zero-Gravity Loaf</span></span><span><span class="so-noite">Neural Cold Brew</span><span class="so-dia">Orbit Baguette</span></span>
+      <span><span class="so-noite">Void Matcha</span><span class="so-dia">Nebula Donut</span></span><span><span class="so-noite">Star Milk</span><span class="so-dia">Eclipse Ring</span></span><span><span class="so-noite">Comet Dust</span><span class="so-dia">Quantum Cheese Bread</span></span>
+    </div>
+  </div>
+
+  <!-- SOBRE -->
+  <section class="section container" id="sobre">
+    <div class="about grid">
+      <div class="about__text">
+        <span class="eyebrow reveal">Origin</span>
+        <h2 class="reveal" data-d="1"><span class="so-noite">We were born from a <em>short circuit</em> between two worlds</span><span class="so-dia">By day, the rift becomes an <em>oven</em></span></h2>
+
+        <div class="reveal" data-d="2">
+          <p class="lead">
+            <span class="so-noite">In 2087, a barista named <strong>Aurora Vex</strong> spilled coffee on a warp reactor. The result wasn’t an explosion — it was an aroma.</span><span class="so-dia">Every morning, when our sun and Ω-11's rise together, the rift that <strong>Aurora Vex</strong> opened with coffee shrinks until it is the size of an oven door.</span>
+          </p>
+          <p>
+            <span class="so-noite">The aroma opened a rift. On the other side was a city just like ours, but with lights that thought and rain that remembered. That’s where we found the beans we serve today.</span><span class="so-dia">The heat that leaks through from the other side isn't wasted: it bakes bread. The first batch comes out at six, and the smell crosses both cities before any alarm clock goes off.</span>
+          </p>
+          <p>
+            <span class="so-noite"><strong>Café Aurora</strong> is the only meeting point between the two cities. Here, steam rises slowly and time agrees to pause for a few minutes — as long as you order a second cup.</span><span class="so-dia"><strong>Aurora Bakery</strong> is the same place as the café, in daylight. The night baristas become bakers, the counter becomes a shop window and the neon rests until sunset.</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="portal reveal" data-d="3" aria-hidden="true">
+        <div class="portal__ring"></div>
+        <div class="portal__ring"></div>
+        <div class="portal__ring"></div>
+        <div class="portal__core"></div>
+        <span class="portal__label"><span class="so-noite">Stable rift · 3.2 nm</span><span class="so-dia">Oven stable · 220 °C</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="section container" id="menu">
+    <span class="eyebrow reveal">Menu</span>
+    <h2 class="reveal" data-d="1"><span class="so-noite">Blends that <em>don’t exist</em> anywhere else</span><span class="so-dia">Batches that <em>don't wait</em> for time to pass</span></h2>
+    <p class="lead reveal" data-d="2">
+      <span class="so-noite">Six recipes calibrated for different brainwave frequencies. All served in self-regenerating cups.</span><span class="so-dia">Six recipes that come out of the oven several times a day. All wrapped in paper that keeps the heat in for a few hours, or dimensions.</span>
+    </p>
+
+    <div class="menu-grid">
+      <article class="card reveal tilt" data-d="1">
+        <div class="card__top">
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">⚡</span><span class="so-dia">🥐</span></div>
+          <span class="card__id"><span class="so-noite">LX-001</span><span class="so-dia">FN-001</span></span>
+        </div>
+        <h3><span class="so-noite">Quantum Espresso</span><span class="so-dia">2087-Layer Croissant</span></h3>
+        <p><span class="so-noite">Two simultaneous extractions in separate universes. You taste the average of both.</span><span class="so-dia">We fold the dough 2087 times, once for every year until the rift. Each bite crackles in a different layer of reality.</span></p>
+        <div class="card__foot">
+          <span class="card__price"><span class="so-noite">₡ 18</span><span class="so-dia">₡ 9</span></span>
+          <span class="card__tag"><span class="so-noite">Intense</span><span class="so-dia">Flaky</span></span>
+        </div>
+      </article>
+
+      <article class="card card--m reveal tilt" data-d="2">
+        <div class="card__top">
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">🌌</span><span class="so-dia">🍞</span></div>
+          <span class="card__id"><span class="so-noite">LX-014</span><span class="so-dia">FN-006</span></span>
+        </div>
+        <h3><span class="so-noite">Plasma Latte</span><span class="so-dia">Zero-Gravity Loaf</span></h3>
+        <p><span class="so-noite">Milk steamed at 340 °C inside a magnetic field. It glows faintly when you stir.</span><span class="so-dia">Proofed for 72 hours while floating, with nothing to pull it down. So light it comes tied to the plate.</span></p>
+        <div class="card__foot">
+          <span class="card__price"><span class="so-noite">₡ 24</span><span class="so-dia">₡ 7</span></span>
+          <span class="card__tag"><span class="so-noite">Bright</span><span class="so-dia">Light</span></span>
+        </div>
+      </article>
+
+      <article class="card card--v reveal tilt" data-d="3">
+        <div class="card__top">
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">❄️</span><span class="so-dia">🥖</span></div>
+          <span class="card__id"><span class="so-noite">LX-027</span><span class="so-dia">FN-012</span></span>
+        </div>
+        <h3><span class="so-noite">Neural Cold Brew</span><span class="so-dia">Orbit Baguette</span></h3>
+        <p><span class="so-noite">Brewed for 72 hours in a sensory deprivation chamber. It syncs with your focus rhythm.</span><span class="so-dia">Baked while making a full lap of the orbital oven. The crust sings when you squeeze it.</span></p>
+        <div class="card__foot">
+          <span class="card__price"><span class="so-noite">₡ 22</span><span class="so-dia">₡ 8</span></span>
+          <span class="card__tag"><span class="so-noite">Lucid</span><span class="so-dia">Crusty</span></span>
+        </div>
+      </article>
+
+      <article class="card card--a reveal tilt" data-d="4">
+        <div class="card__top">
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">🍃</span><span class="so-dia">🧁</span></div>
+          <span class="card__id"><span class="so-noite">LX-033</span><span class="so-dia">FN-019</span></span>
+        </div>
+        <h3><span class="so-noite">Void Matcha</span><span class="so-dia">Nebula Donut</span></h3>
+        <p><span class="so-noite">Leaves grown where there is no light. The taste arrives before the aroma — don’t ask how.</span><span class="so-dia">Filled with softly glowing custard and dusted with star sugar. Eat it before it decides to evaporate.</span></p>
+        <div class="card__foot">
+          <span class="card__price"><span class="so-noite">₡ 26</span><span class="so-dia">₡ 6</span></span>
+          <span class="card__tag"><span class="so-noite">Ethereal</span><span class="so-dia">Sweet</span></span>
+        </div>
+      </article>
+
+      <article class="card card--m reveal tilt" data-d="5">
+        <div class="card__top">
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">✨</span><span class="so-dia">🍩</span></div>
+          <span class="card__id"><span class="so-noite">LX-042</span><span class="so-dia">FN-024</span></span>
+        </div>
+        <h3><span class="so-noite">Star Milk</span><span class="so-dia">Eclipse Ring</span></h3>
+        <p><span class="so-noite">Caffeine-free. Made from condensed stardust and a little longing.</span><span class="so-dia">A ring donut whose crumb is always in shadow. Sugar on the outside; a little night on the inside.</span></p>
+        <div class="card__foot">
+          <span class="card__price"><span class="so-noite">₡ 20</span><span class="so-dia">₡ 5</span></span>
+          <span class="card__tag"><span class="so-noite">Smooth</span><span class="so-dia">Rare</span></span>
+        </div>
+      </article>
+
+      <article class="card card--v reveal tilt" data-d="5">
+        <div class="card__top">
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">☄️</span><span class="so-dia">🧀</span></div>
+          <span class="card__id"><span class="so-noite">LX-050</span><span class="so-dia">FN-031</span></span>
+        </div>
+        <h3><span class="so-noite">Comet Dust</span><span class="so-dia">Quantum Cheese Bread</span></h3>
+        <p><span class="so-noite">A triple shot with shards of orbital ice. The ice never melts — it just gives up.</span><span class="so-dia">Hot and cold at the same time until someone opens the bag. It always comes out hot.</span></p>
+        <div class="card__foot">
+          <span class="card__price"><span class="so-noite">₡ 31</span><span class="so-dia">₡ 4</span></span>
+          <span class="card__tag"><span class="so-noite">Rare</span><span class="so-dia">Classic</span></span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- LABORATÓRIO -->
+  <section class="section container" id="laboratorio">
+    <span class="eyebrow reveal"><span class="so-noite">Lab</span><span class="so-dia">Oven</span></span>
+    <h2 class="reveal" data-d="1"><span class="so-noite">Synthesize your <em>own</em> cup</span><span class="so-dia">Build <em>your own</em> loaf</span></h2>
+    <p class="lead reveal" data-d="2">
+      <span class="so-noite">Adjust the parameters. The drink recalculates in real time — like everything here.</span><span class="so-dia">Pick the flour, the baking time and what goes on top. The crust browns while you decide.</span>
+    </p>
+
+    <div class="lab grid">
+      <!-- Painel -->
+      <div class="lab__panel reveal" data-d="2" id="labForm" role="group" aria-label="Build your drink" data-aria-dia="Build your own loaf">
+        <div class="lab__group">
+          <div class="lab__label"><span><span class="so-noite">01 · Molecular base</span><span class="so-dia">01 · Flour</span></span></div>
+          <div class="chips" role="radiogroup" aria-label="Molecular base" data-aria-dia="Flour">
+            <label class="chip">
+              <input type="radio" name="base" value="expresso" checked>
+              <span><span class="so-noite">Espresso</span><span class="so-dia">Wheat</span></span>
+            </label>
+            <label class="chip">
+              <input type="radio" name="base" value="coldbrew">
+              <span><span class="so-noite">Cold Brew</span><span class="so-dia">Rye</span></span>
+            </label>
+            <label class="chip">
+              <input type="radio" name="base" value="matcha">
+              <span><span class="so-noite">Matcha</span><span class="so-dia">Whole Wheat</span></span>
+            </label>
+            <label class="chip">
+              <input type="radio" name="base" value="estelar">
+              <span><span class="so-noite">Star Milk</span><span class="so-dia">Stellar Brioche</span></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="lab__group">
+          <div class="lab__label">
+            <span><span class="so-noite">02 · Quantum intensity</span><span class="so-dia">02 · Baking time</span></span>
+            <b id="intVal">7</b>
+          </div>
+          <input type="range" id="intensity" min="1" max="10" value="7"
+                 aria-label="Quantum intensity, from 1 to 10" data-aria-dia="Baking time, from 1 to 10">
+        </div>
+
+        <div class="lab__group">
+          <div class="lab__label"><span><span class="so-noite">03 · Modifiers</span><span class="so-dia">03 · On top</span></span></div>
+          <div class="chips">
+            <label class="chip">
+              <input type="checkbox" name="top[]" value="Comet Dust" data-cob="1">
+              <span><span class="so-noite">Comet Dust</span><span class="so-dia">Sesame</span></span>
+            </label>
+            <label class="chip">
+              <input type="checkbox" name="top[]" value="Plasma Foam" data-cob="2">
+              <span><span class="so-noite">Plasma Foam</span><span class="so-dia">Butter</span></span>
+            </label>
+            <label class="chip">
+              <input type="checkbox" name="top[]" value="Sugar Crystal" data-cob="3">
+              <span><span class="so-noite">Sugar Crystal</span><span class="so-dia">Cheese</span></span>
+            </label>
+            <label class="chip">
+              <input type="checkbox" name="top[]" value="Neon Flower" data-cob="4">
+              <span><span class="so-noite">Neon Flower</span><span class="so-dia">Comet Sugar</span></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="lab__result">
+          <small><span class="so-noite">Synthesizer output</span><span class="so-dia">Fresh from the oven</span></small>
+          <div id="drinkName">Quantum Espresso · Level 7</div>
+          <span id="drinkPrice">₡ 21.50</span>
+        </div>
+      </div>
+
+      <!-- Xícara -->
+      <div class="cup-stage reveal" data-d="3">
+        <div class="cup-wrap so-noite">
+          <div class="cup-glow" id="cupGlow" aria-hidden="true"></div>
+          <div class="steam" aria-hidden="true"><i></i><i></i><i></i></div>
+          <i class="cup__poeira" aria-hidden="true"></i>
+          <div class="cup">
+            <div class="liquid" id="liquid"><i class="liquid__espuma"></i><i class="liquid__cristais"></i><i class="liquid__flor"></i></div>
+          </div>
+          <div class="saucer" aria-hidden="true"></div>
+
+          <span class="badge-float">temp · 68 °C</span>
+          <span class="badge-float">ph · 5.4</span>
+          <span class="badge-float">dim · Ω-07</span>
+        </div>
+        <!-- O pão (modo dia): a casca doura com o tempo de forno; cada cobertura é uma classe com-N -->
+        <div class="pao-wrap so-dia">
+          <div class="cup-glow" id="forno" aria-hidden="true"></div>
+          <div class="steam" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="pao" id="pao" aria-hidden="true">
+            <i class="pao__queijo"></i><i class="pao__manteiga"></i>
+          </div>
+          <div class="tabua" aria-hidden="true"></div>
+
+          <span class="badge-float">forno · 220 °C</span>
+          <span class="badge-float">fermento · 72 h</span>
+          <span class="badge-float">dim · ☉-07</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANSMISSÕES -->
+  <section class="section container" id="transmissoes">
+    <span class="eyebrow reveal"><span class="so-noite">Transmissions</span><span class="so-dia">Notes</span></span>
+    <h2 class="reveal" data-d="1"><span class="so-noite">Voices picked up from <em>other</em> dimensions</span><span class="so-dia">Notes left <em>on the counter</em></span></h2>
+
+    <div class="trans-grid grid">
+      <blockquote class="trans reveal" data-d="1">
+        <q><span class="so-noite">I ordered a Quantum Espresso and started remembering a childhood I never had. Recommended. Back tomorrow — or yesterday.</span><span class="so-dia">I bought a croissant and found, between the layers, a note I'm going to write myself tomorrow. It was delicious.</span></q>
+        <footer><b><span class="so-noite">Kira-09</span><span class="so-dia">Tomás-06</span></b><span class="so-noite">Sector Neon-07</span><span class="so-dia">Sun-07 Sector</span></footer>
+      </blockquote>
+
+      <blockquote class="trans reveal" data-d="2">
+        <q><span class="so-noite">The Plasma Latte glowed when I cried. It was awkward for both of us, but the flavor was flawless.</span><span class="so-dia">The zero-gravity loaf floated up to the ceiling. I waited for it to come down before having breakfast. Back tomorrow.</span></q>
+        <footer><b><span class="so-noite">Dr. Halven</span><span class="so-dia">Odila Prax</span></b><span class="so-noite">Memory Clinic</span><span class="so-dia">The Square Clockmaker's</span></footer>
+      </blockquote>
+
+      <blockquote class="trans reveal" data-d="3">
+        <q><span class="so-noite">I only came in for coffee. I left with a theory about time and a cup that refuses to empty.</span><span class="so-dia">I asked for one cheese bread and left with two: one from here and one from there. Both lovely and warm.</span></q>
+        <footer><b>Anonymous</b><span class="so-noite">Dimension Ω-11</span><span class="so-dia">Dimension ☉-03</span></footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2 class="reveal"><span class="so-noite">The rift is open <em>until late</em></span><span class="so-dia">The oven comes on <em>at six</em></span></h2>
+    <p class="reveal" data-d="1">
+      <span class="so-noite">No booking needed. Just the courage to walk through the wrong door.</span><span class="so-dia">Come early: the first batch is gone before the sun has finished rising.</span>
+    </p>
+    <div class="hero__cta reveal" data-d="2">
+      <a href="#menu" class="btn btn--magenta magnetic">See the full menu</a>
+      <a href="#inicio" class="btn btn--ghost magnetic">Back to the top</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="foot container">
+    <div>
+      <div class="brand">
+        <span class="brand__orb" aria-hidden="true"></span><span class="so-noite">CAFÉ AURORA</span><span class="so-dia">AURORA BAKERY</span>
+      </div>
+      <p><span class="so-noite">Interdimensional roasting since 2087. Beans ethically harvested in universes that gave their consent.</span><span class="so-dia">Interdimensional baking since 2087. Flour ethically milled in universes that gave their consent.</span></p>
+
+      <form class="newsletter" id="newsForm" novalidate>
+        <label class="sr-only" for="email">Your email to receive signals</label>
+        <input type="email" id="email" placeholder="you@email.dim" autocomplete="email" required>
+        <button type="submit" class="btn magnetic">Subscribe</button>
+      </form>
+      <p id="newsMsg" role="status" aria-live="polite" class="e-879f25"></p>
+    </div>
+
+    <div>
+      <h3>Coordinates</h3>
+      <ul>
+        <li>2087 Vex Street — Sector Neon-07</li>
+        <li>Lower Metropolis · Basement 3</li>
+        <li>Enter through the door that wasn’t there</li>
+      </ul>
+    </div>
+
+    <div>
+      <h3>Opening hours</h3>
+      <ul>
+        <li><span class="so-noite">Mon–Fri · 6 AM — 4 AM</span><span class="so-dia">Every day · 6 a.m. — 6 p.m.</span></li>
+        <li><span class="so-noite">Sat–Sun · always</span><span class="so-dia">First batch · 6 a.m. sharp</span></li>
+        <li><span class="so-noite">Dimensional holidays · closed</span><span class="so-dia">After sunset · the café opens</span></li>
+      </ul>
+      <h3 class="e-5a7715">Signal</h3>
+      <ul>
+        <li><a href="#inicio">@cafeaurora.omega</a></li>
+        <li><a href="#inicio">+Ω 07 2087-0000</a></li>
+      </ul>
+    </div>
+
+
+    <nav class="versoes-troca" aria-label="The five builds">
+      <span>The five builds:</span>
+      <a href="../">Plain CSS</a> · <a href="../bootstrap/">Bootstrap</a> · <a href="../tailwind/">Tailwind</a> · <a href="../bulma/">Bulma</a> · <a href="../pico/" aria-current="page">Pico</a> · <a href="../../versoes.html">compare all five (Portuguese)</a>
+    </nav>
+    <div class="foot__bottom">
+      <span>© <span id="year"></span> <span class="so-noite">Café Aurora</span><span class="so-dia">Aurora Bakery</span> <span class="dot">◆</span> All universes reserved</span>
+      <span>Pico CSS 2 · HTML · CSS · JS</span>
+    </div>
+  </footer>
+</main>
+
+<!-- PAINEL DE DIMENSÃO -->
+<aside class="dim" id="dim" aria-label="Chromatic dimension control">
+  <button type="button" class="dim__head" id="dimHead" aria-expanded="true" aria-controls="dimBody">
+    <span class="e-fd99b2"><i aria-hidden="true"></i>Tune the dimension</span>
+    <span aria-hidden="true" id="dimChevron">▾</span>
+  </button>
+  <div class="dim__body" id="dimBody">
+    <label for="hue">Chromatic shift · <span id="hueVal">0°</span></label>
+    <input type="range" id="hue" min="-70" max="70" value="0" aria-label="Chromatic shift in degrees">
+    <p class="dim__hint"><span class="so-noite">Drag to shift the café’s spectrum. Nothing breaks — probably.</span><span class="so-dia">Drag to shift the bakery’s spectrum. Nothing burns — probably.</span></p>
+  </div>
+</aside>
+
+<!-- o mesmo script da versão Tailwind: JavaScript puro, que não depende do CSS -->
+<script src="../../tailwind/script.js?v=4" defer></script>
+<script src="../../padaria.js?v=3" defer></script>
+</body>
+</html>

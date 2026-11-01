@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="it-IT" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Café Aurora · Pico CSS</title>
+<meta name="description" content="Café Aurora, una caffetteria cyberpunk immaginaria: sito d’esempio di Linu Sites.">
+<meta name="theme-color" content="#05030a">
+<link rel="canonical" href="https://cafe.linupedia.com.br/it/pico/">
+<link rel="alternate" hreflang="pt-BR" href="https://cafe.linupedia.com.br/pico/">
+<link rel="alternate" hreflang="pt-PT" href="https://cafe.linupedia.com.br/pt-pt/pico/">
+<link rel="alternate" hreflang="es-ES" href="https://cafe.linupedia.com.br/es/pico/">
+<link rel="alternate" hreflang="ca" href="https://cafe.linupedia.com.br/ca/pico/">
+<link rel="alternate" hreflang="nl" href="https://cafe.linupedia.com.br/nl/pico/">
+<link rel="alternate" hreflang="en-GB" href="https://cafe.linupedia.com.br/en/pico/">
+<link rel="alternate" hreflang="fr-FR" href="https://cafe.linupedia.com.br/fr/pico/">
+<link rel="alternate" hreflang="de-DE" href="https://cafe.linupedia.com.br/de/pico/">
+<link rel="alternate" hreflang="it-IT" href="https://cafe.linupedia.com.br/it/pico/">
+<link rel="alternate" hreflang="en" href="https://cafe.linupedia.com.br/intl/pico/">
+<link rel="alternate" hreflang="ja-JP" href="https://cafe.linupedia.com.br/ja/pico/">
+<link rel="alternate" hreflang="ko-KR" href="https://cafe.linupedia.com.br/ko/pico/">
+<link rel="alternate" hreflang="zh-Hant" href="https://cafe.linupedia.com.br/zh-hant/pico/">
+<script type="application/json" id="textos-cafe">{"boot":["Avvio del portale…","Calibrazione della macinatura quantica…","Sincronizzazione dei chicchi di Ω-11…","Riscaldamento del reattore a vapore…","Benvenuto nella fenditura."],"news_erro":"Segnale non valido. Controlla le coordinate della tua e-mail.","news_ok":"Segnale ricevuto. Sarai contattato da un’altra dimensione.","terminar":"✓ Fatto","painel_aviso":"Clicca su un testo e scrivi. Nel pannello vero, quello che cambi resta salvato.","d_boot":["Accendiamo il forno…","Chiudiamo la fenditura…","Impastiamo la pasta di Ω-11…","Aspettiamo che la crosta si dori…","Buongiorno."],"d_pao":["Pane di Grano Solare","Pane di Segale del Crepuscolo","Pane Integrale d'Orbita","Brioche Stellare"],"d_min":"{n} min","add_aria":"Aggiungi {nome} all’ordine","no_pedido":"{nome} aggiunto all’ordine.","menos":"Un {nome} in meno","mais":"Un altro {nome}","f_n":"{n} su {total} nel menù","msg_cab":"Ordine per {loja}:","msg_total":"Totale","msg_nome":"Nome","msg_aqui":"Da consumare lì","msg_levar":"Da asporto","msg_hora":"Alle","msg_obs":"Nota:","feito":"Fatto: WhatsApp si è aperto con l’ordine. Hai guadagnato un timbro ({n} su 10).","feito_abrir":"Riapri WhatsApp","selo":"Questo ordine vale un timbro (finora {n} su 10).","fid_n":"{n} timbri su 10.","fid_premio":"Tessera piena! Il prossimo ordine lo offre la casa.","fid_usado":"Premio usato. Tessera nuova, buona fortuna.","r_ok":"Prenotato: {mesa}, {pessoas} persone, {data} alle {hora}.","r_whats":"Conferma su WhatsApp","r_cancelar":"Annulla","r_msg":"Prenotazione da {loja}: {mesa}, {pessoas} persone, {data} alle {hora}, a nome di {nome}.","r_hora_erro":"Dicci l’ora.","r_hora_noite":"Dalle 4 alle 6 il caffè chiude per pulire la fenditura.","r_hora_dia":"La panetteria è aperta dalle 6 alle 18.","qz_passo":"Domanda {n} di {total}","qz_resultado":"Fa per te:","qz_de_novo":"Rifai","qz_noite":[["Caldo o freddo?",[["Caldo","quente"],["Freddo","gelado"]]],["Dolce o intenso?",[["Dolce","doce"],["Intenso","intenso"]]],["E la caffeina?",[["Volentieri","cafeina"],["Senza caffeina","sem-cafeina"]]]],"qz_dia":[["Dolce o salato?",[["Dolce","doce"],["Salato","salgado"]]],["Appena sfornato?",[["Caldo","quentinho"],["È uguale",""]]],["E il latte?",[["Nessun problema",""],["Senza lattosio","sem-lactose"]]]],"d_titulo":"Forno Aurora — Un Forno Cyberpunk in un’Altra Dimensione","expresso":"Espresso Quantico","coldbrew":"Cold Brew Neurale","matcha":"Matcha del Vuoto","estelar":"Latte di Stella","nivel":"Livello","editar":"✎ Modifica i testi","d_nome":"Forno Aurora","lab_add":"Aggiungi all’ordine"}</script>
+
+
+<link rel="preload" href="../../fontes/orbitron.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="../../icone.png" type="image/png" sizes="128x128">
+<script src="../../inicio.js?v=3"></script>
+<link rel="stylesheet" href="../../pico/vendor/pico.min.css">
+<link rel="stylesheet" href="../../pico/estilo.css?v=2">
+<link rel="stylesheet" href="../../padaria.css?v=6">
+</head>
+
+<body>
+<a class="skip" href="#conteudo">Vai al contenuto</a>
+
+<!-- BOOT -->
+<div class="boot" id="boot" role="status" aria-live="polite">
+  <div class="boot__logo"><span class="so-noite">CAFÉ AURORA</span><span class="so-dia">FORNO AURORA</span></div>
+  <div class="boot__bar"><div class="boot__fill" id="bootFill"></div></div>
+  <div class="boot__log" id="bootLog"><span class="so-noite">Avvio del portale…</span><span class="so-dia">Accendiamo il forno…</span></div>
+  <button type="button" class="boot__pular">Salta l’intro</button>
+</div>
+
+<!-- CURSOR -->
+<div class="cur" id="cur" aria-hidden="true"></div>
+<div class="cur-dot" id="curDot" aria-hidden="true"></div>
+
+<!-- FUNDO -->
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="bg-veil" aria-hidden="true"></div>
+<div class="noise" aria-hidden="true"></div>
+<div class="scanlines" aria-hidden="true"></div>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <a href="#inicio" class="brand" aria-label="Café Aurora — home" data-aria-dia="Forno Aurora — inizio">
+    <span class="brand__orb" aria-hidden="true"></span>
+    <span class="so-noite">CAFÉ&nbsp;AURORA</span><span class="so-dia">FORNO AURORA</span>
+  </a>
+
+  <nav class="nav__links" id="navLinks" aria-label="Navigazione principale">
+    <a href="#inicio" class="active">Home</a>
+    <a href="#sobre">Origine</a>
+    <a href="#menu">Menù</a>
+    <a href="#laboratorio"><span class="so-noite">Laboratorio</span><span class="so-dia">Forno</span></a>
+    <a href="#transmissoes"><span class="so-noite">Trasmissioni</span><span class="so-dia">Biglietti</span></a>
+  </nav>
+
+  <div class="nav__right">
+    <button type="button" class="modo" id="modo" aria-label="Apri il forno (modalità giorno)" title="Apri il forno (modalità giorno)"
+            data-para-dia="Apri il forno (modalità giorno)" data-para-noite="Torna al caffè (modalità notte)">
+      <span class="modo__astro" aria-hidden="true"></span>
+    </button>
+    <a href="#laboratorio" class="btn btn--magenta magnetic">Ordina ora</a>
+    <button type="button" class="burger" id="burger" aria-label="Apri il menù" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero__halo" aria-hidden="true"></div>
+    <div class="hero__rings" aria-hidden="true"><i></i><i></i><i></i></div>
+
+    <div>
+      <span class="hero__tag reveal"><span class="so-noite">☕ <b>APERTO</b> 24H · SETTORE NEON-07 · DIMENSIONE Ω</span><span class="so-dia">🥐 <b>INFORNATA</b> DELLE 6 · SETTORE SOLE-07 · DIMENSIONE ☉</span></span>
+
+      <h1 class="glitch" data-text="CAFÉ&#10;AURORA">
+        <span><span class="so-noite">CAFÉ</span><span class="so-dia">FORNO</span></span>
+        <span><span class="so-noite">AURORA</span><span class="so-dia">AURORA</span></span>
+      </h1>
+
+      <p class="hero__sub reveal" data-d="1">
+        <span class="so-noite">Tostiamo chicchi raccolti in <b>realtà parallele</b>. Ogni tazza è un piccolo collasso quantistico — e il tuo palato, l’unica costante.</span><span class="so-dia">Quando sorge il sole, la fenditura si chiude e il forno si accende. Cuociamo pane con farina macinata in <b>realtà parallele</b>: ogni fetta esce calda, croccante e solo un po' fuori dal tempo.</span>
+      </p>
+
+      <div class="hero__cta reveal" data-d="2">
+        <a href="#menu" class="btn magnetic"><span class="so-noite">Scopri il menù</span><span class="so-dia">Guarda l'infornata</span></a>
+        <a href="#sobre" class="btn btn--ghost magnetic"><span class="so-noite">Attraversa il portale</span><span class="so-dia">Scopri il forno</span></a>
+      </div>
+
+      <div class="hero__stats reveal" data-d="3">
+        <div><b>12</b><span class="so-noite">Dimensioni attive</span><span class="so-dia">Infornate al giorno</span></div>
+        <div><b>98,4%</b><span class="so-noite">Precisione quantistica</span><span class="so-dia">Croccantezza misurata</span></div>
+        <div><b>∞</b><span class="so-noite">Ricariche di sogno</span><span class="so-dia">Briciole perdonate</span></div>
+      </div>
+    </div>
+
+    <div class="scroll-hint" aria-hidden="true">
+      <span>Scorri</span>
+      <i></i>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span><span class="so-noite">Espresso Quantico</span><span class="so-dia">Cornetto a 2087 Strati</span></span><span><span class="so-noite">Latte al Plasma</span><span class="so-dia">Pane a Gravità Zero</span></span><span><span class="so-noite">Cold Brew Neurale</span><span class="so-dia">Baguette d'Orbita</span></span>
+      <span><span class="so-noite">Matcha del Vuoto</span><span class="so-dia">Bombolone Nebulosa</span></span><span><span class="so-noite">Latte di Stella</span><span class="so-dia">Ciambella dell'Eclissi</span></span><span><span class="so-noite">Polvere di Cometa</span><span class="so-dia">Pane al Formaggio Quantistico</span></span>
+      <span><span class="so-noite">Espresso Quantico</span><span class="so-dia">Cornetto a 2087 Strati</span></span><span><span class="so-noite">Latte al Plasma</span><span class="so-dia">Pane a Gravità Zero</span></span><span><span class="so-noite">Cold Brew Neurale</span><span class="so-dia">Baguette d'Orbita</span></span>
+      <span><span class="so-noite">Matcha del Vuoto</span><span class="so-dia">Bombolone Nebulosa</span></span><span><span class="so-noite">Latte di Stella</span><span class="so-dia">Ciambella dell'Eclissi</span></span><span><span class="so-noite">Polvere di Cometa</span><span class="so-dia">Pane al Formaggio Quantistico</span></span>
+    </div>
+  </div>
+
+  <!-- SOBRE -->
+  <section class="section container" id="sobre">
+    <div class="about grid">
+      <div class="about__text">
+        <span class="eyebrow reveal">Origine</span>
+        <h2 class="reveal" data-d="1"><span class="so-noite">Siamo nati da un <em>cortocircuito</em> tra due mondi</span><span class="so-dia">Di giorno, la fenditura diventa <em>forno</em></span></h2>
+
+        <div class="reveal" data-d="2">
+          <p class="lead">
+            <span class="so-noite">Nel 2087, una barista di nome <strong>Aurora Vex</strong> ha versato del caffè su un reattore a curvatura. Il risultato non è stato un’esplosione — ma un aroma.</span><span class="so-dia">Ogni mattina, quando il nostro sole e quello di Ω-11 sorgono insieme, la fenditura che <strong>Aurora Vex</strong> ha aperto con il caffè si restringe fino alla misura di una porta del forno.</span>
+          </p>
+          <p>
+            <span class="so-noite">L’aroma ha aperto una fenditura. Dall’altra parte c’era una città uguale alla nostra, ma con luci che pensavano e pioggia che ricordava. Lì abbiamo trovato i chicchi che serviamo oggi.</span><span class="so-dia">Il calore che sfugge dall'altra parte non va sprecato: cuoce il pane. La prima infornata esce alle sei, e il profumo attraversa le due città prima di qualsiasi sveglia.</span>
+          </p>
+          <p>
+            <span class="so-noite">Il <strong>Café Aurora</strong> è l’unico punto d’incontro tra le due metropoli. Qui il vapore sale piano e il tempo accetta di fermarsi qualche minuto — purché tu ordini la seconda tazza.</span><span class="so-dia">Il <strong>Forno Aurora</strong> è lo stesso posto del caffè, con la luce del giorno. I baristi della notte diventano fornai, il bancone diventa vetrina e il neon riposa fino al tramonto.</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="portal reveal" data-d="3" aria-hidden="true">
+        <div class="portal__ring"></div>
+        <div class="portal__ring"></div>
+        <div class="portal__ring"></div>
+        <div class="portal__core"></div>
+        <span class="portal__label"><span class="so-noite">Fenditura stabile · 3.2 nm</span><span class="so-dia">Forno stabile · 220 °C</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="section container" id="menu">
+    <span class="eyebrow reveal">Menù</span>
+    <h2 class="reveal" data-d="1"><span class="so-noite">Miscele che <em>non esistono</em> da nessun’altra parte</span><span class="so-dia">Infornate che <em>non aspettano</em> che il tempo passi</span></h2>
+    <p class="lead reveal" data-d="2">
+      <span class="so-noite">Sei ricette calibrate per diverse frequenze cerebrali. Tutte servite in tazze autorigeneranti.</span><span class="so-dia">Sei ricette che escono dal forno più volte al giorno. Tutte incartate in una carta che tiene il calore per qualche ora, o qualche dimensione.</span>
+    </p>
+
+    <div class="menu-grid">
+      <article class="card reveal tilt" data-d="1">
+        <div class="card__top">
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">⚡</span><span class="so-dia">🥐</span></div>
+          <span class="card__id"><span class="so-noite">LX-001</span><span class="so-dia">FN-001</span></span>
+        </div>
+        <h3><span class="so-noite">Espresso Quantico</span><span class="so-dia">Cornetto a 2087 Strati</span></h3>
+        <p><span class="so-noite">Due estrazioni simultanee in universi diversi. Assaggi la media tra le due.</span><span class="so-dia">Pieghiamo l'impasto 2087 volte, una per ogni anno fino alla fenditura. Ogni morso scrocchia in uno strato diverso della realtà.</span></p>
+        <div class="card__foot">
+          <span class="card__price"><span class="so-noite">₡ 18</span><span class="so-dia">₡ 9</span></span>
+          <span class="card__tag"><span class="so-noite">Intenso</span><span class="so-dia">Sfogliato</span></span>
+        </div>
+      </article>
+
+      <article class="card card--m reveal tilt" data-d="2">
+        <div class="card__top">
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">🌌</span><span class="so-dia">🍞</span></div>
+          <span class="card__id"><span class="so-noite">LX-014</span><span class="so-dia">FN-006</span></span>
+        </div>
+        <h3><span class="so-noite">Latte al Plasma</span><span class="so-dia">Pane a Gravità Zero</span></h3>
+        <p><span class="so-noite">Latte montato a 340 °C in un campo magnetico. Brilla leggermente quando lo mescoli.</span><span class="so-dia">Lievitato 72 ore fluttuando, senza niente che lo tiri giù. È così leggero che arriva legato al piatto.</span></p>
+        <div class="card__foot">
+          <span class="card__price"><span class="so-noite">₡ 24</span><span class="so-dia">₡ 7</span></span>
+          <span class="card__tag"><span class="so-noite">Brillante</span><span class="so-dia">Leggero</span></span>
+        </div>
+      </article>
+
+      <article class="card card--v reveal tilt" data-d="3">
+        <div class="card__top">
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">❄️</span><span class="so-dia">🥖</span></div>
+          <span class="card__id"><span class="so-noite">LX-027</span><span class="so-dia">FN-012</span></span>
+        </div>
+        <h3><span class="so-noite">Cold Brew Neurale</span><span class="so-dia">Baguette d'Orbita</span></h3>
+        <p><span class="so-noite">Infuso per 72 ore in una camera di deprivazione sensoriale. Si sincronizza con il tuo ritmo di concentrazione.</span><span class="so-dia">Cotta facendo un giro completo del forno orbitale. La crosta canta quando la stringi.</span></p>
+        <div class="card__foot">
+          <span class="card__price"><span class="so-noite">₡ 22</span><span class="so-dia">₡ 8</span></span>
+          <span class="card__tag"><span class="so-noite">Lucido</span><span class="so-dia">Croccante</span></span>
+        </div>
+      </article>
+
+      <article class="card card--a reveal tilt" data-d="4">
+        <div class="card__top">
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">🍃</span><span class="so-dia">🧁</span></div>
+          <span class="card__id"><span class="so-noite">LX-033</span><span class="so-dia">FN-019</span></span>
+        </div>
+        <h3><span class="so-noite">Matcha del Vuoto</span><span class="so-dia">Bombolone Nebulosa</span></h3>
+        <p><span class="so-noite">Foglie coltivate dove non c’è luce. Il sapore arriva prima dell’aroma — non chiedere come.</span><span class="so-dia">Ripieno di crema che brilla appena, spolverato di zucchero di stella. Mangialo prima che decida di evaporare.</span></p>
+        <div class="card__foot">
+          <span class="card__price"><span class="so-noite">₡ 26</span><span class="so-dia">₡ 6</span></span>
+          <span class="card__tag"><span class="so-noite">Etereo</span><span class="so-dia">Dolce</span></span>
+        </div>
+      </article>
+
+      <article class="card card--m reveal tilt" data-d="5">
+        <div class="card__top">
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">✨</span><span class="so-dia">🍩</span></div>
+          <span class="card__id"><span class="so-noite">LX-042</span><span class="so-dia">FN-024</span></span>
+        </div>
+        <h3><span class="so-noite">Latte di Stella</span><span class="so-dia">Ciambella dell'Eclissi</span></h3>
+        <p><span class="so-noite">Senza caffeina. Fatto di polvere di stelle condensata e un po’ di nostalgia.</span><span class="so-dia">Una ciambella con la mollica sempre all'ombra. Fuori zucchero; dentro, un po' di notte.</span></p>
+        <div class="card__foot">
+          <span class="card__price"><span class="so-noite">₡ 20</span><span class="so-dia">₡ 5</span></span>
+          <span class="card__tag"><span class="so-noite">Delicato</span><span class="so-dia">Raro</span></span>
+        </div>
+      </article>
+
+      <article class="card card--v reveal tilt" data-d="5">
+        <div class="card__top">
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">☄️</span><span class="so-dia">🧀</span></div>
+          <span class="card__id"><span class="so-noite">LX-050</span><span class="so-dia">FN-031</span></span>
+        </div>
+        <h3><span class="so-noite">Polvere di Cometa</span><span class="so-dia">Pane al Formaggio Quantistico</span></h3>
+        <p><span class="so-noite">Un triplo shot con schegge di ghiaccio orbitale. Il ghiaccio non si scioglie mai — si arrende e basta.</span><span class="so-dia">È caldo e freddo insieme finché qualcuno non apre il sacchetto. Esce sempre caldo.</span></p>
+        <div class="card__foot">
+          <span class="card__price"><span class="so-noite">₡ 31</span><span class="so-dia">₡ 4</span></span>
+          <span class="card__tag"><span class="so-noite">Raro</span><span class="so-dia">Classico</span></span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- LABORATÓRIO -->
+  <section class="section container" id="laboratorio">
+    <span class="eyebrow reveal"><span class="so-noite">Laboratorio</span><span class="so-dia">Forno</span></span>
+    <h2 class="reveal" data-d="1"><span class="so-noite">Sintetizza la <em>tua</em> tazza</span><span class="so-dia">Componi il <em>tuo</em> pane</span></h2>
+    <p class="lead reveal" data-d="2">
+      <span class="so-noite">Regola i parametri. La bevanda si ricalcola in tempo reale — come tutto qui.</span><span class="so-dia">Scegli la farina, il tempo di cottura e cosa va sopra. La crosta si dora mentre decidi.</span>
+    </p>
+
+    <div class="lab grid">
+      <!-- Painel -->
+      <div class="lab__panel reveal" data-d="2" id="labForm" role="group" aria-label="Crea la tua bevanda" data-aria-dia="Componi il tuo pane">
+        <div class="lab__group">
+          <div class="lab__label"><span><span class="so-noite">01 · Base molecolare</span><span class="so-dia">01 · Farina</span></span></div>
+          <div class="chips" role="radiogroup" aria-label="Base molecolare" data-aria-dia="Farina">
+            <label class="chip">
+              <input type="radio" name="base" value="expresso" checked>
+              <span><span class="so-noite">Espresso</span><span class="so-dia">Grano</span></span>
+            </label>
+            <label class="chip">
+              <input type="radio" name="base" value="coldbrew">
+              <span><span class="so-noite">Cold Brew</span><span class="so-dia">Segale</span></span>
+            </label>
+            <label class="chip">
+              <input type="radio" name="base" value="matcha">
+              <span><span class="so-noite">Matcha</span><span class="so-dia">Integrale</span></span>
+            </label>
+            <label class="chip">
+              <input type="radio" name="base" value="estelar">
+              <span><span class="so-noite">Latte Stellare</span><span class="so-dia">Brioche Stellare</span></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="lab__group">
+          <div class="lab__label">
+            <span><span class="so-noite">02 · Intensità quantica</span><span class="so-dia">02 · Tempo di cottura</span></span>
+            <b id="intVal">7</b>
+          </div>
+          <input type="range" id="intensity" min="1" max="10" value="7"
+                 aria-label="Intensità quantica, da 1 a 10" data-aria-dia="Tempo di cottura, da 1 a 10">
+        </div>
+
+        <div class="lab__group">
+          <div class="lab__label"><span><span class="so-noite">03 · Modificatori</span><span class="so-dia">03 · Sopra</span></span></div>
+          <div class="chips">
+            <label class="chip">
+              <input type="checkbox" name="top[]" value="Polvere di Cometa" data-cob="1">
+              <span><span class="so-noite">Polvere di Cometa</span><span class="so-dia">Sesamo</span></span>
+            </label>
+            <label class="chip">
+              <input type="checkbox" name="top[]" value="Schiuma di Plasma" data-cob="2">
+              <span><span class="so-noite">Schiuma di Plasma</span><span class="so-dia">Burro</span></span>
+            </label>
+            <label class="chip">
+              <input type="checkbox" name="top[]" value="Cristallo di Zucchero" data-cob="3">
+              <span><span class="so-noite">Cristallo di Zucchero</span><span class="so-dia">Formaggio</span></span>
+            </label>
+            <label class="chip">
+              <input type="checkbox" name="top[]" value="Fiore di Neon" data-cob="4">
+              <span><span class="so-noite">Fiore di Neon</span><span class="so-dia">Zucchero di Cometa</span></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="lab__result">
+          <small><span class="so-noite">Uscita del sintetizzatore</span><span class="so-dia">Appena sfornato</span></small>
+          <div id="drinkName">Espresso Quantico · Livello 7</div>
+          <span id="drinkPrice">₡ 21,50</span>
+        </div>
+      </div>
+
+      <!-- Xícara -->
+      <div class="cup-stage reveal" data-d="3">
+        <div class="cup-wrap so-noite">
+          <div class="cup-glow" id="cupGlow" aria-hidden="true"></div>
+          <div class="steam" aria-hidden="true"><i></i><i></i><i></i></div>
+          <i class="cup__poeira" aria-hidden="true"></i>
+          <div class="cup">
+            <div class="liquid" id="liquid"><i class="liquid__espuma"></i><i class="liquid__cristais"></i><i class="liquid__flor"></i></div>
+          </div>
+          <div class="saucer" aria-hidden="true"></div>
+
+          <span class="badge-float">temp · 68 °C</span>
+          <span class="badge-float">ph · 5.4</span>
+          <span class="badge-float">dim · Ω-07</span>
+        </div>
+        <!-- O pão (modo dia): a casca doura com o tempo de forno; cada cobertura é uma classe com-N -->
+        <div class="pao-wrap so-dia">
+          <div class="cup-glow" id="forno" aria-hidden="true"></div>
+          <div class="steam" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="pao" id="pao" aria-hidden="true">
+            <i class="pao__queijo"></i><i class="pao__manteiga"></i>
+          </div>
+          <div class="tabua" aria-hidden="true"></div>
+
+          <span class="badge-float">forno · 220 °C</span>
+          <span class="badge-float">fermento · 72 h</span>
+          <span class="badge-float">dim · ☉-07</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANSMISSÕES -->
+  <section class="section container" id="transmissoes">
+    <span class="eyebrow reveal"><span class="so-noite">Trasmissioni</span><span class="so-dia">Biglietti</span></span>
+    <h2 class="reveal" data-d="1"><span class="so-noite">Voci captate da <em>altre</em> dimensioni</span><span class="so-dia">Biglietti lasciati <em>sul bancone</em></span></h2>
+
+    <div class="trans-grid grid">
+      <blockquote class="trans reveal" data-d="1">
+        <q><span class="so-noite">Ho ordinato un Espresso Quantico e ho cominciato a ricordare un’infanzia che non ho mai avuto. Consigliato. Torno domani — o ieri.</span><span class="so-dia">Ho comprato un cornetto e ho trovato, tra gli strati, un biglietto che scriverò io stesso domani. Era buonissimo.</span></q>
+        <footer><b><span class="so-noite">Kira-09</span><span class="so-dia">Tomás-06</span></b><span class="so-noite">Settore Neon-07</span><span class="so-dia">Settore Sole-07</span></footer>
+      </blockquote>
+
+      <blockquote class="trans reveal" data-d="2">
+        <q><span class="so-noite">Il Latte al Plasma si è illuminato quando ho pianto. Imbarazzante per entrambi, ma il sapore era impeccabile.</span><span class="so-dia">Il pane a gravità zero è salito fino al soffitto. Ho aspettato che scendesse per fare colazione. Torno domani.</span></q>
+        <footer><b><span class="so-noite">Dr. Halven</span><span class="so-dia">Odila Prax</span></b><span class="so-noite">Clinica dei Ricordi</span><span class="so-dia">Orologeria della Piazza</span></footer>
+      </blockquote>
+
+      <blockquote class="trans reveal" data-d="3">
+        <q><span class="so-noite">Ero venuto solo per un caffè. Sono uscito con una teoria sul tempo e un bicchiere che si rifiuta di svuotarsi.</span><span class="so-dia">Ho chiesto un pane al formaggio e sono uscito con due: uno di qui e uno di là. Tutti e due caldi.</span></q>
+        <footer><b>Anonima</b><span class="so-noite">Dimensione Ω-11</span><span class="so-dia">Dimensione ☉-03</span></footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2 class="reveal"><span class="so-noite">La fenditura è aperta <em>fino a tardi</em></span><span class="so-dia">Il forno si accende <em>alle sei</em></span></h2>
+    <p class="reveal" data-d="1">
+      <span class="so-noite">Non serve prenotare. Solo il coraggio di attraversare la porta sbagliata.</span><span class="so-dia">Vieni presto: la prima infornata finisce prima che il sole abbia finito di sorgere.</span>
+    </p>
+    <div class="hero__cta reveal" data-d="2">
+      <a href="#menu" class="btn btn--magenta magnetic">Vedi il menù completo</a>
+      <a href="#inicio" class="btn btn--ghost magnetic">Torna all’inizio</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="foot container">
+    <div>
+      <div class="brand">
+        <span class="brand__orb" aria-hidden="true"></span><span class="so-noite">CAFÉ AURORA</span><span class="so-dia">FORNO AURORA</span>
+      </div>
+      <p><span class="so-noite">Torrefazione interdimensionale dal 2087. Chicchi raccolti in modo etico in universi che hanno dato il consenso.</span><span class="so-dia">Panificazione interdimensionale dal 2087. Farina macinata con etica in universi che hanno dato il consenso.</span></p>
+
+      <form class="newsletter" id="newsForm" novalidate>
+        <label class="sr-only" for="email">La tua e-mail per ricevere segnali</label>
+        <input type="email" id="email" placeholder="tu@email.dim" autocomplete="email" required>
+        <button type="submit" class="btn magnetic">Iscriviti</button>
+      </form>
+      <p id="newsMsg" role="status" aria-live="polite" class="e-879f25"></p>
+    </div>
+
+    <div>
+      <h3>Coordinate</h3>
+      <ul>
+        <li>Via Vex, 2087 — Settore Neon-07</li>
+        <li>Metropoli Bassa · Seminterrato 3</li>
+        <li>Ingresso dalla porta che prima non c’era</li>
+      </ul>
+    </div>
+
+    <div>
+      <h3>Orari</h3>
+      <ul>
+        <li><span class="so-noite">Lun–Ven · 6:00 — 4:00</span><span class="so-dia">Tutti i giorni · 06:00 — 18:00</span></li>
+        <li><span class="so-noite">Sab–Dom · sempre</span><span class="so-dia">Prima infornata · alle 06:00 in punto</span></li>
+        <li><span class="so-noite">Festività dimensionali · chiuso</span><span class="so-dia">Dopo il tramonto · apre il caffè</span></li>
+      </ul>
+      <h3 class="e-5a7715">Segnale</h3>
+      <ul>
+        <li><a href="#inicio">@cafeaurora.omega</a></li>
+        <li><a href="#inicio">+Ω 07 2087-0000</a></li>
+      </ul>
+    </div>
+
+
+    <nav class="versoes-troca" aria-label="Le cinque versioni">
+      <span>Le cinque versioni:</span>
+      <a href="../">CSS puro</a> · <a href="../bootstrap/">Bootstrap</a> · <a href="../tailwind/">Tailwind</a> · <a href="../bulma/">Bulma</a> · <a href="../pico/" aria-current="page">Pico</a> · <a href="../../versoes.html">confrontare le cinque (portoghese)</a>
+    </nav>
+    <div class="foot__bottom">
+      <span>© <span id="year"></span> <span class="so-noite">Café Aurora</span><span class="so-dia">Forno Aurora</span> <span class="dot">◆</span> Tutti gli universi riservati</span>
+      <span>Pico CSS 2 · HTML · CSS · JS</span>
+    </div>
+  </footer>
+</main>
+
+<!-- PAINEL DE DIMENSÃO -->
+<aside class="dim" id="dim" aria-label="Regolazione della dimensione cromatica">
+  <button type="button" class="dim__head" id="dimHead" aria-expanded="true" aria-controls="dimBody">
+    <span class="e-fd99b2"><i aria-hidden="true"></i>Sintonizza la dimensione</span>
+    <span aria-hidden="true" id="dimChevron">▾</span>
+  </button>
+  <div class="dim__body" id="dimBody">
+    <label for="hue">Spostamento cromatico · <span id="hueVal">0°</span></label>
+    <input type="range" id="hue" min="-70" max="70" value="0" aria-label="Spostamento cromatico in gradi">
+    <p class="dim__hint"><span class="so-noite">Trascina per spostare lo spettro della caffetteria. Non si rompe niente — probabilmente.</span><span class="so-dia">Trascina per spostare lo spettro del forno. Non si brucia niente — probabilmente.</span></p>
+  </div>
+</aside>
+
+<!-- o mesmo script da versão Tailwind: JavaScript puro, que não depende do CSS -->
+<script src="../../tailwind/script.js?v=4" defer></script>
+<script src="../../padaria.js?v=3" defer></script>
+</body>
+</html>

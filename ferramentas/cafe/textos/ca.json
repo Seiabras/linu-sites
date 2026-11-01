@@ -232,7 +232,16 @@
     "fid_usar": "Fes servir el premi",
     "tw_feito": "Fet amb HTML, Tailwind CSS i una mica de cafeïna quàntica",
     "versoes": "També en",
-    "comparar": "comparar les tres (portuguès)"
+    "comparar": "comparar les cinc (portuguès)",
+    "pular_abertura": "Salta la intro",
+    "i_peso": "Pes",
+    "d_f_vegano": "Vegà",
+    "d_p_vazio": "La comanda és buida. Toca «+ Comanda» en un pa de la carta o a «Fes el teu pa».",
+    "d_p_nota": "El forn és fictici: el WhatsApp s’obre sense número, perquè triïs a qui enviar-ho. En un web de veritat, la comanda aniria directa a la botiga.",
+    "d_dim_hint": "Arrossega per desplaçar l’espectre del forn. No es crema res — probablement.",
+    "d_ficticia": "Forn fictici · web d’exemple feta per",
+    "v_rotulo": "Les cinc versions",
+    "css_puro": "CSS pur"
   },
   "js": {
     "boot": [
@@ -369,6 +378,7 @@
           ]
         ]
       ]
-    ]
+    ],
+    "d_titulo": "Forn Aurora — Un Forn Cyberpunk en una Altra Dimensió"
   }
 }

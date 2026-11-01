@@ -232,7 +232,16 @@
     "fid_usar": "Beloning gebruiken",
     "tw_feito": "Gemaakt met HTML, Tailwind CSS en een beetje kwantumcafeïne",
     "versoes": "Ook in",
-    "comparar": "de drie vergelijken (Portugees)"
+    "comparar": "de vijf vergelijken (Portugees)",
+    "pular_abertura": "Intro overslaan",
+    "i_peso": "Gewicht",
+    "d_f_vegano": "Veganistisch",
+    "d_p_vazio": "Je bestelling is leeg. Tik op “+ Bestelling” bij een brood op het menu of in “Stel je eigen brood samen”.",
+    "d_p_nota": "De bakkerij is verzonnen: WhatsApp opent zonder nummer, zodat jij kiest naar wie. Op een echte site ging de bestelling meteen naar de zaak.",
+    "d_dim_hint": "Sleep om het spectrum van de bakkerij te verschuiven. Er verbrandt niets — waarschijnlijk.",
+    "d_ficticia": "Fictieve bakkerij · voorbeeldwebsite door",
+    "v_rotulo": "De vijf versies",
+    "css_puro": "Pure CSS"
   },
   "js": {
     "boot": [
@@ -369,6 +378,7 @@
           ]
         ]
       ]
-    ]
+    ],
+    "d_titulo": "Bakkerij Aurora — Een Cyberpunkbakkerij in een Andere Dimensie"
   }
 }

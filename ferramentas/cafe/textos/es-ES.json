@@ -232,7 +232,16 @@
     "fid_usar": "Usar el premio",
     "tw_feito": "Hecho con HTML, Tailwind CSS y un poco de cafeína cuántica",
     "versoes": "También en",
-    "comparar": "comparar las tres (portugués)"
+    "comparar": "comparar las cinco (portugués)",
+    "pular_abertura": "Saltar la intro",
+    "i_peso": "Peso",
+    "d_f_vegano": "Vegano",
+    "d_p_vazio": "El pedido está vacío. Toca «+ Pedido» en un pan de la carta o en «Haz tu pan».",
+    "d_p_nota": "La panadería es ficticia: WhatsApp se abre sin número, para que elijas a quién enviarlo. En una web de verdad, el pedido iría directo a la tienda.",
+    "d_dim_hint": "Arrastra para desplazar el espectro de la panadería. Nada se quema — probablemente.",
+    "d_ficticia": "Panadería ficticia · web de ejemplo hecha por",
+    "v_rotulo": "Las cinco versiones",
+    "css_puro": "CSS puro"
   },
   "js": {
     "boot": [
@@ -369,6 +378,7 @@
           ]
         ]
       ]
-    ]
+    ],
+    "d_titulo": "Panadería Aurora — Una Panadería Cyberpunk en Otra Dimensión"
   }
 }

@@ -232,7 +232,16 @@
     "fid_usar": "Usa il premio",
     "tw_feito": "Fatto con HTML, Tailwind CSS e un po’ di caffeina quantistica",
     "versoes": "Anche in",
-    "comparar": "confrontare le tre (portoghese)"
+    "comparar": "confrontare le cinque (portoghese)",
+    "pular_abertura": "Salta l’intro",
+    "i_peso": "Peso",
+    "d_f_vegano": "Vegano",
+    "d_p_vazio": "L’ordine è vuoto. Tocca «+ Ordine» su un pane del menù o in «Componi il tuo pane».",
+    "d_p_nota": "Il forno è inventato: WhatsApp si apre senza numero, così scegli tu a chi mandarlo. Su un sito vero, l’ordine andrebbe dritto al negozio.",
+    "d_dim_hint": "Trascina per spostare lo spettro del forno. Non si brucia niente — probabilmente.",
+    "d_ficticia": "Forno immaginario · sito d’esempio realizzato da",
+    "v_rotulo": "Le cinque versioni",
+    "css_puro": "CSS puro"
   },
   "js": {
     "boot": [
@@ -369,6 +378,7 @@
           ]
         ]
       ]
-    ]
+    ],
+    "d_titulo": "Forno Aurora — Un Forno Cyberpunk in un’Altra Dimensione"
   }
 }

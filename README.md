@@ -174,11 +174,11 @@ node ferramentas/gerar-cafe.mjs
   `sitios/cafe-aurora/pico/vendor/`). O `VERSOES` do `gerar-cafe.mjs` lista as quatro. Todo rodapé tem a mesma lista
   (`.versoes-troca`), que leva de qualquer versão para qualquer outra, no mesmo idioma, com a atual marcada. A
   `versoes.html` explica o que muda entre o puro e cada framework (tabela de ideia, layout, HTML, peso, tema, o que
-  quebrou) e compara o peso comprimido: puro 40 KB, Bootstrap 83, Tailwind 30, Bulma 63, Pico 41. Por enquanto as
-  chaves novas (`v_rotulo`, `css_puro`, `comparar`) estão só no `pt-BR.json` (regra 8).
+  quebrou) e compara o peso comprimido: puro 40 KB, Bootstrap 83, Tailwind 30, Bulma 63, Pico 41. As chaves novas
+  (`v_rotulo`, `css_puro`, `comparar`) estão nas 13 línguas; a `versoes.html` continua só em português.
 - **A abertura do Café (1/11/2026):** a exceção “abertura de identidade” da `DIRETRIZES-UX.md` (seção 1): uma vez por
   sessão (`inicio.js` v3 põe `ja-abriu` no `<html>`), 3 s contados pelo script de cada versão, pular com toque, botão
-  ou tecla (chave `pular_abertura`, por enquanto só no `pt-BR.json`), parada com “menos movimento”.
+  ou tecla (chave `pular_abertura`), parada com “menos movimento”.
 - **O Café “de verdade” (1/11/2026):** pedido com quantidades e a mensagem pronta para o WhatsApp (o Café é fictício: o
   WhatsApp abre sem número), filtros e detalhes do cardápio (de noite e de dia), o teste “Que bebida combina com você?”,
   reserva de mesa com validação na hora (a hora respeita o horário do café e da padaria) e o cartão de carimbos (um por
@@ -197,16 +197,17 @@ node ferramentas/gerar-cafe.mjs
   teste “o que combina com você” (R$ 300), reserva de mesa (R$ 600) e cartão fidelidade (R$ 400), com os valores em euro
   e dólar no `precos.json`. No Café, cada um vira uma classe `sem-...` (lista `MODULOS` do `script.js`); começam
   desligados e, com o pedido desligado, o “Pedir agora” volta a levar ao laboratório.
-- **Só em português por enquanto (regra 8):** as linhas novas do simulador estão num bloco `{{?pt-BR}}` do
-  `ferramentas/pagina/modelo.html`, com o texto direto no HTML; os textos novos do Café (`i_peso`, `d_f_vegano`,
-  `d_p_vazio`, `d_p_nota`) estão só no `textos/pt-BR.json`, então o Café se gera com `IDIOMAS=pt-BR node
-  ferramentas/gerar-cafe.mjs` até a tradução (sem isso, o gerador recusa por faltar chave). As outras línguas continuam
-  com a página de antes, que funciona com o script novo.
+- **Nas 13 línguas (1/11/2026, a leva da regra 8):** depois do português aprovado, as linhas novas do simulador viraram
+  chaves (`simulador_pedido`, `simulador_cardapio`, `simulador_teste`, `simulador_reservas`, `simulador_fidelidade`) e
+  os textos novos do Café (`i_peso`, `d_f_vegano`, `d_p_vazio`, `d_p_nota`, `d_dim_hint`, `d_ficticia`, `v_rotulo`,
+  `css_puro`, `comparar`, `pular_abertura` e o `d_titulo` dos `js`) entraram nos 12 `textos/*.json`. O Café sai nas 13
+  línguas e nas cinco versões (65 páginas) com `node ferramentas/gerar-cafe.mjs`.
 - **O simulador acompanha o modo do Café (1/11/2026):** o Café avisa a página por `postMessage` se está de noite ou de
   dia (no “pronto” e a cada troca); o `js/simulador.js` troca os textos marcados com `data-modo-texto` (a frase da
-  seção, “Monte sua bebida” → “Monte seu pão”, os efeitos, a barra, o título do quadro e o crédito) pelos de
-  `#simulador-dia`, um bloco só na página em português por enquanto. O Café também troca o título da aba, o rodapé
-  (“Padaria fictícia”) e a dica do painel de cores de dia (`d_titulo`, `d_ficticia`, `d_dim_hint`, só em pt-BR).
+  seção, “Monte sua bebida” → “Monte seu pão”, os efeitos, a barra, o título do quadro e o crédito) pelo
+  `data-dia` de cada um (chaves `simulador_dia_*`, nas 13 línguas; antes era um bloco `#simulador-dia` só em pt). O
+  Café também troca o título da aba, o rodapé (“Padaria fictícia”) e a dica do painel de cores de dia (`d_titulo`,
+  `d_ficticia`, `d_dim_hint`).
 - `IDIOMAS=pt-BR node ferramentas/gerar-cafe.mjs` gera só os idiomas pedidos, para ver um texto novo antes de traduzir.
 
 ## De dia, a Padaria Aurora (30/10/2026)

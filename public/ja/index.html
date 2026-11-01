@@ -56,11 +56,11 @@
   <!-- Os textos que os scripts escrevem (menu, luz, Monte o seu site), no idioma da página -->
   <script type="application/json" id="textos-js">{"menu_abrir":"メニューを開く","menu_fechar":"メニューを閉じる","luz_apagar_aria":"明かりを消す（ダークモード）","luz_acender_aria":"明かりをつける（ライトモード）","luz_apagar":"明かりを消す","luz_acender":"明かりをつける","fechar":"閉じる","escolha":"種類を選ぶと目安が表示されます","sem_tipo":"大丈夫です。ご相談の中で一緒に決めましょう。","um_item":"1項目","n_itens":"{n}項目","extra":"＋{itens}はご提案で","por_ano":"年額{valor}","por_mes":"月額{valor}","estimativa":"目安：{valor}から{extra}","linha_tipo":"種類：{nome}","linha_itens":"必要な機能：","linha_depois":"公開後：{nome}{anual}","anual":"（年払い）","linha_estimativa":"サイトの目安：{valor}から{extra}","ola":"こんにちは。ウェブサイトの制作を相談したいです。","sobre":"私のビジネスについて：","assunto":"ウェブサイト制作のご相談","ola_conversa":"こんにちは。ウェブサイトについて相談させてください。","area_vazia":"この分野の実績はここにはありません。","conversa_aberta":"今はご連絡いただける時間です。お客様の時刻で{fim}まで対応します。","conversa_fechada":"今は時間外です。次の開始は、お客様の時刻で{inicio}です。"}</script>
   <script src="../js/tema-inicio.js?v=6"></script>
-  <link rel="stylesheet" href="../css/estilo.css?v=25">
+  <link rel="stylesheet" href="../css/estilo.css?v=26">
   <script src="../js/tema.js?v=8" defer></script>
   <script src="../js/menu.js?v=7" defer></script>
   <script src="../js/movimento.js?v=10" defer></script>
-  <script src="../js/simulador.js?v=4" defer></script>
+  <script src="../js/simulador.js?v=5" defer></script>
 </head>
 <body>
   <header class="topo">
@@ -395,18 +395,23 @@
     <section class="secao" id="exemplo">
       <div class="dentro">
         <h2>オン・オフして、価格を見る</h2>
-        <p class="secao-sub" data-deslize="パーツを横にスワイプ →" data-modo-texto="sub">Café Auroraは、別の次元にある存在しないカフェです。サイトの機能をオン・オフすると、サイトも価格もすぐに変わります。</p>
+        <p class="secao-sub" data-deslize="パーツを横にスワイプ →" data-modo-texto="sub" data-dia="昼のCafé Auroraは「オーロラ・ベーカリー」に変わります。別の次元にある存在しないパン屋です。サイトの機能をオン・オフすると、サイトも価格もすぐに変わります。">Café Auroraは、別の次元にある存在しないカフェです。サイトの機能をオン・オフすると、サイトも価格もすぐに変わります。</p>
         <div class="simulador" data-base="1600">
           <div class="simulador-lado">
             <fieldset class="simulador-opcoes" aria-describedby="simulador-nota">
               <legend class="simulador-titulo">サイトの機能</legend>
               <label class="simulador-base"><input type="checkbox" checked disabled><span>トップ、紹介、メニュー、お問い合わせ</span><b>$1,600</b></label>
               <label><input type="checkbox" name="modulo[]" value="depoimentos" data-preco="160" checked><span>お客様の声</span><b>+ $160</b></label>
-              <label><input type="checkbox" name="modulo[]" value="efeitos" data-preco="330" checked><span data-modo-texto="efeitos">エフェクト：動く背景、ネオン、カーソル</span><b>+ $330</b></label>
+              <label><input type="checkbox" name="modulo[]" value="efeitos" data-preco="330" checked><span data-modo-texto="efeitos" data-dia="エフェクト：舞う小麦粉、昇る太陽、カーソル">エフェクト：動く背景、ネオン、カーソル</span><b>+ $330</b></label>
               <label><input type="checkbox" name="modulo[]" value="cores" data-preco="160" checked><span>配色切り替えボタン</span><b>+ $160</b></label>
-              <label><input type="checkbox" name="modulo[]" value="laboratorio" data-preco="500" checked><span data-modo-texto="laboratorio">ドリンクを作る（シミュレーター）</span><b>+ $500</b></label>
+              <label><input type="checkbox" name="modulo[]" value="laboratorio" data-preco="500" checked><span data-modo-texto="laboratorio" data-dia="パンを作る（シミュレーター）">ドリンクを作る（シミュレーター）</span><b>+ $500</b></label>
               <label><input type="checkbox" name="modulo[]" value="assinatura" data-preco="330" checked><span>メールマガジン登録</span><b>+ $330</b></label>
               <label><input type="checkbox" name="modulo[]" value="painel" data-preco="650"><span>自分で編集できる管理画面</span><b>+ $650</b></label>
+              <label><input type="checkbox" name="modulo[]" value="pedido" data-preco="650"><span>カート付き注文（WhatsAppへ直接）</span><b>+ $650</b></label>
+              <label><input type="checkbox" name="modulo[]" value="cardapio" data-preco="240"><span>絞り込みと詳細つきメニュー</span><b>+ $240</b></label>
+              <label><input type="checkbox" name="modulo[]" value="teste" data-preco="240"><span>「あなたに合うのは？」診断</span><b>+ $240</b></label>
+              <label><input type="checkbox" name="modulo[]" value="reservas" data-preco="500"><span>席の予約</span><b>+ $500</b></label>
+              <label><input type="checkbox" name="modulo[]" value="fidelidade" data-preco="330"><span>スタンプカード</span><b>+ $330</b></label>
             </fieldset>
             <div class="simulador-total" aria-live="polite">
               <p><span>制作費（最低）</span> <b data-simulador-total>$3,080</b></p>
@@ -415,11 +420,11 @@
             </div>
           </div>
           <div class="simulador-tela">
-            <p class="simulador-barra" aria-hidden="true"><i></i><i></i><i></i><span data-modo-texto="barra">Café Aurora · 架空のサイト</span></p>
-            <iframe src="https://cafe.linupedia.com.br/ja/" title="Café Aurora、架空のカフェのサンプルサイト" data-modo-texto="iframe" width="960" height="640" loading="lazy"></iframe>
+            <p class="simulador-barra" aria-hidden="true"><i></i><i></i><i></i><span data-modo-texto="barra" data-dia="オーロラ・ベーカリー · 架空のサイト">Café Aurora · 架空のサイト</span></p>
+            <iframe src="https://cafe.linupedia.com.br/ja/" title="Café Aurora、架空のカフェのサンプルサイト" data-modo-texto="iframe" data-dia="オーロラ・ベーカリー、架空のパン屋のサンプルサイト" width="960" height="640" loading="lazy"></iframe>
           </div>
         </div>
-        <p class="simulador-credito"><span data-modo-texto="credito">Café Auroraは、大学の「インターフェース開発」の課題から生まれました。</span> <a href="https://cafe.linupedia.com.br/ja/" target="_blank" rel="noopener">全画面で開く</a></p>
+        <p class="simulador-credito"><span data-modo-texto="credito" data-dia="オーロラ・ベーカリー（昼のCafé Aurora）は、大学の「インターフェース開発」の課題から生まれました。">Café Auroraは、大学の「インターフェース開発」の課題から生まれました。</span> <a href="https://cafe.linupedia.com.br/ja/" target="_blank" rel="noopener">全画面で開く</a></p>
       </div>
     </section>
 

@@ -56,11 +56,11 @@
   <!-- Os textos que os scripts escrevem (menu, luz, Monte o seu site), no idioma da página -->
   <script type="application/json" id="textos-js">{"menu_abrir":"Apri il menù","menu_fechar":"Chiudi il menù","luz_apagar_aria":"Spegni la luce (modalità scura)","luz_acender_aria":"Accendi la luce (modalità chiara)","luz_apagar":"Spegni la luce","luz_acender":"Accendi la luce","fechar":"Chiudi","escolha":"Scegli il tipo per vedere una stima","sem_tipo":"Nessun problema: la conversazione aiuta a scegliere il tipo.","um_item":"un elemento","n_itens":"{n} elementi","extra":" + {itens} nella proposta","por_ano":"{valor} l’anno","por_mes":"{valor} al mese","estimativa":"Stima: da {valor}{extra}","linha_tipo":"Tipo: {nome}","linha_itens":"Deve avere:","linha_depois":"Dopo la pubblicazione: {nome}{anual}","anual":", pagando l’anno","linha_estimativa":"Stima del sito: da {valor}{extra}","ola":"Ciao! Vorrei un sito.","sobre":"Sulla mia attività: ","assunto":"Vorrei un sito","ola_conversa":"Ciao! Vorrei parlare di un sito.","area_vazia":"Nessun progetto di questo settore qui.","conversa_aberta":"Adesso possiamo parlare, fino a {fim} nel tuo orario.","conversa_fechada":"Adesso siamo fuori orario. La prossima fascia apre {inicio} nel tuo orario."}</script>
   <script src="../js/tema-inicio.js?v=6"></script>
-  <link rel="stylesheet" href="../css/estilo.css?v=25">
+  <link rel="stylesheet" href="../css/estilo.css?v=26">
   <script src="../js/tema.js?v=8" defer></script>
   <script src="../js/menu.js?v=7" defer></script>
   <script src="../js/movimento.js?v=10" defer></script>
-  <script src="../js/simulador.js?v=4" defer></script>
+  <script src="../js/simulador.js?v=5" defer></script>
 </head>
 <body>
   <header class="topo">
@@ -395,18 +395,23 @@
     <section class="secao" id="exemplo">
       <div class="dentro">
         <h2>Accendi e spegni, guarda il prezzo</h2>
-        <p class="secao-sub" data-deslize="Scorri le parti di lato →" data-modo-texto="sub">Il Café Aurora è una caffetteria che non esiste, da un’altra dimensione. Accendi e spegni le parti del suo sito: cambia subito, e anche il prezzo.</p>
+        <p class="secao-sub" data-deslize="Scorri le parti di lato →" data-modo-texto="sub" data-dia="Di giorno il Café Aurora diventa il Forno Aurora: un forno che non esiste, da un’altra dimensione. Accendi e spegni parti del sito: cambia subito, e anche il prezzo.">Il Café Aurora è una caffetteria che non esiste, da un’altra dimensione. Accendi e spegni le parti del suo sito: cambia subito, e anche il prezzo.</p>
         <div class="simulador" data-base="1500">
           <div class="simulador-lado">
             <fieldset class="simulador-opcoes" aria-describedby="simulador-nota">
               <legend class="simulador-titulo">Cosa ha il sito</legend>
               <label class="simulador-base"><input type="checkbox" checked disabled><span>Home, chi siamo, menù e contatti</span><b>1500 €</b></label>
               <label><input type="checkbox" name="modulo[]" value="depoimentos" data-preco="150" checked><span>Recensioni dei clienti</span><b>+ 150 €</b></label>
-              <label><input type="checkbox" name="modulo[]" value="efeitos" data-preco="300" checked><span data-modo-texto="efeitos">Effetti: sfondo animato, neon e cursore</span><b>+ 300 €</b></label>
+              <label><input type="checkbox" name="modulo[]" value="efeitos" data-preco="300" checked><span data-modo-texto="efeitos" data-dia="Effetti: farina nell’aria, il sole che sorge e cursore">Effetti: sfondo animato, neon e cursore</span><b>+ 300 €</b></label>
               <label><input type="checkbox" name="modulo[]" value="cores" data-preco="150" checked><span>Pulsante per cambiare i colori</span><b>+ 150 €</b></label>
-              <label><input type="checkbox" name="modulo[]" value="laboratorio" data-preco="450" checked><span data-modo-texto="laboratorio">Crea la tua bevanda (simulatore)</span><b>+ 450 €</b></label>
+              <label><input type="checkbox" name="modulo[]" value="laboratorio" data-preco="450" checked><span data-modo-texto="laboratorio" data-dia="Componi il tuo pane (simulatore)">Crea la tua bevanda (simulatore)</span><b>+ 450 €</b></label>
               <label><input type="checkbox" name="modulo[]" value="assinatura" data-preco="300" checked><span>Iscrizione via e-mail</span><b>+ 300 €</b></label>
               <label><input type="checkbox" name="modulo[]" value="painel" data-preco="600"><span>Pannello per modificarlo da solo</span><b>+ 600 €</b></label>
+              <label><input type="checkbox" name="modulo[]" value="pedido" data-preco="600"><span>Ordine con carrello, dritto su WhatsApp</span><b>+ 600 €</b></label>
+              <label><input type="checkbox" name="modulo[]" value="cardapio" data-preco="220"><span>Menù con filtri e dettagli</span><b>+ 220 €</b></label>
+              <label><input type="checkbox" name="modulo[]" value="teste" data-preco="220"><span>Quiz «cosa fa per te»</span><b>+ 220 €</b></label>
+              <label><input type="checkbox" name="modulo[]" value="reservas" data-preco="450"><span>Prenotazione del tavolo</span><b>+ 450 €</b></label>
+              <label><input type="checkbox" name="modulo[]" value="fidelidade" data-preco="300"><span>Carta fedeltà (timbri)</span><b>+ 300 €</b></label>
             </fieldset>
             <div class="simulador-total" aria-live="polite">
               <p><span>Progetto, da</span> <b data-simulador-total>2850 €</b></p>
@@ -415,11 +420,11 @@
             </div>
           </div>
           <div class="simulador-tela">
-            <p class="simulador-barra" aria-hidden="true"><i></i><i></i><i></i><span data-modo-texto="barra">Café Aurora · sito fittizio</span></p>
-            <iframe src="https://cafe.linupedia.com.br/it/" title="Café Aurora, sito d’esempio di una caffetteria fittizia" data-modo-texto="iframe" width="960" height="640" loading="lazy"></iframe>
+            <p class="simulador-barra" aria-hidden="true"><i></i><i></i><i></i><span data-modo-texto="barra" data-dia="Forno Aurora · sito immaginario">Café Aurora · sito fittizio</span></p>
+            <iframe src="https://cafe.linupedia.com.br/it/" title="Café Aurora, sito d’esempio di una caffetteria fittizia" data-modo-texto="iframe" data-dia="Forno Aurora, sito d’esempio di un forno immaginario" width="960" height="640" loading="lazy"></iframe>
           </div>
         </div>
-        <p class="simulador-credito"><span data-modo-texto="credito">Il Café Aurora è nato da un lavoro universitario, nel corso di Sviluppo di interfacce.</span> <a href="https://cafe.linupedia.com.br/it/" target="_blank" rel="noopener">Apri a schermo intero</a></p>
+        <p class="simulador-credito"><span data-modo-texto="credito" data-dia="Il Forno Aurora, il Café Aurora di giorno, è nato da un lavoro universitario, nel corso di Sviluppo di Interfacce.">Il Café Aurora è nato da un lavoro universitario, nel corso di Sviluppo di interfacce.</span> <a href="https://cafe.linupedia.com.br/it/" target="_blank" rel="noopener">Apri a schermo intero</a></p>
       </div>
     </section>
 
