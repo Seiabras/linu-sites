@@ -2309,3 +2309,28 @@ if 'id="tamanho"' not in t:
     t = t.replace('<p>Um quiz por tema, dois jogos (reconhecer as espécies pelas pistas e as paisagens pelo desenho) e um glossário.', '<p>Um quiz por tema, quatro jogos (as espécies pelas pistas, os tamanhos, as épocas e as paisagens pelo desenho) e um glossário. Cada jogo guarda o seu recorde neste navegador.')
     q.write_text(t)
 print('jogos novos:', len(TAMANHOS), 'tamanhos,', len(EPOCAS), 'épocas')
+
+# ================================================================ Três versões (1/11/2026): a barra de navegação do celular, em todas as páginas em português
+ICON_BARRA = {
+ 'index.html': '<path d="M3 11 12 4l9 7v9H3z"/><path d="M9 20v-6h6v6"/>',
+ 'especies.html': '<path d="M12 20c-3 0-6-2-6-4.5S8.5 11 12 11s6 2 6 4.5-3 4.5-6 4.5Z"/><circle cx="6" cy="8" r="2"/><circle cx="10" cy="5" r="2"/><circle cx="14" cy="5" r="2"/><circle cx="18" cy="8" r="2"/>',
+ 'mes-a-mes.html': '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+ 'aprender.html': '<path d="M3 8l9-4 9 4-9 4z"/><path d="M7 10v5c3 2 7 2 10 0v-5"/>',
+ 'busca.html': '<circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/>',
+}
+NOMES_BARRA = {'index.html': 'Início', 'especies.html': 'Espécies', 'mes-a-mes.html': 'Mês a mês', 'aprender.html': 'Aprender', 'busca.html': 'Buscar'}
+def barra_celular(arquivo):
+    atual = 'especies.html' if arquivo.startswith('especie') or arquivo == 'galeria.html' else arquivo
+    itens = ''.join(f'<a href="{h}"{" aria-current=\"page\"" if h == atual else ""}><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">{ICON_BARRA[h]}</svg>{NOMES_BARRA[h]}</a>' for h in NOMES_BARRA)
+    return f'<nav class="barra-celular" aria-label="Atalhos do guia">{itens}</nav>'
+def com_barra(t, arquivo, so_pt_):
+    t = re.sub(r'(\{\{\?pt-BR\}\})?<nav class="barra-celular".*?</nav>(\{\{/pt-BR\}\})?\n?', '', t, flags=re.S)
+    barra = barra_celular(arquivo) if so_pt_ else '{{?pt-BR}}' + barra_celular(arquivo) + '{{/pt-BR}}'
+    return t.replace('    </main>\n', '    </main>\n    ' + barra + '\n', 1)
+so_pt = json.loads((AQUI / 'so-pt.json').read_text())
+for f in so_pt:
+    if f == '404.html': continue
+    q = M / f; q.write_text(com_barra(q.read_text(), f, True))
+for f in COMPARTILHADAS:
+    q = M / f; q.write_text(com_barra(q.read_text(), f, False))
+print('barra do celular em', len(so_pt) - 1 + len(COMPARTILHADAS), 'modelos')

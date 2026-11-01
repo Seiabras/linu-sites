@@ -935,3 +935,56 @@ svg.esp-icone { display: block; flex: none; fill: currentColor; stroke: currentC
 .tamanho-ordem { display: inline-grid; place-items: center; flex: none; width: 28px; height: 28px; border-radius: 50%; border: 2px dashed var(--borda); font-weight: 800; }
 button[disabled] .tamanho-ordem { border: 0; background: var(--oliva); color: var(--branco); }
 .tamanho-retorno ol { margin: .4rem 0 0 1.2rem; display: grid; gap: .2rem; }
+
+/* ================= Três versões (regra 6 do linuarquivos, 1/11/2026): celular, tablet e computador, cada um com o seu layout */
+
+/* --- Celular (até 699 px): barra de navegação presa embaixo, ao alcance do polegar */
+.barra-celular { display: none; }
+@media (max-width: 699px) {
+    .barra-celular { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); position: fixed; left: 0; right: 0; bottom: 0; z-index: 60;
+        background: var(--primaria); padding-bottom: env(safe-area-inset-bottom); box-shadow: 0 -2px 10px rgb(0 0 0 / .18); }
+    .barra-celular a { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .15rem; min-height: 58px;
+        color: var(--branco); text-decoration: none; font-size: .72rem; font-weight: 700; transition: background-color .18s ease-out; }
+    .barra-celular a[aria-current="page"] { background: var(--primaria-escura); }
+    .barra-celular a:active { background: var(--primaria-escura); }
+    .barra-celular svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+    body:has(.barra-celular) { padding-bottom: calc(58px + env(safe-area-inset-bottom)); }
+
+    /* a inicial: os três números numa faixa que rola de lado, e as portas em ladrilhos de duas colunas */
+    .fatos { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 1rem; border-top: 0; padding-bottom: .4rem; }
+    .fatos div, .fatos div + div { flex: 0 0 72%; scroll-snap-align: start; border: 1px solid var(--borda); border-radius: var(--raio); padding: 1rem; }
+    .guia-portas { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .6rem; }
+    .guia-portas .porta { padding: .85rem .9rem; }
+    .guia-portas .porta strong { font-size: 1.1rem; }
+    .guia-portas .porta span:last-child:not(.porta-chapeu) { display: none; }
+    .guia-portas .porta-grande { grid-column: 1 / -1; min-height: 150px; }
+    .guia-portas .porta.porta-grande span:last-child:not(.porta-chapeu) { display: block; }
+
+    /* as fichas: a foto mais baixa, para o nome aparecer sem rolar */
+    .ficha-topo img, .ficha-sem-foto { max-height: 230px; object-fit: cover; }
+    .ficha-sem-foto { aspect-ratio: 16 / 7; }
+    .ficha-sem-foto svg { width: 72px; height: 72px; }
+}
+
+/* --- Tablet (700 a 1099 px): a ficha com a foto e o resumo lado a lado, e o corpo em duas colunas */
+@media (min-width: 700px) and (max-width: 1099px) {
+    .ficha-topo { grid-template-columns: minmax(0, 2fr) minmax(0, 3fr); gap: 2rem; align-items: start; }
+    .ficha-corpo { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 2.5rem; }
+    .ficha-corpo .comparar, .ficha-corpo .ficha-onde { grid-column: 1 / -1; }
+    .ficha-sem-foto { aspect-ratio: 4 / 3; }
+}
+@media (min-width: 760px) and (max-width: 1099px) {
+    .guia-portas { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .guia-portas .porta-grande { grid-column: 1 / -1; grid-row: auto; min-height: 170px; }
+}
+
+/* --- Computador (1100 px ou mais): na ficha, a foto, o resumo e o quadro de fatos parados à esquerda; o resto rola */
+@media (min-width: 1100px) {
+    .ficha-especie > .container { display: grid; grid-template-columns: minmax(0, 400px) minmax(0, 1fr); column-gap: 3.5rem; align-items: start; }
+    .ficha-especie .trilha, .ficha-especie .ficha-navegar, .ficha-especie .ficha-nota { grid-column: 1 / -1; }
+    .ficha-topo { grid-template-columns: 1fr; gap: 1.2rem; position: sticky; top: 88px; }
+    .ficha-corpo { margin-top: 0; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 2.5rem; }
+    .ficha-corpo .comparar, .ficha-corpo .ficha-onde { grid-column: 1 / -1; }
+    .ficha-corpo .ficha-fatos { grid-template-columns: 1fr; row-gap: 0; }
+    .ficha-corpo .ficha-fatos dd { margin: 0 0 .7rem; }
+}
