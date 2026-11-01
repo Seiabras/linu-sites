@@ -55,6 +55,9 @@ cerrado.linupedia.com.br {
 	}
 	@arquivos path /img/* /fontes/* /css/* /js/* /vendor/*
 	header @arquivos Cache-Control "public, max-age=604800"
+	# o guia sem internet (1/11/2026): o service worker e o manifesto sempre conferidos, para a versão nova chegar logo
+	@offline path /sw.js /manifest.webmanifest
+	header @offline Cache-Control "no-cache"
 	root * /opt/linu-sites/app/_sitios/fotografia-do-cerrado
 	try_files {path} {path}.html {path}/index.html
 	file_server

@@ -1015,3 +1015,11 @@ html:not(.js) .mes-escolha { display: none; }
     .guia-layout .guia-texto:not(.aprender-grade) > section:not(:has(figure, svg, table, .estacoes, .barras, .numeros-guia, .lista-estados, ol, dl)) { grid-column: auto; }
     .guia-layout .guia-texto:not(.aprender-grade) > .acao { grid-column: auto; }
 }
+
+/* O guia sem internet (1/11/2026): a caixa "Guardar o guia" em Onde ver e em Monte sua visita */
+.guardar-guia { margin: 2rem 0 1rem; padding: 1.1rem 1.2rem; border: 1px solid var(--borda); border-left: 4px solid var(--oliva); border-radius: var(--raio); background: var(--superficie); max-width: 720px; }
+.guardar-guia[hidden] { display: none; }
+.guardar-titulo { font-family: "Newsreader", Georgia, serif; font-weight: 600; font-size: 1.25rem; margin-bottom: .3rem; }
+.guardar-guia .botao { margin-top: .7rem; }
+.guardar-guia .botao[disabled] { opacity: .75; cursor: default; }
+.guardar-estado { margin-top: .5rem; font-weight: 600; color: var(--texto-suave); }

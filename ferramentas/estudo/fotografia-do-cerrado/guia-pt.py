@@ -2338,3 +2338,125 @@ for f in so_pt:
 for f in COMPARTILHADAS:
     q = M / f; q.write_text(com_barra(q.read_text(), f, False))
 print('barra do celular em', len(so_pt) - 1 + len(COMPARTILHADAS), 'modelos')
+
+# ================================================================ O guia sem internet (1/11/2026): manifesto, service worker e "Guardar o guia"
+import hashlib
+SITIO_DIR = AQUI.parents[2] / 'sitios' / 'fotografia-do-cerrado'
+paginas_pt = [f for f in so_pt if f != '404.html'] + COMPARTILHADAS
+# os arquivos que as páginas em português pedem (CSS, JS, fontes, imagens), com a versão (?v=) exatamente como no HTML
+arquivos = set()
+for f in paginas_pt:
+    t = (M / f).read_text()
+    t = re.sub(r'\{\{!pt-BR\}\}.*?\{\{/!pt-BR\}\}', '', t, flags=re.S)
+    for u in re.findall(r'(?:src|href)="\{\{raiz\}\}([^"#]+)"', t):
+        if not u.endswith('.html') and not u.startswith(('http', 'mailto')): arquivos.add(u)
+    for s in re.findall(r'srcset="([^"]+)"', t):
+        for parte in s.split(','):
+            u = parte.strip().split(' ')[0].replace('{{raiz}}', '')
+            if u: arquivos.add(u)
+arquivos |= {'img/icone-192.png', 'img/icone-512.png', 'manifest.webmanifest', 'fontes/' }
+arquivos = sorted(a for a in arquivos if (SITIO_DIR / a.split('?')[0]).is_file())
+BASE_OFF = ['./', 'index.html', 'especies.html', 'busca.html', 'roteiro.html', 'mes-a-mes.html', 'onde-ver.html', 'paisagens.html', 'aprender.html', 'bioma.html']
+BASE_OFF += [a for a in arquivos if a.startswith(('css/', 'js/', 'fontes/')) or 'icone' in a]
+TUDO_OFF = sorted(set(BASE_OFF + paginas_pt + arquivos))
+tam = sum((SITIO_DIR / a.split('?')[0]).stat().st_size for a in TUDO_OFF if (SITIO_DIR / a.split('?')[0]).is_file())
+h = hashlib.sha256()
+for f in sorted(M.glob('*.html')): h.update(f.read_bytes())
+for a in arquivos: h.update((SITIO_DIR / a.split('?')[0]).read_bytes())
+VERSAO_OFF = 'cerrado-' + h.hexdigest()[:10]
+sw = f"""// O guia sem internet (1/11/2026). Gerado pelo guia-pt.py: não edite à mão.
+// Uma cache só, com a versão no nome; quando o guia muda, a versão muda e as caches antigas são apagadas.
+// Páginas: primeiro a rede, e a cópia guardada se não houver sinal. Arquivos (CSS, JS, fontes, fotos): a cópia guardada.
+const VERSAO = '{VERSAO_OFF}';
+const BASE = {json.dumps(BASE_OFF)};
+const TUDO = {json.dumps(TUDO_OFF)};
+const LIMITE = 400; // nunca mais que isso na cache (o guia inteiro tem {len(TUDO_OFF)} endereços)
+const MARCA = './__guardado';
+
+self.addEventListener('install', (e) => {{
+    e.waitUntil(caches.open(VERSAO).then((c) => c.addAll(BASE)).then(() => self.skipWaiting()));
+}});
+self.addEventListener('activate', (e) => {{
+    e.waitUntil((async () => {{
+        let estavaGuardado = false;
+        for (const nome of await caches.keys()) {{
+            if (nome === VERSAO || !nome.startsWith('cerrado-')) continue;
+            if (await (await caches.open(nome)).match(MARCA)) estavaGuardado = true;
+            await caches.delete(nome);
+        }}
+        await self.clients.claim();
+        // quem tinha guardado o guia inteiro continua com ele inteiro na versão nova
+        if (estavaGuardado) await guardarTudo(() => {{}});
+    }})());
+}});
+async function aparar(cache) {{
+    const chaves = await cache.keys();
+    for (let i = 0; i < chaves.length - LIMITE; i++) await cache.delete(chaves[i]);
+}}
+async function guardarTudo(avisar) {{
+    const cache = await caches.open(VERSAO);
+    let feito = 0;
+    for (const u of TUDO) {{
+        try {{ if (!(await cache.match(u))) await cache.add(u); }} catch {{ /* segue com o resto */ }}
+        avisar(++feito, TUDO.length);
+    }}
+    await cache.put(MARCA, new Response('sim'));
+}}
+self.addEventListener('message', (e) => {{
+    const responder = (dados) => e.source && e.source.postMessage(dados);
+    if (e.data === 'estado') e.waitUntil(caches.open(VERSAO).then((c) => c.match(MARCA)).then((m) => responder({{ tipo: 'estado', guardado: !!m, total: TUDO.length }})));
+    if (e.data === 'guardar') e.waitUntil(guardarTudo((feito, total) => responder({{ tipo: 'progresso', feito, total }})).then(() => responder({{ tipo: 'pronto' }})));
+}});
+self.addEventListener('fetch', (e) => {{
+    const req = e.request;
+    if (req.method !== 'GET' || new URL(req.url).origin !== location.origin) return;
+    if (req.mode === 'navigate') {{
+        e.respondWith((async () => {{
+            const cache = await caches.open(VERSAO);
+            try {{
+                const resp = await fetch(req);
+                if (resp.ok) {{ cache.put(req, resp.clone()).then(() => aparar(cache)); }}
+                return resp;
+            }} catch {{
+                return (await cache.match(req, {{ ignoreSearch: true }})) || (await cache.match('index.html')) || Response.error();
+            }}
+        }})());
+        return;
+    }}
+    e.respondWith((async () => {{
+        const cache = await caches.open(VERSAO);
+        const guardado = await cache.match(req);
+        if (guardado) return guardado;
+        const resp = await fetch(req);
+        if (resp.ok) cache.put(req, resp.clone()).then(() => aparar(cache));
+        return resp;
+    }})());
+}});
+"""
+(SITIO_DIR / 'sw.js').write_text(sw)
+manifesto = {
+ 'name': 'Guia do Cerrado', 'short_name': 'Cerrado', 'lang': 'pt-BR', 'start_url': './index.html', 'scope': './', 'display': 'standalone',
+ 'background_color': '#FBF7F1', 'theme_color': '#814F12',
+ 'description': 'O guia do Cerrado: espécies, paisagens, parques e o ano mês a mês, também sem internet.',
+ 'icons': [{'src': 'img/icone-192.png', 'sizes': '192x192', 'type': 'image/png', 'purpose': 'any maskable'},
+           {'src': 'img/icone-512.png', 'sizes': '512x512', 'type': 'image/png', 'purpose': 'any maskable'},
+           {'src': 'img/icone.svg', 'sizes': 'any', 'type': 'image/svg+xml'}],
+}
+(SITIO_DIR / 'manifest.webmanifest').write_text(json.dumps(manifesto, ensure_ascii=False, indent=2) + '\n')
+# o manifesto, a cor do tema e o offline.js em todas as páginas em português
+CAB_OFF = '{{?pt-BR}}<link rel="manifest" href="{{raiz}}manifest.webmanifest"><meta name="theme-color" content="#814F12"><script src="{{raiz}}js/offline.js?v=1" defer></script>{{/pt-BR}}'
+for f in paginas_pt:
+    q = M / f; t = q.read_text()
+    t = re.sub(r'\{\{\?pt-BR\}\}<link rel="manifest".*?\{\{/pt-BR\}\}\n?', '', t)
+    t = t.replace('</head>', CAB_OFF + '\n</head>', 1)
+    q.write_text(t)
+# a caixa "Guardar o guia" em Onde ver e em Monte sua visita
+CAIXA_OFF = (f'<div class="guardar-guia" hidden><p class="guardar-titulo">Vai para um parque sem sinal?</p>'
+             f'<p>Guarde o guia inteiro neste aparelho (cerca de {round(tam / 1048576, 1)} MB): as {len(ESP)} fichas, as paisagens, a busca e o Mês a mês funcionam sem internet.</p>'
+             f'<button type="button" class="botao guardar-botao">Guardar o guia</button><p class="guardar-estado" aria-live="polite"></p></div>')
+for f in ['onde-ver.html', 'roteiro.html']:
+    q = M / f; t = q.read_text()
+    t = re.sub(r'<div class="guardar-guia".*?</div>', '', t, flags=re.S)
+    t = t.replace('<p class="nota-calculo">', CAIXA_OFF + '<p class="nota-calculo">', 1)
+    q.write_text(t)
+print('sem internet:', len(TUDO_OFF), 'endereços,', round(tam / 1024), 'KB, versão', VERSAO_OFF)

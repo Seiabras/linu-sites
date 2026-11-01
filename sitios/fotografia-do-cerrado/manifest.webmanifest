@@ -1,0 +1,30 @@
+{
+  "name": "Guia do Cerrado",
+  "short_name": "Cerrado",
+  "lang": "pt-BR",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FBF7F1",
+  "theme_color": "#814F12",
+  "description": "O guia do Cerrado: espécies, paisagens, parques e o ano mês a mês, também sem internet.",
+  "icons": [
+    {
+      "src": "img/icone-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "img/icone-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "img/icone.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}
