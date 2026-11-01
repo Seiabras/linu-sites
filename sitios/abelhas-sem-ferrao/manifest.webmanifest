@@ -1,0 +1,30 @@
+{
+  "name": "Pica ou Não Pica?",
+  "short_name": "Pica ou Não",
+  "lang": "pt-BR",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FFF8EC",
+  "theme_color": "#2E2A1F",
+  "description": "Reconheça os bichos que picam e saiba o que fazer, também sem internet.",
+  "icons": [
+    {
+      "src": "img/icone-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "img/icone-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "img/icone.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

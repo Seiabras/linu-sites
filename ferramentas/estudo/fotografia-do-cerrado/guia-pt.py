@@ -2438,6 +2438,97 @@ for f in so_pt + COMPARTILHADAS:
     q.write_text(t)
 print('caderno de campo pronto')
 
+# ================================================================ Para a escola (1/11/2026): plano de aula, atividades e cartaz, para imprimir
+# tudo sai do que o guia já diz: as pistas do "Qual é esta espécie?", o Mês a mês, o glossário e os números do quiz
+ESC_ESP = [q for q in QUAL if q['id'] in ('lobo-guara', 'tamandua-bandeira', 'pequi', 'buriti', 'ema', 'tucano-toco')]
+esc_a1 = ''.join(f'<li><ul class="esc-pistas">{"".join(f"<li>{p}</li>" for p in q["p"][:2])}</ul><p class="esc-linha">Resposta: ______________________</p></li>' for q in ESC_ESP)
+esc_banco1 = ' · '.join(sorted(q['n'] for q in ESC_ESP))
+esc_gab1 = '; '.join(f'{i + 1}. {q["n"]}' for i, q in enumerate(ESC_ESP))
+ESC_EV = [e for e in EVENTOS if e[0] in ('flores', 'frutas') and e[1] in ('Ipê-amarelo', 'Ipê-roxo', 'Pequi', 'Baru', 'Buriti', 'Mangaba')]
+esc_a2 = ''.join(f'<tr><td>{"Flor" if c == "flores" else "Fruta"}: {nome}</td><td class="esc-vazio"></td></tr>' for c, nome, l, ms, t, fs in ESC_EV)
+esc_gab2 = '; '.join(f'{nome}: {quando_txt(ms)}' for c, nome, l, ms, t, fs in ESC_EV)
+ESC_GL = [g for g in GLOSSARIO if g[0] in ('Bioma', 'Endêmica', 'Savana', 'Vereda', 'Xilopódio')]
+esc_a3 = ''.join(f'<li>{d.split(". ")[0]}. <span class="esc-linha">→ ____________</span></li>' for t, d, l in ESC_GL)
+esc_banco3 = ' · '.join(sorted(t for t, d, l in ESC_GL))
+esc_gab3 = '; '.join(f'{i + 1}. {t}' for i, (t, d, l) in enumerate(ESC_GL))
+escola = f'''        <section class="titulo-pagina guia-topo nao-imprimir">
+            <div class="container">
+                <p class="guia-chapeu">Guia do cerrado</p>
+                <h1>Para a escola</h1>
+                <p>Um plano de aula de 50 minutos, três atividades e um cartaz sobre o Cerrado, prontos para imprimir. Pensado para o Ensino Fundamental, a partir do 4º ano. Tudo vem do guia, que tem a fonte de cada informação.</p>
+                <p><button type="button" class="botao imprimir" hidden>Imprimir tudo</button></p>
+            </div>
+        </section>
+        <div class="container guia-layout">
+            {indice([('plano', 'Plano de aula'), ('ativ1', 'Qual é esta espécie?'), ('ativ2', 'Quando acontece?'), ('ativ3', 'As palavras do Cerrado'), ('cartaz', 'Cartaz'), ('respostas', 'Respostas')])}
+            <div class="guia-texto escola-folhas">
+                <section id="plano" class="escola-folha" aria-labelledby="plano-t">
+                    <h2 id="plano-t">Plano de aula: o Cerrado, a caixa-d’água do Brasil (50 minutos)</h2>
+                    <p><strong>Objetivos:</strong> localizar o Cerrado no mapa; reconhecer algumas paisagens, plantas e bichos; entender por que ele importa para a água do país e o que o ameaça.</p>
+                    <ol>
+                        <li><strong>Onde fica (10 min):</strong> mostre o <a href="bioma.html#onde">mapa dos biomas</a> no projetor. Pergunte em que bioma fica a escola.</li>
+                        <li><strong>As paisagens (10 min):</strong> percorra o <a href="paisagens.html">corte desenhado</a>, do campo limpo ao cerradão, e peça para a turma dizer o que muda.</li>
+                        <li><strong>Atividade 1 (10 min):</strong> qual é esta espécie? Em duplas, com o banco de nomes.</li>
+                        <li><strong>A água (10 min):</strong> o Cerrado é o berço de rios como o São Francisco (veja <a href="agua.html#rios">Água</a>). Leia o cartaz junto com a turma.</li>
+                        <li><strong>Fechamento (10 min):</strong> o <a href="aprender.html#quiz">quiz do guia</a> no projetor, com a turma votando.</li>
+                    </ol>
+                    <p><strong>Para casa:</strong> atividades 2 e 3. <strong>Para ir além:</strong> o <a href="mes-a-mes.html">Cerrado mês a mês</a> e o <a href="como-ajudar.html">Como ajudar</a>.</p>
+                </section>
+                <section id="ativ1" class="escola-folha" aria-labelledby="a1-t">
+                    <h2 id="a1-t">Atividade 1: qual é esta espécie?</h2>
+                    <p>Nome: ______________________________ Turma: ______</p>
+                    <p>Leia as pistas e escreva o nome. Banco de nomes: {esc_banco1}.</p>
+                    <ol class="esc-lista">{esc_a1}</ol>
+                </section>
+                <section id="ativ2" class="escola-folha" aria-labelledby="a2-t">
+                    <h2 id="a2-t">Atividade 2: quando acontece?</h2>
+                    <p>Nome: ______________________________ Turma: ______</p>
+                    <p>Pesquise no <a href="mes-a-mes.html">Mês a mês</a> e escreva os meses de cada flor ou fruta.</p>
+                    <table class="esc-tabela"><thead><tr><th scope="col">Flor ou fruta</th><th scope="col">Meses</th></tr></thead><tbody>{esc_a2}</tbody></table>
+                </section>
+                <section id="ativ3" class="escola-folha" aria-labelledby="a3-t">
+                    <h2 id="a3-t">Atividade 3: as palavras do Cerrado</h2>
+                    <p>Nome: ______________________________ Turma: ______</p>
+                    <p>Escreva a palavra de cada explicação. Banco de palavras: {esc_banco3}.</p>
+                    <ol class="esc-lista">{esc_a3}</ol>
+                </section>
+                <section id="cartaz" class="escola-folha esc-cartaz" aria-labelledby="cartaz-t">
+                    <h2 id="cartaz-t">Cerrado: a caixa-d’água do Brasil</h2>
+                    <ul class="esc-numeros">
+                        <li><strong>23%</strong> do Brasil é Cerrado</li>
+                        <li><strong>5</strong> regiões: é o único bioma em todas</li>
+                        <li><strong>94%</strong> da água do Rio São Francisco nasce nele</li>
+                        <li><strong>11</strong> paisagens, do campo limpo ao cerradão</li>
+                        <li><strong>4.400</strong> plantas que só existem aqui</li>
+                    </ul>
+                    <p class="esc-cuidar"><strong>Para cuidar:</strong> não soltar fogo, nem para limpar terreno; comprar frutos do Cerrado de quem colhe sem derrubar; plantar espécies nativas.</p>
+                    <p class="esc-rodape">Guia do Cerrado · cerrado.linupedia.com.br · as fontes estão no guia</p>
+                </section>
+                <section id="respostas" class="escola-folha" aria-labelledby="resp-t">
+                    <h2 id="resp-t">Respostas (para o professor)</h2>
+                    <p><strong>Atividade 1:</strong> {esc_gab1}.</p>
+                    <p><strong>Atividade 2:</strong> {esc_gab2}. As épocas mudam um pouco de região para região.</p>
+                    <p><strong>Atividade 3:</strong> {esc_gab3}.</p>
+                </section>
+            </div>
+        </div>
+'''
+pagina('escola.html', 'Para a escola — Guia do Cerrado', 'Plano de aula, três atividades e um cartaz sobre o Cerrado, para imprimir: espécies, épocas das flores e frutas, palavras e números do bioma.', escola, scripts=['escola.js?v=1'])
+if 'escola.html' not in so_pt: so_pt.append('escola.html')
+(AQUI / 'so-pt.json').write_text(json.dumps(so_pt, ensure_ascii=False, indent=2) + '\n')
+RODAPE_PT = RODAPE_PT.replace(' · <a href="caderno.html">Meu caderno</a>', ' · <a href="caderno.html">Meu caderno</a> · <a href="escola.html">Para a escola</a>')
+q = M / 'escola.html'; q.write_text(com_barra(q.read_text(), 'escola.html', True))
+for f in so_pt + COMPARTILHADAS:
+    if f == '404.html': continue
+    q = M / f; q.write_text(com_rodape_novo(q.read_text()))
+# o Aprender aponta para a versão da escola
+q = M / 'aprender.html'; t = q.read_text()
+t = re.sub(r'<p class="aprender-escola">.*?</p>\n?', '', t)
+t = t.replace('''Tudo o que está aqui foi explicado no guia, com fonte.</p>''', '''Tudo o que está aqui foi explicado no guia, com fonte.</p>
+                <p class="aprender-escola">Professor? Veja a <a href="escola.html">versão para a escola</a>: plano de aula, atividades e cartaz para imprimir.</p>''', 1)
+q.write_text(t)
+print('escola pronta:', len(ESC_ESP), 'espécies,', len(ESC_EV), 'épocas,', len(ESC_GL), 'palavras')
+
 # ================================================================ O guia sem internet (1/11/2026): manifesto, service worker e "Guardar o guia"
 import hashlib
 SITIO_DIR = AQUI.parents[2] / 'sitios' / 'fotografia-do-cerrado'

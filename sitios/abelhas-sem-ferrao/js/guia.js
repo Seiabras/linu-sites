@@ -16,12 +16,16 @@
         const contagem = document.getElementById('contagem');
         const vazio = document.querySelector('.vazio');
         const limpo = (t) => t.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().trim();
-        let grupo = '', perigo = '';
+        let grupo = '', perigo = '', lugar = '', regiao = '';
+        const tem = (lista, v) => !v || lista.split(' ').includes(v);
+        const regioes = [...document.querySelectorAll('.mapa-regioes .regiao')];
         const filtrar = () => {
             const q = limpo(busca.value);
             let n = 0;
+            regioes.forEach((r) => r.classList.toggle('ativa', r.dataset.regiao === regiao));
             for (const it of itens) {
-                const ok = (!q || limpo(it.dataset.busca).includes(q)) && (!grupo || it.dataset.grupo === grupo) && (!perigo || it.dataset.perigo === perigo);
+                const ok = (!q || limpo(it.dataset.busca).includes(q)) && (!grupo || it.dataset.grupo === grupo) && (!perigo || it.dataset.perigo === perigo)
+                    && tem(it.dataset.lugar, lugar) && tem(it.dataset.regiao, regiao);
                 it.hidden = !ok; if (ok) n++;
             }
             contagem.textContent = n; vazio.hidden = n > 0;
@@ -32,9 +36,17 @@
         };
         chips('data-filtro-grupo', (v) => { grupo = v; });
         chips('data-filtro-perigo', (v) => { perigo = v; });
+        chips('data-filtro-lugar', (v) => { lugar = v; });
+        chips('data-filtro-regiao', (v) => { regiao = v; });
+        // tocar no mapa aperta o botão da região (o botão é o que vale para o teclado e o leitor de tela)
+        regioes.forEach((r) => r.addEventListener('click', () => document.querySelector(`[data-filtro-regiao="${regiao === r.dataset.regiao ? '' : r.dataset.regiao}"]`)?.click()));
         busca.addEventListener('input', filtrar);
-        const q = new URLSearchParams(location.search).get('q');
-        if (q) busca.value = q;
+        const params = new URLSearchParams(location.search);
+        if (params.get('q')) busca.value = params.get('q');
+        for (const [chave, attr] of [['lugar', 'data-filtro-lugar'], ['regiao', 'data-filtro-regiao']]) {
+            const v = params.get(chave);
+            if (v) document.querySelector(`[${attr}="${CSS.escape(v)}"]`)?.click();
+        }
         filtrar();
     }
 
@@ -136,4 +148,225 @@
         jogo.hidden = false;
         comecar();
     }
+
+    // ---- guardar e ler neste aparelho, sem quebrar se o navegador não deixar
+    const guardado = (chave) => { try { return JSON.parse(localStorage.getItem(chave)); } catch { return null; } };
+    const guardar = (chave, v) => { try { if (v == null) localStorage.removeItem(chave); else localStorage.setItem(chave, JSON.stringify(v)); return true; } catch { return false; } };
+    const embaralhar = (l) => { const a = [...l]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+
+    // ---- o hospital da minha cidade (soro.html), que aparece no "Fui picado" e no cartão
+    const mostrarHospital = () => {
+        const h = guardado('pica-hospital');
+        document.querySelectorAll('.meu-hospital').forEach((caixa) => {
+            if (!h || !h.nome) { caixa.hidden = true; return; }
+            const filhos = [el('p', 'meu-hospital-t', 'Meu hospital de referência'), el('p', 'meu-hospital-nome', h.nome)];
+            if (h.end) filhos.push(el('p', null, h.end));
+            if (h.tel) { const p = el('p'); const a = el('a', null, h.tel); a.href = 'tel:' + h.tel.replace(/[^\d+]/g, ''); p.append(a); filhos.push(p); }
+            caixa.replaceChildren(...filhos); caixa.hidden = false;
+        });
+    };
+    const hf = document.querySelector('.hospital-form');
+    if (hf) {
+        const estado = hf.querySelector('.hf-estado'), apagar = hf.querySelector('.hf-apagar');
+        const nome = hf.elements.nome, erro = document.getElementById('e-hnome');
+        const validar = () => { const ok = nome.value.trim() !== ''; erro.hidden = ok; nome.setAttribute('aria-invalid', String(!ok)); return ok; };
+        const h = guardado('pica-hospital');
+        if (h) { hf.elements.nome.value = h.nome || ''; hf.elements.tel.value = h.tel || ''; hf.elements.end.value = h.end || ''; apagar.hidden = false; }
+        nome.addEventListener('blur', () => { if (nome.value) validar(); });
+        nome.addEventListener('input', () => { if (nome.getAttribute('aria-invalid') === 'true') validar(); });
+        hf.addEventListener('submit', (e) => {
+            e.preventDefault();
+            if (!validar()) { nome.focus(); return; }
+            const ok = guardar('pica-hospital', { nome: nome.value.trim(), tel: hf.elements.tel.value.trim(), end: hf.elements.end.value.trim() });
+            estado.textContent = ok ? 'Guardado neste aparelho. Aparece no “Fui picado” e no cartão para o hospital.' : 'Este navegador não deixou guardar. Anote num papel.';
+            apagar.hidden = !ok;
+        });
+        apagar.addEventListener('click', () => { guardar('pica-hospital', null); hf.reset(); apagar.hidden = true; estado.textContent = 'Apagado.'; nome.focus(); });
+    }
+    mostrarHospital();
+
+    // ---- Fui picado (emergencia.html): escolher o bicho mostra os passos dele, ali mesmo
+    const emerg = ler('emerg-dados');
+    const resp = document.querySelector('.emerg-resposta');
+    if (emerg && resp) {
+        const quais = [...document.querySelectorAll('.emerg-qual')];
+        quais.forEach((a) => a.addEventListener('click', (e) => {
+            e.preventDefault();
+            const s = emerg.soc[a.dataset.soc];
+            quais.forEach((o) => o.setAttribute('aria-current', String(o === a)));
+            const lista = el('ol', 'passos'); s.passos.forEach((x) => lista.append(el('li', null, x)));
+            const mais = el('a', null, 'Mais detalhes no Socorro'); mais.href = a.getAttribute('href');
+            const p = el('p'); p.append(mais);
+            resp.replaceChildren(el('h3', null, s.t), lista, p);
+            resp.classList.remove('entra'); void resp.offsetWidth; if (!calmo()) resp.classList.add('entra');
+            resp.focus({ preventScroll: true });
+            resp.scrollIntoView({ block: 'nearest', behavior: calmo() ? 'auto' : 'smooth' });
+        }));
+    }
+
+    // ---- Cartão para o hospital (cartao.html): fica só neste aparelho
+    const cf = document.querySelector('.cartao-form');
+    const cartao = document.querySelector('.cartao-hospital');
+    if (cf && cartao) {
+        let relogio = 0;
+        const campos = { bicho: [cf.elements.bicho, document.getElementById('e-bicho')], hora: [cf.elements.hora, document.getElementById('e-hora')] };
+        const validar = (k) => { const [c, e] = campos[k]; const ok = c.value !== ''; e.hidden = ok; c.setAttribute('aria-invalid', String(!ok)); return ok; };
+        Object.keys(campos).forEach((k) => campos[k][0].addEventListener('change', () => validar(k)));
+        const agora = () => { const d = new Date(); return `${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`; };
+        cf.querySelector('.c-agora').addEventListener('click', () => { cf.elements.hora.value = agora(); validar('hora'); });
+        const ler_form = () => ({ bicho: cf.elements.bicho.value, hora: cf.elements.hora.value, parte: cf.elements.parte.value.trim(), onde: cf.elements.onde.value.trim(),
+            sintomas: [...cf.querySelectorAll('[data-sintoma]:checked')].map((c) => c.value), idade: cf.elements.idade.value, peso: cf.elements.peso.value,
+            alergia: cf.elements.alergia.value.trim(), foto: cf.elements.foto.checked });
+        const preencher = (d) => {
+            for (const k of ['bicho', 'hora', 'parte', 'onde', 'idade', 'peso', 'alergia']) if (d[k] != null) cf.elements[k].value = d[k];
+            cf.querySelectorAll('[data-sintoma]').forEach((c) => { c.checked = (d.sintomas || []).includes(c.value); });
+            cf.elements.foto.checked = !!d.foto;
+        };
+        const passou = (hora) => {
+            const [h, m] = hora.split(':').map(Number); const d = new Date(); let min = d.getHours() * 60 + d.getMinutes() - (h * 60 + m);
+            if (min < 0) min += 1440;
+            return min < 60 ? `há ${min} min` : `há ${Math.floor(min / 60)} h ${min % 60} min`;
+        };
+        const linha = (rot, val) => { const p = el('p', 'ch-linha'); p.append(el('span', 'ch-rot', rot), el('strong', null, val)); return p; };
+        const mostrar = (d) => {
+            const tempo = el('strong', null, passou(d.hora));
+            const hora = el('p', 'ch-linha ch-hora'); hora.append(el('span', 'ch-rot', 'Picada às'), el('strong', null, d.hora), ' (', tempo, ')');
+            const filhos = [el('p', 'ch-aviso', 'Mostre esta tela à equipe de saúde'), el('h2', 'ch-bicho', d.bicho), hora];
+            if (d.parte) filhos.push(linha('Parte do corpo', d.parte));
+            if (d.onde) filhos.push(linha('Onde', d.onde));
+            filhos.push(linha('Sente', d.sintomas.length ? d.sintomas.join(', ') : 'não anotado'));
+            if (d.idade || d.peso) filhos.push(linha('Idade e peso', [d.idade && `${d.idade} anos`, d.peso && `${d.peso} kg`].filter(Boolean).join(', ')));
+            if (d.alergia) filhos.push(linha('Alergias e remédios', d.alergia));
+            filhos.push(linha('Foto do bicho', d.foto ? 'sim, no celular' : 'não'));
+            const acoes = el('p', 'ch-acoes');
+            const editar = el('button', 'botao botao-claro', 'Editar'); editar.type = 'button';
+            const apagar = el('button', 'botao botao-claro', 'Apagar o cartão'); apagar.type = 'button';
+            acoes.append(editar, apagar); filhos.push(acoes);
+            cartao.replaceChildren(...filhos); cartao.hidden = false; cf.hidden = true;
+            clearInterval(relogio); relogio = setInterval(() => { tempo.textContent = passou(d.hora); }, 30000);
+            editar.addEventListener('click', () => { clearInterval(relogio); cartao.hidden = true; cf.hidden = false; cf.elements.bicho.focus(); });
+            apagar.addEventListener('click', () => { clearInterval(relogio); guardar('pica-cartao', null); cf.reset(); cartao.hidden = true; cf.hidden = false; cf.elements.bicho.focus(); });
+            cartao.focus({ preventScroll: true }); cartao.scrollIntoView({ block: 'start', behavior: calmo() ? 'auto' : 'smooth' });
+        };
+        cf.addEventListener('input', () => { if (cf.elements.bicho.value || cf.elements.hora.value) guardar('pica-cartao-rascunho', ler_form()); });
+        cf.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const ok = ['bicho', 'hora'].map(validar).every(Boolean);
+            if (!ok) { (cf.querySelector('[aria-invalid="true"]') || cf.elements.bicho).focus(); return; }
+            const d = ler_form(); guardar('pica-cartao', d); guardar('pica-cartao-rascunho', null); mostrar(d);
+        });
+        addEventListener('pagehide', () => clearInterval(relogio));
+        const salvo = guardado('pica-cartao') || guardado('pica-cartao-rascunho');
+        if (salvo) preencher(salvo);
+        if (guardado('pica-cartao')) mostrar(guardado('pica-cartao'));
+    }
+
+    // ---- Prevenir: o teste da casa e o mês de agora na época dos bichos
+    const casa = [...document.querySelectorAll('[data-casa]')];
+    if (casa.length) {
+        const n = document.querySelector('.casa-n'), nota = document.querySelector('.casa-nota'), barra = document.querySelector('.casa-barra span');
+        const marcados = new Set(guardado('pica-casa') || []);
+        const contar = () => {
+            const k = casa.filter((c) => c.checked).length;
+            n.textContent = k;
+            const msg = k === casa.length ? ' Casa em dia: continue assim.' : k >= 7 ? ' Quase lá.' : k >= 4 ? ' Bom começo: veja o que falta.' : '';
+            nota.lastChild.nodeType === 3 ? (nota.lastChild.textContent = ` de ${casa.length}.${msg}`) : nota.append(` de ${casa.length}.${msg}`);
+            barra.style.setProperty('transform', `scaleX(${k / casa.length})`);
+            guardar('pica-casa', casa.filter((c) => c.checked).map((c) => c.dataset.casa));
+        };
+        casa.forEach((c) => { c.checked = marcados.has(c.dataset.casa); c.addEventListener('change', contar); });
+        contar();
+    }
+    const agoraEpoca = document.querySelector('.epoca-agora');
+    if (agoraEpoca) {
+        const m = new Date().getMonth() + 1;
+        document.querySelectorAll(`.mes[data-mes="${m}"]`).forEach((c) => c.classList.add('mes-agora'));
+        const nome = new Intl.DateTimeFormat('pt-BR', { month: 'long' }).format(new Date());
+        const altas = [...document.querySelectorAll('.epoca')].filter((e) => e.querySelector(`.mes[data-mes="${m}"]`).classList.contains('mes-sim')).map((e) => e.querySelector('.epoca-t').textContent);
+        agoraEpoca.textContent = altas.length ? `Estamos em ${nome}, um dos meses com mais acidentes: ${altas.join('; ')}. Redobre o cuidado.` : `Estamos em ${nome}: fora dos meses de mais acidentes, mas eles acontecem o ano todo.`;
+    }
+
+    // ---- um jogo de perguntas com placar e recorde (o "Qual dos dois?" e o "Pica ou não pica?")
+    const jogoDe = (caixa, { rodadas, chave, montar, tempo }) => {
+        const placar = caixa.querySelector('.jogo-placar'), pergunta = caixa.querySelector('.jogo-pergunta');
+        const botoes = caixa.querySelector('.jogo-botoes'), retorno = caixa.querySelector('.jogo-retorno'), proxima = caixa.querySelector('.jogo-proxima');
+        const barra = caixa.querySelector('.tempo span'), semTempo = caixa.querySelector('.sem-tempo-caixa');
+        let lista = [], i = 0, acertos = 0, fim = false, cronometro = 0;
+        const parar = () => { clearTimeout(cronometro); if (barra) { barra.classList.remove('correndo'); barra.style.setProperty('transform', 'scaleX(1)'); } };
+        const responder = (certa, explicacao, escolhido) => {
+            parar();
+            if (certa) acertos++;
+            botoes.querySelectorAll('button').forEach((b) => { b.disabled = true; });
+            if (escolhido) escolhido.classList.add(certa ? 'certa' : 'errada');
+            retorno.replaceChildren(el('strong', null, escolhido ? (certa ? 'Certo! ' : 'Não é. ') : 'Acabou o tempo. '), ...explicacao);
+            retorno.className = 'jogo-retorno ' + (certa ? 'certo' : 'errado'); retorno.hidden = false;
+            proxima.textContent = i + 1 < lista.length ? 'Próxima' : 'Ver o resultado'; proxima.hidden = false; proxima.focus();
+        };
+        const mostrar = () => {
+            const q = montar(lista[i], responder);
+            placar.textContent = `Rodada ${i + 1} de ${lista.length} · ${acertos} certas`;
+            retorno.hidden = true; proxima.hidden = true;
+            q.pergunta(pergunta);
+            botoes.replaceChildren(...q.botoes); botoes.hidden = false;
+            if (tempo && !(semTempo && semTempo.checked)) {
+                barra.style.setProperty('transform', 'scaleX(1)'); void barra.offsetWidth;
+                barra.style.setProperty('transition-duration', `${tempo}ms`); barra.classList.add('correndo'); barra.style.setProperty('transform', 'scaleX(0)');
+                cronometro = setTimeout(() => responder(false, q.explicacao(), null), tempo);
+            }
+        };
+        const comecar = () => { lista = embaralhar(montar.todos).slice(0, rodadas); i = 0; acertos = 0; fim = false; mostrar(); };
+        proxima.addEventListener('click', () => {
+            if (fim) { comecar(); pergunta.focus(); return; }
+            if (++i < lista.length) { mostrar(); pergunta.focus(); return; }
+            fim = true;
+            const antes = Number(guardado(chave) || 0); let rec = '';
+            if (acertos > antes) { guardar(chave, acertos); rec = antes ? ' Novo recorde!' : ''; } else rec = ` Seu recorde: ${antes} de ${rodadas}.`;
+            placar.textContent = 'Resultado';
+            pergunta.textContent = `Você acertou ${acertos} de ${lista.length}.${rec}`;
+            botoes.hidden = true; retorno.hidden = true; proxima.textContent = 'Jogar de novo';
+        });
+        addEventListener('pagehide', parar);
+        caixa.hidden = false; comecar();
+    };
+    const botao = (texto, cls, quando) => { const b = el('button', cls, texto); b.type = 'button'; b.addEventListener('click', () => quando(b)); return b; };
+
+    const difs = ler('dif-dados'), difCaixa = document.querySelector('.dif-jogo');
+    if (difs && difCaixa) {
+        const montar = (q, responder) => {
+            const certo = q.lado === 'a' ? q.d.a : q.d.b;
+            const explicacao = () => [`${q.traco}: ${certo}. ${q.d.c}`];
+            return {
+                pergunta: (p) => { p.textContent = `“${q.traco}”: qual dos dois?`; },
+                botoes: embaralhar([q.d.a, q.d.b]).map((n) => botao(n, 'botao', (b) => responder(n === certo, explicacao(), b))),
+                explicacao,
+            };
+        };
+        montar.todos = difs.flatMap((d) => [{ d, lado: 'a', traco: d.ta }, { d, lado: 'b', traco: d.tb }]);
+        jogoDe(difCaixa, { rodadas: 8, chave: 'pica-recorde-diferencas', montar });
+    }
+
+    const bichosJogo = ler('jogo-dados'), picaCaixa = document.querySelector('.pica-jogo');
+    if (bichosJogo && picaCaixa) {
+        const grupo = picaCaixa.querySelector('.jogo-grupo');
+        const montar = (b, responder) => {
+            const explicacao = () => { const a = el('a', null, 'Ver a ficha'); a.href = `bicho-${b.id}.html`; return [`${b.n}: ${b.pica.toLowerCase()}. ${b.r} `, a]; };
+            return {
+                pergunta: (p) => { p.textContent = b.n; grupo.textContent = b.g; },
+                botoes: [botao('Cuidado!', 'botao botao-socorro', (x) => responder(b.cuidado, explicacao(), x)), botao('Sem perigo', 'botao', (x) => responder(!b.cuidado, explicacao(), x))],
+                explicacao,
+            };
+        };
+        montar.todos = bichosJogo;
+        jogoDe(picaCaixa, { rodadas: 10, chave: 'pica-recorde-jogo', montar, tempo: 6000 });
+    }
+
+    // ---- compartilhar: o menu do próprio celular quando existe; o link do WhatsApp sempre
+    document.querySelectorAll('.compartilhar').forEach((c) => {
+        const b = c.querySelector('.partilhar');
+        if (!navigator.share) return;
+        b.hidden = false;
+        b.addEventListener('click', () => navigator.share({ title: document.title, text: c.dataset.texto, url: c.dataset.url }).catch(() => {}));
+    });
+    // ---- imprimir (escola.html)
+    document.querySelectorAll('.imprimir').forEach((b) => { b.hidden = false; b.addEventListener('click', () => print()); });
 })();

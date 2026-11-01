@@ -379,3 +379,288 @@ a.cartao:hover { border-color: var(--link); }
     .mitos-lista { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 }
 @media (prefers-reduced-motion: reduce) { .id-caixa.entra > *, .soc-bicho[open] ol { animation: none; } .porta-guia:hover, .bicho-cartao a:hover { transform: none; } }
+
+/* ================= Pica ou Não Pica?, segunda leva (1/11/2026, noite): emergência, cartão, soro, diferenças, prevenir,
+   números, jogo, escola e o guia sem internet. As mesmas três versões: celular, tablet e computador */
+.vh { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+.fui-picado { display: inline-flex; align-items: center; min-height: 40px; padding: .3rem 1rem; border-radius: 999px; background: var(--alto); color: #fff; font-weight: 800; text-decoration: none; white-space: nowrap;
+    transition: background-color .18s ease-out, transform .18s ease-out; }
+.fui-picado:hover { background: #7E2318; }
+.fui-picado:active { transform: scale(.97); }
+.fui-picado[aria-current="page"] { box-shadow: 0 0 0 3px var(--fundo), 0 0 0 5px var(--alto); }
+.topo .container { gap: .6rem; }
+.topo nav { margin-right: auto; }
+.marca { margin-right: auto; }
+.revisao { font-size: .85rem; color: var(--texto-suave); margin-top: .6rem; }
+.entra { animation: id-entra .22s ease-out; }
+
+/* formulários */
+.campo { display: grid; gap: .3rem; margin-bottom: 1rem; border: 0; min-width: 0; }
+.campo label, .campo legend { font-weight: 700; }
+.campo input[type="text"], .campo input[type="tel"], .campo input[type="number"], .campo input[type="time"], .campo select {
+    width: 100%; min-height: 48px; padding: .6rem .8rem; border: 2px solid var(--borda); border-radius: 10px; font: inherit; background: var(--superficie); color: var(--texto); transition: border-color .18s ease-out; }
+.campo input:focus, .campo select:focus { border-color: var(--texto); }
+.campo [aria-invalid="true"] { border-color: var(--errado-texto); }
+.campo-linha { display: flex; gap: .5rem; }
+.campo-linha input { flex: 1; }
+.campo-dois { grid-template-columns: 1fr 1fr; column-gap: .8rem; }
+.campo-dois > div { display: grid; gap: .3rem; }
+.obrig { font-weight: 400; color: var(--texto-suave); font-size: .9rem; }
+.erro { color: var(--errado-texto); font-weight: 700; font-size: .92rem; }
+.marcas { display: grid; gap: .2rem; }
+.marcar { display: flex; gap: .55rem; align-items: center; min-height: 44px; cursor: pointer; font-weight: 400; }
+.marcar input { width: 22px; height: 22px; accent-color: var(--folha); flex: none; }
+
+/* Fui picado */
+.emergencia { padding: 1.4rem 0 2.5rem; }
+.emergencia h1 { font-family: var(--titulo); font-size: clamp(1.9rem, 6vw, 2.8rem); line-height: 1.1; color: var(--errado-texto); }
+.emerg-ja { list-style: none; counter-reset: passo; display: grid; gap: .6rem; margin: 1rem 0; }
+.emerg-ja li { counter-increment: passo; display: grid; grid-template-columns: 44px 1fr; gap: .7rem; align-items: start; font-size: 1.15rem; background: var(--errado-fundo); border-radius: 14px; padding: .8rem; }
+.emerg-ja li::before { content: counter(passo); display: grid; place-items: center; width: 44px; height: 44px; border-radius: 999px; background: var(--alto); color: #fff; font-weight: 800; font-size: 1.3rem; }
+.emerg-tel { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1rem 0; }
+.emerg-bicho h2, .emerg-nunca h2 { font-family: var(--titulo); font-size: 1.5rem; margin: 1.2rem 0 .6rem; }
+.emerg-quais { display: flex; flex-wrap: wrap; gap: .5rem; }
+.emerg-qual { display: inline-flex; align-items: center; min-height: 48px; padding: .5rem 1rem; border-radius: 12px; border: 2px solid var(--borda); background: var(--superficie); color: var(--texto); font-weight: 700; text-decoration: none;
+    transition: border-color .18s ease-out, background-color .18s ease-out; }
+.emerg-qual:hover { border-color: var(--texto); }
+.emerg-qual[aria-current="true"] { background: var(--texto); color: var(--fundo); border-color: var(--texto); }
+.emerg-resposta { margin-top: 1rem; outline: none; }
+.emerg-resposta:not(:empty) { background: var(--superficie); border: 2px solid var(--alto); border-radius: var(--raio); padding: 1rem 1.2rem; }
+.emerg-resposta h3 { font-family: var(--titulo); font-size: 1.35rem; margin-bottom: .5rem; }
+.emerg-nunca ul { list-style: none; display: flex; flex-wrap: wrap; gap: .4rem; }
+.emerg-nunca li { background: var(--errado-fundo); border-radius: 999px; padding: .35rem .9rem; font-weight: 600; }
+.emerg-nunca li::before { content: "✗ "; color: var(--errado-texto); font-weight: 800; }
+.emerg-mais { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: 1.4rem; }
+.meu-hospital { border: 2px solid var(--folha); border-radius: 14px; padding: .8rem 1rem; background: var(--nao-fundo); margin: .8rem 0; }
+.meu-hospital-t { font-size: .85rem; font-weight: 700; color: var(--texto-suave); }
+.meu-hospital-nome { font-family: var(--titulo); font-size: 1.25rem; font-weight: 700; }
+.meu-hospital a { font-weight: 800; font-size: 1.15rem; }
+
+/* Cartão para o hospital */
+.cartao-pagina { display: grid; gap: 1.4rem; grid-template-columns: minmax(0, 1fr); }
+.cartao-form { max-width: 560px; }
+.cartao-lado { border-left: 5px solid var(--alto); background: var(--errado-fundo); border-radius: 12px; padding: 1rem 1.1rem; display: grid; gap: .5rem; align-content: start; }
+.cartao-hospital { background: var(--superficie); border: 3px solid var(--alto); border-radius: var(--raio); padding: 1.2rem; display: grid; gap: .6rem; outline: none; max-width: 640px; }
+.ch-aviso { font-weight: 800; color: var(--errado-texto); text-transform: uppercase; letter-spacing: .04em; font-size: .9rem; }
+.ch-bicho { font-family: var(--titulo); font-size: clamp(2rem, 7vw, 2.8rem); line-height: 1.05; }
+.ch-linha { font-size: 1.2rem; display: grid; gap: .1rem; border-top: 1px solid var(--borda); padding-top: .5rem; }
+.ch-rot { font-size: .85rem; color: var(--texto-suave); font-weight: 700; }
+.ch-hora strong { font-size: 1.6rem; }
+.ch-acoes { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .5rem; }
+
+/* Onde tem soro */
+.soro { display: grid; gap: 1.6rem; grid-template-columns: minmax(0, 1fr); }
+.soro-texto { display: grid; gap: 1.4rem; }
+.soro-texto h2, .hospital-form h2 { font-family: var(--titulo); font-size: 1.5rem; margin-bottom: .4rem; }
+.hospital-form { background: var(--superficie); border: 1px solid var(--borda); border-radius: var(--raio); padding: 1.2rem; align-self: start; }
+.hf-estado { font-weight: 600; color: var(--certo-texto); }
+.guardar-guia { border: 2px dashed var(--folha); border-radius: var(--raio); padding: 1rem 1.2rem; display: grid; gap: .5rem; justify-items: start; margin-top: 1rem; }
+.guardar-titulo { font-family: var(--titulo); font-weight: 700; font-size: 1.25rem; }
+.guardar-estado { font-weight: 600; }
+.socorro-mais { display: flex; flex-wrap: wrap; gap: .5rem; }
+
+/* Compartilhar e a foto da ficha */
+.compartilhar { display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .5rem; }
+.ficha-fim { display: grid; gap: .8rem; margin-top: 2rem; }
+.ficha-fim-t { font-family: var(--titulo); font-size: 1.3rem; }
+.ficha-foto { grid-column: 1 / -1; margin: 0; }
+.ficha-foto img { width: 100%; height: auto; border-radius: var(--raio); aspect-ratio: 3 / 2; object-fit: cover; }
+.ficha-foto figcaption { font-size: .9rem; color: var(--texto-suave); margin-top: .4rem; }
+.mitos-partilha { background: var(--destaque-fundo); border-radius: 14px; padding: .9rem 1rem; margin-bottom: 1.2rem; }
+
+/* o mapa das regiões, no catálogo (só no computador; nos outros, os botões bastam) */
+.mapa-regioes { display: none; width: 100%; height: auto; margin-top: .6rem; }
+.mapa-regioes .regiao { fill: var(--destaque-fundo); stroke: var(--fundo); stroke-width: 2; cursor: pointer; transition: fill .18s ease-out; }
+.mapa-regioes .regiao:hover { fill: var(--medio); }
+.mapa-regioes .regiao.ativa { fill: var(--folha); }
+.atalhos-lugar { list-style: none; display: flex; flex-wrap: wrap; gap: .5rem; margin-top: .8rem; }
+.atalhos-lugar .chip { display: inline-flex; align-items: center; min-height: 44px; text-decoration: none; }
+
+/* Aprender */
+.aprender-lista { list-style: none; display: grid; gap: .8rem; margin-top: 1rem; }
+.aprender-lista .porta-guia { height: 100%; }
+.apr-jogo { background: var(--folha); border-color: var(--folha); color: #fff; } .apr-jogo span { color: #E6F0E2; }
+.apr-prevenir { background: var(--mel); border-color: var(--mel); color: var(--marrom); } .apr-prevenir span { color: var(--marrom); }
+
+/* os jogos (Qual dos dois? e Pica ou não pica?) */
+.jogo-caixa { background: var(--superficie); border: 1px solid var(--borda); border-radius: var(--raio); padding: 1.2rem; display: grid; gap: .7rem; align-content: start; }
+.jogo-caixa h2 { font-family: var(--titulo); font-size: 1.5rem; }
+.jogo-placar { color: var(--texto-suave); font-weight: 700; }
+.jogo-pergunta { font-family: var(--titulo); font-size: 1.4rem; outline: none; }
+.jogo-bicho { font-size: clamp(2rem, 7vw, 3rem); line-height: 1.1; }
+.jogo-grupo { font-weight: 700; color: var(--texto-suave); }
+.jogo-botoes { display: flex; gap: .6rem; flex-wrap: wrap; }
+.jogo-botoes .botao { min-height: 52px; }
+.jogo-botoes .certa { box-shadow: 0 0 0 3px var(--fundo), 0 0 0 6px var(--certo); } .jogo-botoes .errada { opacity: .6; }
+.jogo-retorno { border-radius: 12px; padding: .8rem 1rem; }
+.jogo-retorno.certo { background: var(--certo-fundo); } .jogo-retorno.errado { background: var(--errado-fundo); }
+.jogo-proxima { justify-self: start; }
+.tempo { height: 8px; border-radius: 999px; background: var(--borda); overflow: hidden; }
+.tempo span { display: block; height: 100%; background: var(--alto); transform-origin: left; transform: scaleX(1); border-radius: 999px; }
+.tempo span.correndo { transition-property: transform; transition-timing-function: linear; }
+.jogo-pagina { display: grid; gap: 1.6rem; grid-template-columns: minmax(0, 1fr); }
+.jogo-lado h2 { font-family: var(--titulo); font-size: 1.3rem; margin-bottom: .4rem; }
+.jogo-lado p + p { margin-top: .6rem; }
+
+/* Qual é a diferença? */
+.diferencas { display: grid; gap: 2rem; grid-template-columns: minmax(0, 1fr); }
+.dif-lista { list-style: none; display: grid; gap: 1rem; }
+.dif { background: var(--superficie); border: 1px solid var(--borda); border-radius: var(--raio); padding: 1rem; }
+.dif-par { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: .6rem; align-items: start; }
+.dif-x { font-family: var(--titulo); font-size: 1.8rem; font-weight: 700; color: var(--texto-suave); align-self: center; }
+.dif-lado { display: grid; gap: .35rem; justify-items: start; }
+.dif-nome { font-family: var(--titulo); font-size: 1.2rem; font-weight: 700; }
+.dif-lado .perigo { border-radius: 8px; }
+.dif-conclusao { margin-top: .8rem; padding-top: .6rem; border-top: 1px solid var(--borda); font-weight: 600; }
+.desenho { width: 100%; height: auto; max-width: 220px; color: var(--texto); }
+.desenho .d-tinta { fill: currentColor; }
+.desenho .d-junta { stroke: currentColor; stroke-width: 8; stroke-linejoin: round; }
+.desenho .d-fundo { fill: var(--superficie); }
+.desenho .d-seta { stroke: var(--alto); stroke-width: 2; }
+.desenho .d-rotulo { fill: var(--texto); font-size: 13px; font-weight: 700; font-family: inherit; }
+.desenho .d-traco { fill: none; stroke: currentColor; stroke-width: 18; stroke-linecap: round; }
+.desenho .d-traco-fino { fill: none; stroke: currentColor; stroke-width: 6; stroke-linecap: round; }
+.desenho .d-pernas path, .desenho .d-pelos path { fill: none; stroke: currentColor; stroke-width: 3; stroke-linecap: round; stroke-linejoin: round; }
+.desenho .d-cobra-base { fill: none; stroke: #F2E6C9; stroke-width: 18; stroke-linecap: round; }
+.desenho .d-anel-v { fill: none; stroke: #C0392B; stroke-width: 18; stroke-dasharray: 22 26; }
+.desenho .d-anel-p { fill: none; stroke: #111; stroke-width: 18; stroke-dasharray: 8 40; stroke-dashoffset: -26; }
+.desenho .d-amarelo { fill: #E9C46A; } .desenho .d-amarelo-escuro { fill: #8A6A1F; }
+.desenho .d-amarelo-traco { fill: none; stroke: #E9C46A; stroke-width: 10; stroke-linecap: round; }
+.desenho .d-dentes { fill: none; stroke: currentColor; stroke-width: 2.5; }
+.desenho .d-marrom { fill: #5A3A1E; } .desenho .d-marrom-traco { fill: none; stroke: #5A3A1E; stroke-width: 10; stroke-linecap: round; }
+
+/* Prevenir */
+.prevenir { display: grid; gap: 1.4rem; grid-template-columns: minmax(0, 1fr); }
+.prevenir-texto { display: grid; gap: 2rem; }
+.prevenir-texto h2, .escola h2, .numeros h2 { font-family: var(--titulo); font-size: 1.6rem; margin-bottom: .5rem; scroll-margin-top: 90px; }
+.indice-pagina { display: flex; gap: .4rem; overflow-x: auto; padding-bottom: .3rem; }
+.indice-pagina a { flex: none; display: inline-flex; align-items: center; min-height: 44px; padding: .3rem .9rem; border-radius: 999px; border: 1px solid var(--borda); background: var(--superficie); color: var(--texto); font-weight: 600; text-decoration: none; transition: border-color .18s ease-out; }
+.indice-pagina a:hover { border-color: var(--texto); }
+.casa { background: var(--superficie); border: 1px solid var(--borda); border-radius: var(--raio); padding: 1.1rem 1.2rem; }
+.casa-lista { list-style: none; display: grid; gap: .1rem; margin: .6rem 0; }
+.casa-nota { font-size: 1.1rem; }
+.casa-n { font-family: var(--titulo); font-size: 1.8rem; }
+.casa-barra { height: 10px; border-radius: 999px; background: var(--borda); overflow: hidden; margin-top: .4rem; }
+.casa-barra span { display: block; height: 100%; background: var(--folha); transform-origin: left; transform: scaleX(0); transition: transform .25s ease-out; }
+.epocas { list-style: none; display: grid; gap: 1rem; margin: .8rem 0 1rem; }
+.epoca-t { font-weight: 800; }
+.meses { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); gap: 3px; margin: .4rem 0; }
+.mes { display: grid; place-items: center; min-height: 34px; border-radius: 6px; background: var(--borda); font-size: .75rem; font-weight: 700; }
+.mes-sim { background: var(--alto); color: #fff; }
+.mes-agora { outline: 3px solid var(--texto); outline-offset: 1px; }
+.epoca-e { font-size: .95rem; color: var(--texto-suave); }
+.epoca-agora { font-weight: 700; background: var(--destaque-fundo); border-radius: 12px; padding: .7rem 1rem; }
+.epoca-agora:empty { display: none; }
+
+/* Os números: o gráfico é a própria tabela (uma série só, rótulos diretos, sem legenda) */
+.numeros { display: grid; gap: 1.8rem; grid-template-columns: minmax(0, 1fr); }
+.numeros-destaques { display: grid; gap: .7rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.destaque-num { background: var(--superficie); border: 1px solid var(--borda); border-radius: 14px; padding: .9rem 1rem; display: grid; gap: .2rem; }
+.destaque-num strong { font-family: var(--titulo); font-size: clamp(1.8rem, 6vw, 2.4rem); line-height: 1; }
+.destaque-num span { font-size: .9rem; color: var(--texto-suave); }
+.grafico { margin: 0; background: var(--superficie); border: 1px solid var(--borda); border-radius: var(--raio); padding: 1rem 1.1rem; }
+.grafico figcaption { margin-bottom: .6rem; }
+.tabela-barras { width: 100%; border-collapse: collapse; }
+.tabela-barras thead th { font-size: .8rem; color: var(--texto-suave); text-align: left; padding-bottom: .3rem; }
+.tabela-barras th[scope="row"] { text-align: left; font-weight: 600; padding: .35rem .6rem .35rem 0; white-space: nowrap; width: 1%; }
+.tabela-barras td { padding: .35rem 0; }
+.tabela-barras .num { text-align: right; font-variant-numeric: tabular-nums; font-weight: 700; padding-left: .6rem; width: 1%; white-space: nowrap; }
+.barra { display: block; height: 14px; background: transparent; }
+.barra-v { display: block; height: 100%; background: var(--texto-suave); border-radius: 0 4px 4px 0; transform-origin: left; }
+.barra-v[data-v="58.79"] { width: 100%; } .barra-v[data-v="12.85"] { width: 21.86%; } .barra-v[data-v="9.85"] { width: 16.75%; }
+.barra-v[data-v="9.51"] { width: 16.18%; } .barra-v[data-v="5.35"] { width: 9.1%; } .barra-v[data-v="2.07"] { width: 3.52%; }
+.nota-grafico { font-size: .85rem; color: var(--texto-suave); margin-top: .6rem; }
+
+/* Para a escola: na tela, folhas; na impressão, uma folha por página */
+.escola { display: grid; gap: 1.4rem; grid-template-columns: minmax(0, 1fr); }
+.escola-folhas { display: grid; gap: 1.4rem; }
+.folha { background: var(--superficie); border: 1px solid var(--borda); border-radius: 12px; padding: 1.2rem 1.3rem; }
+.folha p + p, .folha p + ol, .folha ol + p, .folha table + p { margin-top: .6rem; }
+.tabela-ativ { width: 100%; border-collapse: collapse; margin-top: .8rem; }
+.tabela-ativ th, .tabela-ativ td { border: 1px solid var(--texto-suave); padding: .55rem .7rem; text-align: left; }
+.tabela-ativ .caixinha { width: 6.5rem; }
+.ativ-mitos { padding-left: 1.4rem; display: grid; gap: .6rem; margin-top: .6rem; }
+.vm { display: block; color: var(--texto-suave); }
+.espaco-desenho { height: 180px; border: 2px dashed var(--borda); border-radius: 12px; margin-top: .6rem; }
+.cartaz h2 { font-size: clamp(2rem, 7vw, 3rem); color: var(--errado-texto); }
+.cartaz-passos { font-size: 1.4rem; padding-left: 1.8rem; display: grid; gap: .5rem; margin: .8rem 0; font-weight: 700; }
+.cartaz-nunca { font-size: 1.2rem; background: var(--errado-fundo); border-radius: 10px; padding: .6rem .8rem; }
+.cartaz-rodape { font-size: .9rem; color: var(--texto-suave); }
+
+/* --- Celular */
+@media (max-width: 699px) {
+    .marca { font-size: 1rem; }
+    .fui-picado { font-size: .9rem; padding: .3rem .8rem; }
+    .emergencia { padding-top: 1rem; }
+    .emerg-tel .botao { flex: 1 1 100%; text-align: center; }
+    .emerg-quais { flex-wrap: nowrap; overflow-x: auto; padding-bottom: .4rem; }
+    .emerg-qual { flex: none; }
+    .dif-par { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+    .dif-x { display: none; }
+    .dif-nome { font-size: 1.05rem; }
+    .numeros-destaques { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .indice-pagina { position: sticky; top: 64px; z-index: 4; background: var(--fundo); padding: .4rem 0; }
+    .aprender-lista { grid-auto-flow: column; grid-auto-columns: 78%; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: .4rem; }
+    .aprender-lista > li { scroll-snap-align: start; }
+    .atalhos-lugar { flex-wrap: nowrap; overflow-x: auto; padding-bottom: .3rem; }
+    .atalhos-lugar li { flex: none; }
+    .mes-nome { font-size: .62rem; }
+}
+/* --- Tablet */
+@media (min-width: 700px) {
+    .aprender-lista { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .soro { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); column-gap: 2rem; align-items: start; }
+    .numeros-destaques { grid-template-columns: repeat(4, minmax(0, 1fr)); }
+    .dif-lista { grid-template-columns: minmax(0, 1fr); }
+    .emerg-ja { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .emerg-ja li { grid-template-columns: 1fr; }
+    .cartao-pagina { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); column-gap: 2rem; align-items: start; }
+    .indice-pagina { flex-wrap: wrap; }
+}
+/* --- Computador: o que é de consulta parado ao lado */
+@media (min-width: 1100px) {
+    .mapa-regioes { display: block; }
+    .filtros-bichos { max-height: calc(100vh - 100px); overflow-y: auto; padding-right: .3rem; }
+    .aprender-lista { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .soro { grid-template-columns: minmax(0, 1fr) 380px; column-gap: 3rem; }
+    .hospital-form { position: sticky; top: 88px; }
+    .cartao-pagina { grid-template-columns: minmax(0, 1fr) 340px; }
+    .cartao-lado { position: sticky; top: 88px; }
+    .diferencas { grid-template-columns: minmax(0, 1fr) 360px; column-gap: 2.5rem; align-items: start; }
+    .dif-jogo { position: sticky; top: 88px; order: 2; }
+    .dif-lista { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .prevenir, .escola { grid-template-columns: 220px minmax(0, 1fr); column-gap: 3rem; align-items: start; }
+    .indice-pagina { flex-direction: column; position: sticky; top: 88px; }
+    .prevenir-texto { grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 2.5rem; }
+    .prevenir-texto > .casa, .prevenir-texto > section:last-child { grid-column: 1 / -1; }
+    .numeros { grid-template-columns: minmax(0, 3fr) minmax(0, 2fr); column-gap: 2.5rem; align-items: start; }
+    .numeros-destaques { grid-column: 1 / -1; }
+    .jogo-pagina { grid-template-columns: minmax(0, 1fr) 320px; column-gap: 3rem; align-items: start; }
+    .jogo-lado { position: sticky; top: 88px; }
+    .emerg-ja li { font-size: 1.25rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+    .entra, .emerg-resposta.entra { animation: none; }
+    .tempo span.correndo, .casa-barra span { transition: none; }
+}
+/* Impressão: só as folhas da escola (ou a página), sem cabeçalho, menu, rodapé e botões */
+@media print {
+    .topo, .rodape, .nao-imprimir, .ligar-192, .fui-picado, .pular, .indice-pagina, .guardar-guia, .compartilhar { display: none !important; }
+    body { background: #fff; color: #000; padding: 0 !important; }
+    .secao { padding: 0; }
+    .folha { border: 0; padding: 0; break-after: page; }
+    .folha:last-child { break-after: auto; }
+    .escola { display: block; }
+    a { color: #000; }
+}
+.emerg-tel-nota { align-self: center; font-size: .9rem; color: var(--texto-suave); }
+.casa .soc-fonte { padding: 0; margin-top: .5rem; }
+/* acertos depois das três capturas: o topo do tablet numa linha só; as diferenças, uma por linha no computador */
+@media (min-width: 700px) and (max-width: 1099px) {
+    .topo .container { flex-wrap: nowrap; }
+    .marca { font-size: 1.05rem; white-space: nowrap; }
+    .topo .menu { flex-wrap: nowrap; gap: 0; }
+    .topo .menu a { padding: .45rem .55rem; font-size: .92rem; white-space: nowrap; }
+}
+@media (min-width: 1100px) { .dif-lista { grid-template-columns: minmax(0, 1fr); } }
+.emerg-ja li > span { min-width: 0; }

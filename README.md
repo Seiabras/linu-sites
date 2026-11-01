@@ -240,7 +240,16 @@ node ferramentas/gerar-estudo.mjs abelhas-sem-ferrao
   0800 722 6001 e o que fazer em cada picada), “Mitos” (17 mitos e o jogo “Verdade ou mito?”) e “Fontes” (31). Tudo sai do
   `ferramentas/estudo/abelhas-sem-ferrao/guia-pt.py` (listas `B`, `ARVORE`, `MITOS`, `PARES`, `FONTES`; rodar antes do
   `gerar-estudo.mjs`), com o script `js/guia.js`. As outras 12 línguas seguem com o site das Abelhas até a tradução, pelo
-  mesmo `{{!pt-BR}}` do Cerrado. O CSS das Abelhas está em `?v=6`.
+  mesmo `{{!pt-BR}}` do Cerrado. O CSS das Abelhas está em `?v=7` e o script em `guia.js?v=2`.
+  **Na noite de 1/11, as 17 ideias:** o botão “Fui picado” no topo de toda página (`emergencia.html`), o “Cartão para o
+  hospital” (`cartao.html`, guardado só no navegador), “Onde tem soro” (`soro.html`, com o hospital da cidade guardado),
+  “Qual é a diferença?” (`diferencas.html`: os pares desenhados em SVG e um jogo), “Prevenir” (`prevenir.html`: o teste
+  da casa, crianças, cães e gatos, a época), “Os números” (`numeros.html`, 2023), o jogo “Pica ou não pica?”
+  (`jogo.html`), “Para a escola” (`escola.html`, para imprimir), a porta “Aprender” no menu, filtros por lugar e região
+  (com o mapa do `regioes.py`), o botão do WhatsApp e a imagem de compartilhar de cada ficha (`img/compartilhar/`), a
+  data da revisão e o guia sem internet (`sw.js`, `manifest.webmanifest`, `js/offline.js`, copiados do modelo do Cerrado).
+  As fotos dos bichos entram sozinhas quando existirem em `img/bichos/<id>.webp` (com `-640` e `creditos.json`). O
+  Guia do Cerrado ganhou a sua página “Para a escola” (`escola.html`, CSS `?v=25`).
 - **A 404 do Cerrado** (`sitios/fotografia-do-cerrado/404.html`) só aparece depois de o bloco novo do `deploy/Caddyfile-bloco`
   (`handle_errors` no `cerrado.linupedia.com.br`) ser posto na VM, como diz o `deploy/ORACLE.md`.
 - Os repositórios `Seiabras/fotografia-do-cerrado` e `Seiabras/abelhas-sem-ferrao` recebem uma cópia de
