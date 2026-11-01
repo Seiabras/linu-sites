@@ -38,6 +38,26 @@
     pedido = requestAnimationFrame(passo);
   };
 
+  // O Café avisa se está de noite (Café Aurora) ou de dia (Padaria Aurora); os textos que falam da bebida viram pão.
+  // Os textos de dia ficam no #simulador-dia (por enquanto, só na página em português); sem ele, nada muda.
+  const blocoDia = document.getElementById('simulador-dia');
+  const DIA = blocoDia ? JSON.parse(blocoDia.textContent) : null;
+  const alvos = [...document.querySelectorAll('#exemplo [data-modo-texto]')];
+  let modoCafe = 'noite';
+  const trocarModo = (m) => {
+    if (!DIA || (m !== 'dia' && m !== 'noite') || m === modoCafe) return;
+    modoCafe = m;
+    sim.dataset.modo = m;
+    alvos.forEach((el) => {
+      const k = el.dataset.modoTexto, eIframe = el.tagName === 'IFRAME';
+      if (!el.dataset.noite) el.dataset.noite = eIframe ? el.title : el.textContent;
+      const v = m === 'dia' && DIA[k] ? DIA[k] : el.dataset.noite;
+      if (eIframe) { el.title = v; return; }
+      el.textContent = v;
+      if (!calmo) el.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 200, easing: 'ease-out' });
+    });
+  };
+
   const atualizar = () => {
     contar(base + ligados().reduce((soma, i) => soma + Number(i.dataset.preco), 0));
     mandar();
@@ -46,7 +66,9 @@
   sim.addEventListener('change', atualizar);
   // O site embutido avisa quando carregou; aí recebe o que está ligado
   window.addEventListener('message', (e) => {
-    if (e.origin === origemCafe && e.source === quadro.contentWindow && e.data && e.data.cafeAurora === 'pronto') mandar();
+    if (e.origin !== origemCafe || e.source !== quadro.contentWindow || !e.data || !e.data.cafeAurora) return;
+    if (e.data.cafeAurora === 'pronto') { trocarModo(e.data.modo); mandar(); return; }
+    if (e.data.cafeAurora.modo) trocarModo(e.data.cafeAurora.modo);
   });
   if (!visivel) {
     new IntersectionObserver((es) => { visivel = es[es.length - 1].isIntersecting; mandar(); }).observe(quadro);

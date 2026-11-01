@@ -191,6 +191,11 @@ node ferramentas/gerar-cafe.mjs
   `d_p_vazio`, `d_p_nota`) estão só no `textos/pt-BR.json`, então o Café se gera com `IDIOMAS=pt-BR node
   ferramentas/gerar-cafe.mjs` até a tradução (sem isso, o gerador recusa por faltar chave). As outras línguas continuam
   com a página de antes, que funciona com o script novo.
+- **O simulador acompanha o modo do Café (1/11/2026):** o Café avisa a página por `postMessage` se está de noite ou de
+  dia (no “pronto” e a cada troca); o `js/simulador.js` troca os textos marcados com `data-modo-texto` (a frase da
+  seção, “Monte sua bebida” → “Monte seu pão”, os efeitos, a barra, o título do quadro e o crédito) pelos de
+  `#simulador-dia`, um bloco só na página em português por enquanto. O Café também troca o título da aba, o rodapé
+  (“Padaria fictícia”) e a dica do painel de cores de dia (`d_titulo`, `d_ficticia`, `d_dim_hint`, só em pt-BR).
 - `IDIOMAS=pt-BR node ferramentas/gerar-cafe.mjs` gera só os idiomas pedidos, para ver um texto novo antes de traduzir.
 
 ## De dia, a Padaria Aurora (30/10/2026)

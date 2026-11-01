@@ -33,7 +33,7 @@
   <script src="{{raiz}}js/tema.js?v=8" defer></script>
   <script src="{{raiz}}js/menu.js?v=7" defer></script>
   <script src="{{raiz}}js/movimento.js?v=10" defer></script>
-  <script src="{{raiz}}js/simulador.js?v=3" defer></script>
+  <script src="{{raiz}}js/simulador.js?v=4" defer></script>
 </head>
 <body>
   <header class="topo">
@@ -342,16 +342,16 @@
     <section class="secao" id="exemplo">
       <div class="dentro">
         <h2>{{exemplo_titulo}}</h2>
-        <p class="secao-sub" data-deslize="{{deslize_partes}}">{{exemplo_sub}}</p>
+        <p class="secao-sub" data-deslize="{{deslize_partes}}" data-modo-texto="sub">{{exemplo_sub}}</p>
         <div class="simulador" data-base="{{n.apresentacao}}">
           <div class="simulador-lado">
             <fieldset class="simulador-opcoes" aria-describedby="simulador-nota">
               <legend class="simulador-titulo">{{simulador_titulo}}</legend>
               <label class="simulador-base"><input type="checkbox" checked disabled><span>{{simulador_base}}</span><b>{{p.apresentacao}}</b></label>
               <label><input type="checkbox" name="modulo[]" value="depoimentos" data-preco="{{n.depoimentos}}" checked><span>{{simulador_depoimentos}}</span><b>+ {{p.depoimentos}}</b></label>
-              <label><input type="checkbox" name="modulo[]" value="efeitos" data-preco="{{n.efeitos}}" checked><span>{{simulador_efeitos}}</span><b>+ {{p.efeitos}}</b></label>
+              <label><input type="checkbox" name="modulo[]" value="efeitos" data-preco="{{n.efeitos}}" checked><span data-modo-texto="efeitos">{{simulador_efeitos}}</span><b>+ {{p.efeitos}}</b></label>
               <label><input type="checkbox" name="modulo[]" value="cores" data-preco="{{n.cores}}" checked><span>{{simulador_cores}}</span><b>+ {{p.cores}}</b></label>
-              <label><input type="checkbox" name="modulo[]" value="laboratorio" data-preco="{{n.laboratorio}}" checked><span>{{simulador_laboratorio}}</span><b>+ {{p.laboratorio}}</b></label>
+              <label><input type="checkbox" name="modulo[]" value="laboratorio" data-preco="{{n.laboratorio}}" checked><span data-modo-texto="laboratorio">{{simulador_laboratorio}}</span><b>+ {{p.laboratorio}}</b></label>
               <label><input type="checkbox" name="modulo[]" value="assinatura" data-preco="{{n.assinatura}}" checked><span>{{simulador_assinatura}}</span><b>+ {{p.assinatura}}</b></label>
               <label><input type="checkbox" name="modulo[]" value="painel" data-preco="{{n.painel}}"><span>{{simulador_painel}}</span><b>+ {{p.painel}}</b></label>
               {{?pt-BR}}
@@ -361,6 +361,10 @@
               <label><input type="checkbox" name="modulo[]" value="reservas" data-preco="{{n.reservas}}"><span>Reserva de mesa</span><b>+ {{p.reservas}}</b></label>
               <label><input type="checkbox" name="modulo[]" value="fidelidade" data-preco="{{n.fidelidade}}"><span>Cartão fidelidade (carimbos)</span><b>+ {{p.fidelidade}}</b></label>
               {{/pt-BR}}
+            {{?pt-BR}}
+            <!-- os textos de dia (Padaria Aurora): por enquanto só em português (regra 8); o js/simulador.js troca quando o Café avisa o modo -->
+            <script type="application/json" id="simulador-dia">{"sub": "De dia, o Café Aurora vira a Padaria Aurora: uma padaria que não existe, de outra dimensão. Ligue e desligue as partes do site dela: ele muda na hora, e o preço também.", "efeitos": "Efeitos: farinha no ar, o sol que nasce e cursor", "laboratorio": "Monte seu pão (simulador)", "barra": "Padaria Aurora · site fictício", "iframe": "Padaria Aurora, site de exemplo de uma padaria fictícia", "credito": "A Padaria Aurora, o Café Aurora de dia, nasceu num trabalho de faculdade, na disciplina Desenvolvimento de Interfaces."}</script>
+            {{/pt-BR}}
             </fieldset>
             <div class="simulador-total" aria-live="polite">
               <p><span>{{simulador_total}}</span> <b data-simulador-total>{{p.simulador_inicial}}</b></p>
@@ -369,11 +373,11 @@
             </div>
           </div>
           <div class="simulador-tela">
-            <p class="simulador-barra" aria-hidden="true"><i></i><i></i><i></i><span>{{simulador_barra}}</span></p>
-            <iframe src="{{cafe_url}}" title="{{simulador_iframe}}" width="960" height="640" loading="lazy"></iframe>
+            <p class="simulador-barra" aria-hidden="true"><i></i><i></i><i></i><span data-modo-texto="barra">{{simulador_barra}}</span></p>
+            <iframe src="{{cafe_url}}" title="{{simulador_iframe}}" data-modo-texto="iframe" width="960" height="640" loading="lazy"></iframe>
           </div>
         </div>
-        <p class="simulador-credito">{{simulador_credito}} <a href="{{cafe_url}}" target="_blank" rel="noopener">{{simulador_tela_cheia}}</a></p>
+        <p class="simulador-credito"><span data-modo-texto="credito">{{simulador_credito}}</span> <a href="{{cafe_url}}" target="_blank" rel="noopener">{{simulador_tela_cheia}}</a></p>
       </div>
     </section>
 

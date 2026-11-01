@@ -236,7 +236,9 @@
     "i_peso": "Peso",
     "d_f_vegano": "Vegano",
     "d_p_vazio": "O pedido está vazio. Toque em “+ Pedido” num pão do cardápio ou no “Monte o seu pão”.",
-    "d_p_nota": "A padaria é fictícia: o WhatsApp abre sem número, para você escolher para quem mandar. Num site de verdade, o pedido iria direto para a loja."
+    "d_p_nota": "A padaria é fictícia: o WhatsApp abre sem número, para você escolher para quem mandar. Num site de verdade, o pedido iria direto para a loja.",
+    "d_dim_hint": "Arraste para deslocar o espectro da padaria. Nada queima — provavelmente.",
+    "d_ficticia": "Padaria fictícia · site de exemplo feito por"
   },
   "js": {
     "boot": [
@@ -373,6 +375,7 @@
           ]
         ]
       ]
-    ]
+    ],
+    "d_titulo": "Padaria Aurora — Padaria Cyberpunk em Outra Dimensão"
   }
 }

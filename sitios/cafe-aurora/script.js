@@ -595,6 +595,10 @@
       el.setAttribute('aria-label', novo === 'dia' ? el.dataset.ariaDia : el.dataset.ariaNoite);
     });
     corTema.content = novo === 'dia' ? '#fbf3e4' : '#05030a';
+    // o título da aba acompanha (de dia, a padaria), quando a página tem o texto de dia
+    if (!raiz.dataset.tituloNoite) raiz.dataset.tituloNoite = document.title;
+    if (T.d_titulo) document.title = novo === 'dia' ? T.d_titulo : raiz.dataset.tituloNoite;
+    raiz.dispatchEvent(new Event('modo')); // o simulador do Linu Sites troca os textos dele (bloco 13)
     updateDrink();
     if (reduced) fundoParado();
   }
@@ -662,7 +666,11 @@
     if (typeof v === 'boolean') visivel = v;
     conferirQuadro();
   });
-  if (embutido) parent.postMessage({ cafeAurora: 'pronto' }, ORIGEM_SIMULADOR);
+  // o simulador fica sabendo se o Café está de noite (café) ou de dia (padaria), para falar do pão ou da bebida
+  if (embutido) {
+    parent.postMessage({ cafeAurora: 'pronto', modo }, ORIGEM_SIMULADOR);
+    raiz.addEventListener('modo', () => parent.postMessage({ cafeAurora: { modo } }, ORIGEM_SIMULADOR));
+  }
 
   /* ----------------------------------------------------------
      15. O SITE COMPLETO (1/11/2026): pedido com WhatsApp, filtros e

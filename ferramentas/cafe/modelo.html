@@ -19,7 +19,7 @@
 <script src="{{raiz}}inicio.js?v=2"></script>
 <link rel="manifest" href="{{raiz}}manifest.webmanifest">
 <link rel="stylesheet" href="{{raiz}}estilo.css?v=9">
-<script src="{{raiz}}script.js?v=8" defer></script>
+<script src="{{raiz}}script.js?v=9" defer></script>
 </head>
 
 <body>
@@ -521,7 +521,7 @@
 
     <div class="foot__bottom">
       <span>© <span id="year"></span> <span class="so-noite">Café Aurora</span><span class="so-dia">{{d_nome}}</span> <span class="dot">◆</span> {{direitos}}</span>
-      <span>{{ficticia}} <a href="{{linu_sites}}" target="_top">Linu Sites</a></span>
+      <span><span class="so-noite">{{ficticia}}</span><span class="so-dia">{{d_ficticia}}</span> <a href="{{linu_sites}}" target="_top">Linu Sites</a></span>
       <span class="foot__versoes">{{versoes}} <a href="bootstrap/">Bootstrap</a> · <a href="tailwind/">Tailwind</a> · <a href="{{raiz}}versoes.html">{{comparar}}</a></span>
     </div>
   </footer>
@@ -536,7 +536,7 @@
   <div class="dim__body" id="dimBody">
     <label for="hue">{{desvio}} · <span id="hueVal">0°</span></label>
     <input type="range" id="hue" min="-70" max="70" value="0" aria-label="{{desvio_aria}}">
-    <p class="dim__hint">{{dim_hint}}</p>
+    <p class="dim__hint"><span class="so-noite">{{dim_hint}}</span><span class="so-dia">{{d_dim_hint}}</span></p>
   </div>
 </aside>
 

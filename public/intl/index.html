@@ -60,7 +60,7 @@
   <script src="../js/tema.js?v=8" defer></script>
   <script src="../js/menu.js?v=7" defer></script>
   <script src="../js/movimento.js?v=10" defer></script>
-  <script src="../js/simulador.js?v=3" defer></script>
+  <script src="../js/simulador.js?v=4" defer></script>
 </head>
 <body>
   <header class="topo">
@@ -395,16 +395,16 @@
     <section class="secao" id="exemplo">
       <div class="dentro">
         <h2>Switch it on and off, see the price</h2>
-        <p class="secao-sub" data-deslize="Swipe through the parts →">Café Aurora is a café that doesn't exist, from another dimension. Switch parts of its website on and off: it changes instantly, and so does the price.</p>
+        <p class="secao-sub" data-deslize="Swipe through the parts →" data-modo-texto="sub">Café Aurora is a café that doesn't exist, from another dimension. Switch parts of its website on and off: it changes instantly, and so does the price.</p>
         <div class="simulador" data-base="1600">
           <div class="simulador-lado">
             <fieldset class="simulador-opcoes" aria-describedby="simulador-nota">
               <legend class="simulador-titulo">What the website has</legend>
               <label class="simulador-base"><input type="checkbox" checked disabled><span>Home, about, menu and contact</span><b>$1,600</b></label>
               <label><input type="checkbox" name="modulo[]" value="depoimentos" data-preco="160" checked><span>Testimonials</span><b>+ $160</b></label>
-              <label><input type="checkbox" name="modulo[]" value="efeitos" data-preco="330" checked><span>Effects: animated background, neon and cursor</span><b>+ $330</b></label>
+              <label><input type="checkbox" name="modulo[]" value="efeitos" data-preco="330" checked><span data-modo-texto="efeitos">Effects: animated background, neon and cursor</span><b>+ $330</b></label>
               <label><input type="checkbox" name="modulo[]" value="cores" data-preco="160" checked><span>Color switch button</span><b>+ $160</b></label>
-              <label><input type="checkbox" name="modulo[]" value="laboratorio" data-preco="500" checked><span>Build your drink (simulator)</span><b>+ $500</b></label>
+              <label><input type="checkbox" name="modulo[]" value="laboratorio" data-preco="500" checked><span data-modo-texto="laboratorio">Build your drink (simulator)</span><b>+ $500</b></label>
               <label><input type="checkbox" name="modulo[]" value="assinatura" data-preco="330" checked><span>Email newsletter sign-up</span><b>+ $330</b></label>
               <label><input type="checkbox" name="modulo[]" value="painel" data-preco="650"><span>Dashboard to edit it yourself</span><b>+ $650</b></label>
             </fieldset>
@@ -415,11 +415,11 @@
             </div>
           </div>
           <div class="simulador-tela">
-            <p class="simulador-barra" aria-hidden="true"><i></i><i></i><i></i><span>Café Aurora · fictional site</span></p>
-            <iframe src="https://cafe.linupedia.com.br/intl/" title="Café Aurora, example website for a fictional café" width="960" height="640" loading="lazy"></iframe>
+            <p class="simulador-barra" aria-hidden="true"><i></i><i></i><i></i><span data-modo-texto="barra">Café Aurora · fictional site</span></p>
+            <iframe src="https://cafe.linupedia.com.br/intl/" title="Café Aurora, example website for a fictional café" data-modo-texto="iframe" width="960" height="640" loading="lazy"></iframe>
           </div>
         </div>
-        <p class="simulador-credito">Café Aurora started as a university assignment, in the Interface Development course. <a href="https://cafe.linupedia.com.br/intl/" target="_blank" rel="noopener">Open full screen</a></p>
+        <p class="simulador-credito"><span data-modo-texto="credito">Café Aurora started as a university assignment, in the Interface Development course.</span> <a href="https://cafe.linupedia.com.br/intl/" target="_blank" rel="noopener">Open full screen</a></p>
       </div>
     </section>
 
