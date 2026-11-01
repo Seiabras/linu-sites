@@ -167,7 +167,72 @@
     "d_foot_p": "2087년부터 이어 온 차원 간 베이커리. 동의해 준 우주에서 윤리적으로 빻은 밀가루를 씁니다.",
     "d_hora1": "매일 · 06:00 — 18:00",
     "d_hora2": "첫 빵 · 06:00 정각",
-    "d_hora3": "해가 진 뒤 · 카페가 문을 엽니다"
+    "d_hora3": "해가 진 뒤 · 카페가 문을 엽니다",
+    "add": "주문",
+    "lab_add": "주문에 추가",
+    "detalhes": "자세히",
+    "i_temp": "온도",
+    "i_cafeina": "카페인",
+    "i_alergenos": "알레르기 성분",
+    "i_forno": "오븐",
+    "al_nenhum": "없음",
+    "al_leite": "우유",
+    "al_gluten": "글루텐",
+    "al_ovo": "달걀",
+    "f_aria": "메뉴 필터",
+    "f_todos": "전체",
+    "f_quente": "따뜻한",
+    "f_gelado": "아이스",
+    "f_doce": "달콤한",
+    "f_intenso": "진한",
+    "f_sem_lactose": "유당 없음",
+    "f_sem_cafeina": "디카페인",
+    "d_f_salgado": "짭짤한",
+    "d_f_quentinho": "갓 구운",
+    "d_f_sem_gluten": "글루텐 없음",
+    "f_vazio": "이 조건에 맞는 메뉴가 없어요.",
+    "qz_abrir": "뭘 주문할지 모르겠다면? 테스트",
+    "d_qz_abrir": "어떤 빵일지 모르겠다면? 테스트",
+    "qz_titulo": "나에게 맞는 음료는?",
+    "d_qz_titulo": "나에게 맞는 빵은?",
+    "fechar": "닫기",
+    "p_titulo": "내 주문",
+    "p_vazio": "주문이 비어 있어요. 메뉴나 실험실에서 “+ 주문”을 눌러 주세요.",
+    "p_total": "합계",
+    "p_nome": "이름",
+    "p_nome_erro": "카운터에서 부를 수 있게 이름을 알려 주세요.",
+    "p_como": "어떻게 드실래요?",
+    "p_aqui": "매장에서",
+    "p_levar": "포장",
+    "p_hora": "몇 시에 (선택)",
+    "p_obs": "메모 (선택)",
+    "p_enviar": "WhatsApp으로 보내기",
+    "p_nota": "이 카페는 가상이에요. WhatsApp은 번호 없이 열리고, 보낼 사람은 직접 고릅니다. 실제 사이트라면 주문이 바로 가게로 갑니다.",
+    "nav_reservas": "예약",
+    "r_h2": "균열 속 자리를 맡아 두세요",
+    "d_r_h2": "베이커리 자리를 맡아 두세요",
+    "r_lead": "자리를 예약하고 도장을 모으세요. 주문마다 하나, 열 개면 다음 주문은 무료예요.",
+    "r_titulo": "자리 예약",
+    "r_nome": "이름",
+    "r_nome_erro": "예약자 이름을 알려 주세요.",
+    "r_pessoas": "인원",
+    "r_pessoas_erro": "1~8명이에요.",
+    "r_data": "날짜",
+    "r_data_erro": "오늘이나 이후 날짜를 고르세요.",
+    "r_hora": "시간",
+    "r_mesa": "자리",
+    "r_janela": "창가",
+    "r_balcao": "카운터",
+    "r_grande": "큰 테이블",
+    "r_enviar": "예약하기",
+    "r_minhas": "내 예약",
+    "fid_h3": "오로라 카드",
+    "d_fid_h3": "베이커리 카드",
+    "fid_p": "보낸 주문마다 도장 하나. 이 기기에 저장돼요.",
+    "fid_usar": "보상 사용",
+    "tw_feito": "HTML, Tailwind CSS, 그리고 약간의 양자 카페인으로 만들었어요",
+    "versoes": "다른 버전:",
+    "comparar": "세 가지 비교 (포르투갈어)"
   },
   "js": {
     "boot": [
@@ -194,6 +259,116 @@
       "궤도 통밀빵",
       "별빛 브리오슈"
     ],
-    "d_min": "{n}분"
+    "d_min": "{n}분",
+    "add_aria": "{nome} 주문에 추가",
+    "no_pedido": "{nome}이(가) 주문에 담겼어요.",
+    "menos": "{nome} 하나 빼기",
+    "mais": "{nome} 하나 더",
+    "f_n": "메뉴 {total}개 중 {n}개",
+    "msg_cab": "{loja} 주문:",
+    "msg_total": "합계",
+    "msg_nome": "이름",
+    "msg_aqui": "매장에서",
+    "msg_levar": "포장",
+    "msg_hora": "시간",
+    "msg_obs": "메모:",
+    "feito": "완료: 주문이 담긴 WhatsApp이 열렸어요. 도장 하나를 받았어요 (10개 중 {n}개).",
+    "feito_abrir": "WhatsApp 다시 열기",
+    "selo": "이 주문으로 도장 하나 (지금까지 10개 중 {n}개).",
+    "fid_n": "도장 10개 중 {n}개.",
+    "fid_premio": "카드가 가득! 다음 주문은 무료예요.",
+    "fid_usado": "보상을 썼어요. 새 카드예요.",
+    "r_ok": "예약 완료: {mesa}, {pessoas}명, {data} {hora}.",
+    "r_whats": "WhatsApp으로 확인",
+    "r_cancelar": "취소",
+    "r_msg": "{loja} 예약: {mesa}, {pessoas}명, {data} {hora}, 예약자 {nome}.",
+    "r_hora_erro": "시간을 알려 주세요.",
+    "r_hora_noite": "4시~6시에는 균열 청소로 문을 닫아요.",
+    "r_hora_dia": "베이커리는 6시~18시에 열어요.",
+    "qz_passo": "질문 {n}/{total}",
+    "qz_resultado": "나에게 맞는 것:",
+    "qz_de_novo": "다시 하기",
+    "qz_noite": [
+      [
+        "따뜻하게? 차갑게?",
+        [
+          [
+            "따뜻하게",
+            "quente"
+          ],
+          [
+            "차갑게",
+            "gelado"
+          ]
+        ]
+      ],
+      [
+        "달콤하게? 진하게?",
+        [
+          [
+            "달콤하게",
+            "doce"
+          ],
+          [
+            "진하게",
+            "intenso"
+          ]
+        ]
+      ],
+      [
+        "카페인은?",
+        [
+          [
+            "좋아요",
+            "cafeina"
+          ],
+          [
+            "디카페인",
+            "sem-cafeina"
+          ]
+        ]
+      ]
+    ],
+    "qz_dia": [
+      [
+        "달콤한? 짭짤한?",
+        [
+          [
+            "달콤한",
+            "doce"
+          ],
+          [
+            "짭짤한",
+            "salgado"
+          ]
+        ]
+      ],
+      [
+        "갓 구운 걸로?",
+        [
+          [
+            "따끈따끈",
+            "quentinho"
+          ],
+          [
+            "상관없어요",
+            ""
+          ]
+        ]
+      ],
+      [
+        "우유는?",
+        [
+          [
+            "괜찮아요",
+            ""
+          ],
+          [
+            "유당 없이",
+            "sem-lactose"
+          ]
+        ]
+      ]
+    ]
   }
 }

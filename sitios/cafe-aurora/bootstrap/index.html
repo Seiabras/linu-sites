@@ -3,9 +3,24 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Café Aurora — Cafeteria Cyberpunk em Outra Dimensão</title>
-<meta name="description" content="Café Aurora: onde o café atravessa dimensões. Uma cafeteria cyberpunk futurista com blends quânticos, neon e surrealismo.">
+<title>Café Aurora · Bootstrap 5</title>
+<meta name="description" content="Café Aurora, uma cafeteria cyberpunk fictícia: site de exemplo do Linu Sites.">
 <meta name="theme-color" content="#05030a">
+<link rel="canonical" href="https://cafe.linupedia.com.br/bootstrap/">
+<link rel="alternate" hreflang="pt-BR" href="https://cafe.linupedia.com.br/bootstrap/">
+<link rel="alternate" hreflang="pt-PT" href="https://cafe.linupedia.com.br/pt-pt/bootstrap/">
+<link rel="alternate" hreflang="es-ES" href="https://cafe.linupedia.com.br/es/bootstrap/">
+<link rel="alternate" hreflang="ca" href="https://cafe.linupedia.com.br/ca/bootstrap/">
+<link rel="alternate" hreflang="nl" href="https://cafe.linupedia.com.br/nl/bootstrap/">
+<link rel="alternate" hreflang="en-GB" href="https://cafe.linupedia.com.br/en/bootstrap/">
+<link rel="alternate" hreflang="fr-FR" href="https://cafe.linupedia.com.br/fr/bootstrap/">
+<link rel="alternate" hreflang="de-DE" href="https://cafe.linupedia.com.br/de/bootstrap/">
+<link rel="alternate" hreflang="it-IT" href="https://cafe.linupedia.com.br/it/bootstrap/">
+<link rel="alternate" hreflang="en" href="https://cafe.linupedia.com.br/intl/bootstrap/">
+<link rel="alternate" hreflang="ja-JP" href="https://cafe.linupedia.com.br/ja/bootstrap/">
+<link rel="alternate" hreflang="ko-KR" href="https://cafe.linupedia.com.br/ko/bootstrap/">
+<link rel="alternate" hreflang="zh-Hant" href="https://cafe.linupedia.com.br/zh-hant/bootstrap/">
+<script type="application/json" id="textos-cafe">{"boot":["Inicializando portal…","Calibrando moagem quântica…","Sincronizando grãos de Ω-11…","Aquecendo reator de vapor…","Bem-vindo à fenda."],"news_erro":"Sinal inválido. Verifique as coordenadas do seu e-mail.","news_ok":"Sinal recebido. Você será contactado de outra dimensão.","terminar":"✓ Terminar","painel_aviso":"Clique num texto e escreva. No painel de verdade, o que você muda fica salvo.","d_boot":["Acendendo o forno…","Fechando a fenda…","Sovando a massa de Ω-11…","Esperando a casca dourar…","Bom dia."],"d_pao":["Pão de Trigo Solar","Pão de Centeio da Penumbra","Pão Integral de Órbita","Brioche Estelar"],"d_min":"{n} min","add_aria":"Adicionar {nome} ao pedido","no_pedido":"{nome} entrou no pedido.","menos":"Tirar um {nome}","mais":"Mais um {nome}","f_n":"{n} de {total} no cardápio","msg_cab":"Pedido para {loja}:","msg_total":"Total","msg_nome":"Nome","msg_aqui":"Para comer aí","msg_levar":"Para levar","msg_hora":"Às","msg_obs":"Obs.","feito":"Pronto: o WhatsApp abriu com o pedido. Você ganhou um carimbo ({n} de 10).","feito_abrir":"Abrir o WhatsApp de novo","selo":"Este pedido vale um carimbo ({n} de 10 até agora).","fid_n":"{n} de 10 carimbos.","fid_premio":"Cartão cheio! O próximo pedido é por conta da casa.","fid_usado":"Prêmio usado. Cartão novo, boa sorte.","r_ok":"Reservado: {mesa}, {pessoas} pessoas, {data} às {hora}.","r_whats":"Confirmar no WhatsApp","r_cancelar":"Cancelar","r_msg":"Reserva em {loja}: {mesa}, {pessoas} pessoas, {data} às {hora}, em nome de {nome}.","r_hora_erro":"Diga a hora.","r_hora_noite":"Das 04h às 06h o café fecha para limpar a fenda.","r_hora_dia":"A padaria atende das 06h às 18h.","qz_passo":"Pergunta {n} de {total}","qz_resultado":"Combina com você:","qz_de_novo":"Fazer de novo","qz_noite":[["Quente ou gelado?",[["Quente","quente"],["Gelado","gelado"]]],["Doce ou intenso?",[["Doce","doce"],["Intenso","intenso"]]],["E a cafeína?",[["Pode vir","cafeina"],["Sem cafeína","sem-cafeina"]]]],"qz_dia":[["Doce ou salgado?",[["Doce","doce"],["Salgado","salgado"]]],["Saindo do forno?",[["Quentinho","quentinho"],["Tanto faz",""]]],["E o leite?",[["Pode ter",""],["Sem lactose","sem-lactose"]]]],"expresso":"Expresso Quântico","coldbrew":"Cold Brew Neural","matcha":"Matcha do Vazio","estelar":"Leite de Estrela","nivel":"Nível","editar":"✎ Editar textos","d_nome":"Padaria Aurora","lab_add":"Adicionar ao pedido"}</script>
 
 <!-- Bootstrap 5.3 -->
 <link href="vendor/bootstrap.min.css" rel="stylesheet">
@@ -48,7 +63,7 @@
 
     <button class="navbar-toggler" type="button"
             data-bs-toggle="collapse" data-bs-target="#navMain"
-            aria-controls="navMain" aria-expanded="false" aria-label="Alternar navegação">
+            aria-controls="navMain" aria-expanded="false" aria-label="Abrir menu">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -85,8 +100,7 @@
           </h1>
 
           <p class="hero__sub reveal" data-d="1">
-            Torramos grãos colhidos em <b>realidades paralelas</b>. Cada xícara é um
-            pequeno colapso quântico — e o seu paladar, a única constante.
+            Torramos grãos colhidos em <b>realidades paralelas</b>. Cada xícara é um pequeno colapso quântico — e o seu paladar, a única constante.
           </p>
 
           <div class="hero__cta d-flex gap-3 justify-content-center flex-wrap reveal" data-d="2">
@@ -125,22 +139,17 @@
       <div class="row align-items-center g-5">
         <div class="col-12 col-lg-6">
           <span class="eyebrow reveal">Origem</span>
-          <h2 class="reveal" data-d="1">Nascemos de um <em>curto-circuito</em> entre dois mundos</h2>
+          <h2 class="reveal" data-d="1">Nascemos de um <em class="e-350796">curto-circuito</em> entre dois mundos</h2>
 
           <div class="reveal" data-d="2">
             <p class="lead">
-              Em 2087, uma barista chamada <strong class="e-3791cd">Aurora Vex</strong>
-              derramou café sobre um reator de dobra. O resultado não foi uma explosão — foi um aroma.
+              Em 2087, uma barista chamada <strong class="e-3791cd">Aurora Vex</strong> derramou café sobre um reator de dobra. O resultado não foi uma explosão — foi um aroma.
             </p>
             <p>
-              O aroma abriu uma fenda. Do outro lado, havia uma cidade igual à nossa,
-              mas com luzes que pensavam e chuva que lembrava. Foi lá que encontramos
-              os grãos que hoje servimos.
+              O aroma abriu uma fenda. Do outro lado, havia uma cidade igual à nossa, mas com luzes que pensavam e chuva que lembrava. Foi lá que encontramos os grãos que hoje servimos.
             </p>
             <p>
-              O <strong class="e-3791cd">Café Aurora</strong> é o único ponto de encontro entre as duas
-              metrópoles. Aqui, o vapor sobe devagar e o tempo aceita ser interrompido
-              por alguns minutos — desde que você peça a segunda xícara.
+              O <strong class="e-3791cd">Café Aurora</strong> é o único ponto de encontro entre as duas metrópoles. Aqui, o vapor sobe devagar e o tempo aceita ser interrompido por alguns minutos — desde que você peça a segunda xícara.
             </p>
           </div>
         </div>
@@ -162,10 +171,9 @@
   <section class="section" id="menu">
     <div class="container">
       <span class="eyebrow reveal">Cardápio</span>
-      <h2 class="reveal" data-d="1">Blends que <em>não existem</em> em toda parte</h2>
+      <h2 class="reveal" data-d="1">Blends que <em class="e-350796">não existem</em> em toda parte</h2>
       <p class="lead reveal" data-d="2">
-        Seis receitas calibradas para diferentes frequências cerebrais.
-        Todas servidas em xícaras autorregenerativas.
+        Seis receitas calibradas para diferentes frequências cerebrais. Todas servidas em xícaras autorregenerativas.
       </p>
 
       <div class="row g-4 mt-4">
@@ -266,7 +274,7 @@
   <section class="section" id="laboratorio">
     <div class="container">
       <span class="eyebrow reveal">Laboratório</span>
-      <h2 class="reveal" data-d="1">Sintetize a sua <em>própria</em> xícara</h2>
+      <h2 class="reveal" data-d="1">Sintetize a sua <em class="e-350796">própria</em> xícara</h2>
       <p class="lead reveal" data-d="2">
         Ajuste os parâmetros. A bebida se recalcula em tempo real — como tudo por aqui.
       </p>
@@ -362,7 +370,7 @@
   <section class="section" id="transmissoes">
     <div class="container">
       <span class="eyebrow reveal">Transmissões</span>
-      <h2 class="reveal" data-d="1">Vozes captadas de <em>outras</em> dimensões</h2>
+      <h2 class="reveal" data-d="1">Vozes captadas de <em class="e-350796">outras</em> dimensões</h2>
 
       <div class="row g-4 mt-4">
         <div class="col-12 col-md-6 col-lg-4">

@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ko-KR" data-bs-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Café Aurora · Bootstrap 5</title>
+<meta name="description" content="Café Aurora, 가상의 사이버펑크 카페: Linu Sites의 예시 사이트입니다.">
+<meta name="theme-color" content="#05030a">
+<link rel="canonical" href="https://cafe.linupedia.com.br/ko/bootstrap/">
+<link rel="alternate" hreflang="pt-BR" href="https://cafe.linupedia.com.br/bootstrap/">
+<link rel="alternate" hreflang="pt-PT" href="https://cafe.linupedia.com.br/pt-pt/bootstrap/">
+<link rel="alternate" hreflang="es-ES" href="https://cafe.linupedia.com.br/es/bootstrap/">
+<link rel="alternate" hreflang="ca" href="https://cafe.linupedia.com.br/ca/bootstrap/">
+<link rel="alternate" hreflang="nl" href="https://cafe.linupedia.com.br/nl/bootstrap/">
+<link rel="alternate" hreflang="en-GB" href="https://cafe.linupedia.com.br/en/bootstrap/">
+<link rel="alternate" hreflang="fr-FR" href="https://cafe.linupedia.com.br/fr/bootstrap/">
+<link rel="alternate" hreflang="de-DE" href="https://cafe.linupedia.com.br/de/bootstrap/">
+<link rel="alternate" hreflang="it-IT" href="https://cafe.linupedia.com.br/it/bootstrap/">
+<link rel="alternate" hreflang="en" href="https://cafe.linupedia.com.br/intl/bootstrap/">
+<link rel="alternate" hreflang="ja-JP" href="https://cafe.linupedia.com.br/ja/bootstrap/">
+<link rel="alternate" hreflang="ko-KR" href="https://cafe.linupedia.com.br/ko/bootstrap/">
+<link rel="alternate" hreflang="zh-Hant" href="https://cafe.linupedia.com.br/zh-hant/bootstrap/">
+<script type="application/json" id="textos-cafe">{"boot":["포털을 여는 중…","양자 분쇄 보정 중…","Ω-11 원두 동기화 중…","증기 원자로 예열 중…","틈에 오신 걸 환영합니다."],"news_erro":"잘못된 신호입니다. 이메일 좌표를 확인하세요.","news_ok":"신호를 받았습니다. 다른 차원에서 연락드리겠습니다.","terminar":"✓ 완료","painel_aviso":"글을 클릭해서 바꿔 보세요. 실제 관리자 화면에서는 바꾼 내용이 저장됩니다.","d_boot":["오븐에 불을 켜는 중…","틈을 닫는 중…","Ω-11 반죽을 치대는 중…","껍질이 노릇해지길 기다리는 중…","좋은 아침입니다."],"d_pao":["태양 밀빵","황혼 호밀빵","궤도 통밀빵","별빛 브리오슈"],"d_min":"{n}분","add_aria":"{nome} 주문에 추가","no_pedido":"{nome}이(가) 주문에 담겼어요.","menos":"{nome} 하나 빼기","mais":"{nome} 하나 더","f_n":"메뉴 {total}개 중 {n}개","msg_cab":"{loja} 주문:","msg_total":"합계","msg_nome":"이름","msg_aqui":"매장에서","msg_levar":"포장","msg_hora":"시간","msg_obs":"메모:","feito":"완료: 주문이 담긴 WhatsApp이 열렸어요. 도장 하나를 받았어요 (10개 중 {n}개).","feito_abrir":"WhatsApp 다시 열기","selo":"이 주문으로 도장 하나 (지금까지 10개 중 {n}개).","fid_n":"도장 10개 중 {n}개.","fid_premio":"카드가 가득! 다음 주문은 무료예요.","fid_usado":"보상을 썼어요. 새 카드예요.","r_ok":"예약 완료: {mesa}, {pessoas}명, {data} {hora}.","r_whats":"WhatsApp으로 확인","r_cancelar":"취소","r_msg":"{loja} 예약: {mesa}, {pessoas}명, {data} {hora}, 예약자 {nome}.","r_hora_erro":"시간을 알려 주세요.","r_hora_noite":"4시~6시에는 균열 청소로 문을 닫아요.","r_hora_dia":"베이커리는 6시~18시에 열어요.","qz_passo":"질문 {n}/{total}","qz_resultado":"나에게 맞는 것:","qz_de_novo":"다시 하기","qz_noite":[["따뜻하게? 차갑게?",[["따뜻하게","quente"],["차갑게","gelado"]]],["달콤하게? 진하게?",[["달콤하게","doce"],["진하게","intenso"]]],["카페인은?",[["좋아요","cafeina"],["디카페인","sem-cafeina"]]]],"qz_dia":[["달콤한? 짭짤한?",[["달콤한","doce"],["짭짤한","salgado"]]],["갓 구운 걸로?",[["따끈따끈","quentinho"],["상관없어요",""]]],["우유는?",[["괜찮아요",""],["유당 없이","sem-lactose"]]]],"expresso":"양자 에스프레소","coldbrew":"뉴럴 콜드브루","matcha":"공허의 말차","estelar":"별빛 우유","nivel":"레벨","editar":"✎ 글 수정","d_nome":"오로라 베이커리","lab_add":"주문에 추가"}</script>
+
+<!-- Bootstrap 5.3 -->
+<link href="../../bootstrap/vendor/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap Icons -->
+<!-- Fonts -->
+
+<link rel="preload" href="../../fontes/orbitron.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="../../icone.png" type="image/png" sizes="128x128">
+<script src="../../inicio.js"></script>
+<link rel="stylesheet" href="../../bootstrap/estilo.css?v=2">
+</head>
+
+<body>
+<a class="skip" href="#conteudo">본문으로 건너뛰기</a>
+
+<!-- BOOT -->
+<div class="boot" id="boot" role="status" aria-live="polite">
+  <div class="boot__logo">CAFÉ AURORA</div>
+  <div class="boot__bar"><div class="boot__fill" id="bootFill"></div></div>
+  <div class="boot__log" id="bootLog">포털을 여는 중…</div>
+</div>
+
+<!-- CURSOR -->
+<div class="cur" id="cur" aria-hidden="true"></div>
+<div class="cur-dot" id="curDot" aria-hidden="true"></div>
+
+<!-- FUNDO -->
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="bg-veil" aria-hidden="true"></div>
+<div class="noise" aria-hidden="true"></div>
+<div class="scanlines" aria-hidden="true"></div>
+
+<!-- NAVBAR BOOTSTRAP -->
+<nav class="navbar navbar-expand-lg navbar-aurora fixed-top" id="nav">
+  <div class="container">
+    <a class="navbar-brand" href="#inicio" aria-label="Café Aurora — 홈">
+      <span class="brand__orb" aria-hidden="true"></span>
+      CAFÉ&nbsp;AURORA
+    </a>
+
+    <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navMain"
+            aria-controls="navMain" aria-expanded="false" aria-label="메뉴 열기">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navMain">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+        <li class="nav-item"><a class="nav-link active" href="#inicio">홈</a></li>
+        <li class="nav-item"><a class="nav-link" href="#sobre">기원</a></li>
+        <li class="nav-item"><a class="nav-link" href="#menu">메뉴</a></li>
+        <li class="nav-item"><a class="nav-link" href="#laboratorio">실험실</a></li>
+        <li class="nav-item"><a class="nav-link" href="#transmissoes">교신 기록</a></li>
+        <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+          <a href="#laboratorio" class="btn btn-magenta magnetic w-100">지금 주문</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main id="conteudo">
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero__halo" aria-hidden="true"></div>
+    <div class="hero__rings" aria-hidden="true"><i></i><i></i><i></i></div>
+
+    <div class="container position-relative">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-10 col-xl-9">
+          <span class="hero__tag reveal">☕ <b>24시간 영업</b> · 섹터 네온-07 · 차원 Ω</span>
+
+          <h1 class="glitch" data-text="CAFÉ&#10;AURORA">
+            <span>CAFÉ</span>
+            <span>AURORA</span>
+          </h1>
+
+          <p class="hero__sub reveal" data-d="1">
+            <b>평행 세계</b>에서 수확한 원두를 볶습니다. 한 잔 한 잔이 작은 양자 붕괴입니다. 그리고 당신의 입맛만이 유일한 상수죠.
+          </p>
+
+          <div class="hero__cta d-flex gap-3 justify-content-center flex-wrap reveal" data-d="2">
+            <a href="#menu" class="btn magnetic">메뉴 보기</a>
+            <a href="#sobre" class="btn btn-ghost magnetic">포털 통과하기</a>
+          </div>
+
+          <div class="hero__stats reveal" data-d="3">
+            <div><b>12</b>활성 차원</div>
+            <div><b>98.4%</b>양자 정밀도</div>
+            <div><b>∞</b>꿈 리필</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-hint" aria-hidden="true">
+      <span>스크롤</span>
+      <i></i>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>양자 에스프레소</span><span>플라스마 라테</span><span>뉴럴 콜드브루</span>
+      <span>공허의 말차</span><span>별빛 우유</span><span>혜성 가루</span>
+      <span>양자 에스프레소</span><span>플라스마 라테</span><span>뉴럴 콜드브루</span>
+      <span>공허의 말차</span><span>별빛 우유</span><span>혜성 가루</span>
+    </div>
+  </div>
+
+  <!-- SOBRE -->
+  <section class="section" id="sobre">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-12 col-lg-6">
+          <span class="eyebrow reveal">기원</span>
+          <h2 class="reveal" data-d="1">두 세계 사이의 <em class="e-350796">합선</em>에서 태어났습니다</h2>
+
+          <div class="reveal" data-d="2">
+            <p class="lead">
+              2087년, <strong class="e-3791cd">아우로라 벡스</strong>라는 바리스타가 워프 원자로에 커피를 쏟았습니다. 결과는 폭발이 아니라 향기였습니다.
+            </p>
+            <p>
+              그 향기가 틈을 열었습니다. 건너편에는 우리와 똑같은 도시가 있었지만, 그곳의 불빛은 생각했고 비는 기억했습니다. 지금 내리는 원두는 그곳에서 찾았습니다.
+            </p>
+            <p>
+              <strong class="e-3791cd">Café Aurora</strong>는 두 도시가 만나는 유일한 곳입니다. 여기서는 김이 천천히 오르고, 시간도 몇 분쯤 멈춰 줍니다. 두 번째 잔을 주문한다면요.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-6">
+          <div class="portal reveal" data-d="3" aria-hidden="true">
+            <div class="portal__ring"></div>
+            <div class="portal__ring"></div>
+            <div class="portal__ring"></div>
+            <div class="portal__core"></div>
+            <span class="portal__label">안정된 틈 · 3.2 nm</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="section" id="menu">
+    <div class="container">
+      <span class="eyebrow reveal">메뉴</span>
+      <h2 class="reveal" data-d="1"><em class="e-350796">어디에도 없는</em> 블렌드</h2>
+      <p class="lead reveal" data-d="2">
+        서로 다른 뇌파에 맞춘 여섯 가지 레시피. 모두 스스로 재생되는 컵에 담아 드립니다.
+      </p>
+
+      <div class="row g-4 mt-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="card-aurora tilt reveal" data-d="1">
+            <div class="card__top">
+              <div class="card__icon" aria-hidden="true">⚡</div>
+              <span class="card__id">LX-001</span>
+            </div>
+            <h3>양자 에스프레소</h3>
+            <p>서로 다른 우주에서 동시에 추출한 두 잔. 당신은 그 평균을 맛봅니다.</p>
+            <div class="card__foot">
+              <span class="card__price">₡ 18</span>
+              <span class="card__tag">진함</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="card-aurora card--m tilt reveal" data-d="2">
+            <div class="card__top">
+              <div class="card__icon" aria-hidden="true">🌌</div>
+              <span class="card__id">LX-014</span>
+            </div>
+            <h3>플라스마 라테</h3>
+            <p>자기장 속에서 340 °C로 스팀한 우유. 저으면 은은하게 빛납니다.</p>
+            <div class="card__foot">
+              <span class="card__price">₡ 24</span>
+              <span class="card__tag">반짝임</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="card-aurora card--v tilt reveal" data-d="3">
+            <div class="card__top">
+              <div class="card__icon" aria-hidden="true">❄️</div>
+              <span class="card__id">LX-027</span>
+            </div>
+            <h3>뉴럴 콜드브루</h3>
+            <p>감각 차단실에서 72시간 우려냈습니다. 당신의 집중 리듬에 맞춰집니다.</p>
+            <div class="card__foot">
+              <span class="card__price">₡ 22</span>
+              <span class="card__tag">명료함</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="card-aurora card--a tilt reveal" data-d="1">
+            <div class="card__top">
+              <div class="card__icon" aria-hidden="true">🍃</div>
+              <span class="card__id">LX-033</span>
+            </div>
+            <h3>공허의 말차</h3>
+            <p>빛이 없는 곳에서 자란 잎. 향보다 맛이 먼저 옵니다. 이유는 묻지 마세요.</p>
+            <div class="card__foot">
+              <span class="card__price">₡ 26</span>
+              <span class="card__tag">신비로움</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="card-aurora card--m tilt reveal" data-d="2">
+            <div class="card__top">
+              <div class="card__icon" aria-hidden="true">✨</div>
+              <span class="card__id">LX-042</span>
+            </div>
+            <h3>별빛 우유</h3>
+            <p>카페인 없음. 응축된 별가루와 약간의 그리움으로 만들었습니다.</p>
+            <div class="card__foot">
+              <span class="card__price">₡ 20</span>
+              <span class="card__tag">부드러움</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="card-aurora card--v tilt reveal" data-d="3">
+            <div class="card__top">
+              <div class="card__icon" aria-hidden="true">☄️</div>
+              <span class="card__id">LX-050</span>
+            </div>
+            <h3>혜성 가루</h3>
+            <p>궤도 얼음 조각을 넣은 트리플 샷. 얼음은 절대 녹지 않습니다. 그냥 포기할 뿐.</p>
+            <div class="card__foot">
+              <span class="card__price">₡ 31</span>
+              <span class="card__tag">희귀</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LABORATÓRIO -->
+  <section class="section" id="laboratorio">
+    <div class="container">
+      <span class="eyebrow reveal">실험실</span>
+      <h2 class="reveal" data-d="1"><em class="e-350796">나만의</em> 한 잔을 합성하세요</h2>
+      <p class="lead reveal" data-d="2">
+        값을 조절해 보세요. 음료가 실시간으로 다시 계산됩니다. 여기서는 모든 게 그렇죠.
+      </p>
+
+      <div class="row g-5 mt-4 align-items-center">
+        <!-- Painel -->
+        <div class="col-12 col-lg-6">
+          <div class="lab__panel reveal" data-d="2" id="labForm" role="group" aria-label="음료 만들기">
+            <div class="lab__group">
+              <div class="lab__label"><span>01 · 분자 베이스</span></div>
+              <div class="chips" role="radiogroup" aria-label="분자 베이스">
+                <label class="chip">
+                  <input type="radio" name="base" value="expresso" checked>
+                  <span>에스프레소</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="base" value="coldbrew">
+                  <span>콜드브루</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="base" value="matcha">
+                  <span>말차</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="base" value="estelar">
+                  <span>별빛 우유</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="lab__group">
+              <div class="lab__label">
+                <span>02 · 양자 강도</span>
+                <b id="intVal">7</b>
+              </div>
+              <input type="range" class="form-range" id="intensity"
+                     min="1" max="10" value="7"
+                     aria-label="양자 강도, 1부터 10까지">
+            </div>
+
+            <div class="lab__group">
+              <div class="lab__label"><span>03 · 토핑</span></div>
+              <div class="chips">
+                <label class="chip">
+                  <input type="checkbox" name="top[]" value="혜성 가루">
+                  <span>혜성 가루</span>
+                </label>
+                <label class="chip">
+                  <input type="checkbox" name="top[]" value="플라스마 거품">
+                  <span>플라스마 거품</span>
+                </label>
+                <label class="chip">
+                  <input type="checkbox" name="top[]" value="설탕 결정">
+                  <span>설탕 결정</span>
+                </label>
+                <label class="chip">
+                  <input type="checkbox" name="top[]" value="네온 꽃">
+                  <span>네온 꽃</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="lab__result">
+              <small>합성기 출력</small>
+              <div id="drinkName">양자 에스프레소 · 레벨 7</div>
+              <span id="drinkPrice">₡ 21.50</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Xícara -->
+        <div class="col-12 col-lg-6">
+          <div class="cup-stage reveal" data-d="3">
+            <div class="cup-wrap">
+              <div class="cup-glow" id="cupGlow" aria-hidden="true"></div>
+              <div class="steam" aria-hidden="true"><i></i><i></i><i></i></div>
+              <div class="cup">
+                <div class="liquid" id="liquid"></div>
+              </div>
+              <div class="saucer" aria-hidden="true"></div>
+
+              <span class="badge-float">temp · 68 °C</span>
+              <span class="badge-float">ph · 5.4</span>
+              <span class="badge-float">dim · Ω-07</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANSMISSÕES -->
+  <section class="section" id="transmissoes">
+    <div class="container">
+      <span class="eyebrow reveal">교신 기록</span>
+      <h2 class="reveal" data-d="1"><em class="e-350796">다른</em> 차원에서 잡힌 목소리</h2>
+
+      <div class="row g-4 mt-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <blockquote class="trans reveal" data-d="1">
+            <q>양자 에스프레소를 주문했더니 겪어 본 적 없는 어린 시절이 기억나기 시작했어요. 추천합니다. 내일 또 올게요. 아니면 어제.</q>
+            <footer><b>Kira-09</b>섹터 네온-07</footer>
+          </blockquote>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <blockquote class="trans reveal" data-d="2">
+            <q>제가 울자 플라스마 라테가 빛났어요. 서로 민망했지만 맛은 완벽했습니다.</q>
+            <footer><b>Dr. Halven</b>기억 클리닉</footer>
+          </blockquote>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <blockquote class="trans reveal" data-d="3">
+            <q>커피만 사러 왔어요. 시간에 관한 이론 하나와, 비워지기를 거부하는 컵을 들고 나왔습니다.</q>
+            <footer><b>익명</b>차원 Ω-11</footer>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <h2 class="reveal">틈은 <em class="e-350796">늦게까지</em> 열려 있습니다</h2>
+      <p class="reveal" data-d="1">
+        예약은 필요 없습니다. 잘못된 문을 지날 용기만 있으면 됩니다.
+      </p>
+      <div class="hero__cta reveal" data-d="2">
+        <a href="#menu" class="btn btn-magenta magnetic">전체 메뉴 보기</a>
+        <a href="#inicio" class="btn btn-ghost magnetic">맨 위로</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="foot">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-12 col-lg-5">
+          <a href="#inicio" class="navbar-brand mb-3 d-inline-flex">
+            <span class="brand__orb" aria-hidden="true"></span>CAFÉ AURORA
+          </a>
+          <p>2087년부터 이어진 차원 간 로스터리. 동의한 우주에서 윤리적으로 수확한 원두.</p>
+
+          <form class="newsletter d-flex gap-2 mt-3 flex-wrap" id="newsForm" novalidate>
+            <label class="sr-only" for="email">신호를 받을 이메일</label>
+            <input type="email" class="form-control flex-grow-1 e-4333d1" id="email"
+                   placeholder="you@email.dim" autocomplete="email" required>
+            <button type="submit" class="btn magnetic">구독</button>
+          </form>
+          <p id="newsMsg" role="status" aria-live="polite" class="e-5238a2"></p>
+        </div>
+
+        <div class="col-6 col-lg-3">
+          <h3>좌표</h3>
+          <ul>
+            <li>벡스로 2087 — 섹터 네온-07</li>
+            <li>로어 메트로폴리스 · 지하 3층</li>
+            <li>방금 전까지 없던 문으로 입장</li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-lg-4">
+          <h3>영업시간</h3>
+          <ul>
+            <li>월–금 · 06:00 — 04:00</li>
+            <li>토–일 · 항상</li>
+            <li>차원 공휴일 · 휴무</li>
+          </ul>
+          <h3 class="e-5a7715">신호</h3>
+          <ul>
+            <li><a href="#inicio">@cafeaurora.omega</a></li>
+            <li><a href="#inicio">+Ω 07 2087-0000</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="foot__bottom d-flex justify-content-between align-items-center flex-wrap gap-2">
+        <span>© <span id="year"></span> Café Aurora <span class="dot">◆</span> 모든 우주의 권리 보유</span>
+        <span>Bootstrap 5 · HTML · CSS · JS</span>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<!-- PAINEL DE DIMENSÃO -->
+<aside class="dim" id="dim" aria-label="색상 차원 조절">
+  <button class="dim__head" id="dimHead" type="button" aria-expanded="true" aria-controls="dimBody">
+    <span class="e-fd99b2"><i aria-hidden="true"></i>차원 맞추기</span>
+    <span aria-hidden="true" id="dimChevron">▾</span>
+  </button>
+  <div class="dim__body" id="dimBody">
+    <label for="hue" class="lab__label e-8691cb">
+      <span>색상 이동</span><b id="hueVal">0°</b>
+    </label>
+    <input type="range" class="form-range" id="hue" min="-70" max="70" value="0"
+           aria-label="색상 이동(도)">
+    <p class="dim__hint">드래그해서 카페의 색을 바꿔 보세요. 아무것도 망가지지 않습니다. 아마도.</p>
+  </div>
+</aside>
+
+<!-- Bootstrap JS -->
+<script src="../../bootstrap/vendor/bootstrap.bundle.min.js" defer></script>
+
+<script src="../../bootstrap/script.js?v=2" defer></script>
+</body>
+</html>

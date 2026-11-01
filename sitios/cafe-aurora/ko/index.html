@@ -21,7 +21,7 @@
 <link rel="alternate" hreflang="ko-KR" href="https://cafe.linupedia.com.br/ko/">
 <link rel="alternate" hreflang="zh-Hant" href="https://cafe.linupedia.com.br/zh-hant/">
 <!-- Os textos que o script escreve (abertura, bebidas, assinatura, painel), no idioma da página -->
-<script type="application/json" id="textos-cafe">{"boot":["포털을 여는 중…","양자 분쇄 보정 중…","Ω-11 원두 동기화 중…","증기 원자로 예열 중…","틈에 오신 걸 환영합니다."],"news_erro":"잘못된 신호입니다. 이메일 좌표를 확인하세요.","news_ok":"신호를 받았습니다. 다른 차원에서 연락드리겠습니다.","terminar":"✓ 완료","painel_aviso":"글을 클릭해서 바꿔 보세요. 실제 관리자 화면에서는 바꾼 내용이 저장됩니다.","d_boot":["오븐에 불을 켜는 중…","틈을 닫는 중…","Ω-11 반죽을 치대는 중…","껍질이 노릇해지길 기다리는 중…","좋은 아침입니다."],"d_pao":["태양 밀빵","황혼 호밀빵","궤도 통밀빵","별빛 브리오슈"],"d_min":"{n}분","expresso":"양자 에스프레소","coldbrew":"뉴럴 콜드브루","matcha":"공허의 말차","estelar":"별빛 우유","nivel":"레벨","editar":"✎ 글 수정"}</script>
+<script type="application/json" id="textos-cafe">{"boot":["포털을 여는 중…","양자 분쇄 보정 중…","Ω-11 원두 동기화 중…","증기 원자로 예열 중…","틈에 오신 걸 환영합니다."],"news_erro":"잘못된 신호입니다. 이메일 좌표를 확인하세요.","news_ok":"신호를 받았습니다. 다른 차원에서 연락드리겠습니다.","terminar":"✓ 완료","painel_aviso":"글을 클릭해서 바꿔 보세요. 실제 관리자 화면에서는 바꾼 내용이 저장됩니다.","d_boot":["오븐에 불을 켜는 중…","틈을 닫는 중…","Ω-11 반죽을 치대는 중…","껍질이 노릇해지길 기다리는 중…","좋은 아침입니다."],"d_pao":["태양 밀빵","황혼 호밀빵","궤도 통밀빵","별빛 브리오슈"],"d_min":"{n}분","add_aria":"{nome} 주문에 추가","no_pedido":"{nome}이(가) 주문에 담겼어요.","menos":"{nome} 하나 빼기","mais":"{nome} 하나 더","f_n":"메뉴 {total}개 중 {n}개","msg_cab":"{loja} 주문:","msg_total":"합계","msg_nome":"이름","msg_aqui":"매장에서","msg_levar":"포장","msg_hora":"시간","msg_obs":"메모:","feito":"완료: 주문이 담긴 WhatsApp이 열렸어요. 도장 하나를 받았어요 (10개 중 {n}개).","feito_abrir":"WhatsApp 다시 열기","selo":"이 주문으로 도장 하나 (지금까지 10개 중 {n}개).","fid_n":"도장 10개 중 {n}개.","fid_premio":"카드가 가득! 다음 주문은 무료예요.","fid_usado":"보상을 썼어요. 새 카드예요.","r_ok":"예약 완료: {mesa}, {pessoas}명, {data} {hora}.","r_whats":"WhatsApp으로 확인","r_cancelar":"취소","r_msg":"{loja} 예약: {mesa}, {pessoas}명, {data} {hora}, 예약자 {nome}.","r_hora_erro":"시간을 알려 주세요.","r_hora_noite":"4시~6시에는 균열 청소로 문을 닫아요.","r_hora_dia":"베이커리는 6시~18시에 열어요.","qz_passo":"질문 {n}/{total}","qz_resultado":"나에게 맞는 것:","qz_de_novo":"다시 하기","qz_noite":[["따뜻하게? 차갑게?",[["따뜻하게","quente"],["차갑게","gelado"]]],["달콤하게? 진하게?",[["달콤하게","doce"],["진하게","intenso"]]],["카페인은?",[["좋아요","cafeina"],["디카페인","sem-cafeina"]]]],"qz_dia":[["달콤한? 짭짤한?",[["달콤한","doce"],["짭짤한","salgado"]]],["갓 구운 걸로?",[["따끈따끈","quentinho"],["상관없어요",""]]],["우유는?",[["괜찮아요",""],["유당 없이","sem-lactose"]]]],"expresso":"양자 에스프레소","coldbrew":"뉴럴 콜드브루","matcha":"공허의 말차","estelar":"별빛 우유","nivel":"레벨","editar":"✎ 글 수정","d_nome":"오로라 베이커리","lab_add":"주문에 추가"}</script>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
 <link rel="icon" href="../icone.png" type="image/png" sizes="128x128">
 <link rel="preload" href="../fontes/orbitron.woff2" as="font" type="font/woff2" crossorigin>
@@ -29,8 +29,9 @@
      que muda tem as duas versões, .so-noite e .so-dia, e o data-modo do <html> esconde uma delas (ver inicio.js). Na página principal, ele aparece embutido
      (iframe) no simulador de preço, que liga e desliga as partes dele (ver script.js, "módulos"). -->
 <script src="../inicio.js?v=2"></script>
-<link rel="stylesheet" href="../estilo.css?v=7">
-<script src="../script.js?v=6" defer></script>
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="stylesheet" href="../estilo.css?v=8">
+<script src="../script.js?v=7" defer></script>
 </head>
 
 <body>
@@ -66,6 +67,7 @@
     <a href="#menu">메뉴</a>
     <a href="#laboratorio"><span class="so-noite">실험실</span><span class="so-dia">오븐</span></a>
     <a href="#transmissoes"><span class="so-noite">교신 기록</span><span class="so-dia">쪽지</span></a>
+    <a href="#reservas" class="so-completo" hidden>예약</a>
   </nav>
 
   <div class="nav__right">
@@ -164,8 +166,31 @@
       <span class="so-noite">서로 다른 뇌파에 맞춘 여섯 가지 레시피. 모두 스스로 재생되는 컵에 담아 드립니다.</span><span class="so-dia">하루에도 몇 번씩 오븐에서 나오는 여섯 가지 레시피. 모두 몇 시간, 혹은 몇 차원 동안 온기를 지켜 주는 종이에 싸 드립니다.</span>
     </p>
 
+    <div class="menu-filtros so-completo" id="menuFiltros" hidden>
+      <div class="chips so-noite" role="group" aria-label="메뉴 필터">
+        <button type="button" class="filtro" data-filtro="" aria-pressed="true">전체</button>
+        <button type="button" class="filtro" data-filtro="quente" aria-pressed="false">따뜻한</button>
+        <button type="button" class="filtro" data-filtro="gelado" aria-pressed="false">아이스</button>
+        <button type="button" class="filtro" data-filtro="doce" aria-pressed="false">달콤한</button>
+        <button type="button" class="filtro" data-filtro="intenso" aria-pressed="false">진한</button>
+        <button type="button" class="filtro" data-filtro="sem-lactose" aria-pressed="false">유당 없음</button>
+        <button type="button" class="filtro" data-filtro="sem-cafeina" aria-pressed="false">디카페인</button>
+      </div>
+      <div class="chips so-dia" role="group" aria-label="메뉴 필터">
+        <button type="button" class="filtro" data-filtro="" aria-pressed="true">전체</button>
+        <button type="button" class="filtro" data-filtro="doce" aria-pressed="false">달콤한</button>
+        <button type="button" class="filtro" data-filtro="salgado" aria-pressed="false">짭짤한</button>
+        <button type="button" class="filtro" data-filtro="quentinho" aria-pressed="false">갓 구운</button>
+        <button type="button" class="filtro" data-filtro="sem-lactose" aria-pressed="false">유당 없음</button>
+        <button type="button" class="filtro" data-filtro="sem-gluten" aria-pressed="false">글루텐 없음</button>
+      </div>
+      <p class="menu-filtros__fim"><span id="menuConta" aria-live="polite"></span>
+        <button type="button" class="btn btn--ghost" id="quizAbrir"><span class="so-noite">뭘 주문할지 모르겠다면? 테스트</span><span class="so-dia">어떤 빵일지 모르겠다면? 테스트</span></button></p>
+    </div>
+    <p class="menu-vazio" id="menuVazio" hidden>이 조건에 맞는 메뉴가 없어요.</p>
+
     <div class="menu-grid">
-      <article class="card reveal tilt" data-d="1">
+      <article class="card reveal tilt" data-d="1" data-item="1" data-preco-noite="18" data-preco-dia="9" data-filtros-noite="quente intenso sem-lactose" data-filtros-dia="salgado quentinho">
         <div class="card__top">
           <div class="card__icon" aria-hidden="true"><span class="so-noite">⚡</span><span class="so-dia">🥐</span></div>
           <span class="card__id"><span class="so-noite">LX-001</span><span class="so-dia">FN-001</span></span>
@@ -177,9 +202,15 @@
           <span class="card__price"><span class="so-noite">₡ 18</span><span class="so-dia">₡ 9</span></span>
           <span class="card__tag"><span class="so-noite">진함</span><span class="so-dia">결이 살아 있는</span></span>
         </div>
+        <details class="card__info so-completo">
+          <summary>자세히</summary>
+          <dl class="so-noite"><div><dt>온도</dt><dd>68 °C</dd></div><div><dt>카페인</dt><dd>140 mg</dd></div><div><dt>kcal</dt><dd>5</dd></div><div><dt>알레르기 성분</dt><dd>없음</dd></div></dl>
+          <dl class="so-dia"><div><dt>오븐</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>280</dd></div><div><dt>알레르기 성분</dt><dd>글루텐, 우유, 달걀</dd></div></dl>
+        </details>
+        <button type="button" class="card__add so-completo" data-item="1" hidden>+ 주문</button>
       </article>
 
-      <article class="card card--m reveal tilt" data-d="2">
+      <article class="card card--m reveal tilt" data-d="2" data-item="2" data-preco-noite="24" data-preco-dia="7" data-filtros-noite="quente doce" data-filtros-dia="salgado sem-lactose">
         <div class="card__top">
           <div class="card__icon" aria-hidden="true"><span class="so-noite">🌌</span><span class="so-dia">🍞</span></div>
           <span class="card__id"><span class="so-noite">LX-014</span><span class="so-dia">FN-006</span></span>
@@ -191,9 +222,15 @@
           <span class="card__price"><span class="so-noite">₡ 24</span><span class="so-dia">₡ 7</span></span>
           <span class="card__tag"><span class="so-noite">반짝임</span><span class="so-dia">가벼운</span></span>
         </div>
+        <details class="card__info so-completo">
+          <summary>자세히</summary>
+          <dl class="so-noite"><div><dt>온도</dt><dd>72 °C</dd></div><div><dt>카페인</dt><dd>90 mg</dd></div><div><dt>kcal</dt><dd>180</dd></div><div><dt>알레르기 성분</dt><dd>우유</dd></div></dl>
+          <dl class="so-dia"><div><dt>오븐</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>150</dd></div><div><dt>알레르기 성분</dt><dd>글루텐</dd></div></dl>
+        </details>
+        <button type="button" class="card__add so-completo" data-item="2" hidden>+ 주문</button>
       </article>
 
-      <article class="card card--v reveal tilt" data-d="3">
+      <article class="card card--v reveal tilt" data-d="3" data-item="3" data-preco-noite="22" data-preco-dia="8" data-filtros-noite="gelado intenso sem-lactose" data-filtros-dia="salgado quentinho sem-lactose">
         <div class="card__top">
           <div class="card__icon" aria-hidden="true"><span class="so-noite">❄️</span><span class="so-dia">🥖</span></div>
           <span class="card__id"><span class="so-noite">LX-027</span><span class="so-dia">FN-012</span></span>
@@ -205,9 +242,15 @@
           <span class="card__price"><span class="so-noite">₡ 22</span><span class="so-dia">₡ 8</span></span>
           <span class="card__tag"><span class="so-noite">명료함</span><span class="so-dia">바삭한</span></span>
         </div>
+        <details class="card__info so-completo">
+          <summary>자세히</summary>
+          <dl class="so-noite"><div><dt>온도</dt><dd>4 °C</dd></div><div><dt>카페인</dt><dd>200 mg</dd></div><div><dt>kcal</dt><dd>10</dd></div><div><dt>알레르기 성분</dt><dd>없음</dd></div></dl>
+          <dl class="so-dia"><div><dt>오븐</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>190</dd></div><div><dt>알레르기 성분</dt><dd>글루텐</dd></div></dl>
+        </details>
+        <button type="button" class="card__add so-completo" data-item="3" hidden>+ 주문</button>
       </article>
 
-      <article class="card card--a reveal tilt" data-d="4">
+      <article class="card card--a reveal tilt" data-d="4" data-item="4" data-preco-noite="26" data-preco-dia="6" data-filtros-noite="gelado sem-lactose" data-filtros-dia="doce">
         <div class="card__top">
           <div class="card__icon" aria-hidden="true"><span class="so-noite">🍃</span><span class="so-dia">🧁</span></div>
           <span class="card__id"><span class="so-noite">LX-033</span><span class="so-dia">FN-019</span></span>
@@ -219,9 +262,15 @@
           <span class="card__price"><span class="so-noite">₡ 26</span><span class="so-dia">₡ 6</span></span>
           <span class="card__tag"><span class="so-noite">신비로움</span><span class="so-dia">달콤한</span></span>
         </div>
+        <details class="card__info so-completo">
+          <summary>자세히</summary>
+          <dl class="so-noite"><div><dt>온도</dt><dd>8 °C</dd></div><div><dt>카페인</dt><dd>70 mg</dd></div><div><dt>kcal</dt><dd>120</dd></div><div><dt>알레르기 성분</dt><dd>없음</dd></div></dl>
+          <dl class="so-dia"><div><dt>오븐</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>320</dd></div><div><dt>알레르기 성분</dt><dd>글루텐, 우유, 달걀</dd></div></dl>
+        </details>
+        <button type="button" class="card__add so-completo" data-item="4" hidden>+ 주문</button>
       </article>
 
-      <article class="card card--m reveal tilt" data-d="5">
+      <article class="card card--m reveal tilt" data-d="5" data-item="5" data-preco-noite="20" data-preco-dia="5" data-filtros-noite="quente doce sem-cafeina" data-filtros-dia="doce sem-lactose">
         <div class="card__top">
           <div class="card__icon" aria-hidden="true"><span class="so-noite">✨</span><span class="so-dia">🍩</span></div>
           <span class="card__id"><span class="so-noite">LX-042</span><span class="so-dia">FN-024</span></span>
@@ -233,9 +282,15 @@
           <span class="card__price"><span class="so-noite">₡ 20</span><span class="so-dia">₡ 5</span></span>
           <span class="card__tag"><span class="so-noite">부드러움</span><span class="so-dia">희귀한</span></span>
         </div>
+        <details class="card__info so-completo">
+          <summary>자세히</summary>
+          <dl class="so-noite"><div><dt>온도</dt><dd>60 °C</dd></div><div><dt>카페인</dt><dd>0 mg</dd></div><div><dt>kcal</dt><dd>210</dd></div><div><dt>알레르기 성분</dt><dd>우유</dd></div></dl>
+          <dl class="so-dia"><div><dt>오븐</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>260</dd></div><div><dt>알레르기 성분</dt><dd>글루텐, 달걀</dd></div></dl>
+        </details>
+        <button type="button" class="card__add so-completo" data-item="5" hidden>+ 주문</button>
       </article>
 
-      <article class="card card--v reveal tilt" data-d="5">
+      <article class="card card--v reveal tilt" data-d="5" data-item="6" data-preco-noite="31" data-preco-dia="4" data-filtros-noite="gelado intenso sem-lactose" data-filtros-dia="salgado quentinho sem-gluten">
         <div class="card__top">
           <div class="card__icon" aria-hidden="true"><span class="so-noite">☄️</span><span class="so-dia">🧀</span></div>
           <span class="card__id"><span class="so-noite">LX-050</span><span class="so-dia">FN-031</span></span>
@@ -247,6 +302,12 @@
           <span class="card__price"><span class="so-noite">₡ 31</span><span class="so-dia">₡ 4</span></span>
           <span class="card__tag"><span class="so-noite">희귀</span><span class="so-dia">클래식</span></span>
         </div>
+        <details class="card__info so-completo">
+          <summary>자세히</summary>
+          <dl class="so-noite"><div><dt>온도</dt><dd>−2 °C</dd></div><div><dt>카페인</dt><dd>280 mg</dd></div><div><dt>kcal</dt><dd>15</dd></div><div><dt>알레르기 성분</dt><dd>없음</dd></div></dl>
+          <dl class="so-dia"><div><dt>오븐</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>90</dd></div><div><dt>알레르기 성분</dt><dd>우유, 달걀</dd></div></dl>
+        </details>
+        <button type="button" class="card__add so-completo" data-item="6" hidden>+ 주문</button>
       </article>
     </div>
   </section>
@@ -319,6 +380,7 @@
           <small><span class="so-noite">합성기 출력</span><span class="so-dia">오븐에서 막 나온 빵</span></small>
           <div id="drinkName">양자 에스프레소 · 레벨 VII</div>
           <span id="drinkPrice">₡ 21.50</span>
+          <button type="button" class="btn btn--magenta lab__add so-completo" id="labAdd" hidden>+ 주문에 추가</button>
         </div>
       </div>
 
@@ -377,6 +439,46 @@
     </div>
   </section>
 
+  <!-- RESERVAS E FIDELIDADE (1/11/2026): só no site completo; embutido no simulador, fica escondido -->
+  <section class="section so-completo" id="reservas" hidden>
+    <span class="eyebrow reveal">예약</span>
+    <h2 class="reveal" data-d="1"><span class="so-noite">균열 속 자리를 맡아 두세요</span><span class="so-dia">베이커리 자리를 맡아 두세요</span></h2>
+    <p class="lead reveal" data-d="2">자리를 예약하고 도장을 모으세요. 주문마다 하나, 열 개면 다음 주문은 무료예요.</p>
+    <div class="reservas">
+      <form class="reserva reveal" id="reservaForm" novalidate aria-labelledby="reservaTitulo">
+        <h3 id="reservaTitulo">자리 예약</h3>
+        <div class="campo"><label for="rNome">이름</label><input id="rNome" type="text" name="nome" autocomplete="name" required aria-describedby="rNomeErro"><p class="erro" id="rNomeErro" hidden>예약자 이름을 알려 주세요.</p></div>
+        <div class="campo campo--dois">
+          <div><label for="rPessoas">인원</label><input id="rPessoas" name="pessoas" type="number" min="1" max="8" value="2" inputmode="numeric" required aria-describedby="rPessoasErro"><p class="erro" id="rPessoasErro" hidden>1~8명이에요.</p></div>
+          <div><label for="rData">날짜</label><input id="rData" name="data" type="date" required aria-describedby="rDataErro"><p class="erro" id="rDataErro" hidden>오늘이나 이후 날짜를 고르세요.</p></div>
+        </div>
+        <div class="campo"><label for="rHora">시간</label><input id="rHora" name="hora" type="time" required aria-describedby="rHoraErro"><p class="erro" id="rHoraErro" hidden></p></div>
+        <fieldset class="campo"><legend>자리</legend>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="mesa" value="창가" checked><span>창가</span></label>
+            <label class="chip"><input type="radio" name="mesa" value="카운터"><span>카운터</span></label>
+            <label class="chip"><input type="radio" name="mesa" value="큰 테이블"><span>큰 테이블</span></label>
+          </div>
+        </fieldset>
+        <button type="submit" class="btn btn--magenta">예약하기</button>
+        <p class="reserva__msg" id="reservaMsg" role="status" aria-live="polite"></p>
+      </form>
+      <div class="reservas__lado">
+        <div class="fidelidade reveal" data-d="1">
+          <h3><span class="so-noite">오로라 카드</span><span class="so-dia">베이커리 카드</span></h3>
+          <p>보낸 주문마다 도장 하나. 이 기기에 저장돼요.</p>
+          <ol class="carimbos" id="carimbos" aria-hidden="true"><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ol>
+          <p class="fidelidade__msg" id="fidMsg" role="status" aria-live="polite"></p>
+          <button type="button" class="btn btn--ghost" id="fidUsar" hidden>보상 사용</button>
+        </div>
+        <div class="minhas" id="minhas" hidden>
+          <h3>내 예약</h3>
+          <ul id="minhasLista"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="cta">
     <h2 class="reveal"><span class="so-noite">틈은 <em>늦게까지</em> 열려 있습니다</span><span class="so-dia">오븐은 <em>여섯 시</em>에 켜집니다</span></h2>
@@ -431,6 +533,7 @@
     <div class="foot__bottom">
       <span>© <span id="year"></span> <span class="so-noite">Café Aurora</span><span class="so-dia">오로라 베이커리</span> <span class="dot">◆</span> 모든 우주의 권리 보유</span>
       <span>가상의 카페 · 예시 사이트 제작: <a href="https://sites.linupedia.com.br/ko/" target="_top">Linu Sites</a></span>
+      <span class="foot__versoes">다른 버전: <a href="bootstrap/">Bootstrap</a> · <a href="tailwind/">Tailwind</a> · <a href="../versoes.html">세 가지 비교 (포르투갈어)</a></span>
     </div>
   </footer>
 </main>
@@ -447,6 +550,42 @@
     <p class="dim__hint">드래그해서 카페의 색을 바꿔 보세요. 아무것도 망가지지 않습니다. 아마도.</p>
   </div>
 </aside>
+
+<!-- O PEDIDO (1/11/2026): o carrinho, com a mensagem pronta para o WhatsApp. O Café é fictício: o WhatsApp abre sem
+     número, para a pessoa escolher o contato; num site de verdade, iria direto para o número da loja. -->
+<dialog class="janela pedido" id="pedido" aria-labelledby="pedidoTitulo">
+  <div class="janela__topo">
+    <h2 id="pedidoTitulo">내 주문</h2>
+    <button type="button" class="janela__fechar" data-fechar aria-label="닫기">✕</button>
+  </div>
+  <p class="pedido__vazio" id="pedidoVazio">주문이 비어 있어요. 메뉴나 실험실에서 “+ 주문”을 눌러 주세요.</p>
+  <ul class="pedido__itens" id="pedidoItens"></ul>
+  <p class="pedido__total" id="pedidoTotalLinha"><span>합계</span><b id="pedidoTotal"></b></p>
+  <form class="pedido__form" id="pedidoForm" novalidate>
+    <div class="campo"><label for="pNome">이름</label><input id="pNome" type="text" name="nome" autocomplete="given-name" required aria-describedby="pNomeErro"><p class="erro" id="pNomeErro" hidden>카운터에서 부를 수 있게 이름을 알려 주세요.</p></div>
+    <fieldset class="campo"><legend>어떻게 드실래요?</legend>
+      <div class="chips">
+        <label class="chip"><input type="radio" name="como" value="aqui" checked><span>매장에서</span></label>
+        <label class="chip"><input type="radio" name="como" value="levar"><span>포장</span></label>
+      </div>
+    </fieldset>
+    <div class="campo"><label for="pHora">몇 시에 (선택)</label><input id="pHora" name="hora" type="time"></div>
+    <div class="campo"><label for="pObs">메모 (선택)</label><textarea id="pObs" name="obs" rows="2" maxlength="200"></textarea></div>
+    <p class="pedido__selo" id="pedidoSelo"></p>
+    <button type="submit" class="btn btn--magenta">WhatsApp으로 보내기</button>
+    <p class="pedido__nota">이 카페는 가상이에요. WhatsApp은 번호 없이 열리고, 보낼 사람은 직접 고릅니다. 실제 사이트라면 주문이 바로 가게로 갑니다.</p>
+  </form>
+  <div class="pedido__feito" id="pedidoFeito" hidden tabindex="-1"></div>
+</dialog>
+
+<!-- O TESTE: que bebida (ou, de dia, que pão) combina com você -->
+<dialog class="janela quiz" id="quiz" aria-labelledby="quizTitulo">
+  <div class="janela__topo">
+    <h2 id="quizTitulo"><span class="so-noite">나에게 맞는 음료는?</span><span class="so-dia">나에게 맞는 빵은?</span></h2>
+    <button type="button" class="janela__fechar" data-fechar aria-label="닫기">✕</button>
+  </div>
+  <div class="quiz__corpo" id="quizCorpo" aria-live="polite"></div>
+</dialog>
 
 <!-- PAINEL (módulo "painel para mexer sozinho"): só aparece quando o simulador liga o módulo -->
 <div class="painel-demo" id="painelDemo" hidden>

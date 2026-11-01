@@ -435,6 +435,7 @@
     if (nomes.length) nome += ` + ${nomes.join(' + ')}`;
     nameOut.textContent = nome;
     priceOut.textContent = preco(p.preco + intensity * 0.2 + marcadas.length * 1.5);
+    priceOut.dataset.valor = p.preco + intensity * 0.2 + marcadas.length * 1.5;
   }
 
   function updateDrink() {
@@ -467,6 +468,7 @@
     // Preço
     const price = BASE_PRICE[baseKey] + intensity * 0.55 + tops.length * TOP_PRICE;
     priceOut.textContent = preco(price);
+    priceOut.dataset.valor = price;
   }
 
   form.addEventListener('input', updateDrink);
@@ -658,5 +660,230 @@
     conferirQuadro();
   });
   if (embutido) parent.postMessage({ cafeAurora: 'pronto' }, ORIGEM_SIMULADOR);
+
+  /* ----------------------------------------------------------
+     15. O SITE COMPLETO (1/11/2026): pedido com WhatsApp, filtros e
+     detalhes do cardápio, o teste, reservas e o cartão de carimbos.
+     Embutido no simulador do Linu Sites, nada disso aparece: o
+     simulador só vende o que está na tabela dele. O que a pessoa faz
+     fica no localStorage deste navegador.
+     ---------------------------------------------------------- */
+  if (embutido) return;
+  $$('.so-completo').forEach(el => { el.hidden = false; });
+  // o Café sem internet: o sw.js fica na raiz do Café (as páginas dos idiomas estão um nível abaixo)
+  if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+    const raizCafe = new URL(document.querySelector('script[src*="script.js"]').getAttribute('src').replace(/script\.js.*$/, ''), location.href);
+    navigator.serviceWorker.register(new URL('sw.js', raizCafe), { scope: raizCafe.href }).catch(() => {});
+  }
+  const guardado = (k, padrao) => { try { const v = JSON.parse(localStorage.getItem(k)); return v == null ? padrao : v; } catch (e) { return padrao; } };
+  const guardar = (k, v) => { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} };
+  const f = (txt, dados) => txt.replace(/\{(\w+)\}/g, (_, k) => dados[k] ?? '');
+  const el = (tag, cls, texto) => { const e = document.createElement(tag); if (cls) e.className = cls; if (texto != null) e.textContent = texto; return e; };
+  const loja = () => modo === 'dia' ? T.d_nome : 'Café Aurora';
+  const moeda = v => '₡ ' + Number(v).toLocaleString(raiz.lang, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  const cartoes = $$('.menu-grid .card');
+  const nomeDe = c => (modo === 'dia' ? c.querySelector('h3 .so-dia') : c.querySelector('h3 .so-noite')).textContent.trim();
+  const precoDe = c => Number(modo === 'dia' ? c.dataset.precoDia : c.dataset.precoNoite);
+  const filtrosDe = c => (modo === 'dia' ? c.dataset.filtrosDia : c.dataset.filtrosNoite).split(' ');
+
+  // ---- o pedido
+  const janelaPedido = $('#pedido');
+  let itens = guardado('aurora-pedido', []);
+  const listaPedido = $('#pedidoItens'), totalPedido = $('#pedidoTotal'), vazio = $('#pedidoVazio');
+  const formPedido = $('#pedidoForm'), feito = $('#pedidoFeito'), seloPedido = $('#pedidoSelo');
+  const contadores = () => $$('.pedir-n');
+  function desenharPedido() {
+    guardar('aurora-pedido', itens);
+    const n = itens.reduce((a, i) => a + i.q, 0);
+    contadores().forEach(c => { c.textContent = n; c.hidden = n === 0; });
+    vazio.hidden = itens.length > 0;
+    formPedido.hidden = itens.length === 0;
+    $('#pedidoTotalLinha').hidden = itens.length === 0;
+    listaPedido.replaceChildren(...itens.map((i, k) => {
+      const li = el('li', 'pedido__item');
+      const menos = el('button', 'qtd', '−'); menos.type = 'button'; menos.setAttribute('aria-label', f(T.menos, { nome: i.nome }));
+      const mais = el('button', 'qtd', '+'); mais.type = 'button'; mais.setAttribute('aria-label', f(T.mais, { nome: i.nome }));
+      menos.addEventListener('click', () => { i.q--; if (i.q <= 0) itens.splice(k, 1); desenharPedido(); (listaPedido.querySelector('.qtd') || janelaPedido.querySelector('[data-fechar]')).focus(); });
+      mais.addEventListener('click', () => { i.q++; desenharPedido(); listaPedido.children[k].querySelectorAll('.qtd')[1].focus(); });
+      const q = el('span', 'pedido__q', String(i.q));
+      li.append(el('span', 'pedido__nome', i.nome), el('span', 'pedido__ctl'), el('b', null, moeda(i.preco * i.q)));
+      li.children[1].append(menos, q, mais);
+      return li;
+    }));
+    totalPedido.textContent = moeda(itens.reduce((a, i) => a + i.preco * i.q, 0));
+    seloPedido.textContent = f(T.selo, { n: guardado('aurora-carimbos', 0) % 10 });
+  }
+  const aviso = el('p', 'aviso-pedido'); aviso.setAttribute('role', 'status'); aviso.setAttribute('aria-live', 'polite'); document.body.append(aviso);
+  let avisoTempo = 0;
+  function adicionar(nome, preco) {
+    const ja = itens.find(i => i.nome === nome && i.preco === preco);
+    if (ja) ja.q++; else itens.push({ nome, preco, q: 1 });
+    desenharPedido();
+    aviso.textContent = f(T.no_pedido, { nome });
+    aviso.classList.add('visivel'); clearTimeout(avisoTempo);
+    avisoTempo = setTimeout(() => aviso.classList.remove('visivel'), 2600);
+  }
+  function abrirPedido() {
+    feito.hidden = true; formPedido.hidden = itens.length === 0;
+    desenharPedido();
+    janelaPedido.showModal();
+  }
+  // os botões "Pedir agora" (o do topo e o preso embaixo no celular) abrem o pedido, com o número de itens
+  $$('.nav__right .btn, .pedir-celular').forEach(b => {
+    const n = el('span', 'pedir-n'); n.hidden = true; b.append(' ', n);
+    b.addEventListener('click', e => { e.preventDefault(); abrirPedido(); });
+  });
+  cartoes.forEach(c => {
+    const b = c.querySelector('.card__add');
+    const rotulo = () => b.setAttribute('aria-label', f(T.add_aria, { nome: nomeDe(c) }));
+    rotulo(); b.addEventListener('click', () => adicionar(nomeDe(c), precoDe(c)));
+    b.addEventListener('focus', rotulo);
+  });
+  $('#labAdd').addEventListener('click', () => adicionar($('#drinkName').textContent.trim(), Math.round(Number($('#drinkPrice').dataset.valor) * 100) / 100));
+  $$('.janela [data-fechar]').forEach(b => b.addEventListener('click', () => b.closest('dialog').close()));
+  $$('.janela').forEach(d => d.addEventListener('click', e => { if (e.target === d) d.close(); }));
+
+  const nomeIn = $('#pNome'), nomeErro = $('#pNomeErro');
+  const validarNome = () => { const ok = nomeIn.value.trim() !== ''; nomeErro.hidden = ok; nomeIn.setAttribute('aria-invalid', String(!ok)); return ok; };
+  nomeIn.value = guardado('aurora-nome', '');
+  nomeIn.addEventListener('blur', () => { if (nomeIn.value) validarNome(); });
+  nomeIn.addEventListener('input', () => { if (nomeIn.getAttribute('aria-invalid') === 'true') validarNome(); });
+  formPedido.addEventListener('submit', e => {
+    e.preventDefault();
+    if (!validarNome()) { nomeIn.focus(); return; }
+    guardar('aurora-nome', nomeIn.value.trim());
+    const fd = new FormData(formPedido);
+    const linhas = [f(T.msg_cab, { loja: loja() }), ...itens.map(i => `${i.q}× ${i.nome} — ${moeda(i.preco * i.q)}`),
+      `${T.msg_total}: ${totalPedido.textContent}`, `${T.msg_nome}: ${fd.get('nome').trim()}`, fd.get('como') === 'levar' ? T.msg_levar : T.msg_aqui];
+    if (fd.get('hora')) linhas.push(`${T.msg_hora} ${fd.get('hora')}`);
+    if (fd.get('obs').trim()) linhas.push(`${T.msg_obs} ${fd.get('obs').trim()}`);
+    const link = 'https://wa.me/?text=' + encodeURIComponent(linhas.join('\n'));
+    window.open(link, '_blank', 'noopener');
+    const carimbos = Math.min(10, guardado('aurora-carimbos', 0) + 1);
+    guardar('aurora-carimbos', carimbos);
+    itens = []; desenharPedido(); desenharCartao();
+    formPedido.hidden = true; vazio.hidden = true; $('#pedidoTotalLinha').hidden = true;
+    const de_novo = el('a', 'btn btn--ghost', T.feito_abrir); de_novo.href = link; de_novo.target = '_blank'; de_novo.rel = 'noopener';
+    feito.replaceChildren(el('p', null, f(T.feito, { n: carimbos })), de_novo);
+    feito.hidden = false; feito.focus();
+  });
+
+  // ---- os filtros e os detalhes do cardápio
+  const contaMenu = $('#menuConta'), menuVazio = $('#menuVazio');
+  let filtro = '';
+  function filtrar() {
+    let n = 0;
+    cartoes.forEach(c => { const ok = !filtro || filtrosDe(c).includes(filtro); c.hidden = !ok; if (ok) n++; });
+    contaMenu.textContent = f(T.f_n, { n, total: cartoes.length });
+    menuVazio.hidden = n > 0;
+  }
+  $$('.filtro').forEach(b => b.addEventListener('click', () => {
+    filtro = b.dataset.filtro;
+    $$('.filtro').forEach(o => o.setAttribute('aria-pressed', String(o.dataset.filtro === filtro)));
+    filtrar();
+  }));
+  filtrar();
+
+  // ---- o teste: três perguntas, e o item do cardápio (do modo de agora) que mais combina
+  const janelaQuiz = $('#quiz'), corpoQuiz = $('#quizCorpo');
+  function quiz() {
+    const perguntas = modo === 'dia' ? T.qz_dia : T.qz_noite;
+    const escolhas = [];
+    const passo = () => {
+      if (escolhas.length === perguntas.length) return resultado();
+      const [pergunta, opcoes] = perguntas[escolhas.length];
+      const h = el('h3', 'quiz__pergunta', pergunta); h.tabIndex = -1;
+      const ops = el('div', 'quiz__opcoes');
+      opcoes.forEach(([rot, tag]) => { const b = el('button', 'btn', rot); b.type = 'button'; b.addEventListener('click', () => { escolhas.push(tag); passo(); }); ops.append(b); });
+      corpoQuiz.replaceChildren(el('p', 'quiz__passo', f(T.qz_passo, { n: escolhas.length + 1, total: perguntas.length })), h, ops);
+      h.focus();
+    };
+    const resultado = () => {
+      const nota = c => escolhas.reduce((a, t) => a + (!t ? 0 : t === 'cafeina' ? !filtrosDe(c).includes('sem-cafeina') : filtrosDe(c).includes(t)), 0);
+      const melhor = cartoes.reduce((a, c) => nota(c) > nota(a) ? c : a, cartoes[0]);
+      const h = el('h3', 'quiz__nome', nomeDe(melhor)); h.tabIndex = -1;
+      const desc = (modo === 'dia' ? melhor.querySelector('p.so-dia') : melhor.querySelector('p.so-noite')).textContent;
+      const add = el('button', 'btn btn--magenta', '+ ' + T.lab_add); add.type = 'button';
+      add.addEventListener('click', () => { adicionar(nomeDe(melhor), precoDe(melhor)); janelaQuiz.close(); });
+      const outra = el('button', 'btn btn--ghost', T.qz_de_novo); outra.type = 'button'; outra.addEventListener('click', quiz);
+      const acoes = el('div', 'quiz__opcoes'); acoes.append(add, outra);
+      corpoQuiz.replaceChildren(el('p', 'quiz__passo', T.qz_resultado), h, el('p', null, desc), el('p', 'quiz__preco', moeda(precoDe(melhor))), acoes);
+      h.focus();
+    };
+    passo();
+  }
+  $('#quizAbrir').addEventListener('click', () => { janelaQuiz.showModal(); quiz(); });
+
+  // ---- o cartão de carimbos
+  const carimbosEl = $$('#carimbos li'), fidMsg = $('#fidMsg'), fidUsar = $('#fidUsar');
+  function desenharCartao() {
+    const n = guardado('aurora-carimbos', 0);
+    carimbosEl.forEach((li, i) => li.classList.toggle('carimbado', i < n));
+    fidMsg.textContent = n >= 10 ? T.fid_premio : f(T.fid_n, { n });
+    fidUsar.hidden = n < 10;
+  }
+  fidUsar.addEventListener('click', () => { guardar('aurora-carimbos', 0); desenharCartao(); fidMsg.textContent = T.fid_usado; });
+  desenharCartao();
+
+  // ---- reservas: validação na hora, guardadas neste aparelho e a confirmação pronta para o WhatsApp
+  const formReserva = $('#reservaForm'), msgReserva = $('#reservaMsg'), minhas = $('#minhas'), minhasLista = $('#minhasLista');
+  const hoje = () => { const d = new Date(); d.setMinutes(d.getMinutes() - d.getTimezoneOffset()); return d.toISOString().slice(0, 10); };
+  formReserva.elements.data.min = hoje();
+  const regras = {
+    nome: c => c.value.trim() !== '',
+    pessoas: c => Number(c.value) >= 1 && Number(c.value) <= 8,
+    data: c => c.value !== '' && c.value >= hoje(),
+    hora: c => {
+      const erro = $('#rHoraErro');
+      if (!c.value) { erro.textContent = T.r_hora_erro; return false; }
+      const [h, m] = c.value.split(':').map(Number), min = h * 60 + m;
+      if (modo === 'dia' && (min < 360 || min > 1080)) { erro.textContent = T.r_hora_dia; return false; }
+      if (modo !== 'dia' && min >= 240 && min < 360) { erro.textContent = T.r_hora_noite; return false; }
+      return true;
+    }
+  };
+  const ERROS = { nome: '#rNomeErro', pessoas: '#rPessoasErro', data: '#rDataErro', hora: '#rHoraErro' };
+  const validar = k => { const c = formReserva.elements[k], ok = regras[k](c); $(ERROS[k]).hidden = ok; c.setAttribute('aria-invalid', String(!ok)); return ok; };
+  Object.keys(regras).forEach(k => {
+    const c = formReserva.elements[k];
+    c.addEventListener('change', () => validar(k));
+    c.addEventListener('input', () => { if (c.getAttribute('aria-invalid') === 'true') validar(k); });
+  });
+  formReserva.elements.nome.value = guardado('aurora-nome', '');
+  const dataBonita = d => new Date(d + 'T12:00').toLocaleDateString(raiz.lang, { weekday: 'short', day: 'numeric', month: 'short' });
+  function desenharReservas() {
+    const lista = guardado('aurora-reservas', []).filter(r => r.data >= hoje());
+    guardar('aurora-reservas', lista);
+    minhas.hidden = lista.length === 0;
+    minhasLista.replaceChildren(...lista.map((r, k) => {
+      const li = el('li', 'minha');
+      const texto = f(T.r_ok, { mesa: r.mesa, pessoas: r.pessoas, data: dataBonita(r.data), hora: r.hora });
+      const whats = el('a', 'btn btn--ghost', T.r_whats); whats.target = '_blank'; whats.rel = 'noopener';
+      whats.href = 'https://wa.me/?text=' + encodeURIComponent(f(T.r_msg, { loja: r.loja, mesa: r.mesa, pessoas: r.pessoas, data: dataBonita(r.data), hora: r.hora, nome: r.nome }));
+      const cancelar = el('button', 'btn btn--ghost', T.r_cancelar); cancelar.type = 'button';
+      cancelar.addEventListener('click', () => { const l = guardado('aurora-reservas', []); l.splice(k, 1); guardar('aurora-reservas', l); desenharReservas(); formReserva.elements.nome.focus(); });
+      const acoes = el('div', 'minha__acoes'); acoes.append(whats, cancelar);
+      li.append(el('p', null, texto), acoes);
+      return li;
+    }));
+  }
+  formReserva.addEventListener('submit', e => {
+    e.preventDefault();
+    const erradas = Object.keys(regras).filter(k => !validar(k));
+    if (erradas.length) { formReserva.elements[erradas[0]].focus(); msgReserva.textContent = ''; return; }
+    const fd = new FormData(formReserva);
+    const r = { nome: fd.get('nome').trim(), pessoas: Number(fd.get('pessoas')), data: fd.get('data'), hora: fd.get('hora'), mesa: fd.get('mesa'), loja: loja() };
+    const lista = guardado('aurora-reservas', []); lista.push(r); lista.sort((a, b) => (a.data + a.hora).localeCompare(b.data + b.hora));
+    guardar('aurora-reservas', lista); guardar('aurora-nome', r.nome);
+    msgReserva.textContent = f(T.r_ok, { mesa: r.mesa, pessoas: r.pessoas, data: dataBonita(r.data), hora: r.hora });
+    desenharReservas();
+  });
+  desenharReservas();
+
+  // o modo (café ou padaria) muda o cardápio: refaz os filtros e o que depende do nome dos itens
+  new MutationObserver(() => {
+    filtro = ''; $$('.filtro').forEach(o => o.setAttribute('aria-pressed', String(o.dataset.filtro === ''))); filtrar();
+  }).observe(raiz, { attributes: true, attributeFilter: ['data-modo'] });
+  desenharPedido();
 
 })();

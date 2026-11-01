@@ -167,7 +167,72 @@
     "d_foot_p": "Boulangerie interdimensionnelle depuis 2087. Farine moulue avec éthique dans des univers consentants.",
     "d_hora1": "Tous les jours · 6 h — 18 h",
     "d_hora2": "Première fournée · 6 h pile",
-    "d_hora3": "Après le coucher du soleil · le café ouvre"
+    "d_hora3": "Après le coucher du soleil · le café ouvre",
+    "add": "Commande",
+    "lab_add": "Ajouter à la commande",
+    "detalhes": "Détails",
+    "i_temp": "Température",
+    "i_cafeina": "Caféine",
+    "i_alergenos": "Allergènes",
+    "i_forno": "Four",
+    "al_nenhum": "aucun",
+    "al_leite": "lait",
+    "al_gluten": "gluten",
+    "al_ovo": "œuf",
+    "f_aria": "Filtrer la carte",
+    "f_todos": "Tout",
+    "f_quente": "Chaud",
+    "f_gelado": "Glacé",
+    "f_doce": "Sucré",
+    "f_intenso": "Intense",
+    "f_sem_lactose": "Sans lactose",
+    "f_sem_cafeina": "Sans caféine",
+    "d_f_salgado": "Salé",
+    "d_f_quentinho": "Sortie du four",
+    "d_f_sem_gluten": "Sans gluten",
+    "f_vazio": "Rien sur la carte avec ce filtre.",
+    "qz_abrir": "Vous hésitez ? Faites le test",
+    "d_qz_abrir": "Quel pain choisir ? Faites le test",
+    "qz_titulo": "Quelle boisson vous ressemble ?",
+    "d_qz_titulo": "Quel pain vous ressemble ?",
+    "fechar": "Fermer",
+    "p_titulo": "Votre commande",
+    "p_vazio": "La commande est vide. Touchez « + Commande » sur un produit de la carte ou dans le labo.",
+    "p_total": "Total",
+    "p_nome": "Votre prénom",
+    "p_nome_erro": "Dites-nous votre prénom pour vous appeler au comptoir.",
+    "p_como": "Comment ?",
+    "p_aqui": "Sur place",
+    "p_levar": "À emporter",
+    "p_hora": "Pour quelle heure (facultatif)",
+    "p_obs": "Remarque (facultatif)",
+    "p_enviar": "Envoyer sur WhatsApp",
+    "p_nota": "Le café est fictif : WhatsApp s’ouvre sans numéro, pour que vous choisissiez le destinataire. Sur un vrai site, la commande irait directement à la boutique.",
+    "nav_reservas": "Réservations",
+    "r_h2": "Gardez votre table dans la faille",
+    "d_r_h2": "Gardez votre table à la boulangerie",
+    "r_lead": "Réservez une table et collectionnez des tampons : un par commande ; à dix, la suivante est offerte.",
+    "r_titulo": "Réserver une table",
+    "r_nome": "Nom",
+    "r_nome_erro": "Dites-nous à quel nom réserver.",
+    "r_pessoas": "Personnes",
+    "r_pessoas_erro": "De 1 à 8 personnes.",
+    "r_data": "Jour",
+    "r_data_erro": "Choisissez aujourd’hui ou un jour suivant.",
+    "r_hora": "Heure",
+    "r_mesa": "Où",
+    "r_janela": "Fenêtre",
+    "r_balcao": "Comptoir",
+    "r_grande": "Grande table",
+    "r_enviar": "Réserver",
+    "r_minhas": "Mes réservations",
+    "fid_h3": "Carte Aurora",
+    "d_fid_h3": "Carte de la Boulangerie",
+    "fid_p": "Chaque commande envoyée vaut un tampon. Elle reste sur cet appareil.",
+    "fid_usar": "Utiliser la récompense",
+    "tw_feito": "Fait avec HTML, Tailwind CSS et un peu de caféine quantique",
+    "versoes": "Aussi en",
+    "comparar": "comparer les trois (portugais)"
   },
   "js": {
     "boot": [
@@ -194,6 +259,116 @@
       "Pain Complet d'Orbite",
       "Brioche Stellaire"
     ],
-    "d_min": "{n} min"
+    "d_min": "{n} min",
+    "add_aria": "Ajouter {nome} à la commande",
+    "no_pedido": "{nome} ajouté à la commande.",
+    "menos": "Un {nome} de moins",
+    "mais": "Un {nome} de plus",
+    "f_n": "{n} sur {total} à la carte",
+    "msg_cab": "Commande pour {loja} :",
+    "msg_total": "Total",
+    "msg_nome": "Nom",
+    "msg_aqui": "Sur place",
+    "msg_levar": "À emporter",
+    "msg_hora": "À",
+    "msg_obs": "Remarque :",
+    "feito": "C’est fait : WhatsApp s’est ouvert avec la commande. Vous gagnez un tampon ({n} sur 10).",
+    "feito_abrir": "Rouvrir WhatsApp",
+    "selo": "Cette commande vaut un tampon ({n} sur 10 pour l’instant).",
+    "fid_n": "{n} tampons sur 10.",
+    "fid_premio": "Carte pleine ! La prochaine commande est offerte.",
+    "fid_usado": "Récompense utilisée. Nouvelle carte, bonne chance.",
+    "r_ok": "Réservé : {mesa}, {pessoas} personnes, {data} à {hora}.",
+    "r_whats": "Confirmer sur WhatsApp",
+    "r_cancelar": "Annuler",
+    "r_msg": "Réservation chez {loja} : {mesa}, {pessoas} personnes, {data} à {hora}, au nom de {nome}.",
+    "r_hora_erro": "Indiquez l’heure.",
+    "r_hora_noite": "De 4 h à 6 h, le café ferme pour nettoyer la faille.",
+    "r_hora_dia": "La boulangerie est ouverte de 6 h à 18 h.",
+    "qz_passo": "Question {n} sur {total}",
+    "qz_resultado": "Pour vous :",
+    "qz_de_novo": "Recommencer",
+    "qz_noite": [
+      [
+        "Chaud ou glacé ?",
+        [
+          [
+            "Chaud",
+            "quente"
+          ],
+          [
+            "Glacé",
+            "gelado"
+          ]
+        ]
+      ],
+      [
+        "Sucré ou intense ?",
+        [
+          [
+            "Sucré",
+            "doce"
+          ],
+          [
+            "Intense",
+            "intenso"
+          ]
+        ]
+      ],
+      [
+        "Et la caféine ?",
+        [
+          [
+            "Volontiers",
+            "cafeina"
+          ],
+          [
+            "Sans caféine",
+            "sem-cafeina"
+          ]
+        ]
+      ]
+    ],
+    "qz_dia": [
+      [
+        "Sucré ou salé ?",
+        [
+          [
+            "Sucré",
+            "doce"
+          ],
+          [
+            "Salé",
+            "salgado"
+          ]
+        ]
+      ],
+      [
+        "Sortie du four ?",
+        [
+          [
+            "Bien chaud",
+            "quentinho"
+          ],
+          [
+            "Peu importe",
+            ""
+          ]
+        ]
+      ],
+      [
+        "Et le lait ?",
+        [
+          [
+            "Pas de souci",
+            ""
+          ],
+          [
+            "Sans lactose",
+            "sem-lactose"
+          ]
+        ]
+      ]
+    ]
   }
 }

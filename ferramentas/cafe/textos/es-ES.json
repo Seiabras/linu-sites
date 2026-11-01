@@ -167,7 +167,72 @@
     "d_foot_p": "Panadería interdimensional desde 2087. Harina molida con ética en universos que dieron su consentimiento.",
     "d_hora1": "Todos los días · 06:00 — 18:00",
     "d_hora2": "Primera hornada · a las 06:00 en punto",
-    "d_hora3": "Tras la puesta de sol · abre el café"
+    "d_hora3": "Tras la puesta de sol · abre el café",
+    "add": "Pedido",
+    "lab_add": "Añadir al pedido",
+    "detalhes": "Detalles",
+    "i_temp": "Temperatura",
+    "i_cafeina": "Cafeína",
+    "i_alergenos": "Alérgenos",
+    "i_forno": "Horno",
+    "al_nenhum": "ninguno",
+    "al_leite": "leche",
+    "al_gluten": "gluten",
+    "al_ovo": "huevo",
+    "f_aria": "Filtrar la carta",
+    "f_todos": "Todo",
+    "f_quente": "Caliente",
+    "f_gelado": "Frío",
+    "f_doce": "Dulce",
+    "f_intenso": "Intenso",
+    "f_sem_lactose": "Sin lactosa",
+    "f_sem_cafeina": "Sin cafeína",
+    "d_f_salgado": "Salado",
+    "d_f_quentinho": "Recién horneado",
+    "d_f_sem_gluten": "Sin gluten",
+    "f_vazio": "Nada en la carta con ese filtro.",
+    "qz_abrir": "¿No sabes qué pedir? Haz el test",
+    "d_qz_abrir": "¿No sabes qué pan llevar? Haz el test",
+    "qz_titulo": "¿Qué bebida va contigo?",
+    "d_qz_titulo": "¿Qué pan va contigo?",
+    "fechar": "Cerrar",
+    "p_titulo": "Tu pedido",
+    "p_vazio": "El pedido está vacío. Toca «+ Pedido» en un producto de la carta o en el laboratorio.",
+    "p_total": "Total",
+    "p_nome": "Tu nombre",
+    "p_nome_erro": "Dinos tu nombre para llamarte en la barra.",
+    "p_como": "¿Cómo lo quieres?",
+    "p_aqui": "Para tomar aquí",
+    "p_levar": "Para llevar",
+    "p_hora": "Para qué hora (opcional)",
+    "p_obs": "Observación (opcional)",
+    "p_enviar": "Enviar por WhatsApp",
+    "p_nota": "El café es ficticio: WhatsApp se abre sin número, para que elijas a quién enviarlo. En una web de verdad, el pedido iría directo a la tienda.",
+    "nav_reservas": "Reservas",
+    "r_h2": "Guarda tu mesa en la grieta",
+    "d_r_h2": "Guarda tu mesa en la panadería",
+    "r_lead": "Reserva una mesa y junta sellos: un sello por pedido; con diez, el siguiente invita la casa.",
+    "r_titulo": "Reservar una mesa",
+    "r_nome": "Nombre",
+    "r_nome_erro": "Dinos a nombre de quién va la mesa.",
+    "r_pessoas": "Personas",
+    "r_pessoas_erro": "De 1 a 8 personas.",
+    "r_data": "Día",
+    "r_data_erro": "Elige hoy o un día posterior.",
+    "r_hora": "Hora",
+    "r_mesa": "Dónde",
+    "r_janela": "Ventana",
+    "r_balcao": "Barra",
+    "r_grande": "Mesa grande",
+    "r_enviar": "Reservar",
+    "r_minhas": "Mis reservas",
+    "fid_h3": "Tarjeta Aurora",
+    "d_fid_h3": "Tarjeta de la Panadería",
+    "fid_p": "Cada pedido enviado vale un sello. Se guarda en este dispositivo.",
+    "fid_usar": "Usar el premio",
+    "tw_feito": "Hecho con HTML, Tailwind CSS y un poco de cafeína cuántica",
+    "versoes": "También en",
+    "comparar": "comparar las tres (portugués)"
   },
   "js": {
     "boot": [
@@ -194,6 +259,116 @@
       "Pan Integral de Órbita",
       "Brioche Estelar"
     ],
-    "d_min": "{n} min"
+    "d_min": "{n} min",
+    "add_aria": "Añadir {nome} al pedido",
+    "no_pedido": "{nome} añadido al pedido.",
+    "menos": "Uno menos de {nome}",
+    "mais": "Uno más de {nome}",
+    "f_n": "{n} de {total} en la carta",
+    "msg_cab": "Pedido para {loja}:",
+    "msg_total": "Total",
+    "msg_nome": "Nombre",
+    "msg_aqui": "Para tomar ahí",
+    "msg_levar": "Para llevar",
+    "msg_hora": "A las",
+    "msg_obs": "Obs.:",
+    "feito": "Listo: WhatsApp se abrió con el pedido. Has ganado un sello ({n} de 10).",
+    "feito_abrir": "Abrir WhatsApp otra vez",
+    "selo": "Este pedido vale un sello ({n} de 10 hasta ahora).",
+    "fid_n": "{n} de 10 sellos.",
+    "fid_premio": "¡Tarjeta llena! El próximo pedido invita la casa.",
+    "fid_usado": "Premio usado. Tarjeta nueva, suerte.",
+    "r_ok": "Reservado: {mesa}, {pessoas} personas, {data} a las {hora}.",
+    "r_whats": "Confirmar por WhatsApp",
+    "r_cancelar": "Cancelar",
+    "r_msg": "Reserva en {loja}: {mesa}, {pessoas} personas, {data} a las {hora}, a nombre de {nome}.",
+    "r_hora_erro": "Dinos la hora.",
+    "r_hora_noite": "De 04:00 a 06:00 el café cierra para limpiar la grieta.",
+    "r_hora_dia": "La panadería abre de 06:00 a 18:00.",
+    "qz_passo": "Pregunta {n} de {total}",
+    "qz_resultado": "Va contigo:",
+    "qz_de_novo": "Repetir",
+    "qz_noite": [
+      [
+        "¿Caliente o frío?",
+        [
+          [
+            "Caliente",
+            "quente"
+          ],
+          [
+            "Frío",
+            "gelado"
+          ]
+        ]
+      ],
+      [
+        "¿Dulce o intenso?",
+        [
+          [
+            "Dulce",
+            "doce"
+          ],
+          [
+            "Intenso",
+            "intenso"
+          ]
+        ]
+      ],
+      [
+        "¿Y la cafeína?",
+        [
+          [
+            "Que venga",
+            "cafeina"
+          ],
+          [
+            "Sin cafeína",
+            "sem-cafeina"
+          ]
+        ]
+      ]
+    ],
+    "qz_dia": [
+      [
+        "¿Dulce o salado?",
+        [
+          [
+            "Dulce",
+            "doce"
+          ],
+          [
+            "Salado",
+            "salgado"
+          ]
+        ]
+      ],
+      [
+        "¿Recién horneado?",
+        [
+          [
+            "Calentito",
+            "quentinho"
+          ],
+          [
+            "Me da igual",
+            ""
+          ]
+        ]
+      ],
+      [
+        "¿Y la leche?",
+        [
+          [
+            "Sin problema",
+            ""
+          ],
+          [
+            "Sin lactosa",
+            "sem-lactose"
+          ]
+        ]
+      ]
+    ]
   }
 }

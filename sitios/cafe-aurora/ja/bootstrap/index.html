@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html lang="ja-JP" data-bs-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Café Aurora · Bootstrap 5</title>
+<meta name="description" content="Café Aurora：架空のサイバーパンク・カフェ。Linu Sitesのサンプルサイトです。">
+<meta name="theme-color" content="#05030a">
+<link rel="canonical" href="https://cafe.linupedia.com.br/ja/bootstrap/">
+<link rel="alternate" hreflang="pt-BR" href="https://cafe.linupedia.com.br/bootstrap/">
+<link rel="alternate" hreflang="pt-PT" href="https://cafe.linupedia.com.br/pt-pt/bootstrap/">
+<link rel="alternate" hreflang="es-ES" href="https://cafe.linupedia.com.br/es/bootstrap/">
+<link rel="alternate" hreflang="ca" href="https://cafe.linupedia.com.br/ca/bootstrap/">
+<link rel="alternate" hreflang="nl" href="https://cafe.linupedia.com.br/nl/bootstrap/">
+<link rel="alternate" hreflang="en-GB" href="https://cafe.linupedia.com.br/en/bootstrap/">
+<link rel="alternate" hreflang="fr-FR" href="https://cafe.linupedia.com.br/fr/bootstrap/">
+<link rel="alternate" hreflang="de-DE" href="https://cafe.linupedia.com.br/de/bootstrap/">
+<link rel="alternate" hreflang="it-IT" href="https://cafe.linupedia.com.br/it/bootstrap/">
+<link rel="alternate" hreflang="en" href="https://cafe.linupedia.com.br/intl/bootstrap/">
+<link rel="alternate" hreflang="ja-JP" href="https://cafe.linupedia.com.br/ja/bootstrap/">
+<link rel="alternate" hreflang="ko-KR" href="https://cafe.linupedia.com.br/ko/bootstrap/">
+<link rel="alternate" hreflang="zh-Hant" href="https://cafe.linupedia.com.br/zh-hant/bootstrap/">
+<script type="application/json" id="textos-cafe">{"boot":["ポータルを起動中…","量子挽きを調整中…","Ω-11の豆を同期中…","蒸気炉を予熱中…","裂け目へようこそ。"],"news_erro":"無効なシグナルです。メールアドレスの座標を確認してください。","news_ok":"シグナルを受信しました。別の次元からご連絡します。","terminar":"✓ 完了","painel_aviso":"テキストをクリックして書き換えてください。本物の管理画面では、変更が保存されます。","d_boot":["オーブンに火を入れています…","裂け目を閉じています…","Ω-11の生地をこねています…","皮が色づくのを待っています…","おはようございます。"],"d_pao":["太陽の小麦パン","薄明のライ麦パン","軌道の全粒粉パン","星のブリオッシュ"],"d_min":"{n}分","add_aria":"{nome}を注文に追加","no_pedido":"{nome}を注文に追加しました。","menos":"{nome}を1つ減らす","mais":"{nome}をもう1つ","f_n":"メニュー{total}品中{n}品","msg_cab":"{loja}への注文：","msg_total":"合計","msg_nome":"名前","msg_aqui":"店内で","msg_levar":"持ち帰り","msg_hora":"時間","msg_obs":"メモ：","feito":"完了：注文を入れたWhatsAppが開きました。スタンプを1つ獲得（10個中{n}個）。","feito_abrir":"もう一度WhatsAppを開く","selo":"この注文でスタンプ1つ（現在10個中{n}個）。","fid_n":"スタンプ10個中{n}個。","fid_premio":"カードがいっぱい！次の注文は無料です。","fid_usado":"特典を使いました。新しいカードです。","r_ok":"予約済み：{mesa}、{pessoas}名、{data} {hora}。","r_whats":"WhatsAppで確認","r_cancelar":"キャンセル","r_msg":"{loja}の予約：{mesa}、{pessoas}名、{data} {hora}、{nome}様。","r_hora_erro":"時間を入力してください。","r_hora_noite":"4時〜6時は裂け目の清掃のため閉店です。","r_hora_dia":"ベーカリーの営業は6時〜18時です。","qz_passo":"質問 {n}/{total}","qz_resultado":"あなたに合うのは：","qz_de_novo":"もう一度","qz_noite":[["ホット？アイス？",[["ホット","quente"],["アイス","gelado"]]],["甘い？濃い？",[["甘い","doce"],["濃い","intenso"]]],["カフェインは？",[["OK","cafeina"],["なしで","sem-cafeina"]]]],"qz_dia":[["甘い？しょっぱい？",[["甘い","doce"],["しょっぱい","salgado"]]],["焼きたてがいい？",[["あつあつ","quentinho"],["どちらでも",""]]],["乳製品は？",[["大丈夫",""],["乳糖なしで","sem-lactose"]]]],"expresso":"量子エスプレッソ","coldbrew":"ニューラル・コールドブリュー","matcha":"虚空の抹茶","estelar":"星のミルク","nivel":"レベル","editar":"✎ テキストを編集","d_nome":"オーロラ・ベーカリー","lab_add":"注文に追加"}</script>
+
+<!-- Bootstrap 5.3 -->
+<link href="../../bootstrap/vendor/bootstrap.min.css" rel="stylesheet">
+<!-- Bootstrap Icons -->
+<!-- Fonts -->
+
+<link rel="preload" href="../../fontes/orbitron.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="../../icone.png" type="image/png" sizes="128x128">
+<script src="../../inicio.js"></script>
+<link rel="stylesheet" href="../../bootstrap/estilo.css?v=2">
+</head>
+
+<body>
+<a class="skip" href="#conteudo">本文へスキップ</a>
+
+<!-- BOOT -->
+<div class="boot" id="boot" role="status" aria-live="polite">
+  <div class="boot__logo">CAFÉ AURORA</div>
+  <div class="boot__bar"><div class="boot__fill" id="bootFill"></div></div>
+  <div class="boot__log" id="bootLog">ポータルを起動中…</div>
+</div>
+
+<!-- CURSOR -->
+<div class="cur" id="cur" aria-hidden="true"></div>
+<div class="cur-dot" id="curDot" aria-hidden="true"></div>
+
+<!-- FUNDO -->
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="bg-veil" aria-hidden="true"></div>
+<div class="noise" aria-hidden="true"></div>
+<div class="scanlines" aria-hidden="true"></div>
+
+<!-- NAVBAR BOOTSTRAP -->
+<nav class="navbar navbar-expand-lg navbar-aurora fixed-top" id="nav">
+  <div class="container">
+    <a class="navbar-brand" href="#inicio" aria-label="Café Aurora — ホーム">
+      <span class="brand__orb" aria-hidden="true"></span>
+      CAFÉ&nbsp;AURORA
+    </a>
+
+    <button class="navbar-toggler" type="button"
+            data-bs-toggle="collapse" data-bs-target="#navMain"
+            aria-controls="navMain" aria-expanded="false" aria-label="メニューを開く">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navMain">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+        <li class="nav-item"><a class="nav-link active" href="#inicio">ホーム</a></li>
+        <li class="nav-item"><a class="nav-link" href="#sobre">はじまり</a></li>
+        <li class="nav-item"><a class="nav-link" href="#menu">メニュー</a></li>
+        <li class="nav-item"><a class="nav-link" href="#laboratorio">ラボ</a></li>
+        <li class="nav-item"><a class="nav-link" href="#transmissoes">交信記録</a></li>
+        <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+          <a href="#laboratorio" class="btn btn-magenta magnetic w-100">今すぐ注文</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main id="conteudo">
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero__halo" aria-hidden="true"></div>
+    <div class="hero__rings" aria-hidden="true"><i></i><i></i><i></i></div>
+
+    <div class="container position-relative">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-10 col-xl-9">
+          <span class="hero__tag reveal">☕ <b>24時間営業</b> · セクター・ネオン07 · 次元Ω</span>
+
+          <h1 class="glitch" data-text="CAFÉ&#10;AURORA">
+            <span>CAFÉ</span>
+            <span>AURORA</span>
+          </h1>
+
+          <p class="hero__sub reveal" data-d="1">
+            <b>パラレルワールド</b>で収穫した豆を焙煎しています。一杯ごとに小さな量子崩壊——そして、あなたの味覚だけが変わらない定数です。
+          </p>
+
+          <div class="hero__cta d-flex gap-3 justify-content-center flex-wrap reveal" data-d="2">
+            <a href="#menu" class="btn magnetic">メニューを見る</a>
+            <a href="#sobre" class="btn btn-ghost magnetic">ポータルをくぐる</a>
+          </div>
+
+          <div class="hero__stats reveal" data-d="3">
+            <div><b>12</b>稼働中の次元</div>
+            <div><b>98.4%</b>量子精度</div>
+            <div><b>∞</b>夢のおかわり</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="scroll-hint" aria-hidden="true">
+      <span>スクロール</span>
+      <i></i>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>量子エスプレッソ</span><span>プラズマラテ</span><span>ニューラル・コールドブリュー</span>
+      <span>虚空の抹茶</span><span>星のミルク</span><span>彗星の粉</span>
+      <span>量子エスプレッソ</span><span>プラズマラテ</span><span>ニューラル・コールドブリュー</span>
+      <span>虚空の抹茶</span><span>星のミルク</span><span>彗星の粉</span>
+    </div>
+  </div>
+
+  <!-- SOBRE -->
+  <section class="section" id="sobre">
+    <div class="container">
+      <div class="row align-items-center g-5">
+        <div class="col-12 col-lg-6">
+          <span class="eyebrow reveal">はじまり</span>
+          <h2 class="reveal" data-d="1">ふたつの世界の<em class="e-350796">ショート</em>から生まれました</h2>
+
+          <div class="reveal" data-d="2">
+            <p class="lead">
+              2087年、<strong class="e-3791cd">アウロラ・ヴェックス</strong>というバリスタが、ワープ炉にコーヒーをこぼしました。起きたのは爆発ではなく——香りでした。
+            </p>
+            <p>
+              その香りが裂け目を開きました。向こう側には私たちと同じような街がありましたが、そこでは光が考え、雨が覚えていました。今お出ししている豆は、そこで見つけたものです。
+            </p>
+            <p>
+              <strong class="e-3791cd">Café Aurora</strong>は、ふたつの都市が出会う唯一の場所です。ここでは湯気がゆっくりと立ちのぼり、時間も数分だけ止まってくれます——二杯目を頼んでくれるなら。
+            </p>
+          </div>
+        </div>
+
+        <div class="col-12 col-lg-6">
+          <div class="portal reveal" data-d="3" aria-hidden="true">
+            <div class="portal__ring"></div>
+            <div class="portal__ring"></div>
+            <div class="portal__ring"></div>
+            <div class="portal__core"></div>
+            <span class="portal__label">安定した裂け目 · 3.2 nm</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="section" id="menu">
+    <div class="container">
+      <span class="eyebrow reveal">メニュー</span>
+      <h2 class="reveal" data-d="1"><em class="e-350796">ほかには存在しない</em>ブレンド</h2>
+      <p class="lead reveal" data-d="2">
+        さまざまな脳波に合わせて調整した6つのレシピ。すべて自己再生するカップでお出しします。
+      </p>
+
+      <div class="row g-4 mt-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="card-aurora tilt reveal" data-d="1">
+            <div class="card__top">
+              <div class="card__icon" aria-hidden="true">⚡</div>
+              <span class="card__id">LX-001</span>
+            </div>
+            <h3>量子エスプレッソ</h3>
+            <p>別々の宇宙で同時に抽出した2杯。あなたが味わうのは、その平均です。</p>
+            <div class="card__foot">
+              <span class="card__price">₡ 18</span>
+              <span class="card__tag">濃厚</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="card-aurora card--m tilt reveal" data-d="2">
+            <div class="card__top">
+              <div class="card__icon" aria-hidden="true">🌌</div>
+              <span class="card__id">LX-014</span>
+            </div>
+            <h3>プラズマラテ</h3>
+            <p>磁場の中、340 °Cでスチームしたミルク。かき混ぜるとほのかに光ります。</p>
+            <div class="card__foot">
+              <span class="card__price">₡ 24</span>
+              <span class="card__tag">きらめき</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="card-aurora card--v tilt reveal" data-d="3">
+            <div class="card__top">
+              <div class="card__icon" aria-hidden="true">❄️</div>
+              <span class="card__id">LX-027</span>
+            </div>
+            <h3>ニューラル・コールドブリュー</h3>
+            <p>感覚遮断室で72時間かけて抽出。あなたの集中のリズムに同調します。</p>
+            <div class="card__foot">
+              <span class="card__price">₡ 22</span>
+              <span class="card__tag">明晰</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="card-aurora card--a tilt reveal" data-d="1">
+            <div class="card__top">
+              <div class="card__icon" aria-hidden="true">🍃</div>
+              <span class="card__id">LX-033</span>
+            </div>
+            <h3>虚空の抹茶</h3>
+            <p>光のない場所で育った茶葉。香りより先に味が届きます——理由は聞かないでください。</p>
+            <div class="card__foot">
+              <span class="card__price">₡ 26</span>
+              <span class="card__tag">幽玄</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="card-aurora card--m tilt reveal" data-d="2">
+            <div class="card__top">
+              <div class="card__icon" aria-hidden="true">✨</div>
+              <span class="card__id">LX-042</span>
+            </div>
+            <h3>星のミルク</h3>
+            <p>カフェインなし。凝縮した星くずと、少しの郷愁でできています。</p>
+            <div class="card__foot">
+              <span class="card__price">₡ 20</span>
+              <span class="card__tag">まろやか</span>
+            </div>
+          </article>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <article class="card-aurora card--v tilt reveal" data-d="3">
+            <div class="card__top">
+              <div class="card__icon" aria-hidden="true">☄️</div>
+              <span class="card__id">LX-050</span>
+            </div>
+            <h3>彗星の粉</h3>
+            <p>軌道氷のかけらを浮かべたトリプルショット。氷は決して溶けません——ただ、あきらめるだけ。</p>
+            <div class="card__foot">
+              <span class="card__price">₡ 31</span>
+              <span class="card__tag">希少</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LABORATÓRIO -->
+  <section class="section" id="laboratorio">
+    <div class="container">
+      <span class="eyebrow reveal">ラボ</span>
+      <h2 class="reveal" data-d="1"><em class="e-350796">あなただけの</em>一杯を合成しよう</h2>
+      <p class="lead reveal" data-d="2">
+        パラメーターを調整してください。ドリンクはリアルタイムで再計算されます——ここでは何でもそうです。
+      </p>
+
+      <div class="row g-5 mt-4 align-items-center">
+        <!-- Painel -->
+        <div class="col-12 col-lg-6">
+          <div class="lab__panel reveal" data-d="2" id="labForm" role="group" aria-label="ドリンクを作る">
+            <div class="lab__group">
+              <div class="lab__label"><span>01 · 分子ベース</span></div>
+              <div class="chips" role="radiogroup" aria-label="分子ベース">
+                <label class="chip">
+                  <input type="radio" name="base" value="expresso" checked>
+                  <span>エスプレッソ</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="base" value="coldbrew">
+                  <span>コールドブリュー</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="base" value="matcha">
+                  <span>抹茶</span>
+                </label>
+                <label class="chip">
+                  <input type="radio" name="base" value="estelar">
+                  <span>星のミルク</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="lab__group">
+              <div class="lab__label">
+                <span>02 · 量子の強さ</span>
+                <b id="intVal">7</b>
+              </div>
+              <input type="range" class="form-range" id="intensity"
+                     min="1" max="10" value="7"
+                     aria-label="量子の強さ、1から10">
+            </div>
+
+            <div class="lab__group">
+              <div class="lab__label"><span>03 · トッピング</span></div>
+              <div class="chips">
+                <label class="chip">
+                  <input type="checkbox" name="top[]" value="彗星の粉">
+                  <span>彗星の粉</span>
+                </label>
+                <label class="chip">
+                  <input type="checkbox" name="top[]" value="プラズマフォーム">
+                  <span>プラズマフォーム</span>
+                </label>
+                <label class="chip">
+                  <input type="checkbox" name="top[]" value="シュガークリスタル">
+                  <span>シュガークリスタル</span>
+                </label>
+                <label class="chip">
+                  <input type="checkbox" name="top[]" value="ネオンの花">
+                  <span>ネオンの花</span>
+                </label>
+              </div>
+            </div>
+
+            <div class="lab__result">
+              <small>シンセサイザーの出力</small>
+              <div id="drinkName">量子エスプレッソ · レベル 7</div>
+              <span id="drinkPrice">₡ 21.50</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Xícara -->
+        <div class="col-12 col-lg-6">
+          <div class="cup-stage reveal" data-d="3">
+            <div class="cup-wrap">
+              <div class="cup-glow" id="cupGlow" aria-hidden="true"></div>
+              <div class="steam" aria-hidden="true"><i></i><i></i><i></i></div>
+              <div class="cup">
+                <div class="liquid" id="liquid"></div>
+              </div>
+              <div class="saucer" aria-hidden="true"></div>
+
+              <span class="badge-float">temp · 68 °C</span>
+              <span class="badge-float">ph · 5.4</span>
+              <span class="badge-float">dim · Ω-07</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANSMISSÕES -->
+  <section class="section" id="transmissoes">
+    <div class="container">
+      <span class="eyebrow reveal">交信記録</span>
+      <h2 class="reveal" data-d="1"><em class="e-350796">別の</em>次元から届いた声</h2>
+
+      <div class="row g-4 mt-4">
+        <div class="col-12 col-md-6 col-lg-4">
+          <blockquote class="trans reveal" data-d="1">
+            <q>量子エスプレッソを頼んだら、経験したことのない子ども時代を思い出すようになりました。おすすめです。明日また来ます——あるいは昨日。</q>
+            <footer><b>Kira-09</b>セクター・ネオン07</footer>
+          </blockquote>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <blockquote class="trans reveal" data-d="2">
+            <q>私が泣いたら、プラズマラテが光りました。お互い気まずかったけれど、味は完璧でした。</q>
+            <footer><b>Dr. Halven</b>記憶クリニック</footer>
+          </blockquote>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4">
+          <blockquote class="trans reveal" data-d="3">
+            <q>コーヒーを買いに来ただけなのに。時間についての理論と、空になるのを拒むカップを持って帰りました。</q>
+            <footer><b>匿名</b>次元Ω-11</footer>
+          </blockquote>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <div class="container">
+      <h2 class="reveal">裂け目は<em class="e-350796">夜遅くまで</em>開いています</h2>
+      <p class="reveal" data-d="1">
+        予約は不要です。必要なのは、間違った扉をくぐる勇気だけ。
+      </p>
+      <div class="hero__cta reveal" data-d="2">
+        <a href="#menu" class="btn btn-magenta magnetic">すべてのメニューを見る</a>
+        <a href="#inicio" class="btn btn-ghost magnetic">トップへ戻る</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="foot">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-12 col-lg-5">
+          <a href="#inicio" class="navbar-brand mb-3 d-inline-flex">
+            <span class="brand__orb" aria-hidden="true"></span>CAFÉ AURORA
+          </a>
+          <p>2087年から続く次元間焙煎所。同意を得た宇宙で、倫理的に収穫した豆を使っています。</p>
+
+          <form class="newsletter d-flex gap-2 mt-3 flex-wrap" id="newsForm" novalidate>
+            <label class="sr-only" for="email">シグナルを受け取るメールアドレス</label>
+            <input type="email" class="form-control flex-grow-1 e-4333d1" id="email"
+                   placeholder="you@email.dim" autocomplete="email" required>
+            <button type="submit" class="btn magnetic">登録する</button>
+          </form>
+          <p id="newsMsg" role="status" aria-live="polite" class="e-5238a2"></p>
+        </div>
+
+        <div class="col-6 col-lg-3">
+          <h3>座標</h3>
+          <ul>
+            <li>ヴェックス通り2087 — セクター・ネオン07</li>
+            <li>ロウアー・メトロポリス · 地下3階</li>
+            <li>さっきまでなかった扉から入店</li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-lg-4">
+          <h3>営業時間</h3>
+          <ul>
+            <li>月〜金 · 6:00〜翌4:00</li>
+            <li>土・日 · いつでも</li>
+            <li>次元の祝日 · 休業</li>
+          </ul>
+          <h3 class="e-5a7715">シグナル</h3>
+          <ul>
+            <li><a href="#inicio">@cafeaurora.omega</a></li>
+            <li><a href="#inicio">+Ω 07 2087-0000</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="foot__bottom d-flex justify-content-between align-items-center flex-wrap gap-2">
+        <span>© <span id="year"></span> Café Aurora <span class="dot">◆</span> すべての宇宙の権利を留保</span>
+        <span>Bootstrap 5 · HTML · CSS · JS</span>
+      </div>
+    </div>
+  </footer>
+</main>
+
+<!-- PAINEL DE DIMENSÃO -->
+<aside class="dim" id="dim" aria-label="色の次元を調整">
+  <button class="dim__head" id="dimHead" type="button" aria-expanded="true" aria-controls="dimBody">
+    <span class="e-fd99b2"><i aria-hidden="true"></i>次元を同調する</span>
+    <span aria-hidden="true" id="dimChevron">▾</span>
+  </button>
+  <div class="dim__body" id="dimBody">
+    <label for="hue" class="lab__label e-8691cb">
+      <span>色相のずれ</span><b id="hueVal">0°</b>
+    </label>
+    <input type="range" class="form-range" id="hue" min="-70" max="70" value="0"
+           aria-label="色相のずれ（度）">
+    <p class="dim__hint">ドラッグしてカフェの色を変えてみてください。何も壊れません——たぶん。</p>
+  </div>
+</aside>
+
+<!-- Bootstrap JS -->
+<script src="../../bootstrap/vendor/bootstrap.bundle.min.js" defer></script>
+
+<script src="../../bootstrap/script.js?v=2" defer></script>
+</body>
+</html>

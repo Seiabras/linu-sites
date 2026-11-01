@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Café Aurora: as três versões lado a lado</title>
+<meta name="description" content="O mesmo Café Aurora em CSS puro, Bootstrap 5 e Tailwind CSS: quanto cada um pesa, como o mesmo cartão fica em cada um e quando usar cada jeito.">
+<meta name="theme-color" content="#05030a">
+<link rel="canonical" href="https://cafe.linupedia.com.br/versoes.html">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<link rel="icon" href="icone.png" type="image/png" sizes="128x128">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="preload" href="fontes/orbitron.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fontes/rajdhani-400.woff2" as="font" type="font/woff2" crossorigin>
+<script src="inicio.js?v=2"></script>
+<link rel="stylesheet" href="estilo.css?v=8">
+</head>
+<!-- Para a disciplina (1/11/2026): a mesma página em três jeitos, medida. Os números são dos arquivos do site, comprimidos
+     com gzip (como o servidor manda), sem as fontes, que são iguais nas três. Só em português. -->
+<body class="versoes-pagina">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<header class="versoes-topo">
+  <a href="./" class="brand"><span class="brand__orb" aria-hidden="true"></span><span>CAFÉ&nbsp;AURORA</span></a>
+  <a href="./" class="btn btn--ghost">Voltar ao café</a>
+</header>
+<main id="conteudo" class="versoes">
+  <section class="versoes-abre">
+    <span class="eyebrow">Para a disciplina</span>
+    <h1>Uma cafeteria, três jeitos de fazer</h1>
+    <p class="lead">O mesmo prompt foi para três IAs (ChatGPT, Gemini e DeepSeek). Fiquei com a versão do DeepSeek, estudei e reconstruí o código passo a passo em CSS puro; depois refiz a mesma página com <strong>Bootstrap 5.3</strong> e com <strong>Tailwind CSS 3.4</strong>. Aqui estão as três lado a lado.</p>
+    <nav class="versoes-links" aria-label="As três versões">
+      <a class="btn" href="./">CSS puro</a>
+      <a class="btn btn--magenta" href="bootstrap/">Bootstrap 5</a>
+      <a class="btn btn--ghost" href="tailwind/">Tailwind CSS</a>
+    </nav>
+    <p class="versoes-nota">As três estão em 13 línguas: troque o começo do endereço, por exemplo <a href="en/bootstrap/">/en/bootstrap/</a> ou <a href="ja/tailwind/">/ja/tailwind/</a>.</p>
+  </section>
+
+  <section aria-labelledby="peso-t" class="versoes-bloco">
+    <h2 id="peso-t">Quanto cada uma pesa</h2>
+    <figure class="grafico-versoes">
+      <figcaption>Código que o navegador baixa ao abrir (HTML, CSS e JavaScript, em KB comprimidos com gzip; as fontes, iguais nas três, ficam de fora)</figcaption>
+      <table class="tabela-versoes">
+        <thead><tr><th scope="col">Versão</th><th scope="col">HTML</th><th scope="col">CSS</th><th scope="col">JavaScript</th><th scope="col">Total</th><th scope="col"><span class="sr-only">Barra</span></th></tr></thead>
+        <tbody>
+          <tr><th scope="row">CSS puro</th><td>10,6</td><td>15,0</td><td>12,5</td><td><b>38,1</b></td><td><span class="barra-v b-puro"></span></td></tr>
+          <tr><th scope="row">Bootstrap 5</th><td>6,5</td><td>7,7 + 31,0 do Bootstrap</td><td>4,6 + 23,7 do Bootstrap</td><td><b>73,5</b></td><td><span class="barra-v b-bootstrap"></span></td></tr>
+          <tr><th scope="row">Tailwind CSS</th><td>6,4</td><td>7,5 + 0,7 do Tailwind</td><td>5,0</td><td><b>19,6</b></td><td><span class="barra-v b-tailwind"></span></td></tr>
+        </tbody>
+      </table>
+      <p class="versoes-nota">A versão em CSS puro é a mais pesada das próprias porque é a única com tudo: o modo padaria de dia, o pedido com WhatsApp, os filtros do cardápio, o teste, as reservas e o cartão de carimbos. As outras duas são a página original, para comparar o jeito de fazer.</p>
+    </figure>
+    <ul class="versoes-fatos">
+      <li><b>Bootstrap:</b> quase metade do peso é do próprio Bootstrap (31 KB de CSS e 24 KB de JavaScript), mesmo usando só o grid, a barra de navegação e alguns utilitários. O CSS próprio cai para a metade, porque o grid já vem pronto.</li>
+      <li><b>Tailwind:</b> o compilador deixa só as classes que a página usa: 0,7 KB. O layout passa para o HTML (<code>grid gap-6 sm:grid-cols-2</code>), e o CSS próprio fica só com o tema neon e as animações.</li>
+      <li><b>CSS puro:</b> nada de fora; tudo o que a página faz está escrito à mão, o que dá mais trabalho e mais controle.</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="cartao-t" class="versoes-bloco">
+    <h2 id="cartao-t">O mesmo cartão do cardápio, nos três</h2>
+    <div class="versoes-codigo">
+      <figure><figcaption>CSS puro: a grade fica no CSS (<code>.menu-grid</code>)</figcaption>
+<pre tabindex="0"><code>&lt;div class="menu-grid"&gt;
+  &lt;article class="card"&gt;
+    &lt;div class="card__top"&gt;…&lt;/div&gt;
+    &lt;h3&gt;Expresso Quântico&lt;/h3&gt;
+    &lt;div class="card__foot"&gt;…&lt;/div&gt;
+  &lt;/article&gt;</code></pre></figure>
+      <figure><figcaption>Bootstrap: a grade vem das classes <code>row</code> e <code>col-*</code></figcaption>
+<pre tabindex="0"><code>&lt;div class="row g-4"&gt;
+  &lt;div class="col-12 col-md-6 col-lg-4"&gt;
+    &lt;article class="card-aurora"&gt;
+      &lt;h3&gt;Expresso Quântico&lt;/h3&gt;
+    &lt;/article&gt;
+  &lt;/div&gt;</code></pre></figure>
+      <figure><figcaption>Tailwind: a grade e o espaço ficam no próprio HTML</figcaption>
+<pre tabindex="0"><code>&lt;div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"&gt;
+  &lt;article class="card"&gt;
+    &lt;div class="flex items-start justify-between gap-4"&gt;…&lt;/div&gt;
+    &lt;h3&gt;Expresso Quântico&lt;/h3&gt;
+  &lt;/article&gt;</code></pre></figure>
+    </div>
+  </section>
+
+  <section aria-labelledby="quando-t" class="versoes-bloco">
+    <h2 id="quando-t">Quando usar cada um</h2>
+    <div class="versoes-quando">
+      <div><h3>CSS puro</h3><p>Quando o visual é muito próprio (como o neon e a padaria) e o site precisa ser leve. Pede mais tempo, mas não carrega nada que não use.</p></div>
+      <div><h3>Bootstrap</h3><p>Quando é preciso montar rápido telas comuns (formulários, menus, modais) e o peso extra não importa, como num painel interno.</p></div>
+      <div><h3>Tailwind</h3><p>Quando o time quer o layout visível no HTML e um CSS final pequeno. Exige um passo de compilação e um HTML mais carregado de classes.</p></div>
+    </div>
+  </section>
+</main>
+<footer class="versoes-rodape">
+  <p>Café Aurora é uma cafeteria fictícia, feita para a disciplina de Desenvolvimento de Interfaces (CEUB, 2026/2). <a href="https://sites.linupedia.com.br/" target="_top">Linu Sites</a></p>
+</footer>
+</body>
+</html>

@@ -206,6 +206,7 @@
       "Ein Cyberpunk-Café mit Startbildschirm, eigenem Cursor, Partikel-Hintergrund, Speisekarte und einem Labor, in dem man sein Getränk zusammenstellt; die Tasse ist nur mit CSS gezeichnet.",
       "Von 6 bis 18 Uhr wird die Website zur Bäckerei Aurora: andere Farben, eine andere Karte und ein Brotlabor, ausgewählt nach der Uhr der Besucher, bevor die Seite erscheint.",
       "Dieselbe Seite in drei Fassungen, reines CSS, Bootstrap und Tailwind, um zu vergleichen, was jede Art, CSS zu schreiben, verändert.",
+      "Ein „echtes“ Café: Bestellung mit Mengen und fertiger WhatsApp-Nachricht, Filter und Details auf der Karte, ein Test für das passende Getränk, Tischreservierung mit Prüfung beim Tippen und Stempelkarte, auch offline.",
       "Sie ist die Beispiel-Website im Simulator von Linu Sites: Jeder Teil lässt sich dort ein- und ausschalten, und der Preis ändert sich mit."
     ],
     "dentro": [

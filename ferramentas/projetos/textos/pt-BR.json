@@ -206,6 +206,7 @@
       "Uma cafeteria cyberpunk com tela de abertura, cursor próprio, fundo de partículas, cardápio e um laboratório para montar a bebida, com a xícara desenhada só em CSS.",
       "Das 6h às 18h o site vira a Padaria Aurora: outras cores, outro cardápio e um laboratório de pão, escolhidos pelo relógio de quem visita antes de a página aparecer.",
       "A mesma página em três versões, CSS puro, Bootstrap e Tailwind, para comparar o que cada jeito de escrever CSS muda.",
+      "Um café “de verdade”: pedido com quantidades e mensagem pronta para o WhatsApp, filtros e detalhes do cardápio, um teste para escolher a bebida, reserva de mesa com validação na hora e cartão de carimbos, também sem internet.",
       "É o site de exemplo do simulador do Linu Sites: cada parte liga e desliga ali, e o preço muda junto."
     ],
     "dentro": [

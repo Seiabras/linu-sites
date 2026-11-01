@@ -167,7 +167,72 @@
     "d_foot_p": "Panificação interdimensional desde 2087. Farinha moída com ética em universos que consentiram.",
     "d_hora1": "Todos os dias · 06h — 18h",
     "d_hora2": "Primeira fornada · 06h em ponto",
-    "d_hora3": "Depois do pôr do sol · o café abre"
+    "d_hora3": "Depois do pôr do sol · o café abre",
+    "add": "Pedido",
+    "lab_add": "Adicionar ao pedido",
+    "detalhes": "Detalhes",
+    "i_temp": "Temperatura",
+    "i_cafeina": "Cafeína",
+    "i_alergenos": "Alérgenos",
+    "i_forno": "Forno",
+    "al_nenhum": "nenhum",
+    "al_leite": "leite",
+    "al_gluten": "glúten",
+    "al_ovo": "ovo",
+    "f_aria": "Filtrar o cardápio",
+    "f_todos": "Tudo",
+    "f_quente": "Quente",
+    "f_gelado": "Gelado",
+    "f_doce": "Doce",
+    "f_intenso": "Intenso",
+    "f_sem_lactose": "Sem lactose",
+    "f_sem_cafeina": "Sem cafeína",
+    "d_f_salgado": "Salgado",
+    "d_f_quentinho": "Saindo do forno",
+    "d_f_sem_gluten": "Sem glúten",
+    "f_vazio": "Nada no cardápio com esse filtro.",
+    "qz_abrir": "Não sabe o que pedir? Faça o teste",
+    "d_qz_abrir": "Não sabe que pão levar? Faça o teste",
+    "qz_titulo": "Que bebida combina com você?",
+    "d_qz_titulo": "Que pão combina com você?",
+    "fechar": "Fechar",
+    "p_titulo": "Seu pedido",
+    "p_vazio": "O pedido está vazio. Toque em “+ Pedido” num item do cardápio ou no laboratório.",
+    "p_total": "Total",
+    "p_nome": "Seu nome",
+    "p_nome_erro": "Diga seu nome para chamarmos no balcão.",
+    "p_como": "Como vai ser?",
+    "p_aqui": "Comer aqui",
+    "p_levar": "Para levar",
+    "p_hora": "Para que horas (opcional)",
+    "p_obs": "Observação (opcional)",
+    "p_enviar": "Mandar no WhatsApp",
+    "p_nota": "O Café é fictício: o WhatsApp abre sem número, para você escolher para quem mandar. Num site de verdade, o pedido iria direto para a loja.",
+    "nav_reservas": "Reservas",
+    "r_h2": "Guarde sua mesa na fenda",
+    "d_r_h2": "Guarde sua mesa na padaria",
+    "r_lead": "Reserve uma mesa e junte carimbos: a cada pedido, um carimbo; com dez, o próximo é por conta da casa.",
+    "r_titulo": "Reservar uma mesa",
+    "r_nome": "Nome",
+    "r_nome_erro": "Diga em nome de quem fica a mesa.",
+    "r_pessoas": "Pessoas",
+    "r_pessoas_erro": "De 1 a 8 pessoas.",
+    "r_data": "Dia",
+    "r_data_erro": "Escolha hoje ou um dia depois.",
+    "r_hora": "Hora",
+    "r_mesa": "Onde",
+    "r_janela": "Janela",
+    "r_balcao": "Balcão",
+    "r_grande": "Mesa grande",
+    "r_enviar": "Reservar",
+    "r_minhas": "Minhas reservas",
+    "fid_h3": "Cartão Aurora",
+    "d_fid_h3": "Cartão da Padaria",
+    "fid_p": "Cada pedido mandado vale um carimbo. Fica guardado neste aparelho.",
+    "fid_usar": "Usar o prêmio",
+    "tw_feito": "Feito com HTML, Tailwind CSS e um pouco de cafeína quântica",
+    "versoes": "Também em",
+    "comparar": "comparar as três"
   },
   "js": {
     "boot": [
@@ -194,6 +259,116 @@
       "Pão Integral de Órbita",
       "Brioche Estelar"
     ],
-    "d_min": "{n} min"
+    "d_min": "{n} min",
+    "add_aria": "Adicionar {nome} ao pedido",
+    "no_pedido": "{nome} entrou no pedido.",
+    "menos": "Tirar um {nome}",
+    "mais": "Mais um {nome}",
+    "f_n": "{n} de {total} no cardápio",
+    "msg_cab": "Pedido para {loja}:",
+    "msg_total": "Total",
+    "msg_nome": "Nome",
+    "msg_aqui": "Para comer aí",
+    "msg_levar": "Para levar",
+    "msg_hora": "Às",
+    "msg_obs": "Obs.",
+    "feito": "Pronto: o WhatsApp abriu com o pedido. Você ganhou um carimbo ({n} de 10).",
+    "feito_abrir": "Abrir o WhatsApp de novo",
+    "selo": "Este pedido vale um carimbo ({n} de 10 até agora).",
+    "fid_n": "{n} de 10 carimbos.",
+    "fid_premio": "Cartão cheio! O próximo pedido é por conta da casa.",
+    "fid_usado": "Prêmio usado. Cartão novo, boa sorte.",
+    "r_ok": "Reservado: {mesa}, {pessoas} pessoas, {data} às {hora}.",
+    "r_whats": "Confirmar no WhatsApp",
+    "r_cancelar": "Cancelar",
+    "r_msg": "Reserva em {loja}: {mesa}, {pessoas} pessoas, {data} às {hora}, em nome de {nome}.",
+    "r_hora_erro": "Diga a hora.",
+    "r_hora_noite": "Das 04h às 06h o café fecha para limpar a fenda.",
+    "r_hora_dia": "A padaria atende das 06h às 18h.",
+    "qz_passo": "Pergunta {n} de {total}",
+    "qz_resultado": "Combina com você:",
+    "qz_de_novo": "Fazer de novo",
+    "qz_noite": [
+      [
+        "Quente ou gelado?",
+        [
+          [
+            "Quente",
+            "quente"
+          ],
+          [
+            "Gelado",
+            "gelado"
+          ]
+        ]
+      ],
+      [
+        "Doce ou intenso?",
+        [
+          [
+            "Doce",
+            "doce"
+          ],
+          [
+            "Intenso",
+            "intenso"
+          ]
+        ]
+      ],
+      [
+        "E a cafeína?",
+        [
+          [
+            "Pode vir",
+            "cafeina"
+          ],
+          [
+            "Sem cafeína",
+            "sem-cafeina"
+          ]
+        ]
+      ]
+    ],
+    "qz_dia": [
+      [
+        "Doce ou salgado?",
+        [
+          [
+            "Doce",
+            "doce"
+          ],
+          [
+            "Salgado",
+            "salgado"
+          ]
+        ]
+      ],
+      [
+        "Saindo do forno?",
+        [
+          [
+            "Quentinho",
+            "quentinho"
+          ],
+          [
+            "Tanto faz",
+            ""
+          ]
+        ]
+      ],
+      [
+        "E o leite?",
+        [
+          [
+            "Pode ter",
+            ""
+          ],
+          [
+            "Sem lactose",
+            "sem-lactose"
+          ]
+        ]
+      ]
+    ]
   }
 }

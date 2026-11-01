@@ -17,8 +17,9 @@
      que muda tem as duas versões, .so-noite e .so-dia, e o data-modo do <html> esconde uma delas (ver inicio.js). Na página principal, ele aparece embutido
      (iframe) no simulador de preço, que liga e desliga as partes dele (ver script.js, "módulos"). -->
 <script src="{{raiz}}inicio.js?v=2"></script>
-<link rel="stylesheet" href="{{raiz}}estilo.css?v=7">
-<script src="{{raiz}}script.js?v=6" defer></script>
+<link rel="manifest" href="{{raiz}}manifest.webmanifest">
+<link rel="stylesheet" href="{{raiz}}estilo.css?v=8">
+<script src="{{raiz}}script.js?v=7" defer></script>
 </head>
 
 <body>
@@ -54,6 +55,7 @@
     <a href="#menu">{{nav_cardapio}}</a>
     <a href="#laboratorio"><span class="so-noite">{{nav_lab}}</span><span class="so-dia">{{d_nav_lab}}</span></a>
     <a href="#transmissoes"><span class="so-noite">{{nav_trans}}</span><span class="so-dia">{{d_nav_trans}}</span></a>
+    <a href="#reservas" class="so-completo" hidden>{{nav_reservas}}</a>
   </nav>
 
   <div class="nav__right">
@@ -152,8 +154,31 @@
       <span class="so-noite">{{menu_lead}}</span><span class="so-dia">{{d_menu_lead}}</span>
     </p>
 
+    <div class="menu-filtros so-completo" id="menuFiltros" hidden>
+      <div class="chips so-noite" role="group" aria-label="{{f_aria}}">
+        <button type="button" class="filtro" data-filtro="" aria-pressed="true">{{f_todos}}</button>
+        <button type="button" class="filtro" data-filtro="quente" aria-pressed="false">{{f_quente}}</button>
+        <button type="button" class="filtro" data-filtro="gelado" aria-pressed="false">{{f_gelado}}</button>
+        <button type="button" class="filtro" data-filtro="doce" aria-pressed="false">{{f_doce}}</button>
+        <button type="button" class="filtro" data-filtro="intenso" aria-pressed="false">{{f_intenso}}</button>
+        <button type="button" class="filtro" data-filtro="sem-lactose" aria-pressed="false">{{f_sem_lactose}}</button>
+        <button type="button" class="filtro" data-filtro="sem-cafeina" aria-pressed="false">{{f_sem_cafeina}}</button>
+      </div>
+      <div class="chips so-dia" role="group" aria-label="{{f_aria}}">
+        <button type="button" class="filtro" data-filtro="" aria-pressed="true">{{f_todos}}</button>
+        <button type="button" class="filtro" data-filtro="doce" aria-pressed="false">{{f_doce}}</button>
+        <button type="button" class="filtro" data-filtro="salgado" aria-pressed="false">{{d_f_salgado}}</button>
+        <button type="button" class="filtro" data-filtro="quentinho" aria-pressed="false">{{d_f_quentinho}}</button>
+        <button type="button" class="filtro" data-filtro="sem-lactose" aria-pressed="false">{{f_sem_lactose}}</button>
+        <button type="button" class="filtro" data-filtro="sem-gluten" aria-pressed="false">{{d_f_sem_gluten}}</button>
+      </div>
+      <p class="menu-filtros__fim"><span id="menuConta" aria-live="polite"></span>
+        <button type="button" class="btn btn--ghost" id="quizAbrir"><span class="so-noite">{{qz_abrir}}</span><span class="so-dia">{{d_qz_abrir}}</span></button></p>
+    </div>
+    <p class="menu-vazio" id="menuVazio" hidden>{{f_vazio}}</p>
+
     <div class="menu-grid">
-      <article class="card reveal tilt" data-d="1">
+      <article class="card reveal tilt" data-d="1" data-item="1" data-preco-noite="18" data-preco-dia="9" data-filtros-noite="quente intenso sem-lactose" data-filtros-dia="salgado quentinho">
         <div class="card__top">
           <div class="card__icon" aria-hidden="true"><span class="so-noite">⚡</span><span class="so-dia">🥐</span></div>
           <span class="card__id"><span class="so-noite">LX-001</span><span class="so-dia">FN-001</span></span>
@@ -165,9 +190,15 @@
           <span class="card__price"><span class="so-noite">₡ 18</span><span class="so-dia">₡ 9</span></span>
           <span class="card__tag"><span class="so-noite">{{t1}}</span><span class="so-dia">{{d_t1}}</span></span>
         </div>
+        <details class="card__info so-completo">
+          <summary>{{detalhes}}</summary>
+          <dl class="so-noite"><div><dt>{{i_temp}}</dt><dd>68 °C</dd></div><div><dt>{{i_cafeina}}</dt><dd>140 mg</dd></div><div><dt>kcal</dt><dd>5</dd></div><div><dt>{{i_alergenos}}</dt><dd>{{al_nenhum}}</dd></div></dl>
+          <dl class="so-dia"><div><dt>{{i_forno}}</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>280</dd></div><div><dt>{{i_alergenos}}</dt><dd>{{al_gluten}}, {{al_leite}}, {{al_ovo}}</dd></div></dl>
+        </details>
+        <button type="button" class="card__add so-completo" data-item="1" hidden>+ {{add}}</button>
       </article>
 
-      <article class="card card--m reveal tilt" data-d="2">
+      <article class="card card--m reveal tilt" data-d="2" data-item="2" data-preco-noite="24" data-preco-dia="7" data-filtros-noite="quente doce" data-filtros-dia="salgado sem-lactose">
         <div class="card__top">
           <div class="card__icon" aria-hidden="true"><span class="so-noite">🌌</span><span class="so-dia">🍞</span></div>
           <span class="card__id"><span class="so-noite">LX-014</span><span class="so-dia">FN-006</span></span>
@@ -179,9 +210,15 @@
           <span class="card__price"><span class="so-noite">₡ 24</span><span class="so-dia">₡ 7</span></span>
           <span class="card__tag"><span class="so-noite">{{t2}}</span><span class="so-dia">{{d_t2}}</span></span>
         </div>
+        <details class="card__info so-completo">
+          <summary>{{detalhes}}</summary>
+          <dl class="so-noite"><div><dt>{{i_temp}}</dt><dd>72 °C</dd></div><div><dt>{{i_cafeina}}</dt><dd>90 mg</dd></div><div><dt>kcal</dt><dd>180</dd></div><div><dt>{{i_alergenos}}</dt><dd>{{al_leite}}</dd></div></dl>
+          <dl class="so-dia"><div><dt>{{i_forno}}</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>150</dd></div><div><dt>{{i_alergenos}}</dt><dd>{{al_gluten}}</dd></div></dl>
+        </details>
+        <button type="button" class="card__add so-completo" data-item="2" hidden>+ {{add}}</button>
       </article>
 
-      <article class="card card--v reveal tilt" data-d="3">
+      <article class="card card--v reveal tilt" data-d="3" data-item="3" data-preco-noite="22" data-preco-dia="8" data-filtros-noite="gelado intenso sem-lactose" data-filtros-dia="salgado quentinho sem-lactose">
         <div class="card__top">
           <div class="card__icon" aria-hidden="true"><span class="so-noite">❄️</span><span class="so-dia">🥖</span></div>
           <span class="card__id"><span class="so-noite">LX-027</span><span class="so-dia">FN-012</span></span>
@@ -193,9 +230,15 @@
           <span class="card__price"><span class="so-noite">₡ 22</span><span class="so-dia">₡ 8</span></span>
           <span class="card__tag"><span class="so-noite">{{t3}}</span><span class="so-dia">{{d_t3}}</span></span>
         </div>
+        <details class="card__info so-completo">
+          <summary>{{detalhes}}</summary>
+          <dl class="so-noite"><div><dt>{{i_temp}}</dt><dd>4 °C</dd></div><div><dt>{{i_cafeina}}</dt><dd>200 mg</dd></div><div><dt>kcal</dt><dd>10</dd></div><div><dt>{{i_alergenos}}</dt><dd>{{al_nenhum}}</dd></div></dl>
+          <dl class="so-dia"><div><dt>{{i_forno}}</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>190</dd></div><div><dt>{{i_alergenos}}</dt><dd>{{al_gluten}}</dd></div></dl>
+        </details>
+        <button type="button" class="card__add so-completo" data-item="3" hidden>+ {{add}}</button>
       </article>
 
-      <article class="card card--a reveal tilt" data-d="4">
+      <article class="card card--a reveal tilt" data-d="4" data-item="4" data-preco-noite="26" data-preco-dia="6" data-filtros-noite="gelado sem-lactose" data-filtros-dia="doce">
         <div class="card__top">
           <div class="card__icon" aria-hidden="true"><span class="so-noite">🍃</span><span class="so-dia">🧁</span></div>
           <span class="card__id"><span class="so-noite">LX-033</span><span class="so-dia">FN-019</span></span>
@@ -207,9 +250,15 @@
           <span class="card__price"><span class="so-noite">₡ 26</span><span class="so-dia">₡ 6</span></span>
           <span class="card__tag"><span class="so-noite">{{t4}}</span><span class="so-dia">{{d_t4}}</span></span>
         </div>
+        <details class="card__info so-completo">
+          <summary>{{detalhes}}</summary>
+          <dl class="so-noite"><div><dt>{{i_temp}}</dt><dd>8 °C</dd></div><div><dt>{{i_cafeina}}</dt><dd>70 mg</dd></div><div><dt>kcal</dt><dd>120</dd></div><div><dt>{{i_alergenos}}</dt><dd>{{al_nenhum}}</dd></div></dl>
+          <dl class="so-dia"><div><dt>{{i_forno}}</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>320</dd></div><div><dt>{{i_alergenos}}</dt><dd>{{al_gluten}}, {{al_leite}}, {{al_ovo}}</dd></div></dl>
+        </details>
+        <button type="button" class="card__add so-completo" data-item="4" hidden>+ {{add}}</button>
       </article>
 
-      <article class="card card--m reveal tilt" data-d="5">
+      <article class="card card--m reveal tilt" data-d="5" data-item="5" data-preco-noite="20" data-preco-dia="5" data-filtros-noite="quente doce sem-cafeina" data-filtros-dia="doce sem-lactose">
         <div class="card__top">
           <div class="card__icon" aria-hidden="true"><span class="so-noite">✨</span><span class="so-dia">🍩</span></div>
           <span class="card__id"><span class="so-noite">LX-042</span><span class="so-dia">FN-024</span></span>
@@ -221,9 +270,15 @@
           <span class="card__price"><span class="so-noite">₡ 20</span><span class="so-dia">₡ 5</span></span>
           <span class="card__tag"><span class="so-noite">{{t5}}</span><span class="so-dia">{{d_t5}}</span></span>
         </div>
+        <details class="card__info so-completo">
+          <summary>{{detalhes}}</summary>
+          <dl class="so-noite"><div><dt>{{i_temp}}</dt><dd>60 °C</dd></div><div><dt>{{i_cafeina}}</dt><dd>0 mg</dd></div><div><dt>kcal</dt><dd>210</dd></div><div><dt>{{i_alergenos}}</dt><dd>{{al_leite}}</dd></div></dl>
+          <dl class="so-dia"><div><dt>{{i_forno}}</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>260</dd></div><div><dt>{{i_alergenos}}</dt><dd>{{al_gluten}}, {{al_ovo}}</dd></div></dl>
+        </details>
+        <button type="button" class="card__add so-completo" data-item="5" hidden>+ {{add}}</button>
       </article>
 
-      <article class="card card--v reveal tilt" data-d="5">
+      <article class="card card--v reveal tilt" data-d="5" data-item="6" data-preco-noite="31" data-preco-dia="4" data-filtros-noite="gelado intenso sem-lactose" data-filtros-dia="salgado quentinho sem-gluten">
         <div class="card__top">
           <div class="card__icon" aria-hidden="true"><span class="so-noite">☄️</span><span class="so-dia">🧀</span></div>
           <span class="card__id"><span class="so-noite">LX-050</span><span class="so-dia">FN-031</span></span>
@@ -235,6 +290,12 @@
           <span class="card__price"><span class="so-noite">₡ 31</span><span class="so-dia">₡ 4</span></span>
           <span class="card__tag"><span class="so-noite">{{t6}}</span><span class="so-dia">{{d_t6}}</span></span>
         </div>
+        <details class="card__info so-completo">
+          <summary>{{detalhes}}</summary>
+          <dl class="so-noite"><div><dt>{{i_temp}}</dt><dd>−2 °C</dd></div><div><dt>{{i_cafeina}}</dt><dd>280 mg</dd></div><div><dt>kcal</dt><dd>15</dd></div><div><dt>{{i_alergenos}}</dt><dd>{{al_nenhum}}</dd></div></dl>
+          <dl class="so-dia"><div><dt>{{i_forno}}</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>90</dd></div><div><dt>{{i_alergenos}}</dt><dd>{{al_leite}}, {{al_ovo}}</dd></div></dl>
+        </details>
+        <button type="button" class="card__add so-completo" data-item="6" hidden>+ {{add}}</button>
       </article>
     </div>
   </section>
@@ -307,6 +368,7 @@
           <small><span class="so-noite">{{saida}}</span><span class="so-dia">{{d_saida}}</span></small>
           <div id="drinkName">{{expresso}} · {{nivel}} VII</div>
           <span id="drinkPrice">₡ {{preco_ini}}</span>
+          <button type="button" class="btn btn--magenta lab__add so-completo" id="labAdd" hidden>+ {{lab_add}}</button>
         </div>
       </div>
 
@@ -365,6 +427,46 @@
     </div>
   </section>
 
+  <!-- RESERVAS E FIDELIDADE (1/11/2026): só no site completo; embutido no simulador, fica escondido -->
+  <section class="section so-completo" id="reservas" hidden>
+    <span class="eyebrow reveal">{{nav_reservas}}</span>
+    <h2 class="reveal" data-d="1"><span class="so-noite">{{r_h2}}</span><span class="so-dia">{{d_r_h2}}</span></h2>
+    <p class="lead reveal" data-d="2">{{r_lead}}</p>
+    <div class="reservas">
+      <form class="reserva reveal" id="reservaForm" novalidate aria-labelledby="reservaTitulo">
+        <h3 id="reservaTitulo">{{r_titulo}}</h3>
+        <div class="campo"><label for="rNome">{{r_nome}}</label><input id="rNome" type="text" name="nome" autocomplete="name" required aria-describedby="rNomeErro"><p class="erro" id="rNomeErro" hidden>{{r_nome_erro}}</p></div>
+        <div class="campo campo--dois">
+          <div><label for="rPessoas">{{r_pessoas}}</label><input id="rPessoas" name="pessoas" type="number" min="1" max="8" value="2" inputmode="numeric" required aria-describedby="rPessoasErro"><p class="erro" id="rPessoasErro" hidden>{{r_pessoas_erro}}</p></div>
+          <div><label for="rData">{{r_data}}</label><input id="rData" name="data" type="date" required aria-describedby="rDataErro"><p class="erro" id="rDataErro" hidden>{{r_data_erro}}</p></div>
+        </div>
+        <div class="campo"><label for="rHora">{{r_hora}}</label><input id="rHora" name="hora" type="time" required aria-describedby="rHoraErro"><p class="erro" id="rHoraErro" hidden></p></div>
+        <fieldset class="campo"><legend>{{r_mesa}}</legend>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="mesa" value="{{r_janela}}" checked><span>{{r_janela}}</span></label>
+            <label class="chip"><input type="radio" name="mesa" value="{{r_balcao}}"><span>{{r_balcao}}</span></label>
+            <label class="chip"><input type="radio" name="mesa" value="{{r_grande}}"><span>{{r_grande}}</span></label>
+          </div>
+        </fieldset>
+        <button type="submit" class="btn btn--magenta">{{r_enviar}}</button>
+        <p class="reserva__msg" id="reservaMsg" role="status" aria-live="polite"></p>
+      </form>
+      <div class="reservas__lado">
+        <div class="fidelidade reveal" data-d="1">
+          <h3><span class="so-noite">{{fid_h3}}</span><span class="so-dia">{{d_fid_h3}}</span></h3>
+          <p>{{fid_p}}</p>
+          <ol class="carimbos" id="carimbos" aria-hidden="true"><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ol>
+          <p class="fidelidade__msg" id="fidMsg" role="status" aria-live="polite"></p>
+          <button type="button" class="btn btn--ghost" id="fidUsar" hidden>{{fid_usar}}</button>
+        </div>
+        <div class="minhas" id="minhas" hidden>
+          <h3>{{r_minhas}}</h3>
+          <ul id="minhasLista"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="cta">
     <h2 class="reveal"><span class="so-noite">{{cta_h2}}</span><span class="so-dia">{{d_cta_h2}}</span></h2>
@@ -419,6 +521,7 @@
     <div class="foot__bottom">
       <span>© <span id="year"></span> <span class="so-noite">Café Aurora</span><span class="so-dia">{{d_nome}}</span> <span class="dot">◆</span> {{direitos}}</span>
       <span>{{ficticia}} <a href="{{linu_sites}}" target="_top">Linu Sites</a></span>
+      <span class="foot__versoes">{{versoes}} <a href="bootstrap/">Bootstrap</a> · <a href="tailwind/">Tailwind</a> · <a href="{{raiz}}versoes.html">{{comparar}}</a></span>
     </div>
   </footer>
 </main>
@@ -435,6 +538,42 @@
     <p class="dim__hint">{{dim_hint}}</p>
   </div>
 </aside>
+
+<!-- O PEDIDO (1/11/2026): o carrinho, com a mensagem pronta para o WhatsApp. O Café é fictício: o WhatsApp abre sem
+     número, para a pessoa escolher o contato; num site de verdade, iria direto para o número da loja. -->
+<dialog class="janela pedido" id="pedido" aria-labelledby="pedidoTitulo">
+  <div class="janela__topo">
+    <h2 id="pedidoTitulo">{{p_titulo}}</h2>
+    <button type="button" class="janela__fechar" data-fechar aria-label="{{fechar}}">✕</button>
+  </div>
+  <p class="pedido__vazio" id="pedidoVazio">{{p_vazio}}</p>
+  <ul class="pedido__itens" id="pedidoItens"></ul>
+  <p class="pedido__total" id="pedidoTotalLinha"><span>{{p_total}}</span><b id="pedidoTotal"></b></p>
+  <form class="pedido__form" id="pedidoForm" novalidate>
+    <div class="campo"><label for="pNome">{{p_nome}}</label><input id="pNome" type="text" name="nome" autocomplete="given-name" required aria-describedby="pNomeErro"><p class="erro" id="pNomeErro" hidden>{{p_nome_erro}}</p></div>
+    <fieldset class="campo"><legend>{{p_como}}</legend>
+      <div class="chips">
+        <label class="chip"><input type="radio" name="como" value="aqui" checked><span>{{p_aqui}}</span></label>
+        <label class="chip"><input type="radio" name="como" value="levar"><span>{{p_levar}}</span></label>
+      </div>
+    </fieldset>
+    <div class="campo"><label for="pHora">{{p_hora}}</label><input id="pHora" name="hora" type="time"></div>
+    <div class="campo"><label for="pObs">{{p_obs}}</label><textarea id="pObs" name="obs" rows="2" maxlength="200"></textarea></div>
+    <p class="pedido__selo" id="pedidoSelo"></p>
+    <button type="submit" class="btn btn--magenta">{{p_enviar}}</button>
+    <p class="pedido__nota">{{p_nota}}</p>
+  </form>
+  <div class="pedido__feito" id="pedidoFeito" hidden tabindex="-1"></div>
+</dialog>
+
+<!-- O TESTE: que bebida (ou, de dia, que pão) combina com você -->
+<dialog class="janela quiz" id="quiz" aria-labelledby="quizTitulo">
+  <div class="janela__topo">
+    <h2 id="quizTitulo"><span class="so-noite">{{qz_titulo}}</span><span class="so-dia">{{d_qz_titulo}}</span></h2>
+    <button type="button" class="janela__fechar" data-fechar aria-label="{{fechar}}">✕</button>
+  </div>
+  <div class="quiz__corpo" id="quizCorpo" aria-live="polite"></div>
+</dialog>
 
 <!-- PAINEL (módulo "painel para mexer sozinho"): só aparece quando o simulador liga o módulo -->
 <div class="painel-demo" id="painelDemo" hidden>

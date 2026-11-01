@@ -21,7 +21,7 @@
 <link rel="alternate" hreflang="ko-KR" href="https://cafe.linupedia.com.br/ko/">
 <link rel="alternate" hreflang="zh-Hant" href="https://cafe.linupedia.com.br/zh-hant/">
 <!-- Os textos que o script escreve (abertura, bebidas, assinatura, painel), no idioma da página -->
-<script type="application/json" id="textos-cafe">{"boot":["Initializing portal…","Calibrating quantum grind…","Syncing beans from Ω-11…","Warming up the steam reactor…","Welcome to the rift."],"news_erro":"Invalid signal. Check your email coordinates.","news_ok":"Signal received. You’ll be contacted from another dimension.","terminar":"✓ Done","painel_aviso":"Click on a text and type. In a real dashboard, your changes are saved.","d_boot":["Lighting the oven…","Closing the rift…","Kneading the Ω-11 dough…","Waiting for the crust to brown…","Good morning."],"d_pao":["Solar Wheat Loaf","Twilight Rye Loaf","Orbit Whole Wheat Loaf","Stellar Brioche"],"d_min":"{n} min","expresso":"Quantum Espresso","coldbrew":"Neural Cold Brew","matcha":"Void Matcha","estelar":"Star Milk","nivel":"Level","editar":"✎ Edit text"}</script>
+<script type="application/json" id="textos-cafe">{"boot":["Initializing portal…","Calibrating quantum grind…","Syncing beans from Ω-11…","Warming up the steam reactor…","Welcome to the rift."],"news_erro":"Invalid signal. Check your email coordinates.","news_ok":"Signal received. You’ll be contacted from another dimension.","terminar":"✓ Done","painel_aviso":"Click on a text and type. In a real dashboard, your changes are saved.","d_boot":["Lighting the oven…","Closing the rift…","Kneading the Ω-11 dough…","Waiting for the crust to brown…","Good morning."],"d_pao":["Solar Wheat Loaf","Twilight Rye Loaf","Orbit Whole Wheat Loaf","Stellar Brioche"],"d_min":"{n} min","add_aria":"Add {nome} to the order","no_pedido":"{nome} added to the order.","menos":"One less {nome}","mais":"One more {nome}","f_n":"{n} of {total} on the menu","msg_cab":"Order for {loja}:","msg_total":"Total","msg_nome":"Name","msg_aqui":"To eat in","msg_levar":"To take away","msg_hora":"At","msg_obs":"Note:","feito":"Done: WhatsApp opened with your order. You earned a stamp ({n} of 10).","feito_abrir":"Open WhatsApp again","selo":"This order earns a stamp ({n} of 10 so far).","fid_n":"{n} of 10 stamps.","fid_premio":"Card full! Your next order is on the house.","fid_usado":"Reward used. New card, good luck.","r_ok":"Booked: {mesa}, {pessoas} people, {data} at {hora}.","r_whats":"Confirm on WhatsApp","r_cancelar":"Cancel","r_msg":"Booking at {loja}: {mesa}, {pessoas} people, {data} at {hora}, under the name {nome}.","r_hora_erro":"Tell us the time.","r_hora_noite":"From 4 am to 6 am the café closes to clean the rift.","r_hora_dia":"The bakery is open from 6 am to 6 pm.","qz_passo":"Question {n} of {total}","qz_resultado":"Suits you:","qz_de_novo":"Try again","qz_noite":[["Hot or iced?",[["Hot","quente"],["Iced","gelado"]]],["Sweet or strong?",[["Sweet","doce"],["Strong","intenso"]]],["And caffeine?",[["Bring it on","cafeina"],["Caffeine-free","sem-cafeina"]]]],"qz_dia":[["Sweet or savory?",[["Sweet","doce"],["Savory","salgado"]]],["Fresh from the oven?",[["Warm","quentinho"],["Either way",""]]],["And milk?",[["That is fine",""],["Lactose-free","sem-lactose"]]]],"expresso":"Quantum Espresso","coldbrew":"Neural Cold Brew","matcha":"Void Matcha","estelar":"Star Milk","nivel":"Level","editar":"✎ Edit text","d_nome":"Aurora Bakery","lab_add":"Add to order"}</script>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
 <link rel="icon" href="../icone.png" type="image/png" sizes="128x128">
 <link rel="preload" href="../fontes/orbitron.woff2" as="font" type="font/woff2" crossorigin>
@@ -29,8 +29,9 @@
      que muda tem as duas versões, .so-noite e .so-dia, e o data-modo do <html> esconde uma delas (ver inicio.js). Na página principal, ele aparece embutido
      (iframe) no simulador de preço, que liga e desliga as partes dele (ver script.js, "módulos"). -->
 <script src="../inicio.js?v=2"></script>
-<link rel="stylesheet" href="../estilo.css?v=7">
-<script src="../script.js?v=6" defer></script>
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="stylesheet" href="../estilo.css?v=8">
+<script src="../script.js?v=7" defer></script>
 </head>
 
 <body>
@@ -66,6 +67,7 @@
     <a href="#menu">Menu</a>
     <a href="#laboratorio"><span class="so-noite">Lab</span><span class="so-dia">Oven</span></a>
     <a href="#transmissoes"><span class="so-noite">Transmissions</span><span class="so-dia">Notes</span></a>
+    <a href="#reservas" class="so-completo" hidden>Bookings</a>
   </nav>
 
   <div class="nav__right">
@@ -164,8 +166,31 @@
       <span class="so-noite">Six recipes calibrated for different brainwave frequencies. All served in self-regenerating cups.</span><span class="so-dia">Six recipes that come out of the oven several times a day. All wrapped in paper that keeps the heat in for a few hours, or dimensions.</span>
     </p>
 
+    <div class="menu-filtros so-completo" id="menuFiltros" hidden>
+      <div class="chips so-noite" role="group" aria-label="Filter the menu">
+        <button type="button" class="filtro" data-filtro="" aria-pressed="true">All</button>
+        <button type="button" class="filtro" data-filtro="quente" aria-pressed="false">Hot</button>
+        <button type="button" class="filtro" data-filtro="gelado" aria-pressed="false">Iced</button>
+        <button type="button" class="filtro" data-filtro="doce" aria-pressed="false">Sweet</button>
+        <button type="button" class="filtro" data-filtro="intenso" aria-pressed="false">Strong</button>
+        <button type="button" class="filtro" data-filtro="sem-lactose" aria-pressed="false">Lactose-free</button>
+        <button type="button" class="filtro" data-filtro="sem-cafeina" aria-pressed="false">Caffeine-free</button>
+      </div>
+      <div class="chips so-dia" role="group" aria-label="Filter the menu">
+        <button type="button" class="filtro" data-filtro="" aria-pressed="true">All</button>
+        <button type="button" class="filtro" data-filtro="doce" aria-pressed="false">Sweet</button>
+        <button type="button" class="filtro" data-filtro="salgado" aria-pressed="false">Savory</button>
+        <button type="button" class="filtro" data-filtro="quentinho" aria-pressed="false">Fresh from the oven</button>
+        <button type="button" class="filtro" data-filtro="sem-lactose" aria-pressed="false">Lactose-free</button>
+        <button type="button" class="filtro" data-filtro="sem-gluten" aria-pressed="false">Gluten-free</button>
+      </div>
+      <p class="menu-filtros__fim"><span id="menuConta" aria-live="polite"></span>
+        <button type="button" class="btn btn--ghost" id="quizAbrir"><span class="so-noite">Not sure what to order? Take the quiz</span><span class="so-dia">Not sure which bread? Take the quiz</span></button></p>
+    </div>
+    <p class="menu-vazio" id="menuVazio" hidden>Nothing on the menu with that filter.</p>
+
     <div class="menu-grid">
-      <article class="card reveal tilt" data-d="1">
+      <article class="card reveal tilt" data-d="1" data-item="1" data-preco-noite="18" data-preco-dia="9" data-filtros-noite="quente intenso sem-lactose" data-filtros-dia="salgado quentinho">
         <div class="card__top">
           <div class="card__icon" aria-hidden="true"><span class="so-noite">⚡</span><span class="so-dia">🥐</span></div>
           <span class="card__id"><span class="so-noite">LX-001</span><span class="so-dia">FN-001</span></span>
@@ -177,9 +202,15 @@
           <span class="card__price"><span class="so-noite">₡ 18</span><span class="so-dia">₡ 9</span></span>
           <span class="card__tag"><span class="so-noite">Intense</span><span class="so-dia">Flaky</span></span>
         </div>
+        <details class="card__info so-completo">
+          <summary>Details</summary>
+          <dl class="so-noite"><div><dt>Temperature</dt><dd>68 °C</dd></div><div><dt>Caffeine</dt><dd>140 mg</dd></div><div><dt>kcal</dt><dd>5</dd></div><div><dt>Allergens</dt><dd>none</dd></div></dl>
+          <dl class="so-dia"><div><dt>Oven</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>280</dd></div><div><dt>Allergens</dt><dd>gluten, milk, egg</dd></div></dl>
+        </details>
+        <button type="button" class="card__add so-completo" data-item="1" hidden>+ Order</button>
       </article>
 
-      <article class="card card--m reveal tilt" data-d="2">
+      <article class="card card--m reveal tilt" data-d="2" data-item="2" data-preco-noite="24" data-preco-dia="7" data-filtros-noite="quente doce" data-filtros-dia="salgado sem-lactose">
         <div class="card__top">
           <div class="card__icon" aria-hidden="true"><span class="so-noite">🌌</span><span class="so-dia">🍞</span></div>
           <span class="card__id"><span class="so-noite">LX-014</span><span class="so-dia">FN-006</span></span>
@@ -191,9 +222,15 @@
           <span class="card__price"><span class="so-noite">₡ 24</span><span class="so-dia">₡ 7</span></span>
           <span class="card__tag"><span class="so-noite">Bright</span><span class="so-dia">Light</span></span>
         </div>
+        <details class="card__info so-completo">
+          <summary>Details</summary>
+          <dl class="so-noite"><div><dt>Temperature</dt><dd>72 °C</dd></div><div><dt>Caffeine</dt><dd>90 mg</dd></div><div><dt>kcal</dt><dd>180</dd></div><div><dt>Allergens</dt><dd>milk</dd></div></dl>
+          <dl class="so-dia"><div><dt>Oven</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>150</dd></div><div><dt>Allergens</dt><dd>gluten</dd></div></dl>
+        </details>
+        <button type="button" class="card__add so-completo" data-item="2" hidden>+ Order</button>
       </article>
 
-      <article class="card card--v reveal tilt" data-d="3">
+      <article class="card card--v reveal tilt" data-d="3" data-item="3" data-preco-noite="22" data-preco-dia="8" data-filtros-noite="gelado intenso sem-lactose" data-filtros-dia="salgado quentinho sem-lactose">
         <div class="card__top">
           <div class="card__icon" aria-hidden="true"><span class="so-noite">❄️</span><span class="so-dia">🥖</span></div>
           <span class="card__id"><span class="so-noite">LX-027</span><span class="so-dia">FN-012</span></span>
@@ -205,9 +242,15 @@
           <span class="card__price"><span class="so-noite">₡ 22</span><span class="so-dia">₡ 8</span></span>
           <span class="card__tag"><span class="so-noite">Lucid</span><span class="so-dia">Crusty</span></span>
         </div>
+        <details class="card__info so-completo">
+          <summary>Details</summary>
+          <dl class="so-noite"><div><dt>Temperature</dt><dd>4 °C</dd></div><div><dt>Caffeine</dt><dd>200 mg</dd></div><div><dt>kcal</dt><dd>10</dd></div><div><dt>Allergens</dt><dd>none</dd></div></dl>
+          <dl class="so-dia"><div><dt>Oven</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>190</dd></div><div><dt>Allergens</dt><dd>gluten</dd></div></dl>
+        </details>
+        <button type="button" class="card__add so-completo" data-item="3" hidden>+ Order</button>
       </article>
 
-      <article class="card card--a reveal tilt" data-d="4">
+      <article class="card card--a reveal tilt" data-d="4" data-item="4" data-preco-noite="26" data-preco-dia="6" data-filtros-noite="gelado sem-lactose" data-filtros-dia="doce">
         <div class="card__top">
           <div class="card__icon" aria-hidden="true"><span class="so-noite">🍃</span><span class="so-dia">🧁</span></div>
           <span class="card__id"><span class="so-noite">LX-033</span><span class="so-dia">FN-019</span></span>
@@ -219,9 +262,15 @@
           <span class="card__price"><span class="so-noite">₡ 26</span><span class="so-dia">₡ 6</span></span>
           <span class="card__tag"><span class="so-noite">Ethereal</span><span class="so-dia">Sweet</span></span>
         </div>
+        <details class="card__info so-completo">
+          <summary>Details</summary>
+          <dl class="so-noite"><div><dt>Temperature</dt><dd>8 °C</dd></div><div><dt>Caffeine</dt><dd>70 mg</dd></div><div><dt>kcal</dt><dd>120</dd></div><div><dt>Allergens</dt><dd>none</dd></div></dl>
+          <dl class="so-dia"><div><dt>Oven</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>320</dd></div><div><dt>Allergens</dt><dd>gluten, milk, egg</dd></div></dl>
+        </details>
+        <button type="button" class="card__add so-completo" data-item="4" hidden>+ Order</button>
       </article>
 
-      <article class="card card--m reveal tilt" data-d="5">
+      <article class="card card--m reveal tilt" data-d="5" data-item="5" data-preco-noite="20" data-preco-dia="5" data-filtros-noite="quente doce sem-cafeina" data-filtros-dia="doce sem-lactose">
         <div class="card__top">
           <div class="card__icon" aria-hidden="true"><span class="so-noite">✨</span><span class="so-dia">🍩</span></div>
           <span class="card__id"><span class="so-noite">LX-042</span><span class="so-dia">FN-024</span></span>
@@ -233,9 +282,15 @@
           <span class="card__price"><span class="so-noite">₡ 20</span><span class="so-dia">₡ 5</span></span>
           <span class="card__tag"><span class="so-noite">Smooth</span><span class="so-dia">Rare</span></span>
         </div>
+        <details class="card__info so-completo">
+          <summary>Details</summary>
+          <dl class="so-noite"><div><dt>Temperature</dt><dd>60 °C</dd></div><div><dt>Caffeine</dt><dd>0 mg</dd></div><div><dt>kcal</dt><dd>210</dd></div><div><dt>Allergens</dt><dd>milk</dd></div></dl>
+          <dl class="so-dia"><div><dt>Oven</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>260</dd></div><div><dt>Allergens</dt><dd>gluten, egg</dd></div></dl>
+        </details>
+        <button type="button" class="card__add so-completo" data-item="5" hidden>+ Order</button>
       </article>
 
-      <article class="card card--v reveal tilt" data-d="5">
+      <article class="card card--v reveal tilt" data-d="5" data-item="6" data-preco-noite="31" data-preco-dia="4" data-filtros-noite="gelado intenso sem-lactose" data-filtros-dia="salgado quentinho sem-gluten">
         <div class="card__top">
           <div class="card__icon" aria-hidden="true"><span class="so-noite">☄️</span><span class="so-dia">🧀</span></div>
           <span class="card__id"><span class="so-noite">LX-050</span><span class="so-dia">FN-031</span></span>
@@ -247,6 +302,12 @@
           <span class="card__price"><span class="so-noite">₡ 31</span><span class="so-dia">₡ 4</span></span>
           <span class="card__tag"><span class="so-noite">Rare</span><span class="so-dia">Classic</span></span>
         </div>
+        <details class="card__info so-completo">
+          <summary>Details</summary>
+          <dl class="so-noite"><div><dt>Temperature</dt><dd>−2 °C</dd></div><div><dt>Caffeine</dt><dd>280 mg</dd></div><div><dt>kcal</dt><dd>15</dd></div><div><dt>Allergens</dt><dd>none</dd></div></dl>
+          <dl class="so-dia"><div><dt>Oven</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>90</dd></div><div><dt>Allergens</dt><dd>milk, egg</dd></div></dl>
+        </details>
+        <button type="button" class="card__add so-completo" data-item="6" hidden>+ Order</button>
       </article>
     </div>
   </section>
@@ -319,6 +380,7 @@
           <small><span class="so-noite">Synthesizer output</span><span class="so-dia">Fresh from the oven</span></small>
           <div id="drinkName">Quantum Espresso · Level VII</div>
           <span id="drinkPrice">₡ 21.50</span>
+          <button type="button" class="btn btn--magenta lab__add so-completo" id="labAdd" hidden>+ Add to order</button>
         </div>
       </div>
 
@@ -377,6 +439,46 @@
     </div>
   </section>
 
+  <!-- RESERVAS E FIDELIDADE (1/11/2026): só no site completo; embutido no simulador, fica escondido -->
+  <section class="section so-completo" id="reservas" hidden>
+    <span class="eyebrow reveal">Bookings</span>
+    <h2 class="reveal" data-d="1"><span class="so-noite">Save your table in the rift</span><span class="so-dia">Save your table at the bakery</span></h2>
+    <p class="lead reveal" data-d="2">Book a table and collect stamps: one stamp per order; with ten, the next one is on the house.</p>
+    <div class="reservas">
+      <form class="reserva reveal" id="reservaForm" novalidate aria-labelledby="reservaTitulo">
+        <h3 id="reservaTitulo">Book a table</h3>
+        <div class="campo"><label for="rNome">Name</label><input id="rNome" type="text" name="nome" autocomplete="name" required aria-describedby="rNomeErro"><p class="erro" id="rNomeErro" hidden>Tell us whose name the table is under.</p></div>
+        <div class="campo campo--dois">
+          <div><label for="rPessoas">People</label><input id="rPessoas" name="pessoas" type="number" min="1" max="8" value="2" inputmode="numeric" required aria-describedby="rPessoasErro"><p class="erro" id="rPessoasErro" hidden>From 1 to 8 people.</p></div>
+          <div><label for="rData">Day</label><input id="rData" name="data" type="date" required aria-describedby="rDataErro"><p class="erro" id="rDataErro" hidden>Choose today or a later day.</p></div>
+        </div>
+        <div class="campo"><label for="rHora">Time</label><input id="rHora" name="hora" type="time" required aria-describedby="rHoraErro"><p class="erro" id="rHoraErro" hidden></p></div>
+        <fieldset class="campo"><legend>Where</legend>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="mesa" value="Window" checked><span>Window</span></label>
+            <label class="chip"><input type="radio" name="mesa" value="Counter"><span>Counter</span></label>
+            <label class="chip"><input type="radio" name="mesa" value="Big table"><span>Big table</span></label>
+          </div>
+        </fieldset>
+        <button type="submit" class="btn btn--magenta">Book</button>
+        <p class="reserva__msg" id="reservaMsg" role="status" aria-live="polite"></p>
+      </form>
+      <div class="reservas__lado">
+        <div class="fidelidade reveal" data-d="1">
+          <h3><span class="so-noite">Aurora Card</span><span class="so-dia">Bakery Card</span></h3>
+          <p>Every order you send earns a stamp. It is kept on this device.</p>
+          <ol class="carimbos" id="carimbos" aria-hidden="true"><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ol>
+          <p class="fidelidade__msg" id="fidMsg" role="status" aria-live="polite"></p>
+          <button type="button" class="btn btn--ghost" id="fidUsar" hidden>Use the reward</button>
+        </div>
+        <div class="minhas" id="minhas" hidden>
+          <h3>My bookings</h3>
+          <ul id="minhasLista"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="cta">
     <h2 class="reveal"><span class="so-noite">The rift is open <em>until late</em></span><span class="so-dia">The oven comes on <em>at six</em></span></h2>
@@ -431,6 +533,7 @@
     <div class="foot__bottom">
       <span>© <span id="year"></span> <span class="so-noite">Café Aurora</span><span class="so-dia">Aurora Bakery</span> <span class="dot">◆</span> All universes reserved</span>
       <span>Fictional café · example website by <a href="https://sites.linupedia.com.br/intl/" target="_top">Linu Sites</a></span>
+      <span class="foot__versoes">Also in <a href="bootstrap/">Bootstrap</a> · <a href="tailwind/">Tailwind</a> · <a href="../versoes.html">compare all three (Portuguese)</a></span>
     </div>
   </footer>
 </main>
@@ -447,6 +550,42 @@
     <p class="dim__hint">Drag to shift the café’s spectrum. Nothing breaks — probably.</p>
   </div>
 </aside>
+
+<!-- O PEDIDO (1/11/2026): o carrinho, com a mensagem pronta para o WhatsApp. O Café é fictício: o WhatsApp abre sem
+     número, para a pessoa escolher o contato; num site de verdade, iria direto para o número da loja. -->
+<dialog class="janela pedido" id="pedido" aria-labelledby="pedidoTitulo">
+  <div class="janela__topo">
+    <h2 id="pedidoTitulo">Your order</h2>
+    <button type="button" class="janela__fechar" data-fechar aria-label="Close">✕</button>
+  </div>
+  <p class="pedido__vazio" id="pedidoVazio">Your order is empty. Tap “+ Order” on a menu item or in the lab.</p>
+  <ul class="pedido__itens" id="pedidoItens"></ul>
+  <p class="pedido__total" id="pedidoTotalLinha"><span>Total</span><b id="pedidoTotal"></b></p>
+  <form class="pedido__form" id="pedidoForm" novalidate>
+    <div class="campo"><label for="pNome">Your name</label><input id="pNome" type="text" name="nome" autocomplete="given-name" required aria-describedby="pNomeErro"><p class="erro" id="pNomeErro" hidden>Tell us your name so we can call you at the counter.</p></div>
+    <fieldset class="campo"><legend>How would you like it?</legend>
+      <div class="chips">
+        <label class="chip"><input type="radio" name="como" value="aqui" checked><span>Eat in</span></label>
+        <label class="chip"><input type="radio" name="como" value="levar"><span>Take away</span></label>
+      </div>
+    </fieldset>
+    <div class="campo"><label for="pHora">For what time (optional)</label><input id="pHora" name="hora" type="time"></div>
+    <div class="campo"><label for="pObs">Note (optional)</label><textarea id="pObs" name="obs" rows="2" maxlength="200"></textarea></div>
+    <p class="pedido__selo" id="pedidoSelo"></p>
+    <button type="submit" class="btn btn--magenta">Send on WhatsApp</button>
+    <p class="pedido__nota">The café is fictional: WhatsApp opens without a number, so you choose who to send it to. On a real site, the order would go straight to the shop.</p>
+  </form>
+  <div class="pedido__feito" id="pedidoFeito" hidden tabindex="-1"></div>
+</dialog>
+
+<!-- O TESTE: que bebida (ou, de dia, que pão) combina com você -->
+<dialog class="janela quiz" id="quiz" aria-labelledby="quizTitulo">
+  <div class="janela__topo">
+    <h2 id="quizTitulo"><span class="so-noite">Which drink suits you?</span><span class="so-dia">Which bread suits you?</span></h2>
+    <button type="button" class="janela__fechar" data-fechar aria-label="Close">✕</button>
+  </div>
+  <div class="quiz__corpo" id="quizCorpo" aria-live="polite"></div>
+</dialog>
 
 <!-- PAINEL (módulo "painel para mexer sozinho"): só aparece quando o simulador liga o módulo -->
 <div class="painel-demo" id="painelDemo" hidden>

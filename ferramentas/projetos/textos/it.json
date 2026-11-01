@@ -206,6 +206,7 @@
       "Una caffetteria cyberpunk con schermata d’apertura, cursore proprio, sfondo di particelle, menù e un laboratorio per comporre la bevanda, con la tazza disegnata solo in CSS.",
       "Dalle 6 alle 18 il sito diventa il Forno Aurora: altri colori, un altro menù e un laboratorio del pane, scelti dall’orologio di chi visita prima che la pagina compaia.",
       "La stessa pagina in tre versioni, CSS puro, Bootstrap e Tailwind, per confrontare cosa cambia ogni modo di scrivere CSS.",
+      "Un caffè “vero”: ordine con quantità e messaggio pronto per WhatsApp, filtri e dettagli del menù, un test per scegliere la bevanda, prenotazione del tavolo controllata mentre scrivi e tessera a timbri, anche offline.",
       "È il sito d’esempio del simulatore di Linu Sites: ogni parte lì si accende e si spegne, e il prezzo cambia insieme."
     ],
     "dentro": [

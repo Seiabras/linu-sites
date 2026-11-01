@@ -167,7 +167,72 @@
     "d_foot_p": "自 2087 年起的跨次元麵包坊。麵粉以合乎倫理的方式，在同意的宇宙裡磨成。",
     "d_hora1": "每天 · 06:00 — 18:00",
     "d_hora2": "第一爐 · 06:00 準時",
-    "d_hora3": "日落之後 · 咖啡館開門"
+    "d_hora3": "日落之後 · 咖啡館開門",
+    "add": "點餐",
+    "lab_add": "加入訂單",
+    "detalhes": "詳細",
+    "i_temp": "溫度",
+    "i_cafeina": "咖啡因",
+    "i_alergenos": "過敏原",
+    "i_forno": "烤箱",
+    "al_nenhum": "無",
+    "al_leite": "牛奶",
+    "al_gluten": "麩質",
+    "al_ovo": "蛋",
+    "f_aria": "篩選菜單",
+    "f_todos": "全部",
+    "f_quente": "熱飲",
+    "f_gelado": "冰飲",
+    "f_doce": "甜",
+    "f_intenso": "濃烈",
+    "f_sem_lactose": "無乳糖",
+    "f_sem_cafeina": "無咖啡因",
+    "d_f_salgado": "鹹",
+    "d_f_quentinho": "剛出爐",
+    "d_f_sem_gluten": "無麩質",
+    "f_vazio": "沒有符合這個篩選的品項。",
+    "qz_abrir": "不知道點什麼？做個測驗",
+    "d_qz_abrir": "不知道選哪種麵包？做個測驗",
+    "qz_titulo": "哪杯飲品適合你？",
+    "d_qz_titulo": "哪種麵包適合你？",
+    "fechar": "關閉",
+    "p_titulo": "你的訂單",
+    "p_vazio": "訂單是空的。請在菜單或實驗室點「+ 點餐」。",
+    "p_total": "合計",
+    "p_nome": "你的名字",
+    "p_nome_erro": "請留下名字，方便我們在櫃台叫你。",
+    "p_como": "怎麼享用？",
+    "p_aqui": "內用",
+    "p_levar": "外帶",
+    "p_hora": "取餐時間（選填）",
+    "p_obs": "備註（選填）",
+    "p_enviar": "用 WhatsApp 傳送",
+    "p_nota": "這家咖啡館是虛構的：WhatsApp 會在沒有號碼的情況下開啟，由你選擇傳給誰。真正的網站，訂單會直接送到店家。",
+    "nav_reservas": "訂位",
+    "r_h2": "在裂縫裡留個位子",
+    "d_r_h2": "在麵包店留個位子",
+    "r_lead": "訂位並集點：每筆訂單一點，集滿十點，下一筆由店家招待。",
+    "r_titulo": "訂一張桌子",
+    "r_nome": "姓名",
+    "r_nome_erro": "請告訴我們訂位人的名字。",
+    "r_pessoas": "人數",
+    "r_pessoas_erro": "1 到 8 人。",
+    "r_data": "日期",
+    "r_data_erro": "請選今天或之後的日期。",
+    "r_hora": "時間",
+    "r_mesa": "座位",
+    "r_janela": "窗邊",
+    "r_balcao": "吧台",
+    "r_grande": "大桌",
+    "r_enviar": "訂位",
+    "r_minhas": "我的訂位",
+    "fid_h3": "極光卡",
+    "d_fid_h3": "麵包店集點卡",
+    "fid_p": "每送出一筆訂單得一點，存在這台裝置上。",
+    "fid_usar": "使用獎勵",
+    "tw_feito": "以 HTML、Tailwind CSS 和一點量子咖啡因製作",
+    "versoes": "其他版本：",
+    "comparar": "比較三個版本（葡萄牙文）"
   },
   "js": {
     "boot": [
@@ -194,6 +259,116 @@
       "軌道全麥麵包",
       "星光布里歐"
     ],
-    "d_min": "{n} 分鐘"
+    "d_min": "{n} 分鐘",
+    "add_aria": "把{nome}加入訂單",
+    "no_pedido": "{nome}已加入訂單。",
+    "menos": "{nome}減一份",
+    "mais": "{nome}加一份",
+    "f_n": "菜單 {total} 項中的 {n} 項",
+    "msg_cab": "給{loja}的訂單：",
+    "msg_total": "合計",
+    "msg_nome": "姓名",
+    "msg_aqui": "內用",
+    "msg_levar": "外帶",
+    "msg_hora": "時間",
+    "msg_obs": "備註：",
+    "feito": "完成：已開啟帶有訂單的 WhatsApp，你得到一點（10 點中的 {n} 點）。",
+    "feito_abrir": "再次開啟 WhatsApp",
+    "selo": "這筆訂單可得一點（目前 10 點中的 {n} 點）。",
+    "fid_n": "10 點中的 {n} 點。",
+    "fid_premio": "集滿了！下一筆訂單由店家招待。",
+    "fid_usado": "獎勵已使用，換新卡，祝好運。",
+    "r_ok": "已訂位：{mesa}，{pessoas} 人，{data} {hora}。",
+    "r_whats": "用 WhatsApp 確認",
+    "r_cancelar": "取消",
+    "r_msg": "{loja}訂位：{mesa}，{pessoas} 人，{data} {hora}，訂位人 {nome}。",
+    "r_hora_erro": "請填寫時間。",
+    "r_hora_noite": "凌晨 4 點到 6 點，咖啡館休息清理裂縫。",
+    "r_hora_dia": "麵包店營業時間為 6 點到 18 點。",
+    "qz_passo": "第 {n}/{total} 題",
+    "qz_resultado": "適合你的是：",
+    "qz_de_novo": "再來一次",
+    "qz_noite": [
+      [
+        "熱的還是冰的？",
+        [
+          [
+            "熱的",
+            "quente"
+          ],
+          [
+            "冰的",
+            "gelado"
+          ]
+        ]
+      ],
+      [
+        "甜的還是濃烈？",
+        [
+          [
+            "甜的",
+            "doce"
+          ],
+          [
+            "濃烈",
+            "intenso"
+          ]
+        ]
+      ],
+      [
+        "咖啡因呢？",
+        [
+          [
+            "沒問題",
+            "cafeina"
+          ],
+          [
+            "無咖啡因",
+            "sem-cafeina"
+          ]
+        ]
+      ]
+    ],
+    "qz_dia": [
+      [
+        "甜的還是鹹的？",
+        [
+          [
+            "甜的",
+            "doce"
+          ],
+          [
+            "鹹的",
+            "salgado"
+          ]
+        ]
+      ],
+      [
+        "要剛出爐的嗎？",
+        [
+          [
+            "熱騰騰",
+            "quentinho"
+          ],
+          [
+            "都可以",
+            ""
+          ]
+        ]
+      ],
+      [
+        "牛奶呢？",
+        [
+          [
+            "沒關係",
+            ""
+          ],
+          [
+            "無乳糖",
+            "sem-lactose"
+          ]
+        ]
+      ]
+    ]
   }
 }

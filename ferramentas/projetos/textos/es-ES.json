@@ -206,6 +206,7 @@
       "Una cafetería cyberpunk con pantalla de entrada, cursor propio, fondo de partículas, carta y un laboratorio para montar la bebida, con la taza dibujada solo con CSS.",
       "De 6:00 a 18:00 la web se convierte en la Panadería Aurora: otros colores, otra carta y un laboratorio de pan, elegidos por el reloj de quien visita antes de que aparezca la página.",
       "La misma página en tres versiones, CSS puro, Bootstrap y Tailwind, para comparar lo que cambia cada forma de escribir CSS.",
+      "Una cafetería «de verdad»: pedido con cantidades y mensaje listo para WhatsApp, filtros y detalles en la carta, un test para elegir la bebida, reserva de mesa con validación al momento y tarjeta de sellos, también sin conexión.",
       "Es la web de ejemplo del simulador de Linu Sites: cada parte se enciende y se apaga allí, y el precio cambia con ella."
     ],
     "dentro": [

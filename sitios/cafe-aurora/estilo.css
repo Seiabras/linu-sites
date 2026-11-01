@@ -1144,3 +1144,205 @@ html, body { overflow-x: clip; } /* o menu de gaveta e o halo do topo ficavam fo
   .lab { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: center; }
 }
 @media (max-width: 699px) { [data-modo="dia"] .pedir-celular { color: #fff; } }
+
+/* ============================================================
+   18. O SITE COMPLETO (1/11/2026): pedido, filtros, detalhes, teste,
+   reservas e cartão de carimbos. Embutido no simulador, some tudo.
+   Celular: as janelas sobem de baixo; tablet: no meio; computador:
+   o pedido é uma gaveta à direita e as reservas, duas colunas.
+   ============================================================ */
+.embutido .so-completo{display:none !important}
+.card[hidden],.menu-vazio[hidden]{display:none}
+
+/* filtros do cardápio */
+.menu-filtros{margin-top:2rem;display:grid;gap:.9rem}
+.filtro{
+  padding:.5rem 1rem;min-height:40px;border:1px solid var(--stroke);border-radius:99px;background:transparent;
+  font-size:.82rem;letter-spacing:.08em;color:var(--muted);cursor:pointer;
+  transition:color .2s ease-out,border-color .2s ease-out,background-color .2s ease-out,box-shadow .2s ease-out;
+}
+.filtro:hover{color:var(--text);border-color:rgba(180,160,255,.45)}
+.filtro[aria-pressed="true"]{color:#03010a;background:var(--cyan);border-color:var(--cyan);box-shadow:0 0 18px hsl(185 100% 55% / .45)}
+[data-modo="dia"] .filtro[aria-pressed="true"]{color:#fff8ee}
+.menu-filtros__fim{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.8rem;color:var(--muted);font-size:.92rem}
+.menu-filtros__fim .btn{padding:.6rem 1.1rem;font-size:.7rem}
+.menu-vazio{margin-top:1.4rem;color:var(--muted)}
+
+/* detalhes e "+ Pedido" em cada cartão */
+.card__info{margin-top:.9rem;font-size:.88rem}
+.card__info summary{cursor:pointer;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;font-size:.7rem;font-family:var(--font-display);padding-block:6px;list-style-position:inside}
+.card__info summary:hover{color:var(--text)}
+.card__info[open] dl{animation:entra .22s ease-out}
+.card__info dl{display:grid;grid-template-columns:1fr 1fr;gap:.4rem .9rem;margin-top:.5rem}
+.card__info dt{font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.card__info dd{font-weight:600}
+.card__add{
+  margin-top:1rem;width:100%;min-height:44px;border:1px solid var(--stroke);border-radius:3px;background:rgba(255,255,255,.03);
+  font-family:var(--font-display);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;
+  transition:border-color .2s ease-out,background-color .2s ease-out,transform .15s ease-out;
+}
+.card__add:hover{border-color:var(--cyan);background:hsl(185 100% 55% / .08)}
+.card__add:active{transform:scale(.98)}
+.lab__add{margin-top:1rem}
+@keyframes entra{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+/* o número de itens no "Pedir agora" */
+.pedir-n{display:inline-grid;place-items:center;min-width:1.5em;height:1.5em;padding:0 .3em;border-radius:99px;background:var(--text);color:var(--bg);font-size:.75em;line-height:1}
+.pedir-n[hidden]{display:none}
+
+/* o aviso "entrou no pedido" */
+.aviso-pedido{position:fixed;left:50%;bottom:calc(84px + env(safe-area-inset-bottom));z-index:880;transform:translate(-50%,12px);opacity:0;pointer-events:none;
+  padding:.6rem 1.1rem;border-radius:99px;background:var(--bg-2);border:1px solid var(--cyan);color:var(--text);font-weight:600;max-width:calc(100vw - 32px);
+  transition:opacity .2s ease-in,transform .2s ease-in}
+.aviso-pedido.visivel{opacity:1;transform:translate(-50%,0);transition:opacity .2s ease-out,transform .2s ease-out}
+@media (min-width:700px){.aviso-pedido{bottom:2rem}}
+
+/* as janelas (<dialog>): o pedido e o teste */
+.janela{
+  color:var(--text);background:var(--bg-2);border:1px solid var(--stroke);border-radius:6px;padding:1.3rem 1.3rem 1.5rem;
+  width:min(560px,calc(100vw - 32px));max-height:calc(100dvh - 32px);overflow:auto;margin:auto;
+  box-shadow:0 30px 80px -20px rgb(0 0 0 / .6);cursor:auto;
+}
+.janela *{cursor:auto}
+.janela button,.janela a,.janela summary,.janela label,.janela .chip{cursor:pointer}
+.janela::backdrop{background:rgb(3 1 10 / .7);backdrop-filter:blur(3px)}
+[data-modo="dia"] .janela::backdrop{background:rgb(58 36 20 / .45)}
+.janela[open]{animation:janela-entra .22s ease-out}
+.janela[open]::backdrop{animation:fundo-entra .22s ease-out}
+@keyframes janela-entra{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes fundo-entra{from{opacity:0}to{opacity:1}}
+.janela__topo{display:flex;justify-content:space-between;align-items:center;gap:1rem;margin-bottom:1rem}
+.janela__topo h2{font-family:var(--font-display);font-size:1.15rem;letter-spacing:.06em}
+.janela__fechar{width:44px;height:44px;flex:none;border:1px solid var(--stroke);border-radius:3px;background:transparent;font-size:1rem;transition:border-color .2s ease-out}
+.janela__fechar:hover{border-color:var(--magenta)}
+
+.pedido__vazio{color:var(--muted)}
+.pedido__itens{display:grid;gap:.6rem}
+.pedido__item{display:grid;grid-template-columns:1fr auto;gap:.3rem .8rem;align-items:center;padding:.7rem 0;border-bottom:1px dashed var(--stroke)}
+.pedido__nome{grid-column:1/-1;font-weight:600;line-height:1.3}
+.pedido__ctl{display:flex;align-items:center;gap:.5rem}
+.pedido__q{min-width:2ch;text-align:center;font-weight:700}
+.pedido__item b{font-family:var(--font-display);font-size:.9rem;color:var(--cyan)}
+.qtd{width:44px;height:44px;border:1px solid var(--stroke);border-radius:3px;background:transparent;font-size:1.2rem;transition:border-color .2s ease-out,transform .15s ease-out}
+.qtd:hover{border-color:var(--cyan)}
+.qtd:active{transform:scale(.94)}
+.pedido__total{display:flex;justify-content:space-between;align-items:baseline;margin:1rem 0;font-size:1.05rem}
+.pedido__total b{font-family:var(--font-display);font-size:1.3rem;color:var(--cyan);text-shadow:var(--glow-c)}
+.pedido__selo,.pedido__nota{font-size:.88rem;color:var(--muted)}
+.pedido__nota{margin-top:.8rem}
+.pedido__form .btn,.pedido__feito .btn{width:100%;justify-content:center;margin-top:.6rem}
+.pedido__feito{outline:none;display:grid;gap:.6rem}
+.pedido__feito p{font-size:1.05rem}
+
+/* campos de formulário (pedido e reservas) */
+.campo{display:grid;gap:.3rem;margin-bottom:1rem;border:0;min-width:0}
+.campo label,.campo legend{font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-family:var(--font-display)}
+.campo legend{margin-bottom:.5rem}
+.campo input,.campo textarea{
+  width:100%;min-height:46px;padding:.6rem .8rem;border:1px solid var(--stroke);border-radius:3px;background:rgba(255,255,255,.04);color:var(--text);
+  transition:border-color .2s ease-out,box-shadow .2s ease-out;
+}
+[data-modo="dia"] .campo input,[data-modo="dia"] .campo textarea{background:#fffaf2}
+.campo input:focus,.campo textarea:focus{border-color:var(--cyan);box-shadow:0 0 0 1px var(--cyan);outline:none}
+.campo [aria-invalid="true"]{border-color:var(--magenta)}
+.campo--dois{grid-template-columns:1fr 1fr;gap:.8rem}
+.campo--dois > div{display:grid;gap:.3rem;align-content:start}
+.erro{color:var(--magenta);font-weight:600;font-size:.9rem}
+.janela .chip,.reserva .chip{cursor:pointer}
+.janela .chip>span,.reserva .chip>span{min-height:40px;display:inline-flex;align-items:center}
+
+/* o teste */
+.quiz__passo{color:var(--muted);font-size:.85rem;letter-spacing:.12em;text-transform:uppercase}
+.quiz__pergunta,.quiz__nome{font-family:var(--font-display);font-size:1.3rem;margin:.4rem 0 1rem;outline:none}
+.quiz__nome{color:var(--cyan);text-shadow:var(--glow-c)}
+.quiz__opcoes{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1rem}
+.quiz__preco{font-family:var(--font-display);margin-top:.6rem}
+.quiz__corpo > *{animation:entra .22s ease-out}
+
+/* reservas e o cartão de carimbos */
+.reservas{display:grid;gap:1.6rem;margin-top:2.4rem}
+.reserva,.fidelidade,.minhas{border:1px solid var(--stroke);border-radius:4px;background:linear-gradient(160deg,rgba(20,12,42,.72),rgba(8,4,18,.5));padding:clamp(1.2rem,3vw,2rem)}
+[data-modo="dia"] .reserva,[data-modo="dia"] .fidelidade,[data-modo="dia"] .minhas{background:var(--panel)}
+.reserva h3,.fidelidade h3,.minhas h3{font-family:var(--font-display);font-size:1rem;letter-spacing:.08em;margin-bottom:1rem}
+.reserva__msg{margin-top:.8rem;font-weight:600;color:var(--cyan)}
+.reservas__lado{display:grid;gap:1.6rem;align-content:start}
+.fidelidade p{color:var(--muted)}
+.carimbos{display:grid;grid-template-columns:repeat(5,1fr);gap:.6rem;margin:1rem 0;list-style:none}
+.carimbos li{aspect-ratio:1;border-radius:50%;border:1px dashed var(--stroke);transition:background-color .25s ease-out,border-color .25s ease-out,box-shadow .25s ease-out}
+.carimbos li.carimbado{border:1px solid var(--magenta);background:radial-gradient(circle,var(--magenta) 0 28%,transparent 30%);box-shadow:0 0 14px hsl(315 100% 62% / .4)}
+[data-modo="dia"] .carimbos li.carimbado{box-shadow:none}
+.fidelidade__msg{font-weight:600;color:var(--text) !important}
+.minhas ul{display:grid;gap:.8rem}
+.minha{display:grid;gap:.5rem;padding-bottom:.8rem;border-bottom:1px dashed var(--stroke)}
+.minha__acoes{display:flex;flex-wrap:wrap;gap:.5rem}
+.minha__acoes .btn,.reservas .btn{padding:.6rem 1.1rem;font-size:.7rem}
+
+/* celular: as janelas sobem de baixo, ocupando a largura */
+@media (max-width:699px){
+  .janela{width:100%;max-width:100%;margin:auto 0 0;border-radius:12px 12px 0 0;max-height:88dvh;padding-bottom:calc(1.5rem + env(safe-area-inset-bottom))}
+  @keyframes janela-entra{from{transform:translateY(100%)}to{transform:none}}
+  .menu-filtros .chips{flex-wrap:nowrap;overflow-x:auto;padding-bottom:.3rem;margin-inline:-1rem;padding-inline:1rem}
+  .filtro{flex:none}
+}
+/* tablet: reservas em duas colunas */
+@media (min-width:700px){
+  .reservas{grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);align-items:start}
+}
+/* computador: o pedido vira uma gaveta presa à direita, da altura da tela */
+@media (min-width:1100px){
+  .pedido{margin:0 0 0 auto;height:100dvh;max-height:100dvh;width:440px;border-radius:0;border-width:0 0 0 1px}
+  @keyframes janela-entra{from{opacity:0;transform:translateX(24px)}to{opacity:1;transform:none}}
+  .quiz{width:600px}
+}
+@media (prefers-reduced-motion:reduce){
+  .janela[open],.janela[open]::backdrop,.quiz__corpo > *,.card__info[open] dl{animation:none}
+  .aviso-pedido,.aviso-pedido.visivel{transition:none}
+}
+.btn[hidden],.so-completo[hidden],.janela [hidden]{display:none !important}
+
+/* ============================================================
+   19. AS TRÊS VERSÕES LADO A LADO (versoes.html, 1/11/2026): sem o fundo
+   animado e sem o cursor próprio. Celular: tudo em uma coluna; tablet:
+   o "quando usar" em duas; computador: os três códigos lado a lado.
+   ============================================================ */
+.versoes-pagina{cursor:auto;background:radial-gradient(ellipse at 80% -10%,hsl(265 92% 30% / .35),transparent 60%),var(--bg)}
+.versoes-pagina a,.versoes-pagina button{cursor:pointer}
+.versoes-topo{display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:1rem clamp(1rem,4vw,3rem);border-bottom:1px solid var(--stroke)}
+.versoes-topo .btn{padding:.6rem 1.1rem;font-size:.7rem}
+.versoes{max-width:var(--maxw);margin:0 auto;padding:clamp(1.5rem,5vw,4rem) clamp(1rem,4vw,3rem);display:grid;gap:clamp(2.5rem,6vw,4.5rem)}
+.versoes h1{font-family:var(--font-display);font-size:clamp(1.8rem,5vw,3.2rem);line-height:1.1;margin:.6rem 0 1rem}
+.versoes h2{font-family:var(--font-display);font-size:clamp(1.3rem,3vw,1.9rem);margin-bottom:1.2rem}
+.versoes h3{font-family:var(--font-display);font-size:1rem;letter-spacing:.06em;margin-bottom:.5rem}
+.versoes-links{display:flex;flex-wrap:wrap;gap:.7rem;margin:1.6rem 0 1rem}
+.versoes-nota{color:var(--muted);font-size:.92rem;margin-top:.8rem;max-width:75ch}
+.versoes-nota a,.versoes-rodape a,.versoes-fatos a{color:var(--cyan);text-decoration:underline;display:inline-block;padding-block:3px}
+.grafico-versoes{border:1px solid var(--stroke);border-radius:4px;padding:clamp(1rem,3vw,1.6rem);background:var(--panel)}
+.grafico-versoes figcaption{color:var(--muted);margin-bottom:1rem;font-size:.92rem}
+.tabela-versoes{width:100%;border-collapse:collapse;font-size:.95rem}
+.tabela-versoes th,.tabela-versoes td{padding:.6rem .5rem;border-bottom:1px dashed var(--stroke);text-align:left;vertical-align:middle}
+.tabela-versoes thead th{font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.tabela-versoes td b{font-family:var(--font-display);font-variant-numeric:tabular-nums}
+.tabela-versoes td:last-child{width:34%}
+.barra-v{display:block;height:12px;border-radius:0 4px 4px 0;background:var(--cyan);transform-origin:left}
+.b-puro{width:51.8%}.b-bootstrap{width:100%;background:var(--magenta)}.b-tailwind{width:26.7%;background:var(--violet)}
+.versoes-fatos{display:grid;gap:.8rem;margin-top:1.4rem;max-width:80ch;list-style:none}
+.versoes-fatos code,.versoes-codigo figcaption code{font-size:.9em;color:var(--cyan)}
+.versoes-codigo{display:grid;gap:1rem}
+.versoes-codigo figure{border:1px solid var(--stroke);border-radius:4px;background:rgba(0,0,0,.25);overflow:hidden}
+[data-modo="dia"] .versoes-codigo figure{background:rgba(255,255,255,.6)}
+.versoes-codigo figcaption{padding:.7rem 1rem;border-bottom:1px solid var(--stroke);color:var(--muted);font-size:.9rem}
+.versoes-codigo pre{margin:0;padding:1rem;overflow-x:auto;font-size:.82rem;line-height:1.55}
+.versoes-quando{display:grid;gap:1rem}
+.versoes-quando > div{border:1px solid var(--stroke);border-radius:4px;padding:1.2rem;background:var(--panel)}
+.versoes-quando p{color:var(--muted)}
+.versoes-rodape{border-top:1px solid var(--stroke);padding:1.4rem clamp(1rem,4vw,3rem);color:var(--muted);font-size:.9rem;text-align:center}
+@media (max-width:699px){
+  .tabela-versoes{font-size:.85rem}
+  .tabela-versoes th:nth-child(2),.tabela-versoes td:nth-child(2),.tabela-versoes th:nth-child(3),.tabela-versoes td:nth-child(3),.tabela-versoes th:nth-child(4),.tabela-versoes td:nth-child(4){display:none}
+}
+@media (min-width:700px){.versoes-quando{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (min-width:1100px){
+  .versoes-codigo{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .versoes-quando{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+.foot__versoes a{text-decoration:underline}

@@ -206,6 +206,7 @@
       "Una cafeteria cyberpunk amb pantalla d’entrada, cursor propi, fons de partícules, carta i un laboratori per muntar la beguda, amb la tassa dibuixada només amb CSS.",
       "De 6.00 a 18.00 el web es converteix en la Fleca Aurora: altres colors, una altra carta i un laboratori de pa, triats pel rellotge de qui visita abans que aparegui la pàgina.",
       "La mateixa pàgina en tres versions, CSS pur, Bootstrap i Tailwind, per comparar què canvia cada manera d’escriure CSS.",
+      "Una cafeteria «de veritat»: comanda amb quantitats i missatge a punt per al WhatsApp, filtres i detalls a la carta, un test per triar la beguda, reserva de taula amb validació a l’instant i targeta de segells, també sense connexió.",
       "És el web d’exemple del simulador de Linu Sites: cada part s’hi encén i s’apaga, i el preu canvia amb ella."
     ],
     "dentro": [

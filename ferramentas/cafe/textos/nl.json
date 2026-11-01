@@ -167,7 +167,72 @@
     "d_foot_p": "Interdimensionale bakkerij sinds 2087. Ethisch gemalen meel uit universums die toestemming gaven.",
     "d_hora1": "Elke dag · 06.00 — 18.00",
     "d_hora2": "Eerste baksel · stipt om 06.00",
-    "d_hora3": "Na zonsondergang · het café gaat open"
+    "d_hora3": "Na zonsondergang · het café gaat open",
+    "add": "Bestelling",
+    "lab_add": "Aan bestelling toevoegen",
+    "detalhes": "Details",
+    "i_temp": "Temperatuur",
+    "i_cafeina": "Cafeïne",
+    "i_alergenos": "Allergenen",
+    "i_forno": "Oven",
+    "al_nenhum": "geen",
+    "al_leite": "melk",
+    "al_gluten": "gluten",
+    "al_ovo": "ei",
+    "f_aria": "Menu filteren",
+    "f_todos": "Alles",
+    "f_quente": "Warm",
+    "f_gelado": "IJskoud",
+    "f_doce": "Zoet",
+    "f_intenso": "Sterk",
+    "f_sem_lactose": "Lactosevrij",
+    "f_sem_cafeina": "Cafeïnevrij",
+    "d_f_salgado": "Hartig",
+    "d_f_quentinho": "Vers uit de oven",
+    "d_f_sem_gluten": "Glutenvrij",
+    "f_vazio": "Niets op het menu met dat filter.",
+    "qz_abrir": "Weet je niet wat je wilt? Doe de test",
+    "d_qz_abrir": "Weet je niet welk brood? Doe de test",
+    "qz_titulo": "Welk drankje past bij jou?",
+    "d_qz_titulo": "Welk brood past bij jou?",
+    "fechar": "Sluiten",
+    "p_titulo": "Je bestelling",
+    "p_vazio": "Je bestelling is leeg. Tik op “+ Bestelling” bij iets op het menu of in het lab.",
+    "p_total": "Totaal",
+    "p_nome": "Je naam",
+    "p_nome_erro": "Zeg je naam, dan roepen we je aan de bar.",
+    "p_como": "Hoe wil je het?",
+    "p_aqui": "Hier opeten",
+    "p_levar": "Meenemen",
+    "p_hora": "Voor hoe laat (optioneel)",
+    "p_obs": "Opmerking (optioneel)",
+    "p_enviar": "Versturen via WhatsApp",
+    "p_nota": "Het café is verzonnen: WhatsApp opent zonder nummer, zodat jij kiest naar wie. Op een echte site ging de bestelling meteen naar de zaak.",
+    "nav_reservas": "Reserveren",
+    "r_h2": "Houd je tafel vrij in de kloof",
+    "d_r_h2": "Houd je tafel vrij in de bakkerij",
+    "r_lead": "Reserveer een tafel en spaar stempels: één stempel per bestelling; bij tien is de volgende van het huis.",
+    "r_titulo": "Een tafel reserveren",
+    "r_nome": "Naam",
+    "r_nome_erro": "Op wiens naam staat de tafel?",
+    "r_pessoas": "Personen",
+    "r_pessoas_erro": "Van 1 tot 8 personen.",
+    "r_data": "Dag",
+    "r_data_erro": "Kies vandaag of een latere dag.",
+    "r_hora": "Tijd",
+    "r_mesa": "Waar",
+    "r_janela": "Raam",
+    "r_balcao": "Bar",
+    "r_grande": "Grote tafel",
+    "r_enviar": "Reserveren",
+    "r_minhas": "Mijn reserveringen",
+    "fid_h3": "Aurora-kaart",
+    "d_fid_h3": "Bakkerijkaart",
+    "fid_p": "Elke verstuurde bestelling is een stempel waard. Hij blijft op dit apparaat.",
+    "fid_usar": "Beloning gebruiken",
+    "tw_feito": "Gemaakt met HTML, Tailwind CSS en een beetje kwantumcafeïne",
+    "versoes": "Ook in",
+    "comparar": "de drie vergelijken (Portugees)"
   },
   "js": {
     "boot": [
@@ -194,6 +259,116 @@
       "Volkorenbrood uit de Baan",
       "Sterrenbrioche"
     ],
-    "d_min": "{n} min"
+    "d_min": "{n} min",
+    "add_aria": "{nome} aan de bestelling toevoegen",
+    "no_pedido": "{nome} staat in de bestelling.",
+    "menos": "Eén {nome} minder",
+    "mais": "Nog een {nome}",
+    "f_n": "{n} van {total} op het menu",
+    "msg_cab": "Bestelling voor {loja}:",
+    "msg_total": "Totaal",
+    "msg_nome": "Naam",
+    "msg_aqui": "Om daar te eten",
+    "msg_levar": "Om mee te nemen",
+    "msg_hora": "Om",
+    "msg_obs": "Opm.:",
+    "feito": "Klaar: WhatsApp is geopend met de bestelling. Je krijgt een stempel ({n} van 10).",
+    "feito_abrir": "WhatsApp opnieuw openen",
+    "selo": "Deze bestelling is een stempel waard (tot nu toe {n} van 10).",
+    "fid_n": "{n} van 10 stempels.",
+    "fid_premio": "Kaart vol! De volgende bestelling is van het huis.",
+    "fid_usado": "Beloning gebruikt. Nieuwe kaart, succes.",
+    "r_ok": "Gereserveerd: {mesa}, {pessoas} personen, {data} om {hora}.",
+    "r_whats": "Bevestigen via WhatsApp",
+    "r_cancelar": "Annuleren",
+    "r_msg": "Reservering bij {loja}: {mesa}, {pessoas} personen, {data} om {hora}, op naam van {nome}.",
+    "r_hora_erro": "Zeg de tijd.",
+    "r_hora_noite": "Van 04.00 tot 06.00 uur sluit het café om de kloof schoon te maken.",
+    "r_hora_dia": "De bakkerij is open van 06.00 tot 18.00 uur.",
+    "qz_passo": "Vraag {n} van {total}",
+    "qz_resultado": "Past bij jou:",
+    "qz_de_novo": "Opnieuw",
+    "qz_noite": [
+      [
+        "Warm of ijskoud?",
+        [
+          [
+            "Warm",
+            "quente"
+          ],
+          [
+            "IJskoud",
+            "gelado"
+          ]
+        ]
+      ],
+      [
+        "Zoet of sterk?",
+        [
+          [
+            "Zoet",
+            "doce"
+          ],
+          [
+            "Sterk",
+            "intenso"
+          ]
+        ]
+      ],
+      [
+        "En cafeïne?",
+        [
+          [
+            "Graag",
+            "cafeina"
+          ],
+          [
+            "Cafeïnevrij",
+            "sem-cafeina"
+          ]
+        ]
+      ]
+    ],
+    "qz_dia": [
+      [
+        "Zoet of hartig?",
+        [
+          [
+            "Zoet",
+            "doce"
+          ],
+          [
+            "Hartig",
+            "salgado"
+          ]
+        ]
+      ],
+      [
+        "Vers uit de oven?",
+        [
+          [
+            "Warm",
+            "quentinho"
+          ],
+          [
+            "Maakt niet uit",
+            ""
+          ]
+        ]
+      ],
+      [
+        "En melk?",
+        [
+          [
+            "Geen probleem",
+            ""
+          ],
+          [
+            "Lactosevrij",
+            "sem-lactose"
+          ]
+        ]
+      ]
+    ]
   }
 }

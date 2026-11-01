@@ -3,6 +3,15 @@
    ============================================================ */
 (() => {
   'use strict';
+  // Os textos no idioma da página (o gerar-cafe.mjs do linu-sites escreve o bloco #textos-cafe); sem ele, em português
+  const blocoT = document.getElementById('textos-cafe');
+  const T = Object.assign({
+    boot: ['Inicializando portal…', 'Calibrando moagem quântica…', 'Sincronizando grãos de Ω-11…', 'Aquecendo reator de vapor…', 'Bem-vindo à fenda.'],
+    expresso: 'Expresso Quântico', coldbrew: 'Cold Brew Neural', matcha: 'Matcha do Vazio', estelar: 'Leite de Estrela', nivel: 'Nível',
+    news_erro: 'Sinal inválido. Verifique as coordenadas do seu e-mail.', news_ok: 'Sinal recebido. Você será contactado de outra dimensão.'
+  }, blocoT ? JSON.parse(blocoT.textContent) : {});
+  const precoT = v => '₡ ' + v.toLocaleString(document.documentElement.lang || 'pt-BR', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+
 
   const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const isTouch = window.matchMedia('(hover: none), (pointer: coarse)').matches;
@@ -11,13 +20,7 @@
 
   /* ---------- 1. BOOT ---------- */
   const boot = $('#boot'), bootFill = $('#bootFill'), bootLog = $('#bootLog');
-  const steps = [
-    'Inicializando portal…',
-    'Calibrando moagem quântica…',
-    'Sincronizando grãos de Ω-11…',
-    'Aquecendo reator de vapor…',
-    'Bem-vindo à fenda.'
-  ];
+  const steps = T.boot;
   let p = 0, si = 0;
   const bootTimer = setInterval(() => {
     p = Math.min(100, p + Math.random() * 18 + 6);
@@ -199,10 +202,10 @@
 
   /* ---------- 8. LABORATÓRIO ---------- */
   const BASES = {
-    expresso: { name:'Expresso Quântico', h:26, s:62, l:24, foam:'rgba(214,178,130,.45)', glow:'hsla(28,90%,55%,.35)' },
-    coldbrew: { name:'Cold Brew Neural',  h:20, s:46, l:14, foam:'rgba(150,110,80,.32)',  glow:'hsla(200,95%,60%,.32)' },
-    matcha:   { name:'Matcha do Vazio',   h:148,s:62, l:40, foam:'rgba(200,255,210,.40)', glow:'hsla(148,90%,55%,.34)' },
-    estelar:  { name:'Leite de Estrela',  h:268,s:82, l:72, foam:'rgba(255,255,255,.55)', glow:'hsla(268,95%,70%,.40)' }
+    expresso: { name:T.expresso, h:26, s:62, l:24, foam:'rgba(214,178,130,.45)', glow:'hsla(28,90%,55%,.35)' },
+    coldbrew: { name:T.coldbrew,  h:20, s:46, l:14, foam:'rgba(150,110,80,.32)',  glow:'hsla(200,95%,60%,.32)' },
+    matcha:   { name:T.matcha,   h:148,s:62, l:40, foam:'rgba(200,255,210,.40)', glow:'hsla(148,90%,55%,.34)' },
+    estelar:  { name:T.estelar,  h:268,s:82, l:72, foam:'rgba(255,255,255,.55)', glow:'hsla(268,95%,70%,.40)' }
   };
   const BASE_PRICE = { expresso:16, coldbrew:19, matcha:21, estelar:18 };
   const TOP_PRICE  = 3.5;
@@ -227,12 +230,12 @@
     cupGlow.style.background = `radial-gradient(circle, ${base.glow}, transparent 65%)`;
 
     const roman = ['I','II','III','IV','V','VI','VII','VIII','IX','X'][intensity - 1];
-    let name = `${base.name} · Nível ${roman}`;
+    let name = `${base.name} · ${T.nivel} ${roman}`;
     if (tops.length) name += ` + ${tops.join(' + ')}`;
     nameOut.textContent = name;
 
     const price = BASE_PRICE[baseKey] + intensity * 0.55 + tops.length * TOP_PRICE;
-    priceOut.textContent = '₡ ' + price.toFixed(2).replace('.', ',');
+    priceOut.textContent = precoT(price);
   }
   form.addEventListener('input', updateDrink);
   form.addEventListener('change', updateDrink);
@@ -272,11 +275,11 @@
     const ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
     if (!ok) {
       newsMsg.style.color = 'hsl(315 100% 68%)';
-      newsMsg.textContent = 'Sinal inválido. Verifique as coordenadas do seu e-mail.';
+      newsMsg.textContent = T.news_erro;
       emailIn.focus(); return;
     }
     newsMsg.style.color = 'hsl(185 100% 65%)';
-    newsMsg.textContent = 'Sinal recebido. Você será contactado de outra dimensão.';
+    newsMsg.textContent = T.news_ok;
     emailIn.value = '';
   });
 

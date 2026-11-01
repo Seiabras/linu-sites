@@ -206,6 +206,7 @@
       "Um café cyberpunk com ecrã de abertura, cursor próprio, fundo de partículas, ementa e um laboratório para montar a bebida, com a chávena desenhada só em CSS.",
       "Das 6h às 18h o site passa a ser a Padaria Aurora: outras cores, outra ementa e um laboratório de pão, escolhidos pelo relógio de quem visita antes de a página aparecer.",
       "A mesma página em três versões, CSS puro, Bootstrap e Tailwind, para comparar o que cada forma de escrever CSS muda.",
+      "Um café “a sério”: encomenda com quantidades e mensagem pronta para o WhatsApp, filtros e detalhes da ementa, um teste para escolher a bebida, reserva de mesa com validação imediata e cartão de carimbos, também sem internet.",
       "É o site de exemplo do simulador do Linu Sites: cada parte liga e desliga ali, e o preço muda com ela."
     ],
     "dentro": [

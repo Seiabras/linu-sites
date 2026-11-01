@@ -21,7 +21,7 @@
 <link rel="alternate" hreflang="ko-KR" href="https://cafe.linupedia.com.br/ko/">
 <link rel="alternate" hreflang="zh-Hant" href="https://cafe.linupedia.com.br/zh-hant/">
 <!-- Os textos que o script escreve (abertura, bebidas, assinatura, painel), no idioma da página -->
-<script type="application/json" id="textos-cafe">{"boot":["Inicializando portal…","Calibrando moagem quântica…","Sincronizando grãos de Ω-11…","Aquecendo reator de vapor…","Bem-vindo à fenda."],"news_erro":"Sinal inválido. Verifique as coordenadas do seu e-mail.","news_ok":"Sinal recebido. Será contactado a partir de outra dimensão.","terminar":"✓ Terminar","painel_aviso":"Clique num texto e escreva. No painel a sério, o que muda fica guardado.","d_boot":["A acender o forno…","A fechar a fenda…","A amassar a massa de Ω-11…","À espera que a côdea aloure…","Bom dia."],"d_pao":["Pão de Trigo Solar","Pão de Centeio da Penumbra","Pão Integral de Órbita","Brioche Estelar"],"d_min":"{n} min","expresso":"Expresso Quântico","coldbrew":"Cold Brew Neural","matcha":"Matcha do Vazio","estelar":"Leite de Estrela","nivel":"Nível","editar":"✎ Editar textos"}</script>
+<script type="application/json" id="textos-cafe">{"boot":["Inicializando portal…","Calibrando moagem quântica…","Sincronizando grãos de Ω-11…","Aquecendo reator de vapor…","Bem-vindo à fenda."],"news_erro":"Sinal inválido. Verifique as coordenadas do seu e-mail.","news_ok":"Sinal recebido. Será contactado a partir de outra dimensão.","terminar":"✓ Terminar","painel_aviso":"Clique num texto e escreva. No painel a sério, o que muda fica guardado.","d_boot":["A acender o forno…","A fechar a fenda…","A amassar a massa de Ω-11…","À espera que a côdea aloure…","Bom dia."],"d_pao":["Pão de Trigo Solar","Pão de Centeio da Penumbra","Pão Integral de Órbita","Brioche Estelar"],"d_min":"{n} min","add_aria":"Juntar {nome} à encomenda","no_pedido":"{nome} entrou na encomenda.","menos":"Menos um {nome}","mais":"Mais um {nome}","f_n":"{n} de {total} na ementa","msg_cab":"Encomenda para {loja}:","msg_total":"Total","msg_nome":"Nome","msg_aqui":"Para comer aí","msg_levar":"Para levar","msg_hora":"Às","msg_obs":"Obs.:","feito":"Pronto: o WhatsApp abriu com a encomenda. Ganhou um carimbo ({n} de 10).","feito_abrir":"Abrir o WhatsApp outra vez","selo":"Esta encomenda vale um carimbo ({n} de 10 até agora).","fid_n":"{n} de 10 carimbos.","fid_premio":"Cartão cheio! A próxima encomenda é oferta da casa.","fid_usado":"Prémio usado. Cartão novo, boa sorte.","r_ok":"Reservado: {mesa}, {pessoas} pessoas, {data} às {hora}.","r_whats":"Confirmar pelo WhatsApp","r_cancelar":"Cancelar","r_msg":"Reserva em {loja}: {mesa}, {pessoas} pessoas, {data} às {hora}, em nome de {nome}.","r_hora_erro":"Diga a hora.","r_hora_noite":"Das 04h às 06h o café fecha para limpar a fenda.","r_hora_dia":"A padaria está aberta das 06h às 18h.","qz_passo":"Pergunta {n} de {total}","qz_resultado":"Combina consigo:","qz_de_novo":"Voltar a fazer","qz_noite":[["Quente ou gelado?",[["Quente","quente"],["Gelado","gelado"]]],["Doce ou intenso?",[["Doce","doce"],["Intenso","intenso"]]],["E a cafeína?",[["Pode vir","cafeina"],["Sem cafeína","sem-cafeina"]]]],"qz_dia":[["Doce ou salgado?",[["Doce","doce"],["Salgado","salgado"]]],["Acabado de sair do forno?",[["Quentinho","quentinho"],["Tanto faz",""]]],["E o leite?",[["Pode ter",""],["Sem lactose","sem-lactose"]]]],"expresso":"Expresso Quântico","coldbrew":"Cold Brew Neural","matcha":"Matcha do Vazio","estelar":"Leite de Estrela","nivel":"Nível","editar":"✎ Editar textos","d_nome":"Padaria Aurora","lab_add":"Juntar à encomenda"}</script>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
 <link rel="icon" href="../icone.png" type="image/png" sizes="128x128">
 <link rel="preload" href="../fontes/orbitron.woff2" as="font" type="font/woff2" crossorigin>
@@ -29,8 +29,9 @@
      que muda tem as duas versões, .so-noite e .so-dia, e o data-modo do <html> esconde uma delas (ver inicio.js). Na página principal, ele aparece embutido
      (iframe) no simulador de preço, que liga e desliga as partes dele (ver script.js, "módulos"). -->
 <script src="../inicio.js?v=2"></script>
-<link rel="stylesheet" href="../estilo.css?v=7">
-<script src="../script.js?v=6" defer></script>
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="stylesheet" href="../estilo.css?v=8">
+<script src="../script.js?v=7" defer></script>
 </head>
 
 <body>
@@ -66,6 +67,7 @@
     <a href="#menu">Ementa</a>
     <a href="#laboratorio"><span class="so-noite">Laboratório</span><span class="so-dia">Forno</span></a>
     <a href="#transmissoes"><span class="so-noite">Transmissões</span><span class="so-dia">Recados</span></a>
+    <a href="#reservas" class="so-completo" hidden>Reservas</a>
   </nav>
 
   <div class="nav__right">
@@ -164,8 +166,31 @@
       <span class="so-noite">Seis receitas calibradas para diferentes frequências cerebrais. Todas servidas em chávenas autorregenerativas.</span><span class="so-dia">Seis receitas que saem do forno várias vezes por dia. Todas embrulhadas num papel que guarda o calor durante algumas horas, ou dimensões.</span>
     </p>
 
+    <div class="menu-filtros so-completo" id="menuFiltros" hidden>
+      <div class="chips so-noite" role="group" aria-label="Filtrar a ementa">
+        <button type="button" class="filtro" data-filtro="" aria-pressed="true">Tudo</button>
+        <button type="button" class="filtro" data-filtro="quente" aria-pressed="false">Quente</button>
+        <button type="button" class="filtro" data-filtro="gelado" aria-pressed="false">Gelado</button>
+        <button type="button" class="filtro" data-filtro="doce" aria-pressed="false">Doce</button>
+        <button type="button" class="filtro" data-filtro="intenso" aria-pressed="false">Intenso</button>
+        <button type="button" class="filtro" data-filtro="sem-lactose" aria-pressed="false">Sem lactose</button>
+        <button type="button" class="filtro" data-filtro="sem-cafeina" aria-pressed="false">Sem cafeína</button>
+      </div>
+      <div class="chips so-dia" role="group" aria-label="Filtrar a ementa">
+        <button type="button" class="filtro" data-filtro="" aria-pressed="true">Tudo</button>
+        <button type="button" class="filtro" data-filtro="doce" aria-pressed="false">Doce</button>
+        <button type="button" class="filtro" data-filtro="salgado" aria-pressed="false">Salgado</button>
+        <button type="button" class="filtro" data-filtro="quentinho" aria-pressed="false">Acabado de sair do forno</button>
+        <button type="button" class="filtro" data-filtro="sem-lactose" aria-pressed="false">Sem lactose</button>
+        <button type="button" class="filtro" data-filtro="sem-gluten" aria-pressed="false">Sem glúten</button>
+      </div>
+      <p class="menu-filtros__fim"><span id="menuConta" aria-live="polite"></span>
+        <button type="button" class="btn btn--ghost" id="quizAbrir"><span class="so-noite">Não sabe o que pedir? Faça o teste</span><span class="so-dia">Não sabe que pão levar? Faça o teste</span></button></p>
+    </div>
+    <p class="menu-vazio" id="menuVazio" hidden>Nada na ementa com esse filtro.</p>
+
     <div class="menu-grid">
-      <article class="card reveal tilt" data-d="1">
+      <article class="card reveal tilt" data-d="1" data-item="1" data-preco-noite="18" data-preco-dia="9" data-filtros-noite="quente intenso sem-lactose" data-filtros-dia="salgado quentinho">
         <div class="card__top">
           <div class="card__icon" aria-hidden="true"><span class="so-noite">⚡</span><span class="so-dia">🥐</span></div>
           <span class="card__id"><span class="so-noite">LX-001</span><span class="so-dia">FN-001</span></span>
@@ -177,9 +202,15 @@
           <span class="card__price"><span class="so-noite">₡ 18</span><span class="so-dia">₡ 9</span></span>
           <span class="card__tag"><span class="so-noite">Intenso</span><span class="so-dia">Folhado</span></span>
         </div>
+        <details class="card__info so-completo">
+          <summary>Detalhes</summary>
+          <dl class="so-noite"><div><dt>Temperatura</dt><dd>68 °C</dd></div><div><dt>Cafeína</dt><dd>140 mg</dd></div><div><dt>kcal</dt><dd>5</dd></div><div><dt>Alergénios</dt><dd>nenhum</dd></div></dl>
+          <dl class="so-dia"><div><dt>Forno</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>280</dd></div><div><dt>Alergénios</dt><dd>glúten, leite, ovo</dd></div></dl>
+        </details>
+        <button type="button" class="card__add so-completo" data-item="1" hidden>+ Encomenda</button>
       </article>
 
-      <article class="card card--m reveal tilt" data-d="2">
+      <article class="card card--m reveal tilt" data-d="2" data-item="2" data-preco-noite="24" data-preco-dia="7" data-filtros-noite="quente doce" data-filtros-dia="salgado sem-lactose">
         <div class="card__top">
           <div class="card__icon" aria-hidden="true"><span class="so-noite">🌌</span><span class="so-dia">🍞</span></div>
           <span class="card__id"><span class="so-noite">LX-014</span><span class="so-dia">FN-006</span></span>
@@ -191,9 +222,15 @@
           <span class="card__price"><span class="so-noite">₡ 24</span><span class="so-dia">₡ 7</span></span>
           <span class="card__tag"><span class="so-noite">Brilhante</span><span class="so-dia">Leve</span></span>
         </div>
+        <details class="card__info so-completo">
+          <summary>Detalhes</summary>
+          <dl class="so-noite"><div><dt>Temperatura</dt><dd>72 °C</dd></div><div><dt>Cafeína</dt><dd>90 mg</dd></div><div><dt>kcal</dt><dd>180</dd></div><div><dt>Alergénios</dt><dd>leite</dd></div></dl>
+          <dl class="so-dia"><div><dt>Forno</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>150</dd></div><div><dt>Alergénios</dt><dd>glúten</dd></div></dl>
+        </details>
+        <button type="button" class="card__add so-completo" data-item="2" hidden>+ Encomenda</button>
       </article>
 
-      <article class="card card--v reveal tilt" data-d="3">
+      <article class="card card--v reveal tilt" data-d="3" data-item="3" data-preco-noite="22" data-preco-dia="8" data-filtros-noite="gelado intenso sem-lactose" data-filtros-dia="salgado quentinho sem-lactose">
         <div class="card__top">
           <div class="card__icon" aria-hidden="true"><span class="so-noite">❄️</span><span class="so-dia">🥖</span></div>
           <span class="card__id"><span class="so-noite">LX-027</span><span class="so-dia">FN-012</span></span>
@@ -205,9 +242,15 @@
           <span class="card__price"><span class="so-noite">₡ 22</span><span class="so-dia">₡ 8</span></span>
           <span class="card__tag"><span class="so-noite">Lúcido</span><span class="so-dia">Estaladiço</span></span>
         </div>
+        <details class="card__info so-completo">
+          <summary>Detalhes</summary>
+          <dl class="so-noite"><div><dt>Temperatura</dt><dd>4 °C</dd></div><div><dt>Cafeína</dt><dd>200 mg</dd></div><div><dt>kcal</dt><dd>10</dd></div><div><dt>Alergénios</dt><dd>nenhum</dd></div></dl>
+          <dl class="so-dia"><div><dt>Forno</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>190</dd></div><div><dt>Alergénios</dt><dd>glúten</dd></div></dl>
+        </details>
+        <button type="button" class="card__add so-completo" data-item="3" hidden>+ Encomenda</button>
       </article>
 
-      <article class="card card--a reveal tilt" data-d="4">
+      <article class="card card--a reveal tilt" data-d="4" data-item="4" data-preco-noite="26" data-preco-dia="6" data-filtros-noite="gelado sem-lactose" data-filtros-dia="doce">
         <div class="card__top">
           <div class="card__icon" aria-hidden="true"><span class="so-noite">🍃</span><span class="so-dia">🧁</span></div>
           <span class="card__id"><span class="so-noite">LX-033</span><span class="so-dia">FN-019</span></span>
@@ -219,9 +262,15 @@
           <span class="card__price"><span class="so-noite">₡ 26</span><span class="so-dia">₡ 6</span></span>
           <span class="card__tag"><span class="so-noite">Etéreo</span><span class="so-dia">Doce</span></span>
         </div>
+        <details class="card__info so-completo">
+          <summary>Detalhes</summary>
+          <dl class="so-noite"><div><dt>Temperatura</dt><dd>8 °C</dd></div><div><dt>Cafeína</dt><dd>70 mg</dd></div><div><dt>kcal</dt><dd>120</dd></div><div><dt>Alergénios</dt><dd>nenhum</dd></div></dl>
+          <dl class="so-dia"><div><dt>Forno</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>320</dd></div><div><dt>Alergénios</dt><dd>glúten, leite, ovo</dd></div></dl>
+        </details>
+        <button type="button" class="card__add so-completo" data-item="4" hidden>+ Encomenda</button>
       </article>
 
-      <article class="card card--m reveal tilt" data-d="5">
+      <article class="card card--m reveal tilt" data-d="5" data-item="5" data-preco-noite="20" data-preco-dia="5" data-filtros-noite="quente doce sem-cafeina" data-filtros-dia="doce sem-lactose">
         <div class="card__top">
           <div class="card__icon" aria-hidden="true"><span class="so-noite">✨</span><span class="so-dia">🍩</span></div>
           <span class="card__id"><span class="so-noite">LX-042</span><span class="so-dia">FN-024</span></span>
@@ -233,9 +282,15 @@
           <span class="card__price"><span class="so-noite">₡ 20</span><span class="so-dia">₡ 5</span></span>
           <span class="card__tag"><span class="so-noite">Suave</span><span class="so-dia">Raro</span></span>
         </div>
+        <details class="card__info so-completo">
+          <summary>Detalhes</summary>
+          <dl class="so-noite"><div><dt>Temperatura</dt><dd>60 °C</dd></div><div><dt>Cafeína</dt><dd>0 mg</dd></div><div><dt>kcal</dt><dd>210</dd></div><div><dt>Alergénios</dt><dd>leite</dd></div></dl>
+          <dl class="so-dia"><div><dt>Forno</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>260</dd></div><div><dt>Alergénios</dt><dd>glúten, ovo</dd></div></dl>
+        </details>
+        <button type="button" class="card__add so-completo" data-item="5" hidden>+ Encomenda</button>
       </article>
 
-      <article class="card card--v reveal tilt" data-d="5">
+      <article class="card card--v reveal tilt" data-d="5" data-item="6" data-preco-noite="31" data-preco-dia="4" data-filtros-noite="gelado intenso sem-lactose" data-filtros-dia="salgado quentinho sem-gluten">
         <div class="card__top">
           <div class="card__icon" aria-hidden="true"><span class="so-noite">☄️</span><span class="so-dia">🧀</span></div>
           <span class="card__id"><span class="so-noite">LX-050</span><span class="so-dia">FN-031</span></span>
@@ -247,6 +302,12 @@
           <span class="card__price"><span class="so-noite">₡ 31</span><span class="so-dia">₡ 4</span></span>
           <span class="card__tag"><span class="so-noite">Raro</span><span class="so-dia">Clássico</span></span>
         </div>
+        <details class="card__info so-completo">
+          <summary>Detalhes</summary>
+          <dl class="so-noite"><div><dt>Temperatura</dt><dd>−2 °C</dd></div><div><dt>Cafeína</dt><dd>280 mg</dd></div><div><dt>kcal</dt><dd>15</dd></div><div><dt>Alergénios</dt><dd>nenhum</dd></div></dl>
+          <dl class="so-dia"><div><dt>Forno</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>90</dd></div><div><dt>Alergénios</dt><dd>leite, ovo</dd></div></dl>
+        </details>
+        <button type="button" class="card__add so-completo" data-item="6" hidden>+ Encomenda</button>
       </article>
     </div>
   </section>
@@ -319,6 +380,7 @@
           <small><span class="so-noite">Saída do sintetizador</span><span class="so-dia">A sair do forno</span></small>
           <div id="drinkName">Expresso Quântico · Nível VII</div>
           <span id="drinkPrice">₡ 21,50</span>
+          <button type="button" class="btn btn--magenta lab__add so-completo" id="labAdd" hidden>+ Juntar à encomenda</button>
         </div>
       </div>
 
@@ -377,6 +439,46 @@
     </div>
   </section>
 
+  <!-- RESERVAS E FIDELIDADE (1/11/2026): só no site completo; embutido no simulador, fica escondido -->
+  <section class="section so-completo" id="reservas" hidden>
+    <span class="eyebrow reveal">Reservas</span>
+    <h2 class="reveal" data-d="1"><span class="so-noite">Guarde a sua mesa na fenda</span><span class="so-dia">Guarde a sua mesa na padaria</span></h2>
+    <p class="lead reveal" data-d="2">Reserve uma mesa e junte carimbos: um por encomenda; com dez, a seguinte é oferta da casa.</p>
+    <div class="reservas">
+      <form class="reserva reveal" id="reservaForm" novalidate aria-labelledby="reservaTitulo">
+        <h3 id="reservaTitulo">Reservar uma mesa</h3>
+        <div class="campo"><label for="rNome">Nome</label><input id="rNome" type="text" name="nome" autocomplete="name" required aria-describedby="rNomeErro"><p class="erro" id="rNomeErro" hidden>Diga em nome de quem fica a mesa.</p></div>
+        <div class="campo campo--dois">
+          <div><label for="rPessoas">Pessoas</label><input id="rPessoas" name="pessoas" type="number" min="1" max="8" value="2" inputmode="numeric" required aria-describedby="rPessoasErro"><p class="erro" id="rPessoasErro" hidden>De 1 a 8 pessoas.</p></div>
+          <div><label for="rData">Dia</label><input id="rData" name="data" type="date" required aria-describedby="rDataErro"><p class="erro" id="rDataErro" hidden>Escolha hoje ou um dia seguinte.</p></div>
+        </div>
+        <div class="campo"><label for="rHora">Hora</label><input id="rHora" name="hora" type="time" required aria-describedby="rHoraErro"><p class="erro" id="rHoraErro" hidden></p></div>
+        <fieldset class="campo"><legend>Onde</legend>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="mesa" value="Janela" checked><span>Janela</span></label>
+            <label class="chip"><input type="radio" name="mesa" value="Balcão"><span>Balcão</span></label>
+            <label class="chip"><input type="radio" name="mesa" value="Mesa grande"><span>Mesa grande</span></label>
+          </div>
+        </fieldset>
+        <button type="submit" class="btn btn--magenta">Reservar</button>
+        <p class="reserva__msg" id="reservaMsg" role="status" aria-live="polite"></p>
+      </form>
+      <div class="reservas__lado">
+        <div class="fidelidade reveal" data-d="1">
+          <h3><span class="so-noite">Cartão Aurora</span><span class="so-dia">Cartão da Padaria</span></h3>
+          <p>Cada encomenda enviada vale um carimbo. Fica guardado neste aparelho.</p>
+          <ol class="carimbos" id="carimbos" aria-hidden="true"><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ol>
+          <p class="fidelidade__msg" id="fidMsg" role="status" aria-live="polite"></p>
+          <button type="button" class="btn btn--ghost" id="fidUsar" hidden>Usar o prémio</button>
+        </div>
+        <div class="minhas" id="minhas" hidden>
+          <h3>As minhas reservas</h3>
+          <ul id="minhasLista"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="cta">
     <h2 class="reveal"><span class="so-noite">A fenda está aberta <em>até tarde</em></span><span class="so-dia">O forno acende <em>às seis</em></span></h2>
@@ -431,6 +533,7 @@
     <div class="foot__bottom">
       <span>© <span id="year"></span> <span class="so-noite">Café Aurora</span><span class="so-dia">Padaria Aurora</span> <span class="dot">◆</span> Todos os universos reservados</span>
       <span>Café fictício · site de exemplo feito por <a href="https://sites.linupedia.com.br/pt-pt/" target="_top">Linu Sites</a></span>
+      <span class="foot__versoes">Também em <a href="bootstrap/">Bootstrap</a> · <a href="tailwind/">Tailwind</a> · <a href="../versoes.html">comparar as três</a></span>
     </div>
   </footer>
 </main>
@@ -447,6 +550,42 @@
     <p class="dim__hint">Arraste para deslocar o espectro do café. Nada se parte — provavelmente.</p>
   </div>
 </aside>
+
+<!-- O PEDIDO (1/11/2026): o carrinho, com a mensagem pronta para o WhatsApp. O Café é fictício: o WhatsApp abre sem
+     número, para a pessoa escolher o contato; num site de verdade, iria direto para o número da loja. -->
+<dialog class="janela pedido" id="pedido" aria-labelledby="pedidoTitulo">
+  <div class="janela__topo">
+    <h2 id="pedidoTitulo">A sua encomenda</h2>
+    <button type="button" class="janela__fechar" data-fechar aria-label="Fechar">✕</button>
+  </div>
+  <p class="pedido__vazio" id="pedidoVazio">A encomenda está vazia. Toque em “+ Encomenda” num produto da ementa ou no laboratório.</p>
+  <ul class="pedido__itens" id="pedidoItens"></ul>
+  <p class="pedido__total" id="pedidoTotalLinha"><span>Total</span><b id="pedidoTotal"></b></p>
+  <form class="pedido__form" id="pedidoForm" novalidate>
+    <div class="campo"><label for="pNome">O seu nome</label><input id="pNome" type="text" name="nome" autocomplete="given-name" required aria-describedby="pNomeErro"><p class="erro" id="pNomeErro" hidden>Diga o seu nome para o chamarmos ao balcão.</p></div>
+    <fieldset class="campo"><legend>Como vai ser?</legend>
+      <div class="chips">
+        <label class="chip"><input type="radio" name="como" value="aqui" checked><span>Comer cá</span></label>
+        <label class="chip"><input type="radio" name="como" value="levar"><span>Para levar</span></label>
+      </div>
+    </fieldset>
+    <div class="campo"><label for="pHora">Para que horas (opcional)</label><input id="pHora" name="hora" type="time"></div>
+    <div class="campo"><label for="pObs">Observação (opcional)</label><textarea id="pObs" name="obs" rows="2" maxlength="200"></textarea></div>
+    <p class="pedido__selo" id="pedidoSelo"></p>
+    <button type="submit" class="btn btn--magenta">Enviar pelo WhatsApp</button>
+    <p class="pedido__nota">O café é fictício: o WhatsApp abre sem número, para escolher a quem enviar. Num site a sério, a encomenda iria diretamente para a loja.</p>
+  </form>
+  <div class="pedido__feito" id="pedidoFeito" hidden tabindex="-1"></div>
+</dialog>
+
+<!-- O TESTE: que bebida (ou, de dia, que pão) combina com você -->
+<dialog class="janela quiz" id="quiz" aria-labelledby="quizTitulo">
+  <div class="janela__topo">
+    <h2 id="quizTitulo"><span class="so-noite">Que bebida combina consigo?</span><span class="so-dia">Que pão combina consigo?</span></h2>
+    <button type="button" class="janela__fechar" data-fechar aria-label="Fechar">✕</button>
+  </div>
+  <div class="quiz__corpo" id="quizCorpo" aria-live="polite"></div>
+</dialog>
 
 <!-- PAINEL (módulo "painel para mexer sozinho"): só aparece quando o simulador liga o módulo -->
 <div class="painel-demo" id="painelDemo" hidden>

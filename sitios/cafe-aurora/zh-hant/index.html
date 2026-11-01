@@ -21,7 +21,7 @@
 <link rel="alternate" hreflang="ko-KR" href="https://cafe.linupedia.com.br/ko/">
 <link rel="alternate" hreflang="zh-Hant" href="https://cafe.linupedia.com.br/zh-hant/">
 <!-- Os textos que o script escreve (abertura, bebidas, assinatura, painel), no idioma da página -->
-<script type="application/json" id="textos-cafe">{"boot":["正在開啟傳送門…","正在校準量子研磨…","正在同步 Ω-11 的咖啡豆…","正在預熱蒸氣反應爐…","歡迎來到裂縫。"],"news_erro":"無效的訊號。請檢查你的電子郵件座標。","news_ok":"已收到訊號。我們會從另一個次元與你聯絡。","terminar":"✓ 完成","painel_aviso":"點一下文字就能改寫。在真正的後台裡，你的修改會被儲存。","d_boot":["正在點燃烤箱…","正在關上裂縫…","正在揉 Ω-11 的麵團…","等外皮烤成金黃…","早安。"],"d_pao":["太陽小麥麵包","暮光黑麥麵包","軌道全麥麵包","星光布里歐"],"d_min":"{n} 分鐘","expresso":"量子濃縮咖啡","coldbrew":"神經冷萃","matcha":"虛空抹茶","estelar":"星光牛奶","nivel":"等級","editar":"✎ 編輯文字"}</script>
+<script type="application/json" id="textos-cafe">{"boot":["正在開啟傳送門…","正在校準量子研磨…","正在同步 Ω-11 的咖啡豆…","正在預熱蒸氣反應爐…","歡迎來到裂縫。"],"news_erro":"無效的訊號。請檢查你的電子郵件座標。","news_ok":"已收到訊號。我們會從另一個次元與你聯絡。","terminar":"✓ 完成","painel_aviso":"點一下文字就能改寫。在真正的後台裡，你的修改會被儲存。","d_boot":["正在點燃烤箱…","正在關上裂縫…","正在揉 Ω-11 的麵團…","等外皮烤成金黃…","早安。"],"d_pao":["太陽小麥麵包","暮光黑麥麵包","軌道全麥麵包","星光布里歐"],"d_min":"{n} 分鐘","add_aria":"把{nome}加入訂單","no_pedido":"{nome}已加入訂單。","menos":"{nome}減一份","mais":"{nome}加一份","f_n":"菜單 {total} 項中的 {n} 項","msg_cab":"給{loja}的訂單：","msg_total":"合計","msg_nome":"姓名","msg_aqui":"內用","msg_levar":"外帶","msg_hora":"時間","msg_obs":"備註：","feito":"完成：已開啟帶有訂單的 WhatsApp，你得到一點（10 點中的 {n} 點）。","feito_abrir":"再次開啟 WhatsApp","selo":"這筆訂單可得一點（目前 10 點中的 {n} 點）。","fid_n":"10 點中的 {n} 點。","fid_premio":"集滿了！下一筆訂單由店家招待。","fid_usado":"獎勵已使用，換新卡，祝好運。","r_ok":"已訂位：{mesa}，{pessoas} 人，{data} {hora}。","r_whats":"用 WhatsApp 確認","r_cancelar":"取消","r_msg":"{loja}訂位：{mesa}，{pessoas} 人，{data} {hora}，訂位人 {nome}。","r_hora_erro":"請填寫時間。","r_hora_noite":"凌晨 4 點到 6 點，咖啡館休息清理裂縫。","r_hora_dia":"麵包店營業時間為 6 點到 18 點。","qz_passo":"第 {n}/{total} 題","qz_resultado":"適合你的是：","qz_de_novo":"再來一次","qz_noite":[["熱的還是冰的？",[["熱的","quente"],["冰的","gelado"]]],["甜的還是濃烈？",[["甜的","doce"],["濃烈","intenso"]]],["咖啡因呢？",[["沒問題","cafeina"],["無咖啡因","sem-cafeina"]]]],"qz_dia":[["甜的還是鹹的？",[["甜的","doce"],["鹹的","salgado"]]],["要剛出爐的嗎？",[["熱騰騰","quentinho"],["都可以",""]]],["牛奶呢？",[["沒關係",""],["無乳糖","sem-lactose"]]]],"expresso":"量子濃縮咖啡","coldbrew":"神經冷萃","matcha":"虛空抹茶","estelar":"星光牛奶","nivel":"等級","editar":"✎ 編輯文字","d_nome":"極光麵包坊","lab_add":"加入訂單"}</script>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
 <link rel="icon" href="../icone.png" type="image/png" sizes="128x128">
 <link rel="preload" href="../fontes/orbitron.woff2" as="font" type="font/woff2" crossorigin>
@@ -29,8 +29,9 @@
      que muda tem as duas versões, .so-noite e .so-dia, e o data-modo do <html> esconde uma delas (ver inicio.js). Na página principal, ele aparece embutido
      (iframe) no simulador de preço, que liga e desliga as partes dele (ver script.js, "módulos"). -->
 <script src="../inicio.js?v=2"></script>
-<link rel="stylesheet" href="../estilo.css?v=7">
-<script src="../script.js?v=6" defer></script>
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="stylesheet" href="../estilo.css?v=8">
+<script src="../script.js?v=7" defer></script>
 </head>
 
 <body>
@@ -66,6 +67,7 @@
     <a href="#menu">菜單</a>
     <a href="#laboratorio"><span class="so-noite">實驗室</span><span class="so-dia">烤箱</span></a>
     <a href="#transmissoes"><span class="so-noite">通訊紀錄</span><span class="so-dia">留言</span></a>
+    <a href="#reservas" class="so-completo" hidden>訂位</a>
   </nav>
 
   <div class="nav__right">
@@ -164,8 +166,31 @@
       <span class="so-noite">六款依不同腦波頻率調校的配方，全部盛在會自我修復的杯子裡。</span><span class="so-dia">一天出爐好幾次的六款配方。全都用能保溫幾個小時（或幾個次元）的紙包好。</span>
     </p>
 
+    <div class="menu-filtros so-completo" id="menuFiltros" hidden>
+      <div class="chips so-noite" role="group" aria-label="篩選菜單">
+        <button type="button" class="filtro" data-filtro="" aria-pressed="true">全部</button>
+        <button type="button" class="filtro" data-filtro="quente" aria-pressed="false">熱飲</button>
+        <button type="button" class="filtro" data-filtro="gelado" aria-pressed="false">冰飲</button>
+        <button type="button" class="filtro" data-filtro="doce" aria-pressed="false">甜</button>
+        <button type="button" class="filtro" data-filtro="intenso" aria-pressed="false">濃烈</button>
+        <button type="button" class="filtro" data-filtro="sem-lactose" aria-pressed="false">無乳糖</button>
+        <button type="button" class="filtro" data-filtro="sem-cafeina" aria-pressed="false">無咖啡因</button>
+      </div>
+      <div class="chips so-dia" role="group" aria-label="篩選菜單">
+        <button type="button" class="filtro" data-filtro="" aria-pressed="true">全部</button>
+        <button type="button" class="filtro" data-filtro="doce" aria-pressed="false">甜</button>
+        <button type="button" class="filtro" data-filtro="salgado" aria-pressed="false">鹹</button>
+        <button type="button" class="filtro" data-filtro="quentinho" aria-pressed="false">剛出爐</button>
+        <button type="button" class="filtro" data-filtro="sem-lactose" aria-pressed="false">無乳糖</button>
+        <button type="button" class="filtro" data-filtro="sem-gluten" aria-pressed="false">無麩質</button>
+      </div>
+      <p class="menu-filtros__fim"><span id="menuConta" aria-live="polite"></span>
+        <button type="button" class="btn btn--ghost" id="quizAbrir"><span class="so-noite">不知道點什麼？做個測驗</span><span class="so-dia">不知道選哪種麵包？做個測驗</span></button></p>
+    </div>
+    <p class="menu-vazio" id="menuVazio" hidden>沒有符合這個篩選的品項。</p>
+
     <div class="menu-grid">
-      <article class="card reveal tilt" data-d="1">
+      <article class="card reveal tilt" data-d="1" data-item="1" data-preco-noite="18" data-preco-dia="9" data-filtros-noite="quente intenso sem-lactose" data-filtros-dia="salgado quentinho">
         <div class="card__top">
           <div class="card__icon" aria-hidden="true"><span class="so-noite">⚡</span><span class="so-dia">🥐</span></div>
           <span class="card__id"><span class="so-noite">LX-001</span><span class="so-dia">FN-001</span></span>
@@ -177,9 +202,15 @@
           <span class="card__price"><span class="so-noite">₡ 18</span><span class="so-dia">₡ 9</span></span>
           <span class="card__tag"><span class="so-noite">濃烈</span><span class="so-dia">酥層</span></span>
         </div>
+        <details class="card__info so-completo">
+          <summary>詳細</summary>
+          <dl class="so-noite"><div><dt>溫度</dt><dd>68 °C</dd></div><div><dt>咖啡因</dt><dd>140 mg</dd></div><div><dt>kcal</dt><dd>5</dd></div><div><dt>過敏原</dt><dd>無</dd></div></dl>
+          <dl class="so-dia"><div><dt>烤箱</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>280</dd></div><div><dt>過敏原</dt><dd>麩質, 牛奶, 蛋</dd></div></dl>
+        </details>
+        <button type="button" class="card__add so-completo" data-item="1" hidden>+ 點餐</button>
       </article>
 
-      <article class="card card--m reveal tilt" data-d="2">
+      <article class="card card--m reveal tilt" data-d="2" data-item="2" data-preco-noite="24" data-preco-dia="7" data-filtros-noite="quente doce" data-filtros-dia="salgado sem-lactose">
         <div class="card__top">
           <div class="card__icon" aria-hidden="true"><span class="so-noite">🌌</span><span class="so-dia">🍞</span></div>
           <span class="card__id"><span class="so-noite">LX-014</span><span class="so-dia">FN-006</span></span>
@@ -191,9 +222,15 @@
           <span class="card__price"><span class="so-noite">₡ 24</span><span class="so-dia">₡ 7</span></span>
           <span class="card__tag"><span class="so-noite">閃耀</span><span class="so-dia">輕盈</span></span>
         </div>
+        <details class="card__info so-completo">
+          <summary>詳細</summary>
+          <dl class="so-noite"><div><dt>溫度</dt><dd>72 °C</dd></div><div><dt>咖啡因</dt><dd>90 mg</dd></div><div><dt>kcal</dt><dd>180</dd></div><div><dt>過敏原</dt><dd>牛奶</dd></div></dl>
+          <dl class="so-dia"><div><dt>烤箱</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>150</dd></div><div><dt>過敏原</dt><dd>麩質</dd></div></dl>
+        </details>
+        <button type="button" class="card__add so-completo" data-item="2" hidden>+ 點餐</button>
       </article>
 
-      <article class="card card--v reveal tilt" data-d="3">
+      <article class="card card--v reveal tilt" data-d="3" data-item="3" data-preco-noite="22" data-preco-dia="8" data-filtros-noite="gelado intenso sem-lactose" data-filtros-dia="salgado quentinho sem-lactose">
         <div class="card__top">
           <div class="card__icon" aria-hidden="true"><span class="so-noite">❄️</span><span class="so-dia">🥖</span></div>
           <span class="card__id"><span class="so-noite">LX-027</span><span class="so-dia">FN-012</span></span>
@@ -205,9 +242,15 @@
           <span class="card__price"><span class="so-noite">₡ 22</span><span class="so-dia">₡ 8</span></span>
           <span class="card__tag"><span class="so-noite">清醒</span><span class="so-dia">酥脆</span></span>
         </div>
+        <details class="card__info so-completo">
+          <summary>詳細</summary>
+          <dl class="so-noite"><div><dt>溫度</dt><dd>4 °C</dd></div><div><dt>咖啡因</dt><dd>200 mg</dd></div><div><dt>kcal</dt><dd>10</dd></div><div><dt>過敏原</dt><dd>無</dd></div></dl>
+          <dl class="so-dia"><div><dt>烤箱</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>190</dd></div><div><dt>過敏原</dt><dd>麩質</dd></div></dl>
+        </details>
+        <button type="button" class="card__add so-completo" data-item="3" hidden>+ 點餐</button>
       </article>
 
-      <article class="card card--a reveal tilt" data-d="4">
+      <article class="card card--a reveal tilt" data-d="4" data-item="4" data-preco-noite="26" data-preco-dia="6" data-filtros-noite="gelado sem-lactose" data-filtros-dia="doce">
         <div class="card__top">
           <div class="card__icon" aria-hidden="true"><span class="so-noite">🍃</span><span class="so-dia">🧁</span></div>
           <span class="card__id"><span class="so-noite">LX-033</span><span class="so-dia">FN-019</span></span>
@@ -219,9 +262,15 @@
           <span class="card__price"><span class="so-noite">₡ 26</span><span class="so-dia">₡ 6</span></span>
           <span class="card__tag"><span class="so-noite">空靈</span><span class="so-dia">甜</span></span>
         </div>
+        <details class="card__info so-completo">
+          <summary>詳細</summary>
+          <dl class="so-noite"><div><dt>溫度</dt><dd>8 °C</dd></div><div><dt>咖啡因</dt><dd>70 mg</dd></div><div><dt>kcal</dt><dd>120</dd></div><div><dt>過敏原</dt><dd>無</dd></div></dl>
+          <dl class="so-dia"><div><dt>烤箱</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>320</dd></div><div><dt>過敏原</dt><dd>麩質, 牛奶, 蛋</dd></div></dl>
+        </details>
+        <button type="button" class="card__add so-completo" data-item="4" hidden>+ 點餐</button>
       </article>
 
-      <article class="card card--m reveal tilt" data-d="5">
+      <article class="card card--m reveal tilt" data-d="5" data-item="5" data-preco-noite="20" data-preco-dia="5" data-filtros-noite="quente doce sem-cafeina" data-filtros-dia="doce sem-lactose">
         <div class="card__top">
           <div class="card__icon" aria-hidden="true"><span class="so-noite">✨</span><span class="so-dia">🍩</span></div>
           <span class="card__id"><span class="so-noite">LX-042</span><span class="so-dia">FN-024</span></span>
@@ -233,9 +282,15 @@
           <span class="card__price"><span class="so-noite">₡ 20</span><span class="so-dia">₡ 5</span></span>
           <span class="card__tag"><span class="so-noite">柔和</span><span class="so-dia">稀有</span></span>
         </div>
+        <details class="card__info so-completo">
+          <summary>詳細</summary>
+          <dl class="so-noite"><div><dt>溫度</dt><dd>60 °C</dd></div><div><dt>咖啡因</dt><dd>0 mg</dd></div><div><dt>kcal</dt><dd>210</dd></div><div><dt>過敏原</dt><dd>牛奶</dd></div></dl>
+          <dl class="so-dia"><div><dt>烤箱</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>260</dd></div><div><dt>過敏原</dt><dd>麩質, 蛋</dd></div></dl>
+        </details>
+        <button type="button" class="card__add so-completo" data-item="5" hidden>+ 點餐</button>
       </article>
 
-      <article class="card card--v reveal tilt" data-d="5">
+      <article class="card card--v reveal tilt" data-d="5" data-item="6" data-preco-noite="31" data-preco-dia="4" data-filtros-noite="gelado intenso sem-lactose" data-filtros-dia="salgado quentinho sem-gluten">
         <div class="card__top">
           <div class="card__icon" aria-hidden="true"><span class="so-noite">☄️</span><span class="so-dia">🧀</span></div>
           <span class="card__id"><span class="so-noite">LX-050</span><span class="so-dia">FN-031</span></span>
@@ -247,6 +302,12 @@
           <span class="card__price"><span class="so-noite">₡ 31</span><span class="so-dia">₡ 4</span></span>
           <span class="card__tag"><span class="so-noite">稀有</span><span class="so-dia">經典</span></span>
         </div>
+        <details class="card__info so-completo">
+          <summary>詳細</summary>
+          <dl class="so-noite"><div><dt>溫度</dt><dd>−2 °C</dd></div><div><dt>咖啡因</dt><dd>280 mg</dd></div><div><dt>kcal</dt><dd>15</dd></div><div><dt>過敏原</dt><dd>無</dd></div></dl>
+          <dl class="so-dia"><div><dt>烤箱</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>90</dd></div><div><dt>過敏原</dt><dd>牛奶, 蛋</dd></div></dl>
+        </details>
+        <button type="button" class="card__add so-completo" data-item="6" hidden>+ 點餐</button>
       </article>
     </div>
   </section>
@@ -319,6 +380,7 @@
           <small><span class="so-noite">合成器輸出</span><span class="so-dia">剛出爐</span></small>
           <div id="drinkName">量子濃縮咖啡 · 等級 VII</div>
           <span id="drinkPrice">₡ 21.50</span>
+          <button type="button" class="btn btn--magenta lab__add so-completo" id="labAdd" hidden>+ 加入訂單</button>
         </div>
       </div>
 
@@ -377,6 +439,46 @@
     </div>
   </section>
 
+  <!-- RESERVAS E FIDELIDADE (1/11/2026): só no site completo; embutido no simulador, fica escondido -->
+  <section class="section so-completo" id="reservas" hidden>
+    <span class="eyebrow reveal">訂位</span>
+    <h2 class="reveal" data-d="1"><span class="so-noite">在裂縫裡留個位子</span><span class="so-dia">在麵包店留個位子</span></h2>
+    <p class="lead reveal" data-d="2">訂位並集點：每筆訂單一點，集滿十點，下一筆由店家招待。</p>
+    <div class="reservas">
+      <form class="reserva reveal" id="reservaForm" novalidate aria-labelledby="reservaTitulo">
+        <h3 id="reservaTitulo">訂一張桌子</h3>
+        <div class="campo"><label for="rNome">姓名</label><input id="rNome" type="text" name="nome" autocomplete="name" required aria-describedby="rNomeErro"><p class="erro" id="rNomeErro" hidden>請告訴我們訂位人的名字。</p></div>
+        <div class="campo campo--dois">
+          <div><label for="rPessoas">人數</label><input id="rPessoas" name="pessoas" type="number" min="1" max="8" value="2" inputmode="numeric" required aria-describedby="rPessoasErro"><p class="erro" id="rPessoasErro" hidden>1 到 8 人。</p></div>
+          <div><label for="rData">日期</label><input id="rData" name="data" type="date" required aria-describedby="rDataErro"><p class="erro" id="rDataErro" hidden>請選今天或之後的日期。</p></div>
+        </div>
+        <div class="campo"><label for="rHora">時間</label><input id="rHora" name="hora" type="time" required aria-describedby="rHoraErro"><p class="erro" id="rHoraErro" hidden></p></div>
+        <fieldset class="campo"><legend>座位</legend>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="mesa" value="窗邊" checked><span>窗邊</span></label>
+            <label class="chip"><input type="radio" name="mesa" value="吧台"><span>吧台</span></label>
+            <label class="chip"><input type="radio" name="mesa" value="大桌"><span>大桌</span></label>
+          </div>
+        </fieldset>
+        <button type="submit" class="btn btn--magenta">訂位</button>
+        <p class="reserva__msg" id="reservaMsg" role="status" aria-live="polite"></p>
+      </form>
+      <div class="reservas__lado">
+        <div class="fidelidade reveal" data-d="1">
+          <h3><span class="so-noite">極光卡</span><span class="so-dia">麵包店集點卡</span></h3>
+          <p>每送出一筆訂單得一點，存在這台裝置上。</p>
+          <ol class="carimbos" id="carimbos" aria-hidden="true"><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ol>
+          <p class="fidelidade__msg" id="fidMsg" role="status" aria-live="polite"></p>
+          <button type="button" class="btn btn--ghost" id="fidUsar" hidden>使用獎勵</button>
+        </div>
+        <div class="minhas" id="minhas" hidden>
+          <h3>我的訂位</h3>
+          <ul id="minhasLista"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="cta">
     <h2 class="reveal"><span class="so-noite">裂縫<em>營業到很晚</em></span><span class="so-dia">烤箱在<em>六點</em>點火</span></h2>
@@ -431,6 +533,7 @@
     <div class="foot__bottom">
       <span>© <span id="year"></span> <span class="so-noite">Café Aurora</span><span class="so-dia">極光麵包坊</span> <span class="dot">◆</span> 保留所有宇宙的權利</span>
       <span>虛構咖啡館 · 範例網站製作： <a href="https://sites.linupedia.com.br/zh-hant/" target="_top">Linu Sites</a></span>
+      <span class="foot__versoes">其他版本： <a href="bootstrap/">Bootstrap</a> · <a href="tailwind/">Tailwind</a> · <a href="../versoes.html">比較三個版本（葡萄牙文）</a></span>
     </div>
   </footer>
 </main>
@@ -447,6 +550,42 @@
     <p class="dim__hint">拖曳來改變咖啡館的色調。什麼都不會壞掉——大概吧。</p>
   </div>
 </aside>
+
+<!-- O PEDIDO (1/11/2026): o carrinho, com a mensagem pronta para o WhatsApp. O Café é fictício: o WhatsApp abre sem
+     número, para a pessoa escolher o contato; num site de verdade, iria direto para o número da loja. -->
+<dialog class="janela pedido" id="pedido" aria-labelledby="pedidoTitulo">
+  <div class="janela__topo">
+    <h2 id="pedidoTitulo">你的訂單</h2>
+    <button type="button" class="janela__fechar" data-fechar aria-label="關閉">✕</button>
+  </div>
+  <p class="pedido__vazio" id="pedidoVazio">訂單是空的。請在菜單或實驗室點「+ 點餐」。</p>
+  <ul class="pedido__itens" id="pedidoItens"></ul>
+  <p class="pedido__total" id="pedidoTotalLinha"><span>合計</span><b id="pedidoTotal"></b></p>
+  <form class="pedido__form" id="pedidoForm" novalidate>
+    <div class="campo"><label for="pNome">你的名字</label><input id="pNome" type="text" name="nome" autocomplete="given-name" required aria-describedby="pNomeErro"><p class="erro" id="pNomeErro" hidden>請留下名字，方便我們在櫃台叫你。</p></div>
+    <fieldset class="campo"><legend>怎麼享用？</legend>
+      <div class="chips">
+        <label class="chip"><input type="radio" name="como" value="aqui" checked><span>內用</span></label>
+        <label class="chip"><input type="radio" name="como" value="levar"><span>外帶</span></label>
+      </div>
+    </fieldset>
+    <div class="campo"><label for="pHora">取餐時間（選填）</label><input id="pHora" name="hora" type="time"></div>
+    <div class="campo"><label for="pObs">備註（選填）</label><textarea id="pObs" name="obs" rows="2" maxlength="200"></textarea></div>
+    <p class="pedido__selo" id="pedidoSelo"></p>
+    <button type="submit" class="btn btn--magenta">用 WhatsApp 傳送</button>
+    <p class="pedido__nota">這家咖啡館是虛構的：WhatsApp 會在沒有號碼的情況下開啟，由你選擇傳給誰。真正的網站，訂單會直接送到店家。</p>
+  </form>
+  <div class="pedido__feito" id="pedidoFeito" hidden tabindex="-1"></div>
+</dialog>
+
+<!-- O TESTE: que bebida (ou, de dia, que pão) combina com você -->
+<dialog class="janela quiz" id="quiz" aria-labelledby="quizTitulo">
+  <div class="janela__topo">
+    <h2 id="quizTitulo"><span class="so-noite">哪杯飲品適合你？</span><span class="so-dia">哪種麵包適合你？</span></h2>
+    <button type="button" class="janela__fechar" data-fechar aria-label="關閉">✕</button>
+  </div>
+  <div class="quiz__corpo" id="quizCorpo" aria-live="polite"></div>
+</dialog>
 
 <!-- PAINEL (módulo "painel para mexer sozinho"): só aparece quando o simulador liga o módulo -->
 <div class="painel-demo" id="painelDemo" hidden>

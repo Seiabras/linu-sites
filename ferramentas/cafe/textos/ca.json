@@ -167,7 +167,72 @@
     "d_foot_p": "Fleca interdimensional des del 2087. Farina molta amb ètica en universos que hi han donat el consentiment.",
     "d_hora1": "Cada dia · 06:00 — 18:00",
     "d_hora2": "Primera fornada · a les 06:00 en punt",
-    "d_hora3": "Després de la posta de sol · obre el cafè"
+    "d_hora3": "Després de la posta de sol · obre el cafè",
+    "add": "Comanda",
+    "lab_add": "Afegeix a la comanda",
+    "detalhes": "Detalls",
+    "i_temp": "Temperatura",
+    "i_cafeina": "Cafeïna",
+    "i_alergenos": "Al·lèrgens",
+    "i_forno": "Forn",
+    "al_nenhum": "cap",
+    "al_leite": "llet",
+    "al_gluten": "gluten",
+    "al_ovo": "ou",
+    "f_aria": "Filtra la carta",
+    "f_todos": "Tot",
+    "f_quente": "Calent",
+    "f_gelado": "Fred",
+    "f_doce": "Dolç",
+    "f_intenso": "Intens",
+    "f_sem_lactose": "Sense lactosa",
+    "f_sem_cafeina": "Sense cafeïna",
+    "d_f_salgado": "Salat",
+    "d_f_quentinho": "Acabat de fornejar",
+    "d_f_sem_gluten": "Sense gluten",
+    "f_vazio": "No hi ha res a la carta amb aquest filtre.",
+    "qz_abrir": "No saps què demanar? Fes el test",
+    "d_qz_abrir": "No saps quin pa triar? Fes el test",
+    "qz_titulo": "Quina beguda et va?",
+    "d_qz_titulo": "Quin pa et va?",
+    "fechar": "Tanca",
+    "p_titulo": "La teva comanda",
+    "p_vazio": "La comanda és buida. Toca «+ Comanda» en un producte de la carta o al laboratori.",
+    "p_total": "Total",
+    "p_nome": "El teu nom",
+    "p_nome_erro": "Digues-nos el teu nom per cridar-te a la barra.",
+    "p_como": "Com la vols?",
+    "p_aqui": "Per prendre aquí",
+    "p_levar": "Per emportar",
+    "p_hora": "Per a quina hora (opcional)",
+    "p_obs": "Observació (opcional)",
+    "p_enviar": "Envia per WhatsApp",
+    "p_nota": "El cafè és fictici: el WhatsApp s’obre sense número, perquè triïs a qui enviar-ho. En un web de veritat, la comanda aniria directa a la botiga.",
+    "nav_reservas": "Reserves",
+    "r_h2": "Guarda la teva taula a l’escletxa",
+    "d_r_h2": "Guarda la teva taula a la fleca",
+    "r_lead": "Reserva una taula i aplega segells: un segell per comanda; amb deu, la següent la convida la casa.",
+    "r_titulo": "Reservar una taula",
+    "r_nome": "Nom",
+    "r_nome_erro": "Digues-nos a nom de qui va la taula.",
+    "r_pessoas": "Persones",
+    "r_pessoas_erro": "D’1 a 8 persones.",
+    "r_data": "Dia",
+    "r_data_erro": "Tria avui o un dia posterior.",
+    "r_hora": "Hora",
+    "r_mesa": "On",
+    "r_janela": "Finestra",
+    "r_balcao": "Barra",
+    "r_grande": "Taula gran",
+    "r_enviar": "Reserva",
+    "r_minhas": "Les meves reserves",
+    "fid_h3": "Targeta Aurora",
+    "d_fid_h3": "Targeta de la Fleca",
+    "fid_p": "Cada comanda enviada val un segell. Es guarda en aquest dispositiu.",
+    "fid_usar": "Fes servir el premi",
+    "tw_feito": "Fet amb HTML, Tailwind CSS i una mica de cafeïna quàntica",
+    "versoes": "També en",
+    "comparar": "comparar les tres (portuguès)"
   },
   "js": {
     "boot": [
@@ -194,6 +259,116 @@
       "Pa Integral d'Òrbita",
       "Brioix Estel·lar"
     ],
-    "d_min": "{n} min"
+    "d_min": "{n} min",
+    "add_aria": "Afegeix {nome} a la comanda",
+    "no_pedido": "{nome} afegit a la comanda.",
+    "menos": "Un {nome} menys",
+    "mais": "Un {nome} més",
+    "f_n": "{n} de {total} a la carta",
+    "msg_cab": "Comanda per a {loja}:",
+    "msg_total": "Total",
+    "msg_nome": "Nom",
+    "msg_aqui": "Per prendre aquí",
+    "msg_levar": "Per emportar",
+    "msg_hora": "A les",
+    "msg_obs": "Obs.:",
+    "feito": "Fet: el WhatsApp s’ha obert amb la comanda. Has guanyat un segell ({n} de 10).",
+    "feito_abrir": "Torna a obrir el WhatsApp",
+    "selo": "Aquesta comanda val un segell ({n} de 10 fins ara).",
+    "fid_n": "{n} de 10 segells.",
+    "fid_premio": "Targeta plena! La propera comanda la convida la casa.",
+    "fid_usado": "Premi fet servir. Targeta nova, sort.",
+    "r_ok": "Reservat: {mesa}, {pessoas} persones, {data} a les {hora}.",
+    "r_whats": "Confirma per WhatsApp",
+    "r_cancelar": "Cancel·la",
+    "r_msg": "Reserva a {loja}: {mesa}, {pessoas} persones, {data} a les {hora}, a nom de {nome}.",
+    "r_hora_erro": "Digues-nos l’hora.",
+    "r_hora_noite": "De 04:00 a 06:00 el cafè tanca per netejar l’escletxa.",
+    "r_hora_dia": "La fleca obre de 06:00 a 18:00.",
+    "qz_passo": "Pregunta {n} de {total}",
+    "qz_resultado": "Et va:",
+    "qz_de_novo": "Torna-hi",
+    "qz_noite": [
+      [
+        "Calent o fred?",
+        [
+          [
+            "Calent",
+            "quente"
+          ],
+          [
+            "Fred",
+            "gelado"
+          ]
+        ]
+      ],
+      [
+        "Dolç o intens?",
+        [
+          [
+            "Dolç",
+            "doce"
+          ],
+          [
+            "Intens",
+            "intenso"
+          ]
+        ]
+      ],
+      [
+        "I la cafeïna?",
+        [
+          [
+            "Endavant",
+            "cafeina"
+          ],
+          [
+            "Sense cafeïna",
+            "sem-cafeina"
+          ]
+        ]
+      ]
+    ],
+    "qz_dia": [
+      [
+        "Dolç o salat?",
+        [
+          [
+            "Dolç",
+            "doce"
+          ],
+          [
+            "Salat",
+            "salgado"
+          ]
+        ]
+      ],
+      [
+        "Acabat de fornejar?",
+        [
+          [
+            "Calentó",
+            "quentinho"
+          ],
+          [
+            "Tant me fa",
+            ""
+          ]
+        ]
+      ],
+      [
+        "I la llet?",
+        [
+          [
+            "Cap problema",
+            ""
+          ],
+          [
+            "Sense lactosa",
+            "sem-lactose"
+          ]
+        ]
+      ]
+    ]
   }
 }

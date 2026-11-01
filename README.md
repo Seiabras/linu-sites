@@ -116,7 +116,8 @@ vazia dentro de um bloco que entra faz o gerador recusar a gravação.
   `document.cookie`, nem na página nem no Café; nenhum script, folha, fonte ou imagem de outro endereço nas páginas
   geradas (o único endereço de fora que carrega é o `cafe.linupedia.com.br`, no quadro do simulador, na mesma VM); o DNS
   aponta direto para a VM, sem CDN; e a CSP, na `<meta>` e no cabeçalho do Caddy, só libera o próprio site e o Café.
-  O que fica no navegador é o `localStorage` (`tema`, `idioma`, `idioma-aviso` e, no Café, `aurora-modo`). Antes de pôr
+  O que fica no navegador é o `localStorage` (`tema`, `idioma`, `idioma-aviso` e, no Café do simulador, `aurora-modo`; o
+  Café aberto no próprio endereço guarda também o pedido, as reservas e os carimbos, ver “O Café Aurora em cada idioma”). Antes de pôr
   qualquer coisa de terceiro no site, mude esse texto nos 8 idiomas. Ele fala **deste site**, não dos sites dos clientes.
 
 ## Fontes de japonês, coreano e chinês (30/10/2026)
@@ -163,8 +164,19 @@ node ferramentas/gerar-cafe.mjs
 - As frases que o script escreve (a abertura, os nomes das bebidas, a assinatura, o painel) vão no
   `<script type="application/json" id="textos-cafe">`; sem o bloco, o `script.js` usa o português. O preço da bebida
   segue o formato de número de cada língua.
-- As versões `/bootstrap/` e `/tailwind/` continuam só em português. O repositório `Seiabras/cafe-aurora` ainda não tem
-  os idiomas (o gerador e os textos moram aqui).
+- Desde 1/11/2026, as versões Bootstrap e Tailwind também saem em cada idioma (`/<pasta>/bootstrap/` e
+  `/<pasta>/tailwind/`), dos modelos `ferramentas/cafe/modelo-bootstrap.html` e `modelo-tailwind.html`, com os mesmos
+  textos; os scripts delas leem o mesmo `#textos-cafe`. A página `versoes.html` (só em português, para a disciplina)
+  compara as três: o peso de cada uma, o mesmo cartão nos três jeitos e quando usar cada um.
+- **O Café “de verdade” (1/11/2026):** pedido com quantidades e a mensagem pronta para o WhatsApp (o Café é fictício: o
+  WhatsApp abre sem número), filtros e detalhes do cardápio (de noite e de dia), o teste “Que bebida combina com você?”,
+  reserva de mesa com validação na hora (a hora respeita o horário do café e da padaria) e o cartão de carimbos (um por
+  pedido mandado). Fica no `localStorage` do navegador (`aurora-pedido`, `aurora-carimbos`, `aurora-reservas`,
+  `aurora-nome`). Tudo isso fica escondido quando o Café está embutido no simulador (classe `embutido`, bloco 15 do
+  `script.js` e `.so-completo` no CSS): o simulador só mostra o que tem preço na tabela dele.
+- **Sem internet:** o `gerar-cafe.mjs` também grava o `sitios/cafe-aurora/sw.js`, com a versão tirada dos arquivos (mudou
+  o CSS ou o script, rode o gerador de novo); o `manifest.webmanifest` e os ícones ficam em `sitios/cafe-aurora/`. O
+  bloco do Café no `deploy/Caddyfile-bloco` manda `no-cache` para o `sw.js` e o manifesto.
 - `IDIOMAS=pt-BR node ferramentas/gerar-cafe.mjs` gera só os idiomas pedidos, para ver um texto novo antes de traduzir.
 
 ## De dia, a Padaria Aurora (30/10/2026)

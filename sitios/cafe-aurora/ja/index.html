@@ -21,7 +21,7 @@
 <link rel="alternate" hreflang="ko-KR" href="https://cafe.linupedia.com.br/ko/">
 <link rel="alternate" hreflang="zh-Hant" href="https://cafe.linupedia.com.br/zh-hant/">
 <!-- Os textos que o script escreve (abertura, bebidas, assinatura, painel), no idioma da página -->
-<script type="application/json" id="textos-cafe">{"boot":["ポータルを起動中…","量子挽きを調整中…","Ω-11の豆を同期中…","蒸気炉を予熱中…","裂け目へようこそ。"],"news_erro":"無効なシグナルです。メールアドレスの座標を確認してください。","news_ok":"シグナルを受信しました。別の次元からご連絡します。","terminar":"✓ 完了","painel_aviso":"テキストをクリックして書き換えてください。本物の管理画面では、変更が保存されます。","d_boot":["オーブンに火を入れています…","裂け目を閉じています…","Ω-11の生地をこねています…","皮が色づくのを待っています…","おはようございます。"],"d_pao":["太陽の小麦パン","薄明のライ麦パン","軌道の全粒粉パン","星のブリオッシュ"],"d_min":"{n}分","expresso":"量子エスプレッソ","coldbrew":"ニューラル・コールドブリュー","matcha":"虚空の抹茶","estelar":"星のミルク","nivel":"レベル","editar":"✎ テキストを編集"}</script>
+<script type="application/json" id="textos-cafe">{"boot":["ポータルを起動中…","量子挽きを調整中…","Ω-11の豆を同期中…","蒸気炉を予熱中…","裂け目へようこそ。"],"news_erro":"無効なシグナルです。メールアドレスの座標を確認してください。","news_ok":"シグナルを受信しました。別の次元からご連絡します。","terminar":"✓ 完了","painel_aviso":"テキストをクリックして書き換えてください。本物の管理画面では、変更が保存されます。","d_boot":["オーブンに火を入れています…","裂け目を閉じています…","Ω-11の生地をこねています…","皮が色づくのを待っています…","おはようございます。"],"d_pao":["太陽の小麦パン","薄明のライ麦パン","軌道の全粒粉パン","星のブリオッシュ"],"d_min":"{n}分","add_aria":"{nome}を注文に追加","no_pedido":"{nome}を注文に追加しました。","menos":"{nome}を1つ減らす","mais":"{nome}をもう1つ","f_n":"メニュー{total}品中{n}品","msg_cab":"{loja}への注文：","msg_total":"合計","msg_nome":"名前","msg_aqui":"店内で","msg_levar":"持ち帰り","msg_hora":"時間","msg_obs":"メモ：","feito":"完了：注文を入れたWhatsAppが開きました。スタンプを1つ獲得（10個中{n}個）。","feito_abrir":"もう一度WhatsAppを開く","selo":"この注文でスタンプ1つ（現在10個中{n}個）。","fid_n":"スタンプ10個中{n}個。","fid_premio":"カードがいっぱい！次の注文は無料です。","fid_usado":"特典を使いました。新しいカードです。","r_ok":"予約済み：{mesa}、{pessoas}名、{data} {hora}。","r_whats":"WhatsAppで確認","r_cancelar":"キャンセル","r_msg":"{loja}の予約：{mesa}、{pessoas}名、{data} {hora}、{nome}様。","r_hora_erro":"時間を入力してください。","r_hora_noite":"4時〜6時は裂け目の清掃のため閉店です。","r_hora_dia":"ベーカリーの営業は6時〜18時です。","qz_passo":"質問 {n}/{total}","qz_resultado":"あなたに合うのは：","qz_de_novo":"もう一度","qz_noite":[["ホット？アイス？",[["ホット","quente"],["アイス","gelado"]]],["甘い？濃い？",[["甘い","doce"],["濃い","intenso"]]],["カフェインは？",[["OK","cafeina"],["なしで","sem-cafeina"]]]],"qz_dia":[["甘い？しょっぱい？",[["甘い","doce"],["しょっぱい","salgado"]]],["焼きたてがいい？",[["あつあつ","quentinho"],["どちらでも",""]]],["乳製品は？",[["大丈夫",""],["乳糖なしで","sem-lactose"]]]],"expresso":"量子エスプレッソ","coldbrew":"ニューラル・コールドブリュー","matcha":"虚空の抹茶","estelar":"星のミルク","nivel":"レベル","editar":"✎ テキストを編集","d_nome":"オーロラ・ベーカリー","lab_add":"注文に追加"}</script>
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
 <link rel="icon" href="../icone.png" type="image/png" sizes="128x128">
 <link rel="preload" href="../fontes/orbitron.woff2" as="font" type="font/woff2" crossorigin>
@@ -29,8 +29,9 @@
      que muda tem as duas versões, .so-noite e .so-dia, e o data-modo do <html> esconde uma delas (ver inicio.js). Na página principal, ele aparece embutido
      (iframe) no simulador de preço, que liga e desliga as partes dele (ver script.js, "módulos"). -->
 <script src="../inicio.js?v=2"></script>
-<link rel="stylesheet" href="../estilo.css?v=7">
-<script src="../script.js?v=6" defer></script>
+<link rel="manifest" href="../manifest.webmanifest">
+<link rel="stylesheet" href="../estilo.css?v=8">
+<script src="../script.js?v=7" defer></script>
 </head>
 
 <body>
@@ -66,6 +67,7 @@
     <a href="#menu">メニュー</a>
     <a href="#laboratorio"><span class="so-noite">ラボ</span><span class="so-dia">オーブン</span></a>
     <a href="#transmissoes"><span class="so-noite">交信記録</span><span class="so-dia">置き手紙</span></a>
+    <a href="#reservas" class="so-completo" hidden>予約</a>
   </nav>
 
   <div class="nav__right">
@@ -164,8 +166,31 @@
       <span class="so-noite">さまざまな脳波に合わせて調整した6つのレシピ。すべて自己再生するカップでお出しします。</span><span class="so-dia">1日に何度もオーブンから出てくる6つのレシピ。どれも、数時間（あるいは数ディメンション）ぬくもりを保つ紙で包んでお渡しします。</span>
     </p>
 
+    <div class="menu-filtros so-completo" id="menuFiltros" hidden>
+      <div class="chips so-noite" role="group" aria-label="メニューを絞り込む">
+        <button type="button" class="filtro" data-filtro="" aria-pressed="true">すべて</button>
+        <button type="button" class="filtro" data-filtro="quente" aria-pressed="false">ホット</button>
+        <button type="button" class="filtro" data-filtro="gelado" aria-pressed="false">アイス</button>
+        <button type="button" class="filtro" data-filtro="doce" aria-pressed="false">甘い</button>
+        <button type="button" class="filtro" data-filtro="intenso" aria-pressed="false">濃い</button>
+        <button type="button" class="filtro" data-filtro="sem-lactose" aria-pressed="false">乳糖なし</button>
+        <button type="button" class="filtro" data-filtro="sem-cafeina" aria-pressed="false">カフェインなし</button>
+      </div>
+      <div class="chips so-dia" role="group" aria-label="メニューを絞り込む">
+        <button type="button" class="filtro" data-filtro="" aria-pressed="true">すべて</button>
+        <button type="button" class="filtro" data-filtro="doce" aria-pressed="false">甘い</button>
+        <button type="button" class="filtro" data-filtro="salgado" aria-pressed="false">塩味</button>
+        <button type="button" class="filtro" data-filtro="quentinho" aria-pressed="false">焼きたて</button>
+        <button type="button" class="filtro" data-filtro="sem-lactose" aria-pressed="false">乳糖なし</button>
+        <button type="button" class="filtro" data-filtro="sem-gluten" aria-pressed="false">グルテンなし</button>
+      </div>
+      <p class="menu-filtros__fim"><span id="menuConta" aria-live="polite"></span>
+        <button type="button" class="btn btn--ghost" id="quizAbrir"><span class="so-noite">迷ったら診断テスト</span><span class="so-dia">どのパンか迷ったら診断テスト</span></button></p>
+    </div>
+    <p class="menu-vazio" id="menuVazio" hidden>この条件に合うメニューはありません。</p>
+
     <div class="menu-grid">
-      <article class="card reveal tilt" data-d="1">
+      <article class="card reveal tilt" data-d="1" data-item="1" data-preco-noite="18" data-preco-dia="9" data-filtros-noite="quente intenso sem-lactose" data-filtros-dia="salgado quentinho">
         <div class="card__top">
           <div class="card__icon" aria-hidden="true"><span class="so-noite">⚡</span><span class="so-dia">🥐</span></div>
           <span class="card__id"><span class="so-noite">LX-001</span><span class="so-dia">FN-001</span></span>
@@ -177,9 +202,15 @@
           <span class="card__price"><span class="so-noite">₡ 18</span><span class="so-dia">₡ 9</span></span>
           <span class="card__tag"><span class="so-noite">濃厚</span><span class="so-dia">サクサク</span></span>
         </div>
+        <details class="card__info so-completo">
+          <summary>詳細</summary>
+          <dl class="so-noite"><div><dt>温度</dt><dd>68 °C</dd></div><div><dt>カフェイン</dt><dd>140 mg</dd></div><div><dt>kcal</dt><dd>5</dd></div><div><dt>アレルゲン</dt><dd>なし</dd></div></dl>
+          <dl class="so-dia"><div><dt>オーブン</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>280</dd></div><div><dt>アレルゲン</dt><dd>小麦, 乳, 卵</dd></div></dl>
+        </details>
+        <button type="button" class="card__add so-completo" data-item="1" hidden>+ 注文</button>
       </article>
 
-      <article class="card card--m reveal tilt" data-d="2">
+      <article class="card card--m reveal tilt" data-d="2" data-item="2" data-preco-noite="24" data-preco-dia="7" data-filtros-noite="quente doce" data-filtros-dia="salgado sem-lactose">
         <div class="card__top">
           <div class="card__icon" aria-hidden="true"><span class="so-noite">🌌</span><span class="so-dia">🍞</span></div>
           <span class="card__id"><span class="so-noite">LX-014</span><span class="so-dia">FN-006</span></span>
@@ -191,9 +222,15 @@
           <span class="card__price"><span class="so-noite">₡ 24</span><span class="so-dia">₡ 7</span></span>
           <span class="card__tag"><span class="so-noite">きらめき</span><span class="so-dia">軽やか</span></span>
         </div>
+        <details class="card__info so-completo">
+          <summary>詳細</summary>
+          <dl class="so-noite"><div><dt>温度</dt><dd>72 °C</dd></div><div><dt>カフェイン</dt><dd>90 mg</dd></div><div><dt>kcal</dt><dd>180</dd></div><div><dt>アレルゲン</dt><dd>乳</dd></div></dl>
+          <dl class="so-dia"><div><dt>オーブン</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>150</dd></div><div><dt>アレルゲン</dt><dd>小麦</dd></div></dl>
+        </details>
+        <button type="button" class="card__add so-completo" data-item="2" hidden>+ 注文</button>
       </article>
 
-      <article class="card card--v reveal tilt" data-d="3">
+      <article class="card card--v reveal tilt" data-d="3" data-item="3" data-preco-noite="22" data-preco-dia="8" data-filtros-noite="gelado intenso sem-lactose" data-filtros-dia="salgado quentinho sem-lactose">
         <div class="card__top">
           <div class="card__icon" aria-hidden="true"><span class="so-noite">❄️</span><span class="so-dia">🥖</span></div>
           <span class="card__id"><span class="so-noite">LX-027</span><span class="so-dia">FN-012</span></span>
@@ -205,9 +242,15 @@
           <span class="card__price"><span class="so-noite">₡ 22</span><span class="so-dia">₡ 8</span></span>
           <span class="card__tag"><span class="so-noite">明晰</span><span class="so-dia">カリッと</span></span>
         </div>
+        <details class="card__info so-completo">
+          <summary>詳細</summary>
+          <dl class="so-noite"><div><dt>温度</dt><dd>4 °C</dd></div><div><dt>カフェイン</dt><dd>200 mg</dd></div><div><dt>kcal</dt><dd>10</dd></div><div><dt>アレルゲン</dt><dd>なし</dd></div></dl>
+          <dl class="so-dia"><div><dt>オーブン</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>190</dd></div><div><dt>アレルゲン</dt><dd>小麦</dd></div></dl>
+        </details>
+        <button type="button" class="card__add so-completo" data-item="3" hidden>+ 注文</button>
       </article>
 
-      <article class="card card--a reveal tilt" data-d="4">
+      <article class="card card--a reveal tilt" data-d="4" data-item="4" data-preco-noite="26" data-preco-dia="6" data-filtros-noite="gelado sem-lactose" data-filtros-dia="doce">
         <div class="card__top">
           <div class="card__icon" aria-hidden="true"><span class="so-noite">🍃</span><span class="so-dia">🧁</span></div>
           <span class="card__id"><span class="so-noite">LX-033</span><span class="so-dia">FN-019</span></span>
@@ -219,9 +262,15 @@
           <span class="card__price"><span class="so-noite">₡ 26</span><span class="so-dia">₡ 6</span></span>
           <span class="card__tag"><span class="so-noite">幽玄</span><span class="so-dia">甘い</span></span>
         </div>
+        <details class="card__info so-completo">
+          <summary>詳細</summary>
+          <dl class="so-noite"><div><dt>温度</dt><dd>8 °C</dd></div><div><dt>カフェイン</dt><dd>70 mg</dd></div><div><dt>kcal</dt><dd>120</dd></div><div><dt>アレルゲン</dt><dd>なし</dd></div></dl>
+          <dl class="so-dia"><div><dt>オーブン</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>320</dd></div><div><dt>アレルゲン</dt><dd>小麦, 乳, 卵</dd></div></dl>
+        </details>
+        <button type="button" class="card__add so-completo" data-item="4" hidden>+ 注文</button>
       </article>
 
-      <article class="card card--m reveal tilt" data-d="5">
+      <article class="card card--m reveal tilt" data-d="5" data-item="5" data-preco-noite="20" data-preco-dia="5" data-filtros-noite="quente doce sem-cafeina" data-filtros-dia="doce sem-lactose">
         <div class="card__top">
           <div class="card__icon" aria-hidden="true"><span class="so-noite">✨</span><span class="so-dia">🍩</span></div>
           <span class="card__id"><span class="so-noite">LX-042</span><span class="so-dia">FN-024</span></span>
@@ -233,9 +282,15 @@
           <span class="card__price"><span class="so-noite">₡ 20</span><span class="so-dia">₡ 5</span></span>
           <span class="card__tag"><span class="so-noite">まろやか</span><span class="so-dia">レア</span></span>
         </div>
+        <details class="card__info so-completo">
+          <summary>詳細</summary>
+          <dl class="so-noite"><div><dt>温度</dt><dd>60 °C</dd></div><div><dt>カフェイン</dt><dd>0 mg</dd></div><div><dt>kcal</dt><dd>210</dd></div><div><dt>アレルゲン</dt><dd>乳</dd></div></dl>
+          <dl class="so-dia"><div><dt>オーブン</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>260</dd></div><div><dt>アレルゲン</dt><dd>小麦, 卵</dd></div></dl>
+        </details>
+        <button type="button" class="card__add so-completo" data-item="5" hidden>+ 注文</button>
       </article>
 
-      <article class="card card--v reveal tilt" data-d="5">
+      <article class="card card--v reveal tilt" data-d="5" data-item="6" data-preco-noite="31" data-preco-dia="4" data-filtros-noite="gelado intenso sem-lactose" data-filtros-dia="salgado quentinho sem-gluten">
         <div class="card__top">
           <div class="card__icon" aria-hidden="true"><span class="so-noite">☄️</span><span class="so-dia">🧀</span></div>
           <span class="card__id"><span class="so-noite">LX-050</span><span class="so-dia">FN-031</span></span>
@@ -247,6 +302,12 @@
           <span class="card__price"><span class="so-noite">₡ 31</span><span class="so-dia">₡ 4</span></span>
           <span class="card__tag"><span class="so-noite">希少</span><span class="so-dia">定番</span></span>
         </div>
+        <details class="card__info so-completo">
+          <summary>詳細</summary>
+          <dl class="so-noite"><div><dt>温度</dt><dd>−2 °C</dd></div><div><dt>カフェイン</dt><dd>280 mg</dd></div><div><dt>kcal</dt><dd>15</dd></div><div><dt>アレルゲン</dt><dd>なし</dd></div></dl>
+          <dl class="so-dia"><div><dt>オーブン</dt><dd>220 °C</dd></div><div><dt>kcal</dt><dd>90</dd></div><div><dt>アレルゲン</dt><dd>乳, 卵</dd></div></dl>
+        </details>
+        <button type="button" class="card__add so-completo" data-item="6" hidden>+ 注文</button>
       </article>
     </div>
   </section>
@@ -319,6 +380,7 @@
           <small><span class="so-noite">シンセサイザーの出力</span><span class="so-dia">焼き上がり</span></small>
           <div id="drinkName">量子エスプレッソ · レベル VII</div>
           <span id="drinkPrice">₡ 21.50</span>
+          <button type="button" class="btn btn--magenta lab__add so-completo" id="labAdd" hidden>+ 注文に追加</button>
         </div>
       </div>
 
@@ -377,6 +439,46 @@
     </div>
   </section>
 
+  <!-- RESERVAS E FIDELIDADE (1/11/2026): só no site completo; embutido no simulador, fica escondido -->
+  <section class="section so-completo" id="reservas" hidden>
+    <span class="eyebrow reveal">予約</span>
+    <h2 class="reveal" data-d="1"><span class="so-noite">裂け目の席を予約</span><span class="so-dia">ベーカリーの席を予約</span></h2>
+    <p class="lead reveal" data-d="2">席を予約してスタンプを集めよう。注文ごとに1つ、10個たまると次の注文は無料。</p>
+    <div class="reservas">
+      <form class="reserva reveal" id="reservaForm" novalidate aria-labelledby="reservaTitulo">
+        <h3 id="reservaTitulo">席を予約する</h3>
+        <div class="campo"><label for="rNome">お名前</label><input id="rNome" type="text" name="nome" autocomplete="name" required aria-describedby="rNomeErro"><p class="erro" id="rNomeErro" hidden>予約のお名前を入力してください。</p></div>
+        <div class="campo campo--dois">
+          <div><label for="rPessoas">人数</label><input id="rPessoas" name="pessoas" type="number" min="1" max="8" value="2" inputmode="numeric" required aria-describedby="rPessoasErro"><p class="erro" id="rPessoasErro" hidden>1〜8名です。</p></div>
+          <div><label for="rData">日付</label><input id="rData" name="data" type="date" required aria-describedby="rDataErro"><p class="erro" id="rDataErro" hidden>今日以降の日を選んでください。</p></div>
+        </div>
+        <div class="campo"><label for="rHora">時間</label><input id="rHora" name="hora" type="time" required aria-describedby="rHoraErro"><p class="erro" id="rHoraErro" hidden></p></div>
+        <fieldset class="campo"><legend>席</legend>
+          <div class="chips">
+            <label class="chip"><input type="radio" name="mesa" value="窓際" checked><span>窓際</span></label>
+            <label class="chip"><input type="radio" name="mesa" value="カウンター"><span>カウンター</span></label>
+            <label class="chip"><input type="radio" name="mesa" value="大きなテーブル"><span>大きなテーブル</span></label>
+          </div>
+        </fieldset>
+        <button type="submit" class="btn btn--magenta">予約する</button>
+        <p class="reserva__msg" id="reservaMsg" role="status" aria-live="polite"></p>
+      </form>
+      <div class="reservas__lado">
+        <div class="fidelidade reveal" data-d="1">
+          <h3><span class="so-noite">オーロラカード</span><span class="so-dia">ベーカリーカード</span></h3>
+          <p>送った注文ごとにスタンプ1つ。この端末に保存されます。</p>
+          <ol class="carimbos" id="carimbos" aria-hidden="true"><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li><li></li></ol>
+          <p class="fidelidade__msg" id="fidMsg" role="status" aria-live="polite"></p>
+          <button type="button" class="btn btn--ghost" id="fidUsar" hidden>特典を使う</button>
+        </div>
+        <div class="minhas" id="minhas" hidden>
+          <h3>私の予約</h3>
+          <ul id="minhasLista"></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CTA -->
   <section class="cta">
     <h2 class="reveal"><span class="so-noite">裂け目は<em>夜遅くまで</em>開いています</span><span class="so-dia">オーブンに火が入るのは<em>6時</em></span></h2>
@@ -431,6 +533,7 @@
     <div class="foot__bottom">
       <span>© <span id="year"></span> <span class="so-noite">Café Aurora</span><span class="so-dia">オーロラ・ベーカリー</span> <span class="dot">◆</span> すべての宇宙の権利を留保</span>
       <span>架空のカフェ · サンプルサイト制作： <a href="https://sites.linupedia.com.br/ja/" target="_top">Linu Sites</a></span>
+      <span class="foot__versoes">ほかの版： <a href="bootstrap/">Bootstrap</a> · <a href="tailwind/">Tailwind</a> · <a href="../versoes.html">3つを比較（ポルトガル語）</a></span>
     </div>
   </footer>
 </main>
@@ -447,6 +550,42 @@
     <p class="dim__hint">ドラッグしてカフェの色を変えてみてください。何も壊れません——たぶん。</p>
   </div>
 </aside>
+
+<!-- O PEDIDO (1/11/2026): o carrinho, com a mensagem pronta para o WhatsApp. O Café é fictício: o WhatsApp abre sem
+     número, para a pessoa escolher o contato; num site de verdade, iria direto para o número da loja. -->
+<dialog class="janela pedido" id="pedido" aria-labelledby="pedidoTitulo">
+  <div class="janela__topo">
+    <h2 id="pedidoTitulo">ご注文</h2>
+    <button type="button" class="janela__fechar" data-fechar aria-label="閉じる">✕</button>
+  </div>
+  <p class="pedido__vazio" id="pedidoVazio">注文は空です。メニューか実験室の「+ 注文」をタップしてください。</p>
+  <ul class="pedido__itens" id="pedidoItens"></ul>
+  <p class="pedido__total" id="pedidoTotalLinha"><span>合計</span><b id="pedidoTotal"></b></p>
+  <form class="pedido__form" id="pedidoForm" novalidate>
+    <div class="campo"><label for="pNome">お名前</label><input id="pNome" type="text" name="nome" autocomplete="given-name" required aria-describedby="pNomeErro"><p class="erro" id="pNomeErro" hidden>カウンターでお呼びするため、お名前を入力してください。</p></div>
+    <fieldset class="campo"><legend>どうしますか？</legend>
+      <div class="chips">
+        <label class="chip"><input type="radio" name="como" value="aqui" checked><span>店内で</span></label>
+        <label class="chip"><input type="radio" name="como" value="levar"><span>持ち帰り</span></label>
+      </div>
+    </fieldset>
+    <div class="campo"><label for="pHora">受け取り時間（任意）</label><input id="pHora" name="hora" type="time"></div>
+    <div class="campo"><label for="pObs">メモ（任意）</label><textarea id="pObs" name="obs" rows="2" maxlength="200"></textarea></div>
+    <p class="pedido__selo" id="pedidoSelo"></p>
+    <button type="submit" class="btn btn--magenta">WhatsAppで送る</button>
+    <p class="pedido__nota">このカフェは架空です。WhatsAppは番号なしで開くので、送り先はあなたが選びます。本物のサイトなら、注文はそのままお店に届きます。</p>
+  </form>
+  <div class="pedido__feito" id="pedidoFeito" hidden tabindex="-1"></div>
+</dialog>
+
+<!-- O TESTE: que bebida (ou, de dia, que pão) combina com você -->
+<dialog class="janela quiz" id="quiz" aria-labelledby="quizTitulo">
+  <div class="janela__topo">
+    <h2 id="quizTitulo"><span class="so-noite">あなたに合う一杯は？</span><span class="so-dia">あなたに合うパンは？</span></h2>
+    <button type="button" class="janela__fechar" data-fechar aria-label="閉じる">✕</button>
+  </div>
+  <div class="quiz__corpo" id="quizCorpo" aria-live="polite"></div>
+</dialog>
 
 <!-- PAINEL (módulo "painel para mexer sozinho"): só aparece quando o simulador liga o módulo -->
 <div class="painel-demo" id="painelDemo" hidden>

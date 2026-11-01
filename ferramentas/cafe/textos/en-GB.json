@@ -167,7 +167,72 @@
     "d_foot_p": "Interdimensional baking since 2087. Flour ethically milled in universes that gave their consent.",
     "d_hora1": "Every day · 6 am — 6 pm",
     "d_hora2": "First batch · 6 am sharp",
-    "d_hora3": "After sunset · the café opens"
+    "d_hora3": "After sunset · the café opens",
+    "add": "Order",
+    "lab_add": "Add to order",
+    "detalhes": "Details",
+    "i_temp": "Temperature",
+    "i_cafeina": "Caffeine",
+    "i_alergenos": "Allergens",
+    "i_forno": "Oven",
+    "al_nenhum": "none",
+    "al_leite": "milk",
+    "al_gluten": "gluten",
+    "al_ovo": "egg",
+    "f_aria": "Filter the menu",
+    "f_todos": "All",
+    "f_quente": "Hot",
+    "f_gelado": "Iced",
+    "f_doce": "Sweet",
+    "f_intenso": "Strong",
+    "f_sem_lactose": "Lactose-free",
+    "f_sem_cafeina": "Caffeine-free",
+    "d_f_salgado": "Savoury",
+    "d_f_quentinho": "Fresh from the oven",
+    "d_f_sem_gluten": "Gluten-free",
+    "f_vazio": "Nothing on the menu with that filter.",
+    "qz_abrir": "Not sure what to order? Take the quiz",
+    "d_qz_abrir": "Not sure which bread? Take the quiz",
+    "qz_titulo": "Which drink suits you?",
+    "d_qz_titulo": "Which bread suits you?",
+    "fechar": "Close",
+    "p_titulo": "Your order",
+    "p_vazio": "Your order is empty. Tap “+ Order” on a menu item or in the lab.",
+    "p_total": "Total",
+    "p_nome": "Your name",
+    "p_nome_erro": "Tell us your name so we can call you at the counter.",
+    "p_como": "How would you like it?",
+    "p_aqui": "Eat in",
+    "p_levar": "Take away",
+    "p_hora": "For what time (optional)",
+    "p_obs": "Note (optional)",
+    "p_enviar": "Send on WhatsApp",
+    "p_nota": "The café is fictional: WhatsApp opens without a number, so you choose who to send it to. On a real site, the order would go straight to the shop.",
+    "nav_reservas": "Bookings",
+    "r_h2": "Save your table in the rift",
+    "d_r_h2": "Save your table at the bakery",
+    "r_lead": "Book a table and collect stamps: one stamp per order; with ten, the next one is on the house.",
+    "r_titulo": "Book a table",
+    "r_nome": "Name",
+    "r_nome_erro": "Tell us whose name the table is under.",
+    "r_pessoas": "People",
+    "r_pessoas_erro": "From 1 to 8 people.",
+    "r_data": "Day",
+    "r_data_erro": "Choose today or a later day.",
+    "r_hora": "Time",
+    "r_mesa": "Where",
+    "r_janela": "Window",
+    "r_balcao": "Counter",
+    "r_grande": "Big table",
+    "r_enviar": "Book",
+    "r_minhas": "My bookings",
+    "fid_h3": "Aurora Card",
+    "d_fid_h3": "Bakery Card",
+    "fid_p": "Every order you send earns a stamp. It is kept on this device.",
+    "fid_usar": "Use the reward",
+    "tw_feito": "Made with HTML, Tailwind CSS and a little quantum caffeine",
+    "versoes": "Also in",
+    "comparar": "compare all three (Portuguese)"
   },
   "js": {
     "boot": [
@@ -194,6 +259,116 @@
       "Orbit Wholemeal Loaf",
       "Stellar Brioche"
     ],
-    "d_min": "{n} min"
+    "d_min": "{n} min",
+    "add_aria": "Add {nome} to the order",
+    "no_pedido": "{nome} added to the order.",
+    "menos": "One less {nome}",
+    "mais": "One more {nome}",
+    "f_n": "{n} of {total} on the menu",
+    "msg_cab": "Order for {loja}:",
+    "msg_total": "Total",
+    "msg_nome": "Name",
+    "msg_aqui": "To eat in",
+    "msg_levar": "To take away",
+    "msg_hora": "At",
+    "msg_obs": "Note:",
+    "feito": "Done: WhatsApp opened with your order. You earned a stamp ({n} of 10).",
+    "feito_abrir": "Open WhatsApp again",
+    "selo": "This order earns a stamp ({n} of 10 so far).",
+    "fid_n": "{n} of 10 stamps.",
+    "fid_premio": "Card full! Your next order is on the house.",
+    "fid_usado": "Reward used. New card, good luck.",
+    "r_ok": "Booked: {mesa}, {pessoas} people, {data} at {hora}.",
+    "r_whats": "Confirm on WhatsApp",
+    "r_cancelar": "Cancel",
+    "r_msg": "Booking at {loja}: {mesa}, {pessoas} people, {data} at {hora}, under the name {nome}.",
+    "r_hora_erro": "Tell us the time.",
+    "r_hora_noite": "From 4 am to 6 am the café closes to clean the rift.",
+    "r_hora_dia": "The bakery is open from 6 am to 6 pm.",
+    "qz_passo": "Question {n} of {total}",
+    "qz_resultado": "Suits you:",
+    "qz_de_novo": "Try again",
+    "qz_noite": [
+      [
+        "Hot or iced?",
+        [
+          [
+            "Hot",
+            "quente"
+          ],
+          [
+            "Iced",
+            "gelado"
+          ]
+        ]
+      ],
+      [
+        "Sweet or strong?",
+        [
+          [
+            "Sweet",
+            "doce"
+          ],
+          [
+            "Strong",
+            "intenso"
+          ]
+        ]
+      ],
+      [
+        "And caffeine?",
+        [
+          [
+            "Bring it on",
+            "cafeina"
+          ],
+          [
+            "Caffeine-free",
+            "sem-cafeina"
+          ]
+        ]
+      ]
+    ],
+    "qz_dia": [
+      [
+        "Sweet or savoury?",
+        [
+          [
+            "Sweet",
+            "doce"
+          ],
+          [
+            "Savoury",
+            "salgado"
+          ]
+        ]
+      ],
+      [
+        "Fresh from the oven?",
+        [
+          [
+            "Warm",
+            "quentinho"
+          ],
+          [
+            "Either way",
+            ""
+          ]
+        ]
+      ],
+      [
+        "And milk?",
+        [
+          [
+            "That is fine",
+            ""
+          ],
+          [
+            "Lactose-free",
+            "sem-lactose"
+          ]
+        ]
+      ]
+    ]
   }
 }

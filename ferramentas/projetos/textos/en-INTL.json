@@ -206,6 +206,7 @@
       "A cyberpunk café with an opening screen, its own cursor, a particle background, a menu and a lab to build your drink, with the cup drawn in CSS alone.",
       "From 6 am to 6 pm the site becomes the Aurora Bakery: other colors, another menu and a bread lab, chosen by the visitor’s clock before the page appears.",
       "The same page in three builds, plain CSS, Bootstrap and Tailwind, to compare what each way of writing CSS changes.",
+      "A “real” café: an order with quantities and a ready-made WhatsApp message, menu filters and details, a quiz to pick your drink, table bookings checked as you type and a stamp card, also offline.",
       "It’s the example site in the Linu Sites simulator: each part switches on and off there, and the price changes with it."
     ],
     "dentro": [
