@@ -1,15 +1,16 @@
 # Diretrizes de UI/UX e desempenho
 
 Vale para **todos os sites e apps** dos projetos (V²Tech COMBUSTÍVEL, Marginalia, Linu Sites, Los Vega na Estrada,
-LinuPedia/LinuLingo, NeuroSim, Trupe). Decidido em 21/10/2026; a regra do celular e do computador entrou em 30/10/2026.
+LinuPedia/LinuLingo, NeuroSim, Trupe). Decidido em 21/10/2026; a regra do celular e do computador entrou em 30/10/2026
+e virou a regra das três versões (celular, tablet e computador, cada uma com layout próprio) em 1/11/2026.
 O mesmo texto está na raiz de cada repositório e no `modelos/linu-modelo/` do linuarquivos; mudou aqui, muda em todos.
 
 Quatro regras resumem tudo:
 
 1. **A melhor UI/UX possível:** bonito, claro e com resposta a cada toque.
 2. **Nunca chato de mexer:** a pessoa não pode ter só a rolagem para baixo como opção.
-3. **Celular e computador, cada um do melhor jeito:** o layout muda o que for preciso para ficar o melhor possível em
-   cada tela; nunca o celular esticado nem o computador espremido.
+3. **Três versões, uma para cada aparelho:** celular, tablet e computador têm cada um o seu layout, pensado para o
+   jeito de usar aquele aparelho; nunca o celular esticado, o tablet improvisado nem o computador espremido.
 4. **Sempre otimizado:** leve na rede, na memória e na bateria, mesmo num celular simples.
 
 Toda entrega que mexe em tela passa pelo checklist do fim deste arquivo antes de ir para a `main`.
@@ -57,29 +58,49 @@ E em toda tela:
 - **Acessível:** contraste AA nos modos claro e escuro (o botão de tema é padrão em todos os projetos), foco visível,
   rótulos em botões só com ícone.
 
-## 3. Celular e computador, cada um do melhor jeito
+## 3. Três versões: celular, tablet e computador, cada uma com layout próprio
 
-O celular não é o computador encolhido, e o computador não é o celular esticado. Cada tela tem o layout que fica
-melhor nela, **mesmo que isso mude a arrumação da página**. O conteúdo e as funções são os mesmos nos dois; o que muda é
-onde cada coisa fica.
+“A versão de celular e de computador tão iguais: todo projeto tem que ter sua versão dividida entre os aparelhos,
+tablet, computador e celular, pra se adaptar à melhor forma de ver cada um, um layout específico” (1/11/2026).
 
-- **Pensar e conferir em três larguras:** 390 px (celular), 820 px (tablet) e 1280 × 800 (notebook), nos modos claro
-  e escuro. Nenhuma pode parecer sobra da outra.
-- **No celular:** uma coluna, na ordem de leitura. A ação principal ao alcance do polegar (presa embaixo quando é a
-  ação da tela); filtros e índices num painel que abre ou numa faixa que rola de lado.
-- **No computador, usar a largura:** o que é de consulta (filtros, índice, foto, dados de um grupo) fica parado numa
-  coluna ao lado (`position: sticky`) e o conteúdo rola junto; painéis que no celular abrem com um botão ficam
-  abertos; listas de cartões em 2 ou 3 colunas. Nada de uma coluna estreita no meio com metade da tela vazia, nem de
-  linhas de texto com mais de uns 75 caracteres.
-- **No tablet:** o meio-termo que ficar melhor (em geral, duas colunas onde o computador tem três).
-- **No notebook de tela baixa (800 px de altura):** a ação principal da tela aparece sem rolar, ou fica presa à vista.
-- **Mudar o layout é permitido, e esperado:** reordenar, abrir painéis, juntar ou separar colunas, trocar uma faixa
-  horizontal por uma grade. Uma página só (o mesmo HTML), com `@media` no CSS e, se precisar, um pouco de JS; nada de
-  duas versões do site.
-- **No app (Expo):** o mesmo vale para telefone e tablet, e para a versão web aberta no computador.
+Não basta a página “caber” em cada tela. Cada aparelho tem a **sua versão**, com o layout que fica melhor nele. O
+conteúdo e as funções são os mesmos; o que muda é a arrumação, a navegação e o que fica sempre à vista. Uma página só
+(o mesmo HTML), com `@media` no CSS e, se precisar, um pouco de JS; nada de dois sites.
+
+**Celular (até 699 px; testar em 390 × 844).** Feito para o polegar e para uma mão:
+- uma coluna, na ordem de leitura, com o mais importante no alto;
+- a ação principal da tela presa embaixo, ao alcance do polegar (uma barra fixa), quando a tela tem uma ação;
+- índices, filtros e escolhas numa faixa que rola de lado ou num painel que abre de baixo;
+- listas longas compactas (miniatura pequena, uma linha de texto) ou em faixa horizontal com `scroll-snap`;
+- menu no botão “Menu”; nada que dependa de passar o mouse.
+
+**Tablet (700 a 1099 px; testar em 820 × 1180 em pé e 1180 × 820 deitado).** O meio-termo próprio, nunca o celular
+esticado:
+- duas colunas onde o computador tem três, e grades de cartões em 2 colunas;
+- o que é de consulta (índice, filtros) num painel que abre ao lado ou numa faixa no alto, que não come a largura do
+  conteúdo;
+- áreas de toque grandes como no celular (é tela de dedo), mas aproveitando a largura;
+- deitado, pode ganhar a coluna lateral do computador.
+
+**Computador (1100 px ou mais; testar em 1280 × 800 e 1440 × 900).** Feito para ver muita coisa de uma vez:
+- o que é de consulta (filtros, índice, mapa, foto, dados do grupo) parado numa coluna ao lado (`position: sticky`),
+  com o conteúdo rolando junto;
+- painéis que no celular abrem com um botão ficam abertos;
+- listas de cartões em 3 ou mais colunas, tabelas inteiras, mapas e gráficos grandes;
+- passar o mouse mostra detalhes (dica, prévia), sempre com um equivalente por toque e por teclado;
+- linhas de texto com no máximo uns 75 caracteres; nada de uma coluna estreita no meio com metade da tela vazia.
+
+**No notebook de tela baixa (800 px de altura):** a ação principal da tela aparece sem rolar, ou fica presa à vista.
+
+**O teste das três capturas:** tire a captura da mesma página em 390, 820 e 1280 px e ponha lado a lado. Se as três
+mostram a mesma arrumação, só mais larga ou mais estreita, a página **não passou**: pelo menos a navegação, a
+posição dos filtros ou índices e o número de colunas têm de mudar de um aparelho para o outro.
+
+- **No app (Expo):** o mesmo vale para telefone e tablet (`useWindowDimensions`), e para a versão web aberta no
+  computador.
 - **Exemplo:** a Trupe (30/10/2026). No computador, o Explorar tem os filtros sempre abertos numa coluna e o cartão
-  deitado; o perfil deixa a foto parada à esquerda; o formulário longo tem o índice em pé ao lado. No celular, tudo
-  em uma coluna, com os botões presos acima das abas.
+  deitado; o perfil deixa a foto parada à esquerda; o formulário longo tem o índice em pé ao lado. No celular, tudo em
+  uma coluna, com os botões presos acima das abas.
 
 ## 4. Sempre otimizado
 
@@ -125,7 +146,8 @@ Regras que mantêm isso:
 - [ ] Toda mudança de estado nova tem transição de 150 a 250 ms e respeita `prefers-reduced-motion`.
 - [ ] Nenhuma página nova passa de 6 telas no celular sem índice, abas, acordeão ou faixa horizontal.
 - [ ] A página tem ao menos uma interação além de ler e rolar.
-- [ ] Testado em 390, 820 e 1280 px, nos modos claro e escuro: cada largura com o melhor layout para ela (seção 3).
+- [ ] Três versões (seção 3): celular, tablet e computador com layout próprio, e o teste das três capturas (390, 820
+      e 1280 px, nos modos claro e escuro) mostrando arrumações diferentes.
 - [ ] Dentro do orçamento da seção 4 (peso, requisições, memória, DOM).
 - [ ] Imagens novas com `width`, `height`, `lazy` e formato leve.
 - [ ] Nenhum intervalo, observer ou listener fica vivo depois de a tela sair.

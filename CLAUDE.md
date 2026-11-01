@@ -4,6 +4,9 @@ Antes de mexer em qualquer tela, leia e siga as diretrizes de UI/UX e desempenho
 
 @DIRETRIZES-UX.md
 
+Regra 6 do linuarquivos (1/11/2026): **três versões**, celular, tablet e computador, cada uma com layout próprio
+(seção 3 das diretrizes); toda tela passa pelo teste das três capturas antes de ir para a `main`.
+
 ## Manter tudo organizado e em dia (regra de 22/10/2026)
 
 1. **Organizar e documentar junto:** toda mudança neste projeto deixa os arquivos organizados (cada coisa
