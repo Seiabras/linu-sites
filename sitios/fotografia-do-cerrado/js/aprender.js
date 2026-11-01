@@ -247,6 +247,31 @@
         a.comecar();
     }
 
+    // ---- três versões (1/11/2026): no celular e no tablet, o índice vira abas e aparece um jogo por vez;
+    // no computador, os jogos ficam lado a lado em duas colunas (o CSS cuida disso pela classe .aprender-grade)
+    const texto = document.querySelector('.guia-texto');
+    const secoes = texto ? [...texto.querySelectorAll(':scope > section[id]')] : [];
+    const abas = [...document.querySelectorAll('.indice a')];
+    if (secoes.length > 1 && abas.length) {
+        texto.classList.add('aprender-grade');
+        const estreito = matchMedia('(max-width: 1099px)');
+        let atual = secoes.some((s) => '#' + s.id === location.hash) ? location.hash.slice(1) : secoes[0].id;
+        const mostrar = (id) => {
+            atual = id;
+            secoes.forEach((s) => { s.hidden = estreito.matches && s.id !== id; });
+            abas.forEach((a) => { if (estreito.matches) a.setAttribute('aria-current', String(a.getAttribute('href') === '#' + id)); });
+        };
+        abas.forEach((a) => a.addEventListener('click', (e) => {
+            if (!estreito.matches) return;
+            e.preventDefault();
+            mostrar(a.getAttribute('href').slice(1));
+            history.replaceState(null, '', a.getAttribute('href'));
+            a.scrollIntoView({ block: 'nearest', inline: 'center', behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
+        }));
+        estreito.addEventListener('change', () => mostrar(atual));
+        mostrar(atual);
+    }
+
     // ---- glossário: procurar sem acento
     const busca = document.getElementById('busca-termo');
     if (busca) {

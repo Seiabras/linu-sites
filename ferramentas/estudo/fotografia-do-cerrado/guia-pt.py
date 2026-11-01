@@ -2305,7 +2305,7 @@ q = M / 'aprender.html'; t = q.read_text()
 if 'id="tamanho"' not in t:
     t = t.replace('                <section id="adivinha" aria-labelledby="adivinha-titulo">', jogos_novos + '                <section id="adivinha" aria-labelledby="adivinha-titulo">', 1)
     t = re.sub(r'<nav class="indice".*?</nav>', indice([('quiz', 'Quiz'), ('qual-e', 'Qual é esta espécie?'), ('tamanho', 'Do maior para o menor'), ('epoca', 'De que época é?'), ('adivinha', 'Qual paisagem é esta?'), ('glossario', 'Glossário')]), t, count=1, flags=re.S)
-    t = t.replace('aprender.js?v=3', 'aprender.js?v=4')
+    t = t.replace('aprender.js?v=3', 'aprender.js?v=5')
     t = t.replace('<p>Um quiz por tema, dois jogos (reconhecer as espécies pelas pistas e as paisagens pelo desenho) e um glossário.', '<p>Um quiz por tema, quatro jogos (as espécies pelas pistas, os tamanhos, as épocas e as paisagens pelo desenho) e um glossário. Cada jogo guarda o seu recorde neste navegador.')
     q.write_text(t)
 print('jogos novos:', len(TAMANHOS), 'tamanhos,', len(EPOCAS), 'épocas')

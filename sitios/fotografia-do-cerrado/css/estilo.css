@@ -988,3 +988,16 @@ button[disabled] .tamanho-ordem { border: 0; background: var(--oliva); color: va
     .ficha-corpo .ficha-fatos { grid-template-columns: 1fr; row-gap: 0; }
     .ficha-corpo .ficha-fatos dd { margin: 0 0 .7rem; }
 }
+
+/* --- Aprender nas três versões (1/11/2026): abas no celular e no tablet; no computador largo, os jogos em duas colunas */
+@media (max-width: 1099px) {
+    .aprender-grade > section[id] { animation: evento-entra .2s ease-out; }
+    .aprender-grade > section[hidden] { display: none; }
+}
+@media (min-width: 1200px) {
+    .aprender-grade { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 2.5rem 2rem; align-items: start; }
+    .aprender-grade > section { margin: 0; }
+    .aprender-grade > #glossario { grid-column: 1 / -1; }
+    .aprender-grade .quiz-caixa, .aprender-grade .qual-caixa, .aprender-grade .tamanho-caixa, .aprender-grade .epoca-caixa, .aprender-grade .adivinha-caixa { max-width: none; }
+}
+@media (prefers-reduced-motion: reduce) { .aprender-grade > section[id] { animation: none; } }
