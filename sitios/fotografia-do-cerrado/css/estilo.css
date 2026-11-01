@@ -1023,3 +1023,38 @@ html:not(.js) .mes-escolha { display: none; }
 .guardar-guia .botao { margin-top: .7rem; }
 .guardar-guia .botao[disabled] { opacity: .75; cursor: default; }
 .guardar-estado { margin-top: .5rem; font-weight: 600; color: var(--texto-suave); }
+
+/* Vi no campo e Meu caderno (1/11/2026) */
+.vi-campo { border: 1px solid var(--borda); border-left: 4px solid var(--oliva); border-radius: var(--raio); padding: 1rem 1.1rem; background: var(--superficie); }
+.vi-campo[hidden] { display: none; }
+.vi-resumo { font-weight: 700; }
+.vi-acoes { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; margin-top: .7rem; }
+.vi-caderno { font-weight: 700; display: inline-block; padding-block: 8px; }
+.vi-aviso { margin-top: .5rem; font-weight: 600; color: var(--oliva-texto, var(--texto)); }
+.vi-form { display: grid; grid-template-columns: minmax(0, 1fr); gap: .6rem; margin-top: .7rem; animation: evento-entra .2s ease-out; }
+@media (min-width: 560px) { .vi-form { grid-template-columns: 1fr 1.6fr auto; align-items: end; } }
+.vi-form .campo { display: grid; gap: .25rem; }
+.vi-form label { font-weight: 700; }
+.vi-form input, .vi-form select { min-height: 44px; padding: .5rem .6rem; border: 2px solid var(--cinza); border-radius: 6px; font: inherit; background: var(--fundo); color: var(--texto); width: 100%; }
+.ficha-corpo .vi-campo { grid-column: 1 / -1; }
+.selo-vista { background: var(--oliva); color: var(--branco); margin-left: .3rem; }
+.caderno { display: grid; gap: 2rem; }
+@media (min-width: 700px) and (max-width: 1099px) { .caderno { grid-template-columns: repeat(2, minmax(0, 1fr)); align-items: start; } }
+@media (min-width: 1100px) { .caderno { grid-template-columns: minmax(0, 360px) minmax(0, 1fr); column-gap: 3.5rem; align-items: start; } .caderno-resumo { position: sticky; top: 88px; } }
+.caderno-total { border-left: 4px solid var(--oliva); padding-left: 1rem; }
+.caderno-numero { font-family: "Newsreader", Georgia, serif; font-weight: 600; font-size: 2.6rem; line-height: 1; color: var(--destaque); }
+.caderno-barra { height: 12px; border-radius: 999px; background: var(--fundo-alt); overflow: hidden; margin-top: .7rem; }
+.caderno-barra.pequena { height: 6px; margin-top: .3rem; grid-column: 1 / -1; }
+.caderno-barra span { display: block; height: 100%; width: var(--pct, 0%); background: var(--oliva); border-radius: inherit; transition: width .25s ease-out; }
+.caderno-grupos { list-style: none; display: grid; gap: .7rem; margin-top: 1.4rem; }
+.caderno-grupos li { display: grid; grid-template-columns: 1fr auto; }
+.caderno-grupo-nome { font-weight: 700; }
+.caderno-grupo-num { color: var(--texto-suave); }
+.caderno-avist { list-style: none; display: grid; gap: .5rem; margin: .7rem 0 1rem; }
+.caderno-avist li { display: grid; grid-template-columns: auto 1fr auto; grid-template-areas: "data nome x" "data lugar x"; column-gap: .9rem; align-items: center; padding: .55rem .5rem .55rem .8rem; background: var(--superficie); border: 1px solid var(--borda); border-radius: 8px; }
+.caderno-data { grid-area: data; font-variant-numeric: tabular-nums; color: var(--texto-suave); font-size: .9rem; }
+.caderno-avist a { grid-area: nome; font-weight: 800; padding-block: 2px; }
+.caderno-lugar { grid-area: lugar; color: var(--texto-suave); font-size: .88rem; }
+.caderno-apagar { grid-area: x; width: 44px; height: 44px; border: 0; background: none; color: var(--texto-suave); font-size: 1.4rem; cursor: pointer; border-radius: 8px; transition: background-color .18s ease-out; }
+.caderno-apagar:hover { background: var(--fundo-alt); }
+@media (prefers-reduced-motion: reduce) { .vi-form { animation: none; } .caderno-barra span { transition: none; } }

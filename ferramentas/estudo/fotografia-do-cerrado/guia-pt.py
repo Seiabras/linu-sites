@@ -2339,6 +2339,50 @@ for f in COMPARTILHADAS:
     q = M / f; q.write_text(com_barra(q.read_text(), f, False))
 print('barra do celular em', len(so_pt) - 1 + len(COMPARTILHADAS), 'modelos')
 
+# ================================================================ Vi no campo (1/11/2026): o caderno de campo pessoal, guardado só no navegador
+import html as _html
+NOMES_PARQUES = [p[0] for p in PARQUES]
+parques_attr = _html.escape(json.dumps(NOMES_PARQUES, ensure_ascii=False), quote=True)
+CAB_OFF = '{{?pt-BR}}<link rel="manifest" href="{{raiz}}manifest.webmanifest"><meta name="theme-color" content="#814F12"><script src="{{raiz}}js/offline.js?v=1" defer></script>{{/pt-BR}}'
+CAD_JS = '<script src="{{raiz}}js/caderno.js?v=1" defer></script>'
+for e in ESP:
+    q = M / f'especie-{e[0]}.html'
+    if not q.exists(): continue
+    t = q.read_text()
+    t = re.sub(r'<div class="vi-campo"[^>]*></div>\s*', '', t)
+    t = t.replace('<section class="ficha-onde"', f'<div class="vi-campo" data-id="{e[0]}" data-nome="{_html.escape(e[1])}" data-parques="{parques_attr}" hidden></div>\n                    <section class="ficha-onde"', 1)
+    if CAD_JS not in t: t = t.replace('</head>', CAD_JS + '\n</head>', 1)
+    q.write_text(t)
+q = M / 'especies.html'; t = q.read_text()
+if CAD_JS not in t: t = t.replace('</head>', CAD_JS + '\n</head>', 1); q.write_text(t)
+caderno_dados = json.dumps([{'id': e[0], 'n': e[1], 'g': e[3]} for e in ESP], ensure_ascii=False).replace('</', '<\\/')
+caderno = f'''        <section class="titulo-pagina guia-topo">
+            <div class="container">
+                <p class="guia-chapeu">Guia do cerrado</p>
+                <h1>Meu caderno de campo</h1>
+                <p>As espécies que você viu, com a data e o lugar. Para marcar, abra a ficha de uma espécie e toque em “Vi no campo”. Fica guardado só neste navegador.</p>
+            </div>
+        </section>
+        <section class="secao">
+            <div class="container caderno">
+                <div class="caderno-resumo" aria-live="polite"><p class="sem-js">O caderno precisa de JavaScript ligado.</p></div>
+                <div class="caderno-lista"></div>
+                <script type="application/json" id="caderno-dados">{caderno_dados}</script>
+            </div>
+        </section>
+'''
+pagina('caderno.html', 'Meu caderno de campo — Guia do Cerrado', 'As espécies do Cerrado que você já viu, com a data e o lugar, guardadas no seu navegador.', caderno, scripts=['caderno.js?v=1'])
+so_pt = json.loads((AQUI / 'so-pt.json').read_text())
+if 'caderno.html' not in so_pt: so_pt.append('caderno.html')
+(AQUI / 'so-pt.json').write_text(json.dumps(so_pt, ensure_ascii=False, indent=2) + '\n')
+RODAPE_PT = RODAPE_PT.replace(' · <a href="roteiro.html">Monte sua visita</a>', ' · <a href="roteiro.html">Monte sua visita</a> · <a href="caderno.html">Meu caderno</a>')
+for f in so_pt + COMPARTILHADAS:
+    if f == '404.html': continue
+    q = M / f; t = com_rodape_novo(q.read_text())
+    if f == 'caderno.html': t = com_barra(t, f, True); t = t.replace('</head>', CAB_OFF + '\n</head>', 1) if 'manifest.webmanifest' not in t else t
+    q.write_text(t)
+print('caderno de campo pronto')
+
 # ================================================================ O guia sem internet (1/11/2026): manifesto, service worker e "Guardar o guia"
 import hashlib
 SITIO_DIR = AQUI.parents[2] / 'sitios' / 'fotografia-do-cerrado'
@@ -2460,3 +2504,4 @@ for f in ['onde-ver.html', 'roteiro.html']:
     t = t.replace('<p class="nota-calculo">', CAIXA_OFF + '<p class="nota-calculo">', 1)
     q.write_text(t)
 print('sem internet:', len(TUDO_OFF), 'endereços,', round(tam / 1024), 'KB, versão', VERSAO_OFF)
+

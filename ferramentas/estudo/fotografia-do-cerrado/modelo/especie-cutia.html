@@ -18,11 +18,12 @@
     <meta name="theme-color" content="#814F12">
     <script src="{{raiz}}js/tema-inicio.js?v=3"></script>
     <link rel="preload" href="{{raiz}}fontes/newsreader-600.woff2" as="font" type="font/woff2" crossorigin>
-    <link rel="stylesheet" href="{{raiz}}css/estilo.css?v=22">
+    <link rel="stylesheet" href="{{raiz}}css/estilo.css?v=23">
     <script src="{{raiz}}js/tema.js?v=2" defer></script>
     <script src="{{raiz}}js/menu.js?v=2" defer></script>
 {{alternativas}}
 <script type="application/json" id="textos-estudo">{{textos_js}}</script>
+<script src="{{raiz}}js/caderno.js?v=1" defer></script>
 {{?pt-BR}}<link rel="manifest" href="{{raiz}}manifest.webmanifest"><meta name="theme-color" content="#814F12"><script src="{{raiz}}js/offline.js?v=1" defer></script>{{/pt-BR}}
 </head>
 <body>
@@ -67,6 +68,7 @@
                         <p>Muitas árvores de sementes grandes dependem da cutia para se espalhar: sem ela, as sementes ficam embaixo da árvore-mãe e não vingam.</p>
                     </section>
                     <section class="comparar" aria-labelledby="comparar-titulo"><h2 class="sub" id="comparar-titulo">Não confunda com</h2><div class="par"><div class="par-lados"><div class="lado este"><p class="lado-nome">Cutia</p><p class="cientifico">Dasyprocta azarae</p><p>Pelagem castanho-alaranjada, mais escura nas costas.</p></div><span class="par-x" aria-hidden="true">×</span><div class="lado"><p class="lado-nome"><a href="especie-paca.html">Paca</a></p><p class="cientifico">Cuniculus paca</p><p>Pelagem marrom com quatro a sete fileiras de pintas brancas nos lados.</p></div></div><p class="par-diferenca"><strong>A diferença:</strong> A paca é mais pesada, tem fileiras de pintas brancas e sai à noite; a cutia é lisa, de pernas finas, e anda de dia.</p></div></section>
+                    <div class="vi-campo" data-id="cutia" data-nome="Cutia" data-parques="[&quot;Parque Nacional da Chapada dos Veadeiros&quot;, &quot;Parque Nacional das Emas&quot;, &quot;Parque Nacional de Brasília&quot;, &quot;Parque Nacional da Serra da Canastra&quot;, &quot;Parque Nacional Grande Sertão Veredas&quot;, &quot;Parque Nacional da Chapada dos Guimarães&quot;, &quot;Parque Nacional da Serra do Cipó&quot;, &quot;Parque Estadual do Jalapão&quot;, &quot;Parque Nacional das Nascentes do Rio Parnaíba&quot;, &quot;Parque Nacional Cavernas do Peruaçu&quot;, &quot;Parque Nacional das Sempre-Vivas&quot;, &quot;Parque Nacional da Chapada das Mesas&quot;, &quot;Parque Nacional do Araguaia&quot;]" hidden></div>
                     <section class="ficha-onde" aria-labelledby="onde-titulo">
                         <h2 class="sub" id="onde-titulo">Em que paisagens</h2>
                         <p>Aparece em: <a href="paisagem-mata-de-galeria.html">mata de galeria</a>, <a href="paisagem-cerradao.html">cerradão</a>, <a href="paisagem-mata-seca.html">mata seca</a>.</p>
@@ -81,12 +83,12 @@
         </article>
     </main>
     <nav class="barra-celular" aria-label="Atalhos do guia"><a href="index.html"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 11 12 4l9 7v9H3z"/><path d="M9 20v-6h6v6"/></svg>Início</a><a href="especies.html" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 20c-3 0-6-2-6-4.5S8.5 11 12 11s6 2 6 4.5-3 4.5-6 4.5Z"/><circle cx="6" cy="8" r="2"/><circle cx="10" cy="5" r="2"/><circle cx="14" cy="5" r="2"/><circle cx="18" cy="8" r="2"/></svg>Espécies</a><a href="mes-a-mes.html"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>Mês a mês</a><a href="aprender.html"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M3 8l9-4 9 4-9 4z"/><path d="M7 10v5c3 2 7 2 10 0v-5"/></svg>Aprender</a><a href="busca.html"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>Buscar</a></nav>
-                    
+                        
     <footer class="rodape">
         <div class="container">
             {{idiomas}}
             <p>{{contato_002}}</p>
-            <p>{{contato_001}}{{?pt-BR}} · <a href="mes-a-mes.html">Mês a mês</a> · <a href="como-ajudar.html">Como ajudar</a> · <a href="onde-ver.html">Onde ver</a> · <a href="roteiro.html">Monte sua visita</a> · <a href="expedicoes.html">Expedições</a> · <a href="diario.html">Diário de campo</a> · <a href="como-fotografamos.html">Como fotografamos</a> · <a href="sobre.html">Sobre</a> · <a href="contato.html">Contato</a> · <a href="fontes.html">Fontes</a>{{/pt-BR}}</p>
+            <p>{{contato_001}}{{?pt-BR}} · <a href="mes-a-mes.html">Mês a mês</a> · <a href="como-ajudar.html">Como ajudar</a> · <a href="onde-ver.html">Onde ver</a> · <a href="roteiro.html">Monte sua visita</a> · <a href="caderno.html">Meu caderno</a> · <a href="expedicoes.html">Expedições</a> · <a href="diario.html">Diário de campo</a> · <a href="como-fotografamos.html">Como fotografamos</a> · <a href="sobre.html">Sobre</a> · <a href="contato.html">Contato</a> · <a href="fontes.html">Fontes</a>{{/pt-BR}}</p>
         </div>
     </footer>
 </body>
