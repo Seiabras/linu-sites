@@ -52,20 +52,21 @@
 
   const steps = modo === 'dia' ? T.d_boot : T.boot;
 
+  // 3 segundos desde o começo da página (pedido de 1/11/2026): a barra enche em 2,6 s e a tela some
+  // logo depois. Não roda se a abertura já foi vista nesta sessão (.ja-abriu) ou se a pessoa pulou.
+  const raizBoot = document.documentElement;
+  const semAbertura = embutido || raizBoot.classList.contains('ja-abriu');
   let p = 0, si = 0;
-  const bootTimer = embutido ? 0 : setInterval(() => {
-    p = Math.min(100, p + Math.random() * 18 + 6);
+  const bootTimer = semAbertura ? 0 : setInterval(() => {
+    if (boot.classList.contains('done')) { clearInterval(bootTimer); return; }
+    p = Math.min(100, performance.now() / 2600 * 100);
     bootFill.style.width = p + '%';
     const idx = Math.min(steps.length - 1, Math.floor(p / (100 / steps.length)));
     if (idx !== si) { si = idx; bootLog.textContent = steps[idx]; }
-    if (p >= 100) {
-      clearInterval(bootTimer);
-      setTimeout(() => boot.classList.add('done'), 380);
-    }
-  }, 230);
-
+    if (p >= 100) { clearInterval(bootTimer); setTimeout(() => boot.classList.add('done'), 400); }
+  }, 200);
   // Segurança: nunca travar a página
-  if (embutido) boot.classList.add('done');
+  if (semAbertura) boot.classList.add('done');
   else setTimeout(() => boot.classList.add('done'), 3600);
 
   /* ----------------------------------------------------------

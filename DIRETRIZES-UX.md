@@ -31,7 +31,16 @@ Toda entrega que mexe em tela passa pelo checklist do fim deste arquivo antes de
 - **O movimento nunca atrasa o conteúdo.** Texto e botões ficam utilizáveis desde o primeiro quadro; animação de entrada
   não esconde o que já está na tela no carregamento.
 - **Proibido:** carrossel que gira sozinho, animação em loop infinito no meio do texto, efeito de digitação, paralaxe
-  pesada, tela de carregamento decorativa.
+  pesada, tela de carregamento decorativa (fora a exceção logo abaixo).
+- **Exceção: a abertura de identidade (1/11/2026).** Um site cujo tema é a própria experiência (o Café Aurora é o
+  primeiro) pode ter uma tela de abertura, se cumprir as cinco condições:
+  1. aparece **uma vez por sessão** (`sessionStorage`), nunca a cada página;
+  2. dura **no máximo 3 s** e some sozinha mesmo que algo trave;
+  3. **pula com um toque** em qualquer lugar, com um botão visível “Pular abertura” (44 px) e com Esc, Enter ou espaço;
+  4. com **“menos movimento”**, aparece sem animação (logo parado, barra sem deslizar);
+  5. **não existe** sem JavaScript nem quando o site está embutido (no simulador do Linu Sites, por exemplo).
+
+  Fora isso, continua proibida: em site de informação, loja ou ferramenta, quem chega quer o conteúdo.
 - **Biblioteca de animação só quando o CSS não dá conta.** Nos sites, CSS e um pouco de JS bastam. No app (Expo), as
   animações rodam na thread de interface com o Reanimated.
 
@@ -144,6 +153,7 @@ Regras que mantêm isso:
 ## 6. Checklist antes de publicar
 
 - [ ] Toda mudança de estado nova tem transição de 150 a 250 ms e respeita `prefers-reduced-motion`.
+- [ ] Tela de abertura só com as cinco condições da exceção (seção 1).
 - [ ] Nenhuma página nova passa de 6 telas no celular sem índice, abas, acordeão ou faixa horizontal.
 - [ ] A página tem ao menos uma interação além de ler e rolar.
 - [ ] Três versões (seção 3): celular, tablet e computador com layout próprio, e o teste das três capturas (390, 820

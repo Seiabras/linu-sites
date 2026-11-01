@@ -1417,3 +1417,17 @@ html, body { overflow-x: clip; } /* o menu de gaveta e o halo do topo ficavam fo
 /* a tabela larga rola dentro da caixa dela; o resto da página não alarga junto */
 .versoes>*,.versoes-bloco{min-width:0}
 .tabela-rola{max-width:100%}
+
+/* A abertura (1/11/2026): uma vez por sessão (.ja-abriu, ver inicio.js), some com um toque; o botão é o aviso
+   visível e o caminho pelo teclado. Com "menos movimento", o logo não pisca e a barra anda sem deslizar. */
+.ja-abriu .boot{display:none !important}
+.boot{cursor:pointer}
+.boot__pular{position:absolute;left:50%;bottom:max(1.5rem,env(safe-area-inset-bottom));transform:translateX(-50%);
+  min-height:44px;padding:.6rem 1.2rem;border:1px solid rgba(255,255,255,.22);border-radius:99px;background:transparent;
+  color:#c9c3dd;font:inherit;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;
+  transition:border-color .2s ease-out,color .2s ease-out}
+.boot__pular:hover,.boot__pular:focus-visible{border-color:#5ff6ff;color:#fff}
+.boot__pular:focus-visible{outline:2px solid #5ff6ff;outline-offset:3px}
+[data-modo="dia"] .boot__pular{border-color:rgba(60,35,10,.3);color:#5a3d1c}
+[data-modo="dia"] .boot__pular:hover,[data-modo="dia"] .boot__pular:focus-visible{border-color:#8a4b12;color:#2b1a08;outline-color:#8a4b12}
+@media (prefers-reduced-motion:reduce){.boot__logo{animation:none !important}.boot__fill{transition:none !important}}

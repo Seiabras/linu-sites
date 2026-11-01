@@ -176,6 +176,9 @@ node ferramentas/gerar-cafe.mjs
   `versoes.html` explica o que muda entre o puro e cada framework (tabela de ideia, layout, HTML, peso, tema, o que
   quebrou) e compara o peso comprimido: puro 40 KB, Bootstrap 83, Tailwind 30, Bulma 63, Pico 41. Por enquanto as
   chaves novas (`v_rotulo`, `css_puro`, `comparar`) estão só no `pt-BR.json` (regra 8).
+- **A abertura do Café (1/11/2026):** a exceção “abertura de identidade” da `DIRETRIZES-UX.md` (seção 1): uma vez por
+  sessão (`inicio.js` v3 põe `ja-abriu` no `<html>`), 3 s contados pelo script de cada versão, pular com toque, botão
+  ou tecla (chave `pular_abertura`, por enquanto só no `pt-BR.json`), parada com “menos movimento”.
 - **O Café “de verdade” (1/11/2026):** pedido com quantidades e a mensagem pronta para o WhatsApp (o Café é fictício: o
   WhatsApp abre sem número), filtros e detalhes do cardápio (de noite e de dia), o teste “Que bebida combina com você?”,
   reserva de mesa com validação na hora (a hora respeita o horário do café e da padaria) e o cartão de carimbos (um por

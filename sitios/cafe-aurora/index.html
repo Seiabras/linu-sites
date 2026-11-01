@@ -28,10 +28,10 @@
 <!-- Site de exemplo do Linu Sites: o Café Aurora não existe. De dia (6h–18h) ele vira a Padaria Aurora: cada texto
      que muda tem as duas versões, .so-noite e .so-dia, e o data-modo do <html> esconde uma delas (ver inicio.js). Na página principal, ele aparece embutido
      (iframe) no simulador de preço, que liga e desliga as partes dele (ver script.js, "módulos"). -->
-<script src="inicio.js?v=2"></script>
+<script src="inicio.js?v=3"></script>
 <link rel="manifest" href="manifest.webmanifest">
-<link rel="stylesheet" href="estilo.css?v=11">
-<script src="script.js?v=10" defer></script>
+<link rel="stylesheet" href="estilo.css?v=12">
+<script src="script.js?v=11" defer></script>
 </head>
 
 <body>
@@ -42,6 +42,7 @@
   <div class="boot__logo"><span class="so-noite">CAFÉ AURORA</span><span class="so-dia">PADARIA AURORA</span></div>
   <div class="boot__bar"><div class="boot__fill" id="bootFill"></div></div>
   <div class="boot__log" id="bootLog"><span class="so-noite">Inicializando portal…</span><span class="so-dia">Acendendo o forno…</span></div>
+  <button type="button" class="boot__pular">Pular abertura</button>
 </div>
 
 <!-- CURSOR -->
