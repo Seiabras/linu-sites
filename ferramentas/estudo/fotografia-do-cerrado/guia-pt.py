@@ -2339,6 +2339,61 @@ for f in COMPARTILHADAS:
     q = M / f; q.write_text(com_barra(q.read_text(), f, False))
 print('barra do celular em', len(so_pt) - 1 + len(COMPARTILHADAS), 'modelos')
 
+# ================================================================ Comparar duas espécies quaisquer (1/11/2026)
+def _tam(id_):
+    f = FICHAS.get(id_); esc = f and f.get('escala')
+    if not esc: return None, ''
+    return (esc[1] if esc[0] in ('arvore', 'palmeira') else max(esc[0], esc[1])), esc[2]
+COMP = []
+for e in ESP:
+    f = FICHAS.get(e[0], {})
+    tam, tamt = _tam(e[0])
+    COMP.append({'id': e[0], 'n': e[1], 'c': e[2], 'g': e[3], 'r': e[4], 'a': AMEACA[e[5]] if e[5] else '', 'p': e[6],
+                 'ab': re.sub(r'<[^>]+>', '', f.get('abre', e[7])), 'f': [list(x) for x in f.get('fatos', [])[:3]],
+                 'rc': pistas_de(e[0])[:2] if f else pistas_de(e[0])[:2], 'm': tam, 'mt': tamt})
+pares_txt = {f'{a}|{b}': txt for a, b, txt in PARES}
+comp_json = json.dumps({'esp': COMP, 'pais': {p_['id']: p_['nome'] for p_ in P}, 'pares': pares_txt}, ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')
+grupos_ordem = list(dict.fromkeys(e[3] for e in ESP))
+def opcoes(sel):
+    return ''.join(f'<optgroup label="{g}">' + ''.join(f'<option value="{e[0]}"{" selected" if e[0] == sel else ""}>{e[1]}</option>' for e in sorted([x for x in ESP if x[3] == g], key=lambda x: x[1])) + '</optgroup>' for g in grupos_ordem)
+comparar_pg = f"""        <section class="titulo-pagina guia-topo">
+            <div class="container">
+                <p class="guia-chapeu">Guia do cerrado</p>
+                <h1>Comparar espécies</h1>
+                <p>Escolha duas espécies quaisquer do guia e veja lado a lado: o tamanho na mesma escala, os fatos, como reconhecer e as paisagens.</p>
+            </div>
+        </section>
+        <section class="secao">
+            <div class="container comparar-pg">
+                <form class="comparar-escolha" action="comparar.html" method="get">
+                    <div class="campo"><label for="comp-a">Primeira espécie</label><select id="comp-a" name="a">{opcoes('onca-pintada')}</select></div>
+                    <button type="button" class="botao botao-linha comparar-trocar" aria-label="Trocar as duas de lugar">⇄</button>
+                    <div class="campo"><label for="comp-b">Segunda espécie</label><select id="comp-b" name="b">{opcoes('onca-parda')}</select></div>
+                    <noscript><button type="submit" class="botao">Comparar</button></noscript>
+                </form>
+                <div class="comparar-resultado" aria-live="polite"><p class="sem-js">A comparação precisa de JavaScript ligado. Sem ele, abra as fichas no <a href="especies.html">catálogo</a>.</p></div>
+                <script type="application/json" id="comparar-dados">{comp_json}</script>
+            </div>
+        </section>
+"""
+pagina('comparar.html', 'Comparar espécies — Guia do Cerrado', 'Compare duas espécies do Cerrado lado a lado: tamanho na mesma escala, fatos, como reconhecer e paisagens.', comparar_pg, scripts=['comparar.js?v=1'])
+so_pt = json.loads((AQUI / 'so-pt.json').read_text())
+if 'comparar.html' not in so_pt: so_pt.append('comparar.html')
+(AQUI / 'so-pt.json').write_text(json.dumps(so_pt, ensure_ascii=False, indent=2) + '\n')
+for e in ESP:
+    q = M / f'especie-{e[0]}.html'
+    if not q.exists(): continue
+    t2 = q.read_text()
+    t2 = re.sub(r'<p class="ficha-comparar">.*?</p>', '', t2)
+    t2 = t2.replace('<p class="ficha-nota">', f'<p class="ficha-comparar"><a href="comparar.html?a={e[0]}">Comparar com outra espécie</a></p><p class="ficha-nota">', 1)
+    q.write_text(t2)
+q = M / 'especies.html'; t2 = q.read_text()
+if 'comparar.html' not in t2:
+    t2 = t2.replace('<p class="contagem"', '<p class="comparar-link"><a href="comparar.html">Comparar duas espécies</a></p><p class="contagem"', 1)
+    q.write_text(t2)
+q = M / 'comparar.html'; q.write_text(com_barra(q.read_text(), 'comparar.html', True))
+print('comparar:', len(COMP), 'espécies,', len(comp_json) // 1024, 'KB')
+
 # ================================================================ Vi no campo (1/11/2026): o caderno de campo pessoal, guardado só no navegador
 import html as _html
 NOMES_PARQUES = [p[0] for p in PARQUES]

@@ -1058,3 +1058,34 @@ html:not(.js) .mes-escolha { display: none; }
 .caderno-apagar { grid-area: x; width: 44px; height: 44px; border: 0; background: none; color: var(--texto-suave); font-size: 1.4rem; cursor: pointer; border-radius: 8px; transition: background-color .18s ease-out; }
 .caderno-apagar:hover { background: var(--fundo-alt); }
 @media (prefers-reduced-motion: reduce) { .vi-form { animation: none; } .caderno-barra span { transition: none; } }
+
+/* Comparar espécies (1/11/2026): celular com as duas colunas estreitas; tablet e computador com mais ar */
+.comparar-escolha { display: grid; grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr); gap: .6rem; align-items: end; margin-bottom: 1.5rem; }
+.comparar-escolha .campo { display: grid; gap: .3rem; }
+.comparar-escolha label { font-weight: 700; font-size: .92rem; }
+.comparar-escolha select { width: 100%; min-height: 44px; padding: .5rem .6rem; border: 2px solid var(--cinza); border-radius: 6px; font: inherit; background: var(--superficie); color: var(--texto); }
+.comparar-trocar { min-width: 44px; min-height: 44px; padding: 0 .6rem; font-size: 1.2rem; }
+@media (min-width: 1000px) { .comparar-escolha { position: sticky; top: 64px; z-index: 2; background: var(--fundo); padding: .6rem 0; } }
+.comparar-resultado { display: grid; gap: 1.4rem; }
+.comparar-resultado > * { animation: evento-entra .2s ease-out; }
+.comp-diferenca { border-left: 4px solid var(--oliva); padding: .5rem 0 .5rem 1rem; max-width: 70ch; }
+.comp-lado { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .8rem; }
+@media (min-width: 700px) { .comp-lado { gap: 2.5rem; } }
+.comp-col { background: var(--superficie); border: 1px solid var(--borda); border-radius: var(--raio); padding: .8rem; }
+@media (min-width: 700px) { .comp-col { padding: 1.2rem 1.4rem; } }
+.comp-col h2 { font-size: clamp(1.25rem, 3vw, 1.9rem); line-height: 1.1; }
+.comp-col h2 a { display: inline-block; padding-block: 2px; }
+.comp-grupo { color: var(--texto-suave); font-weight: 700; font-size: .85rem; }
+.comp-abre { margin: .6rem 0; }
+.comp-sub { font-family: inherit; font-size: .95rem; font-weight: 800; margin: 1rem 0 .3rem; }
+.comp-col .ficha-fatos { grid-template-columns: 1fr; row-gap: 0; }
+.comp-col .ficha-fatos dd { margin: 0 0 .5rem; }
+@media (max-width: 699px) { .comp-col { font-size: .9rem; } .comp-col .lista { padding-left: 1rem; } }
+.comp-pais li.comum a { background: var(--oliva); color: var(--branco); border-color: var(--oliva); }
+.comp-barra-linha { display: grid; gap: .25rem; margin-bottom: .7rem; }
+.comp-barra-nome { font-weight: 700; font-size: .92rem; }
+.comp-barra { height: 14px; border-radius: 999px; background: var(--fundo-alt); overflow: hidden; }
+.comp-barra span { display: block; height: 100%; width: var(--pct, 0%); background: var(--areia, #C8985A); border-radius: inherit; transition: width .25s ease-out; }
+.comp-nota { color: var(--texto-suave); font-size: .9rem; }
+.ficha-comparar a, .comparar-link a { font-weight: 700; display: inline-block; padding-block: 4px; }
+@media (prefers-reduced-motion: reduce) { .comparar-resultado > * { animation: none; } .comp-barra span { transition: none; } }
