@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="{{lang}}" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Café Aurora · Pico CSS</title>
+<meta name="description" content="{{descricao}}">
+<meta name="theme-color" content="#05030a">
+<link rel="canonical" href="{{url}}">
+{{alternativas}}
+<script type="application/json" id="textos-cafe">{{textos_js}}</script>
+
+
+<link rel="preload" href="{{up}}fontes/orbitron.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="icon" href="{{up}}icone.png" type="image/png" sizes="128x128">
+<script src="{{up}}inicio.js?v=2"></script>
+<link rel="stylesheet" href="{{base}}vendor/pico.min.css">
+<link rel="stylesheet" href="{{base}}estilo.css?v=2">
+<link rel="stylesheet" href="{{up}}padaria.css?v=5">
+</head>
+
+<body>
+<a class="skip" href="#conteudo">{{pular}}</a>
+
+<!-- BOOT -->
+<div class="boot" id="boot" role="status" aria-live="polite">
+  <div class="boot__logo"><span class="so-noite">CAFÉ AURORA</span><span class="so-dia">{{d_marca}}</span></div>
+  <div class="boot__bar"><div class="boot__fill" id="bootFill"></div></div>
+  <div class="boot__log" id="bootLog"><span class="so-noite">{{boot1}}</span><span class="so-dia">{{d_boot1}}</span></div>
+</div>
+
+<!-- CURSOR -->
+<div class="cur" id="cur" aria-hidden="true"></div>
+<div class="cur-dot" id="curDot" aria-hidden="true"></div>
+
+<!-- FUNDO -->
+<canvas id="bg" aria-hidden="true"></canvas>
+<div class="bg-veil" aria-hidden="true"></div>
+<div class="noise" aria-hidden="true"></div>
+<div class="scanlines" aria-hidden="true"></div>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <a href="#inicio" class="brand" aria-label="{{marca_aria}}" data-aria-dia="{{d_marca_aria}}">
+    <span class="brand__orb" aria-hidden="true"></span>
+    <span class="so-noite">CAFÉ&nbsp;AURORA</span><span class="so-dia">{{d_marca}}</span>
+  </a>
+
+  <nav class="nav__links" id="navLinks" aria-label="{{nav_aria}}">
+    <a href="#inicio" class="active">{{nav_inicio}}</a>
+    <a href="#sobre">{{nav_origem}}</a>
+    <a href="#menu">{{nav_cardapio}}</a>
+    <a href="#laboratorio"><span class="so-noite">{{nav_lab}}</span><span class="so-dia">{{d_nav_lab}}</span></a>
+    <a href="#transmissoes"><span class="so-noite">{{nav_trans}}</span><span class="so-dia">{{d_nav_trans}}</span></a>
+  </nav>
+
+  <div class="nav__right">
+    <button type="button" class="modo" id="modo" aria-label="{{modo_para_dia}}" title="{{modo_para_dia}}"
+            data-para-dia="{{modo_para_dia}}" data-para-noite="{{modo_para_noite}}">
+      <span class="modo__astro" aria-hidden="true"></span>
+    </button>
+    <a href="#laboratorio" class="btn btn--magenta magnetic">{{pedir}}</a>
+    <button type="button" class="burger" id="burger" aria-label="{{abrir_menu}}" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="conteudo">
+
+  <!-- HERO -->
+  <section class="hero" id="inicio">
+    <div class="hero__halo" aria-hidden="true"></div>
+    <div class="hero__rings" aria-hidden="true"><i></i><i></i><i></i></div>
+
+    <div>
+      <span class="hero__tag reveal"><span class="so-noite">☕ {{tag}}</span><span class="so-dia">🥐 {{d_tag}}</span></span>
+
+      <h1 class="glitch" data-text="CAFÉ&#10;AURORA">
+        <span><span class="so-noite">CAFÉ</span><span class="so-dia">{{d_h1a}}</span></span>
+        <span><span class="so-noite">AURORA</span><span class="so-dia">{{d_h1b}}</span></span>
+      </h1>
+
+      <p class="hero__sub reveal" data-d="1">
+        <span class="so-noite">{{hero_sub}}</span><span class="so-dia">{{d_hero_sub}}</span>
+      </p>
+
+      <div class="hero__cta reveal" data-d="2">
+        <a href="#menu" class="btn magnetic"><span class="so-noite">{{explorar}}</span><span class="so-dia">{{d_explorar}}</span></a>
+        <a href="#sobre" class="btn btn--ghost magnetic"><span class="so-noite">{{atravessar}}</span><span class="so-dia">{{d_atravessar}}</span></a>
+      </div>
+
+      <div class="hero__stats reveal" data-d="3">
+        <div><b>12</b><span class="so-noite">{{stat1}}</span><span class="so-dia">{{d_stat1}}</span></div>
+        <div><b>{{stat2_num}}</b><span class="so-noite">{{stat2}}</span><span class="so-dia">{{d_stat2}}</span></div>
+        <div><b>∞</b><span class="so-noite">{{stat3}}</span><span class="so-dia">{{d_stat3}}</span></div>
+      </div>
+    </div>
+
+    <div class="scroll-hint" aria-hidden="true">
+      <span>{{rolar}}</span>
+      <i></i>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span><span class="so-noite">{{expresso}}</span><span class="so-dia">{{d_p1}}</span></span><span><span class="so-noite">{{plasma}}</span><span class="so-dia">{{d_p2}}</span></span><span><span class="so-noite">{{coldbrew}}</span><span class="so-dia">{{d_p3}}</span></span>
+      <span><span class="so-noite">{{matcha}}</span><span class="so-dia">{{d_p4}}</span></span><span><span class="so-noite">{{estelar}}</span><span class="so-dia">{{d_p5}}</span></span><span><span class="so-noite">{{cometa}}</span><span class="so-dia">{{d_p6}}</span></span>
+      <span><span class="so-noite">{{expresso}}</span><span class="so-dia">{{d_p1}}</span></span><span><span class="so-noite">{{plasma}}</span><span class="so-dia">{{d_p2}}</span></span><span><span class="so-noite">{{coldbrew}}</span><span class="so-dia">{{d_p3}}</span></span>
+      <span><span class="so-noite">{{matcha}}</span><span class="so-dia">{{d_p4}}</span></span><span><span class="so-noite">{{estelar}}</span><span class="so-dia">{{d_p5}}</span></span><span><span class="so-noite">{{cometa}}</span><span class="so-dia">{{d_p6}}</span></span>
+    </div>
+  </div>
+
+  <!-- SOBRE -->
+  <section class="section container" id="sobre">
+    <div class="about grid">
+      <div class="about__text">
+        <span class="eyebrow reveal">{{nav_origem}}</span>
+        <h2 class="reveal" data-d="1"><span class="so-noite">{{sobre_h2}}</span><span class="so-dia">{{d_sobre_h2}}</span></h2>
+
+        <div class="reveal" data-d="2">
+          <p class="lead">
+            <span class="so-noite">{{sobre_p1}}</span><span class="so-dia">{{d_sobre_p1}}</span>
+          </p>
+          <p>
+            <span class="so-noite">{{sobre_p2}}</span><span class="so-dia">{{d_sobre_p2}}</span>
+          </p>
+          <p>
+            <span class="so-noite">{{sobre_p3}}</span><span class="so-dia">{{d_sobre_p3}}</span>
+          </p>
+        </div>
+      </div>
+
+      <div class="portal reveal" data-d="3" aria-hidden="true">
+        <div class="portal__ring"></div>
+        <div class="portal__ring"></div>
+        <div class="portal__ring"></div>
+        <div class="portal__core"></div>
+        <span class="portal__label"><span class="so-noite">{{portal}}</span><span class="so-dia">{{d_portal}}</span></span>
+      </div>
+    </div>
+  </section>
+
+  <!-- MENU -->
+  <section class="section container" id="menu">
+    <span class="eyebrow reveal">{{nav_cardapio}}</span>
+    <h2 class="reveal" data-d="1"><span class="so-noite">{{menu_h2}}</span><span class="so-dia">{{d_menu_h2}}</span></h2>
+    <p class="lead reveal" data-d="2">
+      <span class="so-noite">{{menu_lead}}</span><span class="so-dia">{{d_menu_lead}}</span>
+    </p>
+
+    <div class="menu-grid">
+      <article class="card reveal tilt" data-d="1">
+        <div class="card__top">
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">⚡</span><span class="so-dia">🥐</span></div>
+          <span class="card__id"><span class="so-noite">LX-001</span><span class="so-dia">FN-001</span></span>
+        </div>
+        <h3><span class="so-noite">{{expresso}}</span><span class="so-dia">{{d_p1}}</span></h3>
+        <p><span class="so-noite">{{c1}}</span><span class="so-dia">{{d_c1}}</span></p>
+        <div class="card__foot">
+          <span class="card__price"><span class="so-noite">₡ 18</span><span class="so-dia">₡ 9</span></span>
+          <span class="card__tag"><span class="so-noite">{{t1}}</span><span class="so-dia">{{d_t1}}</span></span>
+        </div>
+      </article>
+
+      <article class="card card--m reveal tilt" data-d="2">
+        <div class="card__top">
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">🌌</span><span class="so-dia">🍞</span></div>
+          <span class="card__id"><span class="so-noite">LX-014</span><span class="so-dia">FN-006</span></span>
+        </div>
+        <h3><span class="so-noite">{{plasma}}</span><span class="so-dia">{{d_p2}}</span></h3>
+        <p><span class="so-noite">{{c2}}</span><span class="so-dia">{{d_c2}}</span></p>
+        <div class="card__foot">
+          <span class="card__price"><span class="so-noite">₡ 24</span><span class="so-dia">₡ 7</span></span>
+          <span class="card__tag"><span class="so-noite">{{t2}}</span><span class="so-dia">{{d_t2}}</span></span>
+        </div>
+      </article>
+
+      <article class="card card--v reveal tilt" data-d="3">
+        <div class="card__top">
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">❄️</span><span class="so-dia">🥖</span></div>
+          <span class="card__id"><span class="so-noite">LX-027</span><span class="so-dia">FN-012</span></span>
+        </div>
+        <h3><span class="so-noite">{{coldbrew}}</span><span class="so-dia">{{d_p3}}</span></h3>
+        <p><span class="so-noite">{{c3}}</span><span class="so-dia">{{d_c3}}</span></p>
+        <div class="card__foot">
+          <span class="card__price"><span class="so-noite">₡ 22</span><span class="so-dia">₡ 8</span></span>
+          <span class="card__tag"><span class="so-noite">{{t3}}</span><span class="so-dia">{{d_t3}}</span></span>
+        </div>
+      </article>
+
+      <article class="card card--a reveal tilt" data-d="4">
+        <div class="card__top">
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">🍃</span><span class="so-dia">🧁</span></div>
+          <span class="card__id"><span class="so-noite">LX-033</span><span class="so-dia">FN-019</span></span>
+        </div>
+        <h3><span class="so-noite">{{matcha}}</span><span class="so-dia">{{d_p4}}</span></h3>
+        <p><span class="so-noite">{{c4}}</span><span class="so-dia">{{d_c4}}</span></p>
+        <div class="card__foot">
+          <span class="card__price"><span class="so-noite">₡ 26</span><span class="so-dia">₡ 6</span></span>
+          <span class="card__tag"><span class="so-noite">{{t4}}</span><span class="so-dia">{{d_t4}}</span></span>
+        </div>
+      </article>
+
+      <article class="card card--m reveal tilt" data-d="5">
+        <div class="card__top">
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">✨</span><span class="so-dia">🍩</span></div>
+          <span class="card__id"><span class="so-noite">LX-042</span><span class="so-dia">FN-024</span></span>
+        </div>
+        <h3><span class="so-noite">{{estelar}}</span><span class="so-dia">{{d_p5}}</span></h3>
+        <p><span class="so-noite">{{c5}}</span><span class="so-dia">{{d_c5}}</span></p>
+        <div class="card__foot">
+          <span class="card__price"><span class="so-noite">₡ 20</span><span class="so-dia">₡ 5</span></span>
+          <span class="card__tag"><span class="so-noite">{{t5}}</span><span class="so-dia">{{d_t5}}</span></span>
+        </div>
+      </article>
+
+      <article class="card card--v reveal tilt" data-d="5">
+        <div class="card__top">
+          <div class="card__icon" aria-hidden="true"><span class="so-noite">☄️</span><span class="so-dia">🧀</span></div>
+          <span class="card__id"><span class="so-noite">LX-050</span><span class="so-dia">FN-031</span></span>
+        </div>
+        <h3><span class="so-noite">{{cometa}}</span><span class="so-dia">{{d_p6}}</span></h3>
+        <p><span class="so-noite">{{c6}}</span><span class="so-dia">{{d_c6}}</span></p>
+        <div class="card__foot">
+          <span class="card__price"><span class="so-noite">₡ 31</span><span class="so-dia">₡ 4</span></span>
+          <span class="card__tag"><span class="so-noite">{{t6}}</span><span class="so-dia">{{d_t6}}</span></span>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- LABORATÓRIO -->
+  <section class="section container" id="laboratorio">
+    <span class="eyebrow reveal"><span class="so-noite">{{nav_lab}}</span><span class="so-dia">{{d_nav_lab}}</span></span>
+    <h2 class="reveal" data-d="1"><span class="so-noite">{{lab_h2}}</span><span class="so-dia">{{d_lab_h2}}</span></h2>
+    <p class="lead reveal" data-d="2">
+      <span class="so-noite">{{lab_lead}}</span><span class="so-dia">{{d_lab_lead}}</span>
+    </p>
+
+    <div class="lab grid">
+      <!-- Painel -->
+      <div class="lab__panel reveal" data-d="2" id="labForm" role="group" aria-label="{{lab_aria}}" data-aria-dia="{{d_lab_aria}}">
+        <div class="lab__group">
+          <div class="lab__label"><span><span class="so-noite">{{base_label}}</span><span class="so-dia">{{d_base_label}}</span></span></div>
+          <div class="chips" role="radiogroup" aria-label="{{base_aria}}" data-aria-dia="{{d_base_aria}}">
+            <label class="chip">
+              <input type="radio" name="base" value="expresso" checked>
+              <span><span class="so-noite">{{chip_expresso}}</span><span class="so-dia">{{d_b1}}</span></span>
+            </label>
+            <label class="chip">
+              <input type="radio" name="base" value="coldbrew">
+              <span><span class="so-noite">{{chip_coldbrew}}</span><span class="so-dia">{{d_b2}}</span></span>
+            </label>
+            <label class="chip">
+              <input type="radio" name="base" value="matcha">
+              <span><span class="so-noite">{{chip_matcha}}</span><span class="so-dia">{{d_b3}}</span></span>
+            </label>
+            <label class="chip">
+              <input type="radio" name="base" value="estelar">
+              <span><span class="so-noite">{{chip_estelar}}</span><span class="so-dia">{{d_b4}}</span></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="lab__group">
+          <div class="lab__label">
+            <span><span class="so-noite">{{int_label}}</span><span class="so-dia">{{d_int_label}}</span></span>
+            <b id="intVal">7</b>
+          </div>
+          <input type="range" id="intensity" min="1" max="10" value="7"
+                 aria-label="{{int_aria}}" data-aria-dia="{{d_int_aria}}">
+        </div>
+
+        <div class="lab__group">
+          <div class="lab__label"><span><span class="so-noite">{{mod_label}}</span><span class="so-dia">{{d_mod_label}}</span></span></div>
+          <div class="chips">
+            <label class="chip">
+              <input type="checkbox" name="top[]" value="{{cometa}}" data-cob="1">
+              <span><span class="so-noite">{{cometa}}</span><span class="so-dia">{{d_cob1}}</span></span>
+            </label>
+            <label class="chip">
+              <input type="checkbox" name="top[]" value="{{espuma}}" data-cob="2">
+              <span><span class="so-noite">{{espuma}}</span><span class="so-dia">{{d_cob2}}</span></span>
+            </label>
+            <label class="chip">
+              <input type="checkbox" name="top[]" value="{{cristal}}" data-cob="3">
+              <span><span class="so-noite">{{cristal}}</span><span class="so-dia">{{d_cob3}}</span></span>
+            </label>
+            <label class="chip">
+              <input type="checkbox" name="top[]" value="{{flor}}" data-cob="4">
+              <span><span class="so-noite">{{flor}}</span><span class="so-dia">{{d_cob4}}</span></span>
+            </label>
+          </div>
+        </div>
+
+        <div class="lab__result">
+          <small><span class="so-noite">{{saida}}</span><span class="so-dia">{{d_saida}}</span></small>
+          <div id="drinkName">{{expresso}} · {{nivel}} 7</div>
+          <span id="drinkPrice">₡ {{preco_ini}}</span>
+        </div>
+      </div>
+
+      <!-- Xícara -->
+      <div class="cup-stage reveal" data-d="3">
+        <div class="cup-wrap so-noite">
+          <div class="cup-glow" id="cupGlow" aria-hidden="true"></div>
+          <div class="steam" aria-hidden="true"><i></i><i></i><i></i></div>
+          <i class="cup__poeira" aria-hidden="true"></i>
+          <div class="cup">
+            <div class="liquid" id="liquid"><i class="liquid__espuma"></i><i class="liquid__cristais"></i><i class="liquid__flor"></i></div>
+          </div>
+          <div class="saucer" aria-hidden="true"></div>
+
+          <span class="badge-float">temp · 68 °C</span>
+          <span class="badge-float">ph · 5.4</span>
+          <span class="badge-float">dim · Ω-07</span>
+        </div>
+        <!-- O pão (modo dia): a casca doura com o tempo de forno; cada cobertura é uma classe com-N -->
+        <div class="pao-wrap so-dia">
+          <div class="cup-glow" id="forno" aria-hidden="true"></div>
+          <div class="steam" aria-hidden="true"><i></i><i></i><i></i></div>
+          <div class="pao" id="pao" aria-hidden="true">
+            <i class="pao__queijo"></i><i class="pao__manteiga"></i>
+          </div>
+          <div class="tabua" aria-hidden="true"></div>
+
+          <span class="badge-float">forno · 220 °C</span>
+          <span class="badge-float">fermento · 72 h</span>
+          <span class="badge-float">dim · ☉-07</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRANSMISSÕES -->
+  <section class="section container" id="transmissoes">
+    <span class="eyebrow reveal"><span class="so-noite">{{nav_trans}}</span><span class="so-dia">{{d_nav_trans}}</span></span>
+    <h2 class="reveal" data-d="1"><span class="so-noite">{{trans_h2}}</span><span class="so-dia">{{d_trans_h2}}</span></h2>
+
+    <div class="trans-grid grid">
+      <blockquote class="trans reveal" data-d="1">
+        <q><span class="so-noite">{{q1}}</span><span class="so-dia">{{d_q1}}</span></q>
+        <footer><b><span class="so-noite">Kira-09</span><span class="so-dia">Tomás-06</span></b><span class="so-noite">{{f1}}</span><span class="so-dia">{{d_f1}}</span></footer>
+      </blockquote>
+
+      <blockquote class="trans reveal" data-d="2">
+        <q><span class="so-noite">{{q2}}</span><span class="so-dia">{{d_q2}}</span></q>
+        <footer><b><span class="so-noite">Dr. Halven</span><span class="so-dia">Odila Prax</span></b><span class="so-noite">{{f2}}</span><span class="so-dia">{{d_f2}}</span></footer>
+      </blockquote>
+
+      <blockquote class="trans reveal" data-d="3">
+        <q><span class="so-noite">{{q3}}</span><span class="so-dia">{{d_q3}}</span></q>
+        <footer><b>{{f3n}}</b><span class="so-noite">{{f3}}</span><span class="so-dia">{{d_f3}}</span></footer>
+      </blockquote>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta">
+    <h2 class="reveal"><span class="so-noite">{{cta_h2}}</span><span class="so-dia">{{d_cta_h2}}</span></h2>
+    <p class="reveal" data-d="1">
+      <span class="so-noite">{{cta_p}}</span><span class="so-dia">{{d_cta_p}}</span>
+    </p>
+    <div class="hero__cta reveal" data-d="2">
+      <a href="#menu" class="btn btn--magenta magnetic">{{ver_cardapio}}</a>
+      <a href="#inicio" class="btn btn--ghost magnetic">{{voltar}}</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="foot container">
+    <div>
+      <div class="brand">
+        <span class="brand__orb" aria-hidden="true"></span><span class="so-noite">CAFÉ AURORA</span><span class="so-dia">{{d_marca}}</span>
+      </div>
+      <p><span class="so-noite">{{foot_p}}</span><span class="so-dia">{{d_foot_p}}</span></p>
+
+      <form class="newsletter" id="newsForm" novalidate>
+        <label class="sr-only" for="email">{{email_label}}</label>
+        <input type="email" id="email" placeholder="{{email_ph}}" autocomplete="email" required>
+        <button type="submit" class="btn magnetic">{{assinar}}</button>
+      </form>
+      <p id="newsMsg" role="status" aria-live="polite" class="e-879f25"></p>
+    </div>
+
+    <div>
+      <h3>{{coord}}</h3>
+      <ul>
+        <li>{{addr1}}</li>
+        <li>{{addr2}}</li>
+        <li>{{addr3}}</li>
+      </ul>
+    </div>
+
+    <div>
+      <h3>{{horario}}</h3>
+      <ul>
+        <li><span class="so-noite">{{hora1}}</span><span class="so-dia">{{d_hora1}}</span></li>
+        <li><span class="so-noite">{{hora2}}</span><span class="so-dia">{{d_hora2}}</span></li>
+        <li><span class="so-noite">{{hora3}}</span><span class="so-dia">{{d_hora3}}</span></li>
+      </ul>
+      <h3 class="e-5a7715">{{sinal}}</h3>
+      <ul>
+        <li><a href="#inicio">@cafeaurora.omega</a></li>
+        <li><a href="#inicio">+Ω 07 2087-0000</a></li>
+      </ul>
+    </div>
+
+
+    <nav class="versoes-troca" aria-label="{{v_rotulo}}">
+      <span>{{v_rotulo}}:</span>
+      <a href="{{v_puro}}"{{ac_puro}}>{{css_puro}}</a> · <a href="{{v_bootstrap}}"{{ac_bootstrap}}>Bootstrap</a> · <a href="{{v_tailwind}}"{{ac_tailwind}}>Tailwind</a> · <a href="{{v_bulma}}"{{ac_bulma}}>Bulma</a> · <a href="{{v_pico}}"{{ac_pico}}>Pico</a> · <a href="{{up}}versoes.html">{{comparar}}</a>
+    </nav>
+    <div class="foot__bottom">
+      <span>© <span id="year"></span> <span class="so-noite">Café Aurora</span><span class="so-dia">{{d_nome}}</span> <span class="dot">◆</span> {{direitos}}</span>
+      <span>Pico CSS 2 · HTML · CSS · JS</span>
+    </div>
+  </footer>
+</main>
+
+<!-- PAINEL DE DIMENSÃO -->
+<aside class="dim" id="dim" aria-label="{{dim_aria}}">
+  <button type="button" class="dim__head" id="dimHead" aria-expanded="true" aria-controls="dimBody">
+    <span class="e-fd99b2"><i aria-hidden="true"></i>{{dim_titulo}}</span>
+    <span aria-hidden="true" id="dimChevron">▾</span>
+  </button>
+  <div class="dim__body" id="dimBody">
+    <label for="hue">{{desvio}} · <span id="hueVal">0°</span></label>
+    <input type="range" id="hue" min="-70" max="70" value="0" aria-label="{{desvio_aria}}">
+    <p class="dim__hint"><span class="so-noite">{{dim_hint}}</span><span class="so-dia">{{d_dim_hint}}</span></p>
+  </div>
+</aside>
+
+<!-- o mesmo script da versão Tailwind: JavaScript puro, que não depende do CSS -->
+<script src="{{up}}tailwind/script.js?v=3" defer></script>
+<script src="{{up}}padaria.js?v=3" defer></script>
+</body>
+</html>

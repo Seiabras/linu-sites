@@ -97,6 +97,8 @@
       el.setAttribute('aria-label', novo === 'dia' ? el.dataset.ariaDia : el.dataset.ariaNoite);
     });
     if (corTema) corTema.content = novo === 'dia' ? '#fbf3e4' : '#05030a';
+    // o Pico tem tema claro e escuro próprios (data-theme): a padaria usa o claro, o café o escuro
+    if (raiz.dataset.theme) raiz.dataset.theme = novo === 'dia' ? 'light' : 'dark';
     if (form) form.dispatchEvent(new Event('change')); // de noite, o script da versão volta a escrever a bebida
     farinha();
   }

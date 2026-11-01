@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Café Aurora: as três versões lado a lado</title>
-<meta name="description" content="O mesmo Café Aurora em CSS puro, Bootstrap 5 e Tailwind CSS: quanto cada um pesa, como o mesmo cartão fica em cada um e quando usar cada jeito.">
+<title>Café Aurora: as cinco versões lado a lado</title>
+<meta name="description" content="O mesmo Café Aurora em CSS puro, Bootstrap, Tailwind, Bulma e Pico CSS: o que muda entre escrever o CSS à mão e usar um framework, quanto cada um pesa e quando usar cada jeito.">
 <meta name="theme-color" content="#05030a">
 <link rel="canonical" href="https://cafe.linupedia.com.br/versoes.html">
 <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
@@ -13,10 +13,10 @@
 <link rel="preload" href="fontes/orbitron.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="fontes/rajdhani-400.woff2" as="font" type="font/woff2" crossorigin>
 <script src="inicio.js?v=2"></script>
-<link rel="stylesheet" href="estilo.css?v=10">
+<link rel="stylesheet" href="estilo.css?v=11">
 </head>
-<!-- Para a disciplina (1/11/2026): a mesma página em três jeitos, medida. Os números são dos arquivos do site, comprimidos
-     com gzip (como o servidor manda), sem as fontes, que são iguais nas três. Só em português. -->
+<!-- Para a disciplina (1/11/2026): a mesma página em cinco jeitos, explicada e medida. Os pesos são dos arquivos do site,
+     comprimidos com gzip (como o servidor manda), sem as fontes, que são iguais em todas. Só em português. -->
 <body class="versoes-pagina">
 <a class="skip" href="#conteudo">Pular para o conteúdo</a>
 <header class="versoes-topo">
@@ -26,69 +26,111 @@
 <main id="conteudo" class="versoes">
   <section class="versoes-abre">
     <span class="eyebrow">Para a disciplina</span>
-    <h1>Uma cafeteria, três jeitos de fazer</h1>
-    <p class="lead">O mesmo prompt foi para três IAs (ChatGPT, Gemini e DeepSeek). Fiquei com a versão do DeepSeek, estudei e reconstruí o código passo a passo em CSS puro; depois refiz a mesma página com <strong>Bootstrap 5.3</strong> e com <strong>Tailwind CSS 3.4</strong>. Aqui estão as três lado a lado.</p>
-    <nav class="versoes-links" aria-label="As três versões">
+    <h1>Uma cafeteria, cinco jeitos de fazer</h1>
+    <p class="lead">O mesmo prompt foi para três IAs (ChatGPT, Gemini e DeepSeek). Fiquei com a versão do DeepSeek, estudei e reconstruí o código passo a passo em CSS puro; depois refiz a mesma página com quatro frameworks de CSS, cada um de uma escola diferente. O conteúdo, as cores e o modo padaria de dia são os mesmos nas cinco: muda só o jeito de escrever.</p>
+    <nav class="versoes-links" aria-label="As cinco versões">
       <a class="btn" href="./">CSS puro</a>
       <a class="btn btn--magenta" href="bootstrap/">Bootstrap 5</a>
-      <a class="btn btn--ghost" href="tailwind/">Tailwind CSS</a>
+      <a class="btn btn--ghost" href="tailwind/">Tailwind CSS 3</a>
+      <a class="btn btn--ghost" href="bulma/">Bulma 1</a>
+      <a class="btn btn--ghost" href="pico/">Pico CSS 2</a>
     </nav>
-    <p class="versoes-nota">As três estão em 13 línguas: troque o começo do endereço, por exemplo <a href="en/bootstrap/">/en/bootstrap/</a> ou <a href="ja/tailwind/">/ja/tailwind/</a>.</p>
+    <p class="versoes-nota">No rodapé de cada versão há a mesma lista, para trocar de uma para outra em qualquer direção.</p>
+  </section>
+
+  <section aria-labelledby="muda-t" class="versoes-bloco">
+    <h2 id="muda-t">O que muda quando entra um framework</h2>
+    <p class="versoes-nota">No CSS puro, eu escrevo tudo: o tamanho das colunas, o menu do celular, a cor de cada botão. Um framework traz parte disso pronta. O preço é aprender o jeito dele e carregar o que ele traz. Cada um dos quatro escolhe um jeito diferente:</p>
+    <section class="tabela-rola" tabindex="0" aria-label="Tabela do que muda em cada versão (rola de lado no celular)">
+      <table class="tabela-compara">
+        <thead><tr><th scope="col"><span class="sr-only">O quê</span></th><th scope="col">CSS puro</th><th scope="col">Bootstrap 5</th><th scope="col">Tailwind CSS 3</th><th scope="col">Bulma 1</th><th scope="col">Pico CSS 2</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">A ideia</th><td>Tudo escrito à mão, com nomes que eu escolho</td><td>Componentes prontos (menu, cartão, botão) e uma grade de 12 colunas</td><td>Classes pequenas, uma para cada propriedade, combinadas no HTML</td><td>Componentes prontos, como o Bootstrap, mas só CSS</td><td>Quase sem classes: ele desenha o HTML do jeito que vier</td></tr>
+          <tr><th scope="row">Quem faz o layout</th><td>O meu CSS (<code>.menu-grid</code>, <code>.lab</code>)</td><td>As classes <code>row</code> e <code>col-md-6</code> no HTML</td><td>As classes <code>grid sm:grid-cols-2</code> no HTML</td><td>As classes <code>columns</code> e <code>column is-4</code> no HTML</td><td>A tag certa (<code>nav</code>, <code>article</code>) e as classes <code>container</code> e <code>grid</code></td></tr>
+          <tr><th scope="row">Como fica o HTML</th><td>Limpo: só os nomes das partes</td><td>Médio: classes do Bootstrap e do tema juntas</td><td>Carregado: muitas classes em cada elemento</td><td>Médio, e mais divs (cada cartão dentro de uma coluna)</td><td>O mais limpo de todos</td></tr>
+          <tr><th scope="row">JavaScript</th><td>O meu</td><td>Precisa do dele para o menu abrir no celular (23 KB)</td><td>Nenhum</td><td>Nenhum (o menu do celular fica por minha conta)</td><td>Nenhum</td></tr>
+          <tr><th scope="row">Mudar as cores</th><td>Variáveis CSS minhas</td><td>Variáveis <code>--bs-*</code> (ou Sass)</td><td>O arquivo de configuração, antes de compilar</td><td>Variáveis <code>--bulma-*</code> (ou Sass)</td><td>Variáveis <code>--pico-*</code></td></tr>
+          <tr><th scope="row">Precisa compilar</th><td>Não</td><td>Não</td><td>Sim: o compilador lê o HTML e gera só as classes usadas</td><td>Não (a versão pronta)</td><td>Não</td></tr>
+          <tr><th scope="row">Tamanhos de tela</th><td>Os que eu quiser (aqui: 700 e 1100 px)</td><td>576, 768, 992, 1200 e 1400 px</td><td>640, 768, 1024, 1280 e 1536 px</td><td>769, 1024, 1216 e 1408 px</td><td>576, 768, 1024, 1280 e 1536 px</td></tr>
+          <tr><th scope="row">Brigou com o tema?</th><td>Não tem com quem brigar</td><td>Sim: o <code>.card</code> dele virou <code>.card-aurora</code></td><td>Não: as classes dele não têm nome de parte</td><td>Sim: <code>.card</code>, <code>.hero</code> e <code>.section</code>; usei a versão com prefixo (<code>bulma-columns</code>)</td><td>Sim: ele desenha botões, campos e grupos do jeito dele</td></tr>
+        </tbody>
+      </table>
+    </section>
   </section>
 
   <section aria-labelledby="peso-t" class="versoes-bloco">
     <h2 id="peso-t">Quanto cada uma pesa</h2>
     <figure class="grafico-versoes">
-      <figcaption>Código que o navegador baixa ao abrir (HTML, CSS e JavaScript, em KB comprimidos com gzip; as fontes, iguais nas três, ficam de fora)</figcaption>
+      <figcaption>Código que o navegador baixa ao abrir (HTML, CSS e JavaScript, em KB comprimidos com gzip; as fontes, iguais em todas, ficam de fora)</figcaption>
       <table class="tabela-versoes">
         <thead><tr><th scope="col">Versão</th><th scope="col">HTML</th><th scope="col">CSS</th><th scope="col">JavaScript</th><th scope="col">Total</th><th scope="col"><span class="sr-only">Barra</span></th></tr></thead>
         <tbody>
-          <tr><th scope="row">CSS puro</th><td>10,5</td><td>15,7</td><td>12,7</td><td><b>38,9</b></td><td><span class="barra-v b-puro"></span></td></tr>
-          <tr><th scope="row">Bootstrap 5</th><td>8,3</td><td>7,5 + 4,9 da padaria + 30,3 do Bootstrap</td><td>4,5 + 2,7 da padaria + 23,2 do Bootstrap</td><td><b>81,4</b></td><td><span class="barra-v b-bootstrap"></span></td></tr>
-          <tr><th scope="row">Tailwind CSS</th><td>8,1</td><td>7,4 + 4,9 da padaria + 0,7 do Tailwind</td><td>4,9 + 2,7 da padaria</td><td><b>28,7</b></td><td><span class="barra-v b-tailwind"></span></td></tr>
+          <tr><th scope="row">CSS puro</th><td>10,6</td><td>16,6</td><td>12,9</td><td><b>40,1</b></td><td><span class="barra-v b-puro"></span></td></tr>
+          <tr><th scope="row">Bootstrap 5</th><td>8,4</td><td>13,6 + 30,3 do Bootstrap</td><td>7,2 + 23,1 do Bootstrap</td><td><b>82,6</b></td><td><span class="barra-v b-bootstrap"></span></td></tr>
+          <tr><th scope="row">Tailwind CSS 3</th><td>8,2</td><td>13,4 + 0,7 do Tailwind</td><td>7,6</td><td><b>29,9</b></td><td><span class="barra-v b-tailwind"></span></td></tr>
+          <tr><th scope="row">Bulma 1</th><td>8,1</td><td>14,1 + 33,2 do Bulma</td><td>7,6</td><td><b>63,0</b></td><td><span class="barra-v b-bulma"></span></td></tr>
+          <tr><th scope="row">Pico CSS 2</th><td>8,0</td><td>14,5 + 11,3 do Pico</td><td>7,6</td><td><b>41,4</b></td><td><span class="barra-v b-pico"></span></td></tr>
         </tbody>
       </table>
-      <p class="versoes-nota">As três têm o café de noite e a padaria de dia. A versão em CSS puro é a mais pesada das próprias porque é a única com o pedido pelo WhatsApp, os filtros do cardápio, o teste, as reservas e o cartão de carimbos; as outras duas são a página original, para comparar o jeito de fazer. A padaria das versões Bootstrap e Tailwind vem de dois arquivos que as duas usam (<code>padaria.css</code> e <code>padaria.js</code>).</p>
+      <p class="versoes-nota">Nas quatro versões com framework, o CSS e o JavaScript próprios incluem a padaria de dia (<code>padaria.css</code> e <code>padaria.js</code>, que as quatro usam). A versão em CSS puro é a única com o pedido pelo WhatsApp, os filtros do cardápio, o teste, as reservas e o cartão de carimbos; as outras quatro são a página original, para comparar só o jeito de fazer.</p>
     </figure>
     <ul class="versoes-fatos">
-      <li><b>Bootstrap:</b> dois terços do peso são do próprio Bootstrap (30 KB de CSS e 23 KB de JavaScript), mesmo usando só o grid, a barra de navegação e alguns utilitários. O CSS próprio cai para a metade, porque o grid já vem pronto.</li>
-      <li><b>Tailwind:</b> o compilador deixa só as classes que a página usa: 0,7 KB. O layout passa para o HTML (<code>grid gap-6 sm:grid-cols-2</code>), e o CSS próprio fica só com o tema neon e as animações.</li>
-      <li><b>CSS puro:</b> nada de fora; tudo o que a página faz está escrito à mão, o que dá mais trabalho e mais controle.</li>
+      <li><b>Tailwind é a mais leve</b> porque o compilador deixa só as classes que a página usa: 0,7 KB.</li>
+      <li><b>Pico vem logo depois:</b> 11 KB que já desenham a página inteira, porque estilizam as tags, e não classes.</li>
+      <li><b>Bootstrap e Bulma pesam mais</b> porque trazem dezenas de componentes, mesmo que a página use só a grade e o menu; o Bootstrap ainda traz o JavaScript dele.</li>
     </ul>
   </section>
 
   <section aria-labelledby="cartao-t" class="versoes-bloco">
-    <h2 id="cartao-t">O mesmo cartão do cardápio, nos três</h2>
+    <h2 id="cartao-t">O mesmo cartão do cardápio, nos cinco</h2>
     <div class="versoes-codigo">
       <figure><figcaption>CSS puro: a grade fica no CSS (<code>.menu-grid</code>)</figcaption>
 <pre tabindex="0"><code>&lt;div class="menu-grid"&gt;
   &lt;article class="card"&gt;
-    &lt;div class="card__top"&gt;…&lt;/div&gt;
     &lt;h3&gt;Expresso Quântico&lt;/h3&gt;
-    &lt;div class="card__foot"&gt;…&lt;/div&gt;
   &lt;/article&gt;</code></pre></figure>
-      <figure><figcaption>Bootstrap: a grade vem das classes <code>row</code> e <code>col-*</code></figcaption>
+      <figure><figcaption>Bootstrap: a grade vem de <code>row</code> e <code>col-*</code></figcaption>
 <pre tabindex="0"><code>&lt;div class="row g-4"&gt;
   &lt;div class="col-12 col-md-6 col-lg-4"&gt;
-    &lt;article class="card-aurora"&gt;
-      &lt;h3&gt;Expresso Quântico&lt;/h3&gt;
-    &lt;/article&gt;
+    &lt;article class="card-aurora"&gt;…&lt;/article&gt;
   &lt;/div&gt;</code></pre></figure>
       <figure><figcaption>Tailwind: a grade e o espaço ficam no próprio HTML</figcaption>
 <pre tabindex="0"><code>&lt;div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"&gt;
   &lt;article class="card"&gt;
-    &lt;div class="flex items-start justify-between gap-4"&gt;…&lt;/div&gt;
+    &lt;div class="flex justify-between gap-4"&gt;…&lt;/div&gt;
+  &lt;/article&gt;</code></pre></figure>
+      <figure><figcaption>Bulma: cada cartão dentro de uma coluna</figcaption>
+<pre tabindex="0"><code>&lt;div class="bulma-columns bulma-is-multiline"&gt;
+  &lt;div class="bulma-column bulma-is-4-desktop"&gt;
+    &lt;article class="card"&gt;…&lt;/article&gt;
+  &lt;/div&gt;</code></pre></figure>
+      <figure><figcaption>Pico: a tag basta; a grade, no CSS do tema</figcaption>
+<pre tabindex="0"><code>&lt;div class="menu-grid"&gt;
+  &lt;article class="card"&gt;
     &lt;h3&gt;Expresso Quântico&lt;/h3&gt;
   &lt;/article&gt;</code></pre></figure>
     </div>
+  </section>
+
+  <section aria-labelledby="real-t" class="versoes-bloco">
+    <h2 id="real-t">O que aconteceu de verdade, em cada uma</h2>
+    <ul class="versoes-fatos">
+      <li><b>Bootstrap:</b> ele já tem um <code>.card</code>, com fundo branco e borda; o cartão do tema virou <code>.card-aurora</code> para os dois não se misturarem. A barra de cima só abre no celular com o JavaScript dele.</li>
+      <li><b>Tailwind:</b> o HTML ficou cheio de classes (<code>flex items-center justify-between gap-4</code>), mas nada brigou com o tema, porque as classes dele não têm nome de parte.</li>
+      <li><b>Bulma:</b> ele também tem <code>.card</code>, <code>.hero</code> e <code>.section</code>, os mesmos nomes do tema. Usei a versão em que todas as classes dele começam com <code>bulma-</code>. Cada cartão precisou de uma div de coluna em volta, porque no Bulma o espaço entre os cartões é o recheio da coluna.</li>
+      <li><b>Pico:</b> como ele desenha as tags, desenhou coisas que eu não pedi. O painel do laboratório tem <code>role="group"</code> (para o leitor de tela) e o Pico o transformou numa fileira de botões grudados; a letra da página crescia até 131% nas telas largas; e a barra de intensidade ficou com o trilho cinza dele. As duas primeiras eu corrigi; a terceira ficou, para mostrar.</li>
+      <li><b>Nas cinco:</b> o JavaScript é o mesmo jeito de fazer (JavaScript puro). O Tailwind, o Bulma e o Pico usam até o mesmo arquivo, porque o script não depende de como o CSS foi escrito.</li>
+    </ul>
   </section>
 
   <section aria-labelledby="quando-t" class="versoes-bloco">
     <h2 id="quando-t">Quando usar cada um</h2>
     <div class="versoes-quando">
       <div><h3>CSS puro</h3><p>Quando o visual é muito próprio (como o neon e a padaria) e o site precisa ser leve. Pede mais tempo, mas não carrega nada que não use.</p></div>
-      <div><h3>Bootstrap</h3><p>Quando é preciso montar rápido telas comuns (formulários, menus, modais) e o peso extra não importa, como num painel interno.</p></div>
-      <div><h3>Tailwind</h3><p>Quando o time quer o layout visível no HTML e um CSS final pequeno. Exige um passo de compilação e um HTML mais carregado de classes.</p></div>
+      <div><h3>Bootstrap</h3><p>Quando é preciso montar rápido telas comuns (formulários, menus, janelas) e o peso extra não importa, como num painel interno.</p></div>
+      <div><h3>Tailwind</h3><p>Quando o time quer o layout visível no HTML e um CSS final pequeno. Exige um passo de compilação e um HTML carregado de classes.</p></div>
+      <div><h3>Bulma</h3><p>Quando se quer componentes prontos sem JavaScript nenhum, com nomes fáceis de ler (<code>is-4</code>, <code>is-multiline</code>).</p></div>
+      <div><h3>Pico</h3><p>Para um site simples ficar bonito quase sem esforço: um blog, uma documentação, um formulário. Num visual muito próprio, ele atrapalha mais do que ajuda.</p></div>
     </div>
   </section>
 </main>

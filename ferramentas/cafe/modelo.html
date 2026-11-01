@@ -18,7 +18,7 @@
      (iframe) no simulador de preço, que liga e desliga as partes dele (ver script.js, "módulos"). -->
 <script src="{{raiz}}inicio.js?v=2"></script>
 <link rel="manifest" href="{{raiz}}manifest.webmanifest">
-<link rel="stylesheet" href="{{raiz}}estilo.css?v=10">
+<link rel="stylesheet" href="{{raiz}}estilo.css?v=11">
 <script src="{{raiz}}script.js?v=10" defer></script>
 </head>
 
@@ -520,10 +520,13 @@
       </ul>
     </div>
 
+    <nav class="versoes-troca" aria-label="{{v_rotulo}}">
+      <span>{{v_rotulo}}:</span>
+      <a href="{{v_puro}}"{{ac_puro}}>{{css_puro}}</a> · <a href="{{v_bootstrap}}"{{ac_bootstrap}}>Bootstrap</a> · <a href="{{v_tailwind}}"{{ac_tailwind}}>Tailwind</a> · <a href="{{v_bulma}}"{{ac_bulma}}>Bulma</a> · <a href="{{v_pico}}"{{ac_pico}}>Pico</a> · <a href="{{up}}versoes.html">{{comparar}}</a>
+    </nav>
     <div class="foot__bottom">
       <span>© <span id="year"></span> <span class="so-noite">Café Aurora</span><span class="so-dia">{{d_nome}}</span> <span class="dot">◆</span> {{direitos}}</span>
       <span><span class="so-noite">{{ficticia}}</span><span class="so-dia">{{d_ficticia}}</span> <a href="{{linu_sites}}" target="_top">Linu Sites</a></span>
-      <span class="foot__versoes">{{versoes}} <a href="bootstrap/">Bootstrap</a> · <a href="tailwind/">Tailwind</a> · <a href="{{raiz}}versoes.html">{{comparar}}</a></span>
     </div>
   </footer>
 </main>

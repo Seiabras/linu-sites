@@ -29,7 +29,7 @@ O visual segue a LinuPedia: o azul do app, o gelo e o pergaminho da expedição 
 | `public/js/` | `tema-inicio.js` (aplica o tema antes de pintar), `tema.js` (o Linu e o lampião; com “menos movimento” ligado ele não anda, só aparece embaixo do lampião), `menu.js` (menu do celular), `movimento.js` (animações), `simulador.js` (o simulador do Café Aurora). |
 | `public/img/` | Cena da estação, o Linu (`linu/`, `linu-pixel.png`), a logo (`linu-logo.png`), capturas dos projetos (`projetos/`), ícones e imagem de compartilhar. |
 | `public/fontes/` | Nunito e as Noto de japonês, coreano e chinês (licença OFL), servidas pelo próprio site. |
-| `sitios/` | Os sites dos subdomínios, fora de `public/`: `cafe-aurora/` (cafe.linupedia.com.br, também com `/bootstrap/` e `/tailwind/`), `fotografia-do-cerrado/` (cerrado.linupedia.com.br) e `abelhas-sem-ferrao/` (abelhas.linupedia.com.br). Cada um tem o seu repositório público no GitHub (`Seiabras/cafe-aurora`, `Seiabras/fotografia-do-cerrado`, `Seiabras/abelhas-sem-ferrao`); mudou aqui, leve a mudança para lá. |
+| `sitios/` | Os sites dos subdomínios, fora de `public/`: `cafe-aurora/` (cafe.linupedia.com.br, também com `/bootstrap/`, `/tailwind/`, `/bulma/` e `/pico/`), `fotografia-do-cerrado/` (cerrado.linupedia.com.br) e `abelhas-sem-ferrao/` (abelhas.linupedia.com.br). Cada um tem o seu repositório público no GitHub (`Seiabras/cafe-aurora`, `Seiabras/fotografia-do-cerrado`, `Seiabras/abelhas-sem-ferrao`); mudou aqui, leve a mudança para lá. |
 | `ferramentas/cafe/` | O modelo do Café Aurora (`modelo.html`) e os textos dele em cada idioma (`textos/<código>.json`), para o `gerar-cafe.mjs`. |
 | `ferramentas/pagina/` | O modelo da página inicial (`modelo.html`), os textos de cada idioma (`textos/<código>.json`) e os preços de cada moeda (`precos.json`). |
 | `ferramentas/fontes/` | Os caracteres que estão em cada fonte Noto (`ja.txt`, `ko.txt`, `zh-hant.txt`), escritos pelo `gerar-fontes.mjs`. |
@@ -168,6 +168,14 @@ node ferramentas/gerar-cafe.mjs
   `/<pasta>/tailwind/`), dos modelos `ferramentas/cafe/modelo-bootstrap.html` e `modelo-tailwind.html`, com os mesmos
   textos; os scripts delas leem o mesmo `#textos-cafe`. A página `versoes.html` (só em português, para a disciplina)
   compara as três: o peso de cada uma, o mesmo cartão nos três jeitos e quando usar cada um.
+- **Cinco versões e a troca entre elas (1/11/2026):** além do CSS puro, do Bootstrap e do Tailwind, o Café tem a
+  versão Bulma 1.0 (`modelo-bulma.html`, a compilação com prefixo `bulma-` e sem os utilitários, em
+  `sitios/cafe-aurora/bulma/vendor/`) e a Pico CSS 2 (`modelo-pico.html`, quase sem classes, em
+  `sitios/cafe-aurora/pico/vendor/`). O `VERSOES` do `gerar-cafe.mjs` lista as quatro. Todo rodapé tem a mesma lista
+  (`.versoes-troca`), que leva de qualquer versão para qualquer outra, no mesmo idioma, com a atual marcada. A
+  `versoes.html` explica o que muda entre o puro e cada framework (tabela de ideia, layout, HTML, peso, tema, o que
+  quebrou) e compara o peso comprimido: puro 40 KB, Bootstrap 83, Tailwind 30, Bulma 63, Pico 41. Por enquanto as
+  chaves novas (`v_rotulo`, `css_puro`, `comparar`) estão só no `pt-BR.json` (regra 8).
 - **O Café “de verdade” (1/11/2026):** pedido com quantidades e a mensagem pronta para o WhatsApp (o Café é fictício: o
   WhatsApp abre sem número), filtros e detalhes do cardápio (de noite e de dia), o teste “Que bebida combina com você?”,
   reserva de mesa com validação na hora (a hora respeita o horário do café e da padaria) e o cartão de carimbos (um por

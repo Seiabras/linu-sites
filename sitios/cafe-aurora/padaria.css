@@ -323,3 +323,8 @@ html:not([data-modo="dia"]) .so-dia,html[data-modo="dia"] .so-noite{display:none
 @media (prefers-reduced-motion:reduce){
   .cup__poeira::before,.cup-wrap .liquid__espuma,.cup-wrap .liquid__cristais,.cup-wrap .liquid__flor::before{animation:none !important}
 }
+.versoes-troca{grid-column:1/-1;font-size:.85rem;color:var(--muted);line-height:2}
+.versoes-troca a{text-decoration:underline;display:inline-block;padding-block:3px}
+.versoes-troca a[aria-current="page"]{font-weight:700;text-decoration:none;color:var(--text)}
+/* nenhuma versão rola de lado no celular: a faixa que corre (marquee) é mais larga que a tela de propósito */
+html,body{overflow-x:clip}

@@ -32,10 +32,13 @@ const DO_SCRIPT = ['expresso', 'coldbrew', 'matcha', 'estelar', 'nivel', 'editar
 
 const ler = (p) => JSON.parse(fs.readFileSync(p, 'utf8'));
 const modelo = fs.readFileSync(path.join(aqui, 'cafe', 'modelo.html'), 'utf8');
-const VERSOES = ['bootstrap', 'tailwind'];
+const VERSOES = ['bootstrap', 'tailwind', 'bulma', 'pico'];
 const modeloDe = Object.fromEntries(VERSOES.map((v) => [v, fs.readFileSync(path.join(aqui, 'cafe', `modelo-${v}.html`), 'utf8')]));
 // no Bootstrap, o negrito e o itálico dos textos têm classe própria (o gradiente do tema)
-const MARCAS = { bootstrap: [['<strong>', '<strong class="e-3791cd">'], ['<em>', '<em class="e-350796">']], tailwind: [] };
+const MARCAS = { bootstrap: [['<strong>', '<strong class="e-3791cd">'], ['<em>', '<em class="e-350796">']], tailwind: [], bulma: [], pico: [] };
+// o seletor das cinco versões, no rodapé de cada uma: os endereços e qual é a atual
+const troca = (atual, dentro) => Object.fromEntries([['puro', ''], ...VERSOES.map((v) => [v, v + '/'])].flatMap(([v, pasta]) => [
+  ['v_' + v, (dentro ? '../' : './') + pasta], ['ac_' + v, v === atual ? ' aria-current="page"' : '']]));
 const erros = [];
 const idiomas = ORDEM.flatMap((c) => {
   const pagina = path.join(aqui, 'pagina', 'textos', c + '.json');
@@ -80,6 +83,8 @@ for (const i of idiomas) {
     textos_js: JSON.stringify(js).replaceAll('</', '<\\/'),
     preco_ini: (21.5).toLocaleString(i.lang, { minimumFractionDigits: 2, maximumFractionDigits: 2 }),
     stat2_num: new Intl.NumberFormat(i.lang, { style: 'percent', minimumFractionDigits: 1 }).format(0.984),
+    up: i.pasta ? '../' : '',
+    ...troca('puro', false),
   };
   const html = modelo.replace(/\{\{([a-z0-9_]+)\}\}/g, (_, k, onde, todo) => {
     if (k in extras) return extras[k];
@@ -98,6 +103,7 @@ for (const i of idiomas) {
       alternativas: NO_SITE.map((o) => `<link rel="alternate" hreflang="${o.lang}" href="${end(o)}">`).join('\n'),
       base: i.pasta ? `../../${v}/` : '',
       up: i.pasta ? '../../' : '../',
+      ...troca(v, true),
     };
     saidas.push([path.join(i.pasta, v, 'index.html'), preencher(modeloDe[v], i, extrasV, MARCAS[v])]);
   }
@@ -118,7 +124,7 @@ for (const [arquivo, html] of saidas) {
 // O Café sem internet (1/11/2026): o sw.js guarda a página principal e o que ela usa; os outros idiomas e as versões
 // Bootstrap e Tailwind entram na cache quando a pessoa os abre. A versão da cache muda quando muda qualquer arquivo.
 import crypto from 'node:crypto';
-const BASE_OFF = ['./', 'index.html', 'estilo.css?v=10', 'script.js?v=10', 'inicio.js?v=2', 'icone.png', 'img/icone-192.png', 'img/icone-512.png',
+const BASE_OFF = ['./', 'index.html', 'estilo.css?v=11', 'script.js?v=10', 'inicio.js?v=2', 'icone.png', 'img/icone-192.png', 'img/icone-512.png',
   'manifest.webmanifest', 'fontes/orbitron.woff2', 'fontes/rajdhani-400.woff2', 'fontes/rajdhani-500.woff2', 'fontes/rajdhani-600.woff2', 'fontes/rajdhani-700.woff2'];
 const hash = crypto.createHash('sha256');
 for (const a of BASE_OFF.filter((a) => !a.endsWith('/'))) hash.update(fs.readFileSync(path.join(cafe, a.split('?')[0])));

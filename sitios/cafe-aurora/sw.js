@@ -1,7 +1,7 @@
 // O Café Aurora sem internet (1/11/2026). Gerado pelo ferramentas/gerar-cafe.mjs do linu-sites: não edite à mão.
 // Páginas: primeiro a rede, e a cópia guardada se não houver sinal. Arquivos: a cópia guardada. Uma cache, com limite.
-const VERSAO = 'cafe-356981b62a';
-const BASE = ["./","index.html","estilo.css?v=10","script.js?v=10","inicio.js?v=2","icone.png","img/icone-192.png","img/icone-512.png","manifest.webmanifest","fontes/orbitron.woff2","fontes/rajdhani-400.woff2","fontes/rajdhani-500.woff2","fontes/rajdhani-600.woff2","fontes/rajdhani-700.woff2"];
+const VERSAO = 'cafe-9bc97d3cbc';
+const BASE = ["./","index.html","estilo.css?v=11","script.js?v=10","inicio.js?v=2","icone.png","img/icone-192.png","img/icone-512.png","manifest.webmanifest","fontes/orbitron.woff2","fontes/rajdhani-400.woff2","fontes/rajdhani-500.woff2","fontes/rajdhani-600.woff2","fontes/rajdhani-700.woff2"];
 const LIMITE = 150;
 self.addEventListener('install', (e) => { e.waitUntil(caches.open(VERSAO).then((c) => c.addAll(BASE)).then(() => self.skipWaiting())); });
 self.addEventListener('activate', (e) => {

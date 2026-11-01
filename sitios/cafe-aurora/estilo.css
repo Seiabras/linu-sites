@@ -1331,7 +1331,7 @@ html, body { overflow-x: clip; } /* o menu de gaveta e o halo do topo ficavam fo
 .tabela-versoes td b{font-family:var(--font-display);font-variant-numeric:tabular-nums}
 .tabela-versoes td:last-child{width:34%}
 .barra-v{display:block;height:12px;border-radius:0 4px 4px 0;background:var(--cyan);transform-origin:left}
-.b-puro{width:47.8%}.b-bootstrap{width:100%;background:var(--magenta)}.b-tailwind{width:35.3%;background:var(--violet)}
+.b-puro{width:48.5%}.b-bootstrap{width:100%;background:var(--magenta)}.b-tailwind{width:36.2%;background:var(--violet)}.b-bulma{width:76.3%;background:var(--amber)}.b-pico{width:50.1%;background:var(--cyan);opacity:.65}
 .versoes-fatos{display:grid;gap:.8rem;margin-top:1.4rem;max-width:80ch;list-style:none}
 .versoes-fatos code,.versoes-codigo figcaption code{font-size:.9em;color:var(--cyan)}
 .versoes-codigo{display:grid;gap:1rem}
@@ -1401,3 +1401,19 @@ html, body { overflow-x: clip; } /* o menu de gaveta e o halo do topo ficavam fo
 @media (prefers-reduced-motion:reduce){
   .cup__poeira::before,.cup-wrap .liquid__espuma,.cup-wrap .liquid__cristais,.cup-wrap .liquid__flor::before{animation:none !important}
 }
+.versoes-troca{grid-column:1/-1;font-size:.85rem;color:var(--muted);line-height:2}
+.versoes-troca a{text-decoration:underline;display:inline-block;padding-block:3px}
+.versoes-troca a[aria-current="page"]{font-weight:700;text-decoration:none;color:var(--text)}
+
+/* versoes.html: a tabela do que muda rola de lado dentro da caixa no celular e no tablet; no computador cabe inteira */
+.tabela-rola{overflow-x:auto;border:1px solid var(--stroke);border-radius:4px;background:var(--panel);margin-top:1rem}
+.tabela-compara{border-collapse:collapse;min-width:900px;width:100%;font-size:.92rem}
+.tabela-compara th,.tabela-compara td{padding:.8rem .9rem;border-bottom:1px dashed var(--stroke);text-align:left;vertical-align:top}
+.tabela-compara thead th{font-family:var(--font-display);font-size:.72rem;letter-spacing:.1em;color:var(--cyan);position:sticky;top:0;background:var(--bg-2)}
+.tabela-compara tbody th{font-weight:700;color:var(--text);white-space:nowrap}
+.tabela-compara td{color:var(--muted)}
+.tabela-compara code{color:var(--cyan);font-size:.88em}
+@media (min-width:1100px){.versoes-codigo{grid-template-columns:repeat(5,minmax(0,1fr))}.versoes-quando{grid-template-columns:repeat(5,minmax(0,1fr))}}
+/* a tabela larga rola dentro da caixa dela; o resto da página não alarga junto */
+.versoes>*,.versoes-bloco{min-width:0}
+.tabela-rola{max-width:100%}

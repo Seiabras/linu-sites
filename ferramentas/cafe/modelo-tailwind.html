@@ -16,7 +16,7 @@
 <script src="{{up}}inicio.js?v=2"></script>
 <link rel="stylesheet" href="{{base}}tailwind.css">
 <link rel="stylesheet" href="{{base}}estilo.css?v=2">
-<link rel="stylesheet" href="{{up}}padaria.css?v=4">
+<link rel="stylesheet" href="{{up}}padaria.css?v=5">
 </head>
 
 <body>
@@ -409,7 +409,11 @@
       </ul>
     </div>
 
-    <div class="foot__bottom col-span-full flex flex-wrap items-center justify-between gap-4">
+    <nav class="versoes-troca" aria-label="{{v_rotulo}}">
+        <span>{{v_rotulo}}:</span>
+        <a href="{{v_puro}}"{{ac_puro}}>{{css_puro}}</a> · <a href="{{v_bootstrap}}"{{ac_bootstrap}}>Bootstrap</a> · <a href="{{v_tailwind}}"{{ac_tailwind}}>Tailwind</a> · <a href="{{v_bulma}}"{{ac_bulma}}>Bulma</a> · <a href="{{v_pico}}"{{ac_pico}}>Pico</a> · <a href="{{up}}versoes.html">{{comparar}}</a>
+      </nav>
+      <div class="foot__bottom col-span-full flex flex-wrap items-center justify-between gap-4">
       <span>© <span id="year"></span> <span class="so-noite">Café Aurora</span><span class="so-dia">{{d_nome}}</span> <span class="dot">◆</span> {{direitos}}</span>
       <span>{{tw_feito}}</span>
     </div>
@@ -430,6 +434,6 @@
 </aside>
 
 <script src="{{base}}script.js?v=3" defer></script>
-<script src="{{up}}padaria.js?v=2" defer></script>
+<script src="{{up}}padaria.js?v=3" defer></script>
 </body>
 </html>
