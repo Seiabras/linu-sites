@@ -2264,3 +2264,48 @@ so_pt = json.loads((AQUI / 'so-pt.json').read_text())
 if 'busca.html' not in so_pt: so_pt.append('busca.html')
 (AQUI / 'so-pt.json').write_text(json.dumps(so_pt, ensure_ascii=False, indent=2) + '\n')
 print('busca:', len(BUSCA), 'itens,', len(busca_json) // 1024, 'KB')
+
+# ================================================================ Mais jogos no Aprender (1/11/2026): "Do maior para o menor" e "De que época é?"
+# A página Aprender sai antes do Mês a mês, então os dois jogos entram aqui, num remendo do aprender.html já gerado.
+POR_ID2 = {e[0]: e for e in ESP}
+TAMANHOS = []
+for id_, f in FICHAS.items():
+    esc = f.get('escala')
+    if not esc: continue
+    tam = esc[1] if esc[0] in ('arvore', 'palmeira') else max(esc[0], esc[1])
+    TAMANHOS.append({'id': id_, 'n': POR_ID2[id_][1], 'm': tam, 't': esc[2], 'r': POR_ID2[id_][4]})
+tamanhos_json = json.dumps(TAMANHOS, ensure_ascii=False).replace('</', '<\\/')
+EPOCAS = [{'n': nome, 't': txt, 'q': quando_txt(ms), 'l': link} for c, nome, link, ms, txt, fs in EVENTOS if c != 'paisagem' or nome.startswith('Colheita')]
+epocas_json = json.dumps(EPOCAS, ensure_ascii=False).replace('</', '<\\/')
+jogos_novos = f'''                <section id="tamanho" aria-labelledby="tamanho-titulo">
+                    <h2 id="tamanho-titulo">Do maior para o menor</h2>
+                    <p>Toque nos quatro, do maior para o menor (comprimento dos bichos, altura das plantas). As medidas são as das fichas, no desenho “Do tamanho de quê?”.</p>
+                    <div class="tamanho-caixa" aria-live="polite">
+                        <p class="tamanho-placar"></p>
+                        <div class="tamanho-opcoes"><p>O jogo precisa de JavaScript ligado.</p></div>
+                        <p class="quiz-retorno tamanho-retorno" hidden></p>
+                        <div class="quiz-acoes"><button type="button" class="botao" id="tamanho-proxima" hidden>Próxima rodada</button></div>
+                    </div>
+                    <script type="application/json" id="tamanho-dados">{tamanhos_json}</script>
+                </section>
+                <section id="epoca" aria-labelledby="epoca-titulo">
+                    <h2 id="epoca-titulo">De que época é?</h2>
+                    <p>Uma fruta, uma flor ou um bicho do <a href="mes-a-mes.html">Mês a mês</a>: escolha quando ele aparece.</p>
+                    <div class="epoca-caixa" aria-live="polite">
+                        <p class="epoca-placar"></p>
+                        <h3 class="quiz-pergunta epoca-pergunta" tabindex="-1">O jogo precisa de JavaScript ligado.</h3>
+                        <div class="quiz-opcoes"></div>
+                        <p class="quiz-retorno" hidden></p>
+                        <div class="quiz-acoes"><button type="button" class="botao" id="epoca-proxima" hidden>Próxima</button></div>
+                    </div>
+                    <script type="application/json" id="epoca-dados">{epocas_json}</script>
+                </section>
+'''
+q = M / 'aprender.html'; t = q.read_text()
+if 'id="tamanho"' not in t:
+    t = t.replace('                <section id="adivinha" aria-labelledby="adivinha-titulo">', jogos_novos + '                <section id="adivinha" aria-labelledby="adivinha-titulo">', 1)
+    t = re.sub(r'<nav class="indice".*?</nav>', indice([('quiz', 'Quiz'), ('qual-e', 'Qual é esta espécie?'), ('tamanho', 'Do maior para o menor'), ('epoca', 'De que época é?'), ('adivinha', 'Qual paisagem é esta?'), ('glossario', 'Glossário')]), t, count=1, flags=re.S)
+    t = t.replace('aprender.js?v=3', 'aprender.js?v=4')
+    t = t.replace('<p>Um quiz por tema, dois jogos (reconhecer as espécies pelas pistas e as paisagens pelo desenho) e um glossário.', '<p>Um quiz por tema, quatro jogos (as espécies pelas pistas, os tamanhos, as épocas e as paisagens pelo desenho) e um glossário. Cada jogo guarda o seu recorde neste navegador.')
+    q.write_text(t)
+print('jogos novos:', len(TAMANHOS), 'tamanhos,', len(EPOCAS), 'épocas')

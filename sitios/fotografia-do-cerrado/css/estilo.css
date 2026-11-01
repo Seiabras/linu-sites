@@ -923,3 +923,15 @@ svg.esp-icone { display: block; flex: none; fill: currentColor; stroke: currentC
 .busca-grupo li p { margin: .2rem 0 0; color: var(--texto-suave); font-size: .92rem; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .busca-sugestoes { margin-top: 1rem; }
 .busca-sugestoes[hidden] { display: none; }
+
+/* Do maior para o menor (1/11/2026): quatro botões em grade; o número da ordem aparece no botão tocado */
+.tamanho-caixa, .epoca-caixa { background: var(--fundo-alt); border-radius: var(--raio); padding: 1.4rem 1.5rem; margin-top: 1rem; max-width: 720px; }
+.tamanho-placar, .epoca-placar { color: var(--texto-suave); font-weight: 600; }
+.tamanho-opcoes { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: .5rem; margin-top: .6rem; }
+.tamanho-opcoes .botao { grid-column: 1 / -1; justify-self: start; }
+.tamanho-opcoes button:not(.botao) { display: flex; align-items: center; gap: .6rem; min-height: 56px; font: inherit; font-weight: 700; text-align: left; padding: .6rem .8rem; border-radius: 8px; border: 2px solid var(--borda); background: var(--superficie); color: var(--texto); cursor: pointer; transition: border-color .18s ease-out, background-color .18s ease-out; }
+.tamanho-opcoes button:not(.botao):hover:not([disabled]) { border-color: var(--texto); }
+.tamanho-opcoes button[disabled] { cursor: default; border-color: var(--oliva); }
+.tamanho-ordem { display: inline-grid; place-items: center; flex: none; width: 28px; height: 28px; border-radius: 50%; border: 2px dashed var(--borda); font-weight: 800; }
+button[disabled] .tamanho-ordem { border: 0; background: var(--oliva); color: var(--branco); }
+.tamanho-retorno ol { margin: .4rem 0 0 1.2rem; display: grid; gap: .2rem; }
