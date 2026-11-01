@@ -275,3 +275,51 @@ html:not([data-modo="dia"]) .so-dia,html[data-modo="dia"] .so-noite{display:none
 [data-modo="dia"] .navbar-aurora.scrolled{background:rgba(251,243,228,.9) !important}
 /* Bootstrap: os links usam --bs-link-color-rgb, que o tema escuro deixa azul-claro (2,2:1 no creme) */
 [data-modo="dia"]{--bs-link-color-rgb:122,62,20;--bs-link-hover-color-rgb:154,38,61}
+
+/* ============================================================
+   OS MODIFICADORES NA XÍCARA (1/11/2026): cada um aparece na bebida, como as coberturas no pão de dia.
+   O script põe com-1 a com-4 na .cup-wrap (o data-cob de cada escolha). Só transform e opacity se mexem.
+   ============================================================ */
+.cup__poeira,.liquid__espuma,.liquid__cristais,.liquid__flor{position:absolute;pointer-events:none;opacity:0;transition:opacity .3s ease-out}
+.cup-wrap.com-1 .cup__poeira,.cup-wrap.com-2 .liquid__espuma,.cup-wrap.com-3 .liquid__cristais,.cup-wrap.com-4 .liquid__flor{opacity:1}
+.liquid>i{z-index:2}
+/* 1. Poeira de Cometa: brilhos que caem do alto para dentro da xícara */
+.cup__poeira{top:-70px;left:50%;width:160px;height:84px;margin-left:-80px;overflow:hidden;z-index:3;
+  -webkit-mask:linear-gradient(to bottom,transparent,#000 35%,#000 75%,transparent);mask:linear-gradient(to bottom,transparent,#000 35%,#000 75%,transparent)}
+.cup__poeira::before{content:'';position:absolute;left:0;right:0;top:-48px;height:132px;
+  background:
+    radial-gradient(circle 1.7px at 22% 30%,#fff 95%,transparent) 0 0/27px 24px,
+    radial-gradient(circle 1.3px at 68% 62%,hsl(185 100% 78%) 95%,transparent) 0 0/19px 24px,
+    radial-gradient(circle 1.5px at 44% 82%,hsl(315 100% 82%) 95%,transparent) 0 0/33px 24px;
+  filter:drop-shadow(0 0 3px hsl(185 100% 70% / .9));animation:poeira-cai 1.6s linear infinite}
+@keyframes poeira-cai{from{transform:translateY(0)}to{transform:translateY(24px)}}
+/* 2. Espuma de Plasma: uma espuma grossa, rosa e brilhante, que pulsa */
+.liquid__espuma{top:-15px;left:-4%;right:-4%;height:30px;border-radius:50%;
+  background:radial-gradient(ellipse at 50% 55%,hsl(315 100% 88%),hsl(300 100% 72% / .9) 45%,hsl(285 100% 62% / .55) 70%,transparent 76%);
+  box-shadow:0 0 22px hsl(315 100% 65% / .85)}
+.cup-wrap.com-2 .liquid__espuma{animation:espuma-pulsa 2.2s ease-in-out infinite}
+@keyframes espuma-pulsa{50%{opacity:.72}}
+.cup-wrap.com-2 .cup-glow{filter:blur(38px) hue-rotate(60deg) saturate(1.3)}
+/* 3. Cristal de Açúcar: cristais boiando, subindo e descendo devagar */
+.liquid__cristais{top:6px;left:22%;width:12px;height:12px}
+.liquid__cristais::before{content:'';position:absolute;inset:0;transform:rotate(45deg);
+  background:linear-gradient(135deg,#fff,hsl(190 100% 86%) 55%,hsl(200 80% 70%));
+  box-shadow:34px 7px 0 -2px #effcff,62px -3px 0 0 #fff,88px 9px 0 -3px #e2f8ff,18px 18px 0 -4px #fff,74px 19px 0 -3px #f2fdff;
+  filter:drop-shadow(0 0 4px rgba(255,255,255,.9))}
+.cup-wrap.com-3 .liquid__cristais{animation:cristal-boia 3.2s ease-in-out infinite}
+@keyframes cristal-boia{50%{transform:translateY(5px)}}
+/* 4. Flor de Neon: uma flor desenhada na espuma, que gira devagar */
+.liquid__flor{top:-44px;left:50%;width:110px;height:110px;margin-left:-55px;transform:scaleY(.34)}
+.liquid__flor::before{content:'';position:absolute;inset:0;border-radius:50%;
+  background:
+    radial-gradient(circle at 50% 50%,#fff 0 8%,hsl(50 100% 70%) 9% 14%,transparent 15%),
+    radial-gradient(ellipse 15px 26px at 50% 24%,hsl(315 100% 72%) 60%,transparent 64%),
+    radial-gradient(ellipse 15px 26px at 50% 76%,hsl(315 100% 72%) 60%,transparent 64%),
+    radial-gradient(ellipse 26px 15px at 24% 50%,hsl(185 100% 66%) 60%,transparent 64%),
+    radial-gradient(ellipse 26px 15px at 76% 50%,hsl(185 100% 66%) 60%,transparent 64%);
+  filter:drop-shadow(0 0 6px hsl(315 100% 65%)) drop-shadow(0 0 10px hsl(185 100% 60% / .7))}
+.cup-wrap.com-4 .liquid__flor::before{animation:flor-gira 9s linear infinite}
+@keyframes flor-gira{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){
+  .cup__poeira::before,.cup-wrap .liquid__espuma,.cup-wrap .liquid__cristais,.cup-wrap .liquid__flor::before{animation:none !important}
+}

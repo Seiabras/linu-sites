@@ -446,6 +446,9 @@
     const tops = marcadas.map(i => i.value);
 
     intVal.textContent = intensity;
+    // os modificadores aparecem na xícara (com-1 a com-4), como as coberturas no pão de dia
+    const xicara = liquid.closest('.cup-wrap');
+    for (let n = 1; n <= 4; n++) xicara.classList.toggle('com-' + n, marcadas.some(i => i.dataset.cob === String(n)));
     if (modo === 'dia') { atualizarPao(baseKey, intensity, marcadas); return; }
 
     // Cor: mais intenso = mais escuro e saturado

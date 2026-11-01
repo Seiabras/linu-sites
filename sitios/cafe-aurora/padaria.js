@@ -35,6 +35,14 @@
     nomeOut.textContent = nome;
     precoOut.textContent = preco(p.preco + n * 0.2 + marcadas.length * 1.5);
   }
+  // os modificadores aparecem na xícara (com-1 a com-4), de noite, como na versão principal
+  const xicara = document.querySelector('.cup-wrap');
+  const modificadores = () => {
+    if (!form || !xicara) return;
+    const marcadas = [...form.querySelectorAll('input[name="top[]"]:checked')];
+    for (let k = 1; k <= 4; k++) xicara.classList.toggle('com-' + k, marcadas.some((i) => i.dataset.cob === String(k)));
+  };
+  if (form) { form.addEventListener('input', modificadores); form.addEventListener('change', modificadores); modificadores(); }
   // o script da versão escreve a bebida primeiro; de dia, o pão escreve por cima
   if (form) { form.addEventListener('input', atualizarPao); form.addEventListener('change', atualizarPao); }
 
