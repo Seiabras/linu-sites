@@ -495,6 +495,27 @@
     chev.textContent = collapsed ? '▴' : '▾';
   });
 
+  // Três versões (1/11/2026): no celular, o "Pedir agora" do topo (escondido ali) vira um botão preso embaixo,
+  // ao alcance do polegar; é uma cópia do link do topo, já no idioma da página
+  const pedirTopo = document.querySelector('.nav__right .btn');
+  if (pedirTopo && !document.querySelector('.pedir-celular')) {
+    const pedir = pedirTopo.cloneNode(true);
+    pedir.classList.remove('magnetic');
+    pedir.classList.add('pedir-celular');
+    const caixa = document.createElement('nav');
+    caixa.setAttribute('aria-label', pedirTopo.textContent.trim());
+    caixa.append(pedir);
+    document.body.append(caixa);
+  }
+  // o cardápio vira faixa que rola de lado no celular: dá para rolar pelo teclado, com o nome da seção
+  const faixa = document.querySelector('.menu-grid');
+  const tituloCardapio = faixa && faixa.closest('section') && faixa.closest('section').querySelector('h2');
+  if (faixa) {
+    faixa.setAttribute('tabindex', '0');
+    faixa.setAttribute('role', 'region');
+    faixa.setAttribute('aria-label', tituloCardapio ? tituloCardapio.textContent.trim() : 'Menu');
+  }
+
   // Começa recolhido no mobile
   if (innerWidth < 640) {
     dim.classList.add('collapsed');

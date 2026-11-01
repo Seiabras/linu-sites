@@ -1123,3 +1123,24 @@ html:not([data-modo="dia"]) .so-dia,[data-modo="dia"] .so-noite{display:none !im
 .nav__links a{display:inline-block;padding-block:4px}
 .foot li a,.foot__bottom a{display:inline-block;padding-block:4px}
 .dim__head{min-height:24px}
+
+/* ================= Três versões (regra 6 do linuarquivos, 1/11/2026): celular, tablet e computador */
+html, body { overflow-x: clip; } /* o menu de gaveta e o halo do topo ficavam fora da tela e esticavam a página no celular */
+.pedir-celular { display: none; }
+/* Celular: o "Pedir agora" preso embaixo; o cardápio numa faixa que rola de lado, em vez de seis cartões empilhados */
+@media (max-width: 699px) {
+  .pedir-celular { display: flex; justify-content: center; position: fixed; left: 16px; right: 16px; bottom: calc(12px + env(safe-area-inset-bottom)); z-index: 870; min-height: 48px; align-items: center; }
+  .pedir-celular { background: var(--c); color: #03010a; box-shadow: 0 6px 18px rgb(0 0 0 / .25); cursor: pointer; }
+  .pedir-celular::before { display: none; }
+  .dim { bottom: calc(72px + env(safe-area-inset-bottom)); }
+  .dim.collapsed { transform: none; }
+  .dim.collapsed .dim__body { display: none; }
+  body { padding-bottom: 76px; }
+  .menu-grid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 1rem; padding-bottom: .6rem; margin-inline: -1rem; padding-inline: 1rem; scrollbar-width: thin; }
+  .menu-grid > * { flex: 0 0 82%; scroll-snap-align: center; }
+}
+/* Tablet: o montador de pão e o pão lado a lado (empilhavam como no celular) */
+@media (min-width: 700px) and (max-width: 900px) {
+  .lab { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); align-items: center; }
+}
+@media (max-width: 699px) { [data-modo="dia"] .pedir-celular { color: #fff; } }
