@@ -2376,7 +2376,7 @@ comparar_pg = f"""        <section class="titulo-pagina guia-topo">
             </div>
         </section>
 """
-pagina('comparar.html', 'Comparar espécies — Guia do Cerrado', 'Compare duas espécies do Cerrado lado a lado: tamanho na mesma escala, fatos, como reconhecer e paisagens.', comparar_pg, scripts=['comparar.js?v=1'])
+pagina('comparar.html', 'Comparar espécies — Guia do Cerrado', 'Compare duas espécies do Cerrado lado a lado: tamanho na mesma escala, fatos, como reconhecer e paisagens.', comparar_pg, scripts=['comparar.js?v=2'])
 so_pt = json.loads((AQUI / 'so-pt.json').read_text())
 if 'comparar.html' not in so_pt: so_pt.append('comparar.html')
 (AQUI / 'so-pt.json').write_text(json.dumps(so_pt, ensure_ascii=False, indent=2) + '\n')

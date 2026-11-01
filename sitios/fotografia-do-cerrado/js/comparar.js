@@ -32,7 +32,7 @@
         if (a.id === b.id) blocos.push(el('p', 'comp-diferenca', 'Escolha duas espécies diferentes.'));
         // o tamanho, na mesma escala
         if (a.m && b.m) {
-            const t = el('section', 'comp-tamanho'); t.append(el('h3', 'comp-sub', 'Do tamanho de quê?'));
+            const t = el('section', 'comp-tamanho'); t.append(el('h2', 'comp-sub', 'Do tamanho de quê?'));
             const maior = Math.max(a.m, b.m);
             [a, b].forEach((e) => {
                 const linha = el('div', 'comp-barra-linha'); linha.append(el('span', 'comp-barra-nome', `${e.n}: ${e.mt}`));
