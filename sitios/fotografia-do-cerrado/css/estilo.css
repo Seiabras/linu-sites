@@ -1001,3 +1001,8 @@ button[disabled] .tamanho-ordem { border: 0; background: var(--oliva); color: va
     .aprender-grade .quiz-caixa, .aprender-grade .qual-caixa, .aprender-grade .tamanho-caixa, .aprender-grade .epoca-caixa, .aprender-grade .adivinha-caixa { max-width: none; }
 }
 @media (prefers-reduced-motion: reduce) { .aprender-grade > section[id] { animation: none; } }
+
+/* Sem pulo de layout (1/11/2026): o lugar do que o JavaScript monta fica reservado desde o primeiro quadro */
+html:not(.js) .mes-escolha { display: none; }
+.mes-titulo { min-height: 1.6em; }
+.js .roteiro-resultado { min-height: 100vh; }

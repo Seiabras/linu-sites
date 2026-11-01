@@ -1103,13 +1103,17 @@ SLUG_GRUPO = {g: re.sub(r'[^a-z]', '', unicodedata.normalize('NFD', g.lower()).e
 def icones_defs():
     simbolos = ''.join(f'<symbol id="ic-{SLUG_GRUPO[g]}" viewBox="0 0 24 24">{d.replace('fill="none"', 'fill="none" stroke-width="2"')}</symbol>' for g, d in ICONES.items())
     return f'<svg class="icones-defs" width="0" height="0" aria-hidden="true" focusable="false">{simbolos}</svg>'
+SITIO = AQUI.parents[2] / 'sitios' / 'fotografia-do-cerrado'
 def cartao(e):
     id_, nome, cien, grupo, reino, am, pais, texto, foto, ficha, fs = e
     credito = ''
     if foto:
-        img = f'<img src="{{{{raiz}}}}img/{foto}-640.webp" alt="" width="72" height="72" loading="lazy">'
+        # miniatura de 144 px (o dobro dos 72 do cartão, para tela de alta densidade), se existir; senão, a de 640
+        mini = '144' if (SITIO / 'img' / f'{foto}-144.webp').exists() else '640'
+        img = f'<img src="{{{{raiz}}}}img/{foto}-{mini}.webp" alt="" width="72" height="72" loading="lazy">'
     elif foto_nova(id_):
-        img = f'<img src="{{{{raiz}}}}img/especies/{id_}-640.webp" alt="" width="72" height="72" loading="lazy">'
+        mini = '144' if (SITIO / 'img' / 'especies' / f'{id_}-144.webp').exists() else '640'
+        img = f'<img src="{{{{raiz}}}}img/especies/{id_}-{mini}.webp" alt="" width="72" height="72" loading="lazy">'
         c = CRED_ESP.get(f'{id_}.webp')
         if c: credito = f'<p class="esp-credito">Foto: {c["autor"]}, {c["licenca"]}</p>'
     else:
@@ -2035,7 +2039,7 @@ mes = f'''        <section class="titulo-pagina guia-topo">
         </section>
         <section class="secao">
             <div class="container mes-a-mes">
-                <div class="mes-escolha" hidden>
+                <div class="mes-escolha">
                     <div class="meses" role="group" aria-label="Mês"></div>
                     <p class="mes-titulo" aria-live="polite"></p>
                 </div>
