@@ -21,12 +21,12 @@
     "abertura": 300
   },
   "EUR": {
-    "apresentacao": 1500,
-    "ferramenta": 5000,
-    "app": 7500,
+    "apresentacao": 700,
+    "ferramenta": 2000,
+    "app": 3500,
     "painel": 600,
-    "plano_no_ar": 25,
-    "plano_cuidado": 50,
+    "plano_no_ar": 15,
+    "plano_cuidado": 35,
     "dominio_ano": 15,
     "depoimentos": 150,
     "efeitos": 300,

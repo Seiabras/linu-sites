@@ -62,7 +62,8 @@ node ferramentas/gerar-idiomas.mjs
   o resto do mundo). Os cartões, o simulador, o Monte o seu site e as dúvidas mudam juntos. Uma moeda com
   `"pendente"` gera as páginas, mas o `deploy/conferir-pagina.py` não deixa publicar se alguma página no ar usar essa
   moeda; com `"provisorio"`, publica e só avisa. As tabelas em euro e em dólar foram aprovadas em 30/10/2026, com o
-  euro também no Reino Unido e o recebimento pela Wise.
+  euro também no Reino Unido e o recebimento pela Wise. Em 2/11/2026 baixei o euro: apresentação a partir de 700 €, ferramentas e
+  painéis 2.000 €, aplicativos 3.500 €, plano Online 15 €/mês e Cuidado 35 €/mês (os extras ficaram como estavam).
 - **Capturas do portfólio:** toda captura mostra a tela principal ou o menu do site, nunca uma cena de dentro (regra de
   30/10/2026; a LinuPedia entra pela Lista, o Minhocão pela tela inicial). Tamanho 960 × 600, em WebP, em
   `public/img/projetos/`.
