@@ -155,6 +155,10 @@ Regras que mantêm isso:
 ## 5. Como conferir
 
 - **Rápido:** no Chrome, DevTools → Lighthouse, modo celular. Desempenho, acessibilidade e boas práticas acima de 90.
+- **Com tela de abertura, o Lighthouse engana (medido em 2/11/2026):** ele toma o logo da abertura como o “maior
+  conteúdo” e dá a mesma nota com ou sem ela (Café Aurora: 95 com 3 s, 94 sem). Meça o **tempo até o conteúdo à vista**
+  (quando a abertura começa a sumir) no celular, em 4G lento e em 4G bom. No Café: sem abertura 1,6 s e 0,6 s; com
+  1,5 s, 2,3 s e 1,7 s; com 3 s, 3,2 s e 3,1 s.
 - **Memória:** DevTools → Memory → tirar um retrato antes e depois de usar a página por um minuto. Se cresceu e não volta,
   tem vazamento.
 - **Movimento:** DevTools → Rendering → "Emulate CSS prefers-reduced-motion" e conferir que tudo continua funcionando.
