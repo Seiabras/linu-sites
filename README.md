@@ -64,6 +64,9 @@ node ferramentas/gerar-idiomas.mjs
   moeda; com `"provisorio"`, publica e só avisa. As tabelas em euro e em dólar foram aprovadas em 30/10/2026, com o
   euro também no Reino Unido e o recebimento pela Wise. Em 2/11/2026 baixei o euro: apresentação a partir de 700 €, ferramentas e
   painéis 2.000 €, aplicativos 3.500 €, plano Online 15 €/mês e Cuidado 35 €/mês (os extras ficaram como estavam).
+  Ainda em 2/11, os extras em euro caíram na mesma proporção do site (700/1.500: painel 280 €,
+  depoimentos 70 €…) e o dólar acompanhou: apresentação US$ 750, ferramentas 2.200, apps 3.750,
+  Online 17 e Cuidado 41 por mês, extras × 750/1.600, arredondados de 10 em 10.
 - **Capturas do portfólio:** toda captura mostra a tela principal ou o menu do site, nunca uma cena de dentro (regra de
   30/10/2026; a LinuPedia entra pela Lista, o Minhocão pela tela inicial). Tamanho 960 × 600, em WebP, em
   `public/img/projetos/`.
@@ -203,8 +206,8 @@ node ferramentas/gerar-cafe.mjs
   os textos novos do Café (`i_peso`, `d_f_vegano`, `d_p_vazio`, `d_p_nota`, `d_dim_hint`, `d_ficticia`, `v_rotulo`,
   `css_puro`, `comparar`, `pular_abertura` e o `d_titulo` dos `js`) entraram nos 12 `textos/*.json`. O Café sai nas 13
   línguas e nas cinco versões (65 páginas) com `node ferramentas/gerar-cafe.mjs`.
-- **Abertura de identidade no simulador (2/11/2026, só em pt por enquanto, regra 8):** módulo de R$ 300 (€ 220,
-  $ 240 no `precos.json`, já nas três moedas) num bloco `{{?pt-BR}}` do `ferramentas/pagina/modelo.html`. Ao ligar,
+- **Abertura de identidade no simulador (2/11/2026, só em pt por enquanto, regra 8):** módulo de R$ 300 (€ 100,
+  $ 110 no `precos.json`, já nas três moedas) num bloco `{{?pt-BR}}` do `ferramentas/pagina/modelo.html`. Ao ligar,
   aparece a duração (1,5 s, o padrão de site de cliente nas diretrizes, ou 3 s) e o Café mostra uma prévia
   (`{cafeAurora: {verAbertura: ms}}`, função `previaAbertura` do `script.js` e classe `previa-abertura`); o botão
   “Ver a abertura” repete. A vinheta para os sites de cliente fica pronta no `linu-modelo` (`vinheta.js`).
