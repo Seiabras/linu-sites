@@ -103,7 +103,7 @@ ul{list-style:none}
 /* ============================================================
    2. BOOT SCREEN
    ============================================================ */
-html:not(.js) .boot,.embutido .boot{display:none !important}
+html:not(.js) .boot,.embutido:not(.previa-abertura) .boot{display:none !important}
 .boot{
   position:fixed;inset:0;z-index:10000;
   display:grid;place-content:center;gap:1.2rem;
@@ -1431,3 +1431,6 @@ html, body { overflow-x: clip; } /* o menu de gaveta e o halo do topo ficavam fo
 [data-modo="dia"] .boot__pular{border-color:rgba(60,35,10,.3);color:#5a3d1c}
 [data-modo="dia"] .boot__pular:hover,[data-modo="dia"] .boot__pular:focus-visible{border-color:#8a4b12;color:#2b1a08;outline-color:#8a4b12}
 @media (prefers-reduced-motion:reduce){.boot__logo{animation:none !important}.boot__fill{transition:none !important}}
+
+/* A prévia que o simulador do Linu Sites pede (2/11/2026): aparece mesmo embutido e mesmo já vista */
+html.previa-abertura .boot{display:grid !important}

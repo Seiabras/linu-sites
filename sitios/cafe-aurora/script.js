@@ -69,6 +69,40 @@
   if (semAbertura) boot.classList.add('done');
   else setTimeout(() => boot.classList.add('done'), 3600);
 
+  // A prévia que o simulador do Linu Sites pede (2/11/2026, módulo "Abertura de identidade"): mostra a abertura
+  // com a duração escolhida (1,5 ou 3 s), mesmo embutido e mesmo já vista. Pula com toque ou tecla, como a de verdade,
+  // e desliga tudo o que ligou ao terminar.
+  let previa = null;
+  const previaAbertura = (ms) => {
+    const dur = Math.min(3000, Math.max(500, Number(ms) || 1500));
+    if (previa) previa.fim();
+    const passos = raiz.dataset.modo === 'dia' ? T.d_boot : T.boot;
+    const t0 = performance.now();
+    let i = -1, relogio = 0, trava = 0;
+    const fim = () => {
+      clearInterval(relogio); clearTimeout(trava);
+      boot.removeEventListener('click', fim); removeEventListener('keydown', tecla);
+      boot.classList.add('done');
+      setTimeout(() => { if (previa === controle) { raiz.classList.remove('previa-abertura'); previa = null; } }, 800);
+    };
+    const tecla = (e) => { if (e.key === 'Escape' || e.key === 'Enter' || e.key === ' ') { e.preventDefault(); fim(); } };
+    const controle = { fim };
+    previa = controle;
+    bootFill.style.width = '0%';
+    raiz.classList.add('previa-abertura');
+    boot.classList.remove('done');
+    relogio = setInterval(() => {
+      const k = Math.min(1, (performance.now() - t0) / Math.max(1, dur - 300));
+      bootFill.style.width = k * 100 + '%';
+      const idx = Math.min(passos.length - 1, Math.floor(k * passos.length));
+      if (idx !== i) { i = idx; bootLog.textContent = passos[idx]; }
+      if (k >= 1) { clearInterval(relogio); setTimeout(fim, 300); }
+    }, 100);
+    trava = setTimeout(fim, dur + 600);
+    boot.addEventListener('click', fim);
+    addEventListener('keydown', tecla);
+  };
+
   /* ----------------------------------------------------------
      2. CURSOR PERSONALIZADO
      ---------------------------------------------------------- */
@@ -668,6 +702,7 @@
       raiz.dispatchEvent(new Event('modulos'));
     }
     if (typeof v === 'boolean') visivel = v;
+    if (e.data.cafeAurora.verAbertura) previaAbertura(e.data.cafeAurora.verAbertura);
     conferirQuadro();
   });
   // o simulador fica sabendo se o Café está de noite (café) ou de dia (padaria), para falar do pão ou da bebida

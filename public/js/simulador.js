@@ -24,6 +24,23 @@
     quadro.contentWindow.postMessage({ cafeAurora: { modulos: ligados().map((i) => i.value), visivel } }, origemCafe);
   };
 
+  // A abertura de identidade (2/11/2026, só na página em português por enquanto): ao ligar, aparece a escolha da
+  // duração (1,5 s, o padrão de site de cliente, ou 3 s) e o Café mostra uma prévia; "Ver a abertura" repete.
+  const caixaVinheta = sim.querySelector('input[value="abertura"]');
+  const opcoesVinheta = sim.querySelector('[data-vinheta]');
+  const duracaoVinheta = () => Number((sim.querySelector('input[name="vinheta-duracao"]:checked') || {}).value) || 1500;
+  const verVinheta = () => {
+    if (quadro.contentWindow) quadro.contentWindow.postMessage({ cafeAurora: { verAbertura: duracaoVinheta() } }, origemCafe);
+  };
+  if (caixaVinheta && opcoesVinheta) {
+    caixaVinheta.addEventListener('change', () => {
+      opcoesVinheta.hidden = !caixaVinheta.checked;
+      if (caixaVinheta.checked) verVinheta();
+    });
+    opcoesVinheta.addEventListener('change', verVinheta);
+    opcoesVinheta.querySelector('[data-ver-vinheta]').addEventListener('click', verVinheta);
+  }
+
   // O total corre até o valor novo em 240 ms (como no "Monte o seu site")
   const contar = (alvo) => {
     cancelAnimationFrame(pedido);

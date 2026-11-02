@@ -17,7 +17,8 @@
     "cardapio": 300,
     "teste": 300,
     "reservas": 600,
-    "fidelidade": 400
+    "fidelidade": 400,
+    "abertura": 300
   },
   "EUR": {
     "apresentacao": 1500,
@@ -36,7 +37,8 @@
     "cardapio": 220,
     "teste": 220,
     "reservas": 450,
-    "fidelidade": 300
+    "fidelidade": 300,
+    "abertura": 220
   },
   "USD": {
     "apresentacao": 1600,
@@ -55,6 +57,7 @@
     "cardapio": 240,
     "teste": 240,
     "reservas": 500,
-    "fidelidade": 330
+    "fidelidade": 330,
+    "abertura": 240
   }
 }

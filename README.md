@@ -202,6 +202,11 @@ node ferramentas/gerar-cafe.mjs
   os textos novos do Café (`i_peso`, `d_f_vegano`, `d_p_vazio`, `d_p_nota`, `d_dim_hint`, `d_ficticia`, `v_rotulo`,
   `css_puro`, `comparar`, `pular_abertura` e o `d_titulo` dos `js`) entraram nos 12 `textos/*.json`. O Café sai nas 13
   línguas e nas cinco versões (65 páginas) com `node ferramentas/gerar-cafe.mjs`.
+- **Abertura de identidade no simulador (2/11/2026, só em pt por enquanto, regra 8):** módulo de R$ 300 (€ 220,
+  $ 240 no `precos.json`, já nas três moedas) num bloco `{{?pt-BR}}` do `ferramentas/pagina/modelo.html`. Ao ligar,
+  aparece a duração (1,5 s, o padrão de site de cliente nas diretrizes, ou 3 s) e o Café mostra uma prévia
+  (`{cafeAurora: {verAbertura: ms}}`, função `previaAbertura` do `script.js` e classe `previa-abertura`); o botão
+  “Ver a abertura” repete. A vinheta para os sites de cliente fica pronta no `linu-modelo` (`vinheta.js`).
 - **O simulador acompanha o modo do Café (1/11/2026):** o Café avisa a página por `postMessage` se está de noite ou de
   dia (no “pronto” e a cada troca); o `js/simulador.js` troca os textos marcados com `data-modo-texto` (a frase da
   seção, “Monte sua bebida” → “Monte seu pão”, os efeitos, a barra, o título do quadro e o crédito) pelo

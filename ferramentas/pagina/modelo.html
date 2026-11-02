@@ -29,11 +29,11 @@
   <!-- Os textos que os scripts escrevem (menu, luz, Monte o seu site), no idioma da página -->
   <script type="application/json" id="textos-js">{{textos_js}}</script>
   <script src="{{raiz}}js/tema-inicio.js?v=6"></script>
-  <link rel="stylesheet" href="{{raiz}}css/estilo.css?v=26">
+  <link rel="stylesheet" href="{{raiz}}css/estilo.css?v=27">
   <script src="{{raiz}}js/tema.js?v=8" defer></script>
   <script src="{{raiz}}js/menu.js?v=7" defer></script>
   <script src="{{raiz}}js/movimento.js?v=10" defer></script>
-  <script src="{{raiz}}js/simulador.js?v=5" defer></script>
+  <script src="{{raiz}}js/simulador.js?v=6" defer></script>
 </head>
 <body>
   <header class="topo">
@@ -359,6 +359,19 @@
               <label><input type="checkbox" name="modulo[]" value="teste" data-preco="{{n.teste}}"><span>{{simulador_teste}}</span><b>+ {{p.teste}}</b></label>
               <label><input type="checkbox" name="modulo[]" value="reservas" data-preco="{{n.reservas}}"><span>{{simulador_reservas}}</span><b>+ {{p.reservas}}</b></label>
               <label><input type="checkbox" name="modulo[]" value="fidelidade" data-preco="{{n.fidelidade}}"><span>{{simulador_fidelidade}}</span><b>+ {{p.fidelidade}}</b></label>
+              {{?pt-BR}}
+              <!-- a abertura (vinheta) de 2/11/2026, por enquanto só em português (regra 8): 1,5 s é o padrão de site de
+                   cliente nas diretrizes; o "Ver a abertura" pede ao Café uma prévia com a duração escolhida -->
+              <label><input type="checkbox" name="modulo[]" value="abertura" data-preco="{{n.abertura}}"><span>Abertura de identidade</span><b>+ {{p.abertura}}</b></label>
+              <div class="simulador-vinheta" data-vinheta hidden>
+                <span class="simulador-vinheta-rotulo" aria-hidden="true">Duração</span>
+                <div class="simulador-tempo" role="radiogroup" aria-label="Duração da abertura">
+                  <label><input type="radio" name="vinheta-duracao" value="1500" checked><span>1,5 s</span></label>
+                  <label><input type="radio" name="vinheta-duracao" value="3000"><span>3 s</span></label>
+                </div>
+                <button type="button" class="simulador-ver" data-ver-vinheta>Ver a abertura</button>
+              </div>
+              {{/pt-BR}}
             </fieldset>
             <div class="simulador-total" aria-live="polite">
               <p><span>{{simulador_total}}</span> <b data-simulador-total>{{p.simulador_inicial}}</b></p>

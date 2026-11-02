@@ -494,6 +494,18 @@ span.contato-linu { display: block; position: relative; aspect-ratio: 138 / 190;
 .simulador-opcoes label:has(input:not(:checked)) { color: var(--tinta-suave); }
 .simulador-opcoes label:has(input:not(:checked)) b { color: var(--tinta-suave); text-decoration: line-through; }
 .simulador-opcoes .simulador-base { cursor: default; }
+.simulador-vinheta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 10px; padding: 8px 0 10px 30px; border-bottom: 1px solid var(--linha); animation: entra .2s ease-out; }
+.simulador-vinheta[hidden] { display: none; }
+.simulador-vinheta-rotulo { font-size: .85rem; color: var(--tinta-suave); font-weight: 700; flex: none !important; }
+.simulador-tempo { display: inline-flex; border: 1.5px solid var(--linha); border-radius: 999px; overflow: hidden; }
+.simulador-opcoes .simulador-tempo label { min-height: 40px; padding: 0 14px; gap: 0; border: 0; position: relative; transition: background-color .15s ease-out, color .15s ease-out; }
+.simulador-opcoes .simulador-tempo input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.simulador-opcoes .simulador-tempo span { font-size: .9rem; }
+.simulador-opcoes .simulador-tempo label:has(input:checked) { background: var(--azul); color: #FFFFFF; }
+.simulador-opcoes .simulador-tempo label:has(input:focus-visible) { outline: 2px solid var(--azul); outline-offset: -4px; }
+.simulador-ver { min-height: 40px; padding: 0 14px; border: 1.5px solid var(--azul); border-radius: 999px; background: transparent; color: var(--azul); font: inherit; font-size: .9rem; font-weight: 800; cursor: pointer; transition: background-color .15s ease-out, color .15s ease-out; }
+.simulador-ver:hover, .simulador-ver:focus-visible { background: var(--azul); color: #FFFFFF; }
+.simulador-ver:active { transform: scale(.97); }
 .simulador-total { border-radius: var(--raio); background: var(--grafite); color: #FFFFFF; padding: 16px 18px; }
 .simulador-total p { margin: 0; }
 .simulador-total p:first-child { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; font-weight: 800; }
@@ -518,6 +530,11 @@ span.contato-linu { display: block; position: relative; aspect-ratio: 138 / 190;
   .simulador-opcoes label { flex: none; scroll-snap-align: start; gap: 8px; padding: 6px 14px 6px 10px; border: 1.5px solid var(--linha); border-radius: 999px; background: var(--cartao); white-space: nowrap; }
   .simulador-opcoes label:last-child { border-bottom: 1.5px solid var(--linha); }
   .simulador-opcoes label:has(input:checked) { border-color: var(--azul); }
+  /* a duração e o "Ver a abertura" entram na mesma faixa, como mais três botões */
+  .simulador-vinheta { flex: none; flex-wrap: nowrap; padding: 0; border: 0; gap: 8px; }
+  .simulador-vinheta-rotulo { display: none; }
+  .simulador-opcoes .simulador-tempo label { border-radius: 0; background: var(--cartao); min-height: 44px; }
+  .simulador-ver { min-height: 44px; white-space: nowrap; background: var(--cartao); }
   .simulador-opcoes span { font-size: .92rem; }
   .simulador-opcoes b { font-size: .88rem; }
   .simulador-total { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 6px 14px; padding: 10px 14px; }
