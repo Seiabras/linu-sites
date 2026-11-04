@@ -9,6 +9,7 @@
 // Os idiomas (código, pasta, lang e rascunho) são os de ferramentas/pagina/textos/. Desde 1/11/2026, as versões
 // Bootstrap e Tailwind também saem em cada idioma, dos modelos cafe/modelo-bootstrap.html e cafe/modelo-tailwind.html,
 // com os mesmos textos: /bootstrap/ e /tailwind/ em pt-BR, /<pasta>/bootstrap/ e /<pasta>/tailwind/ nos outros.
+import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -113,6 +114,22 @@ if (erros.length) {
   console.error('Nada foi gravado:\n  ' + erros.join('\n  '));
   process.exit(1);
 }
+// Cada imagem leva no endereço uma marca do conteúdo (?v=…): o servidor manda guardar as imagens por 7 dias, e a foto
+// trocada com o mesmo nome continuava a velha para quem já tinha aberto o site (4/11/2026, a fachada da padaria).
+const marcas = new Map();
+const marca = (rel) => {
+  if (!marcas.has(rel)) {
+    const arq = path.join(cafe, rel);
+    marcas.set(rel, fs.existsSync(arq) ? crypto.createHash('sha1').update(fs.readFileSync(arq)).digest('hex').slice(0, 8) : '');
+  }
+  return marcas.get(rel);
+};
+for (const s of saidas) {
+  s[1] = s[1].replace(/((?:\.\.\/|\.\/)*)(img\/[\w\/.-]+?\.(?:webp|png|jpg))(?![\w?])/g, (todo, antes, rel) => {
+    const v = marca(rel);
+    return v ? `${antes}${rel}?v=${v}` : todo;
+  });
+}
 for (const [arquivo, html] of saidas) {
   const destino = path.join(cafe, arquivo);
   if (fs.existsSync(destino) && fs.readFileSync(destino, 'utf8') === html) continue;
@@ -123,8 +140,7 @@ for (const [arquivo, html] of saidas) {
 
 // O Café sem internet (1/11/2026): o sw.js guarda a página principal e o que ela usa; os outros idiomas e as versões
 // Bootstrap e Tailwind entram na cache quando a pessoa os abre. A versão da cache muda quando muda qualquer arquivo.
-import crypto from 'node:crypto';
-const BASE_OFF = ['./', 'index.html', 'estilo.css?v=17', 'script.js?v=16', 'inicio.js?v=4', 'icone.png', 'img/icone-192.png', 'img/icone-512.png',
+const BASE_OFF = ['./', 'index.html', 'estilo.css?v=18', 'script.js?v=16', 'inicio.js?v=4', 'icone.png', 'img/icone-192.png', 'img/icone-512.png',
   'manifest.webmanifest', 'fontes/orbitron.woff2', 'fontes/rajdhani-400.woff2', 'fontes/rajdhani-500.woff2', 'fontes/rajdhani-600.woff2', 'fontes/rajdhani-700.woff2'];
 const hash = crypto.createHash('sha256');
 for (const a of BASE_OFF.filter((a) => !a.endsWith('/'))) hash.update(fs.readFileSync(path.join(cafe, a.split('?')[0])));
