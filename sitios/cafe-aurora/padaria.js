@@ -64,11 +64,32 @@
     graos.length = 0;
     for (let i = 0; i < (innerWidth < 700 ? 34 : 70); i++) graos.push({ x: Math.random() * tela.width, y: Math.random() * tela.height, r: Math.random() * 1.6 + 0.4, vy: -(Math.random() * 0.22 + 0.06), vx: (Math.random() - 0.5) * 0.14, a: Math.random() * 0.5 + 0.14 });
   }
+  // a grade do café, de dia em cobre e bem fraca: a padaria continua no mesmo mundo (4/11/2026)
+  function grade(vel) {
+    const W = tela.width, H = tela.height, hz = H * 0.62, cx = W / 2;
+    ctx.lineWidth = 1;
+    for (let i = 0; i < 16; i++) {
+      const f = (i + (t * vel) % 1) / 16, y = hz + (H - hz) * Math.pow(f, 2.1);
+      ctx.strokeStyle = `hsla(24, 60%, 42%, ${(0.05 + f * 0.2) * 0.55})`;
+      ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
+    }
+    for (let i = 0; i <= 22; i++) {
+      const f = i / 22, x = f * W * 2 - W * 0.5;
+      ctx.strokeStyle = `hsla(195, 45%, 38%, ${(0.03 + Math.sin(f * Math.PI) * 0.1) * 0.5})`;
+      ctx.beginPath(); ctx.moveTo(cx, hz); ctx.lineTo(x, H); ctx.stroke();
+    }
+  }
+  // 30 quadros (20 no celular), e só com a abertura à vista; longe dela, o último quadro fica parado
+  const pulo = matchMedia('(hover: none), (pointer: coarse)').matches ? 3 : 2;
+  let conta = 0, perto = true;
+  const inicio = document.querySelector('#inicio');
+  if (inicio) new IntersectionObserver(([en]) => { perto = en.isIntersecting; }, { rootMargin: '80px 0px' }).observe(inicio);
   function passo() {
     quadro = requestAnimationFrame(passo);
-    impar = !impar; if (impar) return; // 30 quadros por segundo
+    if (!perto || ++conta % pulo) return;
     t += 0.012;
     ctx.clearRect(0, 0, tela.width, tela.height);
+    grade(0.2);
     for (const g of graos) {
       g.x += g.vx * 1.5 + Math.sin(t * 2 + g.a * 20) * 0.15; g.y -= g.vy * 1.2;
       if (g.y > tela.height + 20) { g.y = -20; g.x = Math.random() * tela.width; }
@@ -79,7 +100,8 @@
   }
   function farinha() {
     cancelAnimationFrame(quadro);
-    if (modo === 'dia' && !reduzido && !document.hidden) { if (!graos.length) medir(); passo(); } else ctx.clearRect(0, 0, tela.width, tela.height);
+    if (modo === 'dia' && !reduzido && !document.hidden) { if (!graos.length) medir(); passo(); }
+    else { ctx.clearRect(0, 0, tela.width, tela.height); if (modo === 'dia') { if (!tela.width) medir(); grade(0); } }
   }
   addEventListener('resize', () => { if (graos.length) medir(); }, { passive: true });
   document.addEventListener('visibilitychange', farinha);

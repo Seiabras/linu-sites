@@ -1,4 +1,4 @@
-# Café Aurora: d-origem
+# Café Aurora: d-origem (cyberpunk de dia, 4/11/2026)
 
 ## O que anexar
 
@@ -7,7 +7,7 @@
 ## O prompt
 
 ```
-A imagem anexada é o MESMO lugar à noite, quando é café: mostre o mesmo balcão, a mesma máquina de café e o mesmo enquadramento, com o mesmo ponto de vista, agora de manhã e virado padaria; troque o neon pela luz do sol e pelos tons creme e caramelo. Fotografia de ambiente, muito bonita e crível, para o site de uma padaria artesanal aconchegante (a mesma loja do café, de dia). Luz natural dourada da manhã entrando pela janela, bancada de madeira clara e linho cru, tons creme (#fbf3e4), caramelo e marrom-café, farinha espalhada, profundidade de campo rasa, fundo desfocado de padaria. Um único detalhe mágico e sutil, sem exagero. O mesmo balcão de manhã, virado padaria: um forno de pedra aceso no lugar da fenda, com um brilho quente na boca do forno, prateleiras de pães, sacos de farinha e uma máquina de café antiga no canto. Sem pessoas, sem mãos, sem texto, sem letras, sem números, sem logotipo, sem marca d'água.
+A imagem anexada é o MESMO balcão à noite, quando é café: mostre a mesma máquina de café com o reator e o mesmo ponto de vista, agora de manhã e virado padaria. Fotografia de ambiente, muito bonita e crível, de uma padaria cyberpunk DE DIA: no lugar da fenda de luz, um forno de pedra encaixado numa estrutura de metal com painel de controle, mostradores e cabos, brasas acesas; o reator da máquina de café brilhando fraco em âmbar; prateleiras de pães; pela janela, prédios futuristas e passarelas à luz da manhã. Luz natural dourada, bancada de madeira clara com detalhes de metal escovado, farinha no ar. Paleta: creme, caramelo, cobre, um toque de ciano. Sem pessoas, sem mãos, sem texto legível, sem letras, sem números, sem logotipo, sem marca d'água.
 ```
 
 ## Proporção

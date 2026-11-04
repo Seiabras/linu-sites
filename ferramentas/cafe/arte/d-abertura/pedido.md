@@ -1,4 +1,4 @@
-# Café Aurora: d-abertura
+# Café Aurora: d-abertura (cyberpunk de dia, 4/11/2026)
 
 ## O que anexar
 
@@ -7,7 +7,7 @@
 ## O prompt
 
 ```
-A imagem anexada é o MESMO lugar à noite, quando é café: mostre a mesma rua, a mesma fachada e a mesma porta, com o mesmo ponto de vista, agora de manhã e virado padaria; troque o neon pela luz do sol e pelos tons creme e caramelo. Fotografia de ambiente, muito bonita e crível, para o site de uma padaria artesanal aconchegante (a mesma loja do café, de dia). Luz natural dourada da manhã entrando pela janela,  tons creme (#fbf3e4), caramelo e marrom-café, farinha espalhada, profundidade de campo rasa, fundo desfocado de padaria. Um único detalhe mágico e sutil, sem exagero. A mesma fachada e a mesma porta da cafeteria, agora de manhã cedo, virada padaria: toldo de lona, vitrine com pães, sol baixo e dourado, rua limpa e úmida do sereno, um vaso de planta na porta. Mesmo enquadramento de uma vista noturna da mesma rua. Bastante área clara e calma à esquerda para caber o título por cima. Sem pessoas, sem mãos, sem texto, sem letras, sem números, sem logotipo, sem marca d'água.
+A imagem anexada é o MESMO lugar à noite, quando é café: mostre a mesma rua, a mesma fachada e a mesma porta, com o mesmo ponto de vista, agora de manhã cedo e virado padaria. Fotografia de ambiente, muito bonita e crível, de uma metrópole cyberpunk DE DIA: sol baixo e dourado atravessando uma névoa leve, megaprédios e passarelas suspensas ao fundo, fios e cabos pendurados entre os prédios, letreiros de neon APAGADOS (tubos de vidro visíveis, sem luz) e telas holográficas desligadas, um drone pequeno ao longe, dutos e ar-condicionado nas fachadas, chão de pedra molhado do sereno refletindo o céu. A porta da padaria aberta, com luz quente de forno e vitrine de pães, vapor do forno saindo de um duto de metal. Paleta: creme, caramelo, cobre e um toque de ciano frio nas sombras. Clima tecnológico e acolhedor ao mesmo tempo. Sem pessoas, sem mãos, sem texto legível, sem letras, sem números, sem logotipo, sem marca d'água.
 ```
 
 ## Proporção

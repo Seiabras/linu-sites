@@ -379,6 +379,8 @@
         ]
       ]
     ],
-    "d_titulo": "Bäckerei Aurora — Eine Cyberpunk-Bäckerei in einer anderen Dimension"
+    "d_titulo": "Bäckerei Aurora — Eine Cyberpunk-Bäckerei in einer anderen Dimension",
+    "turno_cafe": "",
+    "turno_padaria": ""
   }
 }

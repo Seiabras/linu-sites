@@ -379,6 +379,8 @@
         ]
       ]
     ],
-    "d_titulo": "Panadería Aurora — Una Panadería Cyberpunk en Otra Dimensión"
+    "d_titulo": "Panadería Aurora — Una Panadería Cyberpunk en Otra Dimensión",
+    "turno_cafe": "",
+    "turno_padaria": ""
   }
 }

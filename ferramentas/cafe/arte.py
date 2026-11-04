@@ -2,7 +2,7 @@
 
   ferramentas/cafe/arte/aprovadas.json diz qual tentativa de cada pedido ficou (arte/<pedido>/api-*.png). Saem, em WebP:
   - cardápio (n1…n6 de noite, d1…d6 de dia), 4:3: sitios/cafe-aurora/img/cardapio/<noite|dia>-<n>-{400,720}.webp
-  - abertura (n-abertura, d-abertura), 16:9: sitios/cafe-aurora/img/abertura-<noite|dia>-{800,1600}.webp
+  - abertura (n-abertura, d-abertura), sem o terço esquerdo (CORTE): sitios/cafe-aurora/img/abertura-<noite|dia>-{800,1600}.webp
   - origem (n-origem, d-origem), 4:5: sitios/cafe-aurora/img/origem-<noite|dia>-{480,800}.webp
   A tentativa aprovada também fica guardada, menor, em arte/aprovadas/ (as outras não vão para o git).
 
@@ -17,7 +17,8 @@ SITIO = os.path.normpath(os.path.join(AQUI, '..', '..', 'sitios', 'cafe-aurora',
 # largura: teto em bytes (as diretrizes pedem até 200 KB por imagem; o cardápio fica bem abaixo)
 TAMANHOS = {
     'cardapio': ((4, 3), {400: 28_000, 720: 60_000}),
-    'abertura': ((16, 9), {800: 70_000, 1600: 170_000}),
+    # a abertura fica atrás do título, com object-fit: cover; sai na proporção do corte (sem o terço esquerdo)
+    'abertura': (None, {800: 70_000, 1600: 170_000}),
     'origem': ((4, 5), {480: 45_000, 800: 95_000}),
 }
 
@@ -32,8 +33,14 @@ def destino(pedido):
     sys.exit(f'pedido sem destino: {pedido}')
 
 
+# o terço esquerdo da fachada é uma parede lisa: de noite some no escuro, de dia parecia a foto cortada (4/11/2026)
+CORTE = {'n-abertura': (0.30, 0, 1, 1), 'd-abertura': (0.30, 0, 1, 1)}
+
+
 def recortar(img, prop):
     w, h = img.size
+    if prop is None:
+        return img
     a = prop[0] / prop[1]
     if w / h > a:
         nw = round(h * a); return img.crop(((w - nw) // 2, 0, (w - nw) // 2 + nw, h))
@@ -63,9 +70,13 @@ def main():
             sys.exit(f'{pedido}: falta {arquivo}')
         tipo, base = destino(pedido)
         prop, larguras = TAMANHOS[tipo]
-        img = recortar(Image.open(origem if os.path.exists(origem) else guardada).convert('RGB'), prop)
+        img = Image.open(origem if os.path.exists(origem) else guardada).convert('RGB')
+        if pedido in CORTE:
+            x0, y0, x1, y1 = CORTE[pedido]
+            img = img.crop((round(img.width * x0), round(img.height * y0), round(img.width * x1), round(img.height * y1)))
+        img = recortar(img, prop)
         for largura, teto in larguras.items():
-            altura = round(largura * prop[1] / prop[0])
+            altura = round(largura * prop[1] / prop[0]) if prop else round(largura * img.height / img.width)
             tam, q = webp(img.resize((largura, altura), Image.LANCZOS), f'{base}-{largura}.webp', teto)
             print(f'{os.path.relpath(base, SITIO)}-{largura}.webp  {tam // 1024} KB (q {q})')
 

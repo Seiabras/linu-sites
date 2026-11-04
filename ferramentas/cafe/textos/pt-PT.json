@@ -379,6 +379,8 @@
         ]
       ]
     ],
-    "d_titulo": "Padaria Aurora — Uma Padaria Cyberpunk Noutra Dimensão"
+    "d_titulo": "Padaria Aurora — Uma Padaria Cyberpunk Noutra Dimensão",
+    "turno_cafe": "",
+    "turno_padaria": ""
   }
 }

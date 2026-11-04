@@ -767,7 +767,7 @@ html:not(.js) .boot{display:none}
 .hero__foto{position:absolute;inset:0;z-index:-2;pointer-events:none}
 .hero__foto img{width:100%;height:100%;object-fit:cover;opacity:.34;
   -webkit-mask-image:linear-gradient(to bottom,#000 55%,transparent);mask-image:linear-gradient(to bottom,#000 55%,transparent)}
-[data-modo="dia"] .hero__foto img{opacity:.22}
+[data-modo="dia"] .hero__foto img{opacity:.32}
 .card__foto{margin:0 0 1rem;border-radius:12px;overflow:hidden;aspect-ratio:4/3;background:var(--bg-2)}
 .card__foto img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .45s var(--ease)}
 .card:hover .card__foto img{transform:scale(1.04)}
@@ -778,3 +778,12 @@ html:not(.js) .boot{display:none}
   background:rgba(5,3,10,.74);color:#ece9ff;font-size:.8rem;letter-spacing:.06em}
 [data-modo="dia"] .origem-foto__legenda{background:rgba(251,243,228,.9);color:#3a2414}
 @media (prefers-reduced-motion:reduce){.card:hover .card__foto img{transform:none}}
+
+/* o relógio de turno (4/11/2026): padaria das 6h às 18h, café das 18h às 6h (inicio.js) */
+.hero__turno{width:fit-content;max-width:min(36ch,92vw);margin:.7rem auto 0;padding:.35rem .9rem;border-radius:14px;
+  background:var(--panel);border:1px solid var(--stroke);backdrop-filter:blur(6px);
+  font-size:.8rem;line-height:1.45;letter-spacing:.06em;color:var(--text);text-align:center}
+.hero__turno::before{content:"";display:inline-block;vertical-align:.1em;width:.45rem;height:.45rem;margin-right:.45rem;
+  border-radius:50%;background:var(--cyan);box-shadow:var(--glow-c)}
+.hero__turno[hidden]{display:none}
+@media (min-width:700px){.hero__turno{max-width:none}}

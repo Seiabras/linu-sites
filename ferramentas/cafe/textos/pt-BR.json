@@ -1,6 +1,6 @@
 {
   "textos": {
-    "tag": "<b>ABERTO</b> 24H · SETOR NEON-07 · DIMENSÃO Ω",
+    "tag": "<b>ABERTO</b> DAS 18H ÀS 6H · SETOR NEON-07 · DIMENSÃO Ω",
     "chip_expresso": "Expresso",
     "chip_coldbrew": "Cold Brew",
     "chip_matcha": "Matcha",
@@ -37,7 +37,7 @@
     "sobre_h2": "Nascemos de um <em>curto-circuito</em> entre dois mundos",
     "sobre_p1": "Em 2087, uma barista chamada <strong>Aurora Vex</strong> derramou café sobre um reator de dobra. O resultado não foi uma explosão — foi um aroma.",
     "sobre_p2": "O aroma abriu uma fenda. Do outro lado, havia uma cidade igual à nossa, mas com luzes que pensavam e chuva que lembrava. Foi lá que encontramos os grãos que hoje servimos.",
-    "sobre_p3": "O <strong>Café Aurora</strong> é o único ponto de encontro entre as duas metrópoles. Aqui, o vapor sobe devagar e o tempo aceita ser interrompido por alguns minutos — desde que você peça a segunda xícara.",
+    "sobre_p3": "O <strong>Café Aurora</strong> é o único ponto de encontro entre as duas metrópoles, e só existe de noite: às 18h, quando o forno esfria, a fenda se abre de novo e o balcão da padaria vira café, até as 6h. Aqui o vapor sobe devagar e o tempo aceita ser interrompido por alguns minutos, desde que você peça a segunda xícara.",
     "portal": "Fenda estável · 3.2 nm",
     "menu_h2": "Blends que <em>não existem</em> em toda parte",
     "menu_lead": "Seis receitas calibradas para diferentes frequências cerebrais. Todas servidas em xícaras autorregenerativas.",
@@ -71,7 +71,7 @@
     "f2": "Clínica de Memórias",
     "f3n": "Anônima",
     "f3": "Dimensão Ω-11",
-    "cta_h2": "A fenda está aberta <em>até tarde</em>",
+    "cta_h2": "A fenda fica aberta <em>até as 6h</em>",
     "cta_p": "Não precisa de agendamento. Só de coragem para atravessar a porta errada.",
     "ver_cardapio": "Ver cardápio completo",
     "voltar": "Voltar ao início",
@@ -83,9 +83,9 @@
     "addr2": "Metrópole Baixa · Subsolo 3",
     "addr3": "Entrada pela porta que não estava lá",
     "horario": "Horário",
-    "hora1": "Seg–Sex · 06h — 04h",
-    "hora2": "Sáb–Dom · sempre",
-    "hora3": "Feriados dimensionais · fechado",
+    "hora1": "Todos os dias · 18h — 06h",
+    "hora2": "Última xícara · 05h45",
+    "hora3": "Ao nascer do sol · a padaria abre",
     "sinal": "Sinal",
     "direitos": "Todos os universos reservados",
     "ficticia": "Cafeteria fictícia · site de exemplo feito por",
@@ -96,8 +96,8 @@
     "editar": "✎ Editar textos",
     "desvio": "Desvio cromático",
     "nivel": "Nível",
-    "modo_para_dia": "Abrir a padaria (modo dia)",
-    "modo_para_noite": "Voltar ao café (modo noite)",
+    "modo_para_dia": "Ver a padaria (das 6h às 18h)",
+    "modo_para_noite": "Ver o café (das 18h às 6h)",
     "d_marca": "PADARIA AURORA",
     "d_nome": "Padaria Aurora",
     "d_marca_aria": "Padaria Aurora — início",
@@ -122,7 +122,7 @@
     "d_sobre_h2": "De dia, a fenda vira <em>forno</em>",
     "d_sobre_p1": "Toda manhã, quando o nosso sol e o de Ω-11 nascem juntos, a fenda que <strong>Aurora Vex</strong> abriu com café encolhe até ficar do tamanho de uma porta de forno.",
     "d_sobre_p2": "O calor que vaza do outro lado não se perde: assa pão. A primeira fornada sai às seis, e o cheiro atravessa as duas cidades antes de qualquer despertador.",
-    "d_sobre_p3": "A <strong>Padaria Aurora</strong> é o mesmo lugar do café, com a luz do dia. Os baristas da noite viram padeiros, o balcão vira vitrine e o neon descansa até o sol se pôr.",
+    "d_sobre_p3": "A <strong>Padaria Aurora</strong> é o mesmo lugar do café, das 6h às 18h. Na troca de turno, os baristas da noite viram padeiros, o balcão vira vitrine e o neon descansa até as 18h, quando a fenda abre de novo e o café volta.",
     "d_portal": "Forno estável · 220 °C",
     "d_menu_h2": "Fornadas que <em>não esperam</em> o tempo passar",
     "d_menu_lead": "Seis receitas que saem do forno várias vezes por dia. Todas embrulhadas num papel que guarda o calor por algumas horas, ou dimensões.",
@@ -167,7 +167,7 @@
     "d_foot_p": "Panificação interdimensional desde 2087. Farinha moída com ética em universos que consentiram.",
     "d_hora1": "Todos os dias · 06h — 18h",
     "d_hora2": "Primeira fornada · 06h em ponto",
-    "d_hora3": "Depois do pôr do sol · o café abre",
+    "d_hora3": "Ao pôr do sol, às 18h · o café abre",
     "add": "Pedido",
     "lab_add": "Adicionar ao pedido",
     "detalhes": "Detalhes",
@@ -292,8 +292,8 @@
     "r_cancelar": "Cancelar",
     "r_msg": "Reserva em {loja}: {mesa}, {pessoas} pessoas, {data} às {hora}, em nome de {nome}.",
     "r_hora_erro": "Diga a hora.",
-    "r_hora_noite": "Das 04h às 06h o café fecha para limpar a fenda.",
-    "r_hora_dia": "A padaria atende das 06h às 18h.",
+    "r_hora_noite": "O café abre às 18h e fecha às 6h. De dia, o mesmo balcão é a padaria.",
+    "r_hora_dia": "A padaria atende das 6h às 18h. Depois disso, o mesmo balcão vira café.",
     "qz_passo": "Pergunta {n} de {total}",
     "qz_resultado": "Combina com você:",
     "qz_de_novo": "Fazer de novo",
@@ -379,6 +379,8 @@
         ]
       ]
     ],
-    "d_titulo": "Padaria Aurora — Padaria Cyberpunk em Outra Dimensão"
+    "d_titulo": "Padaria Aurora — Padaria Cyberpunk em Outra Dimensão",
+    "turno_cafe": "Agora, {h}: o café está aberto · a padaria abre em {falta}",
+    "turno_padaria": "Agora, {h}: a padaria está aberta · o café abre em {falta}"
   }
 }

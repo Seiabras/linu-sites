@@ -37,7 +37,7 @@
   let pedido = 0, efeitos = true, visivel = true, perto = true;
   const quadro = () => { passos.forEach(f => f()); pedido = requestAnimationFrame(quadro); };
   const conferirQuadro = () => {
-    const rodar = efeitos && visivel && perto && !document.hidden && passos.length > 0;
+    const rodar = efeitos && visivel && !document.hidden && passos.length > 0;
     if (rodar && !pedido) pedido = requestAnimationFrame(quadro);
     if (!rodar && pedido) { cancelAnimationFrame(pedido); pedido = 0; }
   };
@@ -211,7 +211,8 @@
 
   let t = 0;
 
-  function drawGrid(horizon, speed) {
+  // de dia, a mesma grade em cobre e bem mais fraca (4/11/2026: “o fundo da padaria não tá muito cyberpunk”)
+  function drawGrid(horizon, speed, dia = false) {
     const rows = 16;
     const cols = 22;
     const cx = W / 2;
@@ -222,7 +223,7 @@
       const f = (i + (t * speed) % 1) / rows;
       const y = horizon + (H - horizon) * Math.pow(f, 2.1);
       const alpha = 0.05 + f * 0.20;
-      ctx.strokeStyle = `hsla(185, 100%, 58%, ${alpha})`;
+      ctx.strokeStyle = dia ? `hsla(24, 60%, 42%, ${alpha * 0.55})` : `hsla(185, 100%, 58%, ${alpha})`;
       ctx.beginPath();
       ctx.moveTo(0, y);
       ctx.lineTo(W, y);
@@ -234,7 +235,7 @@
       const f = i / cols;
       const x = f * W * 2 - W * 0.5;
       const alpha = 0.03 + Math.sin(f * Math.PI) * 0.10;
-      ctx.strokeStyle = `hsla(275, 95%, 68%, ${alpha})`;
+      ctx.strokeStyle = dia ? `hsla(195, 45%, 38%, ${alpha * 0.5})` : `hsla(275, 95%, 68%, ${alpha})`;
       ctx.beginPath();
       ctx.moveTo(cx, horizon);
       ctx.lineTo(x, H);
@@ -245,6 +246,7 @@
   // De dia: só a farinha caindo devagar, de lado, como no balcão da padaria
   function frameDia() {
     ctx.clearRect(0, 0, W, H);
+    drawGrid(H * 0.62, 0.2, true);
     for (const pt of particles) {
       pt.x += pt.vx * 1.5 + Math.sin(t * 2 + pt.a * 20) * 0.15;
       pt.y -= pt.vy * 1.2;
@@ -261,7 +263,7 @@
   const pulo = isTouch ? 3 : 2;
   let conta = 0;
   function frame() {
-    if (++conta % pulo) return;
+    if (!perto || ++conta % pulo) return; // longe da abertura, só o fundo para (o cursor e o halo seguem)
     t += 0.012;
     if (modo === 'dia') { frameDia(); return; }
 
@@ -293,7 +295,7 @@
   // Sem movimento: um quadro parado (a grade de noite; de dia, o fundo limpo)
   function fundoParado() {
     ctx.clearRect(0, 0, W, H);
-    if (modo === 'noite') drawGrid(H * 0.6, 0);
+    drawGrid(H * 0.6, 0, modo === 'dia');
   }
   if (reduced) {
     fundoParado();
@@ -359,10 +361,10 @@
   $$('.reveal').forEach(el => revealObserver.observe(el));
 
   // 4/11/2026, o Café estava pesado: com a tela parada, o fundo e as animações em CSS gastavam um terço do processador
-  // de um celular simples. O fundo anda só enquanto a abertura (#inicio) está à vista; depois fica parado no último
+  // de um celular simples. O fundo desenha só enquanto a abertura (#inicio) está à vista; depois fica parado no último
   // quadro, atrás do texto. As animações em loop param quando a parte delas sai da tela (.pausa, no estilo.css).
   const vigia = new IntersectionObserver(entries => entries.forEach(en => {
-    if (en.target.id === 'inicio') { perto = en.isIntersecting; conferirQuadro(); }
+    if (en.target.id === 'inicio') perto = en.isIntersecting;
     en.target.classList.toggle('pausa', !en.isIntersecting);
   }), { rootMargin: '80px 0px' });
   $$('#inicio, .marquee, #sobre, #laboratorio, .cta, footer').forEach(el => vigia.observe(el));
@@ -898,8 +900,9 @@
       const erro = $('#rHoraErro');
       if (!c.value) { erro.textContent = T.r_hora_erro; return false; }
       const [h, m] = c.value.split(':').map(Number), min = h * 60 + m;
-      if (modo === 'dia' && (min < 360 || min > 1080)) { erro.textContent = T.r_hora_dia; return false; }
-      if (modo !== 'dia' && min >= 240 && min < 360) { erro.textContent = T.r_hora_noite; return false; }
+      // o mesmo balcão em dois turnos (4/11/2026): padaria das 6h às 18h, café das 18h às 6h
+      if (modo === 'dia' && (min < 360 || min >= 1080)) { erro.textContent = T.r_hora_dia; return false; }
+      if (modo !== 'dia' && min >= 360 && min < 1080) { erro.textContent = T.r_hora_noite; return false; }
       return true;
     }
   };
