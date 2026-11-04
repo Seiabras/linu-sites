@@ -26,19 +26,19 @@ jobs:
       - name: Página principal
         uses: lycheeverse/lychee-action@v2.9.0
         with:
-          args: --offline --no-progress --root-dir ${{ github.workspace }}/public 'public/**/*.html'
+          args: --offline --no-progress --fallback-extensions html --index-files index.html --root-dir ${{ github.workspace }}/public 'public/**/*.html'
       - name: Café Aurora
         uses: lycheeverse/lychee-action@v2.9.0
         with:
-          args: --offline --no-progress --root-dir ${{ github.workspace }}/sitios/cafe-aurora 'sitios/cafe-aurora/**/*.html'
+          args: --offline --no-progress --fallback-extensions html --index-files index.html --root-dir ${{ github.workspace }}/sitios/cafe-aurora 'sitios/cafe-aurora/**/*.html'
       - name: Guia do Cerrado
         uses: lycheeverse/lychee-action@v2.9.0
         with:
-          args: --offline --no-progress --root-dir ${{ github.workspace }}/sitios/fotografia-do-cerrado 'sitios/fotografia-do-cerrado/**/*.html'
+          args: --offline --no-progress --fallback-extensions html --index-files index.html --root-dir ${{ github.workspace }}/sitios/fotografia-do-cerrado 'sitios/fotografia-do-cerrado/**/*.html'
       - name: Pica ou Não Pica?
         uses: lycheeverse/lychee-action@v2.9.0
         with:
-          args: --offline --no-progress --root-dir ${{ github.workspace }}/sitios/pica-nao-pica 'sitios/pica-nao-pica/**/*.html'
+          args: --offline --no-progress --fallback-extensions html --index-files index.html --root-dir ${{ github.workspace }}/sitios/pica-nao-pica 'sitios/pica-nao-pica/**/*.html'
 
   externos:
     if: github.event_name != 'push'
