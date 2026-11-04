@@ -53,9 +53,12 @@ if (form) {
     const corpo = document.querySelector('.resumo-corpo');
     if (dadosBloco && corpo) {
         const dados = JSON.parse(dadosBloco.textContent);
+        // as frases do quadro: o grupo "contato" do #textos-estudo (o scripts-pt.json do gerador)
+        const TS = T.contato || {};
+        const tr = (k) => TS[k] ?? k;
         const inicial = [...corpo.childNodes].map((n) => n.cloneNode(true));
         const nomeMes = (m) => {
-            const n = new Intl.DateTimeFormat('pt-BR', { month: 'long' }).format(new Date(2026, m - 1, 15));
+            const n = new Intl.DateTimeFormat(document.documentElement.lang, { month: 'long' }).format(new Date(2026, m - 1, 15));
             return n.charAt(0).toUpperCase() + n.slice(1);
         };
         const resumir = () => {
@@ -63,14 +66,14 @@ if (form) {
             if (!d) { corpo.replaceChildren(...inicial.map((n) => n.cloneNode(true))); return; }
             const m = Number(mes?.value || 0);
             const dl = document.createElement('dl');
-            for (const [k, v] of [['Expedição', d.nome], ['Duração', d.dias], ['Grupo', 'até 8 pessoas, com guia local'], ['Melhor época', d.epoca]]) {
+            for (const [k, v] of [[tr('expedicao'), d.nome], [tr('duracao'), d.dias], [tr('grupo'), tr('grupo_texto')], [tr('melhor_epoca'), d.epoca]]) {
                 dl.append(Object.assign(document.createElement('dt'), { textContent: k }), Object.assign(document.createElement('dd'), { textContent: v }));
             }
             const nota = document.createElement('p');
             nota.className = 'resumo-nota';
-            if (!m) nota.textContent = 'Escolha o mês, se já souber, para conferir se é uma boa época.';
-            else if (d.meses.includes(m)) { nota.textContent = `${nomeMes(m)} está na melhor época desta saída.`; nota.classList.add('boa'); }
-            else nota.textContent = `${nomeMes(m)} fica fora da melhor época (${d.epoca}). A saída acontece, mas os bichos aparecem menos.`;
+            if (!m) nota.textContent = tr('escolha_mes');
+            else if (d.meses.includes(m)) { nota.textContent = tr('mes_bom').replace('{mes}', nomeMes(m)); nota.classList.add('boa'); }
+            else nota.textContent = tr('mes_fora').replace('{mes}', nomeMes(m)).replace('{epoca}', d.epoca);
             corpo.replaceChildren(dl, nota);
         };
         assunto.addEventListener('change', resumir);
@@ -84,8 +87,8 @@ if (form) {
         if (errados.length) { errados[0].focus(); return; }
         const nome = form.nome.value.trim().split(' ')[0];
         aviso.hidden = false;
-        // a frase vem no idioma da página (o bloco #textos-estudo, do ferramentas/gerar-estudo.mjs); sem ele, em português
-        aviso.textContent = (T.obrigado || 'Obrigado, {nome}! Esta é uma página de demonstração: a mensagem não foi enviada de verdade.').replace('{nome}', nome);
+        // a frase vem no idioma da página (o bloco #textos-estudo, do ferramentas/gerar-estudo.mjs)
+        aviso.textContent = (T.obrigado || '').replace('{nome}', nome);
         form.reset();
         for (const c of campos) { c.removeAttribute('aria-invalid'); delete c.dataset.tocado; erroDe(c).hidden = true; }
         assunto.dispatchEvent(new Event('change'));

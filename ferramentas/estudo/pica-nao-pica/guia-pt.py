@@ -18,7 +18,7 @@ ATUAL = {'bicho-': 'bichos.html', 'emergencia': 'socorro.html', 'cartao': 'socor
 URL_SITE = 'https://picanaopica.linupedia.com.br/'
 REVISAO = '4/11/2026'
 SITIO = AQUI.parents[2] / 'sitios' / 'pica-nao-pica'
-JS = 'guia.js?v=5'
+JS = 'guia.js?v=6'
 # o CSS das páginas em português (4/11/2026): sobe sozinho aqui; as outras 12 línguas continuam com o número do modelo
 CSS_PT = 'estilo.css?v=11'
 CSS_LINK = re.compile(r'<link rel="stylesheet" href="\{\{raiz\}\}css/estilo\.css\?v=\d+">')
@@ -27,7 +27,7 @@ def fui_picado(arquivo):
     atual = ' aria-current="page"' if arquivo == 'emergencia.html' else ''
     return f'<a class="fui-picado" href="emergencia.html"{atual}>Fui picado</a>'
 # o manifesto e o offline.js (o guia sem internet), em todas as páginas em português
-CAB_OFF = '<link rel="manifest" href="{{raiz}}manifest.webmanifest"><script src="{{raiz}}js/offline.js?v=1" defer></script>'
+CAB_OFF = '<link rel="manifest" href="{{raiz}}manifest.webmanifest"><script src="{{raiz}}js/offline.js?v=2" defer></script>'
 
 def menu_pt(arquivo):
     atual = next((v for k, v in ATUAL.items() if arquivo.startswith(k)), arquivo)

@@ -1,6 +1,10 @@
 // O Cerrado mês a mês (1/11/2026): a pessoa escolhe o mês e vê só o que acontece nele. Sem JavaScript, a página mostra
 // tudo, cada coisa com a sua época escrita. Os meses saem do Intl; a cor de baixo do botão é a estação, como nas Expedições.
 (() => {
+    // as frases vêm no idioma da página: o grupo "mes-a-mes" do #textos-estudo (o scripts-pt.json do gerador, traduzido
+    // pelo catálogo de cada língua); {n} e afins são trocados pelos valores
+    const TX = (() => { try { return JSON.parse(document.getElementById('textos-estudo').textContent)['mes-a-mes'] || {}; } catch { return {}; } })();
+    const tr = (k, v = {}) => String(TX[k] ?? k).replace(/\{(\w+)\}/g, (_, x) => v[x] ?? '');
     const caixa = document.querySelector('.mes-escolha .meses');
     if (!caixa) return;
     const eventos = [...document.querySelectorAll('.evento[data-meses]')];
@@ -8,9 +12,9 @@
     const titulo = document.querySelector('.mes-titulo');
     const vazio = document.querySelector('.mes-vazio');
     const estacao = (m) => (m >= 5 && m <= 7 ? 'seca' : m === 8 || m === 9 ? 'auge' : 'chuvas');
-    const nomeEstacao = { chuvas: 'época das chuvas', seca: 'começo da seca', auge: 'auge da seca' };
-    const curto = new Intl.DateTimeFormat('pt-BR', { month: 'short' });
-    const longo = new Intl.DateTimeFormat('pt-BR', { month: 'long' });
+    const nomeEstacao = { chuvas: tr('chuvas'), seca: tr('seca'), auge: tr('auge') };
+    const curto = new Intl.DateTimeFormat(document.documentElement.lang, { month: 'short' });
+    const longo = new Intl.DateTimeFormat(document.documentElement.lang, { month: 'long' });
     const botoes = Array.from({ length: 12 }, (_, i) => {
         const data = new Date(2026, i, 15);
         const b = document.createElement('button');
@@ -34,7 +38,7 @@
         }
         grupos.forEach((g) => { g.hidden = !g.querySelector('.evento:not([hidden])'); });
         const nome = longo.format(new Date(2026, mes - 1, 15));
-        titulo.textContent = `${nome.charAt(0).toUpperCase()}${nome.slice(1)}, ${nomeEstacao[estacao(mes)]}: ${n} ${n === 1 ? 'coisa' : 'coisas'} para ver.`;
+        titulo.textContent = tr(n === 1 ? 'titulo_um' : 'titulo', { mes: nome.charAt(0).toUpperCase() + nome.slice(1), estacao: nomeEstacao[estacao(mes)], n });
         vazio.hidden = n > 0;
         // o mês escolhido vai para o endereço só quando a pessoa escolhe (gravar ao abrir faria o navegador rolar)
         if (daPessoa) history.replaceState(null, '', '?mes=' + mes);

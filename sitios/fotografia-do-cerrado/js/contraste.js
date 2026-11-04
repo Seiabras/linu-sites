@@ -1,6 +1,10 @@
 // Teste as cores (página Sobre, 31/10/2026): a pessoa escolhe a cor do texto e a do fundo entre as da paleta e vê a razão
 // de contraste pela fórmula da WCAG 2.2 e se o par passa no AA e no AAA, para texto normal e grande.
 (() => {
+    // as frases vêm no idioma da página: o grupo "contraste" do #textos-estudo (o scripts-pt.json do gerador, traduzido
+    // pelo catálogo de cada língua); {n} e afins são trocados pelos valores
+    const TX = (() => { try { return JSON.parse(document.getElementById('textos-estudo').textContent).contraste || {}; } catch { return {}; } })();
+    const tr = (k, v = {}) => String(TX[k] ?? k).replace(/\{(\w+)\}/g, (_, x) => v[x] ?? '');
     const previa = document.getElementById('previa');
     if (!previa) return;
     const razaoEl = document.getElementById('razao');
@@ -26,16 +30,16 @@
         const r = contraste(texto, fundo);
         // mostra com duas casas, como a paleta do Sobre; o "passa ou não passa" usa o valor exato
         const mostrado = Math.round(r * 100) / 100;
-        razaoEl.textContent = `${mostrado.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}:1`;
+        razaoEl.textContent = `${mostrado.toLocaleString(document.documentElement.lang, { minimumFractionDigits: 2 })}:1`;
         const testes = [
-            ['Texto normal, nível AA', 4.5], ['Texto normal, nível AAA', 7],
-            ['Texto grande (24 px, ou 19 px em negrito), nível AA', 3], ['Texto grande, nível AAA', 4.5],
+            [tr('normal_aa'), 4.5], [tr('normal_aaa'), 7],
+            [tr('grande_aa'), 3], [tr('grande_aaa'), 4.5],
         ];
         veredito.replaceChildren(...testes.map(([nome, minimo]) => {
             const li = document.createElement('li');
             const passa = r >= minimo;
             li.className = passa ? 'passa' : 'nao-passa';
-            li.textContent = `${passa ? 'Passa' : 'Não passa'}: ${nome} (mínimo ${String(minimo).replace('.', ',')}:1)`;
+            li.textContent = tr(passa ? 'passa' : 'nao_passa', { nome, minimo: minimo.toLocaleString(document.documentElement.lang) });
             return li;
         }));
     }

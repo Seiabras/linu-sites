@@ -17,7 +17,7 @@ filtros.forEach(botao => {
 const janela = document.getElementById('ampliada');
 if (janela) {
     let t = {};
-    try { t = JSON.parse(document.getElementById('textos-estudo').textContent); } catch { /* fica em português */ }
+    try { t = JSON.parse(document.getElementById('textos-estudo').textContent); } catch { /* fica sem os rótulos */ }
     const imagem = janela.querySelector('.moldura img');
     const titulo = janela.querySelector('.titulo');
     const cientifico = janela.querySelector('.cientifico');
@@ -26,8 +26,8 @@ if (janela) {
     const verFicha = janela.querySelector('.ver-ficha a');
     const anterior = janela.querySelector('.anterior');
     const proxima = janela.querySelector('.proxima');
-    anterior.setAttribute('aria-label', t.anterior || 'Foto anterior');
-    proxima.setAttribute('aria-label', t.proxima || 'Próxima foto');
+    anterior.setAttribute('aria-label', t.anterior || '');
+    proxima.setAttribute('aria-label', t.proxima || '');
     const calmo = matchMedia('(prefers-reduced-motion: reduce)');
     let atual = 0;
     let espera = 0;
@@ -49,7 +49,7 @@ if (janela) {
             // na página em português, o link para a ficha da espécie
             const ficha = foto.querySelector('.ficha-link a');
             if (verFicha && ficha) verFicha.href = ficha.getAttribute('href');
-            posicao.textContent = (t.posicao || '{n} de {total}').replace('{n}', atual + 1).replace('{total}', lista.length);
+            posicao.textContent = (t.posicao || '{n} / {total}').replace('{n}', atual + 1).replace('{total}', lista.length);
             imagem.classList.remove('trocando');
         };
         clearTimeout(espera);
