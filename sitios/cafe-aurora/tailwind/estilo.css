@@ -835,7 +835,26 @@ html:not(.js) .boot{display:none}
 /* o “Sintonizar dimensão” gira também as fotos, nos dois modos (4/11/2026) */
 .hero__foto img,.card__foto img,.origem-foto img{filter:hue-rotate(calc(var(--desvio) * 1deg))}
 
+/* 4/11/2026: “tem alguns textos que tão meio invisíveis”: com a foto atrás, o texto secundário da abertura (etiqueta,
+   subtítulo, rótulos dos números, “rolar”) sumia no neon. Um véu escuro só atrás do texto, de noite, e esses textos
+   um tom mais forte dentro da abertura, nos dois modos. */
+.hero__foto::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 48% 56% at 50% 50%,rgba(5,3,10,.78),rgba(5,3,10,.5) 58%,transparent 85%)}
+.hero{--muted:#d4cdf2}
+.hero__tag{background:rgba(10,6,22,.72)}
+[data-modo="dia"] .hero{--muted:#4f3524}
+[data-modo="dia"] .hero__tag{background:rgba(255,250,240,.82)}
+
 /* de dia a cidade aparece mais (4/11/2026: “não achei a padaria muito cyberpunk”); um brilho creme só atrás do
    texto mantém a leitura */
 [data-modo="dia"] .hero__foto::after{content:"";position:absolute;inset:0;pointer-events:none;
   background:radial-gradient(ellipse 46% 52% at 50% 46%,rgba(251,243,228,.86),rgba(251,243,228,.55) 55%,transparent 80%)}
+
+/* 4/11/2026: “de manhã o texto também se perde, mais os de cima: início, origem, cardápio”. No topo, sobre a foto,
+   o menu ganha um degradê que desce da cor do fundo e os links ficam na cor do texto forte. */
+.nav:not(.solid){background:linear-gradient(to bottom,rgba(5,3,10,.82),rgba(5,3,10,.35) 70%,transparent)}
+[data-modo="dia"] .nav:not(.solid){background:linear-gradient(to bottom,rgba(251,243,228,.92),rgba(251,243,228,.5) 70%,transparent)}
+.nav:not(.solid) .nav__links a{color:var(--text)}
+
+/* 4/11/2026: “o texto de aberto… também”: a etiqueta era pequena, fina e espaçada demais para ler sobre a foto */
+.hero__tag{font-size:.78rem;letter-spacing:.2em;font-weight:500;color:var(--text)}

@@ -140,7 +140,7 @@ for (const [arquivo, html] of saidas) {
 
 // O Café sem internet (1/11/2026): o sw.js guarda a página principal e o que ela usa; os outros idiomas e as versões
 // Bootstrap e Tailwind entram na cache quando a pessoa os abre. A versão da cache muda quando muda qualquer arquivo.
-const BASE_OFF = ['./', 'index.html', 'estilo.css?v=18', 'script.js?v=16', 'inicio.js?v=4', 'icone.png', 'img/icone-192.png', 'img/icone-512.png',
+const BASE_OFF = ['./', 'index.html', 'estilo.css?v=21', 'script.js?v=16', 'inicio.js?v=4', 'icone.png', 'img/icone-192.png', 'img/icone-512.png',
   'manifest.webmanifest', 'fontes/orbitron.woff2', 'fontes/rajdhani-400.woff2', 'fontes/rajdhani-500.woff2', 'fontes/rajdhani-600.woff2', 'fontes/rajdhani-700.woff2'];
 const hash = crypto.createHash('sha256');
 for (const a of BASE_OFF.filter((a) => !a.endsWith('/'))) hash.update(fs.readFileSync(path.join(cafe, a.split('?')[0])));
