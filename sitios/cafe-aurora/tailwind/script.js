@@ -388,11 +388,9 @@
   hueEl.addEventListener('input', () => {
     const v = Number(hueEl.value);
     hueVal.textContent = v + '°';
+    // as cores de cada modo saem do --desvio no CSS; antes o script gravava as de noite por cima das da padaria (4/11/2026)
     const root = document.documentElement;
-    root.style.setProperty('--cyan',    `hsl(${185 + v} 100% 55%)`);
-    root.style.setProperty('--magenta', `hsl(${315 + v} 100% 62%)`);
-    root.style.setProperty('--violet',  `hsl(${265 + v} 92% 68%)`);
-    root.style.setProperty('--amber',   `hsl(${35 + v} 100% 62%)`);
+    root.style.setProperty('--desvio', v);
   });
 
   dimHead.addEventListener('click', () => {

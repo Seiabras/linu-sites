@@ -67,15 +67,16 @@
   // a grade do café, de dia em cobre e bem fraca: a padaria continua no mesmo mundo (4/11/2026)
   function grade(vel) {
     const W = tela.width, H = tela.height, hz = H * 0.62, cx = W / 2;
+    const dv = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--desvio')) || 0; // gira com o “Sintonizar dimensão”
     ctx.lineWidth = 1;
     for (let i = 0; i < 16; i++) {
       const f = (i + (t * vel) % 1) / 16, y = hz + (H - hz) * Math.pow(f, 2.1);
-      ctx.strokeStyle = `hsla(24, 60%, 42%, ${(0.05 + f * 0.2) * 0.55})`;
+      ctx.strokeStyle = `hsla(${24 + dv}, 60%, 42%, ${(0.05 + f * 0.2) * 0.55})`;
       ctx.beginPath(); ctx.moveTo(0, y); ctx.lineTo(W, y); ctx.stroke();
     }
     for (let i = 0; i <= 22; i++) {
       const f = i / 22, x = f * W * 2 - W * 0.5;
-      ctx.strokeStyle = `hsla(195, 45%, 38%, ${(0.03 + Math.sin(f * Math.PI) * 0.1) * 0.5})`;
+      ctx.strokeStyle = `hsla(${195 + dv}, 45%, 38%, ${(0.03 + Math.sin(f * Math.PI) * 0.1) * 0.5})`;
       ctx.beginPath(); ctx.moveTo(cx, hz); ctx.lineTo(x, H); ctx.stroke();
     }
   }

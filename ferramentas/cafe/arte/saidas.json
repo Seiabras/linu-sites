@@ -1,0 +1,74 @@
+{
+ "raiz": "../../../sitios/cafe-aurora",
+ "regras": [
+  {
+   "padrao": "^(?P<m>[nd])(?P<n>\\d)-",
+   "tipo": "imagem",
+   "proporcao": "4:3",
+   "larguras": {
+    "400": 28000,
+    "720": 60000
+   },
+   "qualidade": [
+    82,
+    4,
+    40
+   ],
+   "trocar": {
+    "m": {
+     "n": "noite",
+     "d": "dia"
+    }
+   },
+   "destino": "img/cardapio/{m}-{n}-{largura}.webp"
+  },
+  {
+   "padrao": "^(?P<m>[nd])-abertura$",
+   "tipo": "imagem",
+   "proporcao": null,
+   "corte": [
+    0.3,
+    0,
+    1,
+    1
+   ],
+   "larguras": {
+    "800": 70000,
+    "1600": 170000
+   },
+   "qualidade": [
+    82,
+    4,
+    40
+   ],
+   "trocar": {
+    "m": {
+     "n": "noite",
+     "d": "dia"
+    }
+   },
+   "destino": "img/abertura-{m}-{largura}.webp"
+  },
+  {
+   "padrao": "^(?P<m>[nd])-origem$",
+   "tipo": "imagem",
+   "proporcao": "4:5",
+   "larguras": {
+    "480": 45000,
+    "800": 95000
+   },
+   "qualidade": [
+    82,
+    4,
+    40
+   ],
+   "trocar": {
+    "m": {
+     "n": "noite",
+     "d": "dia"
+    }
+   },
+   "destino": "img/origem-{m}-{largura}.webp"
+  }
+ ]
+}

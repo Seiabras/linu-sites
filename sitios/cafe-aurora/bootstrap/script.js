@@ -262,10 +262,8 @@
     const v = Number(hueEl.value);
     hueVal.textContent = v + '°';
     const root = document.documentElement;
-    root.style.setProperty('--aurora-cyan',    `hsl(${185 + v} 100% 55%)`);
-    root.style.setProperty('--aurora-magenta', `hsl(${315 + v} 100% 62%)`);
-    root.style.setProperty('--aurora-violet',  `hsl(${265 + v} 92% 68%)`);
-    root.style.setProperty('--aurora-amber',   `hsl(${35 + v} 100% 62%)`);
+    // o --desvio gira também as cores da padaria e as fotos (4/11/2026; antes a padaria ignorava o controle)
+    root.style.setProperty('--desvio', v);
   });
 
   dimHead.addEventListener('click', () => {

@@ -34,7 +34,7 @@
 
   // Um quadro só para todas as animações contínuas; para quando não tem ninguém vendo
   const passos = [];
-  let pedido = 0, efeitos = true, visivel = true, perto = true;
+  let pedido = 0, efeitos = true, visivel = true, perto = true, desvioFundo = 0;
   const quadro = () => { passos.forEach(f => f()); pedido = requestAnimationFrame(quadro); };
   const conferirQuadro = () => {
     const rodar = efeitos && visivel && !document.hidden && passos.length > 0;
@@ -223,7 +223,7 @@
       const f = (i + (t * speed) % 1) / rows;
       const y = horizon + (H - horizon) * Math.pow(f, 2.1);
       const alpha = 0.05 + f * 0.20;
-      ctx.strokeStyle = dia ? `hsla(24, 60%, 42%, ${alpha * 0.55})` : `hsla(185, 100%, 58%, ${alpha})`;
+      ctx.strokeStyle = dia ? `hsla(${24 + desvioFundo}, 60%, 42%, ${alpha * 0.55})` : `hsla(${185 + desvioFundo}, 100%, 58%, ${alpha})`;
       ctx.beginPath();
       ctx.moveTo(0, y);
       ctx.lineTo(W, y);
@@ -235,7 +235,7 @@
       const f = i / cols;
       const x = f * W * 2 - W * 0.5;
       const alpha = 0.03 + Math.sin(f * Math.PI) * 0.10;
-      ctx.strokeStyle = dia ? `hsla(195, 45%, 38%, ${alpha * 0.5})` : `hsla(275, 95%, 68%, ${alpha})`;
+      ctx.strokeStyle = dia ? `hsla(${195 + desvioFundo}, 45%, 38%, ${alpha * 0.5})` : `hsla(${275 + desvioFundo}, 95%, 68%, ${alpha})`;
       ctx.beginPath();
       ctx.moveTo(cx, horizon);
       ctx.lineTo(x, H);
@@ -539,6 +539,7 @@
     hueVal.textContent = v + '°';
     // as quatro cores de cada modo saem do --desvio no CSS (bloco 0 e bloco 17)
     raiz.style.setProperty('--desvio', v);
+    desvioFundo = Number(v) || 0; // a grade do fundo gira junto (4/11/2026)
   });
 
   dimHead.addEventListener('click', () => {

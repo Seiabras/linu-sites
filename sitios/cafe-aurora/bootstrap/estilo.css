@@ -20,10 +20,10 @@
   --bs-body-font-size:1rem;
   --bs-body-line-height:1.65;
 
-  --aurora-cyan:hsl(185 100% 55%);
-  --aurora-magenta:hsl(315 100% 62%);
-  --aurora-violet:hsl(265 92% 68%);
-  --aurora-amber:hsl(35 100% 62%);
+  --aurora-cyan:hsl(calc(185 + var(--desvio)) 100% 55%);
+  --aurora-magenta:hsl(calc(315 + var(--desvio)) 100% 62%);
+  --aurora-violet:hsl(calc(265 + var(--desvio)) 92% 68%);
+  --aurora-amber:hsl(calc(35 + var(--desvio)) 100% 62%);
 
   --glow-c:0 0 8px hsl(185 100% 55% / .8), 0 0 28px hsl(185 100% 55% / .35);
   --glow-m:0 0 8px hsl(315 100% 62% / .8), 0 0 30px hsl(315 100% 62% / .35);
@@ -787,3 +787,6 @@ html:not(.js) .boot{display:none}
   border-radius:50%;background:var(--cyan);box-shadow:var(--glow-c)}
 .hero__turno[hidden]{display:none}
 @media (min-width:700px){.hero__turno{max-width:none}}
+
+/* o “Sintonizar dimensão” gira também as fotos, nos dois modos (4/11/2026) */
+.hero__foto img,.card__foto img,.origem-foto img{filter:hue-rotate(calc(var(--desvio) * 1deg))}
