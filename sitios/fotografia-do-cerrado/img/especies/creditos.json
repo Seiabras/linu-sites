@@ -1,638 +1,644 @@
 [
- {
-  "arquivo": "abacaxi-do-cerrado.webp",
-  "autor": "Jean Fábio Torres Rodrigues",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Ananas_-_1.jpg"
- },
- {
-  "arquivo": "algodaozinho.webp",
-  "autor": "João Medeiros",
-  "licenca": "CC BY 2.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Flickr_-_Jo%C3%A3o_de_Deus_Medeiros_-_Cochlospermum_regium.jpg"
- },
- {
-  "arquivo": "angico.webp",
-  "autor": "Mateusbotanica2020",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Flor_angico.jpg"
- },
- {
-  "arquivo": "anta.webp",
-  "autor": "Giles Laurent",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:036_South_American_tapir_in_Encontro_das_%C3%81guas_State_Park_Photo_by_Giles_Laurent.jpg"
- },
- {
-  "arquivo": "anu-branco.webp",
-  "autor": "Levi Adriano Dias",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Anu-branco-PE_do_Coc%C3%B3-Levi_Adriano_Dias(001).jpg"
- },
- {
-  "arquivo": "arara-azul-grande.webp",
-  "autor": "Giles Laurent",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:101_Hyacinth_macaw_couple_in_Encontro_das_%C3%81guas_State_Park_Photo_by_Giles_Laurent.jpg"
- },
- {
-  "arquivo": "araticum.webp",
-  "autor": "Etore.Santos",
-  "licenca": "CC BY 3.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Araticum_3.jpg"
- },
- {
-  "arquivo": "arnica.webp",
-  "autor": "Maria aparecida nogueira",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Arnica_do_Cerrado.jpg"
- },
- {
-  "arquivo": "aroeira.webp",
-  "autor": "João Medeiros",
-  "licenca": "CC BY 2.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Flickr_-_Jo%C3%A3o_de_Deus_Medeiros_-_Myracrodruon_urundeuva_(1).jpg"
- },
- {
-  "arquivo": "babacu.webp",
-  "autor": "Marcelo Cavallari",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Infrutesc%C3%AAncia_hermafrodita.JPG"
- },
- {
-  "arquivo": "bacupari.webp",
-  "autor": "Luisgabriel007",
-  "licenca": "CC0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:SalaciaCrassifolia.jpg"
- },
- {
-  "arquivo": "barbatimao.webp",
-  "autor": "Eurico Zimbres Zimbres",
-  "licenca": "CC BY-SA 3.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Stryphnodendron_adstringens-1.jpg"
- },
- {
-  "arquivo": "baru.webp",
-  "autor": "João Medeiros",
-  "licenca": "CC BY 2.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Dipteryx_alata_fruits.jpg"
- },
- {
-  "arquivo": "beija-flor-tesoura.webp",
-  "autor": "Carmen Sílvia de Paula Cabral",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Beija_flor_sitio_Pindamonhangaba.jpg"
- },
- {
-  "arquivo": "bem-te-vi.webp",
-  "autor": "Giles Laurent",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:092_Great_kiskadee_in_Encontro_das_%C3%81guas_State_Park_Photo_by_Giles_Laurent.jpg"
- },
- {
-  "arquivo": "bugio.webp",
-  "autor": "Miguelrangeljr",
-  "licenca": "CC BY-SA 3.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Female_and_male_Alouatta_caraya.JPG"
- },
- {
-  "arquivo": "buriti.webp",
-  "autor": "Marciana Lopes",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Buriti_(Mauritia_flexuosa).jpg"
- },
- {
-  "arquivo": "cachorro-do-mato.webp",
-  "autor": "Bernard Dupont",
-  "licenca": "CC BY-SA 2.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Cerdocyon_thous,_Pousada_Rio_Claro.jpg"
- },
- {
-  "arquivo": "cachorro-vinagre.webp",
-  "autor": "Anderson cristiano hendgen",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Parque_Estadual_do_Turvo_Anderson_Cristiano_Hendgen_(11).jpg"
- },
- {
-  "arquivo": "cagaita.webp",
-  "autor": "Conrado",
-  "licenca": "CC BY 3.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Cagaita.jpg"
- },
- {
-  "arquivo": "caicaca.webp",
-  "autor": "Alessandher Piva",
-  "licenca": "CC BY 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Bothrops_moojeni_176919363.jpg"
- },
- {
-  "arquivo": "cajuzinho.webp",
-  "autor": "Ulisses Leitão",
-  "licenca": "CC BY-SA 3.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Cajuzinho-do-Cerrado.jpg"
- },
- {
-  "arquivo": "calango.webp",
-  "autor": "Under the same moon...",
-  "licenca": "CC BY 2.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Amazon_lava_lizard_(Tropidurus_torquatus)_(21076274581).jpg"
- },
- {
-  "arquivo": "caliandra.webp",
-  "autor": "Túllio M. Franca",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Flor_do_Cerrado_no_Itiquira.jpg"
- },
- {
-  "arquivo": "canario-da-terra.webp",
-  "autor": "Charles J. Sharp",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Saffron_finch_(Sicalis_flaveola)_male.JPG"
- },
- {
-  "arquivo": "canela-de-ema.webp",
-  "autor": "Ricardo Raposo",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Canela-de-ema_do_cerrado_-_Parque_Nacional_Chapada_dos_Veadeiros.jpg"
- },
- {
-  "arquivo": "capim-dourado.webp",
-  "autor": "Daniel.zilenovski",
-  "licenca": "CC BY-SA 3.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Capim_Dourado.JPG"
- },
- {
-  "arquivo": "capivara.webp",
-  "autor": "Giles Laurent",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:046_Capybara_by_the_river_in_Encontro_das_%C3%81guas_State_Park_Photo_by_Giles_Laurent.jpg"
- },
- {
-  "arquivo": "caraiba.webp",
-  "autor": "João Medeiros",
-  "licenca": "CC BY 2.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Tabebuia_aurea_flowers_2.jpg"
- },
- {
-  "arquivo": "carcara.webp",
-  "autor": "Andreas Trepte",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Schopfkarakara.jpg"
- },
- {
-  "arquivo": "cascavel.webp",
-  "autor": "Renato Augusto Martins",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Cascavel_-_crotalus_durissus.jpg"
- },
- {
-  "arquivo": "cateto.webp",
-  "autor": "Bernard DUPONT from FRANCE",
-  "licenca": "CC BY-SA 2.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Collared_Peccaries_(Pecari_tajacu)_(27587270013).jpg"
- },
- {
-  "arquivo": "chuveirinho.webp",
-  "autor": "André Ganzarolli Martins",
-  "licenca": "CC BY 3.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Cf_Paepalanthus_chiquitensis_na_Chapada_dos_Veadeiros_-_Goi%C3%A1s_4.jpg"
- },
- {
-  "arquivo": "cigarra.webp",
-  "autor": "Renato Augusto Martins",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Cigarra_ap%C3%B3s_sofrer_metamorfose.jpg"
- },
- {
-  "arquivo": "copaiba.webp",
-  "autor": "Mateusbotanica2020",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Copaifera_langsdorffii_flores.jpg"
- },
- {
-  "arquivo": "coral.webp",
-  "autor": "William Quatman",
-  "licenca": "CC BY-SA 2.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Micrurus_frontalis_Brazil_DF.jpg"
- },
- {
-  "arquivo": "coruja-buraqueira.webp",
-  "autor": "Wagner Machado Carlos Lemes from Goiânia, Brazil",
-  "licenca": "CC BY 2.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Athene_cunicularia_1_edited.JPG"
- },
- {
-  "arquivo": "cupim-de-montículo.webp",
-  "autor": "Antonia Faleiros",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Arquitetos_da_natureza.jpg"
- },
- {
-  "arquivo": "curicaca.webp",
-  "autor": "Charles J. Sharp",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Buff-necked_ibis_(Theristicus_caudatus).JPG"
- },
- {
-  "arquivo": "cutia.webp",
-  "autor": "Bernard DUPONT from FRANCE",
-  "licenca": "CC BY-SA 2.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Azara%27s_Agouti_(Dasyprocta_azarae)_(28183681505).jpg"
- },
- {
-  "arquivo": "dourado.webp",
-  "autor": "Felipe cancian",
-  "licenca": "CC BY-SA 3.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Bonito-2.JPG"
- },
- {
-  "arquivo": "ema.webp",
-  "autor": "Giles Laurent",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:179_Greater_rhea_in_Encontro_das_%C3%81guas_State_Park_Photo_by_Giles_Laurent.jpg"
- },
- {
-  "arquivo": "faveiro.webp",
-  "autor": "Bruno Luka de Souza Bambirra Silveira",
-  "licenca": "CC BY 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Dimorphandra_mollis_-_Bruno_Luka_de_Souza_Bambirra_Silveira_-_348283563.jpeg"
- },
- {
-  "arquivo": "gabiroba.webp",
-  "autor": "EvaldoResende",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Campomanesia_pubescens.jpg"
- },
- {
-  "arquivo": "gaviao-carijo.webp",
-  "autor": "Giles Laurent",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:117_Roadside_hawk_in_Encontro_das_%C3%81guas_State_Park_Photo_by_Giles_Laurent.jpg"
- },
- {
-  "arquivo": "gralha-do-campo.webp",
-  "autor": "Albertonatureza",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:PN_Chapada_dos_Veadeiros_Alberto_Andrada_4.jpg"
- },
- {
-  "arquivo": "guariroba.webp",
-  "autor": "Maurocruz",
-  "licenca": "CC BY-SA 3.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Syagrus-oleracea.jpg"
- },
- {
-  "arquivo": "ipe-amarelo.webp",
-  "autor": "Welliton Fonseca",
-  "licenca": "CC BY-SA 3.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Ip%C3%AA_florido_-_panoramio.jpg"
- },
- {
-  "arquivo": "ipe-roxo.webp",
-  "autor": "Giles Laurent",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:055_Pink_Ip%C3%AA_tree_in_Mato_Grosso_Photo_by_Giles_Laurent.jpg"
- },
- {
-  "arquivo": "irara.webp",
-  "autor": "Ninahale",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Tayra_-_Male_showing_claws,.jpg"
- },
- {
-  "arquivo": "jabuti-piranga.webp",
-  "autor": "David Stanley from Nanaimo, Canada",
-  "licenca": "CC BY 2.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Chelonoidis_carbonaria_(47572486101).jpg"
- },
- {
-  "arquivo": "jacaranda-do-cerrado.webp",
-  "autor": "João Medeiros",
-  "licenca": "CC BY 2.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Flickr_-_Jo%C3%A3o_de_Deus_Medeiros_-_Dalbergia_miscolobium.jpg"
- },
- {
-  "arquivo": "jacare-de-papo-amarelo.webp",
-  "autor": "Lauro Sirgado",
-  "licenca": "CC BY-SA 3.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Jacar%C3%A9-de-papo-amarelo_(Caiman_latirostris).jpg"
- },
- {
-  "arquivo": "jaguatirica.webp",
-  "autor": "Giles Laurent",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:016_Ocelot_in_Encontro_das_%C3%81guas_State_Park_Photo_by_Giles_Laurent.jpg"
- },
- {
-  "arquivo": "jatai.webp",
-  "autor": "Sintropepe",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Tetragonisca_angustula_nest_entrance.jpg"
- },
- {
-  "arquivo": "jatoba.webp",
-  "autor": "Under the same moon...",
-  "licenca": "CC BY 2.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Jatoba-do_cerrado_(Hymenaea_stigonocarpa)_(20834897045).jpg"
- },
- {
-  "arquivo": "jenipapo.webp",
-  "autor": "Mateusbotanica2020",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Genipapo_frutos.jpg"
- },
- {
-  "arquivo": "jiboia.webp",
-  "autor": "Adrien Jailloux",
-  "licenca": "CC BY 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Boa_constrictor_248626533.jpg"
- },
- {
-  "arquivo": "joao-de-barro.webp",
-  "autor": "Charles J. Sharp",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Rufous_hornero_(Red_ovenbird)(Furnarius_rufus)_and_nest_(2).JPG"
- },
- {
-  "arquivo": "lixeira.webp",
-  "autor": "Mateusbotanica2020",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Lixeira_flor_1.jpg"
- },
- {
-  "arquivo": "lobeira.webp",
-  "autor": "Under the same moon...",
-  "licenca": "CC BY 2.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Solanum_lycocarpum_(19640323714).jpg"
- },
- {
-  "arquivo": "lontra.webp",
-  "autor": "Charles J. Sharp",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Neotropical_otter_(Lontra_longicaudis)_Rio_Negro.jpg"
- },
- {
-  "arquivo": "macaco-prego.webp",
-  "autor": "Tiago Falótico",
-  "licenca": "CC BY-SA 3.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Macaco-prego_Sapajus_libidinosus_2012_28066.jpg"
- },
- {
-  "arquivo": "macauba.webp",
-  "autor": "Welliton Fonseca",
-  "licenca": "CC BY-SA 3.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Coqueiros_na_estrada_-_panoramio.jpg"
- },
- {
-  "arquivo": "mamangava.webp",
-  "autor": "Leonardo Ré-Jorge",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Xylocopa_frontalis_Tibouchina_granulosa3.jpg"
- },
- {
-  "arquivo": "mangaba.webp",
-  "autor": "Jberkel",
-  "licenca": "CC BY 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Mangaba_fruits.jpg"
- },
- {
-  "arquivo": "mao-pelada.webp",
-  "autor": "Mariordo (Mario Roberto Durán Ortiz)",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Crab-eating_raccoon_(Procyon_cancrivorus)_Manuel_Antonio_Park_CRI_01_2020_4028.jpg"
- },
- {
-  "arquivo": "morcego-beija-flor.webp",
-  "autor": "Bernard DUPONT from FRANCE",
-  "licenca": "CC BY-SA 2.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Long-tongued_Bat_(Glossophaga_soricina)_(7098928383).jpg"
- },
- {
-  "arquivo": "murici.webp",
-  "autor": "Evaldo Resende",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Byrsonima_crassifolia(Fruto).jpg"
- },
- {
-  "arquivo": "onca-parda.webp",
-  "autor": "Richard Hatakeyama",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Puma_(Puma_concolor)_at_the_Rio_Doce_state_park_001.png"
- },
- {
-  "arquivo": "onca-pintada.webp",
-  "autor": "Charles J. Sharp",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Jaguar_(Panthera_onca_palustris)_female_Piquiri_River_3.jpg"
- },
- {
-  "arquivo": "orquidea-cyrtopodium.webp",
-  "autor": "João Medeiros",
-  "licenca": "CC BY 2.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Cyrtopodium_eugenii_-_Flickr_003.jpg"
- },
- {
-  "arquivo": "paca.webp",
-  "autor": "Marcos Antonio Vieira de Freitas",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Paca_intervales_3.jpg"
- },
- {
-  "arquivo": "pacu.webp",
-  "autor": "R Vasconcellos",
-  "licenca": "CC BY 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Piaractus_mesopotamicus_387099634.jpg"
- },
- {
-  "arquivo": "papagaio-galego.webp",
-  "autor": "Charles J. Sharp",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Yellow-faced_parrot_(Alipiopsitta_xanthops)_yellow_morph.JPG"
- },
- {
-  "arquivo": "papagaio-verdadeiro.webp",
-  "autor": "Charles J. Sharp",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Turquoise-fronted_amazon_(Amazona_aestiva)_Rio_Negro.jpg"
- },
- {
-  "arquivo": "pato-mergulhao.webp",
-  "autor": "Prof. Sávio Freire Bruno",
-  "licenca": "CC BY-SA 3.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Mergus_octosetaceus_2.png"
- },
- {
-  "arquivo": "pau-de-tucano.webp",
-  "autor": "José Reynaldo da Fonseca",
-  "licenca": "CC BY 2.5",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Vochysia_Tucanorum_(2)_-_23_02_23S-48_49_54W_REFON.jpg"
- },
- {
-  "arquivo": "pau-santo.webp",
-  "autor": "João Medeiros",
-  "licenca": "CC BY 2.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Kielmeyera_coriacea.jpg"
- },
- {
-  "arquivo": "pau-terra.webp",
-  "autor": "Conrado",
-  "licenca": "CC BY 3.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Pauterragrande1.jpg"
- },
- {
-  "arquivo": "pequi.webp",
-  "autor": "Arley da Cruz",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Pequi_na_palma_da_minha_m%C3%A3o.jpg"
- },
- {
-  "arquivo": "periquito-rei.webp",
-  "autor": "Bernard DUPONT from FRANCE",
-  "licenca": "CC BY-SA 2.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Peach-fronted_Parakeet_(Aratinga_aurea)_(28793620806).jpg"
- },
- {
-  "arquivo": "pica-pau-do-campo.webp",
-  "autor": "Giles Laurent",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:173_Female_Campo_flicker_in_Encontro_das_%C3%81guas_State_Park_Photo_by_Giles_Laurent.jpg"
- },
- {
-  "arquivo": "pimenta-de-macaco.webp",
-  "autor": "Vojtěch Zavadil",
-  "licenca": "Public domain",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Xylopia_aromatica-Rio_Ventuari-Venezuela.jpg"
- },
- {
-  "arquivo": "puca.webp",
-  "autor": "João Medeiros",
-  "licenca": "CC BY 2.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Flickr_-_Jo%C3%A3o_de_Deus_Medeiros_-_Mouriri_pusa.jpg"
- },
- {
-  "arquivo": "quati.webp",
-  "autor": "Giles Laurent",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:068_South_American_coati_in_Encontro_das_%C3%81guas_State_Park_Photo_by_Giles_Laurent.jpg"
- },
- {
-  "arquivo": "queixada.webp",
-  "autor": "Whaldener Endo",
-  "licenca": "CC0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Tayassu_pecari_205920788.jpg"
- },
- {
-  "arquivo": "ra-pimenta.webp",
-  "autor": "Mario Barroso",
-  "licenca": "CC BY 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Leptodactylus_labyrinthicus_116724123.jpg"
- },
- {
-  "arquivo": "raposa-do-campo.webp",
-  "autor": "Steven Whitebread",
-  "licenca": "CC BY 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Lycalopex_vetulus_in_Bacury_Lodge,_Anhembi_5.jpg"
- },
- {
-  "arquivo": "rola-bosta.webp",
-  "autor": "Lucas Henrique Gomes de Almeida",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:C._ensifer.jpg"
- },
- {
-  "arquivo": "sagui.webp",
-  "autor": "Donald Hobern from Copenhagen, Denmark",
-  "licenca": "CC BY 2.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Callithrix_penicillata_(30669320525).jpg"
- },
- {
-  "arquivo": "sapo-cururu.webp",
-  "autor": "EvaldoResende",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Rhinella_schneideri.00.jpg"
- },
- {
-  "arquivo": "sauva.webp",
-  "autor": "CaptainDarwin",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Leafcutter_ant_cuts_leaf.jpg"
- },
- {
-  "arquivo": "sucupira-branca.webp",
-  "autor": "João Medeiros",
-  "licenca": "CC BY 2.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Flickr_-_Jo%C3%A3o_de_Deus_Medeiros_-_Pterodon_pubescens_(2).jpg"
- },
- {
-  "arquivo": "sucupira-preta.webp",
-  "autor": "Luciana Bianchini",
-  "licenca": "Public domain",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Sucupira_preta.JPG"
- },
- {
-  "arquivo": "sucuri.webp",
-  "autor": "Kai Squires",
-  "licenca": "CC BY 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Eunectes_murinus_63034780.jpg"
- },
- {
-  "arquivo": "tamandua-mirim.webp",
-  "autor": "Bernard DUPONT from FRANCE",
-  "licenca": "CC BY-SA 2.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Southern_Tamandua_(Tamandua_tetradactyla)_-_Flickr_-_berniedup.jpg"
- },
- {
-  "arquivo": "tatu-canastra.webp",
-  "autor": "Naturalist Tours",
-  "licenca": "CC0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Priodontes_maximus_210910523.jpg"
- },
- {
-  "arquivo": "tatu-peba.webp",
-  "autor": "Charles J. Sharp",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Six-banded_armadillo_(Euphractus_sexcinctus).JPG"
- },
- {
-  "arquivo": "teiu.webp",
-  "autor": "Giles Laurent",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:183_Argentine_black_and_white_tegu_in_Encontro_das_%C3%81guas_State_Park_Photo_by_Giles_Laurent.jpg"
- },
- {
-  "arquivo": "tingui.webp",
-  "autor": "João Medeiros",
-  "licenca": "CC BY 2.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Flickr_-_Jo%C3%A3o_de_Deus_Medeiros_-_Magonia_pubescens.jpg"
- },
- {
-  "arquivo": "urubu-de-cabeca-preta.webp",
-  "autor": "Cayambe",
-  "licenca": "CC BY-SA 3.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Coragyps_atratus_brasiliensis_Black_vulture_Bel%C3%A9m_01.jpg"
- },
- {
-  "arquivo": "urubu-rei.webp",
-  "autor": "Renato Augusto Martins",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Urubu_rei_-_Sarcoramphus_papa.jpg"
- },
- {
-  "arquivo": "vaga-lume-cupinzeiro.webp",
-  "autor": "Nortondefeis",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Pyrearinus_termitilluminans-PARNA_das_Emas-Nortondefeis(002).jpg"
- },
- {
-  "arquivo": "veado-campeiro.webp",
-  "autor": "Nortondefeis",
-  "licenca": "CC BY-SA 4.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Veado-campeiro_macho_no_Parque_Nacional_da_Serra_da_Canastra.jpg"
- },
- {
-  "arquivo": "veado-catingueiro.webp",
-  "autor": "Bernard DUPONT from FRANCE",
-  "licenca": "CC BY-SA 2.0",
-  "fonte": "https://commons.wikimedia.org/wiki/File:Grey_Brocket_Deer_(Mazama_gouazoubira)_female_..._(48368174701).jpg"
- }
+  {
+    "arquivo": "abacaxi-do-cerrado.webp",
+    "autor": "Jean Fábio Torres Rodrigues",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Ananas_-_1.jpg"
+  },
+  {
+    "arquivo": "algodaozinho.webp",
+    "autor": "João Medeiros",
+    "licenca": "CC BY 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Flickr_-_Jo%C3%A3o_de_Deus_Medeiros_-_Cochlospermum_regium.jpg"
+  },
+  {
+    "arquivo": "angico.webp",
+    "autor": "Mateusbotanica2020",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Flor_angico.jpg"
+  },
+  {
+    "arquivo": "anta.webp",
+    "autor": "Giles Laurent",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:036_South_American_tapir_in_Encontro_das_%C3%81guas_State_Park_Photo_by_Giles_Laurent.jpg"
+  },
+  {
+    "arquivo": "anu-branco.webp",
+    "autor": "Levi Adriano Dias",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Anu-branco-PE_do_Coc%C3%B3-Levi_Adriano_Dias(001).jpg"
+  },
+  {
+    "arquivo": "arara-azul-grande.webp",
+    "autor": "Giles Laurent",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:101_Hyacinth_macaw_couple_in_Encontro_das_%C3%81guas_State_Park_Photo_by_Giles_Laurent.jpg"
+  },
+  {
+    "arquivo": "araticum.webp",
+    "autor": "Etore.Santos",
+    "licenca": "CC BY 3.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Araticum_3.jpg"
+  },
+  {
+    "arquivo": "aroeira.webp",
+    "autor": "João Medeiros",
+    "licenca": "CC BY 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Flickr_-_Jo%C3%A3o_de_Deus_Medeiros_-_Myracrodruon_urundeuva_(1).jpg"
+  },
+  {
+    "arquivo": "babacu.webp",
+    "autor": "Marcelo Cavallari",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Infrutesc%C3%AAncia_hermafrodita.JPG"
+  },
+  {
+    "arquivo": "barbatimao.webp",
+    "autor": "Eurico Zimbres Zimbres",
+    "licenca": "CC BY-SA 3.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Stryphnodendron_adstringens-1.jpg"
+  },
+  {
+    "arquivo": "beija-flor-tesoura.webp",
+    "autor": "Carmen Sílvia de Paula Cabral",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Beija_flor_sitio_Pindamonhangaba.jpg"
+  },
+  {
+    "arquivo": "bem-te-vi.webp",
+    "autor": "Giles Laurent",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:092_Great_kiskadee_in_Encontro_das_%C3%81guas_State_Park_Photo_by_Giles_Laurent.jpg"
+  },
+  {
+    "arquivo": "bugio.webp",
+    "autor": "Miguelrangeljr",
+    "licenca": "CC BY-SA 3.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Female_and_male_Alouatta_caraya.JPG"
+  },
+  {
+    "arquivo": "buriti.webp",
+    "autor": "Marciana Lopes",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Buriti_(Mauritia_flexuosa).jpg"
+  },
+  {
+    "arquivo": "cachorro-do-mato.webp",
+    "autor": "Bernard Dupont",
+    "licenca": "CC BY-SA 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Cerdocyon_thous,_Pousada_Rio_Claro.jpg"
+  },
+  {
+    "arquivo": "cachorro-vinagre.webp",
+    "autor": "Anderson cristiano hendgen",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Parque_Estadual_do_Turvo_Anderson_Cristiano_Hendgen_(11).jpg"
+  },
+  {
+    "arquivo": "cagaita.webp",
+    "autor": "Conrado",
+    "licenca": "CC BY 3.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Cagaita.jpg"
+  },
+  {
+    "arquivo": "caicaca.webp",
+    "autor": "Alessandher Piva",
+    "licenca": "CC BY 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Bothrops_moojeni_176919363.jpg"
+  },
+  {
+    "arquivo": "cajuzinho.webp",
+    "autor": "Ulisses Leitão",
+    "licenca": "CC BY-SA 3.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Cajuzinho-do-Cerrado.jpg"
+  },
+  {
+    "arquivo": "calango.webp",
+    "autor": "Under the same moon...",
+    "licenca": "CC BY 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Amazon_lava_lizard_(Tropidurus_torquatus)_(21076274581).jpg"
+  },
+  {
+    "arquivo": "caliandra.webp",
+    "autor": "Túllio M. Franca",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Flor_do_Cerrado_no_Itiquira.jpg"
+  },
+  {
+    "arquivo": "canario-da-terra.webp",
+    "autor": "Charles J. Sharp",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Saffron_finch_(Sicalis_flaveola)_male.JPG"
+  },
+  {
+    "arquivo": "canela-de-ema.webp",
+    "autor": "Ricardo Raposo",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Canela-de-ema_do_cerrado_-_Parque_Nacional_Chapada_dos_Veadeiros.jpg"
+  },
+  {
+    "arquivo": "capim-dourado.webp",
+    "autor": "Daniel.zilenovski",
+    "licenca": "CC BY-SA 3.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Capim_Dourado.JPG"
+  },
+  {
+    "arquivo": "capivara.webp",
+    "autor": "Giles Laurent",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:046_Capybara_by_the_river_in_Encontro_das_%C3%81guas_State_Park_Photo_by_Giles_Laurent.jpg"
+  },
+  {
+    "arquivo": "caraiba.webp",
+    "autor": "João Medeiros",
+    "licenca": "CC BY 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Tabebuia_aurea_flowers_2.jpg"
+  },
+  {
+    "arquivo": "carcara.webp",
+    "autor": "Andreas Trepte",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Schopfkarakara.jpg"
+  },
+  {
+    "arquivo": "cascavel.webp",
+    "autor": "Renato Augusto Martins",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Cascavel_-_crotalus_durissus.jpg"
+  },
+  {
+    "arquivo": "cateto.webp",
+    "autor": "Bernard DUPONT from FRANCE",
+    "licenca": "CC BY-SA 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Collared_Peccaries_(Pecari_tajacu)_(27587270013).jpg"
+  },
+  {
+    "arquivo": "cigarra.webp",
+    "autor": "Renato Augusto Martins",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Cigarra_ap%C3%B3s_sofrer_metamorfose.jpg"
+  },
+  {
+    "arquivo": "copaiba.webp",
+    "autor": "Mateusbotanica2020",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Copaifera_langsdorffii_flores.jpg"
+  },
+  {
+    "arquivo": "coral.webp",
+    "autor": "William Quatman",
+    "licenca": "CC BY-SA 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Micrurus_frontalis_Brazil_DF.jpg"
+  },
+  {
+    "arquivo": "coruja-buraqueira.webp",
+    "autor": "Wagner Machado Carlos Lemes from Goiânia, Brazil",
+    "licenca": "CC BY 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Athene_cunicularia_1_edited.JPG"
+  },
+  {
+    "arquivo": "cupim-de-montículo.webp",
+    "autor": "Antonia Faleiros",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Arquitetos_da_natureza.jpg"
+  },
+  {
+    "arquivo": "curicaca.webp",
+    "autor": "Charles J. Sharp",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Buff-necked_ibis_(Theristicus_caudatus).JPG"
+  },
+  {
+    "arquivo": "cutia.webp",
+    "autor": "Bernard DUPONT from FRANCE",
+    "licenca": "CC BY-SA 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Azara%27s_Agouti_(Dasyprocta_azarae)_(28183681505).jpg"
+  },
+  {
+    "arquivo": "dourado.webp",
+    "autor": "Felipe cancian",
+    "licenca": "CC BY-SA 3.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Bonito-2.JPG"
+  },
+  {
+    "arquivo": "ema.webp",
+    "autor": "Giles Laurent",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:179_Greater_rhea_in_Encontro_das_%C3%81guas_State_Park_Photo_by_Giles_Laurent.jpg"
+  },
+  {
+    "arquivo": "faveiro.webp",
+    "autor": "Bruno Luka de Souza Bambirra Silveira",
+    "licenca": "CC BY 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Dimorphandra_mollis_-_Bruno_Luka_de_Souza_Bambirra_Silveira_-_348283563.jpeg"
+  },
+  {
+    "arquivo": "gabiroba.webp",
+    "autor": "EvaldoResende",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Campomanesia_pubescens.jpg"
+  },
+  {
+    "arquivo": "gaviao-carijo.webp",
+    "autor": "Giles Laurent",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:117_Roadside_hawk_in_Encontro_das_%C3%81guas_State_Park_Photo_by_Giles_Laurent.jpg"
+  },
+  {
+    "arquivo": "gralha-do-campo.webp",
+    "autor": "Albertonatureza",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:PN_Chapada_dos_Veadeiros_Alberto_Andrada_4.jpg"
+  },
+  {
+    "arquivo": "guariroba.webp",
+    "autor": "Maurocruz",
+    "licenca": "CC BY-SA 3.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Syagrus-oleracea.jpg"
+  },
+  {
+    "arquivo": "ipe-amarelo.webp",
+    "autor": "Welliton Fonseca",
+    "licenca": "CC BY-SA 3.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Ip%C3%AA_florido_-_panoramio.jpg"
+  },
+  {
+    "arquivo": "ipe-roxo.webp",
+    "autor": "Giles Laurent",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:055_Pink_Ip%C3%AA_tree_in_Mato_Grosso_Photo_by_Giles_Laurent.jpg"
+  },
+  {
+    "arquivo": "irara.webp",
+    "autor": "Ninahale",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Tayra_-_Male_showing_claws,.jpg"
+  },
+  {
+    "arquivo": "jacaranda-do-cerrado.webp",
+    "autor": "João Medeiros",
+    "licenca": "CC BY 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Flickr_-_Jo%C3%A3o_de_Deus_Medeiros_-_Dalbergia_miscolobium.jpg"
+  },
+  {
+    "arquivo": "jacare-de-papo-amarelo.webp",
+    "autor": "Lauro Sirgado",
+    "licenca": "CC BY-SA 3.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Jacar%C3%A9-de-papo-amarelo_(Caiman_latirostris).jpg"
+  },
+  {
+    "arquivo": "jaguatirica.webp",
+    "autor": "Giles Laurent",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:016_Ocelot_in_Encontro_das_%C3%81guas_State_Park_Photo_by_Giles_Laurent.jpg"
+  },
+  {
+    "arquivo": "jatai.webp",
+    "autor": "Sintropepe",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Tetragonisca_angustula_nest_entrance.jpg"
+  },
+  {
+    "arquivo": "jatoba.webp",
+    "autor": "Under the same moon...",
+    "licenca": "CC BY 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Jatoba-do_cerrado_(Hymenaea_stigonocarpa)_(20834897045).jpg"
+  },
+  {
+    "arquivo": "jenipapo.webp",
+    "autor": "Mateusbotanica2020",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Genipapo_frutos.jpg"
+  },
+  {
+    "arquivo": "jiboia.webp",
+    "autor": "Adrien Jailloux",
+    "licenca": "CC BY 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Boa_constrictor_248626533.jpg"
+  },
+  {
+    "arquivo": "joao-de-barro.webp",
+    "autor": "Charles J. Sharp",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Rufous_hornero_(Red_ovenbird)(Furnarius_rufus)_and_nest_(2).JPG"
+  },
+  {
+    "arquivo": "lixeira.webp",
+    "autor": "Mateusbotanica2020",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Lixeira_flor_1.jpg"
+  },
+  {
+    "arquivo": "lobeira.webp",
+    "autor": "Under the same moon...",
+    "licenca": "CC BY 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Solanum_lycocarpum_(19640323714).jpg"
+  },
+  {
+    "arquivo": "lontra.webp",
+    "autor": "Charles J. Sharp",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Neotropical_otter_(Lontra_longicaudis)_Rio_Negro.jpg"
+  },
+  {
+    "arquivo": "macaco-prego.webp",
+    "autor": "Tiago Falótico",
+    "licenca": "CC BY-SA 3.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Macaco-prego_Sapajus_libidinosus_2012_28066.jpg"
+  },
+  {
+    "arquivo": "macauba.webp",
+    "autor": "Welliton Fonseca",
+    "licenca": "CC BY-SA 3.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Coqueiros_na_estrada_-_panoramio.jpg"
+  },
+  {
+    "arquivo": "mamangava.webp",
+    "autor": "Leonardo Ré-Jorge",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Xylocopa_frontalis_Tibouchina_granulosa3.jpg"
+  },
+  {
+    "arquivo": "mangaba.webp",
+    "autor": "Jberkel",
+    "licenca": "CC BY 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Mangaba_fruits.jpg"
+  },
+  {
+    "arquivo": "mao-pelada.webp",
+    "autor": "Mariordo (Mario Roberto Durán Ortiz)",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Crab-eating_raccoon_(Procyon_cancrivorus)_Manuel_Antonio_Park_CRI_01_2020_4028.jpg"
+  },
+  {
+    "arquivo": "morcego-beija-flor.webp",
+    "autor": "Bernard DUPONT from FRANCE",
+    "licenca": "CC BY-SA 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Long-tongued_Bat_(Glossophaga_soricina)_(7098928383).jpg"
+  },
+  {
+    "arquivo": "murici.webp",
+    "autor": "Evaldo Resende",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Byrsonima_crassifolia(Fruto).jpg"
+  },
+  {
+    "arquivo": "onca-parda.webp",
+    "autor": "Richard Hatakeyama",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Puma_(Puma_concolor)_at_the_Rio_Doce_state_park_001.png"
+  },
+  {
+    "arquivo": "onca-pintada.webp",
+    "autor": "Charles J. Sharp",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Jaguar_(Panthera_onca_palustris)_female_Piquiri_River_3.jpg"
+  },
+  {
+    "arquivo": "orquidea-cyrtopodium.webp",
+    "autor": "João Medeiros",
+    "licenca": "CC BY 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Cyrtopodium_eugenii_-_Flickr_003.jpg"
+  },
+  {
+    "arquivo": "paca.webp",
+    "autor": "Marcos Antonio Vieira de Freitas",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Paca_intervales_3.jpg"
+  },
+  {
+    "arquivo": "pacu.webp",
+    "autor": "R Vasconcellos",
+    "licenca": "CC BY 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Piaractus_mesopotamicus_387099634.jpg"
+  },
+  {
+    "arquivo": "papagaio-galego.webp",
+    "autor": "Charles J. Sharp",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Yellow-faced_parrot_(Alipiopsitta_xanthops)_yellow_morph.JPG"
+  },
+  {
+    "arquivo": "papagaio-verdadeiro.webp",
+    "autor": "Charles J. Sharp",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Turquoise-fronted_amazon_(Amazona_aestiva)_Rio_Negro.jpg"
+  },
+  {
+    "arquivo": "pato-mergulhao.webp",
+    "autor": "Prof. Sávio Freire Bruno",
+    "licenca": "CC BY-SA 3.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Mergus_octosetaceus_2.png"
+  },
+  {
+    "arquivo": "pau-santo.webp",
+    "autor": "João Medeiros",
+    "licenca": "CC BY 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Kielmeyera_coriacea.jpg"
+  },
+  {
+    "arquivo": "pau-terra.webp",
+    "autor": "Conrado",
+    "licenca": "CC BY 3.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Pauterragrande1.jpg"
+  },
+  {
+    "arquivo": "pequi.webp",
+    "autor": "Arley da Cruz",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Pequi_na_palma_da_minha_m%C3%A3o.jpg"
+  },
+  {
+    "arquivo": "periquito-rei.webp",
+    "autor": "Bernard DUPONT from FRANCE",
+    "licenca": "CC BY-SA 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Peach-fronted_Parakeet_(Aratinga_aurea)_(28793620806).jpg"
+  },
+  {
+    "arquivo": "pica-pau-do-campo.webp",
+    "autor": "Giles Laurent",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:173_Female_Campo_flicker_in_Encontro_das_%C3%81guas_State_Park_Photo_by_Giles_Laurent.jpg"
+  },
+  {
+    "arquivo": "pimenta-de-macaco.webp",
+    "autor": "Vojtěch Zavadil",
+    "licenca": "Public domain",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Xylopia_aromatica-Rio_Ventuari-Venezuela.jpg"
+  },
+  {
+    "arquivo": "puca.webp",
+    "autor": "João Medeiros",
+    "licenca": "CC BY 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Flickr_-_Jo%C3%A3o_de_Deus_Medeiros_-_Mouriri_pusa.jpg"
+  },
+  {
+    "arquivo": "quati.webp",
+    "autor": "Giles Laurent",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:068_South_American_coati_in_Encontro_das_%C3%81guas_State_Park_Photo_by_Giles_Laurent.jpg"
+  },
+  {
+    "arquivo": "queixada.webp",
+    "autor": "Whaldener Endo",
+    "licenca": "CC0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Tayassu_pecari_205920788.jpg"
+  },
+  {
+    "arquivo": "ra-pimenta.webp",
+    "autor": "Mario Barroso",
+    "licenca": "CC BY 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Leptodactylus_labyrinthicus_116724123.jpg"
+  },
+  {
+    "arquivo": "raposa-do-campo.webp",
+    "autor": "Steven Whitebread",
+    "licenca": "CC BY 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Lycalopex_vetulus_in_Bacury_Lodge,_Anhembi_5.jpg"
+  },
+  {
+    "arquivo": "rola-bosta.webp",
+    "autor": "Lucas Henrique Gomes de Almeida",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:C._ensifer.jpg"
+  },
+  {
+    "arquivo": "sagui.webp",
+    "autor": "Donald Hobern from Copenhagen, Denmark",
+    "licenca": "CC BY 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Callithrix_penicillata_(30669320525).jpg"
+  },
+  {
+    "arquivo": "sapo-cururu.webp",
+    "autor": "EvaldoResende",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Rhinella_schneideri.00.jpg"
+  },
+  {
+    "arquivo": "sauva.webp",
+    "autor": "CaptainDarwin",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Leafcutter_ant_cuts_leaf.jpg"
+  },
+  {
+    "arquivo": "sucupira-branca.webp",
+    "autor": "João Medeiros",
+    "licenca": "CC BY 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Flickr_-_Jo%C3%A3o_de_Deus_Medeiros_-_Pterodon_pubescens_(2).jpg"
+  },
+  {
+    "arquivo": "sucupira-preta.webp",
+    "autor": "Luciana Bianchini",
+    "licenca": "Public domain",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Sucupira_preta.JPG"
+  },
+  {
+    "arquivo": "tamandua-mirim.webp",
+    "autor": "Bernard DUPONT from FRANCE",
+    "licenca": "CC BY-SA 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Southern_Tamandua_(Tamandua_tetradactyla)_-_Flickr_-_berniedup.jpg"
+  },
+  {
+    "arquivo": "tatu-canastra.webp",
+    "autor": "Naturalist Tours",
+    "licenca": "CC0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Priodontes_maximus_210910523.jpg"
+  },
+  {
+    "arquivo": "tatu-peba.webp",
+    "autor": "Charles J. Sharp",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Six-banded_armadillo_(Euphractus_sexcinctus).JPG"
+  },
+  {
+    "arquivo": "teiu.webp",
+    "autor": "Giles Laurent",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:183_Argentine_black_and_white_tegu_in_Encontro_das_%C3%81guas_State_Park_Photo_by_Giles_Laurent.jpg"
+  },
+  {
+    "arquivo": "urubu-de-cabeca-preta.webp",
+    "autor": "Cayambe",
+    "licenca": "CC BY-SA 3.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Coragyps_atratus_brasiliensis_Black_vulture_Bel%C3%A9m_01.jpg"
+  },
+  {
+    "arquivo": "urubu-rei.webp",
+    "autor": "Renato Augusto Martins",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Urubu_rei_-_Sarcoramphus_papa.jpg"
+  },
+  {
+    "arquivo": "vaga-lume-cupinzeiro.webp",
+    "autor": "Nortondefeis",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Pyrearinus_termitilluminans-PARNA_das_Emas-Nortondefeis(002).jpg"
+  },
+  {
+    "arquivo": "veado-campeiro.webp",
+    "autor": "Nortondefeis",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Veado-campeiro_macho_no_Parque_Nacional_da_Serra_da_Canastra.jpg"
+  },
+  {
+    "arquivo": "veado-catingueiro.webp",
+    "autor": "Bernard DUPONT from FRANCE",
+    "licenca": "CC BY-SA 2.0",
+    "fonte": "https://commons.wikimedia.org/wiki/File:Grey_Brocket_Deer_(Mazama_gouazoubira)_female_..._(48368174701).jpg"
+  },
+  {
+    "arquivo": "capim-flecha.webp",
+    "autor": "Mario Barroso",
+    "licenca": "CC BY 4.0",
+    "fonte": "https://www.inaturalist.org/observations/72432504"
+  },
+  {
+    "arquivo": "arnica.webp",
+    "autor": "Thomaz Ricardo Favreto Sinani",
+    "licenca": "CC BY 4.0",
+    "fonte": "https://www.inaturalist.org/observations/198594035"
+  },
+  {
+    "arquivo": "chuveirinho.webp",
+    "autor": "Riccardo Rocca",
+    "licenca": "CC BY 4.0",
+    "fonte": "https://www.inaturalist.org/observations/130496268"
+  },
+  {
+    "arquivo": "pau-de-tucano.webp",
+    "autor": "agujaceratops",
+    "licenca": "CC BY 4.0",
+    "fonte": "https://www.inaturalist.org/observations/198346430"
+  },
+  {
+    "arquivo": "jabuti-piranga.webp",
+    "autor": "filipeprates",
+    "licenca": "CC0",
+    "fonte": "https://www.inaturalist.org/observations/253212433"
+  },
+  {
+    "arquivo": "sucuri.webp",
+    "autor": "Henrique Nogueira",
+    "licenca": "CC BY 4.0",
+    "fonte": "https://www.inaturalist.org/observations/311263619"
+  },
+  {
+    "arquivo": "bacupari.webp",
+    "autor": "Jonathan Lorencetti Ehlert",
+    "licenca": "CC BY-SA 4.0",
+    "fonte": "https://www.inaturalist.org/observations/332163606"
+  },
+  {
+    "arquivo": "tingui.webp",
+    "autor": "Fabrício Mil Homens Riella",
+    "licenca": "CC BY 4.0",
+    "fonte": "https://www.inaturalist.org/observations/234587608"
+  },
+  {
+    "arquivo": "baru.webp",
+    "autor": "NINA WENÓLI",
+    "licenca": "CC0",
+    "fonte": "https://www.inaturalist.org/observations/86814704"
+  }
 ]

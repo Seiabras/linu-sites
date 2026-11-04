@@ -5,7 +5,7 @@ Arquivos em `sitios/abelhas-sem-ferrao/img/bichos/`: `<id>.webp` (1000×667), `<
 As fichas `bicho-<id>.html` citam a foto e o crédito. Para gerar: `python3 ferramentas/estudo/abelhas-sem-ferrao/guia-pt.py && node ferramentas/gerar-estudo.mjs abelhas-sem-ferrao`. O `guia-pt.py` sozinho grava só em `modelo/`.
 
 ## Sem foto
-- **carrapato** (*Amblyomma sculptum*): no Commons só há exemplares de laboratório, mortos e com texto por cima, e uma figura de artigo com carrapatos em morcego. Não achei foto de campo com a identificação segura.
+- **carrapato**: achado no iNaturalist em 04/11 (ver abaixo).
 
 ## Em dúvida (vale um olhar)
 - **arraia**: é *Potamotrygon orbignyi*, viva, no raso de um rio da Colômbia, mas presa numa linha de pesca (aparece a linha com o destorcedor no canto). Foi a única de *Potamotrygon* na natureza: as outras são de aquário ou zoológico, ou são de bicho tirado da água.
@@ -37,8 +37,8 @@ As fichas `bicho-<id>.html` citam a foto e o crédito. Para gerar: `python3 ferr
 - escorpiao-marrom: *Tityus bahiensis*, Minas Gerais. Alexandre S. Michelotto, CC BY-SA 4.0
 - escorpiao-preto: *Tityus obscurus*. ScorpionKing47, CC BY-SA 4.0
 - armadeira: *Phoneutria nigriventer*, PETAR (SP), na pose de armar. Rodrigo Tetsuo Argenton, CC BY-SA 4.0
-- aranha-marrom: *Loxosceles laeta*. Sergiosan00709, CC BY 3.0
-- viuva-negra: *Latrodectus geometricus*. Bernard Dupont, CC BY-SA 2.0
+- aranha-marrom: *Loxosceles amazonica*, Floriano (PI). Alexandre S. Michelotto, CC BY-SA 4.0, iNaturalist
+- viuva-negra: *Latrodectus curacaviensis*, Belo Horizonte (MG). Renato Brito, CC BY 4.0, iNaturalist
 - aranha-de-grama: *Lycosa erythrognatha*, São Miguel Arcanjo (SP). Carlos Alexandre Mattos Raposo, CC BY-SA 4.0
 - caranguejeira: *Acanthoscurria natalensis*, Brasil. Thomaz de Carvalho Callado, CC BY 4.0
 - opiliao: *Geraeocormobius sylvarum* (Gonyleptidae), Paraná. Ben P, CC BY 4.0
@@ -47,14 +47,22 @@ As fichas `bicho-<id>.html` citam a foto e o crédito. Para gerar: `python3 ferr
 - vespa: *Polistes versicolor* no ninho de papel, Águas Mornas (SC). Jessica Souza, CC BY 4.0
 - lava-pes: *Solenopsis invicta*. Meghan Cassidy, CC BY-SA 4.0
 - tocandira: *Paraponera clavata*, rio Tambopata (Peru). andy_king50, CC BY-SA 3.0
-- taturana: *Lonomia obliqua*. Centro de Informações Toxicológicas de Santa Catarina, domínio público
+- taturana: *Lonomia obliqua* no tronco, Santa Rosa de Lima (SC). Jonathan Lorencetti Ehlert, CC BY-SA 4.0, iNaturalist
 - lagarta-urticante: lagarta-cachorrinho (*Podalia*). Sintegrity, CC BY-SA 4.0
-- poto: *Paederus littoralis*, Alemanha. Francisco Welter-Schultes, CC0
-- lacraia: *Scolopendra subspinipes*. Kyu3a, CC BY-SA 4.0
+- poto: *Paederus fuscipes*, Parque do Estado, São Paulo (SP). Carlos Alexandre Mattos Raposo, CC BY 4.0, iNaturalist
+- lacraia: *Scolopendra viridicornis*, Aripuanã (MT). ....Christopher Borges...., CC BY-SA 4.0, iNaturalist
 - sapo-cururu: *Rhinella diptycha*, Bandeirantes (PR). Alessandher Piva, CC BY 4.0
-- lagartixa: *Hemidactylus mabouia*. Hans Hillewaert, CC BY-SA 4.0
+- lagartixa: *Hemidactylus mabouia*, Iranduba (AM). agujaceratops, CC BY 4.0, iNaturalist
 - agua-viva: caravela (*Physalia physalis*) na areia, APA Costa dos Corais (AL/PE). Rafaelgivsilva, CC BY-SA 4.0
 - arraia: *Potamotrygon orbignyi*. Carlos Ruiz, CC BY 4.0
 - ourico: *Echinometra lucunter*, Serra do Mar (SP). Gilmar R. Ferreira, CC BY-SA 4.0
 - barbeiro: *Panstrongylus geniculatus*. Kai Squires, CC BY 4.0
-- caramujo-africano: *Achatina fulica*. Macaca Sapiens, CC BY-SA 4.0
+- caramujo-africano: *Lissachatina fulica* (antes *Achatina fulica*), Campos dos Goytacazes (RJ). Gabriel Jovêncio Ribeiro, CC BY 4.0, iNaturalist
+- carrapato: carrapato-estrela no Lago Norte, Brasília (DF). Douglas, CC BY 4.0, iNaturalist (a observação diz *Amblyomma cajennense*, o nome antigo do grupo de que o *A. sculptum* foi separado em 2014; no DF é o *A. sculptum*)
+
+## Trocas pelo iNaturalist (04/11/2026, mais tarde)
+
+Oito fotos de fora do Brasil, de identificação incerta ou sem foto passaram para observações do iNaturalist com
+identificação “grau de pesquisa”, feitas no Brasil e em CC0/CC BY/CC BY-SA (`linuarquivos/modelos/ferramentas/inaturalist.py`):
+carrapato, aranha-marrom, viúva-negra, lacraia, lagartixa, caramujo-africano, potó e taturana. A “fonte” do crédito é a
+página da observação. Ficaram como estavam: lava-pés e barbeiro (as do Brasil não eram melhores).

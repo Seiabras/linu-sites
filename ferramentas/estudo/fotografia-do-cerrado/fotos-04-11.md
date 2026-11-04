@@ -33,6 +33,26 @@ Todas as fotos vêm do Wikimedia Commons, com licença CC0, domínio público, C
 - **Expedição Emas:** pelo lugar, o veado entre os cupinzeiros deve ser um veado-campeiro, e o texto alternativo diz isso.
 - **Fotos de original pequeno (cerca de 1000 px):** baru, cagaita, pau-santo, tingui, algodãozinho, caraíba, jacarandá-do-cerrado, puçá, sucupira-branca e sumaré (*Cyrtopodium eugenii*). Saíram da miniatura de 960 px do Commons, ampliada para 1000 px.
 
+## Trocas pelo iNaturalist (04/11/2026, mais tarde)
+
+As dúvidas acima foram resolvidas com observações do iNaturalist, com identificação “grau de pesquisa” (conferida pela
+comunidade), feitas no Brasil e em CC0/CC BY/CC BY-SA (`linuarquivos/modelos/ferramentas/inaturalist.py`):
+
+- capim-flecha: *Tristachya leiostachya*, Mineiros (GO). Mario Barroso, CC BY 4.0
+- arnica: *Lychnophora ericoides* confirmada, São Roque de Minas (MG, Serra da Canastra). Thomaz Ricardo Favreto Sinani, CC BY 4.0
+- chuveirinho: *Paepalanthus pulvinatus*, Bahia. Riccardo Rocca, CC BY 4.0
+- pau-de-tucano: *Vochysia tucanorum* em flor, de perto, Jaboticatubas (MG). agujaceratops, CC BY 4.0
+- jabuti-piranga: *Chelonoidis carbonarius*, Rio de Janeiro (RJ). filipeprates, CC0
+- sucuri: *Eunectes murinus*, Presidente Figueiredo (AM). Henrique Nogueira, CC BY 4.0
+- bacupari: *Salacia crassifolia* com frutos no pé, Alto Paraíso de Goiás (GO). Jonathan Lorencetti Ehlert, CC BY-SA 4.0
+- tingui: *Magonia pubescens* com fruto, Alto Paraíso de Goiás (GO). Fabrício Mil Homens Riella, CC BY 4.0
+- baru: *Dipteryx alata* com frutos, Campo Grande (MS). NINA WENÓLI, CC0
+
+Ficaram como estavam: pequi, cagaita e tatu-canastra (nada melhor e livre no Brasil). A piranha continua sem foto (as
+livres são todas de peixe na mão ou no anzol), e a sempre-viva e o capim-dourado também (nenhuma foto livre boa).
+Correção junto: o `guia-pt.py` deixava 4 espaços a mais antes do rodapé a cada vez que rodava; agora rodar de novo não
+muda nada.
+
 ## Mudanças de código
 
 - `ferramentas/estudo/fotografia-do-cerrado/guia-pt.py`, linhas 1914–1916: a foto do topo da ficha agora fica num `<figure class="ficha-foto">` com o crédito (autor com link para a página do arquivo e licença). Antes a ficha não citava o autor.

@@ -2331,7 +2331,8 @@ def barra_celular(arquivo):
     itens = ''.join(f'<a href="{h}"{" aria-current=\"page\"" if h == atual else ""}><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">{ICON_BARRA[h]}</svg>{NOMES_BARRA[h]}</a>' for h in NOMES_BARRA)
     return f'<nav class="barra-celular" aria-label="Atalhos do guia">{itens}</nav>'
 def com_barra(t, arquivo, so_pt_):
-    t = re.sub(r'(\{\{\?pt-BR\}\})?<nav class="barra-celular".*?</nav>(\{\{/pt-BR\}\})?\n?', '', t, flags=re.S)
+    # o recuo e as linhas só de espaço que sobraram vão junto: rodar de novo não pode mudar nada (04/11/2026)
+    t = re.sub(r'[ \t]*(\{\{\?pt-BR\}\})?<nav class="barra-celular".*?</nav>(\{\{/pt-BR\}\})?\n?(?:[ \t]+\n)*', '', t, flags=re.S)
     barra = barra_celular(arquivo) if so_pt_ else '{{?pt-BR}}' + barra_celular(arquivo) + '{{/pt-BR}}'
     return t.replace('    </main>\n', '    </main>\n    ' + barra + '\n', 1)
 so_pt = json.loads((AQUI / 'so-pt.json').read_text())
