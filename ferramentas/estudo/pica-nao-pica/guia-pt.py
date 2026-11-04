@@ -16,7 +16,7 @@ ATUAL = {'bicho-': 'bichos.html', 'emergencia': 'socorro.html', 'cartao': 'socor
          'numeros': 'aprender.html', 'escola': 'aprender.html'}
 # o endereço no ar (para o WhatsApp e as imagens de compartilhar); vai mudar para picanaopica.linupedia.com.br (NO-COMPUTADOR, seção 10)
 URL_SITE = 'https://picanaopica.linupedia.com.br/'
-REVISAO = '1/11/2026'
+REVISAO = '4/11/2026'
 SITIO = AQUI.parents[2] / 'sitios' / 'pica-nao-pica'
 JS = 'guia.js?v=4'
 
@@ -38,7 +38,7 @@ FONTES = [
  (2, 'Prefeitura de São Paulo, Hospital do Servidor Público Municipal: o que fazer em acidentes com serpentes, segundo o Ministério da Saúde (lavar com água e sabão, ir ao serviço de saúde; não fazer torniquete nem espremer).', 'https://prefeitura.sp.gov.br/web/hospital_do_servidor_publico_municipal/w/dia-19-de-setembro-%C3%A9-dedicado-%C3%A0-conscientiza%C3%A7%C3%A3o-de-acidentes-of%C3%ADdicos'),
  (3, 'Secretaria da Saúde do Paraná. Acidentes por animais peçonhentos: orientações e prevenção.', 'https://www.saude.pr.gov.br/Pagina/Acidentes-por-animais-peconhentos'),
  (4, 'Ministério da Saúde. Boletim Epidemiológico, vol. 55, nº 3 (2024): os acidentes com escorpiões (292.440 notificações em 2022) e o escorpião-amarelo.', 'https://www.gov.br/saude/pt-br/centrais-de-conteudo/publicacoes/boletins/epidemiologicos/edicoes/2024/boletim-epidemiologico-volume-55-no-03'),
- (5, 'CNN Brasil. Todos os escorpiões são perigosos? Em 2023, 195.645 acidentes notificados e 152 mortes (Ministério da Saúde).', 'https://www.cnnbrasil.com.br/tecnologia/todos-os-escorpioes-sao-perigosos/'),
+ (5, 'Ministério da Saúde. Acidentes por escorpiões: o escorpião-amarelo, o de maior gravidade e espalhado pelo país; o escorpião-marrom, no Centro-Oeste, no Sudeste e no Sul; as crianças são as que mais correm risco de envenenamento grave.', 'https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/a/animais-peconhentos/acidentes-por-escorpioes'),
  (6, 'Instituto Butantan (trabalho de conclusão): a aranha-marrom, a forma mais grave de acidente com aranha, mais no Sul; a armadeira, 42% dos acidentes com aranhas notificados.', 'https://repositorio.butantan.gov.br/bitstream/butantan/3793/1/TCC_Suzanne%20Toledo.pdf'),
  (7, 'Revista Pesquisa FAPESP. São Paulo na Amazônia: o veneno das caranguejeiras é fraco perto do da aranha-marrom (pesquisador do Butantan).', 'https://revistapesquisa.fapesp.br/s%c3%a3o-paulo-na-amaz%c3%b4nia/'),
  (8, 'Instituto Butantan. Cartaz: acidente com lagarta Lonomia (o que fazer).', 'https://publicacoeseducativas.butantan.gov.br/web/cartaz-acidente-lonomia-v3/pages/pdf/a5-Acidente-lonomia-v3-bx.pdf'),
@@ -108,7 +108,7 @@ B = [
       r='Cobras que imitam as cores da coral para se proteger. A maioria não tem veneno perigoso, mas não dá para diferenciar a olho nu.',
       rec=['Anéis ou faixas vermelhas, pretas e claras, como a coral.', 'Muitas vezes os anéis não dão a volta inteira no corpo.', 'Na dúvida, é coral: não chegue perto.'],
       onde='Em todo o Brasil.', faz='A maioria não causa nada grave; mas como não dá para ter certeza, toda picada de cobra colorida vai para o hospital.',
-      soc='cobra', evitar='Não tente descobrir se é verdadeira ou falsa: afaste-se.', f=[13]),
+      soc='cobra', evitar='Não tente descobrir se é verdadeira ou falsa: afaste-se.', f=[13, 58]),
  dict(id='jiboia', n='Jiboia', c='Boa constrictor', g='Cobras', p='nenhum', t='sem', pica='Morde se acuada, mas não tem veneno',
       r='Grande e sem veneno: mata as presas apertando. Ajuda a controlar ratos.',
       rec=['Grossa, com desenhos grandes nas costas, como selas.', 'Cauda com manchas avermelhadas.', 'Em geral de 2 a 3 m.'],
@@ -151,7 +151,7 @@ B = [
       r='Grande e peluda, assusta muito, mas o veneno é fraco perto do da aranha-marrom. Os pelos soltos coçam.',
       rec=['Muito grande e peluda.', 'Anda devagar, no chão.', 'Pode soltar pelos que irritam a pele e os olhos.'],
       onde='Em todo o Brasil, em tocas no chão e em troncos.', faz='Dor no local se picar; coceira e irritação pelos pelos.',
-      soc='aranha', evitar='Não pegue com a mão; não esfregue os olhos depois de mexer.', f=[7]),
+      soc='aranha', evitar='Não pegue com a mão; não esfregue os olhos depois de mexer.', f=[7, 61, 58]),
  dict(id='opiliao', n='Opilião', c='Opiliones', g='Aranhas e parecidos', p='nenhum', t='sem', pica='Não pica e não tem veneno',
       r='Parece aranha, mas não é: não tem glândulas de veneno e não consegue picar uma pessoa.',
       rec=['Corpo de uma peça só, redondo, sem “cintura”.', 'Pernas muito longas e finas.', 'Só um par de olhos (as aranhas têm seis ou oito) e não faz teia.'],
@@ -180,8 +180,8 @@ B = [
  dict(id='tocandira', n='Tocandira', c='Paraponera clavata', g='Abelhas, vespas e formigas', p='medio', t='peconhento', pica='Pica, e é a picada mais dolorosa',
       r='A formiga-cabo-verde, de 2 a 3 cm. A dor da picada vem em ondas e pode durar um dia inteiro.',
       rec=['Formiga grande, preta ou marrom-escura.', 'Anda sozinha em troncos e no chão da mata.', 'Vive na Amazônia e em outras florestas.'],
-      onde='Florestas da Amazônia e do Centro-Oeste.', faz='Dor muito forte e longa, tremor e suor no local.',
-      soc='abelha', evitar='Olhe antes de apoiar a mão em troncos na mata.', f=[26]),
+      onde='Florestas da Amazônia e do Centro-Oeste.', faz='Dor muito forte e longa, inchaço e vermelhidão no local; às vezes calafrio, suor e coração acelerado.',
+      soc='abelha', evitar='Olhe antes de apoiar a mão em troncos na mata.', f=[26, 58]),
  dict(id='taturana', n='Taturana (Lonomia)', c='Lonomia spp.', g='Lagartas e besouros', p='alto', t='urticante', pica='Queima no contato, e pode ser grave',
       r='Uma lagarta de espinhos que, no contato, pode causar sangramentos. O Butantan é o único produtor do soro no mundo.',
       rec=['Espinhos verdes ou marrons, ramificados como pinheirinhos.', 'Ficam em grupos, parados nos troncos das árvores.', 'Cor que se confunde com a casca.'],
@@ -196,13 +196,13 @@ B = [
  dict(id='poto', n='Potó', c='Paederus spp.', g='Lagartas e besouros', p='baixo', t='venenoso', pica='Não pica: queima se for esmagado na pele',
       r='Um besourinho fino, preto e alaranjado. Não pica nem morde: esmagado na pele, solta uma substância que queima.',
       rec=['Pequeno (cerca de 1 cm), fino, parecido com uma formiga.', 'Faixas alaranjadas e pretas.', 'Voa até lâmpadas acesas à noite.'],
-      onde='Em todo o Brasil, mais na época das chuvas.', faz='Uma queimadura vermelha, com bolhas, que aparece horas depois e some em uma ou duas semanas.',
-      soc='lagarta', evitar='Não esmague: sopre ou tire com um papel. Telas nas janelas.', f=[16]),
+      onde='Mais no Norte, no Nordeste e no Centro-Oeste, e às vezes em outras regiões; mais na época das chuvas.', faz='Uma queimadura vermelha, com bolhas, que aparece horas depois, seca em cerca de uma semana e pode deixar mancha por um mês ou mais.',
+      soc='lagarta', evitar='Não esmague: sopre ou tire com um papel. Telas nas janelas.', f=[16, 58]),
  dict(id='lacraia', n='Lacraia', c='Scolopendra e outras', g='Outros da terra', p='baixo', t='peconhento', pica='Pica (com as presas da frente), e dói',
       r='Bicho de muitas patas que pica com um par de presas na cabeça. Dói, mas não há morte comprovada no Brasil.',
       rec=['Corpo achatado e comprido, de muitos anéis.', 'Um par de patas em cada anel.', 'Rápida, foge da luz.'],
       onde='Ralos, entulho, madeira e terra úmida.', faz='Dor e inchaço no local; com as grandes, às vezes febre.',
-      soc='geral', evitar='Ralos fechados e entulho longe de casa.', f=[27]),
+      soc='geral', evitar='Ralos fechados e entulho longe de casa.', f=[27, 60]),
  dict(id='sapo-cururu', n='Sapo-cururu', c='Rhinella spp.', g='Outros da terra', p='baixo', t='venenoso', pica='Não pica: é venenoso, não peçonhento',
       r='O exemplo de bicho venenoso: tem veneno nas glândulas atrás dos olhos, mas não injeta. O perigo é para quem morde ou põe na boca.',
       rec=['Sapo grande, de pele grossa e cheia de verrugas.', 'Duas glândulas saltadas atrás dos olhos.', 'Aparece à noite, depois da chuva.'],
@@ -235,12 +235,12 @@ B += [
       r='Grande, rápida e brava quando ameaçada, mas não é peçonhenta. Anda de dia e sobe em árvores.',
       rec=['Preta e amarela, em faixas ou manchas.', 'Pode passar de 2 m.', 'Ativa de dia; infla o pescoço e bate a cauda quando ameaçada.'],
       onde='Matas e beiras de mata de quase todo o Brasil, também perto de casas e galinheiros.', faz='A mordida dói e pode infeccionar: lave e procure um posto. Não há veneno.',
-      soc='geral', evitar='Não tente pegar: chame os bombeiros (193).', f=[44]),
+      soc='geral', evitar='Não tente pegar: chame os bombeiros (193).', f=[44, 62]),
  dict(id='cobra-cipo', n='Cobra-cipó', c='Chironius e outras', g='Cobras', p='baixo', t='sem', pica='Pode morder; o veneno, quando tem, é fraco',
       r='Fina e muito ágil, parece um cipó. Não mata pessoas; algumas cobras-cipó têm um veneno fraco, nos dentes do fundo da boca.',
       rec=['Muito fina e comprida, verde, marrom ou acinzentada.', 'Olhos grandes.', 'Rápida, sobe em galhos e arbustos.'],
-      onde='Em quase todo o Brasil, em árvores, arbustos e jardins.', faz='Dor e inchaço leves no local; a mordida pode infeccionar se não for lavada.',
-      soc='geral', evitar='Não pegue: toda cobra se defende.', f=[44, 45]),
+      onde='Em quase todo o Brasil, em árvores, arbustos e jardins.', faz='Quase sempre só a mordida, que pode infeccionar se não for lavada. A cobra-verde (Philodryas), também chamada de cobra-cipó, pode causar inchaço grande e mancha roxa, mas sem o sangramento da jararaca.',
+      soc='geral', evitar='Não pegue: toda cobra se defende.', f=[59, 58, 44, 45]),
  dict(id='anfisbena', n='Cobra-de-duas-cabeças', c='Amphisbaena spp.', g='Cobras', p='nenhum', t='sem', pica='Não é cobra e não tem veneno',
       r='Parece uma minhoca grande ou uma cobra, mas é outro réptil. Tem uma cabeça só: a cauda grossa e arredondada engana os predadores.',
       rec=['Corpo em anéis, como uma minhoca grande.', 'A cabeça e a cauda parecem iguais.', 'Vive enterrada; aparece depois de chuva forte ou quando se mexe na terra.'],
@@ -510,9 +510,9 @@ pagina('identificar.html', f'Que bicho é esse? — {NOME}', 'Responda algumas p
 # ---------------------------------------------------------------- Socorro (socorro.html)
 SOC = [
  ('cobra', 'Picada de cobra', ['Lave o local com água e sabão.', 'Deixe a pessoa deitada e calma, e evite que ela ande ou corra.', 'Tire anéis, relógios e calçados apertados: o local pode inchar.', 'Vá logo ao serviço de saúde: o soro só existe lá.', 'Se der, tire uma foto da cobra, de longe.'], [2, 3]),
- ('escorpiao', 'Picada de escorpião', ['Lave o local com água e sabão.', 'Uma compressa morna ajuda na dor.', 'Criança picada vai direto para o serviço de saúde, sem esperar sintomas.', 'Adulto com dor forte, vômito ou suor também vai.'], [3, 4]),
+ ('escorpiao', 'Picada de escorpião', ['Lave o local com água e sabão.', 'Uma compressa morna ajuda na dor.', 'Criança picada vai direto para o serviço de saúde, sem esperar sintomas.', 'Adulto também vai, sem demora. Vômito, suor ou tremor são sinais de alerta.'], [3, 4, 36, 58]),
  ('aranha', 'Picada de aranha', ['Lave o local com água e sabão.', 'Compressa morna para a dor da armadeira.', 'Procure o serviço de saúde, mesmo que não doa: a da aranha-marrom quase não dói e pode piorar horas depois.'], [3, 28]),
- ('lagarta', 'Lagarta (taturana) e potó', ['Lave o local com água fria e sabão; compressa fria alivia.', 'Se a lagarta tinha espinhos, vá ao serviço de saúde: pode ser Lonomia, que causa sangramento.', 'Fotografe a lagarta, sem tocar.', 'Potó: lave com água e sabão e não esfregue; procure o médico se pegar nos olhos ou for extenso.'], [8, 9, 16]),
+ ('lagarta', 'Lagarta (taturana) e potó', ['Lave o local com água fria e sabão; compressa fria alivia.', 'Vá ao serviço de saúde: se for Lonomia, a taturana de espinhos em forma de pinheirinho, pode causar sangramento.', 'Fotografe a lagarta, sem tocar.', 'Potó: lave com água e sabão e não esfregue; procure o médico se pegar nos olhos ou for extenso.'], [8, 9, 16, 58]),
  ('abelha', 'Abelhas, vespas e formigas', ['Tire os ferrões da abelha logo, raspando com a unha ou um cartão, sem apertar o saquinho de veneno.', 'Lave e ponha gelo enrolado num pano.', 'Muitas picadas, picada na boca ou na garganta, inchaço no rosto ou falta de ar: serviço de saúde na hora (192).', 'Quem tem alergia conhecida deve ir ao hospital mesmo com uma picada.'], [14, 15, 25]),
  ('agua', 'Água-viva, caravela e arraia', ['Água-viva e caravela: saia da água, lave com água do mar e tire os tentáculos com cuidado, sem esfregar. Nunca use água doce.', 'O vinagre ajuda em água-viva, mas não serve para a caravela.', 'Arraia: lave e ponha o pé em água quente (sem queimar) para a dor, e vá ao serviço de saúde: a ferida infecciona.'], [18, 17, 19]),
  ('doenca', 'Barbeiro, carrapato e caramujo', ['Barbeiro: não esmague. Pegue com luva ou saco plástico, ponha num pote com tampa e leve ao posto de saúde. Se foi picado, conte ao médico.', 'Carrapato: tire logo, com pinça, puxando devagar e sem esmagar. Febre, dor de cabeça ou no corpo nas duas semanas seguintes: serviço de saúde, dizendo que teve carrapato.', 'Caramujo-africano: recolha com luva ou saco, lave as mãos. Dor de cabeça forte depois de comer verdura mal lavada: serviço de saúde.'], [50, 52, 53, 54]),
@@ -545,7 +545,7 @@ socorro = f'''        <section class="titulo-guia titulo-socorro">
                     <section aria-labelledby="nunca-t" class="nunca">
                         <h2 id="nunca-t">Nunca faça</h2>
                         <ul>{"".join(f"<li>{x}</li>" for x in NUNCA)}</ul>
-                        <p class="soc-fonte">Fontes:{fonte(2)}{fonte(9)}{fonte(19)}</p>
+                        <p class="soc-fonte">Fontes:{fonte(2)}{fonte(9)}{fonte(19)}{fonte(58)}</p>
                     </section>
                     <section aria-labelledby="bicho-t">
                         <h2 id="bicho-t">Bicho por bicho</h2>
@@ -618,13 +618,13 @@ FONTES += [
  (32, 'Ministério da Saúde. Hospitais de referência para atendimento: os Pontos Estratégicos de Soro Antiveneno (PESA), em cada estado.', 'https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/a/animais-peconhentos/hospitais-de-referencia/hospitais-de-referencia-para-atendimento'),
  (33, 'Ministério da Saúde. Boletim Epidemiológico, vol. 55, nº 15 (acidentes com serpentes): 342.713 acidentes com animais peçonhentos notificados em 2023 (escorpiões 58,79%, aranhas 12,85%, abelhas 9,85%, serpentes 9,51%, lagartas 2,07%, outros 5,35%) e 143 mortes por serpentes.', 'https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/a/animais-peconhentos/boletins-epidemiologicos/boletim-epidemiologico-volume-55-no-15'),
  (34, 'Ministério da Saúde. Boletim Epidemiológico, vol. 56, nº 5 (acidentes com escorpiões): 202.714 acidentes em 2023, 58,9% de todos os acidentes com animais peçonhentos.', 'https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/a/animais-peconhentos/boletins-epidemiologicos/boletim-epidemiologico-vol-56-no-5'),
- (35, 'Bahia Notícias, com dados do Instituto Butantan: os acidentes com animais peçonhentos aumentam cerca de 30% no calor e nas chuvas, sobretudo de dezembro a março.', 'https://www.bahianoticias.com.br/noticia/128364-ocorrencias-com-animais-venenosos-aumentam-30-em-periodos-de-chuva-e-calor'),
- (36, 'Tua Saúde (2026), citando o Instituto Butantan: no Sul, no Sudeste e no Centro-Oeste, os escorpiões aparecem mais de setembro a fevereiro.', 'https://www.tuasaude.com/news/2026/10/17/quais-animais-peconhentos-exigem-mais-atencao-em-cada-regiao-e-epoca-do-ano/'),
+ (35, 'Ministério da Saúde. Acidentes ofídicos, situação epidemiológica: os acidentes com cobras são mais frequentes nos meses quentes e chuvosos.', 'https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/a/animais-peconhentos/acidentes-ofidicos/situacao-epidemiologica'),
+ (36, 'Ministério da Saúde. Acidentes por escorpiões, perguntas frequentes: o que fazer (lavar com água e sabão e ir sem demora ao serviço de saúde) e a época (na primavera, com as chuvas, os acidentes aumentam, com o pico em outubro e novembro).', 'https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/a/animais-peconhentos/acidentes-por-escorpioes/faq'),
  (37, 'Petlove. Cachorro picado por cobra: os sinais (inchaço, dor, pele roxa) e o veterinário na hora.', 'https://www.petlove.com.br/dicas/cachorro-picado-por-cobra-o-que-fazer'),
  (38, 'Petscare. Sapos e cães: lavar a boca com água corrente, sem deixar engolir, e ir ao veterinário (salivação, vômito, convulsão).', 'https://www.petscare.com/pt/news/post/are-frogs-poisonous-to-dogs'),
  (39, 'Jornal de Brasília, com a Agência Brasil (2024): as aranhas são a segunda causa de acidentes, com 43.933 casos em 2023.', 'https://jornaldebrasilia.com.br/noticias/saude/picadas-de-aranhas-sao-segunda-causa-de-envenenamento-no-pais/'),
  (40, 'Petlove. Cachorro picado por escorpião: o que fazer (veterinário, sem remédio por conta própria).', 'https://www.petlove.com.br/dicas/cachorro-picado-por-escorpiao-o-que-fazer'),
- (41, 'CNN Brasil. Em 2023, 152 mortes por escorpião no Brasil (Ministério da Saúde).', 'https://www.cnnbrasil.com.br/tecnologia/todos-os-escorpioes-sao-perigosos/'),
+ (41, 'Ministério da Saúde. Boletim Epidemiológico, vol. 56, nº 5: 131 mortes por escorpião notificadas no Sinan em 2023 (o SIM, outro sistema, registrou 42; o boletim avisa que os dados de morte têm falhas).', 'https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/a/animais-peconhentos/boletins-epidemiologicos/boletim-epidemiologico-vol-56-no-5'),
  (42, 'NSC Total, com a UFRGS: o jararacuçu, uma das cobras mais venenosas do Brasil, da Mata Atlântica do sul da Bahia ao Rio Grande do Sul.', 'https://www.nsctotal.com.br/?p=6715136'),
  (43, 'UFRGS, Serpentes de Porto Alegre: a família das jararacas (Viperidae).', 'https://www.ufrgs.br/serpentespoa/?p=27'),
  (44, 'Instituto Butantan. Desenhando serpentes: a caninana (não peçonhenta, diurna, até cerca de 2,5 m) e a cobra-cipó (fina, ágil, até cerca de 1 m).', 'https://publicacoeseducativas.butantan.gov.br/web/desenhando-cobra/pages/pdf/desenahndo-serprentes-pt.pdf'),
@@ -633,14 +633,19 @@ FONTES += [
  (47, 'Pardal e outros (2014), Journal of Venomous Animals and Toxins: acidentes com Tityus obscurus no Pará, com sensação de choque, tremores e fala enrolada no oeste do estado.', 'https://jvat.biomedcentral.com/articles/10.1186/1678-9199-20-3'),
  (48, 'Secretaria de Saúde do Distrito Federal. Boletim sobre aranhas (2013): a aranha-de-grama e a caranguejeira não representam grande perigo.', 'https://saude.df.gov.br/documents/37101/367987/BOLETIM-ARANHAS-24-04-2013.pdf/42ff7e18-4a39-0b54-ee7a-d4ff6597f6a4'),
  (49, 'Manual MSD. Picadas de ouriços-do-mar: tirar os espinhos logo e pôr o local em água quente, sem queimar.', 'https://www.msdmanuals.com/pt/casa/les%C3%B5es-e-envenenamentos/mordidas-e-picadas/picadas-de-ouri%C3%A7os-do-mar'),
- (50, 'Jornal de Brasília, com o Ministério da Saúde: ao achar um barbeiro, não esmagar, pegar com luva ou saco plástico, pôr num pote com tampa e levar ao posto de saúde.', 'https://jornaldebrasilia.com.br/estilo-de-vida/noticiaanimal/saiba-o-que-fazer-ao-encontrar-um-inseto-parecido-com-o-barbeiro-de-chagas/'),
+ (50, 'Ministério da Saúde. Doença de Chagas: ao achar um barbeiro, não esmagar, proteger a mão com luva ou saco plástico, pôr num pote com tampa e levar ao Posto de Informação de Triatomíneos; o parasita passa pelas fezes do inseto.', 'https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/d/doenca-de-chagas'),
  (51, 'National Geographic Brasil (2023). Cinco curiosidades sobre o barbeiro: o parasita da doença de Chagas está nas fezes do inseto.', 'https://www.nationalgeographicbrasil.com/animais/2023/04/as-5-curiosidades-sobre-o-barbeiro-o-inseto-que-transmite-a-doenca-de-chagas'),
- (52, 'CNN Brasil. O carrapato deve ser retirado delicadamente, com pinça, sem esmagar (infectologista).', 'https://www.cnnbrasil.com.br/saude/carrapato-deve-ser-retirado-delicadamente-para-evitar-febre-maculosa-diz-infectologista/'),
+ (52, 'Ministério da Saúde. Febre maculosa: tirar o carrapato com pinça, sem apertar nem esmagar, puxando com cuidado; roupa clara, calça e botas; quanto antes tirar, menor o risco.', 'https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/f/febre-maculosa'),
  (53, 'Prefeitura de Belo Horizonte. Febre maculosa: transmissão pelo carrapato-estrela, sintomas e prevenção.', 'https://prefeitura.pbh.gov.br/saude/informacoes/vigilancia/vigilancia-epidemiologica/doencas-transmissiveis/febre-maculosa'),
- (54, 'Poder360. A Fiocruz alerta para a meningite transmitida pelo caramujo (comer o caramujo ou o muco dele).', 'https://www.poder360.com.br/poder-saude/fiocruz-alerta-para-meningite-transmitida-por-caramujo-apos-morte/'),
- (55, 'A Gazeta do Acre (2024), com o boletim do Ministério da Saúde: em 2023, Roraima (81,81), Pará (59,63) e Acre (51,83) tiveram mais acidentes com cobras por 100 mil habitantes.', 'https://agazetadoacre.com/2024/10/noticias/geral/acre-registra-470-acidentes-com-serpentes-e-tem-3a-maior-incidencia-do-brasil-em-2023-aponta-boletim'),
- (56, 'Correio Braziliense. Caramujo-africano: recolher com luvas ou saco plástico, junto com os ovos, fechar o saco e lavar as mãos.', 'https://www.correiobraziliense.com.br/webstories/flipar/2024/05/6851894-infestacao-de-caramujos-africanos-e-perigosa-saiba-se-proteger.html'),
- (57, 'Canaltech, com a Fiocruz: a febre maculosa pode parecer dengue no começo, e o tratamento precisa começar cedo.', 'https://canaltech.com.br/saude/fiocruz-alerta-sobre-casos-de-febre-maculosa-e-carrapato-estrela-no-br-entenda-200794/'),
+ (54, 'Fiocruz. Casos de meningite transmitida por caramujo se espalham pelo país: a pessoa se infecta ao engolir o caramujo ou o muco dele, também em verdura mal lavada; a dor de cabeça é muito forte.', 'https://portal.fiocruz.br/noticia/casos-de-meningite-transmitida-por-caramujo-se-espalham-pelo-pais'),
+ (55, 'Ministério da Saúde. Boletim Epidemiológico, vol. 55, nº 15, tabela 1: em 2023, Roraima (81,81), Pará (59,63) e Acre (51,83) tiveram mais acidentes com cobras por 100 mil habitantes.', 'https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/a/animais-peconhentos/boletins-epidemiologicos/boletim-epidemiologico-volume-55-no-15'),
+ (56, 'Fiocruz, Instituto Oswaldo Cruz. Como combater o caramujo-africano: catar com luvas ou saco plástico, recolher também os ovos, sem usar veneno.', 'https://www.ioc.fiocruz.br/como-combater-infestacao-por-caramujo-africano'),
+ (57, 'Fiocruz. Especialista esclarece dúvidas sobre a febre maculosa: começa de repente, com febre alta e dor de cabeça, de 2 a 15 dias depois; é confundida com dengue, e o tratamento deve começar já na suspeita.', 'https://portal.fiocruz.br/noticia/especialista-esclarece-duvidas-sobre-febre-maculosa-transmitida-pelo-carrapato-estrela'),
+ (58, 'Ministério da Saúde. Manual de diagnóstico e tratamento de acidentes por animais peçonhentos (2ª ed., 2001): primeiros socorros e o que não fazer; as falsas-corais; a cobra-cipó (Philodryas); as caranguejeiras; a tocandira; o potó.', 'https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/a/animais-peconhentos/publicacoes/manual-de-diagnostico-e-tratamento-de-acidentes-por-animais-peconhentos'),
+ (59, 'Instituto Butantan. Conheça a cobra-cipó: fina, ágil, com cerca de 1 m; pode morder, mas não é capaz de matar pessoas.', 'https://butantan.gov.br/bubutantan/conheca-a-cobra-cipo-a-serpente-que-gosta-de-viver-em-arvores-e-arbustos-'),
+ (60, 'Knysak e outros (1998), Revista de Saúde Pública, com o Instituto Butantan: 216 acidentes com lacraias atendidos no Hospital Vital Brazil; dor, inchaço e vermelhidão, a maioria leve.', 'https://www.scielo.br/j/rsp/a/PpnSp4kXmtb97XpsCqXpMyB/?lang=pt'),
+ (61, 'Ministério da Saúde. Acidentes por aranhas: as caranguejeiras, embora grandes e comuns perto das casas, não causam acidentes graves.', 'https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/a/animais-peconhentos/acidentes-por-aranhas'),
+ (62, 'Instituto Butantan. Conheça a caninana: preta e amarela, ativa de dia, passa de 2,5 m; pode tentar morder, mas não tem veneno.', 'https://butantan.gov.br/bubutantan/conheca-a-caninana-a-serpente-ligeirinha'),
 ]
 SOC_DADOS = {i: {'t': t, 'passos': passos} for i, t, passos, fs in SOC}
 NUNCA_CURTO = ['Torniquete ou amarrar', 'Cortar, furar ou espremer', 'Chupar o veneno', 'Pôr qualquer coisa no local', 'Bebida ou remédio por conta própria']
@@ -839,8 +844,8 @@ CASA = [
 casa_html = ''.join(f'<li><label class="marcar"><input type="checkbox" data-casa="{n}"> {t}</label></li>' for n, (t, fs) in enumerate(CASA))
 casa_fontes = ''.join(fonte(k) for k in sorted({k for t, fs in CASA for k in fs}))
 MESES = ['jan', 'fev', 'mar', 'abr', 'mai', 'jun', 'jul', 'ago', 'set', 'out', 'nov', 'dez']
-EPOCA = [('Todos os bichos peçonhentos', 'Cerca de 30% mais acidentes no calor e na chuva.', [12, 1, 2, 3], [35]),
-         ('Escorpiões (Sul, Sudeste e Centro-Oeste)', 'Aparecem mais quando esquenta; a chuva os tira dos esconderijos.', [9, 10, 11, 12, 1, 2], [36])]
+EPOCA = [('Cobras', 'Mais acidentes nos meses quentes e chuvosos; no Sul e no Sudeste, bem menos no inverno.', [12, 1, 2, 3], [35, 33]),
+         ('Escorpiões', 'Os acidentes sobem a partir de setembro, na primavera, com o calor e as chuvas; o pico é em outubro e novembro.', [9, 10, 11], [36, 34])]
 def linha_epoca(t, e, ms, fs):
     cel = ''.join(f'<span class="mes{" mes-sim" if i + 1 in ms else ""}" data-mes="{i + 1}"><span class="mes-nome">{m}</span><span class="vh">{": mais" if i + 1 in ms else ""}</span></span>' for i, m in enumerate(MESES))
     return f'<li class="epoca"><p class="epoca-t">{t}</p><div class="meses">{cel}</div><p class="epoca-e">{e}{"".join(fonte(k) for k in fs)}</p></li>'
@@ -927,7 +932,7 @@ pagina('numeros.html', f'Os números das picadas no Brasil — {NOME}', 'Em 2023
                 <div class="numeros-destaques">
                     <p class="destaque-num"><strong>342 mil</strong><span>acidentes com animais peçonhentos notificados em 2023{fonte(33)}</span></p>
                     <p class="destaque-num"><strong>202 mil</strong><span>só com escorpiões: mais da metade{fonte(34)}</span></p>
-                    <p class="destaque-num"><strong>152</strong><span>mortes por escorpião em 2023{fonte(41)}</span></p>
+                    <p class="destaque-num"><strong>131</strong><span>mortes por escorpião notificadas em 2023{fonte(41)}</span></p>
                     <p class="destaque-num"><strong>143</strong><span>mortes por cobra em 2023{fonte(33)}</span></p>
                 </div>
                 <figure class="grafico">
@@ -938,11 +943,11 @@ pagina('numeros.html', f'Os números das picadas no Brasil — {NOME}', 'Em 2023
                 <div class="numeros-texto">
                     <h2>O que os números dizem</h2>
                     <ul class="lista">
-                        <li><strong>O escorpião é o que mais pica</strong>, e em 2023 matou mais que as cobras.{fonte(34)}{fonte(41)} O escorpião-amarelo vive nas cidades, em ralos, esgoto e entulho: por isso vale o <a href="prevenir.html">teste da casa</a>.{fonte(4)}</li>
+                        <li><strong>O escorpião é o que mais pica</strong>, e em 2023 matou quase tanto quanto as cobras: 131 mortes, contra 143.{fonte(34)}{fonte(41)} O escorpião-amarelo vive nas cidades, em ralos, esgoto e entulho: por isso vale o <a href="prevenir.html">teste da casa</a>.{fonte(4)}</li>
                         <li><strong>As aranhas vêm em segundo</strong>, com 43.933 casos.{fonte(39)}</li>
                         <li><strong>A cobra pica menos, mas pesa:</strong> sem soro, a picada de jararaca ou cascavel pode matar ou deixar sequela.{fonte(2)}</li>
                         <li><strong>Onde as cobras mais picam:</strong> em 2023, por habitante, Roraima (81,8 por 100 mil), Pará (59,6) e Acre (51,8), todos no Norte.{fonte(55)}</li>
-                        <li>Os acidentes sobem no calor e na chuva, de dezembro a março.{fonte(35)} Veja <a href="prevenir.html#epo-t">a época de cada bicho</a>.</li>
+                        <li>Os acidentes com cobras sobem nos meses quentes e chuvosos, e os com escorpião, na primavera.{fonte(35)}{fonte(36)} Veja <a href="prevenir.html#epo-t">a época de cada bicho</a>.</li>
                     </ul>
                 </div>
             </div>
