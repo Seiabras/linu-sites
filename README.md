@@ -325,6 +325,18 @@ node ferramentas/gerar-estudo.mjs pica-nao-pica
   “Teste rápido”, que tinham ficado sem link em português, ligados na inicial. O `guia-pt.py` cai para a Noto quando
   não há a DejaVu e não refaz as imagens de compartilhar sem ela, e a inicial não ganha mais uma linha em branco a
   cada rodada.
+- **A parte das abelhas, arrumada (4/11/2026):** em português, as abelhas deixam de ser um bloco à parte e entram no guia.
+  “Achei um… e agora?” (`achei.html`, lista `ACHEI`): sete situações (ninho de jataí, enxame de africanizada, ninho de
+  vespa, escorpião em casa, cobra no quintal, taturana, carrapato), cada uma com o que fazer agora, quem chamar, o que
+  nunca fazer e a ficha; entra no Aprender, na inicial, no Socorro, no catálogo, no fim do “Que bicho é?” e no botão
+  “Achou um? O que fazer” das fichas (dicionário `ACHOU`). Em português, `achei-um-ninho.html` abre com um aviso que leva
+  para `achei.html#jatai`. No “Qual dos dois?” (`diferencas.html`), a rodada “Abelhas e vespas” (`ABELHAS_PARES`: quatro
+  pares, com pistas a mais; também por `diferencas.html?rodada=abelhas`, recorde à parte). Na inicial, “Os injustiçados”
+  (`INJUSTICADOS`, cada frase com fonte; a falsa-coral só com o aviso de se afastar) no lugar de “E as abelhas sem
+  ferrão?”, com o link para `bichos.html?perigo=nenhum`. “De onde veio este guia” (`origem.html`) conta o projeto do CEUB
+  e leva às páginas antigas (descobrir, criar, teste); o rodapé em português aponta para ela. Fontes novas 63 a 67
+  (Bombeiros do CE, MS e MT, Saúde de Goiás, Embrapa). O CSS em português está em `?v=11` (`CSS_PT` no `guia-pt.py`)
+  e as outras 12 línguas seguem com o `?v=10` do modelo, byte a byte iguais; o script em `guia.js?v=5`.
 - **A 404 do Cerrado** (`sitios/fotografia-do-cerrado/404.html`) só aparece depois de o bloco novo do `deploy/Caddyfile-bloco`
   (`handle_errors` no `cerrado.linupedia.com.br`) ser posto na VM, como diz o `deploy/ORACLE.md`.
 - Os repositórios `Seiabras/fotografia-do-cerrado` e `Seiabras/pica-nao-pica` recebem uma cópia de

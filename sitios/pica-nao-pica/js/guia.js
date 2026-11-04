@@ -51,7 +51,7 @@
         busca.addEventListener('input', filtrar);
         const params = new URLSearchParams(location.search);
         if (params.get('q')) busca.value = params.get('q');
-        for (const [chave, attr] of [['lugar', 'data-filtro-lugar'], ['regiao', 'data-filtro-regiao']]) {
+        for (const [chave, attr] of [['lugar', 'data-filtro-lugar'], ['regiao', 'data-filtro-regiao'], ['perigo', 'data-filtro-perigo']]) {
             const v = params.get(chave);
             if (v) { document.querySelector(`[${attr}="${CSS.escape(v)}"]`)?.click(); if (mais) mais.open = true; }
         }
@@ -89,7 +89,9 @@
                 const acoes = el('p', 'id-acoes');
                 const ver = el('a', 'botao', 'Ver a ficha'); ver.href = `bicho-${atual.slice(1)}.html`;
                 const soc = el('a', 'botao botao-socorro', 'O que fazer se picar'); soc.href = `socorro.html#${b.soc}`;
-                acoes.append(ver, soc); r.append(acoes);
+                acoes.append(ver, soc);
+                if (b.ach) { const achou = el('a', 'botao botao-claro', 'Achou um? O que fazer'); achou.href = `achei.html#${b.ach}`; acoes.append(achou); }
+                r.append(acoes);
                 r.append(el('p', 'id-aviso', 'As perguntas ajudam, mas não dão certeza. Na dúvida, trate como perigoso e procure o serviço de saúde.'));
                 blocos.push(r);
             } else {
@@ -407,8 +409,9 @@
                 botoes.hidden = true; retorno.hidden = true; proxima.textContent = 'Jogar de novo';
                 return;
             }
-            const antes = Number(guardado(chave) || 0); let rec = '';
-            if (acertos > antes) { guardar(chave, acertos); rec = antes ? ' Novo recorde!' : ''; } else rec = ` Seu recorde: ${antes} de ${rodadas}.`;
+            const k = typeof chave === 'function' ? chave() : chave;
+            const antes = Number(guardado(k) || 0); let rec = '';
+            if (acertos > antes) { guardar(k, acertos); rec = antes ? ' Novo recorde!' : ''; } else rec = ` Seu recorde: ${antes} de ${rodadas}.`;
             placar.textContent = 'Resultado';
             pergunta.textContent = `Você acertou ${acertos} de ${lista.length}.${rec}`;
             botoes.hidden = true; retorno.hidden = true; proxima.textContent = 'Jogar de novo';
@@ -431,8 +434,21 @@
                 explicacao,
             };
         };
-        montar.todos = difs.flatMap((d) => [{ d, lado: 'a', traco: d.ta }, { d, lado: 'b', traco: d.tb }]);
-        jogoDe(difCaixa, { rodadas: 8, chave: 'pica-recorde-diferencas', montar });
+        // a rodada "Abelhas e vespas" (4/11/2026): só os pares marcados, com as pistas a mais de cada um
+        let rodada = '';
+        const perguntas = () => rodada
+            ? difs.filter((d) => d.r === rodada).flatMap((d) => [{ d, lado: 'a', traco: d.ta }, { d, lado: 'b', traco: d.tb }, ...(d.mais || []).map(([lado, traco]) => ({ d, lado, traco }))])
+            : difs.flatMap((d) => [{ d, lado: 'a', traco: d.ta }, { d, lado: 'b', traco: d.tb }]);
+        const rodadas = [...difCaixa.querySelectorAll('[data-rodada]')];
+        const pedida = new URLSearchParams(location.search).get('rodada');
+        if (pedida && rodadas.some((r) => r.dataset.rodada === pedida)) rodada = pedida;
+        rodadas.forEach((o) => o.setAttribute('aria-pressed', String(o.dataset.rodada === rodada)));
+        montar.todos = perguntas();
+        const ctl = jogoDe(difCaixa, { rodadas: 8, chave: () => (rodada ? `pica-recorde-diferencas-${rodada}` : 'pica-recorde-diferencas'), montar });
+        rodadas.forEach((r) => r.addEventListener('click', () => {
+            rodada = r.dataset.rodada; rodadas.forEach((o) => o.setAttribute('aria-pressed', String(o === r)));
+            montar.todos = perguntas(); ctl.comecar();
+        }));
     }
 
     const bichosJogo = ler('jogo-dados'), picaCaixa = document.querySelector('.pica-jogo');

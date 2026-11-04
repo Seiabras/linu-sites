@@ -733,3 +733,61 @@ a.cartao:hover { border-color: var(--link); }
     .abertura-guia .portas-guia { grid-column: 1 / -1; }
 }
 @media (prefers-reduced-motion: reduce) { .abertura-fotos a:hover img, .abertura-fotos a:active img { transform: none; } }
+
+/* ================= 4/11/2026: a parte das abelhas, arrumada. "Achei um… e agora?", a rodada "Abelhas e vespas",
+   "Os injustiçados" e "De onde veio este guia" (só em português, com o CSS em ?v=11) */
+.desenho .d-rejunte { fill: none; stroke: var(--superficie); stroke-width: 3; }
+.dif-colunas { display: grid; gap: 1.2rem; min-width: 0; }
+.dif-colunas > section { display: grid; gap: .8rem; }
+.dif-grupo-t { margin-bottom: 0; }
+.diferencas .indice-pagina { flex-direction: row; flex-wrap: wrap; position: static; }
+.filtros-achei { font-size: .95rem; }
+.filtros-achei a { font-weight: 700; }
+/* Achei um… e agora? */
+.achei-picou { font-weight: 700; margin-top: .8rem; }
+.achei { display: grid; gap: 1.2rem; }
+.achei-lista { display: grid; gap: 1.4rem; min-width: 0; }
+.achei-sit { background: var(--superficie); border: 1px solid var(--borda); border-radius: var(--raio); padding: 1.2rem; display: grid; gap: .8rem; scroll-margin-top: 130px; }
+.secao .achei-sit h2 { font-family: var(--titulo); font-size: clamp(1.35rem, 3vw, 1.7rem); margin: 0; }
+.achei-sit h3 { font-family: var(--titulo); font-size: 1.15rem; margin-bottom: .4rem; }
+.achei-como { color: var(--texto-suave); }
+.achei-grade { display: grid; gap: .8rem; }
+.achei-chamar { background: var(--destaque-fundo); border-radius: 14px; padding: 1rem 1.2rem; }
+.achei-chamar p { font-weight: 600; }
+.achei-nunca { padding: 1rem 1.2rem; }
+.achei-links { display: flex; flex-wrap: wrap; gap: .5rem; }
+.achei-fonte { padding: 0; }
+/* Os injustiçados */
+.injus-lista { list-style: none; padding: 0; display: grid; gap: .8rem; margin-top: 1rem; }
+.injus { background: var(--superficie); border: 1px solid var(--borda); border-radius: var(--raio); padding: .8rem; display: grid; grid-template-columns: 72px minmax(0, 1fr); grid-template-rows: auto 1fr; column-gap: .9rem; row-gap: .2rem; align-items: start; }
+.injus a { display: contents; color: var(--texto); }
+.injus .bicho-mini { grid-column: 1; grid-row: 1 / span 2; align-self: start; width: 72px; height: 72px; border-radius: 12px; object-fit: cover; }
+.injus-nome { font-family: var(--titulo); font-size: 1.15rem; font-weight: 700; text-decoration: underline; text-underline-offset: .15em; }
+.injus-nome { grid-column: 2; grid-row: 1; }
+.injus p { grid-column: 2; grid-row: 2; font-size: .95rem; }
+.injus-aviso { background: var(--errado-fundo); border-radius: var(--raio); padding: 1rem 1.2rem; margin: 1rem 0; }
+/* a página antiga do ninho, em português, leva para a nova */
+.aviso-mudou { background: var(--destaque-fundo); border-radius: var(--raio); padding: 1rem 1.2rem; margin: 1rem 0 1.4rem; display: grid; gap: .6rem; }
+.origem p + h2 { margin-top: 1.8rem; }
+.origem p + p { margin-top: .6rem; }
+.origem-mais { margin-top: 1rem; }
+@media (max-width: 699px) {
+    .achei-sit { padding: 1rem; scroll-margin-top: 120px; }
+    .achei-links .botao { flex: 1 1 100%; text-align: center; }
+}
+@media (min-width: 700px) {
+    .aprender-lista > li:has(.apr-largo) { grid-column: 1 / -1; }
+    .achei-grade { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .achei-agora { grid-column: 1 / -1; }
+    .injus-lista { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 1100px) {
+    .achei { grid-template-columns: 240px minmax(0, 1fr); column-gap: 2.5rem; align-items: start; }
+    .achei .indice-pagina { flex-direction: column; position: sticky; top: 88px; }
+    .achei-grade { grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr); }
+    .achei-agora { grid-column: auto; }
+    .achei-sit { scroll-margin-top: 90px; }
+    .injus-lista { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+/* com "Mais filtros" aberto pelo endereço (?lugar=, ?perigo=), o fieldset crescia até a largura dos chips e a página rolava de lado no celular */
+.filtros-bichos, .filtros-bichos fieldset, .mais-filtros { min-width: 0; }

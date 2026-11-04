@@ -13,12 +13,15 @@ COMPARTILHADAS = ['index.html', 'descobrir.html', 'achei-um-ninho.html', 'criar.
 MENU = [('index.html', 'Início'), ('identificar.html', 'Que bicho é?'), ('bichos.html', 'Bichos'), ('socorro.html', 'Socorro'), ('aprender.html', 'Aprender')]
 ATUAL = {'bicho-': 'bichos.html', 'emergencia': 'socorro.html', 'cartao': 'socorro.html', 'soro': 'socorro.html',
          'mitos': 'aprender.html', 'jogo': 'aprender.html', 'diferencas': 'aprender.html', 'prevenir': 'aprender.html',
-         'numeros': 'aprender.html', 'escola': 'aprender.html'}
+         'numeros': 'aprender.html', 'escola': 'aprender.html', 'achei.html': 'socorro.html'}
 # o endereço no ar (para o WhatsApp e as imagens de compartilhar); vai mudar para picanaopica.linupedia.com.br (NO-COMPUTADOR, seção 10)
 URL_SITE = 'https://picanaopica.linupedia.com.br/'
 REVISAO = '4/11/2026'
 SITIO = AQUI.parents[2] / 'sitios' / 'pica-nao-pica'
-JS = 'guia.js?v=4'
+JS = 'guia.js?v=5'
+# o CSS das páginas em português (4/11/2026): sobe sozinho aqui; as outras 12 línguas continuam com o número do modelo
+CSS_PT = 'estilo.css?v=11'
+CSS_LINK = re.compile(r'<link rel="stylesheet" href="\{\{raiz\}\}css/estilo\.css\?v=\d+">')
 
 def fui_picado(arquivo):
     atual = ' aria-current="page"' if arquivo == 'emergencia.html' else ''
@@ -344,10 +347,13 @@ cabeca = resolver(cabeca); rodape = resolver(rodape)
 # o molde já traz, da rodada anterior, o botão "Fui picado" e o manifesto das páginas em português: tira para não repetir
 cabeca = re.sub(r'\{\{\?pt-BR\}\}(?:<a class="fui-picado"|\s*<link rel="manifest"|\s*<script src="\{\{raiz\}\}js/guia).*?\{\{/pt-BR\}\}\n?', '', cabeca, flags=re.S)
 cabeca = re.sub(r'<ul class="menu">.*?</ul>', '{{MENU}}', cabeca, flags=re.S)
+# o CSS: o molde de Créditos traz as duas versões (a das outras línguas e a do português); aqui fica só a do português
+cabeca = re.sub(r'\{\{!pt-BR\}\}(<link rel="stylesheet"[^>]*>)\{\{/!pt-BR\}\}\{\{\?pt-BR\}\}<link rel="stylesheet"[^>]*>\{\{/pt-BR\}\}', r'\1', cabeca)
+cabeca = CSS_LINK.sub('<link rel="stylesheet" href="{{raiz}}css/' + CSS_PT + '">', cabeca)
 cabeca = re.sub(r'<a class="marca" href="index.html">.*?</a>', f'<a class="marca" href="index.html">{MARCA_PT}</a>', cabeca, flags=re.S)
 cabeca = re.sub(r"<link rel=\"icon\"[^>]*>", "<link rel=\"icon\" href=\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🐍%3C/text%3E%3C/svg%3E\">", cabeca)
 rodape = rodape.replace('{{idiomas}}', '')
-RODAPE_PT = f'<p>{NOME} é um guia de estudo: não substitui o atendimento médico. Em caso de acidente, ligue 192 ou vá ao serviço de saúde mais perto.</p><p><a href="fontes.html">Fontes</a> · <a href="descobrir.html">Abelhas sem ferrão</a> · <a href="creditos.html">Créditos das fotos</a> · Projeto de estudo de Luiz Matheus Moraes Vega</p>'
+RODAPE_PT = f'<p>{NOME} é um guia de estudo: não substitui o atendimento médico. Em caso de acidente, ligue 192 ou vá ao serviço de saúde mais perto.</p><p><a href="fontes.html">Fontes</a> · <a href="origem.html">De onde veio este guia</a> · <a href="creditos.html">Créditos das fotos</a> · Projeto de estudo de Luiz Matheus Moraes Vega</p>'
 rodape = re.sub(r'<div class="container">.*?</div>', '<div class="container">' + RODAPE_PT + '</div>', rodape, count=1, flags=re.S)
 so_pt = []
 def pagina(arquivo, titulo, descricao, corpo, scripts=(), imagem='img/compartilhar/guia.jpg'):
@@ -371,6 +377,10 @@ def selo(b, curto=False):
     return f'<span class="perigo perigo-{b["p"]}"><strong>{nome}</strong> {sub}</span>'
 
 # ---------------------------------------------------------------- as fichas (bicho-<id>.html)
+# "Achei um… e agora?" (achei.html, 4/11/2026): a situação de cada bicho que aparece em casa, no quintal ou no corpo
+ACHOU = {'abelha-sem-ferrao': 'jatai', 'abelha-africanizada': 'enxame', 'vespa': 'vespa', 'escorpiao-amarelo': 'escorpiao',
+         'escorpiao-marrom': 'escorpiao', 'escorpiao-preto': 'escorpiao', 'taturana': 'taturana', 'lagarta-urticante': 'taturana',
+         'carrapato': 'carrapato', **{b['id']: 'cobra' for b in B if b['g'] == 'Cobras'}}
 def ficha(b, n):
     ant, prox = B[n - 1], B[(n + 1) % len(B)]
     rec = ''.join(f'<li>{x}</li>' for x in b['rec'])
@@ -378,7 +388,10 @@ def ficha(b, n):
     pares = [(y if x == b['id'] else x, t) for x, y, t in PARES if b['id'] in (x, y)]
     comp = ''.join(f'<div class="par"><p class="par-nome"><a href="bicho-{o}.html">{POR_ID[o]["n"]}</a> {selo(POR_ID[o])}</p><p><strong>A diferença:</strong> {t}</p></div>' for o, t in pares)
     comp = f'<section aria-labelledby="conf-t"><h2 id="conf-t">Não confunda com</h2>{comp}</section>' if comp else ''
-    abelha = '<p><a class="botao" href="descobrir.html">Conhecer as abelhas sem ferrão</a> <a class="botao botao-claro" href="achei-um-ninho.html">Achei um ninho!</a></p>' if b['id'] == 'abelha-sem-ferrao' else ''
+    achou = f'<p><a class="botao botao-claro" href="achei.html#{ACHOU[b["id"]]}">Achou um? O que fazer</a></p>' if b['id'] in ACHOU else ''
+    if b['id'] == 'abelha-sem-ferrao':
+        achou = '<p><a class="botao" href="achei.html#jatai">Achei um ninho: o que fazer</a> <a class="botao botao-claro" href="descobrir.html">Conhecer as abelhas sem ferrão</a></p>'
+    abelha = achou
     corpo = f'''        <article class="ficha-bicho">
             <div class="container">
                 <p class="trilha"><a href="bichos.html">Bichos</a> <span aria-hidden="true">›</span> {b['n']}</p>
@@ -451,6 +464,7 @@ bichos = f'''        <section class="titulo-guia">
                     <fieldset><legend>Onde você mora?</legend><div class="chips">{chips_r}</div>{MAPA}</fieldset>
                     </details>
                     <p class="contagem" aria-live="polite"><strong id="contagem">{len(B)}</strong> bichos</p>
+                    <p class="filtros-achei">Achou um ninho, uma cobra ou um escorpião? <a href="achei.html">O que fazer</a></p>
                 </div>
                 <ul class="bichos-lista">{''.join(cartao(b) for b in B)}</ul>
                 <p class="vazio" hidden>Nenhum bicho com esses filtros.</p>
@@ -478,7 +492,7 @@ ARVORE = {
  'sapo': {'p': 'Qual dos dois?', 'o': [('Sapo grande, de pele com verrugas', '=sapo-cururu'), ('Lagartixa de parede', '=lagartixa')]},
  'agua': {'p': 'Onde foi?', 'o': [('No mar: bicho gelatinoso com tentáculos', '=agua-viva'), ('No mar: espinhos no pé, nas pedras', '=ourico'), ('No rio: ferroada no pé, na areia', '=arraia')]},
 }
-ID_DADOS = {b['id']: {'n': b['n'], 'pica': b['pica'], 'p': b['p'], 'pn': PERIGO[b['p']][0], 'ps': PERIGO[b['p']][1], 'r': b['r'], 'soc': b['soc'], 'lug': b['lug']} for b in B}
+ID_DADOS = {b['id']: {'n': b['n'], 'pica': b['pica'], 'p': b['p'], 'pn': PERIGO[b['p']][0], 'ps': PERIGO[b['p']][1], 'r': b['r'], 'soc': b['soc'], 'lug': b['lug'], **({'ach': ACHOU[b['id']]} if b['id'] in ACHOU else {})} for b in B}
 def alcanca(destino):
     return [destino[1:]] if destino.startswith('=') else sorted({i for _, d in ARVORE[destino]['o'] for i in alcanca(d)})
 ident_json = json.dumps({'arvore': {k: {'p': v['p'], 'o': [[t, d, alcanca(d)] for t, d in v['o']]} for k, v in ARVORE.items()}, 'bichos': ID_DADOS, 'lugares': LUGARES}, ensure_ascii=False).replace('</', '<\\/')
@@ -554,6 +568,7 @@ socorro = f'''        <section class="titulo-guia titulo-socorro">
                     <section aria-labelledby="mais-t">
                         <h2 id="mais-t">Para estar pronto</h2>
                         <p class="socorro-mais"><a class="botao botao-socorro" href="emergencia.html">Fui picado: a tela da emergência</a> <a class="botao botao-claro" href="cartao.html">Cartão para o hospital</a> <a class="botao botao-claro" href="soro.html">Onde tem soro</a></p>
+                        <p>Ninguém foi picado, mas achou um bicho em casa, no quintal ou no corpo? Veja <a href="achei.html">“Achei um… e agora?”</a>.</p>
                     </section>
                     <p class="revisao">Texto conferido nas fontes em {REVISAO}. Ainda não passou pela leitura de um profissional de saúde.</p>
                 </div>
@@ -619,7 +634,7 @@ FONTES += [
  (33, 'Ministério da Saúde. Boletim Epidemiológico, vol. 55, nº 15 (acidentes com serpentes): 342.713 acidentes com animais peçonhentos notificados em 2023 (escorpiões 58,79%, aranhas 12,85%, abelhas 9,85%, serpentes 9,51%, lagartas 2,07%, outros 5,35%) e 143 mortes por serpentes.', 'https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/a/animais-peconhentos/boletins-epidemiologicos/boletim-epidemiologico-volume-55-no-15'),
  (34, 'Ministério da Saúde. Boletim Epidemiológico, vol. 56, nº 5 (acidentes com escorpiões): 202.714 acidentes em 2023, 58,9% de todos os acidentes com animais peçonhentos.', 'https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/a/animais-peconhentos/boletins-epidemiologicos/boletim-epidemiologico-vol-56-no-5'),
  (35, 'Ministério da Saúde. Acidentes ofídicos, situação epidemiológica: os acidentes com cobras são mais frequentes nos meses quentes e chuvosos.', 'https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/a/animais-peconhentos/acidentes-ofidicos/situacao-epidemiologica'),
- (36, 'Ministério da Saúde. Acidentes por escorpiões, perguntas frequentes: o que fazer (lavar com água e sabão e ir sem demora ao serviço de saúde) e a época (na primavera, com as chuvas, os acidentes aumentam, com o pico em outubro e novembro).', 'https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/a/animais-peconhentos/acidentes-por-escorpioes/faq'),
+ (36, 'Ministério da Saúde. Acidentes por escorpiões, perguntas frequentes: o que fazer (lavar com água e sabão e ir sem demora ao serviço de saúde) e a época (na primavera, com as chuvas, os acidentes aumentam, com o pico em outubro e novembro); achou um em casa: se se sentir seguro, prender num pote fundo com tampa de rosca e avisar o serviço de controle de escorpiões do município.', 'https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/a/animais-peconhentos/acidentes-por-escorpioes/faq'),
  (37, 'Petlove. Cachorro picado por cobra: os sinais (inchaço, dor, pele roxa) e o veterinário na hora.', 'https://www.petlove.com.br/dicas/cachorro-picado-por-cobra-o-que-fazer'),
  (38, 'Petscare. Sapos e cães: lavar a boca com água corrente, sem deixar engolir, e ir ao veterinário (salivação, vômito, convulsão).', 'https://www.petscare.com/pt/news/post/are-frogs-poisonous-to-dogs'),
  (39, 'Jornal de Brasília, com a Agência Brasil (2024): as aranhas são a segunda causa de acidentes, com 43.933 casos em 2023.', 'https://jornaldebrasilia.com.br/noticias/saude/picadas-de-aranhas-sao-segunda-causa-de-envenenamento-no-pais/'),
@@ -635,7 +650,7 @@ FONTES += [
  (49, 'Manual MSD. Picadas de ouriços-do-mar: tirar os espinhos logo e pôr o local em água quente, sem queimar.', 'https://www.msdmanuals.com/pt/casa/les%C3%B5es-e-envenenamentos/mordidas-e-picadas/picadas-de-ouri%C3%A7os-do-mar'),
  (50, 'Ministério da Saúde. Doença de Chagas: ao achar um barbeiro, não esmagar, proteger a mão com luva ou saco plástico, pôr num pote com tampa e levar ao Posto de Informação de Triatomíneos; o parasita passa pelas fezes do inseto.', 'https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/d/doenca-de-chagas'),
  (51, 'National Geographic Brasil (2023). Cinco curiosidades sobre o barbeiro: o parasita da doença de Chagas está nas fezes do inseto.', 'https://www.nationalgeographicbrasil.com/animais/2023/04/as-5-curiosidades-sobre-o-barbeiro-o-inseto-que-transmite-a-doenca-de-chagas'),
- (52, 'Ministério da Saúde. Febre maculosa: tirar o carrapato com pinça, sem apertar nem esmagar, puxando com cuidado; roupa clara, calça e botas; quanto antes tirar, menor o risco.', 'https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/f/febre-maculosa'),
+ (52, 'Ministério da Saúde. Febre maculosa: tirar o carrapato com pinça, sem apertar nem esmagar, puxando com cuidado; roupa clara, calça e botas; quanto antes tirar, menor o risco; depois, lavar o local com água e sabão.', 'https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/f/febre-maculosa'),
  (53, 'Prefeitura de Belo Horizonte. Febre maculosa: transmissão pelo carrapato-estrela, sintomas e prevenção.', 'https://prefeitura.pbh.gov.br/saude/informacoes/vigilancia/vigilancia-epidemiologica/doencas-transmissiveis/febre-maculosa'),
  (54, 'Fiocruz. Casos de meningite transmitida por caramujo se espalham pelo país: a pessoa se infecta ao engolir o caramujo ou o muco dele, também em verdura mal lavada; a dor de cabeça é muito forte.', 'https://portal.fiocruz.br/noticia/casos-de-meningite-transmitida-por-caramujo-se-espalham-pelo-pais'),
  (55, 'Ministério da Saúde. Boletim Epidemiológico, vol. 55, nº 15, tabela 1: em 2023, Roraima (81,81), Pará (59,63) e Acre (51,83) tiveram mais acidentes com cobras por 100 mil habitantes.', 'https://www.gov.br/saude/pt-br/assuntos/saude-de-a-a-z/a/animais-peconhentos/boletins-epidemiologicos/boletim-epidemiologico-volume-55-no-15'),
@@ -792,6 +807,8 @@ DESENHOS = {
                svg('<path class="d-marrom" d="M30 70h70v18H30z"/><path class="d-marrom-traco" d="M100 79 C130 79 150 70 150 50 C150 30 130 22 118 32"/><text class="d-rotulo" x="120" y="100">sem serrinha</text>', 'Escorpião marrom-escuro, sem serrinha na cauda')),
  'vespa': (svg('<circle class="d-tinta" cx="40" cy="60" r="13"/><ellipse class="d-tinta" cx="72" cy="60" rx="18" ry="13"/><path class="d-traco-fino" d="M90 60h22"/><ellipse class="d-tinta" cx="140" cy="60" rx="30" ry="15"/><text class="d-rotulo" x="78" y="100">cintura fina</text>', 'Vespa: corpo liso, com a cintura bem fina'),
            svg('<circle class="d-tinta" cx="45" cy="60" r="14"/><ellipse class="d-tinta" cx="80" cy="60" rx="22" ry="18"/><ellipse class="d-tinta" cx="125" cy="60" rx="28" ry="20"/><g class="d-pelos"><path d="M70 40l-3-6M80 39v-7M90 40l3-6M115 39l-2-6M125 38v-7M135 39l3-6M70 80l-3 6M80 81v7M90 80l3 6M115 81l-2 6M125 82v7M135 81l3 6"/></g><text class="d-rotulo" x="60" y="112">peluda, cintura grossa</text>', 'Abelha: peluda, sem cintura fina')),
+ 'ninho': (svg('<rect class="d-tinta" x="0" y="0" width="90" height="120"/><path class="d-rejunte" d="M0 40h90M0 80h90M45 0v40M20 40v40M70 40v40M45 80v40"/><path class="d-traco-fino" d="M90 62h34"/><circle class="d-tinta" cx="140" cy="50" r="3"/><circle class="d-tinta" cx="150" cy="66" r="3"/><circle class="d-tinta" cx="134" cy="76" r="3"/><text class="d-rotulo" x="96" y="108">tubinho de cera</text>', 'Muro com um tubinho de cera saindo, a entrada do ninho, e três abelhas pequenas por perto'),
+           svg('<path class="d-traco-fino" d="M10 12h180"/><path class="d-traco-fino" d="M100 12v14"/><ellipse class="d-tinta" cx="100" cy="62" rx="42" ry="36"/><path class="d-fundo" d="M80 92h8l4 7-4 7h-8l-4-7zM96 92h8l4 7-4 7h-8l-4-7zM112 92h8l4 7-4 7h-8l-4-7z"/><text class="d-rotulo" x="4" y="116">ninho de papel</text>', 'Ninho de vespa pendurado num galho, como um saco de papel, com os favos abertos embaixo')),
  'lagarta': (svg('<rect class="d-tinta" x="20" y="60" width="160" height="26" rx="13"/><g class="d-pelos"><path d="M40 60v-20m0 8-8-8m8 8 8-8M70 60v-20m0 8-8-8m8 8 8-8M100 60v-20m0 8-8-8m8 8 8-8M130 60v-20m0 8-8-8m8 8 8-8M160 60v-20m0 8-8-8m8 8 8-8"/></g><text class="d-rotulo" x="20" y="110">espinhos como pinheirinhos</text>', 'Lonomia: espinhos ramificados como pinheirinhos'),
             svg('<rect class="d-tinta" x="20" y="60" width="160" height="26" rx="13"/><g class="d-pelos"><path d="M35 60l-4-16M50 60v-18M65 60l4-16M80 60l-4-16M95 60v-18M110 60l4-16M125 60l-4-16M140 60v-18M155 60l4-16M170 60l4-14"/></g><text class="d-rotulo" x="20" y="110">pelos simples</text>', 'Outra lagarta, de pelos simples')),
 }
@@ -805,13 +822,30 @@ DIFS = [
  ('taturana', 'lagarta-urticante', 'Espinhos ramificados como pinheirinhos, em grupo no tronco', 'Pelos ou espinhos simples', 'lagarta', 'Na dúvida, trate qualquer lagarta de fogo como Lonomia.', [8, 9]),
  ('armadeira', 'caranguejeira', 'Média, pouco peluda; levanta as patas da frente', 'Muito grande e peluda; anda devagar', None, 'A armadeira dói muito e pode ser grave em crianças; o veneno da caranguejeira é fraco.', [6, 7]),
  ('abelha-africanizada', 'abelha-sem-ferrao', 'Peluda, de uns 1,5 cm; pica e deixa o ferrão', 'Pequena; não pica', None, 'A africanizada pica; a sem ferrão, nativa do Brasil, não.', [14]),
+ # a rodada "Abelhas e vespas" (4/11/2026): os bichos que voam ou andam em bando e se confundem
+ ('abelha-sem-ferrao', 'vespa', 'Pequena; a entrada do ninho é um tubinho de cera', 'Lisa, de cintura fina; o ninho é de “papel”, cinza ou marrom', 'ninho', 'A vespa pica, e pode picar de novo; a abelha sem ferrão não pica.', [25]),
+ ('lava-pes', 'tocandira', 'Pequena e avermelhada; vive em montes de terra fofa no gramado', 'Grande (2 a 3 cm) e escura; anda sozinha em troncos e no chão da mata', None, 'As duas picam. A lava-pés arde; a tocandira dói muito mais e por muitas horas.', [25, 26]),
 ]
+# a rodada "Abelhas e vespas": os pares e, para cada um, mais pistas tiradas das fichas e do teste das abelhas (lado a ou b)
+ABELHAS_PARES = {('vespa', 'abelha-africanizada'): [('a', 'O ninho é de “papel”, em beirais e galhos'), ('b', 'Defende a colmeia em grupo quando a mexem')],
+                 ('abelha-africanizada', 'abelha-sem-ferrao'): [('a', 'O ferrão fica preso na pele, com a bolsa de veneno'), ('b', 'Para se defender, algumas mordiscam ou se enroscam no cabelo')],
+                 ('abelha-sem-ferrao', 'vespa'): [('a', 'Não pica: no máximo uma mordidinha'), ('b', 'Não perde o ferrão ao picar')],
+                 ('lava-pes', 'tocandira'): [('a', 'Cada picada vira uma bolinha branca'), ('a', 'Ataca em grupo quando o monte é pisado'), ('b', 'A dor vem em ondas e pode durar um dia inteiro')]}
+assert all((a, b) in {(x[0], x[1]) for x in DIFS} for a, b in ABELHAS_PARES)
 def lado(i, traco, d):
     b = POR_ID[i]
     return f'<div class="dif-lado">{d}<p class="dif-nome"><a href="bicho-{i}.html">{b["n"]}</a></p>{selo(b)}<p>{traco}</p></div>'
-dif_html = ''.join(f'<li class="dif"><div class="dif-par">{lado(a, ta, DESENHOS[d][0] if d else "")}<span class="dif-x" aria-hidden="true">{"=" if d == "coral" else "×"}</span>{lado(b, tb, DESENHOS[d][1] if d else "")}</div><p class="dif-conclusao">{c}{"".join(fonte(k) for k in fs)}</p></li>' for a, b, ta, tb, d, c, fs in DIFS)
-dif_json = json.dumps([{'a': POR_ID[a]['n'], 'b': POR_ID[b]['n'], 'ta': ta, 'tb': tb, 'c': c} for a, b, ta, tb, d, c, fs in DIFS if d != 'coral'], ensure_ascii=False).replace('</', '<\\/')
-pagina('diferencas.html', f'Qual é a diferença? — {NOME}', 'Coral e falsa-coral, jararaca e jiboia, aranha-marrom e opilião, abelha e vespa: o detalhe que separa os bichos parecidos, desenhado, e um jogo.', f'''        <section class="titulo-guia">
+def dif_li(a, b, ta, tb, d, c, fs):
+    return f'<li class="dif"><div class="dif-par">{lado(a, ta, DESENHOS[d][0] if d else "")}<span class="dif-x" aria-hidden="true">{"=" if d == "coral" else "×"}</span>{lado(b, tb, DESENHOS[d][1] if d else "")}</div><p class="dif-conclusao">{c}{"".join(fonte(k) for k in fs)}</p></li>'
+dif_outros = ''.join(dif_li(*x) for x in DIFS if (x[0], x[1]) not in ABELHAS_PARES)
+dif_abelhas = ''.join(dif_li(*x) for x in DIFS if (x[0], x[1]) in ABELHAS_PARES)
+def dif_dado(a, b, ta, tb, d, c, fs):
+    x = {'a': POR_ID[a]['n'], 'b': POR_ID[b]['n'], 'ta': ta, 'tb': tb, 'c': c}
+    if (a, b) in ABELHAS_PARES:
+        x['r'] = 'abelhas'; x['mais'] = [[l, t] for l, t in ABELHAS_PARES[(a, b)]]
+    return x
+dif_json = json.dumps([dif_dado(*x) for x in DIFS if x[4] != 'coral'], ensure_ascii=False).replace('</', '<\\/')
+pagina('diferencas.html', f'Qual é a diferença? — {NOME}', 'Coral e falsa-coral, jararaca e jiboia, aranha-marrom e opilião, abelha e vespa: o detalhe que separa os bichos parecidos, desenhado, e um jogo com a rodada “Abelhas e vespas”.', f'''        <section class="titulo-guia">
             <div class="container">
                 <h1>Qual é a diferença?</h1>
                 <p>Bichos parecidos, lado a lado, com o detalhe que separa um do outro desenhado. Depois, teste no jogo.</p>
@@ -821,13 +855,20 @@ pagina('diferencas.html', f'Qual é a diferença? — {NOME}', 'Coral e falsa-co
             <div class="container diferencas">
                 <section class="dif-jogo jogo-caixa" aria-labelledby="dj-t" hidden>
                     <h2 id="dj-t">Jogo: qual dos dois?</h2>
+                    <div class="jogo-modos"><div class="chips" role="group" aria-label="Qual rodada"><button type="button" class="chip" data-rodada="" aria-pressed="true">Todos os pares</button><button type="button" class="chip" data-rodada="abelhas" aria-pressed="false">Abelhas e vespas</button></div></div>
                     <p class="jogo-placar"></p>
                     <p class="jogo-pergunta" tabindex="-1"></p>
                     <div class="jogo-botoes"></div>
                     <p class="jogo-retorno" hidden></p>
                     <button type="button" class="botao botao-claro jogo-proxima" hidden>Próxima</button>
                 </section>
-                <ul class="dif-lista">{dif_html}</ul>
+                <div class="dif-colunas">
+                <nav class="indice-pagina" aria-label="Nesta página"><a href="#dif-outros-t">Cobras, aranhas, escorpiões e lagartas</a><a href="#abelhas">Abelhas, vespas e formigas</a></nav>
+                <section aria-labelledby="dif-outros-t"><h2 id="dif-outros-t" class="dif-grupo-t">Cobras, aranhas, escorpiões e lagartas</h2><ul class="dif-lista">{dif_outros}</ul></section>
+                <section id="abelhas" aria-labelledby="dif-abelhas-t"><h2 id="dif-abelhas-t" class="dif-grupo-t">Abelhas, vespas e formigas</h2>
+                <p>Abelha que pica, abelha que não pica, vespa e formiga: os que mais se confundem. Jogue a rodada só com eles no jogo acima, em “Abelhas e vespas”. Achou um ninho? Veja <a href="achei.html#jatai">o que fazer</a>.</p>
+                <ul class="dif-lista">{dif_abelhas}</ul></section>
+                </div>
                 <script type="application/json" id="dif-dados">{dif_json}</script>
             </div>
         </section>
@@ -1050,8 +1091,148 @@ pagina('escola.html', f'Para a escola — {NOME}', 'Plano de aula, atividades pa
         </section>
 ''', scripts=[JS])
 
+# ================================================================ A parte das abelhas, arrumada (4/11/2026)
+# "Achei um… e agora?" (achei.html), "Os injustiçados" (na inicial) e "De onde veio este guia" (origem.html). As fontes
+# novas são de órgãos oficiais: Corpo de Bombeiros, Secretaria de Saúde de Goiás e Embrapa.
+FONTES += [
+ (63, 'Secretaria de Estado da Saúde de Goiás. Lonomia obliqua, conhecer para prevenir acidentes (folheto): achou a lagarta, avise o controle de vetores ou endemias, o agente de saúde ou a secretaria municipal de saúde, com uma foto nítida; nunca tente capturar; em caso de contato, lave com água fria e sabão e vá à unidade de saúde.', 'https://goias.gov.br/saude/wp-content/uploads/sites/34/2021/01/Foldersobrelonomiaobliqua-4cb.pdf'),
+ (64, 'Corpo de Bombeiros Militar do Ceará. Saiba o que fazer se encontrar uma cobra dentro de casa: não tocar no animal, tirar crianças e animais domésticos de perto e ligar 193.', 'https://www.bombeiros.ce.gov.br/2021/09/12/cbmce-saiba-o-que-fazer-se-encontrar-uma-cobra-dentro-de-casa/'),
+ (65, 'Corpo de Bombeiros Militar de Mato Grosso do Sul. Cuidados com abelhas: nunca tentar tirar o enxame por conta própria, afastar-se e ligar 193; não jogar objetos nem bater nas abelhas; afastar crianças, idosos e animais; matar abelhas é crime ambiental (Lei 9.605/98).', 'https://www.bombeiros.ms.gov.br/corpo-de-bombeiros-militar-alerta-a-populacao-sobre-cuidados-com-abelhas/'),
+ (66, 'Corpo de Bombeiros Militar de Mato Grosso (Sesp-MT). Cuidados ao lidar com abelhas, marimbondos e vespas: não lidar sozinho com enxames; para ninhos, bombeiros ou controladores de pragas; enxame de abelhas, 193 ou um apicultor; nada de movimentos bruscos.', 'https://www.sesp.mt.gov.br/en/-/corpo-de-bombeiros-orienta-sobre-cuidados-ao-lidar-com-abelhas-marimbondos-e-vespas'),
+ (67, 'Embrapa Meio-Norte. Sistema de criação de abelhas-sem-ferrão: as abelhas sem ferrão polinizam 30% das espécies de plantas da Caatinga e do Pantanal e até 90% das da Mata Atlântica, e fazem mel; a jataí está entre as mais criadas.', 'https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/1079116/1/CriacaoAbelhaSemFerrao.pdf'),
+]
+def fs_(*ns): return ''.join(fonte(n) for n in ns)
+# cada situação: id, título, como saber, o que fazer agora, quem chamar, o que nunca fazer, as fichas, mais um link e as fontes
+ACHEI = [
+ ('jatai', 'Um ninho de abelha sem ferrão (jataí)', 'Abelhas pequenas, amarelas ou pretas, e uma entrada em tubinho de cera ou de barro num muro, tronco ou poste.',
+  ['Calma: as abelhas sem ferrão não picam. No máximo, uma mordidinha.', 'Se o ninho não atrapalha, deixe ele lá. Elas não fazem mal a pessoas nem a cães e gatos, e polinizam as plantas do bairro.' + fs_(67),
+   'Tire uma foto da entrada e, se der, das abelhas de perto. Ajuda a saber a espécie.', 'Anote onde está: o endereço, se é muro, árvore ou poste, e a que altura.'],
+  'Se precisar tirar o ninho: um meliponicultor (criador de abelhas nativas) ou uma associação de meliponicultores da sua região. Mande a foto e o local.',
+  ['Tapar a entrada.', 'Jogar água, fogo ou veneno.', 'Arrancar o ninho sem técnica: isso costuma matar a colônia.'],
+  ['abelha-sem-ferrao'], ('diferencas.html?rodada=abelhas#abelhas', 'É jataí ou africanizada? Veja a diferença'), [67]),
+ ('enxame', 'Um enxame ou colmeia de abelha africanizada', 'Abelhas peludas, amarelas e pretas, de uns 1,5 cm, em ocos, telhados, caixas ou árvores. Muitas voando em volta.',
+  ['Afaste-se devagar, sem movimentos bruscos, e saia do caminho por onde as abelhas voam.' + fs_(14, 65), 'Leve crianças, idosos e animais para longe: o barulho deles pode irritar as abelhas.' + fs_(65),
+   'Barulho, perfume forte, suor e roupa escura deixam as abelhas mais bravas.' + fs_(14)],
+  'Os bombeiros, no <a href="tel:193">193</a>, ou um apicultor. Tirar uma colmeia é trabalho de quem tem treino e equipamento.' + fs_(65, 66, 14),
+  ['Tentar tirar a colmeia por conta própria.' + fs_(65), 'Jogar objetos, bater ou tentar matar as abelhas. Matar abelhas é crime ambiental.' + fs_(65)],
+  ['abelha-africanizada'], ('socorro.html#abelha', 'Picou? O que fazer'), [14, 65, 66]),
+ ('vespa', 'Um ninho de vespa ou de marimbondo perto de casa', 'Um ninho de “papel”, cinza ou marrom, em beirais, árvores ou arbustos. As vespas são lisas, de cintura fina.',
+  ['Afaste-se do ninho, sem movimentos bruscos.' + fs_(66), 'Lembre: a vespa não perde o ferrão e pode picar várias vezes.' + fs_(25), 'Avise quem mora ou trabalha perto, para ninguém cutucar o ninho.'],
+  'Os bombeiros, no <a href="tel:193">193</a>, ou uma empresa de controle de pragas.' + fs_(66),
+  ['Cutucar ou derrubar o ninho.', 'Tentar tirar o ninho por conta própria.' + fs_(66)],
+  ['vespa'], ('socorro.html#abelha', 'Picou? O que fazer'), [25, 66]),
+ ('escorpiao', 'Um escorpião dentro de casa', 'Um bicho de pinças e cauda com ferrão, de uns 7 cm, que aparece à noite em ralos, frestas e entulho.',
+  ['Afaste as crianças: nelas, a picada pode ser grave.' + fs_(5), 'Se você se sentir seguro, prenda o escorpião num pote fundo, com tampa de rosca, empurrando com um papel grosso. Nunca com a mão.' + fs_(36),
+   'Avise o serviço de controle de escorpiões do município e pergunte o que fazer com ele.' + fs_(36), 'Depois, procure de onde ele veio: ralos, entulho, frestas. Faça o <a href="prevenir.html#casa-t">teste da casa</a>.' + fs_(3)],
+  'O serviço de controle de escorpiões do município (muitas vezes, a vigilância ambiental ou o controle de zoonoses).' + fs_(36),
+  ['Usar inseticida: pode espalhar os escorpiões pela casa.' + fs_(21), 'Contar com galinha ou planta para resolver: não funciona.' + fs_(21)],
+  ['escorpiao-amarelo', 'escorpiao-marrom', 'escorpiao-preto'], ('socorro.html#escorpiao', 'Picou? O que fazer'), [36, 21, 5, 3]),
+ ('cobra', 'Uma cobra no quintal ou dentro de casa', 'Qualquer cobra: com ou sem desenhos, colorida ou não.',
+  ['Não toque na cobra: ameaçada, ela pode atacar.' + fs_(64), 'Tire crianças e animais de perto.' + fs_(64),
+   'Não tente descobrir se tem veneno. Nem a coral-verdadeira dá para separar da falsa a olho nu.' + fs_(13)],
+  'Os bombeiros, no <a href="tel:193">193</a>. Eles levam a cobra embora.' + fs_(64),
+  ['Tocar ou tentar pegar a cobra.' + fs_(64), 'Chegar perto para ver melhor ou para tirar foto.'],
+  ['jararaca', 'coral', 'jiboia'], ('socorro.html#cobra', 'Picou? O que fazer'), [64, 13]),
+ ('taturana', 'Uma taturana (lagarta) na árvore ou no muro', 'Lagartas de espinhos, muitas vezes em grupo, paradas no tronco. A Lonomia tem espinhos ramificados como pinheirinhos.',
+  ['Não toque: o veneno está nos espinhos.' + fs_(63), 'Tire uma foto nítida, sem chegar perto.' + fs_(63), 'Antes de encostar em troncos e folhas, olhe bem. Para podar, use luvas.' + fs_(9, 63)],
+  'A secretaria municipal de saúde, o agente de saúde ou o controle de vetores e endemias do município. Mande a foto.' + fs_(63),
+  ['Tentar capturar ou tirar as lagartas: só um profissional treinado.' + fs_(63), 'Queimar ou esmagar com a mão.'],
+  ['taturana', 'lagarta-urticante'], ('socorro.html#lagarta', 'Encostou? O que fazer'), [63, 9]),
+ ('carrapato', 'Um carrapato grudado no corpo', 'Um bichinho achatado, escuro, preso na pele. Os filhotes (micuins) são minúsculos e vêm em grupo.',
+  ['Tire logo: quanto mais rápido, menor o risco de doença.' + fs_(52), 'Use uma pinça e puxe com cuidado e firmeza.' + fs_(52), 'Depois, lave o lugar com água e sabão.' + fs_(52),
+   'Nas duas semanas seguintes, preste atenção: febre, dor de cabeça ou dor no corpo são motivo para ir ao serviço de saúde.' + fs_(52, 57)],
+  'Ninguém, se o carrapato saiu inteiro. Com febre nos dias seguintes, o serviço de saúde, contando que teve carrapato.' + fs_(52, 57),
+  ['Apertar ou esmagar o carrapato.' + fs_(52)],
+  ['carrapato'], ('socorro.html#doenca', 'O que fazer com carrapato, barbeiro e caramujo'), [52, 57]),
+]
+assert set(ACHOU.values()) <= {a[0] for a in ACHEI}
+def achei_sit(i, t, como, agora, chamar, nunca, fichas, mais, fs):
+    fich = ''.join(f'<a class="botao botao-claro" href="bicho-{b}.html">Ficha: {POR_ID[b]["n"]}</a>' for b in fichas)
+    return (f'<section class="achei-sit" id="{i}" aria-labelledby="{i}-t"><h2 id="{i}-t">{t}</h2><p class="achei-como"><strong>Como saber:</strong> {como}</p>'
+            f'<div class="achei-grade"><div class="achei-agora"><h3>O que fazer agora</h3><ol class="lista">{"".join(f"<li>{x}</li>" for x in agora)}</ol></div>'
+            f'<div class="achei-chamar"><h3>Quem chamar</h3><p>{chamar}</p></div>'
+            f'<div class="nunca achei-nunca"><h3>Nunca</h3><ul>{"".join(f"<li>{x}</li>" for x in nunca)}</ul></div></div>'
+            f'<p class="achei-links">{fich}<a class="botao botao-claro" href="{mais[0]}">{mais[1]}</a></p></section>')
+def curto(t):
+    t = t.replace('Um ', '', 1).replace('Uma ', '', 1)
+    return t[0].upper() + t[1:]
+achei_indice = ''.join(f'<a href="#{i}">{curto(t)}</a>' for i, t, *_ in ACHEI)
+pagina('achei.html', f'Achei um… e agora? — {NOME}', 'Achou um ninho de abelha, um enxame, um ninho de vespa, um escorpião em casa, uma cobra no quintal, uma taturana ou um carrapato? O que fazer, quem chamar e o que nunca fazer.', f"""        <section class="titulo-guia">
+            <div class="container">
+                <h1>Achei um… e agora?</h1>
+                <p>Ninguém foi picado, mas tem um bicho ali. O que fazer agora, quem chamar e o que nunca fazer.</p>
+                <p class="achei-picou">Alguém foi picado? <a href="emergencia.html">Vá para a tela da emergência</a>.</p>
+            </div>
+        </section>
+        <section class="secao">
+            <div class="container achei">
+                <nav class="indice-pagina" aria-label="As situações">{achei_indice}</nav>
+                <div class="achei-lista">{"".join(achei_sit(*x) for x in ACHEI)}
+                <p class="soc-fonte achei-fonte">Fontes:{fs_(*sorted({k for x in ACHEI for k in x[-1]}))}</p>
+                <p class="revisao">Texto conferido nas fontes em {REVISAO}. Os telefones e quem atende mudam de cidade para cidade: na dúvida, ligue 193.</p></div>
+            </div>
+        </section>
+""", scripts=[JS])
+
+# ---------------------------------------------------------------- Os injustiçados (na inicial): má fama, nenhum perigo, e alguns ainda ajudam
+INJUSTICADOS = [
+ ('abelha-sem-ferrao', 'Não pica. As abelhas sem ferrão polinizam até 90% das plantas da Mata Atlântica, e fazem mel.', [67]),
+ ('lagartixa', 'Não tem veneno. Come mosquitos, baratas, traças e aranhas, sem inseticida.', [29]),
+ ('anfisbena', 'Não é cobra e não tem veneno. Ajuda a controlar insetos e a arejar a terra.', [46]),
+ ('opiliao', 'Parece aranha, mas não tem veneno e não consegue picar uma pessoa.', [30]),
+ ('jiboia', 'Não tem veneno: mata as presas apertando. Come pequenos mamíferos, lagartos e aves.', [22]),
+ ('caninana', 'Brava quando ameaçada, mas não tem veneno.', [62]),
+]
+assert all(POR_ID[i]['p'] == 'nenhum' for i, *_ in INJUSTICADOS)
+injus_html = ''.join(f'<li class="injus"><a href="bicho-{i}.html">{miniatura(POR_ID[i])}<span class="injus-nome">{POR_ID[i]["n"]}</span></a><p>{t}{fs_(*fs)}</p></li>' for i, t, fs in INJUSTICADOS)
+INJUS = f"""        <section class="secao" id="injusticados">
+            <div class="container">
+                <h2>Os injustiçados</h2>
+                <p>Têm má fama, mas não fazem mal. Alguns ainda ajudam. Não precisa matar.</p>
+                <ul class="injus-lista">{injus_html}</ul>
+                <div class="injus-aviso"><p><strong>E a falsa-coral?</strong> A maioria não tem veneno perigoso, mas não dá para separar da coral-verdadeira a olho nu.{fs_(13, 58)} Não tente descobrir: afaste-se. <a href="bicho-falsa-coral.html">Ver a ficha</a></p></div>
+                <p><a href="bichos.html?perigo=nenhum">Ver todos os bichos sem perigo</a></p>
+            </div>
+        </section>
+"""
+
+# ---------------------------------------------------------------- De onde veio este guia (origem.html): o projeto das abelhas que virou o guia
+pagina('origem.html', f'De onde veio este guia — {NOME}', 'O Pica ou Não Pica? nasceu de um projeto de Design Thinking sobre as abelhas sem ferrão, no CEUB, em 2026. As páginas das abelhas continuam aqui.', f"""        <section class="titulo-guia">
+            <div class="container">
+                <h1>De onde veio este guia</h1>
+                <p>Tudo começou com uma abelha que não pica.</p>
+            </div>
+        </section>
+        <section class="secao">
+            <div class="container abelhas-chamada origem">
+                <div>
+                    <h2>Um projeto sobre as abelhas sem ferrão</h2>
+                    <p>Em 2026, no segundo semestre, a disciplina de Desenvolvimento de Interfaces do CEUB pediu uma atividade de Design Thinking. O tema escolhido foram as abelhas nativas sem ferrão, como a jataí.</p>
+                    <p>O problema: muita gente acha um ninho e destrói, sem saber que essas abelhas não picam.</p>
+                    <p>A partir de uma entrevista e de um protótipo, saiu uma primeira versão no Lovable. Depois, o site foi refeito do zero, em HTML, CSS e JavaScript: um percurso de três telas, o passo a passo de quem acha um ninho, como criar abelhas em casa e um teste rápido.</p>
+                    <h2>E virou o guia</h2>
+                    <p>Em novembro de 2026, a pergunta cresceu: se tanta gente tem medo de uma abelha que não pica, e os outros bichos? Quais picam de verdade, e o que fazer? Assim nasceu o {NOME}, com {len(B)} bichos, do perigoso ao inofensivo.</p>
+                    <p>A jataí continua aqui: é um dos bichos, abre <a href="index.html#injusticados">“Os injustiçados”</a> e é a primeira situação de <a href="achei.html#jatai">“Achei um… e agora?”</a>.</p>
+                </div>
+                <img src="{{{{raiz}}}}img/jatai.jpg" alt="Abelha jataí sobre uma flor branca" width="1000" height="667" loading="lazy">
+            </div>
+        </section>
+        <section class="secao secao-clara">
+            <div class="container">
+                <h2>As páginas das abelhas</h2>
+                <p>As páginas do primeiro site continuam no ar, como eram:</p>
+                <ul class="aprender-lista">
+                    <li><a class="porta-guia" href="descobrir.html"><strong>Descobrir em 3 minutos</strong><span>Três telas para conhecer as abelhas sem ferrão.</span></a></li>
+                    <li><a class="porta-guia" href="criar.html"><strong>Posso criar?</strong><span>Como começar a criar abelhas nativas em casa, do jeito certo.</span></a></li>
+                    <li><a class="porta-guia" href="teste.html"><strong>Teste rápido</strong><span>Cinco perguntas sobre as abelhas nativas.</span></a></li>
+                </ul>
+                <p class="origem-mais">Nas outras 12 línguas do site, as abelhas ainda são a página inicial, até a tradução do guia. As fotos das abelhas e os créditos estão em <a href="creditos.html">Créditos das fotos</a>.</p>
+            </div>
+        </section>
+""")
+
 # ---------------------------------------------------------------- Aprender (aprender.html): a porta dos jogos, da prevenção, dos números e da escola
-APR = [('jogo.html', 'Pica ou não pica?', 'O jogo: seis segundos para cada bicho.', 'apr-jogo'), ('mitos.html', 'Verdade ou mito?', f'{len(MITOS)} coisas que todo mundo ouve, conferidas.', ''),
+APR = [('achei.html', 'Achei um… e agora?', 'Ninho de abelha, enxame, escorpião em casa, cobra no quintal: o que fazer e quem chamar.', 'apr-largo'), ('jogo.html', 'Pica ou não pica?', 'O jogo: seis segundos para cada bicho.', 'apr-jogo'), ('mitos.html', 'Verdade ou mito?', f'{len(MITOS)} coisas que todo mundo ouve, conferidas.', ''),
        ('diferencas.html', 'Qual é a diferença?', 'Coral e falsa-coral, abelha e vespa: o detalhe, desenhado.', ''), ('prevenir.html', 'Prevenir', 'O teste da casa, as crianças, cães e gatos, a época.', 'apr-prevenir'),
        ('numeros.html', 'Os números do Brasil', '342 mil acidentes em 2023: de quais bichos.', ''), ('escola.html', 'Para a escola', 'Plano de aula, atividades e cartaz para imprimir.', '')]
 pagina('aprender.html', f'Aprender — {NOME}', 'Jogos, mitos, as diferenças entre bichos parecidos, como prevenir, os números do Brasil e material para a escola.', f'''        <section class="titulo-guia">
@@ -1118,6 +1299,13 @@ inicial = f'''{{{{?pt-BR}}}}        <section class="abertura-guia">
         </section>
         <section class="secao">
             <div class="container">
+                <h2>Achei um… e agora?</h2>
+                <p>Ninguém foi picado, mas tem um bicho ali. O que fazer, quem chamar e o que nunca fazer.</p>
+                <ul class="atalhos-lugar">{"".join(f'<li><a class="chip" href="achei.html#{i}">{curto(t)}</a></li>' for i, t, *_ in ACHEI)}</ul>
+            </div>
+        </section>
+        <section class="secao">
+            <div class="container">
                 <h2>Onde você está?</h2>
                 <p>Os bichos que aparecem em cada lugar.</p>
                 <ul class="atalhos-lugar">{"".join(f'<li><a class="chip" href="bichos.html?lugar={k}">{v}</a></li>' for k, v in LUGARES)}</ul>
@@ -1127,21 +1315,10 @@ inicial = f'''{{{{?pt-BR}}}}        <section class="abertura-guia">
         <section class="secao secao-clara">
             <div class="container">
                 <h2>Para saber antes de precisar</h2>
-                <ul class="aprender-lista">{"".join(f'<li><a class="porta-guia {c}" href="{h}"><strong>{t}</strong><span>{d}</span></a></li>' for h, t, d, c in APR)}</ul>
+                <ul class="aprender-lista">{"".join(f'<li><a class="porta-guia {c}" href="{h}"><strong>{t}</strong><span>{d}</span></a></li>' for h, t, d, c in APR if h != 'achei.html')}</ul>
             </div>
         </section>
-        <section class="secao">
-            <div class="container abelhas-chamada">
-                <div>
-                    <h2>E as abelhas sem ferrão?</h2>
-                    <p>Nem toda abelha pica. As abelhas nativas do Brasil, como a jataí, não têm ferrão que funcione, polinizam as plantas e fazem um mel especial. Este guia nasceu delas.</p>
-                    <p><a class="botao" href="descobrir.html">Descobrir em 3 minutos</a> <a class="botao botao-claro" href="achei-um-ninho.html">Achei um ninho!</a></p>
-                    <ul class="abelhas-mais"><li><a href="criar.html">Posso criar abelhas sem ferrão em casa?</a></li><li><a href="teste.html">Teste rápido: o que você sabe das abelhas</a></li></ul>
-                </div>
-                <img src="{{{{raiz}}}}img/jatai.jpg" alt="Abelha jataí sobre uma flor branca" width="1000" height="667" loading="lazy">
-            </div>
-        </section>
-{{{{/pt-BR}}}}'''
+{INJUS}{{{{/pt-BR}}}}'''
 _pt = json.loads((AQUI / 'textos' / 'pt-BR.json').read_text())
 TEXTOS_PT = _pt.get('textos', _pt)
 for f in COMPARTILHADAS:
@@ -1153,6 +1330,11 @@ for f in COMPARTILHADAS:
     t = re.sub(r'(<ul class="menu">.*?</ul>)', lambda m: '{{!pt-BR}}' + m.group(1) + '{{/!pt-BR}}{{?pt-BR}}' + menu_pt(f) + '{{/pt-BR}}', t, count=1, flags=re.S)
     t = t.replace('</nav>', '</nav>{{?pt-BR}}' + fui_picado(f) + '{{/pt-BR}}', 1)
     t = t.replace('{{alternativas}}', '{{?pt-BR}}    ' + CAB_OFF + '\n{{/pt-BR}}{{alternativas}}', 1)
+    # o CSS em português sobe de número sem mexer no das outras línguas
+    t = CSS_LINK.sub(lambda m: '{{!pt-BR}}' + m.group(0) + '{{/!pt-BR}}{{?pt-BR}}<link rel="stylesheet" href="{{raiz}}css/' + CSS_PT + '">{{/pt-BR}}', t, count=1)
+    if f == 'achei-um-ninho.html':
+        # em português, o passo a passo do ninho mora agora em "Achei um… e agora?" (4/11/2026)
+        t = t.replace('    <main id="conteudo">\n', '    <main id="conteudo">\n{{?pt-BR}}        <div class="aviso-mudou"><p><strong>Esta página mudou de lugar.</strong> O que fazer com um ninho de abelha sem ferrão, e com outros bichos que aparecem em casa, agora está em “Achei um… e agora?”.</p><p><a class="botao" href="achei.html#jatai">Ir para o ninho de jataí</a></p></div>\n{{/pt-BR}}', 1)
     if f != 'index.html':
         chave = re.search(r'<title>\{\{(\w+)\}\}</title>', t)
         if chave and chave.group(1) in TEXTOS_PT:
