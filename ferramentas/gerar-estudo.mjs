@@ -19,7 +19,7 @@ const site = process.argv[2];
 if (!site) { console.error('Diga o site: node ferramentas/gerar-estudo.mjs fotografia-do-cerrado'); process.exit(1); }
 const pasta = path.join(aqui, 'estudo', site);
 const saida = path.join(aqui, '..', 'sitios', site);
-const ENDERECOS = { 'fotografia-do-cerrado': 'https://cerrado.linupedia.com.br/', 'abelhas-sem-ferrao': 'https://abelhas.linupedia.com.br/' };
+const ENDERECOS = { 'fotografia-do-cerrado': 'https://cerrado.linupedia.com.br/', 'abelhas-sem-ferrao': 'https://picanaopica.linupedia.com.br/' };
 const ORDEM = ['pt-BR', 'pt-PT', 'es-ES', 'ca', 'nl', 'en-GB', 'fr', 'de', 'it', 'en-INTL', 'ja', 'ko', 'zh-Hant'];
 
 const ler = (p) => JSON.parse(fs.readFileSync(p, 'utf8'));

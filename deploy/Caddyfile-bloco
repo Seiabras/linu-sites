@@ -73,7 +73,7 @@ cerrado.linupedia.com.br {
 }
 
 # Abelhas sem Ferrão (sitios/abelhas-sem-ferrao)
-abelhas.linupedia.com.br {
+picanaopica.linupedia.com.br {
 	encode zstd gzip
 	header {
 		X-Content-Type-Options nosniff
@@ -105,5 +105,9 @@ cerrado.linopedia.com.br {
 	redir https://cerrado.linupedia.com.br{uri} permanent
 }
 abelhas.linopedia.com.br {
-	redir https://abelhas.linupedia.com.br{uri} permanent
+	redir https://picanaopica.linupedia.com.br{uri} permanent
+}
+# O endereço antigo das Abelhas leva ao novo (trocado em 01/11/2026)
+abelhas.linupedia.com.br {
+	redir https://picanaopica.linupedia.com.br{uri} permanent
 }

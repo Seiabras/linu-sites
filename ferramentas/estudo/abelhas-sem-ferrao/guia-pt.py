@@ -15,7 +15,7 @@ ATUAL = {'bicho-': 'bichos.html', 'emergencia': 'socorro.html', 'cartao': 'socor
          'mitos': 'aprender.html', 'jogo': 'aprender.html', 'diferencas': 'aprender.html', 'prevenir': 'aprender.html',
          'numeros': 'aprender.html', 'escola': 'aprender.html'}
 # o endereço no ar (para o WhatsApp e as imagens de compartilhar); vai mudar para picanaopica.linupedia.com.br (NO-COMPUTADOR, seção 10)
-URL_SITE = 'https://abelhas.linupedia.com.br/'
+URL_SITE = 'https://picanaopica.linupedia.com.br/'
 REVISAO = '1/11/2026'
 SITIO = AQUI.parents[2] / 'sitios' / 'abelhas-sem-ferrao'
 JS = 'guia.js?v=3'

@@ -154,7 +154,7 @@ for (const i of idiomas) {
     cafe_url: 'https://cafe.linupedia.com.br/' + (i.pasta ? i.pasta + '/' : ''),
     // os outros dois sites de estudo também (ferramentas/gerar-estudo.mjs)
     cerrado_url: 'https://cerrado.linupedia.com.br/' + (i.pasta ? i.pasta + '/' : ''),
-    abelhas_url: 'https://abelhas.linupedia.com.br/' + (i.pasta ? i.pasta + '/' : ''),
+    abelhas_url: 'https://picanaopica.linupedia.com.br/' + (i.pasta ? i.pasta + '/' : ''),
     dados_estruturados: JSON.stringify({
       '@context': 'https://schema.org',
       '@type': 'ProfessionalService',

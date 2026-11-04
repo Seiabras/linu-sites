@@ -12,7 +12,8 @@ No Registro.br → linupedia.com.br → DNS → Editar zona, acrescente:
 | A | `sites` | `168.138.155.95` |
 | A | `cafe` | `168.138.155.95` |
 | A | `cerrado` | `168.138.155.95` |
-| A | `abelhas` | `168.138.155.95` |
+| A | `picanaopica` | `168.138.155.95` |
+| A | `abelhas` | `168.138.155.95` (o endereço antigo, só redireciona) |
 
 Os registros que já existem (os da LinuPedia) ficam como estão.
 
@@ -84,7 +85,7 @@ Enquanto isso não for feito, a página já leva a mesma CSP numa `<meta>` do `i
 
 ## Os subdomínios dos sites de estudo (29/10/2026)
 
-`cafe`, `cerrado` e `abelhas` (`.linupedia.com.br`) vêm da pasta `sitios/` do repositório. A publicação automática
+`cafe`, `cerrado` e `picanaopica` (`.linupedia.com.br`) vêm da pasta `sitios/` do repositório. A publicação automática
 copia `sitios/` para `public/_sitios/` antes de empacotar, então eles chegam à VM em `/opt/linu-sites/app/_sitios/`
 junto com o resto, pelo mesmo `receber.sh`. No `Caddyfile-bloco`, cada subdomínio tem o seu bloco, com a raiz na sua
 subpasta, e o `sites.linupedia.com.br` responde 404 para `/_sitios`, para os sites só abrirem pelo próprio endereço.

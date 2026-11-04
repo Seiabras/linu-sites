@@ -1122,7 +1122,7 @@ def cartao(e):
     selo = f'<span class="selo">{AMEACA[am]}</span>' if am else ''
     link = f'<a href="especie-{id_}.html">{nome}</a>' if ficha or id_ in FICHAS else nome
     if id_ == 'jatai':
-        texto = texto.replace('Veja o site Abelhas sem Ferrão.', 'Veja o site <a href="https://abelhas.linupedia.com.br/" rel="noopener">Abelhas sem Ferrão</a>.')
+        texto = texto.replace('Veja o site Abelhas sem Ferrão.', 'Veja o site <a href="https://picanaopica.linupedia.com.br/" rel="noopener">Abelhas sem Ferrão</a>.')
     # só o texto: os links para as paisagens ficam na ficha (e o filtro por paisagem continua na lista)
     onde = ', '.join(NOME_PAISAGEM[x].lower().replace("cerrado sentido restrito", "cerrado") for x in pais)
     return (f'<li class="esp" data-reino="{reino}" data-grupo="{grupo}" data-ameaca="{am or ""}" data-paisagens="{" ".join(pais)}" '
