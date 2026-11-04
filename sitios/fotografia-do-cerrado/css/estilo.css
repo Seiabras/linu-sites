@@ -731,6 +731,11 @@ sup.nota a { min-width: 24px; }
 /* .marca também é o logo do topo (branco, em flex): aqui volta a ser só o ✓ ou o ✗, na cor do texto */
 .quiz-opcoes .marca { display: inline; color: inherit; font: inherit; font-weight: 800; white-space: normal; }
 .esp-credito { color: var(--texto-suave); font-size: .8rem !important; margin-top: .3rem; }
+.ficha-foto { margin: 0; }
+.expedicao-foto { margin: 0; position: relative; height: 100%; }
+.expedicao-foto img { width: 100%; }
+.expedicao-foto figcaption { position: absolute; right: .5rem; bottom: .4rem; background: rgb(0 0 0 / .55); color: #fff; font-size: .72rem; padding: .1rem .45rem; border-radius: 4px; }
+.expedicao-foto figcaption a { color: inherit; }
 .paisagem-foto { margin: -.4rem -.5rem 1rem; }
 .paisagem-foto img { border-radius: 8px; width: 100%; height: auto; }
 .paisagem-foto figcaption { color: var(--texto-suave); font-size: .85rem; margin-top: .3rem; }

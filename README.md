@@ -286,6 +286,13 @@ node ferramentas/gerar-estudo.mjs abelhas-sem-ferrao
   (pistas tiradas das fichas) e há duas páginas novas, “O Cerrado mês a mês” (lista `EVENTOS`) e “Como ajudar” (lista
   `ACOES`). Para caber no orçamento de DOM, os ícones do catálogo são um `<svg>` com `<use>` (os desenhos ficam uma vez
   só, em `icones_defs()`). No tablet, o menu de 8 itens do guia vira o botão “Menu” até 1099 px (regra por `:has()`).
+- **As fotos do Guia do Cerrado (4/11/2026):** 111 das 114 espécies, 8 das 11 paisagens e os 3 parques das Expedições têm
+  foto real do Wikimedia Commons (só CC0, CC BY, CC BY-SA e domínio público; bicho livre; espécie conferida olhando), em
+  `img/especies/` (`<id>.webp` 1000 px, `-640` e `-144` quadrada) e `img/paisagens/`, com o crédito em `creditos.json` e
+  na ficha. O que ficou sem foto e por quê, e as que vale conferir, está em
+  `ferramentas/estudo/fotografia-do-cerrado/fotos-04-11.md`. Com elas, o guia sem internet passou a guardar uns 20 MB
+  (`LIMITE` do service worker calculado pelo número de endereços). Para baixar mais: `modelos/ferramentas/commons.py`
+  do linuarquivos, e depois `acervo/juntar.py` lá.
 - **As Abelhas viraram o “Pica ou Não Pica?”** (1/11/2026, pedido de “o melhor site de reconhecer animais venenosos ou
   não”; nome provisório, as abelhas continuam dentro): em português, a inicial e o menu são os do guia, com “Que bicho
   é?” (perguntas em árvore até o bicho), “Bichos” (27 fichas com busca e filtros de grupo e perigo), “Socorro” (192, 193,

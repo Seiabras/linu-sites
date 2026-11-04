@@ -1,1 +1,79 @@
-[]
+[
+ {
+  "arquivo": "campo-limpo.webp",
+  "autor": "Joellsky",
+  "licenca": "CC BY-SA 3.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Parque-Nacional-das-Emas_%27campo_Limpo.png",
+  "alt": "Campo limpo no Parque Nacional das Emas: um mar de capim baixo e dourado até o horizonte, sem árvores, sob um céu de nuvens brancas"
+ },
+ {
+  "arquivo": "campo-rupestre.webp",
+  "autor": "Hector Bottai",
+  "licenca": "CC BY-SA 4.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Serra_do_Cip%C3%B3_typical_Campos_rupestres.jpg",
+  "alt": "Campo rupestre na Serra do Cipó: rochas de quartzito cinzentas entre capins e arbustos baixos, com a serra ao fundo"
+ },
+ {
+  "arquivo": "campo-sujo.webp",
+  "autor": "Andreza Oliveira Borges",
+  "licenca": "CC BY-SA 3.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Cerrado_-_Campo_Sujo.JPG",
+  "alt": "Campo sujo no Parque Nacional das Emas: capim alto e seco com arvoretas e arbustos espalhados"
+ },
+ {
+  "arquivo": "cerrado-sentido-restrito.webp",
+  "autor": "Diacis de Alvarenga",
+  "licenca": "CC BY-SA 4.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Estrada_cruzando_Cerrado_sensu_stricto_na_Reserva_Ecol%C3%B3gica_do_IBGE.jpg",
+  "alt": "Estrada de terra vermelha que atravessa o cerrado na Reserva Ecológica do IBGE, em Brasília, entre árvores baixas e tortas e arbustos"
+ },
+ {
+  "arquivo": "expedicao-brasilia.webp",
+  "autor": "Mercado Viagens from Brasil",
+  "licenca": "CC BY 2.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Parque_Nacional_de_Bras%C3%ADlia_(14359155487).jpg",
+  "alt": "Trilha de terra vermelha à beira de um lago no Parque Nacional de Brasília, com cerrado nas margens"
+ },
+ {
+  "arquivo": "expedicao-emas.webp",
+  "autor": "Fernando Nanzer",
+  "licenca": "CC BY-SA 4.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Parque_Nacional_das_Emas_-_Fernando_Nanzer_(13).jpg",
+  "alt": "Veado-campeiro entre cupinzeiros no campo verde do Parque Nacional das Emas"
+ },
+ {
+  "arquivo": "expedicao-veadeiros.webp",
+  "autor": "RebeloZero",
+  "licenca": "CC BY-SA 4.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Mountain_landscape_of_Chapada_dos_Veadeiros_%E2%80%93_2.jpg",
+  "alt": "Vale da Chapada dos Veadeiros com vegetação de cerrado e a serra ao fundo, sob céu azul"
+ },
+ {
+  "arquivo": "mata-ciliar.webp",
+  "autor": "Gilberto Murgia Júnior",
+  "licenca": "CC BY-SA 4.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Cachoeira_no_Rio_Apor%C3%A9.jpg",
+  "alt": "Cachoeira no rio Aporé, em Goiás, com a mata ciliar fechada nas duas margens"
+ },
+ {
+  "arquivo": "mata-seca.webp",
+  "autor": "Guilherme Haruo",
+  "licenca": "CC BY-SA 4.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Estrada_entra_a_Mata_Seca.jpg",
+  "alt": "Mata seca no Parque Estadual da Lagoa do Cajueiro, em Minas Gerais, na estiagem: estrada de terra entre árvores sem folhas"
+ },
+ {
+  "arquivo": "palmeiral.webp",
+  "autor": "Zimbres",
+  "licenca": "CC BY-SA 2.5",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Buritizal.jpg",
+  "alt": "Buritizal na beira do rio Preguiças, no Maranhão: uma faixa densa de palmeiras buriti sobre a mata, com o rio em primeiro plano"
+ },
+ {
+  "arquivo": "vereda.webp",
+  "autor": "Antonio José Maia Guimarães",
+  "licenca": "CC BY-SA 3.0",
+  "fonte": "https://commons.wikimedia.org/wiki/File:Veredas_da_Chapada_dos_Veadeiros.jpg",
+  "alt": "Vereda na Chapada dos Veadeiros: fileira de buritis num campo úmido, com morros ao fundo"
+ }
+]

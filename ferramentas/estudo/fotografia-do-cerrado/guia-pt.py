@@ -1911,6 +1911,9 @@ for n, id_ in enumerate(ORDEM_F):
     ant, prox = POR_ID[ORDEM_F[n - 1]], POR_ID[ORDEM_F[(n + 1) % len(ORDEM_F)]]
     if foto_nova(id_):
         topo = f'<img src="{{{{raiz}}}}img/especies/{id_}.webp" srcset="{{{{raiz}}}}img/especies/{id_}-640.webp 640w, {{{{raiz}}}}img/especies/{id_}.webp 1000w" sizes="(max-width: 900px) 100vw, 55vw" alt="{nome}" width="1000" height="667" fetchpriority="high">'
+        c = CRED_ESP.get(f'{id_}.webp')
+        # o crédito da foto vai junto dela (licença CC BY/BY-SA pede o nome do autor)
+        if c: topo = f'<figure class="ficha-foto">{topo}<figcaption class="esp-credito">Foto: <a href="{c["fonte"]}" rel="noopener">{c["autor"]}</a>, {c["licenca"]}</figcaption></figure>'
     else:
         topo = f'<div class="ficha-sem-foto esp-{reino}" aria-hidden="true"><svg viewBox="0 0 24 24" width="120" height="120">{ICONES[grupo]}</svg><p>Foto em breve</p></div>'
     selo = f'<span class="selo">{AMEACA[am]} (lista nacional)</span>' if am else ''
@@ -2560,7 +2563,7 @@ sw = f"""// O guia sem internet (1/11/2026). Gerado pelo guia-pt.py: não edite 
 const VERSAO = '{VERSAO_OFF}';
 const BASE = {json.dumps(BASE_OFF)};
 const TUDO = {json.dumps(TUDO_OFF)};
-const LIMITE = 400; // nunca mais que isso na cache (o guia inteiro tem {len(TUDO_OFF)} endereços)
+const LIMITE = {max(400, len(TUDO_OFF) + 100)}; // nunca mais que isso na cache (o guia inteiro tem {len(TUDO_OFF)} endereços; com as fotos das espécies passou de 400)
 const MARCA = './__guardado';
 
 self.addEventListener('install', (e) => {{
