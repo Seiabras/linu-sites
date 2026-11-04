@@ -4,7 +4,7 @@
 #   python3 ferramentas/estudo/abelhas-sem-ferrao/guia-pt.py && node ferramentas/gerar-estudo.mjs abelhas-sem-ferrao
 # Tudo o que diz se um bicho é perigoso vem de fonte (lista FONTES, números nas notas). Não é orientação médica: o site
 # manda sempre procurar atendimento.
-import json, pathlib, re, html
+import json, os, pathlib, re, html
 
 AQUI = pathlib.Path(__file__).resolve().parent
 M = AQUI / 'modelo'
@@ -18,7 +18,7 @@ ATUAL = {'bicho-': 'bichos.html', 'emergencia': 'socorro.html', 'cartao': 'socor
 URL_SITE = 'https://picanaopica.linupedia.com.br/'
 REVISAO = '1/11/2026'
 SITIO = AQUI.parents[2] / 'sitios' / 'abelhas-sem-ferrao'
-JS = 'guia.js?v=3'
+JS = 'guia.js?v=4'
 
 def fui_picado(arquivo):
     atual = ' aria-current="page"' if arquivo == 'emergencia.html' else ''
@@ -364,8 +364,10 @@ def pagina(arquivo, titulo, descricao, corpo, scripts=(), imagem='img/compartilh
     (M / arquivo).write_text(s + '    <main id="conteudo">\n' + corpo + '    </main>' + rodape)
     if arquivo not in so_pt: so_pt.append(arquivo)
 
-def selo(b):
+def selo(b, curto=False):
     nome, sub = PERIGO[b['p']]
+    if curto:  # nos cartões, só o nome: o "Procure atendimento já" repetido em todo cartão virava ruído (4/11/2026)
+        return f'<span class="perigo perigo-{b["p"]}"><strong>{nome}</strong></span>'
     return f'<span class="perigo perigo-{b["p"]}"><strong>{nome}</strong> {sub}</span>'
 
 # ---------------------------------------------------------------- as fichas (bicho-<id>.html)
@@ -417,9 +419,14 @@ for n, b in enumerate(B):
     ficha(b, n)
 
 # ---------------------------------------------------------------- o catálogo (bichos.html)
+def miniatura(b):
+    # a foto quadrada do catálogo (img/bichos/<id>-240.webp); sem ela, a inicial do nome no lugar
+    if (SITIO / 'img' / 'bichos' / f'{b["id"]}-240.webp').is_file():
+        return f'<img class="bicho-mini" src="{{{{raiz}}}}img/bichos/{b["id"]}-240.webp" width="240" height="240" alt="" loading="lazy" decoding="async">'
+    return f'<span class="bicho-mini bicho-mini-vazia" aria-hidden="true">{b["n"][0]}</span>'
 def cartao(b):
     return (f'<li class="bicho-cartao" data-grupo="{b["g"]}" data-perigo="{b["p"]}" data-lugar="{b["lug"]}" data-regiao="{b["reg"]}" data-busca="{html.escape((b["n"] + " " + b["c"]).lower())}">'
-            f'<a href="bicho-{b["id"]}.html"><span class="bicho-grupo">{b["g"]}</span><strong>{b["n"]}</strong><span class="bicho-pica">{b["pica"]}</span>{selo(b)}</a></li>')
+            f'<a href="bicho-{b["id"]}.html">{miniatura(b)}<span class="bicho-texto"><span class="bicho-grupo">{b["g"]}</span><strong class="bicho-nome">{b["n"]}</strong><span class="bicho-pica">{b["pica"]}</span></span>{selo(b, curto=True)}</a></li>')
 chips_g = '<button type="button" class="chip" data-filtro-grupo="" aria-pressed="true">Todos</button>' + ''.join(f'<button type="button" class="chip" data-filtro-grupo="{g}" aria-pressed="false">{g}</button>' for g in GRUPOS)
 chips_p = '<button type="button" class="chip" data-filtro-perigo="" aria-pressed="true">Todos</button>' + ''.join(f'<button type="button" class="chip chip-{k}" data-filtro-perigo="{k}" aria-pressed="false">{v[0]}</button>' for k, v in PERIGO.items())
 chips_l = '<button type="button" class="chip" data-filtro-lugar="" aria-pressed="true">Todos</button>' + ''.join(f'<button type="button" class="chip" data-filtro-lugar="{k}" aria-pressed="false">{v}</button>' for k, v in LUGARES)
@@ -438,9 +445,11 @@ bichos = f'''        <section class="titulo-guia">
                     <label for="busca-bicho">Procurar</label>
                     <input id="busca-bicho" type="search" placeholder="Ex.: escorpião, aranha, lagarta" autocomplete="off">
                     <fieldset><legend>Grupo</legend><div class="chips">{chips_g}</div></fieldset>
+                    <details class="mais-filtros"><summary>Mais filtros <span class="filtros-ativos" aria-live="polite"></span></summary>
                     <fieldset><legend>Perigo</legend><div class="chips">{chips_p}</div></fieldset>
                     <fieldset><legend>Onde você está?</legend><div class="chips">{chips_l}</div></fieldset>
                     <fieldset><legend>Onde você mora?</legend><div class="chips">{chips_r}</div>{MAPA}</fieldset>
+                    </details>
                     <p class="contagem" aria-live="polite"><strong id="contagem">{len(B)}</strong> bichos</p>
                 </div>
                 <ul class="bichos-lista">{''.join(cartao(b) for b in B)}</ul>
@@ -1063,10 +1072,20 @@ pagina('fontes.html', f'Fontes — {NOME}', 'As fontes do guia: Ministério da S
 # ---------------------------------------------------------------- A inicial e o menu em português (nas outras línguas, o site das Abelhas, como estava)
 perigosos = [b for b in B if b['p'] == 'alto'][:8]  # 8: duas linhas de 4 no computador
 cartoes_perigo = ''.join(cartao(b) for b in perigosos)
+# a abertura mostra o próprio jogo do nome: quatro bichos e a resposta embaixo (só os que já têm foto; 4/11/2026)
+VITRINE = [(i, r) for i, r in [('escorpiao-amarelo', 'Pica'), ('abelha-sem-ferrao', 'Não pica'), ('coral', 'Pica'), ('lagartixa', 'Não pica')]
+           if (SITIO / 'img' / 'bichos' / f'{i}-240.webp').is_file()]
+vitrine = ('<ul class="abertura-fotos">' + ''.join(
+    f'<li><a href="bicho-{i}.html"><img src="{{{{raiz}}}}img/bichos/{i}-240.webp" width="240" height="240" alt="" decoding="async">'
+    f'<span class="abertura-foto-nome">{POR_ID[i]["n"]}</span><span class="abertura-foto-resposta {"pica" if r == "Pica" else "nao-pica"}">{r}</span></a></li>'
+    for i, r in VITRINE) + '</ul>') if len(VITRINE) == 4 else ''
 inicial = f'''{{{{?pt-BR}}}}        <section class="abertura-guia">
             <div class="container">
+                <div class="abertura-texto">
                 <h1>Pica ou não pica?</h1>
                 <p>O guia para reconhecer os bichos do Brasil que picam, queimam ou só levam a fama: cobras, escorpiões, aranhas, abelhas, lagartas e bichos da água. E o que fazer se picar.</p>
+                </div>
+                {vitrine}
                 <div class="portas-guia">
                     <a class="porta-guia porta-identificar" href="identificar.html"><strong>Que bicho é esse?</strong><span>Responda algumas perguntas e descubra.</span></a>
                     <a class="porta-guia porta-socorro" href="socorro.html"><strong>Picou? O que fazer</strong><span>Os primeiros passos e os telefones.</span></a>
@@ -1112,11 +1131,14 @@ inicial = f'''{{{{?pt-BR}}}}        <section class="abertura-guia">
                     <h2>E as abelhas sem ferrão?</h2>
                     <p>Nem toda abelha pica. As abelhas nativas do Brasil, como a jataí, não têm ferrão que funcione, polinizam as plantas e fazem um mel especial. Este guia nasceu delas.</p>
                     <p><a class="botao" href="descobrir.html">Descobrir em 3 minutos</a> <a class="botao botao-claro" href="achei-um-ninho.html">Achei um ninho!</a></p>
+                    <ul class="abelhas-mais"><li><a href="criar.html">Posso criar abelhas sem ferrão em casa?</a></li><li><a href="teste.html">Teste rápido: o que você sabe das abelhas</a></li></ul>
                 </div>
                 <img src="{{{{raiz}}}}img/jatai.jpg" alt="Abelha jataí sobre uma flor branca" width="1000" height="667" loading="lazy">
             </div>
         </section>
 {{{{/pt-BR}}}}'''
+_pt = json.loads((AQUI / 'textos' / 'pt-BR.json').read_text())
+TEXTOS_PT = _pt.get('textos', _pt)
 for f in COMPARTILHADAS:
     q = M / f; t = q.read_text()
     # tira o que uma rodada anterior pôs, para poder rodar de novo
@@ -1126,10 +1148,14 @@ for f in COMPARTILHADAS:
     t = re.sub(r'(<ul class="menu">.*?</ul>)', lambda m: '{{!pt-BR}}' + m.group(1) + '{{/!pt-BR}}{{?pt-BR}}' + menu_pt(f) + '{{/pt-BR}}', t, count=1, flags=re.S)
     t = t.replace('</nav>', '</nav>{{?pt-BR}}' + fui_picado(f) + '{{/pt-BR}}', 1)
     t = t.replace('{{alternativas}}', '{{?pt-BR}}    ' + CAB_OFF + '\n{{/pt-BR}}{{alternativas}}', 1)
+    if f != 'index.html':
+        chave = re.search(r'<title>\{\{(\w+)\}\}</title>', t)
+        if chave and chave.group(1) in TEXTOS_PT:
+            t = t.replace(chave.group(0), '{{!pt-BR}}' + chave.group(0) + '{{/!pt-BR}}{{?pt-BR}}<title>' + TEXTOS_PT[chave.group(1)].replace(' — Abelhas sem Ferrão', ' — ' + NOME) + '</title>{{/pt-BR}}', 1)
     if f == 'index.html':
         t = re.sub(r'(<title>.*?</title>)', lambda m: '{{!pt-BR}}' + m.group(1) + '{{/!pt-BR}}{{?pt-BR}}' + f'<title>{NOME} — o guia dos bichos que picam</title>' + '{{/pt-BR}}', t, count=1)
         t = re.sub(r'(<meta name="description" content="[^"]*">)', lambda m: '{{!pt-BR}}' + m.group(1) + '{{/!pt-BR}}{{?pt-BR}}<meta name="description" content="Reconheça os bichos do Brasil que picam e os que não picam: cobras, escorpiões, aranhas, abelhas, lagartas. E o que fazer se picar.">{{/pt-BR}}', t, count=1)
-        t = re.sub(r'(    <main id="conteudo">\n)(.*?)(    </main>)', lambda m: m.group(1) + '{{!pt-BR}}' + m.group(2) + '{{/!pt-BR}}' + inicial + '\n' + m.group(3), t, count=1, flags=re.S)
+        t = re.sub(r'(    <main id="conteudo">\n)(.*?)(    </main>)', lambda m: m.group(1) + '{{!pt-BR}}' + m.group(2).rstrip('\n') + '\n{{/!pt-BR}}' + inicial + '\n' + m.group(3), t, count=1, flags=re.S)
         t = t.replace('{{alternativas}}', '{{?pt-BR}}    <script src="{{raiz}}js/' + JS + '" defer></script>\n{{/pt-BR}}{{alternativas}}', 1)
     # o rodapé em português ganha os links do guia
     t = re.sub(r'(\{\{idiomas\}\}\s*)(.*?)(\s*</div>\s*</footer>)', lambda m: m.group(1) + '{{?pt-BR}}' + RODAPE_PT + '{{/pt-BR}}{{!pt-BR}}' + m.group(2) + '{{/!pt-BR}}' + m.group(3), t, count=1, flags=re.S)
@@ -1140,9 +1166,12 @@ print(f'{NOME}: {len(B)} bichos, {len(so_pt)} páginas só em português, {len(F
 
 # ================================================================ As imagens de compartilhar (1200 × 630) e os ícones do app
 from PIL import Image, ImageDraw, ImageFont
-F_TIT = '/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf'
-F_TXT = '/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf'
-F_NEG = '/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf'
+def _fonte(*caminhos):
+    # a DejaVu é a da máquina da nuvem (Debian); no Arch, a Noto (4/11/2026)
+    return next((c for c in caminhos if os.path.exists(c)), caminhos[0])
+F_TIT = _fonte('/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf', '/usr/share/fonts/noto/NotoSerif-Bold.ttf')
+F_TXT = _fonte('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf', '/usr/share/fonts/noto/NotoSans-Regular.ttf')
+F_NEG = _fonte('/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf', '/usr/share/fonts/noto/NotoSans-Bold.ttf')
 COR = {'alto': ('#9B2C1F', '#FFFFFF'), 'medio': ('#E9A23B', '#2E2A1F'), 'baixo': ('#FBE3B8', '#2E2A1F'), 'nenhum': ('#3F6B3A', '#FFFFFF')}
 def quebrar(d, texto, fonte, largura):
     linhas, atual = [], ''
@@ -1152,6 +1181,7 @@ def quebrar(d, texto, fonte, largura):
         else: linhas.append(atual); atual = p
     return linhas + [atual]
 def imagem(destino, titulo, linha, perigo=None, sub=None):
+    if 'dejavu' not in F_TIT and destino.exists(): return  # sem a fonte da nuvem, guarda a imagem que já existe
     im = Image.new('RGB', (1200, 630), '#FFF8EC'); d = ImageDraw.Draw(im)
     d.rectangle([0, 0, 1200, 14], fill='#9B2C1F')
     d.text((70, 60), 'Pica ou Não Pica?', font=ImageFont.truetype(F_NEG, 34), fill='#5C5648')
@@ -1176,6 +1206,7 @@ for b in B:
     imagem(SITIO / 'img' / 'compartilhar' / f'{b["id"]}.jpg', b['n'], b['pica'] + '.', b['p'])
 imagem(SITIO / 'img' / 'compartilhar' / 'guia.jpg', 'Pica ou não pica?', 'Reconheça os bichos do Brasil que picam e os que não picam, e saiba o que fazer se picar.', sub='Em caso de acidente: 192')
 def icone(lado, destino):
+    if 'dejavu' not in F_TIT and destino.exists(): return
     im = Image.new('RGB', (lado, lado), '#2E2A1F'); d = ImageDraw.Draw(im)
     r = lado * 0.36; c = lado / 2
     d.ellipse([c - r, c - r, c + r, c + r], fill='#E9A23B')

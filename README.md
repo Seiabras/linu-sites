@@ -316,6 +316,15 @@ node ferramentas/gerar-estudo.mjs abelhas-sem-ferrao
   hospital e, se a pessoa quiser, a localização; por isso o bloco das Abelhas no `Caddyfile-bloco` tem
   `geolocation=(self)`) e “O que dizer ao telefone”. No Prevenir, “Antes da trilha”; no jogo, o modo “Peçonhento ou
   venenoso?” e o modo turma. CSS em `?v=8` e `guia.js?v=3`.
+- **O Pica ou Não Pica? com fotos e a interface nova (4/11/2026):** 36 dos 37 bichos têm foto real do Commons (o
+  carrapato ficou sem: não há foto de campo com identificação segura), em `img/bichos/` (`<id>.webp`, `-640` e `-240`
+  quadrada), crédito em `creditos.json`; a lista e as que vale conferir em
+  `ferramentas/estudo/abelhas-sem-ferrao/fotos-04-11.md`. A interface: a abertura com quatro bichos e a resposta (fileira
+  no celular e no tablet, 2 × 2 ao lado do título no computador), o catálogo com miniatura e selo curto, “Mais filtros”
+  recolhido no celular e aberto no computador, a ficha com a foto ao lado do nome no computador; “Posso criar?” e o
+  “Teste rápido”, que tinham ficado sem link em português, ligados na inicial. O `guia-pt.py` cai para a Noto quando
+  não há a DejaVu e não refaz as imagens de compartilhar sem ela, e a inicial não ganha mais uma linha em branco a
+  cada rodada.
 - **A 404 do Cerrado** (`sitios/fotografia-do-cerrado/404.html`) só aparece depois de o bloco novo do `deploy/Caddyfile-bloco`
   (`handle_errors` no `cerrado.linupedia.com.br`) ser posto na VM, como diz o `deploy/ORACLE.md`.
 - Os repositórios `Seiabras/fotografia-do-cerrado` e `Seiabras/abelhas-sem-ferrao` recebem uma cópia de

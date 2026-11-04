@@ -29,7 +29,15 @@
                 it.hidden = !ok; if (ok) n++;
             }
             contagem.textContent = n; vazio.hidden = n > 0;
+            // quantos filtros recolhidos estão ligados, no "Mais filtros" (4/11/2026)
+            if (ativos) { const k = [perigo, lugar, regiao].filter(Boolean).length; ativos.textContent = k ? String(k) : ''; }
         };
+        const mais = document.querySelector('.mais-filtros');
+        const ativos = mais && mais.querySelector('.filtros-ativos');
+        // no computador os filtros ficam numa coluna ao lado, sempre abertos; no celular, recolhidos
+        const largo = matchMedia('(min-width: 1100px)');
+        const abrir = () => { if (mais && largo.matches) mais.open = true; };
+        abrir(); largo.addEventListener('change', abrir);
         const chips = (attr, set) => {
             const bs = [...document.querySelectorAll(`[${attr}]`)];
             bs.forEach((b) => b.addEventListener('click', () => { set(b.getAttribute(attr)); bs.forEach((o) => o.setAttribute('aria-pressed', String(o === b))); filtrar(); }));
@@ -45,7 +53,7 @@
         if (params.get('q')) busca.value = params.get('q');
         for (const [chave, attr] of [['lugar', 'data-filtro-lugar'], ['regiao', 'data-filtro-regiao']]) {
             const v = params.get(chave);
-            if (v) document.querySelector(`[${attr}="${CSS.escape(v)}"]`)?.click();
+            if (v) { document.querySelector(`[${attr}="${CSS.escape(v)}"]`)?.click(); if (mais) mais.open = true; }
         }
         filtrar();
     }

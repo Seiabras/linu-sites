@@ -232,12 +232,32 @@ a.cartao:hover { border-color: var(--link); }
 /* os cartões dos bichos */
 .bichos-lista { list-style: none; display: grid; gap: .7rem; margin: 1rem 0; }
 .bicho-cartao[hidden] { display: none; }
-.bicho-cartao a { display: grid; gap: .3rem; height: 100%; padding: .9rem 1rem; border-radius: 14px; background: var(--superficie); border: 1px solid var(--borda); color: var(--texto); text-decoration: none; align-content: start; }
+/* 4/11/2026: o cartão ganhou a foto (ou a inicial, sem foto) à esquerda e um selo curto; dá para correr o olho na lista */
+.bicho-cartao a { display: grid; grid-template-columns: 72px minmax(0, 1fr); grid-template-areas: "foto texto" "foto selo"; column-gap: .9rem; row-gap: .35rem;
+    align-items: center; height: 100%; padding: .6rem .9rem .6rem .6rem; border-radius: 14px; background: var(--superficie); border: 1px solid var(--borda);
+    color: var(--texto); text-decoration: none; transition: border-color .18s ease-out, transform .18s ease-out; }
 .bicho-cartao a:hover { border-color: var(--texto); transform: translateY(-2px); }
-.bicho-cartao strong { font-family: var(--titulo); font-size: 1.25rem; }
-.bicho-grupo { font-size: .8rem; font-weight: 700; color: var(--texto-suave); }
-.bicho-pica { font-weight: 600; }
-.bicho-cartao .perigo { justify-self: start; border-radius: 8px; }
+.bicho-cartao a:active { transform: scale(.98); }
+.bicho-mini { grid-area: foto; width: 72px; height: 72px; border-radius: 10px; object-fit: cover; align-self: stretch; height: 100%; min-height: 72px; background: var(--borda); }
+.bicho-mini-vazia { display: grid; place-items: center; font-family: var(--titulo); font-size: 1.8rem; color: var(--texto-suave); }
+.bicho-texto { grid-area: texto; display: grid; gap: .1rem; min-width: 0; }
+.bicho-cartao .bicho-nome { font-family: var(--titulo); font-size: 1.15rem; line-height: 1.2; }
+.bicho-grupo { font-size: .78rem; font-weight: 700; color: var(--texto-suave); }
+.bicho-pica { font-weight: 600; font-size: .92rem; line-height: 1.3; }
+.bicho-cartao .perigo { grid-area: selo; justify-self: start; border-radius: 8px; font-size: .78rem; padding: .15rem .6rem; }
+/* na faixa da inicial, em pé: a foto em cima */
+.bichos-faixa .bicho-cartao a { grid-template-columns: minmax(0, 1fr); grid-template-areas: "foto" "texto" "selo"; align-content: start; padding: .6rem .6rem .9rem; }
+.bichos-faixa .bicho-mini { width: 100%; height: auto; aspect-ratio: 4 / 3; }
+.bichos-faixa .bicho-texto, .bichos-faixa .perigo { margin-inline: .3rem; }
+/* os filtros que não são o principal ficam recolhidos no celular; no computador, abertos (guia.js) */
+.mais-filtros { border-top: 1px solid var(--borda); padding-top: .4rem; }
+.mais-filtros > summary { min-height: 44px; display: flex; align-items: center; gap: .5rem; font-weight: 700; cursor: pointer; list-style: none; }
+.mais-filtros > summary::-webkit-details-marker { display: none; }
+.mais-filtros > summary::after { content: ""; width: .55rem; height: .55rem; border-right: 2px solid currentColor; border-bottom: 2px solid currentColor; transform: rotate(45deg); margin-left: auto; transition: transform .2s ease-out; }
+.mais-filtros[open] > summary::after { transform: rotate(-135deg); }
+.filtros-ativos:not(:empty) { background: var(--texto); color: var(--fundo); border-radius: 999px; padding: 0 .5rem; font-size: .8rem; }
+.abelhas-mais { list-style: none; padding: 0; margin: .8rem 0 0; display: grid; gap: .35rem; }
+.abelhas-mais a { font-weight: 600; }
 
 /* o catálogo */
 .catalogo { display: grid; gap: 1.2rem; grid-template-columns: minmax(0, 1fr); }
@@ -679,3 +699,37 @@ a.cartao:hover { border-color: var(--link); }
 .jogo-times { font-weight: 800; background: var(--destaque-fundo); border-radius: 10px; padding: .5rem .8rem; }
 @media (min-width: 700px) { .emerg-dois { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (min-width: 1100px) { .prevenir-texto > .trilha { grid-column: 1 / -1; } }
+
+/* 4/11/2026: com a foto do bicho, a ficha muda de arrumação. No computador, foto à esquerda e o nome com a resposta
+   ao lado, tudo sem rolar num notebook de 800 px; no tablet, a foto em cima, mais baixa; no celular, como estava. */
+@media (min-width: 700px) and (max-width: 1099px) {
+    .ficha-foto img { max-height: 46vh; }
+}
+@media (min-width: 1100px) {
+    .ficha-topo:has(.ficha-foto) { grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); grid-template-areas: "foto titulo" "foto resposta"; align-items: start; column-gap: 2.2rem; }
+    .ficha-topo:has(.ficha-foto) .ficha-foto { grid-area: foto; grid-column: auto; position: sticky; top: 88px; }
+    .ficha-topo:has(.ficha-foto) .ficha-titulo { grid-area: titulo; }
+    .ficha-topo:has(.ficha-foto) .ficha-resposta { grid-area: resposta; position: static; }
+    .ficha-topo:has(.ficha-foto) .ficha-foto img { max-height: 62vh; }
+}
+
+/* 4/11/2026: a abertura mostra o próprio jogo do nome, quatro bichos e a resposta embaixo. No celular e no tablet, uma
+   fileira de quatro abaixo do texto; no computador, um quadrado 2 × 2 ao lado do título. */
+.abertura-guia .container { display: grid; gap: 1rem; }
+.abertura-fotos { list-style: none; padding: 0; margin: .2rem 0 .4rem; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: .5rem; }
+.abertura-fotos a { display: grid; gap: .25rem; color: var(--texto); text-decoration: none; }
+.abertura-fotos img { display: block; width: 100%; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: 12px; transition: transform .18s ease-out; }
+.abertura-fotos a:hover img { transform: scale(1.03); }
+.abertura-fotos a:active img { transform: scale(.97); }
+.abertura-foto-nome { font-size: .72rem; font-weight: 700; line-height: 1.2; overflow-wrap: anywhere; }
+.abertura-foto-resposta { justify-self: start; font-size: .72rem; font-weight: 800; padding: .05rem .45rem; border-radius: 6px; color: #fff; }
+.abertura-foto-resposta.pica { background: var(--alto); }
+.abertura-foto-resposta.nao-pica { background: var(--nenhum); }
+@media (min-width: 700px) { .abertura-foto-nome, .abertura-foto-resposta { font-size: .85rem; } .abertura-fotos { gap: .8rem; } }
+@media (min-width: 1100px) {
+    .abertura-guia .container { grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr); column-gap: 2.5rem; align-items: center; }
+    .abertura-texto { grid-column: 1; }
+    .abertura-fotos { grid-column: 2; grid-row: 1; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .abertura-guia .portas-guia { grid-column: 1 / -1; }
+}
+@media (prefers-reduced-motion: reduce) { .abertura-fotos a:hover img, .abertura-fotos a:active img { transform: none; } }
