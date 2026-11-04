@@ -30,7 +30,7 @@
 <link rel="preload" href="../../fontes/orbitron.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="../../icone.png" type="image/png" sizes="128x128">
 <script src="../../inicio.js?v=3"></script>
-<link rel="stylesheet" href="../../bootstrap/estilo.css?v=2">
+<link rel="stylesheet" href="../../bootstrap/estilo.css?v=3">
 <link rel="stylesheet" href="../../padaria.css?v=6">
 </head>
 
@@ -92,6 +92,7 @@
 
   <!-- HERO -->
   <section class="hero" id="inicio">
+    <div class="hero__foto" aria-hidden="true"><img class="so-noite" src="../../img/abertura-noite-800.webp" srcset="../../img/abertura-noite-800.webp 800w, ../../img/abertura-noite-1600.webp 1600w" sizes="100vw" width="800" height="450" alt="" loading="lazy" decoding="async"><img class="so-dia" src="../../img/abertura-dia-800.webp" srcset="../../img/abertura-dia-800.webp 800w, ../../img/abertura-dia-1600.webp 1600w" sizes="100vw" width="800" height="450" alt="" loading="lazy" decoding="async"></div>
     <div class="hero__halo" aria-hidden="true"></div>
     <div class="hero__rings" aria-hidden="true"><i></i><i></i><i></i></div>
 
@@ -161,13 +162,7 @@
         </div>
 
         <div class="col-12 col-lg-6">
-          <div class="portal reveal" data-d="3" aria-hidden="true">
-            <div class="portal__ring"></div>
-            <div class="portal__ring"></div>
-            <div class="portal__ring"></div>
-            <div class="portal__core"></div>
-            <span class="portal__label"><span class="so-noite">Faille stable · 3.2 nm</span><span class="so-dia">Four stable · 220 °C</span></span>
-          </div>
+          <figure class="origem-foto reveal" data-d="3" aria-hidden="true"><img class="so-noite" src="../../img/origem-noite-480.webp" srcset="../../img/origem-noite-480.webp 480w, ../../img/origem-noite-800.webp 800w" sizes="(min-width: 900px) 40vw, 92vw" width="480" height="600" alt="" loading="lazy" decoding="async"><img class="so-dia" src="../../img/origem-dia-480.webp" srcset="../../img/origem-dia-480.webp 480w, ../../img/origem-dia-800.webp 800w" sizes="(min-width: 900px) 40vw, 92vw" width="480" height="600" alt="" loading="lazy" decoding="async"><span class="origem-foto__legenda"><span class="so-noite">Faille stable · 3.2 nm</span><span class="so-dia">Four stable · 220 °C</span></span></figure>
         </div>
       </div>
     </div>
@@ -185,8 +180,8 @@
       <div class="row g-4 mt-4">
         <div class="col-12 col-md-6 col-lg-4">
           <article class="card-aurora tilt reveal" data-d="1">
+            <figure class="card__foto" aria-hidden="true"><img class="so-noite" src="../../img/cardapio/noite-1-400.webp" srcset="../../img/cardapio/noite-1-400.webp 400w, ../../img/cardapio/noite-1-720.webp 720w" sizes="(min-width: 1100px) 360px, (min-width: 700px) 45vw, 92vw" width="400" height="300" alt="" loading="lazy" decoding="async"><img class="so-dia" src="../../img/cardapio/dia-1-400.webp" srcset="../../img/cardapio/dia-1-400.webp 400w, ../../img/cardapio/dia-1-720.webp 720w" sizes="(min-width: 1100px) 360px, (min-width: 700px) 45vw, 92vw" width="400" height="300" alt="" loading="lazy" decoding="async"></figure>
             <div class="card__top">
-              <div class="card__icon" aria-hidden="true"><span class="so-noite">⚡</span><span class="so-dia">🥐</span></div>
               <span class="card__id"><span class="so-noite">LX-001</span><span class="so-dia">FN-001</span></span>
             </div>
             <h3><span class="so-noite">Expresso Quantique</span><span class="so-dia">Croissant aux 2087 Couches</span></h3>
@@ -200,8 +195,8 @@
 
         <div class="col-12 col-md-6 col-lg-4">
           <article class="card-aurora card--m tilt reveal" data-d="2">
+            <figure class="card__foto" aria-hidden="true"><img class="so-noite" src="../../img/cardapio/noite-2-400.webp" srcset="../../img/cardapio/noite-2-400.webp 400w, ../../img/cardapio/noite-2-720.webp 720w" sizes="(min-width: 1100px) 360px, (min-width: 700px) 45vw, 92vw" width="400" height="300" alt="" loading="lazy" decoding="async"><img class="so-dia" src="../../img/cardapio/dia-2-400.webp" srcset="../../img/cardapio/dia-2-400.webp 400w, ../../img/cardapio/dia-2-720.webp 720w" sizes="(min-width: 1100px) 360px, (min-width: 700px) 45vw, 92vw" width="400" height="300" alt="" loading="lazy" decoding="async"></figure>
             <div class="card__top">
-              <div class="card__icon" aria-hidden="true"><span class="so-noite">🌌</span><span class="so-dia">🍞</span></div>
               <span class="card__id"><span class="so-noite">LX-014</span><span class="so-dia">FN-006</span></span>
             </div>
             <h3><span class="so-noite">Latte au Plasma</span><span class="so-dia">Pain Gravité Zéro</span></h3>
@@ -215,8 +210,8 @@
 
         <div class="col-12 col-md-6 col-lg-4">
           <article class="card-aurora card--v tilt reveal" data-d="3">
+            <figure class="card__foto" aria-hidden="true"><img class="so-noite" src="../../img/cardapio/noite-3-400.webp" srcset="../../img/cardapio/noite-3-400.webp 400w, ../../img/cardapio/noite-3-720.webp 720w" sizes="(min-width: 1100px) 360px, (min-width: 700px) 45vw, 92vw" width="400" height="300" alt="" loading="lazy" decoding="async"><img class="so-dia" src="../../img/cardapio/dia-3-400.webp" srcset="../../img/cardapio/dia-3-400.webp 400w, ../../img/cardapio/dia-3-720.webp 720w" sizes="(min-width: 1100px) 360px, (min-width: 700px) 45vw, 92vw" width="400" height="300" alt="" loading="lazy" decoding="async"></figure>
             <div class="card__top">
-              <div class="card__icon" aria-hidden="true"><span class="so-noite">❄️</span><span class="so-dia">🥖</span></div>
               <span class="card__id"><span class="so-noite">LX-027</span><span class="so-dia">FN-012</span></span>
             </div>
             <h3><span class="so-noite">Cold Brew Neuronal</span><span class="so-dia">Baguette d'Orbite</span></h3>
@@ -230,8 +225,8 @@
 
         <div class="col-12 col-md-6 col-lg-4">
           <article class="card-aurora card--a tilt reveal" data-d="1">
+            <figure class="card__foto" aria-hidden="true"><img class="so-noite" src="../../img/cardapio/noite-4-400.webp" srcset="../../img/cardapio/noite-4-400.webp 400w, ../../img/cardapio/noite-4-720.webp 720w" sizes="(min-width: 1100px) 360px, (min-width: 700px) 45vw, 92vw" width="400" height="300" alt="" loading="lazy" decoding="async"><img class="so-dia" src="../../img/cardapio/dia-4-400.webp" srcset="../../img/cardapio/dia-4-400.webp 400w, ../../img/cardapio/dia-4-720.webp 720w" sizes="(min-width: 1100px) 360px, (min-width: 700px) 45vw, 92vw" width="400" height="300" alt="" loading="lazy" decoding="async"></figure>
             <div class="card__top">
-              <div class="card__icon" aria-hidden="true"><span class="so-noite">🍃</span><span class="so-dia">🧁</span></div>
               <span class="card__id"><span class="so-noite">LX-033</span><span class="so-dia">FN-019</span></span>
             </div>
             <h3><span class="so-noite">Matcha du Vide</span><span class="so-dia">Beignet Nébuleuse</span></h3>
@@ -245,8 +240,8 @@
 
         <div class="col-12 col-md-6 col-lg-4">
           <article class="card-aurora card--m tilt reveal" data-d="2">
+            <figure class="card__foto" aria-hidden="true"><img class="so-noite" src="../../img/cardapio/noite-5-400.webp" srcset="../../img/cardapio/noite-5-400.webp 400w, ../../img/cardapio/noite-5-720.webp 720w" sizes="(min-width: 1100px) 360px, (min-width: 700px) 45vw, 92vw" width="400" height="300" alt="" loading="lazy" decoding="async"><img class="so-dia" src="../../img/cardapio/dia-5-400.webp" srcset="../../img/cardapio/dia-5-400.webp 400w, ../../img/cardapio/dia-5-720.webp 720w" sizes="(min-width: 1100px) 360px, (min-width: 700px) 45vw, 92vw" width="400" height="300" alt="" loading="lazy" decoding="async"></figure>
             <div class="card__top">
-              <div class="card__icon" aria-hidden="true"><span class="so-noite">✨</span><span class="so-dia">🍩</span></div>
               <span class="card__id"><span class="so-noite">LX-042</span><span class="so-dia">FN-024</span></span>
             </div>
             <h3><span class="so-noite">Lait d’Étoile</span><span class="so-dia">Couronne de l'Éclipse</span></h3>
@@ -260,8 +255,8 @@
 
         <div class="col-12 col-md-6 col-lg-4">
           <article class="card-aurora card--v tilt reveal" data-d="3">
+            <figure class="card__foto" aria-hidden="true"><img class="so-noite" src="../../img/cardapio/noite-6-400.webp" srcset="../../img/cardapio/noite-6-400.webp 400w, ../../img/cardapio/noite-6-720.webp 720w" sizes="(min-width: 1100px) 360px, (min-width: 700px) 45vw, 92vw" width="400" height="300" alt="" loading="lazy" decoding="async"><img class="so-dia" src="../../img/cardapio/dia-6-400.webp" srcset="../../img/cardapio/dia-6-400.webp 400w, ../../img/cardapio/dia-6-720.webp 720w" sizes="(min-width: 1100px) 360px, (min-width: 700px) 45vw, 92vw" width="400" height="300" alt="" loading="lazy" decoding="async"></figure>
             <div class="card__top">
-              <div class="card__icon" aria-hidden="true"><span class="so-noite">☄️</span><span class="so-dia">🧀</span></div>
               <span class="card__id"><span class="so-noite">LX-050</span><span class="so-dia">FN-031</span></span>
             </div>
             <h3><span class="so-noite">Poussière de Comète</span><span class="so-dia">Pain au Fromage Quantique</span></h3>
@@ -505,7 +500,7 @@
 <!-- Bootstrap JS -->
 <script src="../../bootstrap/vendor/bootstrap.bundle.min.js" defer></script>
 
-<script src="../../bootstrap/script.js?v=4" defer></script>
+<script src="../../bootstrap/script.js?v=5" defer></script>
 <script src="../../padaria.js?v=3" defer></script>
 </body>
 </html>

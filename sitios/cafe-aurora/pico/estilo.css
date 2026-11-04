@@ -110,9 +110,12 @@ ul{list-style:none}
   display:grid;place-content:center;gap:1.2rem;
   background:#040209;
   text-align:center;padding:2rem;
-  transition:opacity .8s var(--ease), visibility .8s;
+  transition:opacity .35s var(--ease), visibility .35s;
 }
 .boot.done{opacity:0;visibility:hidden}
+.boot.done,.boot.done *{animation:none !important}
+/* 4/11/2026: o que gira ou pulsa sem parar só anda com a parte à vista (o script.js põe .pausa ao sair) */
+.pausa,.pausa *,.pausa::before,.pausa::after,.pausa *::before,.pausa *::after{animation-play-state:paused !important}
 .boot__logo{
   font-family:var(--font-display);font-weight:900;
   font-size:clamp(1.6rem,5vw,2.8rem);letter-spacing:.28em;
@@ -282,13 +285,13 @@ main{position:relative;z-index:2}
 .lead{color:var(--muted);max-width:62ch;font-size:1.05rem}
 
 /* Reveal */
-.reveal{opacity:0;transform:translateY(34px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal{opacity:0;transform:translateY(14px);transition:opacity .4s var(--ease),transform .4s var(--ease)}
 .reveal.in{opacity:1;transform:none}
-.reveal[data-d="1"]{transition-delay:.1s}
-.reveal[data-d="2"]{transition-delay:.2s}
-.reveal[data-d="3"]{transition-delay:.3s}
-.reveal[data-d="4"]{transition-delay:.4s}
-.reveal[data-d="5"]{transition-delay:.5s}
+.reveal[data-d="1"]{transition-delay:0.05s}
+.reveal[data-d="2"]{transition-delay:0.10s}
+.reveal[data-d="3"]{transition-delay:0.15s}
+.reveal[data-d="4"]{transition-delay:0.20s}
+.reveal[data-d="5"]{transition-delay:0.25s}
 
 /* ============================================================
    6. HERO
@@ -852,3 +855,23 @@ html{font-size:100%}
 .lab__panel[role=group]>.lab__result{margin:1.7rem 0 0}
 /* os títulos na cor do tema, de noite e de dia (o Pico tem cores próprias para h1 a h6) */
 :is(h1,h2,h3,h4,h5,h6){color:var(--text)}
+
+/* ============================================================
+   FOTOS (4/11/2026): o cardápio, a fachada e o balcão, de noite (café) e de dia (padaria).
+   Saem do ferramentas/cafe/arte.py; o modo que não está à vista não baixa (display:none + lazy).
+   ============================================================ */
+.hero{isolation:isolate}
+.hero__foto{position:absolute;inset:0;z-index:-2;pointer-events:none}
+.hero__foto img{width:100%;height:100%;object-fit:cover;opacity:.34;
+  -webkit-mask-image:linear-gradient(to bottom,#000 55%,transparent);mask-image:linear-gradient(to bottom,#000 55%,transparent)}
+[data-modo="dia"] .hero__foto img{opacity:.22}
+.card__foto{margin:0 0 1rem;border-radius:12px;overflow:hidden;aspect-ratio:4/3;background:var(--bg-2)}
+.card__foto img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .45s var(--ease)}
+.card:hover .card__foto img{transform:scale(1.04)}
+.origem-foto{position:relative;margin:0;width:100%;max-width:440px;justify-self:center;aspect-ratio:4/5;
+  border-radius:18px;overflow:hidden;border:1px solid var(--stroke);background:var(--bg-2)}
+.origem-foto img{display:block;width:100%;height:100%;object-fit:cover}
+.origem-foto__legenda{position:absolute;left:12px;bottom:12px;padding:.35rem .75rem;border-radius:999px;
+  background:rgba(5,3,10,.74);color:#ece9ff;font-size:.8rem;letter-spacing:.06em}
+[data-modo="dia"] .origem-foto__legenda{background:rgba(251,243,228,.9);color:#3a2414}
+@media (prefers-reduced-motion:reduce){.card:hover .card__foto img{transform:none}}

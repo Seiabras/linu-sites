@@ -30,8 +30,8 @@
      (iframe) no simulador de preço, que liga e desliga as partes dele (ver script.js, "módulos"). -->
 <script src="../inicio.js?v=3"></script>
 <link rel="manifest" href="../manifest.webmanifest">
-<link rel="stylesheet" href="../estilo.css?v=13">
-<script src="../script.js?v=12" defer></script>
+<link rel="stylesheet" href="../estilo.css?v=14">
+<script src="../script.js?v=13" defer></script>
 </head>
 
 <body>
@@ -87,6 +87,7 @@
 
   <!-- HERO -->
   <section class="hero" id="inicio">
+    <div class="hero__foto" aria-hidden="true"><img class="so-noite" src="../img/abertura-noite-800.webp" srcset="../img/abertura-noite-800.webp 800w, ../img/abertura-noite-1600.webp 1600w" sizes="100vw" width="800" height="450" alt="" loading="lazy" decoding="async"><img class="so-dia" src="../img/abertura-dia-800.webp" srcset="../img/abertura-dia-800.webp 800w, ../img/abertura-dia-1600.webp 1600w" sizes="100vw" width="800" height="450" alt="" loading="lazy" decoding="async"></div>
     <div class="hero__halo" aria-hidden="true"></div>
     <div class="hero__rings" aria-hidden="true"><i></i><i></i><i></i></div>
 
@@ -149,13 +150,7 @@
         </div>
       </div>
 
-      <div class="portal reveal" data-d="3" aria-hidden="true">
-        <div class="portal__ring"></div>
-        <div class="portal__ring"></div>
-        <div class="portal__ring"></div>
-        <div class="portal__core"></div>
-        <span class="portal__label"><span class="so-noite">Fenditura stabile · 3.2 nm</span><span class="so-dia">Forno stabile · 220 °C</span></span>
-      </div>
+      <figure class="origem-foto reveal" data-d="3" aria-hidden="true"><img class="so-noite" src="../img/origem-noite-480.webp" srcset="../img/origem-noite-480.webp 480w, ../img/origem-noite-800.webp 800w" sizes="(min-width: 900px) 40vw, 92vw" width="480" height="600" alt="" loading="lazy" decoding="async"><img class="so-dia" src="../img/origem-dia-480.webp" srcset="../img/origem-dia-480.webp 480w, ../img/origem-dia-800.webp 800w" sizes="(min-width: 900px) 40vw, 92vw" width="480" height="600" alt="" loading="lazy" decoding="async"><span class="origem-foto__legenda"><span class="so-noite">Fenditura stabile · 3.2 nm</span><span class="so-dia">Forno stabile · 220 °C</span></span></figure>
     </div>
   </section>
 
@@ -193,8 +188,8 @@
 
     <div class="menu-grid">
       <article class="card reveal tilt" data-d="1" data-item="1" data-preco-noite="18" data-preco-dia="9" data-filtros-noite="quente intenso sem-lactose" data-filtros-dia="salgado quentinho">
+        <figure class="card__foto" aria-hidden="true"><img class="so-noite" src="../img/cardapio/noite-1-400.webp" srcset="../img/cardapio/noite-1-400.webp 400w, ../img/cardapio/noite-1-720.webp 720w" sizes="(min-width: 1100px) 360px, (min-width: 700px) 45vw, 92vw" width="400" height="300" alt="" loading="lazy" decoding="async"><img class="so-dia" src="../img/cardapio/dia-1-400.webp" srcset="../img/cardapio/dia-1-400.webp 400w, ../img/cardapio/dia-1-720.webp 720w" sizes="(min-width: 1100px) 360px, (min-width: 700px) 45vw, 92vw" width="400" height="300" alt="" loading="lazy" decoding="async"></figure>
         <div class="card__top">
-          <div class="card__icon" aria-hidden="true"><span class="so-noite">⚡</span><span class="so-dia">🥐</span></div>
           <span class="card__id"><span class="so-noite">LX-001</span><span class="so-dia">FN-001</span></span>
         </div>
         <h3><span class="so-noite">Espresso Quantico</span><span class="so-dia">Cornetto a 2087 Strati</span></h3>
@@ -213,8 +208,8 @@
       </article>
 
       <article class="card card--m reveal tilt" data-d="2" data-item="2" data-preco-noite="24" data-preco-dia="7" data-filtros-noite="quente doce" data-filtros-dia="salgado sem-lactose vegano">
+        <figure class="card__foto" aria-hidden="true"><img class="so-noite" src="../img/cardapio/noite-2-400.webp" srcset="../img/cardapio/noite-2-400.webp 400w, ../img/cardapio/noite-2-720.webp 720w" sizes="(min-width: 1100px) 360px, (min-width: 700px) 45vw, 92vw" width="400" height="300" alt="" loading="lazy" decoding="async"><img class="so-dia" src="../img/cardapio/dia-2-400.webp" srcset="../img/cardapio/dia-2-400.webp 400w, ../img/cardapio/dia-2-720.webp 720w" sizes="(min-width: 1100px) 360px, (min-width: 700px) 45vw, 92vw" width="400" height="300" alt="" loading="lazy" decoding="async"></figure>
         <div class="card__top">
-          <div class="card__icon" aria-hidden="true"><span class="so-noite">🌌</span><span class="so-dia">🍞</span></div>
           <span class="card__id"><span class="so-noite">LX-014</span><span class="so-dia">FN-006</span></span>
         </div>
         <h3><span class="so-noite">Latte al Plasma</span><span class="so-dia">Pane a Gravità Zero</span></h3>
@@ -233,8 +228,8 @@
       </article>
 
       <article class="card card--v reveal tilt" data-d="3" data-item="3" data-preco-noite="22" data-preco-dia="8" data-filtros-noite="gelado intenso sem-lactose" data-filtros-dia="salgado quentinho sem-lactose vegano">
+        <figure class="card__foto" aria-hidden="true"><img class="so-noite" src="../img/cardapio/noite-3-400.webp" srcset="../img/cardapio/noite-3-400.webp 400w, ../img/cardapio/noite-3-720.webp 720w" sizes="(min-width: 1100px) 360px, (min-width: 700px) 45vw, 92vw" width="400" height="300" alt="" loading="lazy" decoding="async"><img class="so-dia" src="../img/cardapio/dia-3-400.webp" srcset="../img/cardapio/dia-3-400.webp 400w, ../img/cardapio/dia-3-720.webp 720w" sizes="(min-width: 1100px) 360px, (min-width: 700px) 45vw, 92vw" width="400" height="300" alt="" loading="lazy" decoding="async"></figure>
         <div class="card__top">
-          <div class="card__icon" aria-hidden="true"><span class="so-noite">❄️</span><span class="so-dia">🥖</span></div>
           <span class="card__id"><span class="so-noite">LX-027</span><span class="so-dia">FN-012</span></span>
         </div>
         <h3><span class="so-noite">Cold Brew Neurale</span><span class="so-dia">Baguette d'Orbita</span></h3>
@@ -253,8 +248,8 @@
       </article>
 
       <article class="card card--a reveal tilt" data-d="4" data-item="4" data-preco-noite="26" data-preco-dia="6" data-filtros-noite="gelado sem-lactose" data-filtros-dia="doce">
+        <figure class="card__foto" aria-hidden="true"><img class="so-noite" src="../img/cardapio/noite-4-400.webp" srcset="../img/cardapio/noite-4-400.webp 400w, ../img/cardapio/noite-4-720.webp 720w" sizes="(min-width: 1100px) 360px, (min-width: 700px) 45vw, 92vw" width="400" height="300" alt="" loading="lazy" decoding="async"><img class="so-dia" src="../img/cardapio/dia-4-400.webp" srcset="../img/cardapio/dia-4-400.webp 400w, ../img/cardapio/dia-4-720.webp 720w" sizes="(min-width: 1100px) 360px, (min-width: 700px) 45vw, 92vw" width="400" height="300" alt="" loading="lazy" decoding="async"></figure>
         <div class="card__top">
-          <div class="card__icon" aria-hidden="true"><span class="so-noite">🍃</span><span class="so-dia">🧁</span></div>
           <span class="card__id"><span class="so-noite">LX-033</span><span class="so-dia">FN-019</span></span>
         </div>
         <h3><span class="so-noite">Matcha del Vuoto</span><span class="so-dia">Bombolone Nebulosa</span></h3>
@@ -273,8 +268,8 @@
       </article>
 
       <article class="card card--m reveal tilt" data-d="5" data-item="5" data-preco-noite="20" data-preco-dia="5" data-filtros-noite="quente doce sem-cafeina" data-filtros-dia="doce sem-lactose">
+        <figure class="card__foto" aria-hidden="true"><img class="so-noite" src="../img/cardapio/noite-5-400.webp" srcset="../img/cardapio/noite-5-400.webp 400w, ../img/cardapio/noite-5-720.webp 720w" sizes="(min-width: 1100px) 360px, (min-width: 700px) 45vw, 92vw" width="400" height="300" alt="" loading="lazy" decoding="async"><img class="so-dia" src="../img/cardapio/dia-5-400.webp" srcset="../img/cardapio/dia-5-400.webp 400w, ../img/cardapio/dia-5-720.webp 720w" sizes="(min-width: 1100px) 360px, (min-width: 700px) 45vw, 92vw" width="400" height="300" alt="" loading="lazy" decoding="async"></figure>
         <div class="card__top">
-          <div class="card__icon" aria-hidden="true"><span class="so-noite">✨</span><span class="so-dia">🍩</span></div>
           <span class="card__id"><span class="so-noite">LX-042</span><span class="so-dia">FN-024</span></span>
         </div>
         <h3><span class="so-noite">Latte di Stella</span><span class="so-dia">Ciambella dell'Eclissi</span></h3>
@@ -293,8 +288,8 @@
       </article>
 
       <article class="card card--v reveal tilt" data-d="5" data-item="6" data-preco-noite="31" data-preco-dia="4" data-filtros-noite="gelado intenso sem-lactose" data-filtros-dia="salgado quentinho sem-gluten">
+        <figure class="card__foto" aria-hidden="true"><img class="so-noite" src="../img/cardapio/noite-6-400.webp" srcset="../img/cardapio/noite-6-400.webp 400w, ../img/cardapio/noite-6-720.webp 720w" sizes="(min-width: 1100px) 360px, (min-width: 700px) 45vw, 92vw" width="400" height="300" alt="" loading="lazy" decoding="async"><img class="so-dia" src="../img/cardapio/dia-6-400.webp" srcset="../img/cardapio/dia-6-400.webp 400w, ../img/cardapio/dia-6-720.webp 720w" sizes="(min-width: 1100px) 360px, (min-width: 700px) 45vw, 92vw" width="400" height="300" alt="" loading="lazy" decoding="async"></figure>
         <div class="card__top">
-          <div class="card__icon" aria-hidden="true"><span class="so-noite">☄️</span><span class="so-dia">🧀</span></div>
           <span class="card__id"><span class="so-noite">LX-050</span><span class="so-dia">FN-031</span></span>
         </div>
         <h3><span class="so-noite">Polvere di Cometa</span><span class="so-dia">Pane al Formaggio Quantistico</span></h3>

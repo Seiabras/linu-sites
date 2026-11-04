@@ -34,10 +34,10 @@
 
   // Um quadro só para todas as animações contínuas; para quando não tem ninguém vendo
   const passos = [];
-  let pedido = 0, efeitos = true, visivel = true;
+  let pedido = 0, efeitos = true, visivel = true, perto = true;
   const quadro = () => { passos.forEach(f => f()); pedido = requestAnimationFrame(quadro); };
   const conferirQuadro = () => {
-    const rodar = efeitos && visivel && !document.hidden && passos.length > 0;
+    const rodar = efeitos && visivel && perto && !document.hidden && passos.length > 0;
     if (rodar && !pedido) pedido = requestAnimationFrame(quadro);
     if (!rodar && pedido) { cancelAnimationFrame(pedido); pedido = 0; }
   };
@@ -52,22 +52,22 @@
 
   const steps = modo === 'dia' ? T.d_boot : T.boot;
 
-  // 3 segundos desde o começo da página (pedido de 1/11/2026): a barra enche em 2,6 s e a tela some
-  // logo depois. Não roda se a abertura já foi vista nesta sessão (.ja-abriu) ou se a pessoa pulou.
+  // Curta (4/11/2026: “o conteúdo vem lento”; em 1/11 eram 3 s): a barra enche em 0,9 s, a tela some logo
+  // depois e o conteúdo já está pintado por baixo. Não roda se a abertura já foi vista nesta sessão (.ja-abriu) ou se a pessoa pulou.
   const raizBoot = document.documentElement;
   const semAbertura = embutido || raizBoot.classList.contains('ja-abriu');
   let p = 0, si = 0;
   const bootTimer = semAbertura ? 0 : setInterval(() => {
     if (boot.classList.contains('done')) { clearInterval(bootTimer); return; }
-    p = Math.min(100, performance.now() / 2600 * 100);
+    p = Math.min(100, performance.now() / 900 * 100);
     bootFill.style.width = p + '%';
     const idx = Math.min(steps.length - 1, Math.floor(p / (100 / steps.length)));
     if (idx !== si) { si = idx; bootLog.textContent = steps[idx]; }
-    if (p >= 100) { clearInterval(bootTimer); setTimeout(() => boot.classList.add('done'), 400); }
-  }, 200);
+    if (p >= 100) { clearInterval(bootTimer); setTimeout(() => boot.classList.add('done'), 150); }
+  }, 100);
   // Segurança: nunca travar a página
   if (semAbertura) boot.classList.add('done');
-  else setTimeout(() => boot.classList.add('done'), 3600);
+  else setTimeout(() => boot.classList.add('done'), 1400);
 
   // A prévia que o simulador do Linu Sites pede (2/11/2026, módulo "Abertura de identidade"): mostra a abertura
   // com a duração escolhida (1,5 ou 3 s), mesmo embutido e mesmo já vista. Pula com toque ou tecla, como a de verdade,
@@ -257,10 +257,11 @@
     ctx.globalAlpha = 1;
   }
 
-  let impar = false;
+  // 30 quadros por segundo bastam para a grade e as partículas; no celular, 20 (4/11/2026: o Café pesava)
+  const pulo = isTouch ? 3 : 2;
+  let conta = 0;
   function frame() {
-    impar = !impar;
-    if (impar) return; // 30 quadros por segundo bastam para a grade e as partículas
+    if (++conta % pulo) return;
     t += 0.012;
     if (modo === 'dia') { frameDia(); return; }
 
@@ -353,9 +354,18 @@
         obs.unobserve(en.target);
       }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  }, { threshold: 0, rootMargin: '0px 0px 12% 0px' }); // entra um pouco antes de aparecer
 
   $$('.reveal').forEach(el => revealObserver.observe(el));
+
+  // 4/11/2026, o Café estava pesado: com a tela parada, o fundo e as animações em CSS gastavam um terço do processador
+  // de um celular simples. O fundo anda só enquanto a abertura (#inicio) está à vista; depois fica parado no último
+  // quadro, atrás do texto. As animações em loop param quando a parte delas sai da tela (.pausa, no estilo.css).
+  const vigia = new IntersectionObserver(entries => entries.forEach(en => {
+    if (en.target.id === 'inicio') { perto = en.isIntersecting; conferirQuadro(); }
+    en.target.classList.toggle('pausa', !en.isIntersecting);
+  }), { rootMargin: '80px 0px' });
+  $$('#inicio, .marquee, #sobre, #laboratorio, .cta, footer').forEach(el => vigia.observe(el));
 
   /* ----------------------------------------------------------
      6. CARDS — tilt 3D + spotlight

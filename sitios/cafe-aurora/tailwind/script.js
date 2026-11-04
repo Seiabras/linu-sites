@@ -34,15 +34,15 @@
   let p = 0, si = 0;
   const bootTimer = semAbertura ? 0 : setInterval(() => {
     if (boot.classList.contains('done')) { clearInterval(bootTimer); return; }
-    p = Math.min(100, performance.now() / 2600 * 100);
+    p = Math.min(100, performance.now() / 900 * 100); // curta desde 4/11/2026 (eram 3 s)
     bootFill.style.width = p + '%';
     const idx = Math.min(steps.length - 1, Math.floor(p / (100 / steps.length)));
     if (idx !== si) { si = idx; bootLog.textContent = steps[idx]; }
-    if (p >= 100) { clearInterval(bootTimer); setTimeout(() => boot.classList.add('done'), 400); }
-  }, 200);
+    if (p >= 100) { clearInterval(bootTimer); setTimeout(() => boot.classList.add('done'), 150); }
+  }, 100);
   // Segurança: nunca travar a página
   if (semAbertura) boot.classList.add('done');
-  else setTimeout(() => boot.classList.add('done'), 3600);
+  else setTimeout(() => boot.classList.add('done'), 1400);
 
   /* ----------------------------------------------------------
      2. CURSOR PERSONALIZADO
@@ -144,7 +144,13 @@
     }
   }
 
+  // 4/11/2026, o Café estava pesado: o fundo desenha a 30 quadros (20 no celular) e só com a abertura à vista
+  const pulo = matchMedia('(hover: none), (pointer: coarse)').matches ? 3 : 2;
+  let conta = 0, perto = true;
+  new IntersectionObserver(([en]) => { perto = en.isIntersecting; }, { rootMargin: '80px 0px' })
+    .observe(document.querySelector('#inicio') || document.body);
   function frame() {
+    if (document.hidden || !perto || ++conta % pulo) { requestAnimationFrame(frame); return; }
     t += 0.006;
 
     ctx.clearRect(0, 0, W, H);
@@ -245,7 +251,7 @@
         obs.unobserve(en.target);
       }
     });
-  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  }, { threshold: 0, rootMargin: '0px 0px 12% 0px' });
 
   $$('.reveal').forEach(el => revealObserver.observe(el));
 
@@ -451,4 +457,8 @@
     })();
   }
 
+
+  // As animações em loop param quando a parte delas sai da tela (.pausa, no estilo.css). 4/11/2026.
+  const vigia = new IntersectionObserver(es => es.forEach(en => en.target.classList.toggle('pausa', !en.isIntersecting)), { rootMargin: '80px 0px' });
+  document.querySelectorAll('#inicio, .marquee, #sobre, #laboratorio, .cta, footer').forEach(el => vigia.observe(el));
 })();
