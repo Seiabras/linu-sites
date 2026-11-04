@@ -166,7 +166,7 @@ bioma = f'''        <section class="titulo-pagina guia-topo">
 '''
 pagina('bioma.html', 'O bioma Cerrado: onde fica, clima, solo e fogo — Guia do Cerrado',
        'O Cerrado ocupa 23,3% do Brasil: onde fica, quanto de cada estado é Cerrado, as duas estações, o solo ácido e as adaptações ao fogo, com fontes.',
-       bioma, scripts=['guia.js?v=1'])
+       bioma, scripts=['guia.js?v=2'])
 
 # ---------------------------------------------------------------- Paisagens: as 11 fitofisionomias e o corte desenhado
 P = [
@@ -305,7 +305,7 @@ paisagens = f'''        <section class="titulo-pagina guia-topo">
 '''
 pagina('paisagens.html', 'As 11 paisagens do Cerrado — Guia do Cerrado',
        'As onze fitofisionomias do Cerrado, de Ribeiro e Walter: campos, savanas e florestas, num corte desenhado para explorar, com fontes.',
-       paisagens, scripts=['guia.js?v=1'])
+       paisagens, scripts=['guia.js?v=2'])
 
 # ---------------------------------------------------------------- Fontes
 FONTES.sort()
@@ -1179,7 +1179,7 @@ especies = f'''        <section class="titulo-pagina guia-topo">
 '''
 pagina('especies.html', 'Espécies do Cerrado: fauna e flora — Guia do Cerrado',
        f'{n_fauna} bichos e {n_flora} plantas do Cerrado, com busca, filtros por grupo e paisagem, as espécies ameaçadas e o calendário das frutas.',
-       especies, scripts=['guia.js?v=1'])
+       especies, scripts=['guia.js?v=2'])
 
 # o menu passa a levar "Espécies" para o catálogo; a galeria e as fichas ficam dentro dele
 MENU[3] = ('especies.html', 'Espécies')
@@ -1265,7 +1265,7 @@ agua = f'''        <section class="titulo-pagina guia-topo">
         </div>
 '''
 pagina('agua.html', 'O berço das águas — Guia do Cerrado',
-       'Quanto da água do São Francisco, do Tocantins e do Paraná vem do Cerrado, os aquíferos e as veredas, com fontes.', agua, scripts=['guia.js?v=1'])
+       'Quanto da água do São Francisco, do Tocantins e do Paraná vem do Cerrado, os aquíferos e as veredas, com fontes.', agua, scripts=['guia.js?v=2'])
 
 # ---- Povos
 POVOS = [
@@ -1356,7 +1356,7 @@ ameacas = f'''        <section class="titulo-pagina guia-topo">
         </div>
 '''
 pagina('ameacas.html', 'O que ameaça o Cerrado — Guia do Cerrado',
-       'Quanto o Cerrado já perdeu, o desmatamento medido pelo INPE ano a ano, onde ele acontece e quanto está protegido, com fontes.', ameacas, scripts=['guia.js?v=1'])
+       'Quanto o Cerrado já perdeu, o desmatamento medido pelo INPE ano a ano, onde ele acontece e quanto está protegido, com fontes.', ameacas, scripts=['guia.js?v=2'])
 
 # ---- o menu do guia com as partes novas; Expedições e Sobre vão para o rodapé
 MENU[:] = [('index.html', 'Início'), ('bioma.html', 'O bioma'), ('paisagens.html', 'Paisagens'), ('especies.html', 'Espécies'),
@@ -1520,7 +1520,7 @@ aprender = f'''        <section class="titulo-pagina guia-topo">
         </div>
 '''
 pagina('aprender.html', 'Aprender brincando — Guia do Cerrado',
-       'Quiz sobre o Cerrado por tema, os jogos “Qual é esta espécie?” e “Qual paisagem é esta?” e um glossário, tudo com base no guia.', aprender, scripts=['guia.js?v=1', 'aprender.js?v=3'])
+       'Quiz sobre o Cerrado por tema, os jogos “Qual é esta espécie?” e “Qual paisagem é esta?” e um glossário, tudo com base no guia.', aprender, scripts=['guia.js?v=2', 'aprender.js?v=6'])
 
 MENU.append(('aprender.html', 'Aprender'))
 for f in COMPARTILHADAS:
@@ -2053,7 +2053,7 @@ mes = f'''        <section class="titulo-pagina guia-topo">
         </section>
 '''
 pagina('mes-a-mes.html', 'O Cerrado mês a mês — Guia do Cerrado',
-       'O que floresce, que fruta amadurece, que bicho aparece e o que acontece na paisagem do Cerrado em cada mês do ano.', mes, scripts=['mes-a-mes.js?v=1'])
+       'O que floresce, que fruta amadurece, que bicho aparece e o que acontece na paisagem do Cerrado em cada mês do ano.', mes, scripts=['mes-a-mes.js?v=2'])
 RODAPE_PT = RODAPE_PT.replace(' · <a href="onde-ver.html">Onde ver</a>', ' · <a href="mes-a-mes.html">Mês a mês</a> · <a href="onde-ver.html">Onde ver</a>')
 so_pt = json.loads((AQUI / 'so-pt.json').read_text())
 if 'mes-a-mes.html' not in so_pt: so_pt.append('mes-a-mes.html')
@@ -2115,7 +2115,7 @@ ajudar = f'''        <section class="titulo-pagina guia-topo">
         </div>
 '''
 pagina('como-ajudar.html', 'Como ajudar o Cerrado — Guia do Cerrado',
-       'Seis coisas que qualquer pessoa pode fazer pelo Cerrado: registrar, denunciar, socorrer um bicho, comprar, plantar e evitar o fogo.', ajudar, scripts=['guia.js?v=1', 'como-ajudar.js?v=1'])
+       'Seis coisas que qualquer pessoa pode fazer pelo Cerrado: registrar, denunciar, socorrer um bicho, comprar, plantar e evitar o fogo.', ajudar, scripts=['guia.js?v=2', 'como-ajudar.js?v=2'])
 RODAPE_PT = RODAPE_PT.replace(' · <a href="mes-a-mes.html">Mês a mês</a>', ' · <a href="mes-a-mes.html">Mês a mês</a> · <a href="como-ajudar.html">Como ajudar</a>')
 so_pt = json.loads((AQUI / 'so-pt.json').read_text())
 if 'como-ajudar.html' not in so_pt: so_pt.append('como-ajudar.html')
@@ -2193,7 +2193,7 @@ roteiro = f'''        <section class="titulo-pagina guia-topo">
         </section>
 '''
 pagina('roteiro.html', 'Monte sua visita — Guia do Cerrado',
-       'Escolha um parque do Cerrado e o mês: o guia junta as paisagens, as espécies para procurar e o que estará acontecendo por lá.', roteiro, scripts=['roteiro.js?v=2'])
+       'Escolha um parque do Cerrado e o mês: o guia junta as paisagens, as espécies para procurar e o que estará acontecendo por lá.', roteiro, scripts=['roteiro.js?v=3'])
 RODAPE_PT = RODAPE_PT.replace(' · <a href="onde-ver.html">Onde ver</a>', ' · <a href="onde-ver.html">Onde ver</a> · <a href="roteiro.html">Monte sua visita</a>')
 so_pt = json.loads((AQUI / 'so-pt.json').read_text())
 if 'roteiro.html' not in so_pt: so_pt.append('roteiro.html')
@@ -2266,7 +2266,7 @@ busca = f"""        <section class="titulo-pagina guia-topo">
             </div>
         </section>
 """
-pagina('busca.html', 'Buscar no guia — Guia do Cerrado', 'Busque espécies, paisagens, parques, povos e palavras do glossário em todo o Guia do Cerrado.', busca, scripts=['busca.js?v=1'])
+pagina('busca.html', 'Buscar no guia — Guia do Cerrado', 'Busque espécies, paisagens, parques, povos e palavras do glossário em todo o Guia do Cerrado.', busca, scripts=['busca.js?v=2'])
 so_pt = json.loads((AQUI / 'so-pt.json').read_text())
 if 'busca.html' not in so_pt: so_pt.append('busca.html')
 (AQUI / 'so-pt.json').write_text(json.dumps(so_pt, ensure_ascii=False, indent=2) + '\n')
@@ -2312,7 +2312,7 @@ q = M / 'aprender.html'; t = q.read_text()
 if 'id="tamanho"' not in t:
     t = t.replace('                <section id="adivinha" aria-labelledby="adivinha-titulo">', jogos_novos + '                <section id="adivinha" aria-labelledby="adivinha-titulo">', 1)
     t = re.sub(r'<nav class="indice".*?</nav>', indice([('quiz', 'Quiz'), ('qual-e', 'Qual é esta espécie?'), ('tamanho', 'Do maior para o menor'), ('epoca', 'De que época é?'), ('adivinha', 'Qual paisagem é esta?'), ('glossario', 'Glossário')]), t, count=1, flags=re.S)
-    t = t.replace('aprender.js?v=3', 'aprender.js?v=5')
+    t = t.replace('aprender.js?v=6', 'aprender.js?v=6')
     t = t.replace('<p>Um quiz por tema, dois jogos (reconhecer as espécies pelas pistas e as paisagens pelo desenho) e um glossário.', '<p>Um quiz por tema, quatro jogos (as espécies pelas pistas, os tamanhos, as épocas e as paisagens pelo desenho) e um glossário. Cada jogo guarda o seu recorde neste navegador.')
     q.write_text(t)
 print('jogos novos:', len(TAMANHOS), 'tamanhos,', len(EPOCAS), 'épocas')
@@ -2380,7 +2380,7 @@ comparar_pg = f"""        <section class="titulo-pagina guia-topo">
             </div>
         </section>
 """
-pagina('comparar.html', 'Comparar espécies — Guia do Cerrado', 'Compare duas espécies do Cerrado lado a lado: tamanho na mesma escala, fatos, como reconhecer e paisagens.', comparar_pg, scripts=['comparar.js?v=2'])
+pagina('comparar.html', 'Comparar espécies — Guia do Cerrado', 'Compare duas espécies do Cerrado lado a lado: tamanho na mesma escala, fatos, como reconhecer e paisagens.', comparar_pg, scripts=['comparar.js?v=3'])
 so_pt = json.loads((AQUI / 'so-pt.json').read_text())
 if 'comparar.html' not in so_pt: so_pt.append('comparar.html')
 (AQUI / 'so-pt.json').write_text(json.dumps(so_pt, ensure_ascii=False, indent=2) + '\n')
@@ -2402,8 +2402,8 @@ print('comparar:', len(COMP), 'espécies,', len(comp_json) // 1024, 'KB')
 import html as _html
 NOMES_PARQUES = [p[0] for p in PARQUES]
 parques_attr = _html.escape(json.dumps(NOMES_PARQUES, ensure_ascii=False), quote=True)
-CAB_OFF = '{{?pt-BR}}<link rel="manifest" href="{{raiz}}manifest.webmanifest"><meta name="theme-color" content="#814F12"><script src="{{raiz}}js/offline.js?v=1" defer></script>{{/pt-BR}}'
-CAD_JS = '<script src="{{raiz}}js/caderno.js?v=1" defer></script>'
+CAB_OFF = '{{?pt-BR}}<link rel="manifest" href="{{raiz}}manifest.webmanifest"><meta name="theme-color" content="#814F12"><script src="{{raiz}}js/offline.js?v=2" defer></script>{{/pt-BR}}'
+CAD_JS = '<script src="{{raiz}}js/caderno.js?v=2" defer></script>'
 for e in ESP:
     q = M / f'especie-{e[0]}.html'
     if not q.exists(): continue
@@ -2430,7 +2430,7 @@ caderno = f'''        <section class="titulo-pagina guia-topo">
             </div>
         </section>
 '''
-pagina('caderno.html', 'Meu caderno de campo — Guia do Cerrado', 'As espécies do Cerrado que você já viu, com a data e o lugar, guardadas no seu navegador.', caderno, scripts=['caderno.js?v=1'])
+pagina('caderno.html', 'Meu caderno de campo — Guia do Cerrado', 'As espécies do Cerrado que você já viu, com a data e o lugar, guardadas no seu navegador.', caderno, scripts=['caderno.js?v=2'])
 so_pt = json.loads((AQUI / 'so-pt.json').read_text())
 if 'caderno.html' not in so_pt: so_pt.append('caderno.html')
 (AQUI / 'so-pt.json').write_text(json.dumps(so_pt, ensure_ascii=False, indent=2) + '\n')
@@ -2638,7 +2638,7 @@ manifesto = {
 }
 (SITIO_DIR / 'manifest.webmanifest').write_text(json.dumps(manifesto, ensure_ascii=False, indent=2) + '\n')
 # o manifesto, a cor do tema e o offline.js em todas as páginas em português
-CAB_OFF = '{{?pt-BR}}<link rel="manifest" href="{{raiz}}manifest.webmanifest"><meta name="theme-color" content="#814F12"><script src="{{raiz}}js/offline.js?v=1" defer></script>{{/pt-BR}}'
+CAB_OFF = '{{?pt-BR}}<link rel="manifest" href="{{raiz}}manifest.webmanifest"><meta name="theme-color" content="#814F12"><script src="{{raiz}}js/offline.js?v=2" defer></script>{{/pt-BR}}'
 for f in paginas_pt:
     q = M / f; t = q.read_text()
     t = re.sub(r'\{\{\?pt-BR\}\}<link rel="manifest".*?\{\{/pt-BR\}\}\n?', '', t)
