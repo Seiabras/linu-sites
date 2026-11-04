@@ -370,6 +370,9 @@ node ferramentas/gerar-estudo.mjs pica-nao-pica
   e as outras 12 línguas seguem com o `?v=10` do modelo, byte a byte iguais; o script em `guia.js?v=5`.
 - **A 404 do Cerrado** (`sitios/fotografia-do-cerrado/404.html`) só aparece depois de o bloco novo do `deploy/Caddyfile-bloco`
   (`handle_errors` no `cerrado.linupedia.com.br`) ser posto na VM, como diz o `deploy/ORACLE.md`.
+- **Links quebrados** (04/11/2026, `.github/workflows/links.yml`, com o lychee): a cada push que mexe nos sites, os links entre
+  as páginas, sem internet, e o push falha se algum quebrar; toda segunda, as fontes e as fotos de fora, com o resultado no
+  resumo da execução (não falha).
 - Os repositórios `Seiabras/fotografia-do-cerrado` e `Seiabras/pica-nao-pica` recebem uma cópia de
   `sitios/<site>/` a cada mudança (o README e o CLAUDE.md de lá não vêm daqui).
 - **O nome `pica-nao-pica`** (04/11/2026): a pasta, o repositório e o gerador se chamavam `abelhas-sem-ferrao`. Na VM 1, o
