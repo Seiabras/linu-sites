@@ -1,6 +1,10 @@
 // Aprender brincando (31/10/2026): o quiz por tema, os jogos (espécies, tamanhos, épocas, paisagens) e a busca no glossário.
 // O retorno de cada resposta é escrito ("Certo!" ou "Não é essa."), não só a cor, e vem com o link para o guia.
 (() => {
+    // as frases vêm no idioma da página: o grupo "aprender" do #textos-estudo (o scripts-pt.json do gerador, traduzido
+    // pelo catálogo de cada língua); {n} e afins são trocados pelos valores
+    const TX = (() => { try { return JSON.parse(document.getElementById('textos-estudo').textContent).aprender || {}; } catch { return {}; } })();
+    const tr = (k, v = {}) => String(TX[k] ?? k).replace(/\{(\w+)\}/g, (_, x) => v[x] ?? '');
     const embaralhar = (lista) => { const a = [...lista]; for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
     const ler = (id) => { try { return JSON.parse(document.getElementById(id).textContent); } catch { return null; } };
     // o recorde de cada jogo, guardado só neste navegador (1/11/2026); sem localStorage, o jogo segue sem recorde
@@ -11,9 +15,9 @@
         if (!antes || ac / n > antes[0] / antes[1]) {
             todos[chave] = [ac, n];
             try { localStorage.setItem('cerrado-recordes', JSON.stringify(todos)); } catch { /* sem recorde */ }
-            return antes ? ' Novo recorde!' : '';
+            return antes ? ' ' + tr('novo_recorde') : '';
         }
-        return ` Seu recorde: ${antes[0]} de ${antes[1]}.`;
+        return ' ' + tr('seu_recorde', { n: antes[0], total: antes[1] });
     };
 
     // um jogo de perguntas: monta os botões, corrige, explica e passa para a próxima
@@ -37,10 +41,10 @@
                     if (!certo) { b.classList.add('errada'); marca(b, ' ✗'); }
                     retorno.classList.toggle('certo', certo);
                     retorno.classList.toggle('errado', !certo);
-                    retorno.replaceChildren(Object.assign(document.createElement('strong'), { textContent: certo ? 'Certo! ' : 'Não é essa. ' }), r.explicacao);
-                    if (r.link) { retorno.append(' '); retorno.append(Object.assign(document.createElement('a'), { href: r.link, textContent: 'Ler no guia' })); }
+                    retorno.replaceChildren(Object.assign(document.createElement('strong'), { textContent: (certo ? tr('certo') : tr('nao_e')) + ' ' }), r.explicacao);
+                    if (r.link) { retorno.append(' '); retorno.append(Object.assign(document.createElement('a'), { href: r.link, textContent: tr('ler_no_guia') })); }
                     retorno.hidden = false;
-                    proxima.textContent = i + 1 < lista.length ? proxima.dataset.texto : 'Ver o resultado';
+                    proxima.textContent = i + 1 < lista.length ? proxima.dataset.texto : tr('ver_resultado');
                     proxima.hidden = false;
                     proxima.focus();
                 });
@@ -67,11 +71,11 @@
         const rodadas = () => embaralhar(dadosQuiz.filter((q) => !tema || q.t === tema)).map((q) => ({ texto: q.p, opcoes: q.o, certa: q.c, explicacao: q.e, link: q.l }));
         const q = jogo({
             caixa: caixaQuiz, proxima: document.getElementById('quiz-proxima'), rodadas,
-            mostrar: (r, i, n) => { contador.textContent = `Pergunta ${i + 1} de ${n}`; pergunta.textContent = r.texto; },
+            mostrar: (r, i, n) => { contador.textContent = tr('pergunta', { n: i + 1, total: n }); pergunta.textContent = r.texto; },
             fim: (a, n, denovo) => {
-                contador.textContent = 'Resultado';
-                pergunta.textContent = `Você acertou ${a} de ${n}.` + recorde('quiz-' + (tema || 'todos'), a, n);
-                const b = Object.assign(document.createElement('button'), { type: 'button', className: 'botao', textContent: 'Jogar de novo' });
+                contador.textContent = tr('resultado');
+                pergunta.textContent = tr('acertou', { n: a, total: n }) + recorde('quiz-' + (tema || 'todos'), a, n);
+                const b = Object.assign(document.createElement('button'), { type: 'button', className: 'botao', textContent: tr('jogar_de_novo') });
                 b.addEventListener('click', () => q.comecar());
                 caixaQuiz.querySelector('.quiz-opcoes').replaceChildren(b);
                 caixaQuiz.querySelector('.quiz-retorno').hidden = true;
@@ -114,15 +118,15 @@
             caixa: caixaQual, proxima: document.getElementById('qual-proxima'), rodadas,
             mostrar: (r, i, n) => {
                 atual = r.s; vistas = 2;
-                placar.textContent = `Espécie ${i + 1} de ${n} · ${r.s.g}`;
+                placar.textContent = tr('qual_placar', { n: i + 1, total: n, grupo: r.s.g });
                 lista.replaceChildren(...r.s.p.slice(0, 2).map(pista));
                 mais.hidden = r.s.p.length <= 2;
             },
             fim: (ac, n) => {
                 atual = null;
-                placar.textContent = `Você reconheceu ${ac} de ${n} espécies.` + recorde('qual', ac, n);
+                placar.textContent = tr('qual_fim', { n: ac, total: n }) + recorde('qual', ac, n);
                 lista.replaceChildren(); mais.hidden = true;
-                const b = Object.assign(document.createElement('button'), { type: 'button', className: 'botao', textContent: 'Jogar de novo' });
+                const b = Object.assign(document.createElement('button'), { type: 'button', className: 'botao', textContent: tr('jogar_de_novo') });
                 b.addEventListener('click', () => q.comecar());
                 caixaQual.querySelector('.quiz-opcoes').replaceChildren(b);
                 caixaQual.querySelector('.quiz-retorno').hidden = true;
@@ -155,7 +159,7 @@
             const itens = sortear();
             const certa = [...itens].sort((a, b) => b.m - a.m);
             const escolhidos = [];
-            placar.textContent = `Rodada ${rodada + 1} de ${RODADAS}: toque do maior para o menor.`;
+            placar.textContent = tr('tamanho_rodada', { n: rodada + 1, total: RODADAS });
             retorno.hidden = true; proxima.hidden = true;
             opcoes.replaceChildren(...itens.map((it) => {
                 const b = document.createElement('button');
@@ -165,16 +169,16 @@
                     escolhidos.push(it);
                     b.disabled = true;
                     b.querySelector('.tamanho-ordem').textContent = String(escolhidos.length);
-                    b.setAttribute('aria-label', `${it.n}, ${escolhidos.length}º`);
+                    b.setAttribute('aria-label', tr('tamanho_ordem', { nome: it.n, n: escolhidos.length }));
                     if (escolhidos.length < itens.length) return;
                     const ok = escolhidos.every((x, i) => x === certa[i]);
                     if (ok) acertos++;
                     retorno.classList.toggle('certo', ok); retorno.classList.toggle('errado', !ok);
                     const lista = document.createElement('ol');
                     certa.forEach((x) => { const li = document.createElement('li'); li.append(Object.assign(document.createElement('a'), { href: `especie-${x.id}.html`, textContent: x.n }), ` (${x.t})`); lista.append(li); });
-                    retorno.replaceChildren(Object.assign(document.createElement('strong'), { textContent: ok ? 'Certo! ' : 'Não é essa ordem. ' }), 'Do maior para o menor:', lista);
+                    retorno.replaceChildren(Object.assign(document.createElement('strong'), { textContent: (ok ? tr('certo') : tr('nao_e_ordem')) + ' ' }), tr('maior_menor'), lista);
                     retorno.hidden = false;
-                    proxima.textContent = rodada + 1 < RODADAS ? 'Próxima rodada' : 'Ver o resultado';
+                    proxima.textContent = rodada + 1 < RODADAS ? tr('proxima_rodada') : tr('ver_resultado');
                     proxima.hidden = false; proxima.focus();
                 });
                 return b;
@@ -182,9 +186,9 @@
         };
         proxima.addEventListener('click', () => {
             if (++rodada < RODADAS) { comecarRodada(); return; }
-            placar.textContent = `Você acertou a ordem em ${acertos} de ${RODADAS} rodadas.` + recorde('tamanho', acertos, RODADAS);
+            placar.textContent = tr('tamanho_fim', { n: acertos, total: RODADAS }) + recorde('tamanho', acertos, RODADAS);
             retorno.hidden = true; proxima.hidden = true;
-            const b = Object.assign(document.createElement('button'), { type: 'button', className: 'botao', textContent: 'Jogar de novo' });
+            const b = Object.assign(document.createElement('button'), { type: 'button', className: 'botao', textContent: tr('jogar_de_novo') });
             b.addEventListener('click', () => { rodada = 0; acertos = 0; comecarRodada(); });
             opcoes.replaceChildren(b);
         });
@@ -204,11 +208,11 @@
         });
         const ep = jogo({
             caixa: caixaEp, proxima: document.getElementById('epoca-proxima'), rodadas,
-            mostrar: (r, i, n) => { placar.textContent = `Pergunta ${i + 1} de ${n}`; pergunta.textContent = `Quando: ${r.texto}?`; },
+            mostrar: (r, i, n) => { placar.textContent = tr('pergunta', { n: i + 1, total: n }); pergunta.textContent = tr('epoca_pergunta', { nome: r.texto }); },
             fim: (ac, n) => {
-                placar.textContent = 'Resultado';
-                pergunta.textContent = `Você acertou ${ac} de ${n}.` + recorde('epoca', ac, n);
-                const b = Object.assign(document.createElement('button'), { type: 'button', className: 'botao', textContent: 'Jogar de novo' });
+                placar.textContent = tr('resultado');
+                pergunta.textContent = tr('acertou', { n: ac, total: n }) + recorde('epoca', ac, n);
+                const b = Object.assign(document.createElement('button'), { type: 'button', className: 'botao', textContent: tr('jogar_de_novo') });
                 b.addEventListener('click', () => ep.comecar());
                 caixaEp.querySelector('.quiz-opcoes').replaceChildren(b);
                 caixaEp.querySelector('.quiz-retorno').hidden = true;
@@ -233,11 +237,11 @@
         const a = jogo({
             caixa: caixaAdv, proxima: document.getElementById('adivinha-proxima'), rodadas,
             // o desenho é o mesmo do corte, sem o nome
-            mostrar: (r, i, n) => { figura.innerHTML = dadosAdivinha.desenhos[r.id]; placar.textContent = `Paisagem ${i + 1} de ${n}`; },
+            mostrar: (r, i, n) => { figura.innerHTML = dadosAdivinha.desenhos[r.id]; placar.textContent = tr('paisagem_placar', { n: i + 1, total: n }); },
             fim: (ac, n) => {
                 figura.replaceChildren();
-                placar.textContent = `Você reconheceu ${ac} de ${n} paisagens.` + recorde('paisagem', ac, n);
-                const b = Object.assign(document.createElement('button'), { type: 'button', className: 'botao', textContent: 'Jogar de novo' });
+                placar.textContent = tr('paisagem_fim', { n: ac, total: n }) + recorde('paisagem', ac, n);
+                const b = Object.assign(document.createElement('button'), { type: 'button', className: 'botao', textContent: tr('jogar_de_novo') });
                 b.addEventListener('click', () => a.comecar());
                 caixaAdv.querySelector('.quiz-opcoes').replaceChildren(b);
                 caixaAdv.querySelector('.quiz-retorno').hidden = true;

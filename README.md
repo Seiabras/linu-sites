@@ -253,7 +253,7 @@ node ferramentas/gerar-estudo.mjs pica-nao-pica
   `ferramentas/estudo/extrair.py` (cada bloco de texto vira uma chave inteira, com a marcação de dentro da frase); se
   mudar o HTML de uma página, mude no `ferramentas/estudo/<site>/modelo/`.
 - As frases dos scripts (o formulário do Cerrado; o percurso e as 5 perguntas do teste das Abelhas) vão no
-  `<script type="application/json" id="textos-estudo">`; sem o bloco, os scripts usam o português.
+  `<script type="application/json" id="textos-estudo">` (desde 04/11/2026 sem cópia em português no código).
 - **Modo claro e escuro**: botão no cabeçalho (`js/tema.js`, e `js/tema-inicio.js` no `<head>` para não piscar), com as
   cores por função no CSS. No escuro, os contrastes passam do AAA (medidos: texto do Cerrado 16,1:1, do teste das
   Abelhas acima de 7,5:1). Os CSS e scripts levam `?v=`: mudou um deles, suba o número no modelo (o CSS está em `?v=3`
@@ -270,7 +270,7 @@ node ferramentas/gerar-estudo.mjs pica-nao-pica
 - **Só em português por enquanto (31/10/2026):** o `gerar-estudo.mjs` gera só em pt-BR as páginas listadas em
   `ferramentas/estudo/<site>/so-pt.json` (sem alternativas nem lista de idiomas) e põe só na página em pt-BR o que estiver
   entre `{{?pt-BR}}` e `{{/pt-BR}}` num modelo. O Cerrado usa os dois (fichas, diário, mapa, testador de contraste); a
-  lista está no README de `Seiabras/fotografia-do-cerrado`. Para traduzir, trocar o texto por chaves e tirar daqui.
+  lista está no README de `Seiabras/fotografia-do-cerrado`. Para traduzir, ver “Traduzir o guia novo” logo abaixo.
   **O Cerrado virou o Guia do Cerrado** (31/10/2026, pedido de “o site mais completo sobre o cerrado do mundo”; o nome novo vale
   em português, e as outras línguas ficam com “Fotografia do Cerrado” até a tradução, pela chave `cerrado_nome`): em português, a
   inicial e o menu são os do guia, com as páginas “O bioma” (mapa dos biomas do IBGE 2019, quanto de cada estado é Cerrado,
@@ -286,6 +286,37 @@ node ferramentas/gerar-estudo.mjs pica-nao-pica
   (pistas tiradas das fichas) e há duas páginas novas, “O Cerrado mês a mês” (lista `EVENTOS`) e “Como ajudar” (lista
   `ACOES`). Para caber no orçamento de DOM, os ícones do catálogo são um `<svg>` com `<use>` (os desenhos ficam uma vez
   só, em `icones_defs()`). No tablet, o menu de 8 itens do guia vira o botão “Menu” até 1099 px (regra por `:has()`).
+- **Traduzir o guia novo (04/11/2026):** o texto em português escrito direto nos modelos (as páginas de `so-pt.json` e
+  os trechos `{{?pt-BR}}`) se traduz por um catálogo por língua, guardado pelo próprio texto em português, sem chave
+  inventada: mudar o pt-BR nos `.py` não exige mexer em nada. Os passos, para uma língua:
+  1. Rode os `.py` do site e depois `node ferramentas/estudo/trechos.mjs <site>`. Ele junta os trechos (blocos de texto
+     com a marcação de dentro da frase, o texto solto, `<title>`, `alt`, `title`, `aria-label`, `placeholder`, `label`,
+     `data-texto`, `data-nome`, `data-busca`, o `content` da descrição e das metas de compartilhar, a mensagem do
+     WhatsApp, os textos dos blocos JSON e do `data-parques`, e as frases dos scripts) e põe em dia
+     `ferramentas/estudo/<site>/traducoes/<código>.json`: `{"pronto": false, "trechos": {"<português>": "<tradução>"}}`.
+     O que é novo entra vazio, o que sumiu sai, e ele diz quanto falta em cada língua. Rodar de novo não muda nada.
+  2. Preencha os trechos daquela língua. A ordem é a das páginas (a inicial, depois em ordem alfabética, as frases dos
+     scripts no fim); onde cada trecho aparece está em `traducoes/onde.json` (gerado, não se edita). Mantenha a
+     marcação (`<a href…>`, `<sup…>`) e os `{n}`, `{total}`… como estão; o mesmo texto em português tem uma tradução só
+     no site inteiro (é assim que o filtro “Espécies” da busca continua batendo com o índice).
+  3. Confira também os `textos/<código>.json` daquela língua: as `{{chave}}` de fora dos trechos entram com eles (por
+     exemplo, `cerrado_nome` ainda diz “Fotografia do Cerrado” nas outras línguas).
+  4. Ponha `"pronto": true` e rode `node ferramentas/gerar-estudo.mjs <site>`. A língua passa a sair no sabor pt-BR (os
+     `{{?pt-BR}}` entram e os `{{!pt-BR}}` saem) e ganha as páginas de `so-pt.json`; essas páginas passam a ter
+     `hreflang` e a lista de idiomas com o pt-BR e as línguas prontas (a lista entra no começo do rodapé quando o
+     modelo não tem `{{idiomas}}`). O `og:url`, o `data-url` e o endereço da mensagem do WhatsApp vão para a pasta da
+     língua. Como nas 6 páginas compartilhadas, o guia sem internet (manifesto e `offline.js`) fica só no pt-BR. A 404
+     do Cerrado (sem `{{lang}}`) fica só em português. Língua marcada pronta com trecho vazio, ou com trecho que não
+     está no catálogo, para o gerador com a lista; língua não pronta sai exatamente como antes, e as páginas só-pt
+     dela que tiverem sobrado de uma rodada anterior são apagadas.
+  - **Os scripts:** as frases do guia novo que os `js/*.js` montam saíram do código e ficam em
+    `ferramentas/estudo/<site>/scripts-pt.json`, um grupo por script (`{"guia": {"chave": "texto"}}`, com `{n}` e afins
+    no lugar dos números). O gerador põe cada grupo no `#textos-estudo` das páginas no sabor pt-BR que carregam
+    `js/<grupo>.js`, traduzido pelo mesmo catálogo. Os meses e os números saem do `Intl`, no `lang` da página. Os
+    scripts das páginas compartilhadas (`teste.js`, `percurso.js`, `galeria.js`, o “obrigado” do `contato.js`) usam só
+    as chaves `js` dos `textos/<código>.json`, sem cópia em português no código.
+  - **Os números (04/11/2026):** o Pica tem 1.466 trechos únicos para traduzir (13.800 palavras) e o Cerrado, 4.123
+    (41.890 palavras), por língua. Nenhuma está traduzida ainda.
 - **As fotos do Guia do Cerrado (4/11/2026):** 111 das 114 espécies, 8 das 11 paisagens e os 3 parques das Expedições têm
   foto real do Wikimedia Commons (só CC0, CC BY, CC BY-SA e domínio público; bicho livre; espécie conferida olhando), em
   `img/especies/` (`<id>.webp` 1000 px, `-640` e `-144` quadrada) e `img/paisagens/`, com o crédito em `creditos.json` e

@@ -5,10 +5,9 @@ const contador = document.getElementById('contador');
 const voltar = document.getElementById('voltar');
 const avancar = document.getElementById('avancar');
 let atual = 0;
-// os textos no idioma da página (o bloco #textos-estudo); sem ele, em português
+// os textos no idioma da página (o bloco #textos-estudo, com as chaves js de cada textos/<código>.json)
 const bloco = document.getElementById('textos-estudo');
-const T = Object.assign({ tela: 'Tela {n} de {total}', proxima: 'Próxima →', ir_teste: 'Fazer o teste rápido →' },
-    bloco ? JSON.parse(bloco.textContent) : {});
+const T = bloco ? JSON.parse(bloco.textContent) : {};
 
 function mostrar(n, focar = true) {
     atual = n;

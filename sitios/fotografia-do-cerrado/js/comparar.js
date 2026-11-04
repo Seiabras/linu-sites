@@ -1,6 +1,10 @@
 // Comparar duas espécies quaisquer (1/11/2026): as duas lado a lado, a partir do <script id="comparar-dados">.
 // O tamanho vai em barras na mesma escala (a maior ocupa a largura toda). O endereço guarda a escolha (?a=&b=).
 (() => {
+    // as frases vêm no idioma da página: o grupo "comparar" do #textos-estudo (o scripts-pt.json do gerador, traduzido
+    // pelo catálogo de cada língua); {n} e afins são trocados pelos valores
+    const TX = (() => { try { return JSON.parse(document.getElementById('textos-estudo').textContent).comparar || {}; } catch { return {}; } })();
+    const tr = (k, v = {}) => String(TX[k] ?? k).replace(/\{(\w+)\}/g, (_, x) => v[x] ?? '');
     let dados;
     try { dados = JSON.parse(document.getElementById('comparar-dados').textContent); } catch { return; }
     const selA = document.getElementById('comp-a'), selB = document.getElementById('comp-b');
@@ -15,11 +19,11 @@
         const h = el('h2'); h.append(link(`especie-${e.id}.html`, e.n)); c.append(el('p', 'comp-grupo', e.g), h, el('p', 'cientifico', e.c));
         if (e.a) c.append(el('span', 'selo', e.a));
         c.append(el('p', 'comp-abre', e.ab));
-        if (e.f.length) { const dl = el('dl', 'ficha-fatos'); e.f.forEach(([k, v]) => dl.append(el('dt', null, k), el('dd', null, v))); c.append(el('h3', 'comp-sub', 'Em poucas palavras'), dl); }
-        if (e.rc.length) { const ul = el('ul', 'lista'); e.rc.forEach((r) => ul.append(el('li', null, r))); c.append(el('h3', 'comp-sub', 'Como reconhecer'), ul); }
+        if (e.f.length) { const dl = el('dl', 'ficha-fatos'); e.f.forEach(([k, v]) => dl.append(el('dt', null, k), el('dd', null, v))); c.append(el('h3', 'comp-sub', tr('poucas_palavras')), dl); }
+        if (e.rc.length) { const ul = el('ul', 'lista'); e.rc.forEach((r) => ul.append(el('li', null, r))); c.append(el('h3', 'comp-sub', tr('como_reconhecer')), ul); }
         const ul = el('ul', 'roteiro-chips comp-pais');
-        e.p.forEach((id) => { const li = el('li'); const a = link(`paisagem-${id}.html`, dados.pais[id]); if (outra.p.includes(id)) { li.className = 'comum'; a.setAttribute('aria-label', `${dados.pais[id]} (as duas)`); } li.append(a); ul.append(li); });
-        c.append(el('h3', 'comp-sub', 'Paisagens'), ul);
+        e.p.forEach((id) => { const li = el('li'); const a = link(`paisagem-${id}.html`, dados.pais[id]); if (outra.p.includes(id)) { li.className = 'comum'; a.setAttribute('aria-label', tr('as_duas', { nome: dados.pais[id] })); } li.append(a); ul.append(li); });
+        c.append(el('h3', 'comp-sub', tr('paisagens')), ul);
         return c;
     }
     function montar(daPessoa) {
@@ -28,23 +32,23 @@
         const blocos = [];
         // a diferença, quando o par está em "Não confunda com"
         const dif = dados.pares[`${a.id}|${b.id}`] || dados.pares[`${b.id}|${a.id}`];
-        if (dif) { const p = el('p', 'comp-diferenca'); p.append(el('strong', null, 'A diferença: '), dif); blocos.push(p); }
-        if (a.id === b.id) blocos.push(el('p', 'comp-diferenca', 'Escolha duas espécies diferentes.'));
+        if (dif) { const p = el('p', 'comp-diferenca'); p.append(el('strong', null, tr('diferenca') + ' '), dif); blocos.push(p); }
+        if (a.id === b.id) blocos.push(el('p', 'comp-diferenca', tr('escolha_duas')));
         // o tamanho, na mesma escala
         if (a.m && b.m) {
-            const t = el('section', 'comp-tamanho'); t.append(el('h2', 'comp-sub', 'Do tamanho de quê?'));
+            const t = el('section', 'comp-tamanho'); t.append(el('h2', 'comp-sub', tr('tamanho')));
             const maior = Math.max(a.m, b.m);
             [a, b].forEach((e) => {
                 const linha = el('div', 'comp-barra-linha'); linha.append(el('span', 'comp-barra-nome', `${e.n}: ${e.mt}`));
                 const barra = el('div', 'comp-barra'); const s = el('span'); s.style.setProperty('--pct', `${Math.max(2, (e.m / maior) * 100)}%`); barra.append(s);
                 linha.append(barra); t.append(linha);
             });
-            t.append(el('p', 'comp-nota', 'Comprimento dos bichos e altura das plantas, como nas fichas.'));
+            t.append(el('p', 'comp-nota', tr('tamanho_nota')));
             blocos.push(t);
         }
         const lado = el('div', 'comp-lado'); lado.append(coluna(a, b), coluna(b, a)); blocos.push(lado);
         const comuns = a.p.filter((x) => b.p.includes(x));
-        blocos.push(el('p', 'comp-nota', comuns.length ? `Em comum: ${comuns.map((x) => dados.pais[x].toLowerCase()).join(', ')} (marcadas nas duas).` : 'As duas não dividem nenhuma paisagem.'));
+        blocos.push(el('p', 'comp-nota', comuns.length ? tr('em_comum', { lista: comuns.map((x) => dados.pais[x].toLowerCase()).join(', ') }) : tr('nada_em_comum')));
         saida.replaceChildren(...blocos);
         if (daPessoa) history.replaceState(null, '', `?a=${a.id}&b=${b.id}`);
     }

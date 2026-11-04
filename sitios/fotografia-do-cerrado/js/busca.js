@@ -2,6 +2,10 @@
 // Sem acento e sem maiúsculas; todas as palavras precisam aparecer. O nome conta mais que o texto. O endereço guarda
 // a busca (?q=), para dar para mandar o link. Os resultados são montados com textContent.
 (() => {
+    // as frases vêm no idioma da página: o grupo "busca" do #textos-estudo (o scripts-pt.json do gerador, traduzido
+    // pelo catálogo de cada língua); {n} e afins são trocados pelos valores
+    const TX = (() => { try { return JSON.parse(document.getElementById('textos-estudo').textContent).busca || {}; } catch { return {}; } })();
+    const tr = (k, v = {}) => String(TX[k] ?? k).replace(/\{(\w+)\}/g, (_, x) => v[x] ?? '');
     const campo = document.getElementById('busca-q');
     const saida = document.querySelector('.busca-resultados');
     const contagem = document.querySelector('.busca-contagem');
@@ -11,7 +15,8 @@
     if (!campo || !saida) return;
     const limpo = (t) => t.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
     const prontos = itens.map((it) => ({ it, nome: limpo(it.n), resto: limpo(`${it.s} ${it.k} ${it.d}`) }));
-    const ORDEM = ['Espécies', 'Paisagens', 'Parques', 'Povos', 'Glossário', 'Mês a mês', 'Páginas'];
+    // os tipos, na ordem; são os mesmos textos do campo "t" do índice (traduzidos pelo mesmo catálogo)
+    const ORDEM = ['especies', 'paisagens', 'parques', 'povos', 'glossario', 'mes_a_mes', 'paginas'].map((k) => tr(k));
 
     // o nome com a parte achada em <mark>, sem innerHTML
     const nomeMarcado = (nome, termos) => {
@@ -31,8 +36,8 @@
             const s = termos.reduce((soma, t) => soma + (p.nome.startsWith(t) ? 0 : p.nome.includes(t) ? 1 : 3), 0);
             achados.push({ ...p, s });
         }
-        achados.sort((a, b) => a.s - b.s || a.it.n.localeCompare(b.it.n, 'pt-BR'));
-        contagem.textContent = achados.length ? `${achados.length} ${achados.length === 1 ? 'resultado' : 'resultados'} para “${q.trim()}”.` : `Nada encontrado para “${q.trim()}”. Experimente outra palavra ou só o começo dela.`;
+        achados.sort((a, b) => a.s - b.s || a.it.n.localeCompare(b.it.n, document.documentElement.lang));
+        contagem.textContent = achados.length ? tr(achados.length === 1 ? 'um_resultado' : 'resultados', { n: achados.length, q: q.trim() }) : tr('nada', { q: q.trim() });
         const blocos = [];
         for (const tipo of ORDEM) {
             const doTipo = achados.filter((a) => a.it.t === tipo);
@@ -53,7 +58,7 @@
             });
             sec.append(ul);
             if (doTipo.length > 8) {
-                const mais = Object.assign(document.createElement('button'), { type: 'button', className: 'botao botao-linha busca-mais', textContent: `Mostrar mais ${doTipo.length - 8}` });
+                const mais = Object.assign(document.createElement('button'), { type: 'button', className: 'botao botao-linha busca-mais', textContent: tr('mostrar_mais', { n: doTipo.length - 8 }) });
                 mais.addEventListener('click', () => { ul.querySelectorAll('li[hidden]').forEach((li) => { li.hidden = false; }); mais.remove(); });
                 sec.append(mais);
             }

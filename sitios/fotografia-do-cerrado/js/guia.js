@@ -4,6 +4,10 @@
 //   as onze fichas aparecem uma embaixo da outra).
 // - O índice da página marca a seção que está na tela.
 (() => {
+    // as frases vêm no idioma da página: o grupo "guia" do #textos-estudo (o scripts-pt.json do gerador, traduzido
+    // pelo catálogo de cada língua); {n} e afins são trocados pelos valores
+    const TX = (() => { try { return JSON.parse(document.getElementById('textos-estudo').textContent).guia || {}; } catch { return {}; } })();
+    const tr = (k, v = {}) => String(TX[k] ?? k).replace(/\{(\w+)\}/g, (_, x) => v[x] ?? '');
     // ---- mapa dos biomas
     const mapa = document.querySelector('.mapa-biomas');
     const botoesBioma = [...document.querySelectorAll('.biomas-botoes button')];
@@ -14,7 +18,7 @@
             botoesBioma.forEach((b) => b.setAttribute('aria-pressed', String(b === botao)));
             mapa.dataset.destaque = id;
             const nome = botao.childNodes[1].textContent.trim();
-            legenda.textContent = `${nome}: ${botao.querySelector('.bioma-pct').textContent} do Brasil.`;
+            legenda.textContent = tr('do_brasil', { nome, pct: botao.querySelector('.bioma-pct').textContent });
         };
         botoesBioma.forEach((b) => b.addEventListener('click', () => escolher(b)));
         mapa.addEventListener('click', (e) => {
