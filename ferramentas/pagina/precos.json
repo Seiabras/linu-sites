@@ -1,9 +1,9 @@
 {
   "_leia": "Preços de referência (a partir de) de cada moeda. Os cartões, o simulador, o Monte o seu site e as dúvidas saem daqui pelo ferramentas/gerar-idiomas.mjs. Enquanto uma moeda usada por alguma página tiver \"pendente\", o deploy/conferir-pagina.py não deixa publicar; \"provisorio\" publica e só avisa.",
   "BRL": {
-    "apresentacao": 1800,
-    "ferramenta": 6000,
-    "app": 9000,
+    "apresentacao": 1200,
+    "ferramenta": 4000,
+    "app": 6000,
     "painel": 1200,
     "plano_no_ar": 60,
     "plano_cuidado": 120,
