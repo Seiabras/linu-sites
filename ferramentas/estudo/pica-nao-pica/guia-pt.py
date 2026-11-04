@@ -1,7 +1,7 @@
 # Pica ou Não Pica? (1/11/2026): o site das Abelhas sem Ferrão vira, em português, o guia para reconhecer os bichos
 # peçonhentos e venenosos do Brasil, com as abelhas dentro. Nas outras línguas, o site continua o das Abelhas até a
 # tradução. Rode depois de mudar texto ou dado, e então o gerador das línguas:
-#   python3 ferramentas/estudo/abelhas-sem-ferrao/guia-pt.py && node ferramentas/gerar-estudo.mjs abelhas-sem-ferrao
+#   python3 ferramentas/estudo/pica-nao-pica/guia-pt.py && node ferramentas/gerar-estudo.mjs pica-nao-pica
 # Tudo o que diz se um bicho é perigoso vem de fonte (lista FONTES, números nas notas). Não é orientação médica: o site
 # manda sempre procurar atendimento.
 import json, os, pathlib, re, html
@@ -17,7 +17,7 @@ ATUAL = {'bicho-': 'bichos.html', 'emergencia': 'socorro.html', 'cartao': 'socor
 # o endereço no ar (para o WhatsApp e as imagens de compartilhar); vai mudar para picanaopica.linupedia.com.br (NO-COMPUTADOR, seção 10)
 URL_SITE = 'https://picanaopica.linupedia.com.br/'
 REVISAO = '1/11/2026'
-SITIO = AQUI.parents[2] / 'sitios' / 'abelhas-sem-ferrao'
+SITIO = AQUI.parents[2] / 'sitios' / 'pica-nao-pica'
 JS = 'guia.js?v=4'
 
 def fui_picado(arquivo):

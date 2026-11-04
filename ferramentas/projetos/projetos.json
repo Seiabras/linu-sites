@@ -13,7 +13,7 @@
     "trupe",
     "cafe-aurora",
     "fotografia-do-cerrado",
-    "abelhas-sem-ferrao"
+    "pica-nao-pica"
   ],
   "fixos": {
     "linupedia": {
@@ -96,12 +96,12 @@
       "imagem": "fotografia-do-cerrado.webp",
       "codigo": "https://github.com/Seiabras/fotografia-do-cerrado"
     },
-    "abelhas-sem-ferrao": {
+    "pica-nao-pica": {
       "nome": "Abelhas sem Ferrão",
       "url": "https://picanaopica.linupedia.com.br/",
       "endereco": "picanaopica.linupedia.com.br",
-      "imagem": "abelhas-sem-ferrao.webp",
-      "codigo": "https://github.com/Seiabras/abelhas-sem-ferrao"
+      "imagem": "pica-nao-pica.webp",
+      "codigo": "https://github.com/Seiabras/pica-nao-pica"
     }
   }
 }

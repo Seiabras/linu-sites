@@ -1,8 +1,8 @@
 # Fotos dos bichos: 04/11/2026
 
 **36 de 37 bichos ganharam foto.** Todas vêm do Wikimedia Commons, com licença CC0, domínio público, CC BY ou CC BY-SA. Cada arquivo está numa categoria da espécie ou do gênero, e cada foto foi conferida a olho com o `rec` da ficha.
-Arquivos em `sitios/abelhas-sem-ferrao/img/bichos/`: `<id>.webp` (1000×667), `<id>-640.webp` (640×427) e `<id>-240.webp` (240×240), mais o `creditos.json`. Ao todo são 5,7 MB (108 webp mais o json).
-As fichas `bicho-<id>.html` citam a foto e o crédito. Para gerar: `python3 ferramentas/estudo/abelhas-sem-ferrao/guia-pt.py && node ferramentas/gerar-estudo.mjs abelhas-sem-ferrao`. O `guia-pt.py` sozinho grava só em `modelo/`.
+Arquivos em `sitios/pica-nao-pica/img/bichos/`: `<id>.webp` (1000×667), `<id>-640.webp` (640×427) e `<id>-240.webp` (240×240), mais o `creditos.json`. Ao todo são 5,7 MB (108 webp mais o json).
+As fichas `bicho-<id>.html` citam a foto e o crédito. Para gerar: `python3 ferramentas/estudo/pica-nao-pica/guia-pt.py && node ferramentas/gerar-estudo.mjs pica-nao-pica`. O `guia-pt.py` sozinho grava só em `modelo/`.
 
 ## Sem foto
 - **carrapato**: achado no iNaturalist em 04/11 (ver abaixo).

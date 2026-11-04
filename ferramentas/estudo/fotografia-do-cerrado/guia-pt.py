@@ -1749,7 +1749,7 @@ FONTES += [
  (73, 'ICMBio, Sistema SALVE: a avaliação do jabuti-piranga, com a maturidade aos 20 a 25 cm de casco e machos de mais de 50 cm (Pritchard e Trebbau, 1984).', 'https://salve.icmbio.gov.br/salve/api/fichaHash/4f61496a79626d6831663232683859502f6e4d5176673d3d'),
  (74, 'EcoRegistros. Rhinella diptycha: as glândulas paratoides, a dieta e os hábitos noturnos.', 'https://ecoregistros.org/sheet/Rhinella-diptycha'),
  (75, 'InfoEscola. Dourado: a piracema de até 400 km; e estudos da UEM sobre barragens e a migração.', 'https://www.infoescola.com/peixes/dourado/'),
- (76, 'Conexão Tocantins (2017), com a Embrapa: as guardas da jataí; e artigos com o tamanho e a produção de mel.', 'https://conexaoto.com.br/2017/03/01/abelhas-sem-ferrao-passaram-por-processo-evolutivo-e-usam-guardas-especializadas-para-defender-as-colmeias-de-invasores'),
+ (76, 'Conexão Tocantins (2017), com a Embrapa: as guardas da jataí; e artigos com o tamanho e a produção de mel.', 'https://conexaoto.com.br/2017/03/01/pica-nao-pica-passaram-por-processo-evolutivo-e-usam-guardas-especializadas-para-defender-as-colmeias-de-invasores'),
  (77, 'Museu de História Natural e Jardim Botânico da UFMG: o ipê-amarelo; e material educativo com 4 a 14 m e a florada de julho a setembro.', 'https://www.ufmg.br/mhnjb/ceplamt/plantadomes/abril-de-2019-ipe-amarelo/'),
  (78, 'Museu de História Natural e Jardim Botânico da UFMG: o ipê-roxo; e Correio Braziliense (2024), a florada em Brasília.', 'https://www.ufmg.br/mhnjb/ipe-roxo/'),
  (79, 'Embrapa Cerrados, boletim 270: o araticum, o peso dos frutos; e Plantas para o Futuro (4 a 8 m).', 'https://www.infoteca.cnptia.embrapa.br/infoteca/bitstream/doc/883941/1/bolpd270.pdf'),

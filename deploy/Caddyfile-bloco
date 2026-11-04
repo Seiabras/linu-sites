@@ -15,6 +15,9 @@ sites.linupedia.com.br {
 	# os sites dos subdomínios chegam junto, em _sitios/, mas só abrem pelo próprio endereço
 	@sitios path /_sitios /_sitios/*
 	error @sitios 404
+	# o Pica ou Não Pica? se chamava abelhas-sem-ferrao até 04/11/2026: a página antiga leva à nova, em qualquer língua
+	@abelhas path_regexp abelhas ^(.*)/projetos/abelhas-sem-ferrao(\.html)?$
+	redir @abelhas {re.abelhas.1}/projetos/pica-nao-pica permanent
 	root * /opt/linu-sites/app
 	try_files {path} {path}.html {path}/index.html
 	file_server
@@ -72,7 +75,7 @@ cerrado.linupedia.com.br {
 	}
 }
 
-# Abelhas sem Ferrão (sitios/abelhas-sem-ferrao)
+# Pica ou Não Pica? (sitios/pica-nao-pica; a pasta era abelhas-sem-ferrao até 04/11/2026)
 picanaopica.linupedia.com.br {
 	encode zstd gzip
 	header {
@@ -89,7 +92,7 @@ picanaopica.linupedia.com.br {
 	# o Pica ou Não Pica? sem internet (1/11/2026): o service worker e o manifesto sempre conferidos
 	@offline path /sw.js /manifest.webmanifest
 	header @offline Cache-Control "no-cache"
-	root * /opt/linu-sites/app/_sitios/abelhas-sem-ferrao
+	root * /opt/linu-sites/app/_sitios/pica-nao-pica
 	try_files {path} {path}.html {path}/index.html
 	file_server
 }

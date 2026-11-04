@@ -29,7 +29,7 @@ O visual segue a LinuPedia: o azul do app, o gelo e o pergaminho da expedição 
 | `public/js/` | `tema-inicio.js` (aplica o tema antes de pintar), `tema.js` (o Linu e o lampião; com “menos movimento” ligado ele não anda, só aparece embaixo do lampião), `menu.js` (menu do celular), `movimento.js` (animações), `simulador.js` (o simulador do Café Aurora). |
 | `public/img/` | Cena da estação, o Linu (`linu/`, `linu-pixel.png`), a logo (`linu-logo.png`), capturas dos projetos (`projetos/`), ícones e imagem de compartilhar. |
 | `public/fontes/` | Nunito e as Noto de japonês, coreano e chinês (licença OFL), servidas pelo próprio site. |
-| `sitios/` | Os sites dos subdomínios, fora de `public/`: `cafe-aurora/` (cafe.linupedia.com.br, também com `/bootstrap/`, `/tailwind/`, `/bulma/` e `/pico/`), `fotografia-do-cerrado/` (cerrado.linupedia.com.br) e `abelhas-sem-ferrao/` (picanaopica.linupedia.com.br). Cada um tem o seu repositório público no GitHub (`Seiabras/cafe-aurora`, `Seiabras/fotografia-do-cerrado`, `Seiabras/abelhas-sem-ferrao`); mudou aqui, leve a mudança para lá. |
+| `sitios/` | Os sites dos subdomínios, fora de `public/`: `cafe-aurora/` (cafe.linupedia.com.br, também com `/bootstrap/`, `/tailwind/`, `/bulma/` e `/pico/`), `fotografia-do-cerrado/` (cerrado.linupedia.com.br) e `pica-nao-pica/` (picanaopica.linupedia.com.br). Cada um tem o seu repositório público no GitHub (`Seiabras/cafe-aurora`, `Seiabras/fotografia-do-cerrado`, `Seiabras/pica-nao-pica`); mudou aqui, leve a mudança para lá. |
 | `ferramentas/cafe/` | O modelo do Café Aurora (`modelo.html`) e os textos dele em cada idioma (`textos/<código>.json`), para o `gerar-cafe.mjs`. Em `ferramentas/cafe/arte/`, os pedidos das fotos do Café e da Padaria à API de imagens do Google (4/11/2026), com `aprovadas.json`; o `ferramentas/cafe/arte.py` (cópia do kit de arte do linuarquivos, `modelos/ferramentas/arte/`) leva as aprovadas para `sitios/cafe-aurora/img/` conforme o `arte/saidas.json`: `python3 ferramentas/cafe/arte.py ferramentas/cafe/arte`. |
 | `ferramentas/pagina/` | O modelo da página inicial (`modelo.html`), os textos de cada idioma (`textos/<código>.json`) e os preços de cada moeda (`precos.json`). |
 | `ferramentas/fontes/` | Os caracteres que estão em cada fonte Noto (`ja.txt`, `ko.txt`, `zh-hant.txt`), escritos pelo `gerar-fontes.mjs`. |
@@ -246,7 +246,7 @@ mesmo idioma. Tudo sai de um modelo por página:
 
 ```bash
 node ferramentas/gerar-estudo.mjs fotografia-do-cerrado
-node ferramentas/gerar-estudo.mjs abelhas-sem-ferrao
+node ferramentas/gerar-estudo.mjs pica-nao-pica
 ```
 
 - O texto muda no `ferramentas/estudo/<site>/textos/<código>.json`. O HTML em português foi transformado em modelo pelo
@@ -297,7 +297,7 @@ node ferramentas/gerar-estudo.mjs abelhas-sem-ferrao
   não”; nome provisório, as abelhas continuam dentro): em português, a inicial e o menu são os do guia, com “Que bicho
   é?” (perguntas em árvore até o bicho), “Bichos” (27 fichas com busca e filtros de grupo e perigo), “Socorro” (192, 193,
   0800 722 6001 e o que fazer em cada picada), “Mitos” (17 mitos e o jogo “Verdade ou mito?”) e “Fontes” (31). Tudo sai do
-  `ferramentas/estudo/abelhas-sem-ferrao/guia-pt.py` (listas `B`, `ARVORE`, `MITOS`, `PARES`, `FONTES`; rodar antes do
+  `ferramentas/estudo/pica-nao-pica/guia-pt.py` (listas `B`, `ARVORE`, `MITOS`, `PARES`, `FONTES`; rodar antes do
   `gerar-estudo.mjs`), com o script `js/guia.js`. As outras 12 línguas seguem com o site das Abelhas até a tradução, pelo
   mesmo `{{!pt-BR}}` do Cerrado. O CSS das Abelhas está em `?v=7` e o script em `guia.js?v=2`.
   **Na noite de 1/11, as 17 ideias:** o botão “Fui picado” no topo de toda página (`emergencia.html`), o “Cartão para o
@@ -319,7 +319,7 @@ node ferramentas/gerar-estudo.mjs abelhas-sem-ferrao
 - **O Pica ou Não Pica? com fotos e a interface nova (4/11/2026):** 36 dos 37 bichos têm foto real do Commons (o
   carrapato ficou sem: não há foto de campo com identificação segura), em `img/bichos/` (`<id>.webp`, `-640` e `-240`
   quadrada), crédito em `creditos.json`; a lista e as que vale conferir em
-  `ferramentas/estudo/abelhas-sem-ferrao/fotos-04-11.md`. A interface: a abertura com quatro bichos e a resposta (fileira
+  `ferramentas/estudo/pica-nao-pica/fotos-04-11.md`. A interface: a abertura com quatro bichos e a resposta (fileira
   no celular e no tablet, 2 × 2 ao lado do título no computador), o catálogo com miniatura e selo curto, “Mais filtros”
   recolhido no celular e aberto no computador, a ficha com a foto ao lado do nome no computador; “Posso criar?” e o
   “Teste rápido”, que tinham ficado sem link em português, ligados na inicial. O `guia-pt.py` cai para a Noto quando
@@ -327,8 +327,12 @@ node ferramentas/gerar-estudo.mjs abelhas-sem-ferrao
   cada rodada.
 - **A 404 do Cerrado** (`sitios/fotografia-do-cerrado/404.html`) só aparece depois de o bloco novo do `deploy/Caddyfile-bloco`
   (`handle_errors` no `cerrado.linupedia.com.br`) ser posto na VM, como diz o `deploy/ORACLE.md`.
-- Os repositórios `Seiabras/fotografia-do-cerrado` e `Seiabras/abelhas-sem-ferrao` recebem uma cópia de
+- Os repositórios `Seiabras/fotografia-do-cerrado` e `Seiabras/pica-nao-pica` recebem uma cópia de
   `sitios/<site>/` a cada mudança (o README e o CLAUDE.md de lá não vêm daqui).
+- **O nome `pica-nao-pica`** (04/11/2026): a pasta, o repositório e o gerador se chamavam `abelhas-sem-ferrao`. Na VM 1, o
+  `deploy/trocar-pasta-pica-nao-pica.sh` roda uma vez, antes do primeiro push com o nome novo: aponta o Caddy para a pasta
+  nova e leva `/projetos/abelhas-sem-ferrao` (em qualquer língua) para `/projetos/pica-nao-pica`. O bicho
+  `abelha-sem-ferrao` (a jataí, no singular) continua com esse nome: é um dos 37 bichos do guia.
 
 ## O que tem na página
 
@@ -336,7 +340,7 @@ node ferramentas/gerar-estudo.mjs abelhas-sem-ferrao
 - **O que fazemos:** sites de apresentação, ferramentas e painéis, apps que instalam, hospedagem.
 - **Página de cada projeto** (`/projetos/linupedia`, `/v2tech`, `/losvega`, `/marginalia`, `/minhocao`, `/trupe`, `/iconvet`,
   `/ajoriente`, `/dojo-legacy`, `/omega`, `/barreto` e, desde 31/10/2026, os de estudo: `/cafe-aurora`,
-  `/fotografia-do-cerrado` e `/abelhas-sem-ferrao`): o desafio, o que foi feito e como funciona por dentro, com os fatos
+  `/fotografia-do-cerrado` e `/pica-nao-pica`): o desafio, o que foi feito e como funciona por dentro, com os fatos
   dos READMEs de cada repositório (nos cinco de clientes, do que o próprio site mostra no ar). Em todos os idiomas da página
   (`/<pasta>/projetos/<nome>`), geradas pelo `ferramentas/gerar-idiomas.mjs` junto com a inicial: o modelo é o
   `ferramentas/projetos/modelo.html`, o nome, o endereço e a captura ficam no `ferramentas/projetos/projetos.json` e
