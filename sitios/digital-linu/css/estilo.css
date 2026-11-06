@@ -350,3 +350,38 @@ body:has(.barra-pacote:not([hidden])) .rodape { padding-bottom: 90px; }
 }
 @view-transition { navigation: auto; }
 .erro { min-height: 100vh; display: grid; align-items: center; }
+
+/* Raio-X (07/11/2026). Celular: as perguntas em lista e o resultado embaixo; tablet: as perguntas em 2 colunas;
+   computador: as perguntas à esquerda e o resultado parado à direita */
+:root:not(.js) .raiox { display: none; }
+.raiox-grade { display: grid; gap: 20px; }
+.raiox-grade > * { min-width: 0; }
+.perguntas { display: grid; gap: 10px; }
+.pergunta { margin: 0; padding: 12px 14px; border-radius: 14px; border: 2px solid var(--linha); background: var(--cartao); display: flex; flex-wrap: wrap; align-items: center; gap: 8px; }
+.pergunta legend { float: left; width: 100%; padding: 0; margin-bottom: 4px; font-weight: 700; }
+.pergunta label { position: relative; }
+.pergunta input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.pergunta span { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; min-width: 72px; padding: 0 16px; border-radius: 999px; border: 2px solid var(--linha); font-weight: 800; cursor: pointer; transition: background-color .2s ease-out, border-color .2s ease-out, color .2s ease-out, transform .15s ease-out; }
+.pergunta span:hover { border-color: var(--cor); }
+.pergunta label:active span { transform: scale(.95); }
+.pergunta input:checked + span { background: var(--cor); border-color: var(--cor); color: #FFFFFF; }
+:root[data-theme="dark"] .pergunta input:checked + span { color: #1C0A02; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .pergunta input:checked + span { color: #1C0A02; } }
+.pergunta input:focus-visible + span { outline: 3px solid var(--azul); outline-offset: 3px; }
+.raiox-resultado { display: grid; gap: 10px; align-content: start; padding: 18px; border-radius: var(--raio); background: var(--grafite); color: #E2E8F0; }
+.raiox-resultado :focus-visible { outline-color: #7DD3FC; }
+.raiox-contagem { margin: 0; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: .85rem; color: #FDBA74; }
+.raiox-vazio { margin: 0; color: #CBD5E1; }
+.raiox-lista { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.raiox-lista li { display: grid; gap: 2px; padding-left: 14px; border-left: 3px solid #EA580C; color: #CBD5E1; font-size: .95rem; animation: abrir .2s ease-out; }
+.raiox-lista b { color: #FFFFFF; }
+.raiox-site { margin: 0; color: #CBD5E1; }
+.raiox-site a { color: #7DD3FC; }
+.raiox-resultado .botao { justify-self: start; }
+@media (min-width: 700px) {
+  .perguntas { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (min-width: 1100px) {
+  .raiox-grade { grid-template-columns: minmax(0, 1fr) 360px; gap: 32px; align-items: start; }
+  .raiox-resultado { position: sticky; top: 84px; }
+}

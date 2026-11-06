@@ -240,5 +240,78 @@
     });
   });
 
+  /* 9. Raio-X: cada "não" (ou "sim", no site) aponta um serviço, com o motivo; o resultado vai para o pacote */
+  var RAIOX = {
+    maps: { nao: ["meu-negocio", "Quem procura no Google Maps ainda não acha você: é o primeiro passo, e o mais barato."] },
+    perfil: { nao: ["perfil", "O perfil é a vitrine: quem chega de um anúncio ou de um Reels decide ali se segue."] },
+    posta: { nao: ["gestao", "Sem constância, o Instagram mostra menos o que você posta. A gestão mensal resolve o calendário."] },
+    video: { nao: ["reels", "Vídeo curto é o que mais leva o perfil para quem ainda não segue você."] },
+    anuncio: { nao: ["meta", "Anúncio com orçamento pequeno e bem mirado traz gente da sua região já no primeiro mês."] },
+    marca: { nao: ["identidade", "Logo e cores definidas fazem tudo o que você publica parecer da mesma marca."] },
+    whats: { nao: ["whatsapp", "Resposta rápida no WhatsApp é cliente que não vai para o concorrente."] },
+    site: { sim: ["seo", "Com site, o SEO básico ajuda o Google a mostrar você para quem procura."] }
+  };
+  var perguntas = document.querySelectorAll("[data-pergunta]");
+  var rxLista = document.querySelector("[data-raiox-lista]");
+  var rxVazio = document.querySelector("[data-raiox-vazio]");
+  var rxContagem = document.querySelector("[data-raiox-contagem]");
+  var rxSite = document.querySelector("[data-raiox-site]");
+  var rxUsar = document.querySelector("[data-raiox-usar]");
+  var rxIds = [];
+  var respostas = {};
+  try { respostas = JSON.parse(ler("digital-raiox")) || {}; } catch (e) {}
+  function lerRaiox() {
+    var n = 0;
+    rxIds = [];
+    rxLista.textContent = "";
+    perguntas.forEach(function (f) {
+      var k = f.dataset.pergunta;
+      var marcada = f.querySelector("input:checked");
+      if (!marcada) return;
+      n++;
+      respostas[k] = marcada.value;
+      var rec = RAIOX[k][marcada.value];
+      if (!rec) return;
+      rxIds.push(rec[0]);
+      var li = document.createElement("li");
+      var b = document.createElement("b");
+      b.textContent = nomes[rec[0]];
+      li.appendChild(b);
+      li.appendChild(document.createTextNode(rec[1]));
+      rxLista.appendChild(li);
+    });
+    guardar("digital-raiox", JSON.stringify(respostas));
+    rxContagem.textContent = n + " de " + perguntas.length + " respondidas";
+    if (n === perguntas.length && rxIds.length === 0) {
+      rxIds = ["google-ads"];
+      var li = document.createElement("li");
+      var b = document.createElement("b");
+      b.textContent = nomes["google-ads"];
+      li.appendChild(b);
+      li.appendChild(document.createTextNode("Está tudo em dia. O próximo passo costuma ser aparecer no alto da busca do Google."));
+      rxLista.appendChild(li);
+    }
+    rxVazio.hidden = rxIds.length > 0;
+    rxSite.hidden = respostas.site !== "nao";
+    rxUsar.hidden = rxIds.length === 0;
+  }
+  perguntas.forEach(function (f) {
+    var k = f.dataset.pergunta;
+    if (respostas[k]) {
+      var r = f.querySelector('input[value="' + respostas[k] + '"]');
+      if (r) r.checked = true;
+    }
+    f.addEventListener("change", lerRaiox);
+  });
+  rxUsar.addEventListener("click", function () {
+    rxIds.forEach(function (id) { if (escolhidos.indexOf(id) < 0) escolhidos.push(id); });
+    mostrarPacote();
+    filtrar("todas");
+    rxUsar.textContent = "No pacote ✓";
+    setTimeout(function () { rxUsar.textContent = "Levar para o meu pacote"; }, 1600);
+    document.getElementById("servicos").scrollIntoView({ behavior: menosMovimento.matches ? "auto" : "smooth" });
+  });
+  lerRaiox();
+
   mostrarPacote();
 })();

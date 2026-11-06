@@ -471,7 +471,8 @@ node ferramentas/gerar-estudo.mjs pica-nao-pica
 O site de vídeo, redes sociais, anúncios, marca e automação, da mesma equipe: **https://digital.linupedia.com.br**,
 em `sitios/digital-linu/`, com o repositório público `Seiabras/digital-linu` (mudou aqui, leve para lá). Uma página só,
 sem gerador e só em português, com 17 serviços em seis áreas, o filtro por área, o pacote que se monta (guardado no
-`localStorage`, `digital-pacote`), pacotes prontos, a linha do tempo do “Como funciona”, dúvidas, o formulário que
+`localStorage`, `digital-pacote`), pacotes prontos, o Raio-X (oito perguntas de sim ou não que montam o pacote recomendado, com o motivo de cada
+serviço; guardado em `digital-raiox`), a linha do tempo do “Como funciona”, dúvidas, o formulário que
 escreve a mensagem do WhatsApp e do e-mail, e a seção Identidade visual. A assinatura é a ilha de edição: o Linu no visor
 da câmera, com o REC e o contador; os ícones são SVG desenhados para ele (`<symbol>` no começo do `<body>`), sem emoji.
 As decisões estão no `IDENTIDADE.md` de lá.
@@ -480,6 +481,8 @@ As decisões estão no `IDENTIDADE.md` de lá.
   no tablet, as áreas no alto e os cartões em 2 colunas; no computador, as áreas e o pacote parados numa coluna à
   esquerda e os cartões em 3 colunas. Conferido em 390, 820 e 1280 px, claro e escuro, sem rolagem lateral.
 - **Preços:** ainda não tem; o orçamento é pela mensagem.
+- **Compartilhar e Google:** `img/compartilhar.png` (1200 × 630, o Linu no visor) nas etiquetas `og:` e os dados
+  estruturados (`ProfessionalService`, com os 17 serviços) no `<head>`.
 - **Para ligar no servidor:** o registro DNS `digital` e o bloco do Caddy (`deploy/ORACLE.md`).
 
 ## Fonte e segurança

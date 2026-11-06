@@ -14,6 +14,13 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://digital.linupedia.com.br/">
   <meta property="og:locale" content="pt_BR">
+  <meta property="og:image" content="https://digital.linupedia.com.br/img/compartilhar.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="O Linu, o pinguim em pixel art, no visor de uma câmera, ao lado do nome Digital Linu e da frase: o seu negócio aparecendo onde as pessoas procuram">
+  <meta name="twitter:card" content="summary_large_image">
+  <!-- O que o Google lê sobre o Digital Linu (schema.org); os serviços são os 17 cartões da página -->
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Digital Linu","url":"https://digital.linupedia.com.br/","description":"Vídeo, redes sociais, anúncios, marca e automação para pequenos negócios.","image":"https://digital.linupedia.com.br/img/compartilhar.png","logo":"https://digital.linupedia.com.br/img/linu-logo.png","telephone":"+55-61-99667-2610","email":"contato@linupedia.com.br","areaServed":"BR","inLanguage":"pt-BR","parentOrganization":{"@type":"Organization","name":"Linu Sites","url":"https://sites.linupedia.com.br/"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"Serviços","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Reels, Shorts e TikTok"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Edição para YouTube"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Vídeo institucional"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Legendas e cortes"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Gestão mensal de Instagram"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Artes para posts e stories"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Organização do perfil"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Anúncios no Instagram e no Facebook"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Anúncios no Google"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Google Meu Negócio"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"SEO básico"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Logo e identidade visual"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Cartão digital"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Cardápio digital"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"WhatsApp Business automático"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"E-mail marketing"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Atendimento com IA"}}]}}</script>
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
   <link rel="canonical" href="https://digital.linupedia.com.br/">
   <link rel="preload" href="fontes/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
@@ -75,7 +82,7 @@
             precisa, monte o seu pacote e receba o orçamento pelo WhatsApp.</p>
           <div class="botoes">
             <a class="botao" href="#servicos">Montar o meu pacote</a>
-            <a class="botao botao-linha" href="#pacotes">Ver pacotes prontos</a>
+            <a class="botao botao-linha" href="#raiox">Fazer o raio-X (1 minuto)</a>
           </div>
         </div>
         <figure class="visor">
@@ -96,6 +103,68 @@
           <li><a href="#servicos" data-ir-area="marca"><svg class="icone" aria-hidden="true"><use href="#i-marca"/></svg>Marca</a></li>
           <li><a href="#servicos" data-ir-area="automacao"><svg class="icone" aria-hidden="true"><use href="#i-automacao"/></svg>Automação</a></li>
         </ul>
+      </div>
+    </section>
+
+    <!-- Raio-X (07/11/2026): oito perguntas de sim ou não que montam o pacote recomendado (js/digital.js, bloco 9).
+         Sem JavaScript, a seção não aparece. -->
+    <section class="secao secao-gelo raiox" id="raiox">
+      <div class="dentro">
+        <h2>Raio-X do seu negócio</h2>
+        <p class="secao-sub">Oito perguntas de sim ou não. A cada resposta, o raio-X mostra o que falta e por quê, e você leva
+          para o pacote com um toque.</p>
+        <div class="raiox-grade">
+          <div class="perguntas">
+            <fieldset class="pergunta" data-pergunta="maps">
+              <legend>Quem procura no Google Maps acha o seu negócio, com horário e fotos?</legend>
+              <label><input type="radio" name="rx-maps" value="sim"><span>Sim</span></label>
+              <label><input type="radio" name="rx-maps" value="nao"><span>Não</span></label>
+            </fieldset>
+            <fieldset class="pergunta" data-pergunta="perfil">
+              <legend>O seu Instagram tem bio clara, destaques e o link certo?</legend>
+              <label><input type="radio" name="rx-perfil" value="sim"><span>Sim</span></label>
+              <label><input type="radio" name="rx-perfil" value="nao"><span>Não</span></label>
+            </fieldset>
+            <fieldset class="pergunta" data-pergunta="posta">
+              <legend>Você posta pelo menos uma vez por semana?</legend>
+              <label><input type="radio" name="rx-posta" value="sim"><span>Sim</span></label>
+              <label><input type="radio" name="rx-posta" value="nao"><span>Não</span></label>
+            </fieldset>
+            <fieldset class="pergunta" data-pergunta="video">
+              <legend>Você já publica vídeos curtos (Reels, Shorts, TikTok)?</legend>
+              <label><input type="radio" name="rx-video" value="sim"><span>Sim</span></label>
+              <label><input type="radio" name="rx-video" value="nao"><span>Não</span></label>
+            </fieldset>
+            <fieldset class="pergunta" data-pergunta="anuncio">
+              <legend>Você já anuncia no Instagram ou no Google?</legend>
+              <label><input type="radio" name="rx-anuncio" value="sim"><span>Sim</span></label>
+              <label><input type="radio" name="rx-anuncio" value="nao"><span>Não</span></label>
+            </fieldset>
+            <fieldset class="pergunta" data-pergunta="marca">
+              <legend>A sua marca tem logo e cores definidas?</legend>
+              <label><input type="radio" name="rx-marca" value="sim"><span>Sim</span></label>
+              <label><input type="radio" name="rx-marca" value="nao"><span>Não</span></label>
+            </fieldset>
+            <fieldset class="pergunta" data-pergunta="whats">
+              <legend>Todo mundo que chama no WhatsApp recebe resposta no mesmo dia?</legend>
+              <label><input type="radio" name="rx-whats" value="sim"><span>Sim</span></label>
+              <label><input type="radio" name="rx-whats" value="nao"><span>Não</span></label>
+            </fieldset>
+            <fieldset class="pergunta" data-pergunta="site">
+              <legend>O seu negócio tem um site?</legend>
+              <label><input type="radio" name="rx-site" value="sim"><span>Sim</span></label>
+              <label><input type="radio" name="rx-site" value="nao"><span>Não</span></label>
+            </fieldset>
+          </div>
+          <div class="raiox-resultado" aria-live="polite">
+            <p class="raiox-contagem" data-raiox-contagem>0 de 8 respondidas</p>
+            <p class="raiox-vazio" data-raiox-vazio>Responda as perguntas: o que aparecer aqui é o que mais falta.</p>
+            <ul class="raiox-lista" data-raiox-lista></ul>
+            <p class="raiox-site" data-raiox-site hidden>Sem site? O <a href="https://sites.linupedia.com.br/">Linu Sites</a>,
+              da mesma equipe, faz o site junto.</p>
+            <button type="button" class="botao" data-raiox-usar hidden>Levar para o meu pacote</button>
+          </div>
+        </div>
       </div>
     </section>
 
