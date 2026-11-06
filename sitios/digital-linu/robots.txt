@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://digital.linupedia.com.br/sitemap.xml
