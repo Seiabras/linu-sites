@@ -36,7 +36,7 @@ jobs:
       - name: Conferir a página
         run: |
           test -f public/index.html
-          npx --yes html-validate@10.1.2 public/*.html public/*/index.html public/projetos/*.html public/*/projetos/*.html sitios/digital-linu/*.html
+          npx --yes html-validate@10.1.2 public/*.html public/*/index.html public/projetos/*.html public/*/projetos/*.html
           python3 deploy/conferir-pagina.py
       - name: Entregar na VM
         if: steps.check.outputs.tem == 'sim'
@@ -55,7 +55,7 @@ jobs:
             ssh-keyscan -T 15 "$VM_HOST" >> ~/.ssh/known_hosts 2>/dev/null
           fi
           chmod 600 ~/.ssh/known_hosts
-          # Os sites dos subdomínios (cafe, cerrado, picanaopica, digital) vão no mesmo pacote, em _sitios/; o Caddy esconde
+          # Os sites dos subdomínios (cafe, cerrado, picanaopica) vão no mesmo pacote, em _sitios/; o Caddy esconde
           # essa pasta em sites.linupedia.com.br e serve cada subdomínio da sua subpasta.
           cp -r sitios public/_sitios
           tar czf - -C public . | ssh -o BatchMode=yes -o StrictHostKeyChecking=yes "linusites@$VM_HOST"

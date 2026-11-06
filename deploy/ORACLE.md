@@ -94,11 +94,6 @@ O Café Aurora pode ser embutido só pelo `sites.linupedia.com.br` (o simulador)
 `frame-src https://cafe.linupedia.com.br` no do Linu Sites (e na `<meta>` do `index.html`). Os outros dois não podem
 ser embutidos em lugar nenhum.
 
-**Digital Linu (6/11/2026):** `digital.linupedia.com.br` vem de `sitios/digital-linu/` do mesmo jeito. Para ligar, uma vez:
-um registro A `digital` → `168.138.155.95` na zona do `linupedia.com.br` (Registro.br) e o bloco
-`digital.linupedia.com.br { … }` do `Caddyfile-bloco` no `/etc/caddy/Caddyfile` da VM (`sudo caddy validate --config
-/etc/caddy/Caddyfile && sudo systemctl reload caddy`). Não pode ser embutido em lugar nenhum.
-
 Os mesmos quatro nomes no `linopedia.com.br` (`sites`, `cafe`, `cerrado` e `abelhas`, registros A para
 `168.138.155.95` na zona dele) só redirecionam para o endereço certo no `linupedia.com.br`, mantendo o caminho, como
 o `linopedia.com.br` faz com o `linupedia.com.br`.

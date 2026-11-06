@@ -39,10 +39,6 @@ jobs:
         uses: lycheeverse/lychee-action@v2.9.0
         with:
           args: --offline --no-progress --fallback-extensions html --index-files index.html --root-dir ${{ github.workspace }}/sitios/pica-nao-pica 'sitios/pica-nao-pica/**/*.html'
-      - name: Digital Linu
-        uses: lycheeverse/lychee-action@v2.9.0
-        with:
-          args: --offline --no-progress --fallback-extensions html --index-files index.html --root-dir ${{ github.workspace }}/sitios/digital-linu 'sitios/digital-linu/**/*.html'
 
   externos:
     if: github.event_name != 'push'

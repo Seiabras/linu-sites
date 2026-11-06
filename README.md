@@ -29,7 +29,7 @@ O visual segue a LinuPedia: o azul do app, o gelo e o pergaminho da expedição 
 | `public/js/` | `tema-inicio.js` (aplica o tema antes de pintar), `tema.js` (o Linu e o lampião; com “menos movimento” ligado ele não anda, só aparece embaixo do lampião), `menu.js` (menu do celular), `movimento.js` (animações), `simulador.js` (o simulador do Café Aurora), `identidade.js` (copiar as cores da seção Identidade visual). |
 | `public/img/` | Cena da estação, o Linu (`linu/`, `linu-pixel.png`), a logo (`linu-logo.png`), capturas dos projetos (`projetos/`), ícones e imagem de compartilhar. |
 | `public/fontes/` | Nunito e as Noto de japonês, coreano e chinês (licença OFL), servidas pelo próprio site. |
-| `sitios/` | Os sites dos subdomínios, fora de `public/`: `cafe-aurora/` (cafe.linupedia.com.br, também com `/bootstrap/`, `/tailwind/`, `/bulma/` e `/pico/`), `fotografia-do-cerrado/` (cerrado.linupedia.com.br), `pica-nao-pica/` (picanaopica.linupedia.com.br) e, desde 6/11/2026, `digital-linu/` (digital.linupedia.com.br). Cada um tem o seu repositório público no GitHub (`Seiabras/cafe-aurora`, `Seiabras/fotografia-do-cerrado`, `Seiabras/pica-nao-pica`, `Seiabras/digital-linu`); mudou aqui, leve a mudança para lá. |
+| `sitios/` | Os sites dos subdomínios, fora de `public/`: `cafe-aurora/` (cafe.linupedia.com.br, também com `/bootstrap/`, `/tailwind/`, `/bulma/` e `/pico/`), `fotografia-do-cerrado/` (cerrado.linupedia.com.br), `pica-nao-pica/` (picanaopica.linupedia.com.br). O Digital Linu não entra aqui: é o serviço irmão, com repositório e publicação próprios (`Seiabras/digital-linu`). Cada um tem o seu repositório público no GitHub (`Seiabras/cafe-aurora`, `Seiabras/fotografia-do-cerrado`, `Seiabras/pica-nao-pica`); mudou aqui, leve a mudança para lá. |
 | `ferramentas/cafe/` | O modelo do Café Aurora (`modelo.html`) e os textos dele em cada idioma (`textos/<código>.json`), para o `gerar-cafe.mjs`. Em `ferramentas/cafe/arte/`, os pedidos das fotos do Café e da Padaria à API de imagens do Google (4/11/2026), com `aprovadas.json`; o `ferramentas/cafe/arte.py` (cópia do kit de arte do linuarquivos, `modelos/ferramentas/arte/`) leva as aprovadas para `sitios/cafe-aurora/img/` conforme o `arte/saidas.json`: `python3 ferramentas/cafe/arte.py ferramentas/cafe/arte`. |
 | `ferramentas/pagina/` | O modelo da página inicial (`modelo.html`), os textos de cada idioma (`textos/<código>.json`) e os preços de cada moeda (`precos.json`). |
 | `ferramentas/fontes/` | Os caracteres que estão em cada fonte Noto (`ja.txt`, `ko.txt`, `zh-hant.txt`), escritos pelo `gerar-fontes.mjs`. |
@@ -466,24 +466,11 @@ node ferramentas/gerar-estudo.mjs pica-nao-pica
   Se a cena do topo estiver fora da tela, a animação aparece num cartão no canto. Código em
   `public/js/tema.js`.
 
-## Digital Linu (6/11/2026)
+## Digital Linu, o serviço irmão
 
-O site de vídeo, redes sociais, anúncios, marca e automação, da mesma equipe: **https://digital.linupedia.com.br**,
-em `sitios/digital-linu/`, com o repositório público `Seiabras/digital-linu` (mudou aqui, leve para lá). Uma página só,
-sem gerador e só em português, com 17 serviços em seis áreas, o filtro por área, o pacote que se monta (guardado no
-`localStorage`, `digital-pacote`), pacotes prontos, o Raio-X (oito perguntas de sim ou não que montam o pacote recomendado, com o motivo de cada
-serviço; guardado em `digital-raiox`), a linha do tempo do “Como funciona”, dúvidas, o formulário que
-escreve a mensagem do WhatsApp e do e-mail, e a seção Identidade visual. A assinatura é a ilha de edição: o Linu no visor
-da câmera, com o REC e o contador; os ícones são SVG desenhados para ele (`<symbol>` no começo do `<body>`), sem emoji.
-As decisões estão no `IDENTIDADE.md` de lá.
-
-- **Três versões:** no celular, uma coluna, as áreas numa faixa que rola de lado e o pacote numa barra presa embaixo;
-  no tablet, as áreas no alto e os cartões em 2 colunas; no computador, as áreas e o pacote parados numa coluna à
-  esquerda e os cartões em 3 colunas. Conferido em 390, 820 e 1280 px, claro e escuro, sem rolagem lateral.
-- **Preços:** ainda não tem; o orçamento é pela mensagem.
-- **Compartilhar e Google:** `img/compartilhar.png` (1200 × 630, o Linu no visor) nas etiquetas `og:` e os dados
-  estruturados (`ProfessionalService`, com os 17 serviços) no `<head>`.
-- **Para ligar no servidor:** o registro DNS `digital` e o bloco do Caddy (`deploy/ORACLE.md`).
+O site de vídeo, redes sociais, anúncios, marca e automação, da mesma equipe: **https://digital.linupedia.com.br**.
+Fica no seu próprio repositório, `Seiabras/digital-linu`, com publicação própria (separação de 06/11/2026): nada dele
+mora aqui. Daqui saem só a faixa de ida e volta e a seção Identidade visual, que apontam para lá.
 
 ## Fonte e segurança
 

@@ -97,29 +97,6 @@ picanaopica.linupedia.com.br {
 	file_server
 }
 
-# Digital Linu (sitios/digital-linu, 6/11/2026): vídeo, redes sociais, anúncios, marca e automação
-digital.linupedia.com.br {
-	encode zstd gzip
-	header {
-		X-Content-Type-Options nosniff
-		Referrer-Policy strict-origin-when-cross-origin
-		Content-Security-Policy "default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'"
-		X-Frame-Options DENY
-		Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
-		Strict-Transport-Security "max-age=31536000"
-	}
-	@arquivos path /img/* /fontes/* /css/* /js/*
-	header @arquivos Cache-Control "public, max-age=604800"
-	root * /opt/linu-sites/app/_sitios/digital-linu
-	try_files {path} {path}.html {path}/index.html
-	file_server
-	handle_errors {
-		@nao_achei expression {err.status_code} == 404
-		rewrite @nao_achei /404.html
-		file_server
-	}
-}
-
 # Os mesmos endereços com o nome escrito “linopedia” levam ao certo, como o linopedia.com.br leva ao linupedia.com.br
 sites.linopedia.com.br {
 	redir https://sites.linupedia.com.br{uri} permanent
