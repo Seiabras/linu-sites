@@ -384,9 +384,8 @@ node ferramentas/gerar-estudo.mjs pica-nao-pica
 
 ## O que tem na página
 
-- **A faixa do Digital Linu** (6/11/2026, só em pt-BR, regra 8): uma linha acima do topo, “Procurando vídeo, redes
-  sociais ou anúncios? Conheça o Digital Linu”, com o link em `digital.linupedia.com.br`. O Digital Linu tem a mesma
-  faixa apontando para cá. Fica no bloco `{{?pt-BR}}` do `ferramentas/pagina/modelo.html`; o estilo é o `.faixa-irma`.
+- **A faixa da família (07/11/2026):** no alto, “Parte da família Linu, com …”, levando para a Família Linu
+  (https://familia.linupedia.com.br). Todos os irmãos apontam para lá, e não mais um para o outro.
 - **Identidade visual** (desde 07/11/2026): mora na Família Linu (https://familia.linupedia.com.br/identidade). O
   `/identidade` daqui leva para lá (um `redir` no `deploy/Caddyfile-bloco`), e o rodapé em pt-BR tem a nota “Da
   Família Linu · Identidade visual”. A fonte das decisões continua o `IDENTIDADE-LINU.md` do linuarquivos.
