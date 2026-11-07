@@ -40,7 +40,7 @@
   <!-- Os textos que os scripts escrevem (menu, luz), no idioma da página -->
   <script type="application/json" id="textos-js">{"menu_abrir":"Ouvrir le menu","menu_fechar":"Fermer le menu","luz_apagar_aria":"Éteindre la lumière (mode sombre)","luz_acender_aria":"Allumer la lumière (mode clair)","luz_apagar":"Éteindre la lumière","luz_acender":"Allumer la lumière","fechar":"Fermer","escolha":"Choisissez le type pour voir une estimation","sem_tipo":"Pas de souci : l’échange aidera à choisir le type.","um_item":"un élément","n_itens":"{n} éléments","extra":" + {itens} dans la proposition","por_ano":"{valor} par an","por_mes":"{valor} par mois","estimativa":"Estimation : à partir de {valor}{extra}","linha_tipo":"Type : {nome}","linha_itens":"Doit contenir :","linha_depois":"Une fois en ligne : {nome}{anual}","anual":", en payant l’année","linha_estimativa":"Estimation du site : à partir de {valor}{extra}","ola":"Bonjour ! Je voudrais un site.","sobre":"À propos de mon entreprise : ","assunto":"Je voudrais un site","ola_conversa":"Bonjour ! J’aimerais parler d’un site.","area_vazia":"Aucun projet de ce secteur ici.","conversa_aberta":"Nous sommes disponibles jusqu’à {fim}, à votre heure.","conversa_fechada":"Nous ne sommes pas disponibles pour le moment. Prochain créneau : {inicio}, à votre heure."}</script>
   <script src="../../js/tema-inicio.js?v=e843eba7"></script>
-  <link rel="stylesheet" href="../../css/estilo.css?v=f8a1df99">
+  <link rel="stylesheet" href="../../css/estilo.css?v=14110402">
   <script src="../../js/tema.js?v=cddc4fbc" defer></script>
   <script src="../../js/menu.js?v=ebf40e9a" defer></script>
 </head>
@@ -152,6 +152,12 @@
       </div>
     </section>
   </main>
+
+  <!-- A barra do polegar no celular (07/11/2026), como na inicial: o menu e o orçamento -->
+  <aside class="barra-celular" aria-label="Sections">
+    <button class="barra-indice" type="button" aria-expanded="false" aria-controls="menu-links" aria-label="Ouvrir le menu"><span class="barra-num"></span><span class="barra-nome">Linu Sites</span></button>
+    <a class="botao" href="#contato">Demander un devis</a>
+  </aside>
 
   <footer class="rodape">
     <div class="dentro rodape-dentro">

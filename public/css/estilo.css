@@ -205,7 +205,8 @@ p { margin: 0 0 14px; }
   .menu-abrir { display: inline-flex; }
   .idiomas summary { padding: 0 8px; }
   .idiomas summary .idiomas-codigo { display: none; }
-  .idiomas-lista { position: fixed; left: 12px; right: 12px; top: 70px; min-width: 0; }
+  /* presa ao botão do globo (não à tela), para nunca cobrir o topo quando a faixa da família está à vista */
+  .idiomas-lista { width: min(300px, calc(100vw - 24px)); min-width: 0; max-height: min(66vh, 520px); right: -104px; }
   .menu-links { position: fixed; left: 0; right: 0; bottom: 0; z-index: 50; flex-direction: column; align-items: stretch; gap: 0; padding: 10px 12px calc(84px + env(safe-area-inset-bottom)); background: var(--folha); border-top: 2px solid var(--traco); border-radius: 14px 14px 0 0; box-shadow: 0 -20px 40px -10px rgba(15, 37, 71, .35); transform: translateY(105%); visibility: hidden; transition: transform .24s ease-in, visibility 0s linear .24s; }
   .menu.aberto .menu-links { transform: none; visibility: visible; transition: transform .24s ease-out, visibility 0s; }
   .menu-links a:not(.botao) { min-height: 52px; padding: 0 12px; font-size: 1.05rem; border-bottom: 1px dashed var(--borda); border-radius: 0; }
@@ -225,6 +226,8 @@ p { margin: 0 0 14px; }
   .barra-indice::after { content: ""; flex: none; margin-left: auto; width: 8px; height: 8px; border-left: 2px solid currentColor; border-top: 2px solid currentColor; rotate: 45deg; translate: 0 2px; transition: rotate .2s ease-out; }
   .barra-indice[aria-expanded="true"]::after { rotate: 225deg; translate: 0 -2px; }
   .barra-celular .botao { flex: none; padding: 10px 16px; }
+  /* nas páginas de projeto não há seções numeradas: a barra mostra só o nome */
+  .barra-celular .barra-num:empty { display: none; }
   .barra-celular .botao::after { content: none; }
   body:has(.barra-celular) { padding-bottom: 76px; }
 }
@@ -561,6 +564,7 @@ p { margin: 0 0 14px; }
   #duvidas .faq { grid-column: 2; grid-row: 1 / span 2; }
 }
 @media (max-width: 699px) { .faq-resposta { padding-left: 4px; } .faq summary { font-size: 1rem; } }
+@media (max-width: 359px) { .barra-celular { gap: 8px; padding-left: 8px; padding-right: 8px; } .barra-celular .botao { padding: 10px 12px; font-size: .92rem; } .barra-indice { padding: 0 10px; } }
 
 /* ---- 06 Contato: o carimbo de aprovação (o Linu e a hora de conversar) e o pedido montado ---- */
 .contato-dentro { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr); gap: 48px; align-items: start; }
