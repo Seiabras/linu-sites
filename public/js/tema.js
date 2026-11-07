@@ -53,7 +53,7 @@
     botoes.forEach(function (b) {
       // o botão embaixo da obra tem o texto à vista, que já é o nome dele; o do topo, só o ícone
       var texto = b.querySelector("[data-luz-texto]");
-      if (texto) { texto.textContent = escuro ? "Acender o lampião" : "Apagar o lampião"; return; }
+      if (texto) { texto.textContent = escuro ? T.lampiao_acender || "Acender o lampião" : T.lampiao_apagar || "Apagar o lampião"; return; }
       b.setAttribute("aria-label", escuro ? T.luz_acender_aria || "Acender a luz (modo claro)" : T.luz_apagar_aria || "Apagar a luz (modo escuro)");
       b.title = escuro ? T.luz_acender || "Acender a luz" : T.luz_apagar || "Apagar a luz";
     });

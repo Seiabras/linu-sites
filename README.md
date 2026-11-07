@@ -488,7 +488,7 @@ a torre, a Família a carta náutica), e o azul do traço é o azul da família.
   390, com as cotas e as notas 1, 2 e 3), que se desenha uma vez ao abrir como num plotter (`js/planta.js`, uns 2 s; sem
   JavaScript, com “menos movimento” ou com `?static=1`, já vem pronta). Na frente, **o Linu de capacete** com o rolo da
   planta (`img/linu/linu-planta.png`, 120 × 194, sempre em 1×), que respira e pisca (`linu-vivo.js`).
-- **A planta vira obra** (07/11/2026, à noite; só na página em português por enquanto, regra 8). Em cima da prancha,
+- **A planta vira obra** (07/11/2026, à noite; nas 13 línguas desde a mesma noite, com os textos `vista_*`, `obra_*` e `lampiao_*`). Em cima da prancha,
   as abas “Planta” e “Obra pronta”: a obra é a cabana da identidade anterior (`abrigo-estacao-*.png`, de volta), sempre
   em 2× (688 × 384), inteira no tablet e recortada em volta da mesa no computador e no celular (`--centro`). Ela
   “imprime” de cima para baixo, em faixas, como saindo do plotter (só depois de as imagens carregarem, que baixam

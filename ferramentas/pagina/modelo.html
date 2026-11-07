@@ -90,15 +90,13 @@
           </div>
         </div>
         <figure class="prancha" data-prancha>
-          <!-- A planta vira obra (07/11/2026, só em português por enquanto, regra 8): o seletor troca a planta pela cabana
+          <!-- A planta vira obra (07/11/2026; nas 13 línguas desde a mesma noite): o seletor troca a planta pela cabana
                em pixel art, a obra pronta; ali o Linu entra pela porta e apaga o lampião quando a luz troca (js/tema.js).
                Sem JavaScript, o seletor não aparece e fica a planta. -->
-          {{?pt-BR}}
-          <div class="vistas" role="group" aria-label="O que a prancha mostra" hidden>
-            <button class="vista-botao" type="button" data-vista-botao="planta" aria-pressed="true">Planta</button>
-            <button class="vista-botao" type="button" data-vista-botao="obra" aria-pressed="false">Obra pronta</button>
+          <div class="vistas" role="group" aria-label="{{vistas_aria}}" hidden>
+            <button class="vista-botao" type="button" data-vista-botao="planta" aria-pressed="true">{{vista_planta}}</button>
+            <button class="vista-botao" type="button" data-vista-botao="obra" aria-pressed="false">{{vista_obra}}</button>
           </div>
-          {{/pt-BR}}
           <div class="prancha-folha" data-vista="planta">
             <div class="vista vista-planta">
             <svg class="planta" viewBox="0 0 640 360" role="img" aria-label="{{cena_alt}}">
@@ -134,11 +132,10 @@
             </svg>
             <img class="pixel prancha-linu" data-linu-vivo data-piscar="{{raiz}}img/linu/linu-planta-piscando.png" src="{{raiz}}img/linu/linu-planta.png" alt="" width="120" height="194">
             </div>
-            {{?pt-BR}}
             <div class="vista vista-obra" hidden>
               <div class="obra-moldura">
                 <div class="cena" data-cena>
-                  <img class="pixel cena-dia" src="{{raiz}}img/abrigo-estacao-dia.png" alt="A obra pronta: a estação do Linu na Antártica em pixel art, com a mesa, o computador, o lampião e os mapas na parede" width="344" height="192" loading="lazy">
+                  <img class="pixel cena-dia" src="{{raiz}}img/abrigo-estacao-dia.png" alt="{{obra_alt}}" width="344" height="192" loading="lazy">
                   <img class="pixel cena-acesa" src="{{raiz}}img/abrigo-estacao-noite.png" alt="" width="344" height="192" loading="lazy">
                   <img class="pixel cena-apagada" src="{{raiz}}img/abrigo-estacao-apagada.png" alt="" width="344" height="192" loading="lazy">
                   <span class="cena-linu" data-pose="frente">
@@ -148,11 +145,10 @@
                   </span>
                 </div>
               </div>
-              <p class="obra-legenda"><span>A obra pronta: a estação do Linu.</span>
-                <button class="obra-luz" type="button" data-luz><svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path fill="currentColor" d="M7 0h2v1h-2zM6 1h1v1h-1zM9 1h1v1h-1zM5 2h6v1h-6zM4 3h1v8h-1zM11 3h1v8h-1zM5 10h6v1h-6zM4 11h8v1h-8zM6 12h1v1h-1zM9 12h1v1h-1zM5 13h6v1h-6z"/><path class="luz-raio" d="M8 4h1v1h-1zM7 5h2v1h-2zM7 6h3v1h-3zM6 7h4v1h-4zM6 8h4v1h-4zM7 9h2v1h-2z"/></svg><span data-luz-texto>Apagar o lampião</span></button>
+              <p class="obra-legenda"><span>{{obra_legenda}}</span>
+                <button class="obra-luz" type="button" data-luz><svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path fill="currentColor" d="M7 0h2v1h-2zM6 1h1v1h-1zM9 1h1v1h-1zM5 2h6v1h-6zM4 3h1v8h-1zM11 3h1v8h-1zM5 10h6v1h-6zM4 11h8v1h-8zM6 12h1v1h-1zM9 12h1v1h-1zM5 13h6v1h-6z"/><path class="luz-raio" d="M8 4h1v1h-1zM7 5h2v1h-2zM7 6h3v1h-3zM6 7h4v1h-4zM6 8h4v1h-4zM7 9h2v1h-2z"/></svg><span data-luz-texto>{{lampiao_apagar}}</span></button>
               </p>
             </div>
-            {{/pt-BR}}
           </div>
           <figcaption class="carimbo">
             <p class="carimbo-topo"><b>Linu Sites</b><span>{{cena_legenda}}</span></p>
