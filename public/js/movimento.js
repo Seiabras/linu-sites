@@ -5,7 +5,8 @@
 (() => {
   'use strict';
   const $$ = (s, el = document) => [...el.querySelectorAll(s)];
-  const calmo = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // com ?static=1 na URL (as capturas da conferência visual), nada espera a rolagem para aparecer
+  const calmo = window.matchMedia('(prefers-reduced-motion: reduce)').matches || /[?&]static=1\b/.test(location.search);
   // Os textos no idioma da página (o gerar-idiomas.mjs escreve o bloco); {nome} é trocado pelo valor
   const bloco = document.getElementById('textos-js');
   const T = bloco ? JSON.parse(bloco.textContent) : {};
@@ -91,7 +92,7 @@
       obs.unobserve(el);
       setTimeout(() => { el.classList.remove('revelar', 'visto'); el.style.removeProperty('--atraso'); }, 900);
     }), { rootMargin: '0px 0px -8% 0px' });
-    $$('.secao h2, .secao-sub, .cartao, .projeto, .passos li, .faq details, .monte, .contato-linu').forEach((el) => {
+    $$('.secao h2, .secao-sub, .cartao, .projeto, .passos li, .faq details, .monte, .radio, .simulador-tela').forEach((el) => {
       if (el.getBoundingClientRect().top < innerHeight) return;
       el.style.setProperty('--atraso', Math.min([...el.parentElement.children].indexOf(el), 5) * 70 + 'ms');
       el.classList.add('revelar');
@@ -101,10 +102,17 @@
 
   // ---- Menu: marca a seção que está na tela ----
   const links = $$('.menu a[href^="#"]:not(.botao)');
+  const barraNum = document.querySelector('[data-barra-num]');
+  const barraNome = document.querySelector('[data-barra-nome]');
   if (links.length && 'IntersectionObserver' in window) {
     const spy = new IntersectionObserver((es) => es.forEach((e) => {
       if (!e.isIntersecting) return;
-      links.forEach((a) => (a.getAttribute('href') === '#' + e.target.id ? a.setAttribute('aria-current', 'true') : a.removeAttribute('aria-current')));
+      links.forEach((a, i) => {
+        if (a.getAttribute('href') !== '#' + e.target.id) { a.removeAttribute('aria-current'); return; }
+        a.setAttribute('aria-current', 'true');
+        // a barra do polegar (celular) mostra a prancha em que a pessoa está
+        if (barraNum) { barraNum.textContent = String(i + 1).padStart(2, '0'); barraNome.textContent = a.textContent.trim(); }
+      });
     }), { rootMargin: '-45% 0px -50% 0px' });
     links.forEach((a) => { const s = document.querySelector(a.getAttribute('href')); if (s) spy.observe(s); });
   }

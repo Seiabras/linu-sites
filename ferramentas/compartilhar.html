@@ -2,48 +2,51 @@
 <html lang="pt-BR">
 <head>
 <meta charset="utf-8">
-<title>Imagem de compartilhamento</title>
+<!-- A imagem de compartilhar (1200 × 630), com a identidade “a planta” (07/11/2026): o papel quadriculado, as três
+     vistas com as cotas e o Linu de capacete em 2×. Sai em public/img/compartilhar.png pelo gerar-imagens.mjs. -->
 <style>
-  @font-face { font-family: "Nunito"; font-weight: 200 1000; src: url(../public/fontes/nunito-latin.woff2) format("woff2"); }
-  @font-face { font-family: "Courier Prime"; font-weight: 400; src: url(../public/fontes/courier-prime-latin-400.woff2) format("woff2"); }
-  /* 1200 × 630: a imagem que aparece quando alguém manda o link (WhatsApp, redes). Gerada por gerar-imagens.mjs.
-     Na identidade de 07/11/2026, a estação por dentro: a lona da parede, a viga de madeira com a faixa laranja, a cena
-     em 2× (688 × 384) na moldura de madeira, o Linu em 1× e o endereço numa etiqueta de papel datilografada. */
-  html, body { margin: 0; }
-  body { width: 1200px; height: 630px; box-sizing: border-box; overflow: hidden; background-color: #EADFCD; background-image: repeating-linear-gradient(90deg, transparent 0 158px, rgba(94, 76, 67, .10) 158px 160px); font-family: "Nunito", sans-serif; color: #2A211D; }
-  .viga { height: 26px; background: #2E2420; border-bottom: 5px solid #C06635; }
-  .dentro { display: grid; grid-template-columns: 1fr 708px; align-items: center; gap: 30px; height: 599px; padding: 0 36px 0 52px; box-sizing: border-box; }
-  .marca { display: flex; align-items: center; gap: 14px; font-size: 36px; font-weight: 800; }
-  .marca img { width: 64px; height: 64px; border-radius: 6px; image-rendering: pixelated; }
-  .marca b { color: #C2410C; font-weight: 900; }
-  h1 { margin: 30px 0 0; font-size: 58px; line-height: 1.04; font-weight: 900; letter-spacing: -.02em; }
-  h1 span { color: #0B5F58; }
-  p { margin: 20px 0 0; font-size: 24px; color: #5A4A40; font-weight: 700; }
-  .url { position: relative; display: inline-block; margin-top: 30px; padding: 12px 20px 10px; background: #FBF3E3; font-family: "Courier Prime", monospace; font-size: 24px; font-weight: 400; font-synthesis: none; rotate: -2deg; box-shadow: 0 2px 2px rgba(60, 40, 20, .2), 0 12px 18px -8px rgba(60, 40, 20, .55); }
-  .url::before { content: ""; position: absolute; left: 50%; top: -10px; width: 64px; height: 20px; margin-left: -32px; background: rgba(236, 226, 196, .8); rotate: 5deg; }
-  .quadro { width: 688px; height: 384px; border: 10px solid #4A3830; border-top-color: #5E4C43; border-bottom-color: #3A2C24; box-shadow: 0 30px 50px -26px rgba(30, 18, 8, .75); }
-  .cena { position: relative; width: 688px; height: 384px; overflow: hidden; }
-  .cena img { position: absolute; image-rendering: pixelated; }
-  .fundo { left: 0; top: 0; width: 688px; height: 384px; }
-  /* o Linu em 1× (172 × 190), com os pés na linha 182 da cena (364 em 2×), embaixo do lampião */
-  .linu { left: 284px; top: 174px; width: 172px; height: 190px; }
+  @font-face { font-family: "Space Grotesk"; font-weight: 400 700; src: url(../public/fontes/space-grotesk-latin.woff2) format("woff2"); }
+  @font-face { font-family: "Instrument Sans"; font-weight: 400 700; src: url(../public/fontes/instrument-sans-latin.woff2) format("woff2"); }
+  html, body { margin: 0; width: 1200px; height: 630px; overflow: hidden; }
+  body { position: relative; background-color: #F3F7FC; color: #0F2547; font-family: "Instrument Sans", sans-serif;
+    background-image: linear-gradient(rgba(37, 99, 235, .12) 1px, transparent 1px), linear-gradient(90deg, rgba(37, 99, 235, .12) 1px, transparent 1px),
+      linear-gradient(rgba(37, 99, 235, .065) 1px, transparent 1px), linear-gradient(90deg, rgba(37, 99, 235, .065) 1px, transparent 1px);
+    background-size: 120px 120px, 120px 120px, 24px 24px, 24px 24px; background-position: -1px -1px; }
+  .margem { position: absolute; inset: 24px; border: 2px solid #2563EB; }
+  .margem::before { content: ""; position: absolute; inset: 8px; border: 1px solid rgba(37, 99, 235, .38); }
+  .texto { position: absolute; left: 72px; top: 72px; width: 500px; }
+  .marca { display: flex; align-items: center; gap: 16px; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 40px; letter-spacing: -.02em; }
+  .marca img { width: 64px; height: 64px; border-radius: 8px; image-rendering: pixelated; }
+  .marca b { color: #2563EB; }
+  h1 { margin: 44px 0 18px; font-family: "Space Grotesk", sans-serif; font-size: 62px; line-height: 1.04; letter-spacing: -.03em; }
+  h1 span { background: linear-gradient(transparent 58%, #FDE047 58% 90%, transparent 90%); }
+  p { margin: 0; font-size: 26px; color: #3F5479; }
+  .url { position: absolute; left: 72px; bottom: 64px; font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 24px; color: #2563EB; }
+  .folha { position: absolute; right: 64px; top: 64px; width: 480px; padding: 14px; background: #FFFFFF; border: 2px solid #2563EB; }
+  svg { display: block; width: 100%; height: auto; }
+  .t { fill: none; stroke: #2563EB; stroke-width: 2.5; stroke-linejoin: round; stroke-linecap: round; }
+  .m { fill: none; stroke: #2563EB; stroke-width: 1.6; opacity: .75; stroke-linecap: round; }
+  .m .g { stroke-width: 5; } .m .f { stroke-width: 1; opacity: .6; } .m .b { fill: #2563EB; }
+  .c { fill: none; stroke: #2563EB; stroke-width: 1.4; }
+  .c text { fill: #2563EB; stroke: none; font-family: "Space Grotesk", sans-serif; font-size: 13px; font-weight: 600; text-anchor: middle; }
+  .linu { position: absolute; right: 320px; bottom: 44px; width: 240px; height: 388px; image-rendering: pixelated; }
 </style>
 </head>
 <body>
-  <div class="viga"></div>
-  <div class="dentro">
-    <div>
-      <div class="marca"><img src="../public/img/linu-logo.png" alt=""><span>Linu <b>Sites</b></span></div>
-      <h1>Sites e apps web <span>sob medida</span></h1>
-      <p>Do desenho ao servidor, direto com quem faz.</p>
-      <div class="url">sites.linupedia.com.br</div>
-    </div>
-    <div class="quadro">
-      <div class="cena">
-        <img class="fundo" src="../public/img/abrigo-estacao-dia.png" alt="">
-        <img class="linu" src="../public/img/linu/linu-frente.png" alt="">
-      </div>
-    </div>
+  <div class="margem"></div>
+  <div class="texto">
+    <div class="marca"><img src="../public/img/linu-logo.png" alt=""><span>Linu <b>Sites</b></span></div>
+    <h1>Sites e apps web <span>sob medida</span></h1>
+    <p>Desenhados para o celular, o tablet e o computador.</p>
   </div>
+  <div class="url">sites.linupedia.com.br</div>
+  <div class="folha">
+    <svg viewBox="0 0 640 360">
+      <g class="c"><path d="M24 30h372M24 24v12M396 24v12M424 74h150M424 68v12M574 68v12M592 128h40M592 122v12M632 122v12" /><text x="210" y="22">1280</text><text x="499" y="66">820</text><text x="612" y="120">390</text></g>
+      <g class="t"><rect x="24" y="44" width="372" height="236" rx="6" /><path d="M24 64h372M186 280l-8 34h64l-8-34M162 314h96" /><rect x="424" y="88" width="150" height="206" rx="10" /><rect x="592" y="142" width="40" height="152" rx="8" /></g>
+      <g class="m"><path d="M36 54h6M48 54h6M60 54h6M250 54h30M290 54h30M330 54h52" /><path class="g" d="M44 88h150M44 102h120M44 120h70" /><rect x="44" y="134" width="56" height="16" rx="2" /><rect x="228" y="82" width="150" height="80" rx="3" /><path class="f" d="M228 82l150 80M378 82l-150 80" /><rect x="44" y="184" width="104" height="80" rx="3" /><rect x="158" y="184" width="104" height="80" rx="3" /><rect x="272" y="184" width="106" height="80" rx="3" /><path d="M436 104h40M520 104h40M436 126h126M436 138h96" /><rect x="436" y="154" width="60" height="58" rx="3" /><rect x="502" y="154" width="60" height="58" rx="3" /><rect x="436" y="220" width="60" height="58" rx="3" /><rect x="502" y="220" width="60" height="58" rx="3" /><path d="M600 156h24M600 170h18M600 180h22" /><rect x="600" y="192" width="24" height="24" rx="2" /><rect x="600" y="222" width="24" height="24" rx="2" /><rect class="b" x="598" y="272" width="28" height="12" rx="3" /></g>
+    </svg>
+  </div>
+  <img class="linu" src="../public/img/linu/linu-planta.png" alt="">
 </body>
 </html>

@@ -4,3 +4,8 @@
 # as tentativas da API de imagens do Café: só a aprovada vai para o git (ferramentas/cafe/arte/aprovadas/)
 ferramentas/cafe/arte/*/api-*.png
 ferramentas/cafe/arte/*/anexo-*.png
+
+# as tentativas da API de imagens do Linu Sites: só o resultado em pixel art vai para o git (public/img/linu/)
+arte/*/api-*.png
+arte/*/anexo-*.png
+node_modules

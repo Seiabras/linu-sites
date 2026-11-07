@@ -5,7 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{{titulo}}</title>
   <meta name="description" content="{{descricao}}">
-  <meta name="theme-color" content="#1F2A44">
+  <meta name="theme-color" content="#F3F7FC" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0C2A5B" media="(prefers-color-scheme: dark)">
   <link rel="icon" href="{{raiz}}img/linu-logo.png" type="image/png" sizes="128x128">
   <link rel="icon" href="{{raiz}}img/icone-32.png" type="image/png" sizes="32x32">
   <link rel="apple-touch-icon" href="{{raiz}}img/icone-180.png">
@@ -17,7 +18,7 @@
   <meta property="og:image:alt" content="{{og_imagem_alt}}">
   <meta name="twitter:card" content="summary_large_image">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self'; frame-src https://cafe.linupedia.com.br; object-src 'none'; base-uri 'self'; form-action 'self'">
-  <link rel="preload" href="{{raiz}}fontes/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="{{raiz}}fontes/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="canonical" href="{{url}}">
 {{alternativas}}
   <meta property="og:type" content="website">
@@ -35,6 +36,7 @@
   <script src="{{raiz}}js/menu.js?v=7" defer></script>
   <script src="{{raiz}}js/movimento.js?v=10" defer></script>
   <script src="{{raiz}}js/simulador.js?v=6" defer></script>
+  <script src="{{raiz}}js/planta.js" defer></script>
 </head>
 <body>
   {{?pt-BR}}
@@ -61,7 +63,7 @@
         </div>
 {{seletor}}
         <button class="luz" type="button" data-luz aria-label="{{luz_apagar_aria}}" title="{{luz_apagar}}">
-          <svg class="luz-lampiao" viewBox="0 0 16 16" width="32" height="32" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path class="luz-vidro" d="M5 3h6v7h-6z"/><path fill="currentColor" d="M7 0h2v1h-2zM6 1h1v1h-1zM9 1h1v1h-1zM5 2h6v1h-6zM4 3h1v1h-1zM11 3h1v1h-1zM4 4h1v1h-1zM11 4h1v1h-1zM4 5h1v1h-1zM11 5h1v1h-1zM4 6h1v1h-1zM11 6h1v1h-1zM4 7h1v1h-1zM11 7h1v1h-1zM4 8h1v1h-1zM11 8h1v1h-1zM4 9h1v1h-1zM11 9h1v1h-1zM5 10h6v1h-6zM4 11h8v1h-8zM6 12h1v1h-1zM9 12h1v1h-1zM5 13h6v1h-6z"/><path class="luz-chama" d="M8 4h1v1h-1zM7 5h2v1h-2zM7 6h3v1h-3zM6 7h4v1h-4zM6 8h4v1h-4zM7 9h2v1h-2z"/></svg>
+          <svg class="luz-luminaria" viewBox="0 0 16 16" width="32" height="32" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path fill="currentColor" d="M2 14h8v1h-8zM3 13h6v1h-6zM5 9h1v4h-1zM4 8h3v1h-3zM6 7h1v1h-1zM7 6h1v1h-1zM8 5h1v1h-1zM9 4h1v1h-1zM10 2h3v1h-3zM10 3h4v1h-4zM11 4h4v1h-4zM12 5h3v1h-3z"/><path class="luz-raio" d="M11 6h1v1h-1zM13 6h2v1h-2zM10 7h1v1h-1zM12 8h1v1h-1zM15 7h1v1h-1zM14 9h1v1h-1z"/></svg>
         </button>
         <a class="botao botao-pequeno menu-orcamento" href="#contato">{{menu_orcamento}}</a>
         <button class="menu-abrir" type="button" aria-expanded="false" aria-controls="menu-links" aria-label="{{menu_abrir}}">
@@ -71,51 +73,70 @@
     </div>
   </header>
 
-  <main>
-    <!-- A abertura é a própria estação (07/11/2026): a cena em escala inteira (3× no computador, 2× no tablet e no
-         celular, onde vira um recorte em volta da mesa), nunca esticada. As plaquinhas de papel presas nos objetos
-         levam às seções, com os textos do menu: o monitor → O que fazemos, o quadro de cortiça → Projetos, a mesa →
-         Exemplo, o caderno aberto → Como funciona, o rádio → orçamento e a estante → Dúvidas. As posições são as da
-         imagem (344 × 192), no css/estilo.css. -->
-    <section class="abertura abertura-estacao">
+  <main class="pranchas">
+    <!-- A abertura é a planta (identidade de 07/11/2026, “a planta”): o site desenhado em três vistas, computador
+         (1280), tablet (820) e celular (390), com as cotas, e o Linu de capacete com o rolo da planta (pixel art em 1×,
+         nunca esticado). O carimbo da prancha é o índice: cada linha leva a uma seção, com o número da prancha. O
+         traço se desenha uma vez ao abrir (js/planta.js); sem JavaScript ou com “menos movimento”, já vem pronto. -->
+    <section class="abertura">
       <div class="dentro abertura-dentro">
         <div class="abertura-texto">
           <p class="sobretitulo">{{sobretitulo}}</p>
           <h1>{{h1}}</h1>
-        </div>
-        <div class="abertura-lado">
           <p class="abertura-sub">{{abertura_sub}}</p>
           <div class="botoes">
             <a class="botao" href="#contato">{{abertura_orcamento}}</a>
             <a class="botao botao-linha" href="#projetos">{{abertura_projetos}}</a>
           </div>
         </div>
-      </div>
-      <figure class="estacao">
-        <div class="estacao-quadro">
-          <div class="estacao-moldura">
-            <div class="cena" data-cena>
-              <img class="pixel cena-dia" src="{{raiz}}img/abrigo-estacao-dia.png" alt="{{cena_alt}}" width="344" height="192">
-              <img class="pixel cena-acesa" src="{{raiz}}img/abrigo-estacao-noite.png" alt="" width="344" height="192">
-              <img class="pixel cena-apagada" src="{{raiz}}img/abrigo-estacao-apagada.png" alt="" width="344" height="192">
-              <ul class="plaquinhas">
-                <li class="plaquinha plaquinha-servicos"><a href="#servicos">{{menu_servicos}}</a></li>
-                <li class="plaquinha plaquinha-projetos"><a href="#projetos">{{menu_projetos}}</a></li>
-                <li class="plaquinha plaquinha-exemplo"><a href="#exemplo">{{menu_exemplo}}</a></li>
-                <li class="plaquinha plaquinha-como"><a href="#como">{{menu_como}}</a></li>
-                <li class="plaquinha plaquinha-duvidas"><a href="#duvidas">{{menu_duvidas}}</a></li>
-                <li class="plaquinha plaquinha-contato"><a href="#contato">{{menu_orcamento}}</a></li>
-              </ul>
-              <span class="cena-linu" data-pose="frente">
-                <img class="pixel linu-frente" data-linu-vivo data-piscar="{{raiz}}img/linu/linu-frente-piscando.png?v=2" src="{{raiz}}img/linu/linu-frente.png?v=2" alt="" width="172" height="190">
-                <span class="linu-lado"><img class="pixel" src="{{raiz}}img/linu/linu-lado.png?v=2" alt="" width="688" height="190"></span>
-                <img class="pixel linu-costas" src="{{raiz}}img/linu/linu-costas.png?v=2" alt="" width="172" height="190">
-              </span>
-            </div>
+        <figure class="prancha" data-prancha>
+          <div class="prancha-folha">
+            <svg class="planta" viewBox="0 0 640 360" role="img" aria-label="{{cena_alt}}">
+              <g class="planta-cotas">
+                <path d="M24 30h372M24 24v12M396 24v12M424 74h150M424 68v12M574 68v12M592 128h40M592 122v12M632 122v12" />
+                <text x="210" y="22">1280</text><text x="499" y="66">820</text><text x="612" y="120">390</text>
+              </g>
+              <g class="planta-traco" data-desenho>
+                <rect x="24" y="44" width="372" height="236" rx="6" />
+                <path d="M24 64h372M186 280l-8 34h64l-8-34M162 314h96" />
+                <rect x="424" y="88" width="150" height="206" rx="10" />
+                <rect x="592" y="142" width="40" height="152" rx="8" />
+              </g>
+              <g class="planta-miolo" data-desenho>
+                <path d="M36 54h6M48 54h6M60 54h6M250 54h30M290 54h30M330 54h52" />
+                <path d="M44 88h150M44 102h120M44 120h70" class="planta-grosso" />
+                <rect x="44" y="134" width="56" height="16" rx="2" />
+                <rect x="228" y="82" width="150" height="80" rx="3" />
+                <path d="M228 82l150 80M378 82l-150 80" class="planta-fino" />
+                <rect x="44" y="184" width="104" height="80" rx="3" /><rect x="158" y="184" width="104" height="80" rx="3" /><rect x="272" y="184" width="106" height="80" rx="3" />
+                <path d="M436 104h40M520 104h40M436 126h126M436 138h96" />
+                <rect x="436" y="154" width="60" height="58" rx="3" /><rect x="502" y="154" width="60" height="58" rx="3" />
+                <rect x="436" y="220" width="60" height="58" rx="3" /><rect x="502" y="220" width="60" height="58" rx="3" />
+                <path d="M600 156h24M600 170h18M600 180h22" />
+                <rect x="600" y="192" width="24" height="24" rx="2" /><rect x="600" y="222" width="24" height="24" rx="2" />
+                <rect x="598" y="272" width="28" height="12" rx="3" class="planta-barra" />
+              </g>
+              <g class="planta-cotas planta-notas">
+                <path d="M100 142h20l14-14" /><circle cx="140" cy="122" r="9" /><text x="140" y="126">1</text>
+                <path d="M497 212v24" /><circle cx="497" cy="246" r="9" /><text x="497" y="250">2</text>
+                <path d="M612 284v24" /><circle cx="612" cy="318" r="9" /><text x="612" y="322">3</text>
+              </g>
+            </svg>
+            <img class="pixel prancha-linu" data-linu-vivo data-piscar="{{raiz}}img/linu/linu-planta-piscando.png" src="{{raiz}}img/linu/linu-planta.png" alt="" width="120" height="194">
           </div>
-        </div>
-        <figcaption>{{cena_legenda}}</figcaption>
-      </figure>
+          <figcaption class="carimbo">
+            <p class="carimbo-topo"><b>Linu Sites</b><span>{{cena_legenda}}</span></p>
+            <ol class="carimbo-indice">
+              <li><a href="#servicos"><span>01</span>{{menu_servicos}}</a></li>
+              <li><a href="#projetos"><span>02</span>{{menu_projetos}}</a></li>
+              <li><a href="#exemplo"><span>03</span>{{menu_exemplo}}</a></li>
+              <li><a href="#como"><span>04</span>{{menu_como}}</a></li>
+              <li><a href="#duvidas"><span>05</span>{{menu_duvidas}}</a></li>
+              <li><a href="#contato"><span>06</span>{{menu_orcamento}}</a></li>
+            </ol>
+          </figcaption>
+        </figure>
+      </div>
     </section>
 
     <section class="secao" id="servicos">
@@ -610,6 +631,13 @@
       </div>
     </section>
   </main>
+
+  <!-- A barra do celular (07/11/2026): a prancha em que a pessoa está (abre o índice, de baixo) e o orçamento, ao
+       alcance do polegar; só aparece abaixo de 700 px (css) -->
+  <aside class="barra-celular" aria-label="{{menu_aria}}">
+    <button class="barra-indice" type="button" aria-expanded="false" aria-controls="menu-links" aria-label="{{menu_abrir}}"><span class="barra-num" data-barra-num>00</span><span class="barra-nome" data-barra-nome>Linu Sites</span></button>
+    <a class="botao" href="#contato">{{menu_orcamento}}</a>
+  </aside>
 
   <footer class="rodape">
     <div class="dentro rodape-dentro">

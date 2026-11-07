@@ -5,11 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Café Aurora — Linu Sites</title>
   <meta name="description" content="A cyberpunk café that doesn't exist, with an intro screen, animated background, menu and a lab to build your drink.">
-  <meta name="theme-color" content="#1F2A44">
+  <meta name="theme-color" content="#F3F7FC" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#0C2A5B" media="(prefers-color-scheme: dark)">
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
-  <link rel="icon" href="../../img/linu-logo.png" type="image/png" sizes="128x128">
-  <link rel="icon" href="../../img/icone-32.png" type="image/png" sizes="32x32">
-  <link rel="apple-touch-icon" href="../../img/icone-180.png">
+  <link rel="icon" href="../../img/linu-logo.png?v=04939f80" type="image/png" sizes="128x128">
+  <link rel="icon" href="../../img/icone-32.png?v=af06fd2b" type="image/png" sizes="32x32">
+  <link rel="apple-touch-icon" href="../../img/icone-180.png?v=0174d73d">
   <link rel="canonical" href="https://sites.linupedia.com.br/intl/projetos/cafe-aurora">
   <link rel="alternate" hreflang="pt-BR" href="https://sites.linupedia.com.br/projetos/cafe-aurora">
   <link rel="alternate" hreflang="pt-PT" href="https://sites.linupedia.com.br/pt-pt/projetos/cafe-aurora">
@@ -35,19 +36,19 @@
   <meta property="og:locale" content="en_US">
   <meta property="og:image" content="https://sites.linupedia.com.br/img/projetos/cafe-aurora.webp">
   <meta name="twitter:card" content="summary_large_image">
-  <link rel="preload" href="../../fontes/nunito-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../../fontes/space-grotesk-latin.woff2" as="font" type="font/woff2" crossorigin>
   <!-- Os textos que os scripts escrevem (menu, luz), no idioma da página -->
   <script type="application/json" id="textos-js">{"menu_abrir":"Open the menu","menu_fechar":"Close the menu","luz_apagar_aria":"Turn off the light (dark mode)","luz_acender_aria":"Turn on the light (light mode)","luz_apagar":"Turn off the light","luz_acender":"Turn on the light","fechar":"Close","escolha":"Choose the type to see an estimate","sem_tipo":"No problem: the conversation will help choose the type.","um_item":"one item","n_itens":"{n} items","extra":" + {itens} in the proposal","por_ano":"{valor} a year","por_mes":"{valor} a month","estimativa":"Estimate: from {valor}{extra}","linha_tipo":"Type: {nome}","linha_itens":"It needs:","linha_depois":"Once it's live: {nome}{anual}","anual":", paying for the year","linha_estimativa":"Website estimate: from {valor}{extra}","ola":"Hello! I'd like a website.","sobre":"About my business: ","assunto":"I'd like a website","ola_conversa":"Hello! I'd like to talk about a website.","area_vazia":"No projects from this sector here.","conversa_aberta":"We can talk now, until {fim} your time.","conversa_fechada":"We're outside our hours right now. The next window opens {inicio} your time."}</script>
-  <script src="../../js/tema-inicio.js?v=6"></script>
-  <link rel="stylesheet" href="../../css/estilo.css?v=31">
-  <script src="../../js/tema.js?v=9" defer></script>
-  <script src="../../js/menu.js?v=7" defer></script>
+  <script src="../../js/tema-inicio.js?v=e843eba7"></script>
+  <link rel="stylesheet" href="../../css/estilo.css?v=f8a1df99">
+  <script src="../../js/tema.js?v=cddc4fbc" defer></script>
+  <script src="../../js/menu.js?v=ebf40e9a" defer></script>
 </head>
 <body>
   <header class="topo">
     <div class="dentro topo-dentro">
       <a class="marca" href="../" aria-label="Linu Sites, home">
-        <img src="../../img/linu-logo.png" alt="" width="40" height="40">
+        <img src="../../img/linu-logo.png?v=04939f80" alt="" width="40" height="40">
         <span>Linu <b>Sites</b></span>
       </a>
       <nav class="menu" aria-label="Sections">
@@ -85,7 +86,7 @@
           </div>
         </details>
         <button class="luz" type="button" data-luz aria-label="Turn off the light (dark mode)" title="Turn off the light">
-          <svg class="luz-lampiao" viewBox="0 0 16 16" width="32" height="32" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path class="luz-vidro" d="M5 3h6v7h-6z"/><path fill="currentColor" d="M7 0h2v1h-2zM6 1h1v1h-1zM9 1h1v1h-1zM5 2h6v1h-6zM4 3h1v1h-1zM11 3h1v1h-1zM4 4h1v1h-1zM11 4h1v1h-1zM4 5h1v1h-1zM11 5h1v1h-1zM4 6h1v1h-1zM11 6h1v1h-1zM4 7h1v1h-1zM11 7h1v1h-1zM4 8h1v1h-1zM11 8h1v1h-1zM4 9h1v1h-1zM11 9h1v1h-1zM5 10h6v1h-6zM4 11h8v1h-8zM6 12h1v1h-1zM9 12h1v1h-1zM5 13h6v1h-6z"/><path class="luz-chama" d="M8 4h1v1h-1zM7 5h2v1h-2zM7 6h3v1h-3zM6 7h4v1h-4zM6 8h4v1h-4zM7 9h2v1h-2z"/></svg>
+          <svg class="luz-luminaria" viewBox="0 0 16 16" width="32" height="32" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path fill="currentColor" d="M2 14h8v1h-8zM3 13h6v1h-6zM5 9h1v4h-1zM4 8h3v1h-3zM6 7h1v1h-1zM7 6h1v1h-1zM8 5h1v1h-1zM9 4h1v1h-1zM10 2h3v1h-3zM10 3h4v1h-4zM11 4h4v1h-4zM12 5h3v1h-3z"/><path class="luz-raio" d="M11 6h1v1h-1zM13 6h2v1h-2zM10 7h1v1h-1zM12 8h1v1h-1zM15 7h1v1h-1zM14 9h1v1h-1z"/></svg>
         </button>
         <a class="botao botao-pequeno menu-orcamento" href="#contato">Get a quote</a>
         <button class="menu-abrir" type="button" aria-expanded="false" aria-controls="menu-links" aria-label="Open the menu">
@@ -106,7 +107,7 @@
           <a class="botao" href="https://cafe.linupedia.com.br/intl/" target="_blank" rel="noopener">Open cafe.linupedia.com.br</a>
           <a class="botao botao-linha" href="https://github.com/Seiabras/cafe-aurora" target="_blank" rel="noopener">Code on GitHub</a>
         </div>
-        <img class="caso-imagem" src="../../img/projetos/cafe-aurora.webp" alt="Café Aurora home page: the name in blue and pink neon over a cyberpunk city at night" width="960" height="600">
+        <img class="caso-imagem" src="../../img/projetos/cafe-aurora.webp?v=f8a9abee" alt="Café Aurora home page: the name in blue and pink neon over a cyberpunk city at night" width="960" height="600">
       </div>
     </section>
 
@@ -135,7 +136,7 @@
 
     <section class="secao contato" id="contato">
       <div class="dentro contato-dentro">
-        <img class="pixel contato-linu" src="../../img/linu-pixel.png?v=2" alt="" width="138" height="190">
+        <img class="pixel contato-linu" src="../../img/linu/linu-planta.png?v=62ba3ec5" alt="" width="120" height="194">
         <div>
           <h2>Want something like this for your business?</h2>
           <p>Tell us what you do and what you have in mind. It can be just an idea: the reply comes with questions and next steps.</p>

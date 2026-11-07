@@ -1,33 +1,39 @@
-/* Menu do celular: o botão abre e fecha o painel com os links; fecha ao escolher um link, ao tocar fora e com Esc. */
+/* Menu do celular: o botão do topo e o da barra do polegar abrem e fecham o painel com os links (que sobe de baixo);
+   fecha ao escolher um link, ao tocar fora e com Esc. */
 (function () {
   "use strict";
 
   var menu = document.querySelector(".menu");
-  var botao = document.querySelector(".menu-abrir");
-  if (!menu || !botao) return;
+  var botoes = [].slice.call(document.querySelectorAll('[aria-controls="menu-links"]'));
+  if (!menu || !botoes.length) return;
   // os textos no idioma da página; as páginas dos projetos não têm o bloco e ficam em português
   var bloco = document.getElementById("textos-js");
   var T = bloco ? JSON.parse(bloco.textContent) : {};
 
+  // no celular, o painel abre de baixo; o botão do topo e o da barra do polegar fazem a mesma coisa
   function abrir(sim) {
     menu.classList.toggle("aberto", sim);
-    botao.setAttribute("aria-expanded", sim ? "true" : "false");
-    botao.setAttribute("aria-label", sim ? T.menu_fechar || "Fechar o menu" : T.menu_abrir || "Abrir o menu");
+    botoes.forEach(function (b) {
+      b.setAttribute("aria-expanded", sim ? "true" : "false");
+      if (b.classList.contains("menu-abrir")) b.setAttribute("aria-label", sim ? T.menu_fechar || "Fechar o menu" : T.menu_abrir || "Abrir o menu");
+    });
   }
 
-  botao.addEventListener("click", function () {
-    abrir(!menu.classList.contains("aberto"));
+  botoes.forEach(function (b) {
+    b.addEventListener("click", function () { abrir(!menu.classList.contains("aberto")); });
   });
   menu.addEventListener("click", function (e) {
     if (e.target.closest(".menu-links a")) abrir(false);
   });
   document.addEventListener("click", function (e) {
-    if (menu.classList.contains("aberto") && !menu.contains(e.target)) abrir(false);
+    if (!menu.classList.contains("aberto") || menu.contains(e.target)) return;
+    if (botoes.some(function (b) { return b.contains(e.target); })) return;
+    abrir(false);
   });
   document.addEventListener("keydown", function (e) {
     if (e.key === "Escape" && menu.classList.contains("aberto")) {
       abrir(false);
-      botao.focus();
+      botoes[0].focus();
     }
   });
 })();
