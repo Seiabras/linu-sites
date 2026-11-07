@@ -34,6 +34,15 @@
   var LAMPIAO = 185;    // embaixo do lampião
   var MS_POR_PIXEL = 7;
   var ocupado = false;
+  var pendente = null;   // a luz pedida no meio de outra animação (o Linu entrando, por exemplo): acontece logo depois
+
+  function liberar() {
+    ocupado = false;
+    if (!pendente) return;
+    var b = pendente;
+    pendente = null;
+    b.click();
+  }
 
   function temaAtual() {
     return raiz.dataset.theme || (sistemaEscuro.matches ? "dark" : "light");
@@ -166,14 +175,14 @@
 
   botoes.forEach(function (botao) {
     botao.addEventListener("click", function () {
-      if (ocupado) return;
+      if (ocupado) { pendente = botao; return; }
       var tema = temaAtual() === "dark" ? "light" : "dark";
       ocupado = true;
       botoes.forEach(function (b) { if (b.classList.contains("obra-luz")) b.disabled = true; });
       var feito = (obraNaTela() && !poucoMovimento.matches && Element.prototype.animate) ? luzNaObra(tema) : luzNaPlanta(tema, botao);
       feito.catch(function () { aplicar(tema, false); }).then(function () {
-        ocupado = false;
         botoes.forEach(function (b) { b.disabled = false; });
+        liberar();
       });
     });
   });
@@ -217,7 +226,7 @@
       } else if (anima) {
         await entra.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 220, easing: "ease-out" }).finished;
       }
-      ocupado = false;
+      liberar();
     };
     abas.forEach(function (a) { a.addEventListener("click", function () { trocar(a.dataset.vistaBotao); }); });
 
