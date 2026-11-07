@@ -478,9 +478,10 @@ opcional). Nome e negócio entram no começo da mensagem do WhatsApp e do e-mail
 ao tocar, a página manda o pedido para `/api/pedido` por `sendBeacon`, sem atrasar nada. O Caddy encaminha para o
 `linu-pedidos` (linuarquivos/servidor), que guarda por 12 meses e avisa por e-mail, como no Digital e no Seguro. O
 aviso de privacidade fica embaixo dos botões e o campo escondido `site_extra` separa os robôs (`js/movimento.js`).
-As outras 12 línguas ganham o bloco depois da aprovação (regra 8). **Falta no servidor:** trocar o bloco
-`sites.linupedia.com.br` do `/etc/caddy/Caddyfile` pelo de `deploy/Caddyfile-bloco` (o `handle /api/pedido`) e
-recarregar o Caddy; até lá a mensagem sai igual e só o registro não acontece.
+As outras 12 línguas ganham o bloco depois da aprovação (regra 8). **Falta no servidor (uma vez, o dono roda):**
+`ssh -i ~/.ssh/id_ed25519_linulingo ubuntu@168.138.155.95 'sudo python3 -' < deploy/ligar-pedido-caddy.py`, que põe o
+`handle /api/pedido` no bloco do Caddy, confere e recarrega (se a conferência falhar, volta a cópia); até lá a mensagem
+sai igual e só o registro não acontece.
 
 ## Identidade: a planta (07/11/2026)
 
