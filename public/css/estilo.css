@@ -32,7 +32,7 @@
   --grade: rgba(37, 99, 235, .065);
   --grade-forte: rgba(37, 99, 235, .12);
   --tinta: #0F2547;
-  --tinta-suave: #3F5479;
+  --tinta-suave: #3F5479; --erro: #B42318;
   --traco: #2563EB;
   --traco-fraco: rgba(37, 99, 235, .38);
   --borda: #C9D8EE;
@@ -54,7 +54,7 @@
   :root:not([data-theme="light"]) {
     --papel: #0C2A5B; --papel-2: #0A244F; --folha: #113468;
     --grade: rgba(255, 255, 255, .055); --grade-forte: rgba(255, 255, 255, .1);
-    --tinta: #F2F7FF; --tinta-suave: #BCCDEA; --traco: #FFFFFF; --traco-fraco: rgba(255, 255, 255, .42); --borda: rgba(255, 255, 255, .2);
+    --tinta: #F2F7FF; --tinta-suave: #BCCDEA; --traco: #FFFFFF; --traco-fraco: rgba(255, 255, 255, .42); --borda: rgba(255, 255, 255, .2); --erro: #FCA5A5;
     --acao: #FFFFFF; --acao-tinta: #0C2A5B; --acao-forte: #DBEAFE; --link: #BFDBFE;
     --realce: none; --realce-cor: #FDE047; --ok: #86EFAC;
     --sombra: 0 1px 0 rgba(0, 0, 0, .2), 0 16px 30px -18px rgba(0, 0, 0, .7);
@@ -65,7 +65,7 @@
 :root[data-theme="dark"] {
   --papel: #0C2A5B; --papel-2: #0A244F; --folha: #113468;
   --grade: rgba(255, 255, 255, .055); --grade-forte: rgba(255, 255, 255, .1);
-  --tinta: #F2F7FF; --tinta-suave: #BCCDEA; --traco: #FFFFFF; --traco-fraco: rgba(255, 255, 255, .42); --borda: rgba(255, 255, 255, .2);
+  --tinta: #F2F7FF; --tinta-suave: #BCCDEA; --traco: #FFFFFF; --traco-fraco: rgba(255, 255, 255, .42); --borda: rgba(255, 255, 255, .2); --erro: #FCA5A5;
   --acao: #FFFFFF; --acao-tinta: #0C2A5B; --acao-forte: #DBEAFE; --link: #BFDBFE;
   --realce: none; --realce-cor: #FDE047; --ok: #86EFAC;
   --sombra: 0 1px 0 rgba(0, 0, 0, .2), 0 16px 30px -18px rgba(0, 0, 0, .7);
@@ -653,6 +653,25 @@ img.contato-linu { flex: none; width: 120px; height: 194px; }
 .monte-ano { clear: both; display: flex; align-items: center; gap: 10px; min-height: 44px; margin-top: 8px; font-size: .94rem; cursor: pointer; }
 .monte-ano input { width: 20px; height: 20px; accent-color: var(--acao); }
 .monte-total { padding: 16px 18px 18px; background: var(--grade); }
+/* Quem pede (só pt-BR): os campos de texto no traço da planta; no tablet e no computador, nome e negócio lado a lado */
+.monte-campos { clear: both; display: grid; gap: 4px 14px; }
+.monte-campo label { display: block; margin-bottom: 4px; font-size: .9rem; font-weight: 600; }
+.campo-opcional { color: var(--tinta-suave); font-weight: 400; }
+.monte-campo input, .monte-campo textarea { box-sizing: border-box; width: 100%; min-height: 44px; padding: 10px 12px; border: 1.5px solid var(--borda); border-radius: 3px; background: var(--folha); color: var(--tinta); font: inherit; font-size: 1rem; }
+.monte-campo textarea { resize: vertical; min-height: 84px; }
+.monte-campo input::placeholder, .monte-campo textarea::placeholder { color: var(--tinta-suave); opacity: .8; }
+.monte-campo input:hover, .monte-campo textarea:hover { border-color: var(--traco-fraco); }
+.monte-campo input:focus-visible, .monte-campo textarea:focus-visible { outline: 3px solid var(--traco); outline-offset: 1px; border-color: var(--traco); }
+.monte-campo input[aria-invalid="true"] { border-color: var(--erro); border-style: dashed; }
+.campo-erro { min-height: 1.3em; margin: 4px 0 6px; color: var(--erro); font-size: .85rem; font-weight: 600; }
+.campo-erro:empty { min-height: 0; margin: 0 0 6px; }
+.pote { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.monte-quem { position: relative; }
+.monte-privacidade { margin: 14px 0 0; max-width: 60ch; font-size: .82rem; color: var(--tinta-suave); }
+@media (min-width: 700px) {
+  .monte-campos { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .monte-campo-largo { grid-column: 1 / -1; }
+}
 .monte-resumo { margin: 0 0 8px; font-weight: 600; }
 .monte-resumo.pulso { animation: pulso .35s ease-out; }
 @keyframes pulso { 50% { transform: scale(1.02); } }

@@ -471,6 +471,17 @@ node ferramentas/gerar-estudo.mjs pica-nao-pica
   movimento”, as cores só passam devagar. A escolha fica guardada no navegador; sem escolha, vale a do sistema
   (`public/js/tema.js`).
 
+## O registro dos pedidos (07/11/2026, só em português por enquanto)
+
+No “Monte o seu site” da página em português há o bloco **Quem pede** (nome, negócio e cidade, e uma mensagem
+opcional). Nome e negócio entram no começo da mensagem do WhatsApp e do e-mail e são pedidos antes de abrir os dois;
+ao tocar, a página manda o pedido para `/api/pedido` por `sendBeacon`, sem atrasar nada. O Caddy encaminha para o
+`linu-pedidos` (linuarquivos/servidor), que guarda por 12 meses e avisa por e-mail, como no Digital e no Seguro. O
+aviso de privacidade fica embaixo dos botões e o campo escondido `site_extra` separa os robôs (`js/movimento.js`).
+As outras 12 línguas ganham o bloco depois da aprovação (regra 8). **Falta no servidor:** trocar o bloco
+`sites.linupedia.com.br` do `/etc/caddy/Caddyfile` pelo de `deploy/Caddyfile-bloco` (o `handle /api/pedido`) e
+recarregar o Caddy; até lá a mensagem sai igual e só o registro não acontece.
+
 ## Identidade: a planta (07/11/2026)
 
 A primeira identidade própria (a estação por dentro, de 07/11 de manhã: madeira, lona, cortiça, papel bege, verde e

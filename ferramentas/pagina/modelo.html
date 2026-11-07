@@ -636,6 +636,30 @@
               </div>
               <label class="monte-ano"><input type="checkbox" name="anual"><span>{{monte_ano}}</span></label>
             </fieldset>
+            {{?pt-BR}}
+            <!-- Quem pede (07/11/2026, só em português por enquanto, regra 8): o nome e o negócio entram na mensagem e o
+                 pedido fica registrado em /api/pedido (linu-pedidos, no linuarquivos/servidor), como no Digital e no Seguro -->
+            <fieldset class="monte-grupo monte-quem" data-quem>
+              <legend class="monte-titulo">Quem pede</legend>
+              <div class="monte-campos">
+                <div class="monte-campo">
+                  <label for="pedido-nome">Seu nome</label>
+                  <input type="text" id="pedido-nome" name="nome" autocomplete="name" maxlength="80" required aria-describedby="pedido-nome-erro" data-rotulo="Nome" data-aviso="Escreva o seu nome para a gente saber com quem fala.">
+                  <p class="campo-erro" id="pedido-nome-erro" aria-live="polite"></p>
+                </div>
+                <div class="monte-campo">
+                  <label for="pedido-negocio">Negócio e cidade</label>
+                  <input type="text" id="pedido-negocio" name="negocio" autocomplete="organization" maxlength="120" placeholder="Ex.: padaria em Taguatinga" required aria-describedby="pedido-negocio-erro" data-rotulo="Negócio" data-aviso="Conte qual é o negócio, mesmo que seja só uma ideia.">
+                  <p class="campo-erro" id="pedido-negocio-erro" aria-live="polite"></p>
+                </div>
+                <div class="monte-campo monte-campo-largo">
+                  <label for="pedido-mensagem">Mais alguma coisa? <span class="campo-opcional">(se quiser)</span></label>
+                  <textarea id="pedido-mensagem" name="mensagem" rows="3" maxlength="1200" placeholder="Um site que você gosta, um prazo, uma dúvida…"></textarea>
+                </div>
+              </div>
+              <div class="pote" aria-hidden="true"><label>Não preencha<input type="text" name="site_extra" tabindex="-1" autocomplete="off"></label></div>
+            </fieldset>
+            {{/pt-BR}}
             <div class="monte-total" aria-live="polite">
               <p class="monte-resumo">{{escolha}}</p>
               <dl class="monte-numeros" hidden>
@@ -653,6 +677,9 @@
             </a>
             <a class="botao botao-grande botao-contorno-claro monte-enviar" href="mailto:contato@linupedia.com.br?subject={{email_assunto}}">contato@linupedia.com.br</a>
           </div>
+          {{?pt-BR}}
+          <p class="monte-privacidade">Ao mandar, o pedido (nome, negócio, o que você escolheu e a mensagem) fica guardado por 12 meses só para a gente responder, e depois é apagado. Para ver ou apagar antes: contato@linupedia.com.br.</p>
+          {{/pt-BR}}
         </div>
       </div>
     </section>

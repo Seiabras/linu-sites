@@ -209,6 +209,10 @@
     const total = monte.querySelector('[data-total]');
     const prazo = monte.querySelector('dd[data-prazo]');
     const mensal = monte.querySelector('[data-mensal]');
+    const quem = monte.querySelector('[data-quem]');
+    const campos = quem ? [quem.querySelector('#pedido-nome'), quem.querySelector('#pedido-negocio')] : [];
+    const mensagem = quem ? quem.querySelector('#pedido-mensagem') : null;
+    let ultimo = { pacote: '', estimativa: '' };
     const raiz = document.documentElement;
     const dinheiro = new Intl.NumberFormat(raiz.lang, { style: 'currency', currency: raiz.dataset.moeda || 'BRL', maximumFractionDigits: 0 });
     const reais = (v) => dinheiro.format(v);
@@ -226,7 +230,7 @@
       };
       quadro = requestAnimationFrame(passo);
     };
-    const atualizar = () => {
+    const atualizar = (ev) => {
       const tipo = monte.querySelector('input[name="tipo"]:checked');
       const plano = monte.querySelector('input[name="plano"]:checked');
       const anual = monte.querySelector('input[name="anual"]').checked;
@@ -253,16 +257,58 @@
       if (itens.length) linhas.push(t('linha_itens') + '\n' + itens.map((i) => '- ' + i.value).join('\n'));
       if (plano) linhas.push(t('linha_depois', { nome: plano.dataset.nome, anual: anual ? t('anual') : '' }));
       if (valor) linhas.push(t('linha_estimativa', { valor: reais(valor), extra }));
-      const inicio = t('ola') + (linhas.length ? '\n\n' + linhas.join('\n') : '');
-      const corpo = inicio + '\n\n' + t('sobre');
+      // Quem pede (só em português): o nome e o negócio vão no começo, a mensagem no fim
+      const quem = campos.filter((c) => c.dataset.rotulo && c.value.trim()).map((c) => c.dataset.rotulo + ': ' + c.value.trim());
+      const nota = mensagem ? mensagem.value.trim() : '';
+      const inicio = t('ola') + (quem.length ? '\n' + quem.join('\n') : '') + (linhas.length ? '\n\n' + linhas.join('\n') : '') + (nota ? '\n\n' + nota : '');
+      const corpo = inicio + (nota ? '' : '\n\n' + t('sobre'));
+      ultimo = { pacote: [tipo && tipo.dataset.nome, ...itens.map((i) => i.value), plano && plano.dataset.nome + (anual ? t('anual') : '')].filter(Boolean).join(', '), estimativa: valor ? t('linha_estimativa', { valor: reais(valor), extra }) : '' };
       if (enviar) enviar.href = 'mailto:contato@linupedia.com.br?subject=' + encodeURIComponent(t('assunto')) + '&body=' + encodeURIComponent(corpo);
       if (whats) whats.href = whats.href.split('?')[0] + '?text=' + encodeURIComponent(inicio);
+      if (ev && ev.type === 'input') return; // escrevendo nos campos, só a mensagem muda
       resumo.classList.remove('pulso');
       void resumo.offsetWidth; // reinicia a animação
       if (tipo) resumo.classList.add('pulso');
     };
     monte.addEventListener('change', atualizar);
+    monte.addEventListener('input', atualizar);
     atualizar();
+
+    // O pedido registrado (07/11/2026, só onde há o “Quem pede”, hoje o português): nome e negócio são pedidos antes de
+    // abrir o WhatsApp ou o e-mail, e o sendBeacon manda o pedido a /api/pedido sem atrasar nada; se falhar, a conversa
+    // segue igual. O campo escondido site_extra separa os robôs.
+    if (quem) {
+      const conferir = (c, mostrar) => {
+        const ok = c.value.trim().length >= 2;
+        if (mostrar || ok) {
+          document.getElementById(c.id + '-erro').textContent = ok ? '' : c.dataset.aviso;
+          c.setAttribute('aria-invalid', String(!ok));
+        }
+        return ok;
+      };
+      campos.forEach((c) => {
+        c.addEventListener('blur', () => { if (c.value) conferir(c, true); });
+        c.addEventListener('input', () => conferir(c, false));
+      });
+      [whats, enviar].forEach((a) => {
+        if (!a) return;
+        a.addEventListener('click', (e) => {
+          const ok = campos.map((c) => conferir(c, true)).every(Boolean);
+          if (!ok) {
+            e.preventDefault();
+            quem.querySelector('[aria-invalid="true"]').focus();
+            return;
+          }
+          try {
+            const robo = quem.querySelector('[name="site_extra"]');
+            const dados = { nome: campos[0].value.trim(), negocio: campos[1].value.trim(), pacote: ultimo.pacote,
+              estimativa: ultimo.estimativa, mensagem: mensagem.value.trim(), canal: a === enviar ? 'email' : 'whatsapp',
+              site_extra: robo ? robo.value : '' };
+            if (navigator.sendBeacon) navigator.sendBeacon('/api/pedido', new Blob([JSON.stringify(dados)], { type: 'application/json' }));
+          } catch (erro) { /* a conversa segue mesmo sem o registro */ }
+        });
+      });
+    }
 
     // Os preços de “O que fazemos” levam até aqui com a opção já marcada (tipo=… ou plano=…)
     $$('[data-escolher]').forEach((link) => {
