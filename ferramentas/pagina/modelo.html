@@ -29,8 +29,8 @@
   <!-- Os textos que os scripts escrevem (menu, luz, Monte o seu site), no idioma da página -->
   <script type="application/json" id="textos-js">{{textos_js}}</script>
   <script src="{{raiz}}js/tema-inicio.js?v=6"></script>
-  <link rel="stylesheet" href="{{raiz}}css/estilo.css?v=30">
-  <script src="{{raiz}}js/tema.js?v=8" defer></script>
+  <link rel="stylesheet" href="{{raiz}}css/estilo.css?v=31">
+  <script src="{{raiz}}js/tema.js?v=9" defer></script>
   <script src="{{raiz}}js/menu.js?v=7" defer></script>
   <script src="{{raiz}}js/movimento.js?v=10" defer></script>
   <script src="{{raiz}}js/simulador.js?v=6" defer></script>
@@ -39,10 +39,10 @@
   {{?pt-BR}}
   <!-- A faixa de ida e volta com o Digital Linu (6/11/2026), por enquanto só em português (regra 8); lá tem a mesma
        ideia, apontando para cá -->
-  <p class="faixa-irma">
+  <aside class="faixa-irma" aria-label="Site irmão">
     <span>Procurando vídeo, redes sociais ou anúncios?</span>
     <a href="https://digital.linupedia.com.br/">Conheça o Digital Linu <span aria-hidden="true">→</span></a>
-  </p>
+  </aside>
   {{/pt-BR}}
   <header class="topo">
     <div class="dentro topo-dentro">
@@ -61,11 +61,7 @@
         </div>
 {{seletor}}
         <button class="luz" type="button" data-luz aria-label="{{luz_apagar_aria}}" title="{{luz_apagar}}">
-          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
-            <path class="luz-raios" d="M12 1.5v2M4.6 4.6l1.4 1.4M1.5 12h2M20.5 12h2M19.4 4.6 18 6" />
-            <path class="luz-bulbo" d="M12 6a5.5 5.5 0 0 0-3.2 10c.5.4.8.9.8 1.5v.5h4.8v-.5c0-.6.3-1.1.8-1.5A5.5 5.5 0 0 0 12 6Z" />
-            <path class="luz-base" d="M9.8 20.5h4.4M10.5 22.5h3" />
-          </svg>
+          <svg class="luz-lampiao" viewBox="0 0 16 16" width="32" height="32" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path class="luz-vidro" d="M5 3h6v7h-6z"/><path fill="currentColor" d="M7 0h2v1h-2zM6 1h1v1h-1zM9 1h1v1h-1zM5 2h6v1h-6zM4 3h1v1h-1zM11 3h1v1h-1zM4 4h1v1h-1zM11 4h1v1h-1zM4 5h1v1h-1zM11 5h1v1h-1zM4 6h1v1h-1zM11 6h1v1h-1zM4 7h1v1h-1zM11 7h1v1h-1zM4 8h1v1h-1zM11 8h1v1h-1zM4 9h1v1h-1zM11 9h1v1h-1zM5 10h6v1h-6zM4 11h8v1h-8zM6 12h1v1h-1zM9 12h1v1h-1zM5 13h6v1h-6z"/><path class="luz-chama" d="M8 4h1v1h-1zM7 5h2v1h-2zM7 6h3v1h-3zM6 7h4v1h-4zM6 8h4v1h-4zM7 9h2v1h-2z"/></svg>
         </button>
         <a class="botao botao-pequeno menu-orcamento" href="#contato">{{menu_orcamento}}</a>
         <button class="menu-abrir" type="button" aria-expanded="false" aria-controls="menu-links" aria-label="{{menu_abrir}}">
@@ -76,60 +72,79 @@
   </header>
 
   <main>
-    <section class="abertura">
+    <!-- A abertura é a própria estação (07/11/2026): a cena em escala inteira (3× no computador, 2× no tablet e no
+         celular, onde vira um recorte em volta da mesa), nunca esticada. As plaquinhas de papel presas nos objetos
+         levam às seções, com os textos do menu: o monitor → O que fazemos, o quadro de cortiça → Projetos, a mesa →
+         Exemplo, o caderno aberto → Como funciona, o rádio → orçamento e a estante → Dúvidas. As posições são as da
+         imagem (344 × 192), no css/estilo.css. -->
+    <section class="abertura abertura-estacao">
       <div class="dentro abertura-dentro">
         <div class="abertura-texto">
           <p class="sobretitulo">{{sobretitulo}}</p>
           <h1>{{h1}}</h1>
+        </div>
+        <div class="abertura-lado">
           <p class="abertura-sub">{{abertura_sub}}</p>
           <div class="botoes">
             <a class="botao" href="#contato">{{abertura_orcamento}}</a>
             <a class="botao botao-linha" href="#projetos">{{abertura_projetos}}</a>
           </div>
         </div>
-        <figure class="janela">
-          <div class="cena" data-cena>
-            <img class="pixel cena-dia" src="{{raiz}}img/abrigo-estacao-dia.png" alt="{{cena_alt}}" width="344" height="192">
-            <img class="pixel cena-acesa" src="{{raiz}}img/abrigo-estacao-noite.png" alt="" width="344" height="192">
-            <img class="pixel cena-apagada" src="{{raiz}}img/abrigo-estacao-apagada.png" alt="" width="344" height="192">
-            <span class="cena-linu" data-pose="frente">
-              <img class="pixel linu-frente" src="{{raiz}}img/linu/linu-frente.png?v=2" alt="" width="172" height="190">
-              <span class="linu-lado"><img class="pixel" src="{{raiz}}img/linu/linu-lado.png?v=2" alt="" width="688" height="190"></span>
-              <img class="pixel linu-costas" src="{{raiz}}img/linu/linu-costas.png?v=2" alt="" width="172" height="190">
-            </span>
-          </div>
-          <figcaption>{{cena_legenda}}</figcaption>
-        </figure>
       </div>
+      <figure class="estacao">
+        <div class="estacao-quadro">
+          <div class="estacao-moldura">
+            <div class="cena" data-cena>
+              <img class="pixel cena-dia" src="{{raiz}}img/abrigo-estacao-dia.png" alt="{{cena_alt}}" width="344" height="192">
+              <img class="pixel cena-acesa" src="{{raiz}}img/abrigo-estacao-noite.png" alt="" width="344" height="192">
+              <img class="pixel cena-apagada" src="{{raiz}}img/abrigo-estacao-apagada.png" alt="" width="344" height="192">
+              <ul class="plaquinhas">
+                <li class="plaquinha plaquinha-servicos"><a href="#servicos">{{menu_servicos}}</a></li>
+                <li class="plaquinha plaquinha-projetos"><a href="#projetos">{{menu_projetos}}</a></li>
+                <li class="plaquinha plaquinha-exemplo"><a href="#exemplo">{{menu_exemplo}}</a></li>
+                <li class="plaquinha plaquinha-como"><a href="#como">{{menu_como}}</a></li>
+                <li class="plaquinha plaquinha-duvidas"><a href="#duvidas">{{menu_duvidas}}</a></li>
+                <li class="plaquinha plaquinha-contato"><a href="#contato">{{menu_orcamento}}</a></li>
+              </ul>
+              <span class="cena-linu" data-pose="frente">
+                <img class="pixel linu-frente" src="{{raiz}}img/linu/linu-frente.png?v=2" alt="" width="172" height="190">
+                <span class="linu-lado"><img class="pixel" src="{{raiz}}img/linu/linu-lado.png?v=2" alt="" width="688" height="190"></span>
+                <img class="pixel linu-costas" src="{{raiz}}img/linu/linu-costas.png?v=2" alt="" width="172" height="190">
+              </span>
+            </div>
+          </div>
+        </div>
+        <figcaption>{{cena_legenda}}</figcaption>
+      </figure>
     </section>
 
     <section class="secao" id="servicos">
       <div class="dentro">
         <h2>{{servicos_titulo}}</h2>
         <p class="secao-sub" data-deslize="{{deslize_lado}}">{{servicos_sub}}</p>
-        <!-- Ícones em pixel art (07/11/2026), desenhados numa grade de 16 × 16, no lugar dos emojis: a janela do site, o
-             painel com gráfico, o celular e o lampião da estação (o que fica aceso cuidando do site) -->
+        <!-- As fichas técnicas presas na parede da estação (07/11/2026): papel com clipe, o número datilografado e o ícone
+             em pixel art (grade de 16 × 16: a janela do site, o painel com gráfico, o celular e o lampião da estação) -->
         <div class="cartoes">
           <article class="cartao">
-            <span class="cartao-icone"><svg class="pixel-icone" viewBox="0 0 16 16" width="32" height="32" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path fill="currentColor" d="M1 1h14v1h-14zM1 2h1v1h-1zM14 2h1v1h-1zM1 3h14v1h-14zM1 4h1v1h-1zM14 4h1v1h-1zM1 5h1v1h-1zM3 5h8v1h-8zM14 5h1v1h-1zM1 6h1v1h-1zM14 6h1v1h-1zM1 7h1v1h-1zM3 7h4v1h-4zM8 7h4v1h-4zM14 7h1v1h-1zM1 8h1v1h-1zM3 8h1v1h-1zM6 8h1v1h-1zM8 8h1v1h-1zM11 8h1v1h-1zM14 8h1v1h-1zM1 9h1v1h-1zM3 9h4v1h-4zM8 9h4v1h-4zM14 9h1v1h-1zM1 10h1v1h-1zM14 10h1v1h-1zM1 11h1v1h-1zM3 11h9v1h-9zM14 11h1v1h-1zM1 12h1v1h-1zM14 12h1v1h-1zM1 13h14v1h-14z"/><path class="pixel-acento" d="M2 2h1v1h-1zM4 2h1v1h-1zM6 2h1v1h-1zM4 8h2v1h-2z"/></svg></span>
+            <span class="ficha-topo" aria-hidden="true"><span class="ficha-numero">01/04</span><span class="cartao-icone"><svg class="pixel-icone" viewBox="0 0 16 16" width="32" height="32" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path fill="currentColor" d="M1 1h14v1h-14zM1 2h1v1h-1zM14 2h1v1h-1zM1 3h14v1h-14zM1 4h1v1h-1zM14 4h1v1h-1zM1 5h1v1h-1zM3 5h8v1h-8zM14 5h1v1h-1zM1 6h1v1h-1zM14 6h1v1h-1zM1 7h1v1h-1zM3 7h4v1h-4zM8 7h4v1h-4zM14 7h1v1h-1zM1 8h1v1h-1zM3 8h1v1h-1zM6 8h1v1h-1zM8 8h1v1h-1zM11 8h1v1h-1zM14 8h1v1h-1zM1 9h1v1h-1zM3 9h4v1h-4zM8 9h4v1h-4zM14 9h1v1h-1zM1 10h1v1h-1zM14 10h1v1h-1zM1 11h1v1h-1zM3 11h9v1h-9zM14 11h1v1h-1zM1 12h1v1h-1zM14 12h1v1h-1zM1 13h14v1h-14z"/><path class="pixel-acento" d="M2 2h1v1h-1zM4 2h1v1h-1zM6 2h1v1h-1zM4 8h2v1h-2z"/></svg></span></span>
             <h3><a class="cartao-link" href="#contato" data-escolher="tipo=apresentacao" aria-describedby="preco-apresentacao">{{apresentacao_titulo}}</a></h3>
             <p>{{apresentacao_texto}}</p>
             <p class="cartao-preco" id="preco-apresentacao">{{a_partir_de}} <b>{{p.apresentacao}}</b> <span class="cartao-seta" aria-hidden="true">→</span><span class="so-leitor">{{montar_orcamento_leitor}}</span></p>
           </article>
           <article class="cartao">
-            <span class="cartao-icone"><svg class="pixel-icone" viewBox="0 0 16 16" width="32" height="32" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path fill="currentColor" d="M1 1h14v1h-14zM1 2h1v1h-1zM14 2h1v1h-1zM1 3h1v1h-1zM14 3h1v1h-1zM1 4h1v1h-1zM14 4h1v1h-1zM1 5h1v1h-1zM8 5h2v1h-2zM14 5h1v1h-1zM1 6h1v1h-1zM8 6h2v1h-2zM14 6h1v1h-1zM1 7h1v1h-1zM5 7h2v1h-2zM8 7h2v1h-2zM14 7h1v1h-1zM1 8h1v1h-1zM5 8h2v1h-2zM8 8h2v1h-2zM14 8h1v1h-1zM1 9h1v1h-1zM3 9h1v1h-1zM5 9h2v1h-2zM8 9h2v1h-2zM14 9h1v1h-1zM1 10h1v1h-1zM3 10h1v1h-1zM5 10h2v1h-2zM8 10h2v1h-2zM14 10h1v1h-1zM1 11h1v1h-1zM14 11h1v1h-1zM1 12h1v1h-1zM3 12h10v1h-10zM14 12h1v1h-1zM1 13h14v1h-14z"/><path class="pixel-acento" d="M11 3h2v1h-2zM11 4h2v1h-2zM11 5h2v1h-2zM11 6h2v1h-2zM11 7h2v1h-2zM11 8h2v1h-2zM11 9h2v1h-2zM11 10h2v1h-2z"/></svg></span>
+            <span class="ficha-topo" aria-hidden="true"><span class="ficha-numero">02/04</span><span class="cartao-icone"><svg class="pixel-icone" viewBox="0 0 16 16" width="32" height="32" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path fill="currentColor" d="M1 1h14v1h-14zM1 2h1v1h-1zM14 2h1v1h-1zM1 3h1v1h-1zM14 3h1v1h-1zM1 4h1v1h-1zM14 4h1v1h-1zM1 5h1v1h-1zM8 5h2v1h-2zM14 5h1v1h-1zM1 6h1v1h-1zM8 6h2v1h-2zM14 6h1v1h-1zM1 7h1v1h-1zM5 7h2v1h-2zM8 7h2v1h-2zM14 7h1v1h-1zM1 8h1v1h-1zM5 8h2v1h-2zM8 8h2v1h-2zM14 8h1v1h-1zM1 9h1v1h-1zM3 9h1v1h-1zM5 9h2v1h-2zM8 9h2v1h-2zM14 9h1v1h-1zM1 10h1v1h-1zM3 10h1v1h-1zM5 10h2v1h-2zM8 10h2v1h-2zM14 10h1v1h-1zM1 11h1v1h-1zM14 11h1v1h-1zM1 12h1v1h-1zM3 12h10v1h-10zM14 12h1v1h-1zM1 13h14v1h-14z"/><path class="pixel-acento" d="M11 3h2v1h-2zM11 4h2v1h-2zM11 5h2v1h-2zM11 6h2v1h-2zM11 7h2v1h-2zM11 8h2v1h-2zM11 9h2v1h-2zM11 10h2v1h-2z"/></svg></span></span>
             <h3><a class="cartao-link" href="#contato" data-escolher="tipo=ferramenta" aria-describedby="preco-ferramenta">{{ferramenta_titulo}}</a></h3>
             <p>{{ferramenta_texto}}</p>
             <p class="cartao-preco" id="preco-ferramenta">{{a_partir_de}} <b>{{p.ferramenta}}</b> <span class="cartao-seta" aria-hidden="true">→</span><span class="so-leitor">{{montar_orcamento_leitor}}</span></p>
           </article>
           <article class="cartao">
-            <span class="cartao-icone"><svg class="pixel-icone" viewBox="0 0 16 16" width="32" height="32" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path fill="currentColor" d="M5 1h6v1h-6zM4 2h1v1h-1zM11 2h1v1h-1zM4 3h1v1h-1zM6 3h4v1h-4zM11 3h1v1h-1zM4 4h1v1h-1zM11 4h1v1h-1zM4 5h1v1h-1zM11 5h1v1h-1zM4 6h1v1h-1zM11 6h1v1h-1zM4 7h1v1h-1zM11 7h1v1h-1zM4 8h1v1h-1zM11 8h1v1h-1zM4 9h1v1h-1zM11 9h1v1h-1zM4 10h1v1h-1zM11 10h1v1h-1zM4 11h1v1h-1zM11 11h1v1h-1zM4 12h1v1h-1zM7 12h2v1h-2zM11 12h1v1h-1zM4 13h1v1h-1zM11 13h1v1h-1zM5 14h6v1h-6z"/><path class="pixel-acento" d="M6 5h2v1h-2zM9 5h2v1h-2zM6 6h2v1h-2zM9 6h2v1h-2zM6 8h2v1h-2zM9 8h2v1h-2zM6 9h2v1h-2zM9 9h2v1h-2z"/></svg></span>
+            <span class="ficha-topo" aria-hidden="true"><span class="ficha-numero">03/04</span><span class="cartao-icone"><svg class="pixel-icone" viewBox="0 0 16 16" width="32" height="32" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path fill="currentColor" d="M5 1h6v1h-6zM4 2h1v1h-1zM11 2h1v1h-1zM4 3h1v1h-1zM6 3h4v1h-4zM11 3h1v1h-1zM4 4h1v1h-1zM11 4h1v1h-1zM4 5h1v1h-1zM11 5h1v1h-1zM4 6h1v1h-1zM11 6h1v1h-1zM4 7h1v1h-1zM11 7h1v1h-1zM4 8h1v1h-1zM11 8h1v1h-1zM4 9h1v1h-1zM11 9h1v1h-1zM4 10h1v1h-1zM11 10h1v1h-1zM4 11h1v1h-1zM11 11h1v1h-1zM4 12h1v1h-1zM7 12h2v1h-2zM11 12h1v1h-1zM4 13h1v1h-1zM11 13h1v1h-1zM5 14h6v1h-6z"/><path class="pixel-acento" d="M6 5h2v1h-2zM9 5h2v1h-2zM6 6h2v1h-2zM9 6h2v1h-2zM6 8h2v1h-2zM9 8h2v1h-2zM6 9h2v1h-2zM9 9h2v1h-2z"/></svg></span></span>
             <h3><a class="cartao-link" href="#contato" data-escolher="tipo=app" aria-describedby="preco-app">{{app_titulo}}</a></h3>
             <p>{{app_texto}}</p>
             <p class="cartao-preco" id="preco-app">{{a_partir_de}} <b>{{p.app}}</b> <span class="cartao-seta" aria-hidden="true">→</span><span class="so-leitor">{{montar_orcamento_leitor}}</span></p>
           </article>
           <article class="cartao">
-            <span class="cartao-icone"><svg class="pixel-icone" viewBox="0 0 16 16" width="32" height="32" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path fill="currentColor" d="M7 0h2v1h-2zM6 1h1v1h-1zM9 1h1v1h-1zM5 2h6v1h-6zM4 3h1v1h-1zM11 3h1v1h-1zM4 4h1v1h-1zM11 4h1v1h-1zM4 5h1v1h-1zM11 5h1v1h-1zM4 6h1v1h-1zM11 6h1v1h-1zM4 7h1v1h-1zM11 7h1v1h-1zM4 8h1v1h-1zM11 8h1v1h-1zM4 9h1v1h-1zM11 9h1v1h-1zM5 10h6v1h-6zM4 11h8v1h-8zM6 12h1v1h-1zM9 12h1v1h-1zM5 13h6v1h-6z"/><path class="pixel-acento" d="M8 4h1v1h-1zM7 5h2v1h-2zM7 6h3v1h-3zM6 7h4v1h-4zM6 8h4v1h-4zM7 9h2v1h-2z"/></svg></span>
+            <span class="ficha-topo" aria-hidden="true"><span class="ficha-numero">04/04</span><span class="cartao-icone"><svg class="pixel-icone" viewBox="0 0 16 16" width="32" height="32" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path fill="currentColor" d="M7 0h2v1h-2zM6 1h1v1h-1zM9 1h1v1h-1zM5 2h6v1h-6zM4 3h1v1h-1zM11 3h1v1h-1zM4 4h1v1h-1zM11 4h1v1h-1zM4 5h1v1h-1zM11 5h1v1h-1zM4 6h1v1h-1zM11 6h1v1h-1zM4 7h1v1h-1zM11 7h1v1h-1zM4 8h1v1h-1zM11 8h1v1h-1zM4 9h1v1h-1zM11 9h1v1h-1zM5 10h6v1h-6zM4 11h8v1h-8zM6 12h1v1h-1zM9 12h1v1h-1zM5 13h6v1h-6z"/><path class="pixel-acento" d="M8 4h1v1h-1zM7 5h2v1h-2zM7 6h3v1h-3zM6 7h4v1h-4zM6 8h4v1h-4zM7 9h2v1h-2z"/></svg></span></span>
             <h3>{{hospedagem_titulo}}</h3>
             <p>{{hospedagem_texto}}</p>
             <ul class="planos">
@@ -145,21 +160,25 @@
 
     <section class="secao secao-gelo" id="projetos">
       <div class="dentro">
-        <h2>{{projetos_titulo}}</h2>
-        <!-- As áreas filtram as duas listas, e as abas separam o que está no ar do que é de estudo (js/movimento.js);
-             sem JavaScript, as áreas não aparecem e as duas listas ficam uma embaixo da outra.
-             Cada projeto diz as suas áreas no data-areas (pode ter mais de uma). -->
-        <div class="areas" role="group" aria-label="{{areas_aria}}" hidden>
-          <button class="area" type="button" data-area="" aria-pressed="true">{{area_todas}}</button>
-          <button class="area" type="button" data-area="educacao" aria-pressed="false">{{area_educacao}}</button>
-          <button class="area" type="button" data-area="servicos" aria-pressed="false">{{area_servicos}}</button>
-          <button class="area" type="button" data-area="comercio" aria-pressed="false">{{area_comercio}}</button>
-          <button class="area" type="button" data-area="industria" aria-pressed="false">{{area_industria}}</button>
-          <button class="area" type="button" data-area="jogos" aria-pressed="false">{{area_jogos}}</button>
-        </div>
-        <div class="abas" role="tablist" aria-label="{{abas_aria}}" hidden>
-          <button class="aba" type="button" role="tab" id="aba-no-ar" aria-controls="no-ar" aria-selected="true">{{aba_no_ar}} <span class="aba-conta">11</span></button>
-          <button class="aba" type="button" role="tab" id="aba-estudo" aria-controls="estudo" aria-selected="false" tabindex="-1">{{aba_estudo}} <span class="aba-conta">3</span></button>
+        <!-- O quadro de cortiça da estação (07/11/2026): as capturas presas com tachinha, cada uma um pouco torta. No
+             computador, o título, as abas e as áreas ficam parados numa coluna ao lado do quadro. -->
+        <div class="projetos-lado">
+          <h2>{{projetos_titulo}}</h2>
+          <!-- As áreas filtram as duas listas, e as abas separam o que está no ar do que é de estudo (js/movimento.js);
+               sem JavaScript, as áreas não aparecem e as duas listas ficam uma embaixo da outra.
+               Cada projeto diz as suas áreas no data-areas (pode ter mais de uma). -->
+          <div class="areas" role="group" aria-label="{{areas_aria}}" hidden>
+            <button class="area" type="button" data-area="" aria-pressed="true">{{area_todas}}</button>
+            <button class="area" type="button" data-area="educacao" aria-pressed="false">{{area_educacao}}</button>
+            <button class="area" type="button" data-area="servicos" aria-pressed="false">{{area_servicos}}</button>
+            <button class="area" type="button" data-area="comercio" aria-pressed="false">{{area_comercio}}</button>
+            <button class="area" type="button" data-area="industria" aria-pressed="false">{{area_industria}}</button>
+            <button class="area" type="button" data-area="jogos" aria-pressed="false">{{area_jogos}}</button>
+          </div>
+          <div class="abas" role="tablist" aria-label="{{abas_aria}}" hidden>
+            <button class="aba" type="button" role="tab" id="aba-no-ar" aria-controls="no-ar" aria-selected="true">{{aba_no_ar}} <span class="aba-conta">11</span></button>
+            <button class="aba" type="button" role="tab" id="aba-estudo" aria-controls="estudo" aria-selected="false" tabindex="-1">{{aba_estudo}} <span class="aba-conta">3</span></button>
+          </div>
         </div>
         <div class="painel" id="no-ar" role="tabpanel" aria-labelledby="aba-no-ar">
           <h3 class="painel-titulo">{{aba_no_ar}}</h3>
@@ -519,9 +538,26 @@
     </section>
 
     <section class="secao contato" id="contato">
+      <!-- O rádio da estação (07/11/2026): o alto-falante com o Linu e o mostrador com a hora de conversar ficam de um
+           lado (parados à vista no computador); o Monte o seu site e os botões, do outro -->
       <div class="dentro contato-dentro">
-        <span class="contato-linu" data-pose="acenando" aria-hidden="true"><img class="pixel" src="{{raiz}}img/linu/linu-contato.png?v=2" alt="" width="552" height="190"></span>
-        <div>
+        <div class="radio">
+          <span class="radio-alto" aria-hidden="true"></span>
+          <span class="contato-linu" data-pose="acenando" aria-hidden="true"><img class="pixel" src="{{raiz}}img/linu/linu-contato.png?v=2" alt="" width="552" height="190"></span>
+          <!-- A janela em horário de Brasília vale sem JavaScript; as duas horas e o “agora” saem do js/movimento.js -->
+          <div class="conversa" data-conversa>
+            <h3>{{conversa_titulo}}</h3>
+            <p>{{conversa_janela}}</p>
+            <div class="conversa-agora" hidden>
+              <dl>
+                <div><dt>{{conversa_sua_hora}}</dt><dd data-hora-visita>—</dd></div>
+                <div><dt>{{conversa_brasilia}}</dt><dd data-hora-brasilia>—</dd></div>
+              </dl>
+              <p data-conversa-estado>—</p>
+            </div>
+          </div>
+        </div>
+        <div class="contato-corpo">
           <h2>{{contato_titulo}}</h2>
           <p>{{contato_texto}}</p>
           <div class="monte" role="group" aria-label="{{monte_aria}}" aria-describedby="monte-nota">
@@ -569,18 +605,6 @@
               <span>WhatsApp <span class="sem-quebra">{{telefone}}</span></span>
             </a>
             <a class="botao botao-grande botao-contorno-claro monte-enviar" href="mailto:contato@linupedia.com.br?subject={{email_assunto}}">contato@linupedia.com.br</a>
-          </div>
-          <!-- A janela em horário de Brasília vale sem JavaScript; as duas horas e o “agora” saem do js/movimento.js -->
-          <div class="conversa" data-conversa>
-            <h3>{{conversa_titulo}}</h3>
-            <p>{{conversa_janela}}</p>
-            <div class="conversa-agora" hidden>
-              <dl>
-                <div><dt>{{conversa_sua_hora}}</dt><dd data-hora-visita>—</dd></div>
-                <div><dt>{{conversa_brasilia}}</dt><dd data-hora-brasilia>—</dd></div>
-              </dl>
-              <p data-conversa-estado>—</p>
-            </div>
           </div>
         </div>
       </div>

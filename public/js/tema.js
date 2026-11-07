@@ -4,7 +4,9 @@
    Com "menos movimento" no aparelho, o Linu não anda: aparece embaixo do lampião e some.
    De noite no relógio de quem visita (data-hora, ver tema-inicio.js), o quarto claro é a noite com o lampião
    aceso: apagar e acender a luz não passa pelo dia.
-   As coordenadas são as da imagem da cena (344 × 192), como no abrigo do app. */
+   As coordenadas são as da imagem da cena (344 × 192), como no abrigo do app. Desde 07/11/2026 a cena aparece em
+   escala inteira (2× ou 3×, o CSS decide) e o Linu sempre em 1× (172 × 190 px de tela): a conta de onde ele pisa sai
+   da escala que a cena tem na hora. */
 (function () {
   "use strict";
 
@@ -18,7 +20,7 @@
   if (!botao) return;
 
   var CENA_W = 344;
-  var LINU_W = 55.2;   // o quadro do Linu novo (172 × 190) com 61 de altura
+  var LINU_PX = 172;   // o quadro do Linu (172 × 190), sempre em 1×
   var PORTA = 50;      // x dos pés na soleira da porta
   var LAMPIAO = 185;   // embaixo do lampião
   var MS_POR_PIXEL = 7;
@@ -49,8 +51,10 @@
     return new Promise(function (ok) { setTimeout(ok, ms); });
   }
 
-  function posicao(x) {
-    return ((x - LINU_W / 2) / CENA_W) * 100 + "%";
+  /* x é a coordenada da imagem; a resposta, em px de tela, é onde fica o canto esquerdo do Linu com os pés em x */
+  function posicao(linu, x) {
+    var escala = Math.max(1, Math.round(linu.parentElement.offsetWidth / CENA_W));
+    return Math.round(x * escala - LINU_PX / 2) + "px";
   }
 
   /* anda de um x a outro, de lado, com os quadros de caminhada; aparece ou some na porta */
@@ -58,10 +62,10 @@
     linu.dataset.pose = ate > de ? "direita" : "esquerda";
     linu.setAttribute("data-andando", "");
     var ms = Math.abs(ate - de) * MS_POR_PIXEL;
-    var quadros = [{ left: posicao(de), opacity: aparecer ? 0 : 1 }];
-    if (aparecer) quadros.push({ left: posicao(de + (ate - de) * 0.2), opacity: 1 });
-    if (sumir) quadros.push({ left: posicao(ate - (ate - de) * 0.2), opacity: 1 });
-    quadros.push({ left: posicao(ate), opacity: sumir ? 0 : 1 });
+    var quadros = [{ left: posicao(linu, de), opacity: aparecer ? 0 : 1 }];
+    if (aparecer) quadros.push({ left: posicao(linu, de + (ate - de) * 0.2), opacity: 1 });
+    if (sumir) quadros.push({ left: posicao(linu, ate - (ate - de) * 0.2), opacity: 1 });
+    quadros.push({ left: posicao(linu, ate), opacity: sumir ? 0 : 1 });
     return linu.animate(quadros, { duration: ms, fill: "forwards" }).finished.then(function () {
       linu.removeAttribute("data-andando");
     });
@@ -113,7 +117,8 @@
     var alvo = cena;
     var cartao = null;
     if (!cenaVisivel()) {
-      // a cena do topo está fora da tela: a troca aparece num cartão no canto
+      // a cena do topo está fora da tela: a troca aparece num quadrinho no canto, com a cena em 1× (344 × 192). Ali o
+      // Linu em 1× seria do tamanho do quarto, então só o lampião troca, sem ele.
       cartao = document.createElement("div");
       cartao.className = "cena-flutuante";
       cartao.setAttribute("aria-hidden", "true");
@@ -122,6 +127,12 @@
       cartao.appendChild(alvo);
       document.body.appendChild(cartao);
       await cartao.animate([{ opacity: 0, transform: "translateY(12px)" }, { opacity: 1, transform: "none" }], { duration: 220 }).finished;
+      await esperar(200);
+      await trocarLuz(alvo, tema);
+      await esperar(500);
+      await cartao.animate([{ opacity: 1 }, { opacity: 0, transform: "translateY(12px)" }], { duration: 220, fill: "forwards" }).finished;
+      cartao.remove();
+      return;
     }
     var linu = alvo.querySelector(".cena-linu");
     await andar(linu, PORTA, LAMPIAO, true, false);
@@ -138,10 +149,6 @@
     await andar(linu, LAMPIAO, PORTA, false, true);
     linu.getAnimations().forEach(function (a) { a.cancel(); });
     linu.dataset.pose = "frente";
-    if (cartao) {
-      await cartao.animate([{ opacity: 1 }, { opacity: 0, transform: "translateY(12px)" }], { duration: 220, fill: "forwards" }).finished;
-      cartao.remove();
-    }
   }
 
   /* com "menos movimento" no aparelho (comum em computador de faculdade ou de trabalho), o Linu não anda:
@@ -149,7 +156,7 @@
   async function animarParado(tema) {
     var linu = cena.querySelector(".cena-linu");
     linu.getAnimations().forEach(function (a) { a.cancel(); });
-    linu.style.left = posicao(LAMPIAO);
+    linu.style.left = posicao(linu, LAMPIAO);
     linu.dataset.pose = "costas";
     await linu.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 200, fill: "forwards" }).finished;
     await esperar(250);

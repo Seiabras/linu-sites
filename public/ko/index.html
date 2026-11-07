@@ -56,8 +56,8 @@
   <!-- Os textos que os scripts escrevem (menu, luz, Monte o seu site), no idioma da página -->
   <script type="application/json" id="textos-js">{"menu_abrir":"메뉴 열기","menu_fechar":"메뉴 닫기","luz_apagar_aria":"불 끄기 (다크 모드)","luz_acender_aria":"불 켜기 (라이트 모드)","luz_apagar":"불 끄기","luz_acender":"불 켜기","fechar":"닫기","escolha":"유형을 고르면 예상 가격이 보입니다","sem_tipo":"괜찮습니다. 상담하면서 함께 정해요.","um_item":"1개 항목","n_itens":"{n}개 항목","extra":" + {itens}은 제안서에서","por_ano":"연 {valor}","por_mes":"월 {valor}","estimativa":"예상: 최소 {valor}{extra}","linha_tipo":"유형: {nome}","linha_itens":"필요한 기능:","linha_depois":"오픈 후: {nome}{anual}","anual":" (연 선납)","linha_estimativa":"사이트 예상 가격: 최소 {valor}{extra}","ola":"안녕하세요! 웹사이트 제작을 문의드립니다.","sobre":"제 비즈니스 소개: ","assunto":"웹사이트 제작 문의","ola_conversa":"안녕하세요! 웹사이트에 대해 상담하고 싶습니다.","area_vazia":"이 분야의 프로젝트는 여기 없습니다.","conversa_aberta":"지금 상담할 수 있습니다. 현지 시간으로 {fim}까지입니다.","conversa_fechada":"지금은 상담 시간이 아닙니다. 다음 시작은 현지 시간으로 {inicio}입니다."}</script>
   <script src="../js/tema-inicio.js?v=6"></script>
-  <link rel="stylesheet" href="../css/estilo.css?v=30">
-  <script src="../js/tema.js?v=8" defer></script>
+  <link rel="stylesheet" href="../css/estilo.css?v=31">
+  <script src="../js/tema.js?v=9" defer></script>
   <script src="../js/menu.js?v=7" defer></script>
   <script src="../js/movimento.js?v=10" defer></script>
   <script src="../js/simulador.js?v=6" defer></script>
@@ -106,11 +106,7 @@
           </div>
         </details>
         <button class="luz" type="button" data-luz aria-label="불 끄기 (다크 모드)" title="불 끄기">
-          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
-            <path class="luz-raios" d="M12 1.5v2M4.6 4.6l1.4 1.4M1.5 12h2M20.5 12h2M19.4 4.6 18 6" />
-            <path class="luz-bulbo" d="M12 6a5.5 5.5 0 0 0-3.2 10c.5.4.8.9.8 1.5v.5h4.8v-.5c0-.6.3-1.1.8-1.5A5.5 5.5 0 0 0 12 6Z" />
-            <path class="luz-base" d="M9.8 20.5h4.4M10.5 22.5h3" />
-          </svg>
+          <svg class="luz-lampiao" viewBox="0 0 16 16" width="32" height="32" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path class="luz-vidro" d="M5 3h6v7h-6z"/><path fill="currentColor" d="M7 0h2v1h-2zM6 1h1v1h-1zM9 1h1v1h-1zM5 2h6v1h-6zM4 3h1v1h-1zM11 3h1v1h-1zM4 4h1v1h-1zM11 4h1v1h-1zM4 5h1v1h-1zM11 5h1v1h-1zM4 6h1v1h-1zM11 6h1v1h-1zM4 7h1v1h-1zM11 7h1v1h-1zM4 8h1v1h-1zM11 8h1v1h-1zM4 9h1v1h-1zM11 9h1v1h-1zM5 10h6v1h-6zM4 11h8v1h-8zM6 12h1v1h-1zM9 12h1v1h-1zM5 13h6v1h-6z"/><path class="luz-chama" d="M8 4h1v1h-1zM7 5h2v1h-2zM7 6h3v1h-3zM6 7h4v1h-4zM6 8h4v1h-4zM7 9h2v1h-2z"/></svg>
         </button>
         <a class="botao botao-pequeno menu-orcamento" href="#contato">견적 요청</a>
         <button class="menu-abrir" type="button" aria-expanded="false" aria-controls="menu-links" aria-label="메뉴 열기">
@@ -121,60 +117,79 @@
   </header>
 
   <main>
-    <section class="abertura">
+    <!-- A abertura é a própria estação (07/11/2026): a cena em escala inteira (3× no computador, 2× no tablet e no
+         celular, onde vira um recorte em volta da mesa), nunca esticada. As plaquinhas de papel presas nos objetos
+         levam às seções, com os textos do menu: o monitor → O que fazemos, o quadro de cortiça → Projetos, a mesa →
+         Exemplo, o caderno aberto → Como funciona, o rádio → orçamento e a estante → Dúvidas. As posições são as da
+         imagem (344 × 192), no css/estilo.css. -->
+    <section class="abertura abertura-estacao">
       <div class="dentro abertura-dentro">
         <div class="abertura-texto">
           <p class="sobretitulo">맞춤형 웹사이트와 웹 앱</p>
           <h1><span class="marca-texto">당신의 비즈니스</span>를 위해 일하는 웹사이트.</h1>
+        </div>
+        <div class="abertura-lado">
           <p class="abertura-sub">회사 소개 사이트부터 관리자 화면과 로그인이 있는 도구까지. 디자인, 개발, 배포, 서버 관리까지 맡습니다. 만드는 사람과 직접 이야기하세요.</p>
           <div class="botoes">
             <a class="botao" href="#contato">견적 요청하기</a>
             <a class="botao botao-linha" href="#projetos">포트폴리오 보기</a>
           </div>
         </div>
-        <figure class="janela">
-          <div class="cena" data-cena>
-            <img class="pixel cena-dia" src="../img/abrigo-estacao-dia.png" alt="남극 연구 기지를 그린 픽셀 아트. 책상, 컴퓨터, 벽에 걸린 지도" width="344" height="192">
-            <img class="pixel cena-acesa" src="../img/abrigo-estacao-noite.png" alt="" width="344" height="192">
-            <img class="pixel cena-apagada" src="../img/abrigo-estacao-apagada.png" alt="" width="344" height="192">
-            <span class="cena-linu" data-pose="frente">
-              <img class="pixel linu-frente" src="../img/linu/linu-frente.png?v=2" alt="" width="172" height="190">
-              <span class="linu-lado"><img class="pixel" src="../img/linu/linu-lado.png?v=2" alt="" width="688" height="190"></span>
-              <img class="pixel linu-costas" src="../img/linu/linu-costas.png?v=2" alt="" width="172" height="190">
-            </span>
-          </div>
-          <figcaption>웹사이트가 만들어지는 Linu의 기지.</figcaption>
-        </figure>
       </div>
+      <figure class="estacao">
+        <div class="estacao-quadro">
+          <div class="estacao-moldura">
+            <div class="cena" data-cena>
+              <img class="pixel cena-dia" src="../img/abrigo-estacao-dia.png" alt="남극 연구 기지를 그린 픽셀 아트. 책상, 컴퓨터, 벽에 걸린 지도" width="344" height="192">
+              <img class="pixel cena-acesa" src="../img/abrigo-estacao-noite.png" alt="" width="344" height="192">
+              <img class="pixel cena-apagada" src="../img/abrigo-estacao-apagada.png" alt="" width="344" height="192">
+              <ul class="plaquinhas">
+                <li class="plaquinha plaquinha-servicos"><a href="#servicos">서비스</a></li>
+                <li class="plaquinha plaquinha-projetos"><a href="#projetos">포트폴리오</a></li>
+                <li class="plaquinha plaquinha-exemplo"><a href="#exemplo">데모</a></li>
+                <li class="plaquinha plaquinha-como"><a href="#como">진행 과정</a></li>
+                <li class="plaquinha plaquinha-duvidas"><a href="#duvidas">자주 묻는 질문</a></li>
+                <li class="plaquinha plaquinha-contato"><a href="#contato">견적 요청</a></li>
+              </ul>
+              <span class="cena-linu" data-pose="frente">
+                <img class="pixel linu-frente" src="../img/linu/linu-frente.png?v=2" alt="" width="172" height="190">
+                <span class="linu-lado"><img class="pixel" src="../img/linu/linu-lado.png?v=2" alt="" width="688" height="190"></span>
+                <img class="pixel linu-costas" src="../img/linu/linu-costas.png?v=2" alt="" width="172" height="190">
+              </span>
+            </div>
+          </div>
+        </div>
+        <figcaption>웹사이트가 만들어지는 Linu의 기지.</figcaption>
+      </figure>
     </section>
 
     <section class="secao" id="servicos">
       <div class="dentro">
         <h2>서비스</h2>
         <p class="secao-sub" data-deslize="옆으로 밀기 →">모든 프로젝트는 고객의 일하는 방식에 맞춰 처음부터 만듭니다.</p>
-        <!-- Ícones em pixel art (07/11/2026), desenhados numa grade de 16 × 16, no lugar dos emojis: a janela do site, o
-             painel com gráfico, o celular e o lampião da estação (o que fica aceso cuidando do site) -->
+        <!-- As fichas técnicas presas na parede da estação (07/11/2026): papel com clipe, o número datilografado e o ícone
+             em pixel art (grade de 16 × 16: a janela do site, o painel com gráfico, o celular e o lampião da estação) -->
         <div class="cartoes">
           <article class="cartao">
-            <span class="cartao-icone"><svg class="pixel-icone" viewBox="0 0 16 16" width="32" height="32" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path fill="currentColor" d="M1 1h14v1h-14zM1 2h1v1h-1zM14 2h1v1h-1zM1 3h14v1h-14zM1 4h1v1h-1zM14 4h1v1h-1zM1 5h1v1h-1zM3 5h8v1h-8zM14 5h1v1h-1zM1 6h1v1h-1zM14 6h1v1h-1zM1 7h1v1h-1zM3 7h4v1h-4zM8 7h4v1h-4zM14 7h1v1h-1zM1 8h1v1h-1zM3 8h1v1h-1zM6 8h1v1h-1zM8 8h1v1h-1zM11 8h1v1h-1zM14 8h1v1h-1zM1 9h1v1h-1zM3 9h4v1h-4zM8 9h4v1h-4zM14 9h1v1h-1zM1 10h1v1h-1zM14 10h1v1h-1zM1 11h1v1h-1zM3 11h9v1h-9zM14 11h1v1h-1zM1 12h1v1h-1zM14 12h1v1h-1zM1 13h14v1h-14z"/><path class="pixel-acento" d="M2 2h1v1h-1zM4 2h1v1h-1zM6 2h1v1h-1zM4 8h2v1h-2z"/></svg></span>
+            <span class="ficha-topo" aria-hidden="true"><span class="ficha-numero">01/04</span><span class="cartao-icone"><svg class="pixel-icone" viewBox="0 0 16 16" width="32" height="32" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path fill="currentColor" d="M1 1h14v1h-14zM1 2h1v1h-1zM14 2h1v1h-1zM1 3h14v1h-14zM1 4h1v1h-1zM14 4h1v1h-1zM1 5h1v1h-1zM3 5h8v1h-8zM14 5h1v1h-1zM1 6h1v1h-1zM14 6h1v1h-1zM1 7h1v1h-1zM3 7h4v1h-4zM8 7h4v1h-4zM14 7h1v1h-1zM1 8h1v1h-1zM3 8h1v1h-1zM6 8h1v1h-1zM8 8h1v1h-1zM11 8h1v1h-1zM14 8h1v1h-1zM1 9h1v1h-1zM3 9h4v1h-4zM8 9h4v1h-4zM14 9h1v1h-1zM1 10h1v1h-1zM14 10h1v1h-1zM1 11h1v1h-1zM3 11h9v1h-9zM14 11h1v1h-1zM1 12h1v1h-1zM14 12h1v1h-1zM1 13h14v1h-14z"/><path class="pixel-acento" d="M2 2h1v1h-1zM4 2h1v1h-1zM6 2h1v1h-1zM4 8h2v1h-2z"/></svg></span></span>
             <h3><a class="cartao-link" href="#contato" data-escolher="tipo=apresentacao" aria-describedby="preco-apresentacao">회사 소개 사이트</a></h3>
             <p>누구인지, 무엇을 제공하는지, 어떻게 연락하는지 알리는 사이트. 빠르고, 휴대폰에서도 보기 좋고, Google과 네이버에서 찾기 쉽습니다.</p>
             <p class="cartao-preco" id="preco-apresentacao">최소 <b>US$750</b> <span class="cartao-seta" aria-hidden="true">→</span><span class="so-leitor">: 견적 만들기</span></p>
           </article>
           <article class="cartao">
-            <span class="cartao-icone"><svg class="pixel-icone" viewBox="0 0 16 16" width="32" height="32" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path fill="currentColor" d="M1 1h14v1h-14zM1 2h1v1h-1zM14 2h1v1h-1zM1 3h1v1h-1zM14 3h1v1h-1zM1 4h1v1h-1zM14 4h1v1h-1zM1 5h1v1h-1zM8 5h2v1h-2zM14 5h1v1h-1zM1 6h1v1h-1zM8 6h2v1h-2zM14 6h1v1h-1zM1 7h1v1h-1zM5 7h2v1h-2zM8 7h2v1h-2zM14 7h1v1h-1zM1 8h1v1h-1zM5 8h2v1h-2zM8 8h2v1h-2zM14 8h1v1h-1zM1 9h1v1h-1zM3 9h1v1h-1zM5 9h2v1h-2zM8 9h2v1h-2zM14 9h1v1h-1zM1 10h1v1h-1zM3 10h1v1h-1zM5 10h2v1h-2zM8 10h2v1h-2zM14 10h1v1h-1zM1 11h1v1h-1zM14 11h1v1h-1zM1 12h1v1h-1zM3 12h10v1h-10zM14 12h1v1h-1zM1 13h14v1h-14z"/><path class="pixel-acento" d="M11 3h2v1h-2zM11 4h2v1h-2zM11 5h2v1h-2zM11 6h2v1h-2zM11 7h2v1h-2zM11 8h2v1h-2zM11 9h2v1h-2zM11 10h2v1h-2z"/></svg></span>
+            <span class="ficha-topo" aria-hidden="true"><span class="ficha-numero">02/04</span><span class="cartao-icone"><svg class="pixel-icone" viewBox="0 0 16 16" width="32" height="32" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path fill="currentColor" d="M1 1h14v1h-14zM1 2h1v1h-1zM14 2h1v1h-1zM1 3h1v1h-1zM14 3h1v1h-1zM1 4h1v1h-1zM14 4h1v1h-1zM1 5h1v1h-1zM8 5h2v1h-2zM14 5h1v1h-1zM1 6h1v1h-1zM8 6h2v1h-2zM14 6h1v1h-1zM1 7h1v1h-1zM5 7h2v1h-2zM8 7h2v1h-2zM14 7h1v1h-1zM1 8h1v1h-1zM5 8h2v1h-2zM8 8h2v1h-2zM14 8h1v1h-1zM1 9h1v1h-1zM3 9h1v1h-1zM5 9h2v1h-2zM8 9h2v1h-2zM14 9h1v1h-1zM1 10h1v1h-1zM3 10h1v1h-1zM5 10h2v1h-2zM8 10h2v1h-2zM14 10h1v1h-1zM1 11h1v1h-1zM14 11h1v1h-1zM1 12h1v1h-1zM3 12h10v1h-10zM14 12h1v1h-1zM1 13h14v1h-14z"/><path class="pixel-acento" d="M11 3h2v1h-2zM11 4h2v1h-2zM11 5h2v1h-2zM11 6h2v1h-2zM11 7h2v1h-2zM11 8h2v1h-2zM11 9h2v1h-2zM11 10h2v1h-2z"/></svg></span></span>
             <h3><a class="cartao-link" href="#contato" data-escolher="tipo=ferramenta" aria-describedby="preco-ferramenta">도구와 관리자 화면</a></h3>
             <p>주문서, 계산기, 로그인 회원 영역, 모든 것을 한눈에 보는 관리자 화면. 웹사이트가 진열장이 아니라 업무의 일부가 됩니다.</p>
             <p class="cartao-preco" id="preco-ferramenta">최소 <b>US$2,200</b> <span class="cartao-seta" aria-hidden="true">→</span><span class="so-leitor">: 견적 만들기</span></p>
           </article>
           <article class="cartao">
-            <span class="cartao-icone"><svg class="pixel-icone" viewBox="0 0 16 16" width="32" height="32" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path fill="currentColor" d="M5 1h6v1h-6zM4 2h1v1h-1zM11 2h1v1h-1zM4 3h1v1h-1zM6 3h4v1h-4zM11 3h1v1h-1zM4 4h1v1h-1zM11 4h1v1h-1zM4 5h1v1h-1zM11 5h1v1h-1zM4 6h1v1h-1zM11 6h1v1h-1zM4 7h1v1h-1zM11 7h1v1h-1zM4 8h1v1h-1zM11 8h1v1h-1zM4 9h1v1h-1zM11 9h1v1h-1zM4 10h1v1h-1zM11 10h1v1h-1zM4 11h1v1h-1zM11 11h1v1h-1zM4 12h1v1h-1zM7 12h2v1h-2zM11 12h1v1h-1zM4 13h1v1h-1zM11 13h1v1h-1zM5 14h6v1h-6z"/><path class="pixel-acento" d="M6 5h2v1h-2zM9 5h2v1h-2zM6 6h2v1h-2zM9 6h2v1h-2zM6 8h2v1h-2zM9 8h2v1h-2zM6 9h2v1h-2zM9 9h2v1h-2z"/></svg></span>
+            <span class="ficha-topo" aria-hidden="true"><span class="ficha-numero">03/04</span><span class="cartao-icone"><svg class="pixel-icone" viewBox="0 0 16 16" width="32" height="32" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path fill="currentColor" d="M5 1h6v1h-6zM4 2h1v1h-1zM11 2h1v1h-1zM4 3h1v1h-1zM6 3h4v1h-4zM11 3h1v1h-1zM4 4h1v1h-1zM11 4h1v1h-1zM4 5h1v1h-1zM11 5h1v1h-1zM4 6h1v1h-1zM11 6h1v1h-1zM4 7h1v1h-1zM11 7h1v1h-1zM4 8h1v1h-1zM11 8h1v1h-1zM4 9h1v1h-1zM11 9h1v1h-1zM4 10h1v1h-1zM11 10h1v1h-1zM4 11h1v1h-1zM11 11h1v1h-1zM4 12h1v1h-1zM7 12h2v1h-2zM11 12h1v1h-1zM4 13h1v1h-1zM11 13h1v1h-1zM5 14h6v1h-6z"/><path class="pixel-acento" d="M6 5h2v1h-2zM9 5h2v1h-2zM6 6h2v1h-2zM9 6h2v1h-2zM6 8h2v1h-2zM9 8h2v1h-2zM6 9h2v1h-2zM9 9h2v1h-2z"/></svg></span></span>
             <h3><a class="cartao-link" href="#contato" data-escolher="tipo=app" aria-describedby="preco-app">설치형 앱</a></h3>
             <p>일반 앱처럼 휴대폰 홈 화면에 놓이고 인터넷 없이도 열리는 웹 앱. 앱 스토어를 거치지 않습니다.</p>
             <p class="cartao-preco" id="preco-app">최소 <b>US$3,750</b> <span class="cartao-seta" aria-hidden="true">→</span><span class="so-leitor">: 견적 만들기</span></p>
           </article>
           <article class="cartao">
-            <span class="cartao-icone"><svg class="pixel-icone" viewBox="0 0 16 16" width="32" height="32" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path fill="currentColor" d="M7 0h2v1h-2zM6 1h1v1h-1zM9 1h1v1h-1zM5 2h6v1h-6zM4 3h1v1h-1zM11 3h1v1h-1zM4 4h1v1h-1zM11 4h1v1h-1zM4 5h1v1h-1zM11 5h1v1h-1zM4 6h1v1h-1zM11 6h1v1h-1zM4 7h1v1h-1zM11 7h1v1h-1zM4 8h1v1h-1zM11 8h1v1h-1zM4 9h1v1h-1zM11 9h1v1h-1zM5 10h6v1h-6zM4 11h8v1h-8zM6 12h1v1h-1zM9 12h1v1h-1zM5 13h6v1h-6z"/><path class="pixel-acento" d="M8 4h1v1h-1zM7 5h2v1h-2zM7 6h3v1h-3zM6 7h4v1h-4zM6 8h4v1h-4zM7 9h2v1h-2z"/></svg></span>
+            <span class="ficha-topo" aria-hidden="true"><span class="ficha-numero">04/04</span><span class="cartao-icone"><svg class="pixel-icone" viewBox="0 0 16 16" width="32" height="32" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path fill="currentColor" d="M7 0h2v1h-2zM6 1h1v1h-1zM9 1h1v1h-1zM5 2h6v1h-6zM4 3h1v1h-1zM11 3h1v1h-1zM4 4h1v1h-1zM11 4h1v1h-1zM4 5h1v1h-1zM11 5h1v1h-1zM4 6h1v1h-1zM11 6h1v1h-1zM4 7h1v1h-1zM11 7h1v1h-1zM4 8h1v1h-1zM11 8h1v1h-1zM4 9h1v1h-1zM11 9h1v1h-1zM5 10h6v1h-6zM4 11h8v1h-8zM6 12h1v1h-1zM9 12h1v1h-1zM5 13h6v1h-6z"/><path class="pixel-acento" d="M8 4h1v1h-1zM7 5h2v1h-2zM7 6h3v1h-3zM6 7h4v1h-4zM6 8h4v1h-4zM7 9h2v1h-2z"/></svg></span></span>
             <h3>운영과 관리</h3>
             <p>도메인, 보안 자물쇠(HTTPS), 서버, 백업. 이 중 어떤 것도 몰라도 됩니다.</p>
             <ul class="planos">
@@ -190,21 +205,25 @@
 
     <section class="secao secao-gelo" id="projetos">
       <div class="dentro">
-        <h2>포트폴리오</h2>
-        <!-- As áreas filtram as duas listas, e as abas separam o que está no ar do que é de estudo (js/movimento.js);
-             sem JavaScript, as áreas não aparecem e as duas listas ficam uma embaixo da outra.
-             Cada projeto diz as suas áreas no data-areas (pode ter mais de uma). -->
-        <div class="areas" role="group" aria-label="분야별 보기" hidden>
-          <button class="area" type="button" data-area="" aria-pressed="true">전체</button>
-          <button class="area" type="button" data-area="educacao" aria-pressed="false">교육·문화</button>
-          <button class="area" type="button" data-area="servicos" aria-pressed="false">의료·서비스</button>
-          <button class="area" type="button" data-area="comercio" aria-pressed="false">유통·관광</button>
-          <button class="area" type="button" data-area="industria" aria-pressed="false">산업</button>
-          <button class="area" type="button" data-area="jogos" aria-pressed="false">게임</button>
-        </div>
-        <div class="abas" role="tablist" aria-label="보여줄 프로젝트" hidden>
-          <button class="aba" type="button" role="tab" id="aba-no-ar" aria-controls="no-ar" aria-selected="true">운영 중 <span class="aba-conta">11</span></button>
-          <button class="aba" type="button" role="tab" id="aba-estudo" aria-controls="estudo" aria-selected="false" tabindex="-1">학습 작품 <span class="aba-conta">3</span></button>
+        <!-- O quadro de cortiça da estação (07/11/2026): as capturas presas com tachinha, cada uma um pouco torta. No
+             computador, o título, as abas e as áreas ficam parados numa coluna ao lado do quadro. -->
+        <div class="projetos-lado">
+          <h2>포트폴리오</h2>
+          <!-- As áreas filtram as duas listas, e as abas separam o que está no ar do que é de estudo (js/movimento.js);
+               sem JavaScript, as áreas não aparecem e as duas listas ficam uma embaixo da outra.
+               Cada projeto diz as suas áreas no data-areas (pode ter mais de uma). -->
+          <div class="areas" role="group" aria-label="분야별 보기" hidden>
+            <button class="area" type="button" data-area="" aria-pressed="true">전체</button>
+            <button class="area" type="button" data-area="educacao" aria-pressed="false">교육·문화</button>
+            <button class="area" type="button" data-area="servicos" aria-pressed="false">의료·서비스</button>
+            <button class="area" type="button" data-area="comercio" aria-pressed="false">유통·관광</button>
+            <button class="area" type="button" data-area="industria" aria-pressed="false">산업</button>
+            <button class="area" type="button" data-area="jogos" aria-pressed="false">게임</button>
+          </div>
+          <div class="abas" role="tablist" aria-label="보여줄 프로젝트" hidden>
+            <button class="aba" type="button" role="tab" id="aba-no-ar" aria-controls="no-ar" aria-selected="true">운영 중 <span class="aba-conta">11</span></button>
+            <button class="aba" type="button" role="tab" id="aba-estudo" aria-controls="estudo" aria-selected="false" tabindex="-1">학습 작품 <span class="aba-conta">3</span></button>
+          </div>
         </div>
         <div class="painel" id="no-ar" role="tabpanel" aria-labelledby="aba-no-ar">
           <h3 class="painel-titulo">운영 중</h3>
@@ -537,9 +556,26 @@
     </section>
 
     <section class="secao contato" id="contato">
+      <!-- O rádio da estação (07/11/2026): o alto-falante com o Linu e o mostrador com a hora de conversar ficam de um
+           lado (parados à vista no computador); o Monte o seu site e os botões, do outro -->
       <div class="dentro contato-dentro">
-        <span class="contato-linu" data-pose="acenando" aria-hidden="true"><img class="pixel" src="../img/linu/linu-contato.png?v=2" alt="" width="552" height="190"></span>
-        <div>
+        <div class="radio">
+          <span class="radio-alto" aria-hidden="true"></span>
+          <span class="contato-linu" data-pose="acenando" aria-hidden="true"><img class="pixel" src="../img/linu/linu-contato.png?v=2" alt="" width="552" height="190"></span>
+          <!-- A janela em horário de Brasília vale sem JavaScript; as duas horas e o “agora” saem do js/movimento.js -->
+          <div class="conversa" data-conversa>
+            <h3>상담 가능 시간</h3>
+            <p>월요일부터 금요일까지, 브라질리아 시간(UTC−3) 9:00~21:00입니다.</p>
+            <div class="conversa-agora" hidden>
+              <dl>
+                <div><dt>현지 시간</dt><dd data-hora-visita>—</dd></div>
+                <div><dt>브라질리아</dt><dd data-hora-brasilia>—</dd></div>
+              </dl>
+              <p data-conversa-estado>—</p>
+            </div>
+          </div>
+        </div>
+        <div class="contato-corpo">
           <h2>당신의 사이트에 대해 알려 주세요</h2>
           <p>사이트를 구성하면 가격과 기간의 예상치가 바로 보입니다. 그다음 WhatsApp이나 이메일로 보내기만 하면 됩니다. 메시지는 이미 작성되어 있습니다. 아이디어만 있어도 괜찮습니다. 질문과 다음 단계를 담아 답장드립니다. 저희는 브라질(UTC−3, 한국과 12시간 차이)에 있습니다. 영업일 기준 하루 안에 답장하며, 화상 통화는 고객의 아침이나 저녁 시간에 맞출 수 있습니다.</p>
           <div class="monte" role="group" aria-label="사이트 구성하기" aria-describedby="monte-nota">
@@ -587,18 +623,6 @@
               <span>WhatsApp <span class="sem-quebra">+55 61 99667-2610</span></span>
             </a>
             <a class="botao botao-grande botao-contorno-claro monte-enviar" href="mailto:contato@linupedia.com.br?subject=%EC%9B%B9%EC%82%AC%EC%9D%B4%ED%8A%B8%20%EC%A0%9C%EC%9E%91%20%EB%AC%B8%EC%9D%98">contato@linupedia.com.br</a>
-          </div>
-          <!-- A janela em horário de Brasília vale sem JavaScript; as duas horas e o “agora” saem do js/movimento.js -->
-          <div class="conversa" data-conversa>
-            <h3>상담 가능 시간</h3>
-            <p>월요일부터 금요일까지, 브라질리아 시간(UTC−3) 9:00~21:00입니다.</p>
-            <div class="conversa-agora" hidden>
-              <dl>
-                <div><dt>현지 시간</dt><dd data-hora-visita>—</dd></div>
-                <div><dt>브라질리아</dt><dd data-hora-brasilia>—</dd></div>
-              </dl>
-              <p data-conversa-estado>—</p>
-            </div>
           </div>
         </div>
       </div>

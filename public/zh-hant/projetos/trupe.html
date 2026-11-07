@@ -39,8 +39,8 @@
   <!-- Os textos que os scripts escrevem (menu, luz), no idioma da página -->
   <script type="application/json" id="textos-js">{"menu_abrir":"開啟選單","menu_fechar":"關閉選單","luz_apagar_aria":"關燈（深色模式）","luz_acender_aria":"開燈（淺色模式）","luz_apagar":"關燈","luz_acender":"開燈","fechar":"關閉","escolha":"選擇類型即可看到估算","sem_tipo":"沒問題，我們在討論中一起決定。","um_item":"1 個項目","n_itens":"{n} 個項目","extra":" + {itens}寫在提案中","por_ano":"每年 {valor}","por_mes":"每月 {valor}","estimativa":"估算：{valor} 起{extra}","linha_tipo":"類型：{nome}","linha_itens":"需要的功能：","linha_depois":"上線之後：{nome}{anual}","anual":"（年繳）","linha_estimativa":"網站估算：{valor} 起{extra}","ola":"你好！我想做一個網站。","sobre":"關於我的事業：","assunto":"網站製作洽詢","ola_conversa":"你好！我想聊聊網站的事。","area_vazia":"這裡沒有這個領域的作品。","conversa_aberta":"現在可以討論，到你的時間 {fim} 為止。","conversa_fechada":"現在是非工作時間。下一段時間從你的時間 {inicio} 開始。"}</script>
   <script src="../../js/tema-inicio.js?v=6"></script>
-  <link rel="stylesheet" href="../../css/estilo.css?v=30">
-  <script src="../../js/tema.js?v=8" defer></script>
+  <link rel="stylesheet" href="../../css/estilo.css?v=31">
+  <script src="../../js/tema.js?v=9" defer></script>
   <script src="../../js/menu.js?v=7" defer></script>
 </head>
 <body>
@@ -85,11 +85,7 @@
           </div>
         </details>
         <button class="luz" type="button" data-luz aria-label="關燈（深色模式）" title="關燈">
-          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
-            <path class="luz-raios" d="M12 1.5v2M4.6 4.6l1.4 1.4M1.5 12h2M20.5 12h2M19.4 4.6 18 6" />
-            <path class="luz-bulbo" d="M12 6a5.5 5.5 0 0 0-3.2 10c.5.4.8.9.8 1.5v.5h4.8v-.5c0-.6.3-1.1.8-1.5A5.5 5.5 0 0 0 12 6Z" />
-            <path class="luz-base" d="M9.8 20.5h4.4M10.5 22.5h3" />
-          </svg>
+          <svg class="luz-lampiao" viewBox="0 0 16 16" width="32" height="32" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path class="luz-vidro" d="M5 3h6v7h-6z"/><path fill="currentColor" d="M7 0h2v1h-2zM6 1h1v1h-1zM9 1h1v1h-1zM5 2h6v1h-6zM4 3h1v1h-1zM11 3h1v1h-1zM4 4h1v1h-1zM11 4h1v1h-1zM4 5h1v1h-1zM11 5h1v1h-1zM4 6h1v1h-1zM11 6h1v1h-1zM4 7h1v1h-1zM11 7h1v1h-1zM4 8h1v1h-1zM11 8h1v1h-1zM4 9h1v1h-1zM11 9h1v1h-1zM5 10h6v1h-6zM4 11h8v1h-8zM6 12h1v1h-1zM9 12h1v1h-1zM5 13h6v1h-6z"/><path class="luz-chama" d="M8 4h1v1h-1zM7 5h2v1h-2zM7 6h3v1h-3zM6 7h4v1h-4zM6 8h4v1h-4zM7 9h2v1h-2z"/></svg>
         </button>
         <a class="botao botao-pequeno menu-orcamento" href="#contato">索取報價</a>
         <button class="menu-abrir" type="button" aria-expanded="false" aria-controls="menu-links" aria-label="開啟選單">

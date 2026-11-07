@@ -7,7 +7,8 @@ Site do **Linu Sites**, o estúdio de sites e aplicativos web da LinuPedia: **ht
 
 Uma página só (`public/index.html`), sem dependências e sem servidor próprio: o Caddy da VM da Oracle
 (a mesma da LinuPedia, do v²tech, da Marginalia e do Los Vega) entrega os arquivos de `public/`.
-O visual segue a LinuPedia: o azul do app, o gelo e o pergaminho da expedição e o Linu em pixel art.
+O visual é a estação do Linu por dentro (desde 07/11/2026): a página inteira é o interior do abrigo em pixel art, com a
+lona, a madeira, o papel, a cortiça e o rádio (ver “Identidade: a estação por dentro”).
 
 - **No ar:** https://sites.linupedia.com.br
 - **Repositório:** `Seiabras/linu-sites` (**público**: nada de senha, chave ou relatório interno aqui; isso vai
@@ -25,12 +26,13 @@ O visual segue a LinuPedia: o azul do app, o gelo e o pergaminho da expedição 
 | `public/<idioma>/index.html` | A mesma página em `pt-pt`, `es`, `ca`, `nl`, `en`, `fr`, `de` e `it`, também gerada. |
 | `public/404.html` | Página de erro com o código E404, mostrada pelo Caddy em qualquer endereço que não existe (`handle_errors` no `deploy/Caddyfile-bloco`; liga no servidor pelo `endurecer.sh` do linuarquivos). |
 | `public/projetos/*.html` | Página de cada projeto em português; nos outros idiomas, em `public/<pasta>/projetos/`. Geradas pelo `ferramentas/gerar-idiomas.mjs`. |
-| `public/css/estilo.css` | Visual (cores da LinuPedia, modo claro e escuro). |
+| `public/css/estilo.css` | Visual: a estação por dentro (lona, madeira, papel, cortiça, rádio), modo claro e escuro. |
 | `public/js/` | `tema-inicio.js` (aplica o tema antes de pintar), `tema.js` (o Linu e o lampião; com “menos movimento” ligado ele não anda, só aparece embaixo do lampião), `menu.js` (menu do celular), `movimento.js` (animações) e `simulador.js` (o simulador do Café Aurora). |
 | `public/img/` | Cena da estação, o Linu (`linu/`, `linu-pixel.png`), a logo (`linu-logo.png`), capturas dos projetos (`projetos/`), ícones e imagem de compartilhar. |
-| `public/fontes/` | Nunito e as Noto de japonês, coreano e chinês (licença OFL), servidas pelo próprio site. |
+| `public/fontes/` | Nunito, Courier Prime (os rótulos datilografados) e as Noto de japonês, coreano e chinês (licença OFL, `OFL*.txt` ao lado), servidas pelo próprio site. |
 | `sitios/` | Os sites dos subdomínios, fora de `public/`: `cafe-aurora/` (cafe.linupedia.com.br, também com `/bootstrap/`, `/tailwind/`, `/bulma/` e `/pico/`), `fotografia-do-cerrado/` (cerrado.linupedia.com.br), `pica-nao-pica/` (picanaopica.linupedia.com.br). O Digital Linu não entra aqui: é o serviço irmão, com repositório e publicação próprios (`Seiabras/digital-linu`). Cada um tem o seu repositório público no GitHub (`Seiabras/cafe-aurora`, `Seiabras/fotografia-do-cerrado`, `Seiabras/pica-nao-pica`); mudou aqui, leve a mudança para lá. |
 | `ferramentas/cafe/` | O modelo do Café Aurora (`modelo.html`) e os textos dele em cada idioma (`textos/<código>.json`), para o `gerar-cafe.mjs`. Em `ferramentas/cafe/arte/`, os pedidos das fotos do Café e da Padaria à API de imagens do Google (4/11/2026), com `aprovadas.json`; o `ferramentas/cafe/arte.py` (cópia do kit de arte do linuarquivos, `modelos/ferramentas/arte/`) leva as aprovadas para `sitios/cafe-aurora/img/` conforme o `arte/saidas.json`: `python3 ferramentas/cafe/arte.py ferramentas/cafe/arte`. |
+| `ferramentas/conferir-visual.mjs` | A conferência visual que o Actions roda antes de publicar (cópia do `linuarquivos/modelos/ferramentas/`, que o `sincronizar-familia.py` mantém igual): a inicial, `/ja/` e uma página de projeto em 390, 820 e 1280 px, claro e escuro; reprova com rolagem lateral, erro no console, arquivo faltando ou falha séria de acessibilidade, e guarda as capturas como artefato. |
 | `ferramentas/pagina/` | O modelo da página inicial (`modelo.html`), os textos de cada idioma (`textos/<código>.json`) e os preços de cada moeda (`precos.json`). |
 | `ferramentas/fontes/` | Os caracteres que estão em cada fonte Noto (`ja.txt`, `ko.txt`, `zh-hant.txt`), escritos pelo `gerar-fontes.mjs`. |
 | `ferramentas/` | Geradores: a página em cada idioma (`gerar-idiomas.mjs`), as fontes Noto (`gerar-fontes.mjs`), páginas de projeto, imagem de compartilhar e capas do portfólio (`capas/`), cena noturna e o Linu trazido do app (`linu-do-app.py`). |
@@ -132,9 +134,9 @@ não baixam nada disso: as famílias só entram no `--texto` dessas línguas, no
 
 | Língua | Caracteres | Regular + Bold |
 |---|---:|---:|
-| Japonês | 761 | 209 KB |
-| Coreano | 597 | 80 KB |
-| Chinês tradicional | 954 | 311 KB |
+| Japonês | 769 | 211 KB |
+| Coreano | 598 | 81 KB |
+| Chinês tradicional | 956 | 313 KB |
 
 - **Refazer:** nada a fazer na hora. O `node ferramentas/gerar-idiomas.mjs` compara os caracteres das páginas com o
   `ferramentas/fontes/<pasta>.txt` e refaz a fonte que mudou; depois, suba o `?v=` dela no `css/estilo.css` e o do
@@ -388,9 +390,10 @@ node ferramentas/gerar-estudo.mjs pica-nao-pica
 - **Identidade visual** (desde 07/11/2026): mora na Família Linu (https://familia.linupedia.com.br/identidade). O
   `/identidade` daqui leva para lá (um `redir` no `deploy/Caddyfile-bloco`), e o rodapé em pt-BR tem a nota “Da
   Família Linu · Identidade visual”. A fonte das decisões continua o `IDENTIDADE-LINU.md` do linuarquivos.
-- **Abertura:** o que o estúdio faz e o botão de orçamento.
-- **O que fazemos:** sites de apresentação, ferramentas e painéis, apps que instalam, hospedagem. Desde 07/11/2026,
-  cada cartão tem um ícone em pixel art desenhado para o site (a janela, o painel, o celular e o lampião da estação, numa
+- **Abertura:** o que o estúdio faz, o botão de orçamento e a cena da estação em escala inteira, com as plaquinhas que
+  levam às seções (ver “Identidade: a estação por dentro”).
+- **O que fazemos:** sites de apresentação, ferramentas e painéis, apps que instalam, hospedagem, em fichas técnicas
+  presas com clipe (07/11/2026). Desde 07/11/2026, cada ficha tem um ícone em pixel art desenhado para o site (a janela, o painel, o celular e o lampião da estação, numa
   grade de 16 × 16, em SVG no `ferramentas/pagina/modelo.html`), no lugar dos emojis; no tablet, os quatro ficam em 2 × 2.
   Também saíram as maiúsculas espaçadas (sobretítulo, etiquetas, regiões do menu de idiomas e rótulos do Monte o seu
   site e da conversa): os textos aparecem como estão escritos, seguindo o `IDENTIDADE-LINU.md` do linuarquivos.
@@ -463,11 +466,61 @@ node ferramentas/gerar-estudo.mjs pica-nao-pica
 - **Celular:** os links vão para um menu que abre no botão ☰ (`public/js/menu.js`).
 - **Compartilhar:** `img/compartilhar.png` (1200 × 630), gerada por `ferramentas/gerar-imagens.mjs`, e os ícones e a
   logo (`img/linu-logo.png`), que vêm do app pelo `ferramentas/linu-do-app.py`; `sitemap.xml` e `robots.txt` apontando para ele.
-- **Modo claro e escuro:** o botão da lâmpada, no topo. O Linu entra no quarto pela porta, vai até o
+- **Modo claro e escuro:** o botão do lampião (em pixel art desde 07/11/2026), no topo. O Linu entra no quarto pela porta, vai até o
   lampião e apaga (modo escuro) ou acende (modo claro); a página troca de cor junto. A escolha fica
   guardada no navegador; sem escolha, vale a do sistema. Com “reduzir movimento” ligado, troca na hora.
-  Se a cena do topo estiver fora da tela, a animação aparece num cartão no canto. Código em
-  `public/js/tema.js`.
+  Se a cena do topo estiver fora da tela, a troca aparece num quadrinho no canto, com a cena em 1× e só o lampião
+  (o Linu em 1× ali seria do tamanho do quarto). Código em `public/js/tema.js`.
+
+## Identidade: a estação por dentro (07/11/2026)
+
+Até 06/11/2026 os sites da família Linu (Linu Sites, Digital Linu, Linu Seguro, Família Linu) tinham o mesmo esqueleto:
+abertura com faixa, botões em pílula, cartões brancos de borda fina e canto arredondado, as mesmas seções, só com a cor
+trocada. Em 07/11/2026 cada um ganhou identidade própria, com o **objeto** do site dando forma à página inteira: o
+Digital Linu é uma ilha de edição de vídeo, a Família Linu uma carta náutica com o mapa de ilhas, o Linu Seguro um iglu
+de blocos de gelo. O objeto do Linu Sites é **a estação em pixel art, com o lampião que o Linu apaga à noite**, e a
+página passou a ser **o interior da estação**:
+
+- **Abertura = a cena.** A `abrigo-estacao-*.png` (344 × 192) aparece grande e sempre em escala inteira, com
+  `image-rendering: pixelated`: 3× no computador (1032 × 576), 2× no tablet (688 × 384) e 2× no celular, numa moldura
+  de ponta a ponta que recorta a parte da mesa (centro em x = 160). A escala é a variável `--k` e o recorte o `--centro`
+  do `.estacao`, no `css/estilo.css`; a cena tem o tamanho em px, nunca em porcentagem.
+- **Plaquinhas nos objetos.** Etiquetas de papel datilografadas, presas com fita, levam às seções com os textos do menu
+  (nada de texto novo nos 13 idiomas): o monitor → O que fazemos, o quadro de cortiça → Projetos, a mesa → Exemplo, o
+  caderno aberto → Como funciona, a estante → Dúvidas (fora do recorte do celular) e o rádio → Pedir orçamento. As
+  posições, em porcentagem da cena, estão no bloco “As plaquinhas” do CSS.
+- **O Linu em 1×.** O Linu que anda pela cena tem sempre 172 × 190 px de tela, com os pés na linha 182 da imagem; o
+  `js/tema.js` calcula onde ele pisa pela escala que a cena tem na hora. O Linu do contato também fica em 1× (138 × 190).
+- **As seções são objetos da estação:** O que fazemos são **fichas técnicas** de papel creme presas com clipe (número
+  datilografado, ícone em pixel art, preço “a partir de” do `precos.json`); Projetos é um **quadro de cortiça** em CSS
+  (três camadas de pontinhos, sem imagem) com as capturas presas por tachinhas, cada uma num ângulo, e as abas como
+  orelhas de pasta; o Exemplo é uma **prancheta** com prendedor de metal (a lista das partes no papel, o total num
+  canhoto pardo) ao lado do **monitor** da estação com o Café Aurora; Como funciona é o **diário de bordo**, papel
+  pautado com margem vermelha, aberto em duas páginas no tablet e no computador; Dúvidas é um **fichário**; o contato é
+  o **rádio**: caixa de metal escuro, alto-falante com o Linu, mostrador âmbar com a hora de conversar e o Monte o seu
+  site em teclas que afundam e acendem. O topo é a viga de madeira e o rodapé o piso de tábuas, os dois com a faixa
+  laranja da lona.
+- **Três versões.** Celular: uma coluna, recorte da cena, áreas e fotos em faixas que rolam de lado. Tablet: cena em 2×
+  inteira, fichas e fotos em 2 colunas. Computador: cena em 3×, título e botões lado a lado, a coluna dos projetos (abas
+  e áreas) e o rádio parados ao lado, o fichário com o título ao lado.
+- **Cores.** A lona, a madeira e a faixa laranja saem dos pixels da cena (`#C9B7A3`, `#977058`, `#5E4C43`, `#C06635`); o
+  papel é o pergaminho (`#FBF3E3`); o acento é a aurora (`#0F766E`; `#0B5F58` como texto sobre a lona) e a luz é o fogo do
+  lampião. **De noite** (modo escuro) é a mesma estação no escuro: papel na sombra quente, texto creme, aurora clara e uma
+  camada fixa com a luz do lampião no meio e as bordas apagadas. Conferido com o axe 4.10 (WCAG 2.2 AA), claro e escuro,
+  390 e 1280 px, na inicial, em `/ja/`, numa página de projeto e na de erro: nenhuma falha.
+- **Letras.** Nunito no texto e **Courier Prime** (OFL, `fontes/OFL-CourierPrime.txt`) nos rótulos, etiquetas, números e
+  preços datilografados: só o peso 400 (máquina de escrever tem um peso só; o negrito falso fica desligado com
+  `font-synthesis-weight: none`), latim (18 KB) e latim estendido (só baixa se a página usar uma letra dele),
+  baixada com o `linuarquivos/modelos/ferramentas/fontes-locais.py`. Em japonês, coreano e chinês a `--maquina` cai na
+  Noto da língua para os caracteres que a Courier Prime não tem.
+- **Formas.** Nada de pílula nem de cartão branco com borda e canto grande: papel de canto reto com sombra macia,
+  fita, tachinha, clipe, madeira e metal. Os botões são etiquetas de papelão com o furo do barbante. Ficou de fora o que
+  os irmãos usam: a sombra dura deslocada com borda grossa (Família), as trilhas coloridas e o timecode (Digital) e os
+  blocos de gelo (Seguro).
+- **Movimento.** A inclinação das fichas e fotos fica na propriedade `rotate`, separada do `transform` da entrada ao
+  rolar; ao passar o mouse, elas se endireitam e sobem. Com “menos movimento”, nada anima.
+- **Imagem de compartilhar** refeita na mesma linha (`ferramentas/compartilhar.html`): a lona, a viga, a cena em 2× na
+  moldura com o Linu em 1× e o endereço numa etiqueta datilografada.
 
 ## Digital Linu, o serviço irmão
 
@@ -477,7 +530,7 @@ mora aqui. Daqui saem só a faixa de ida e volta e a seção Identidade visual, 
 
 ## Fonte e segurança
 
-A Nunito e as Noto ficam em `public/fontes` (licença OFL), sem Google Fonts. A página leva uma CSP numa `<meta>` (só
+A Nunito, a Courier Prime e as Noto ficam em `public/fontes` (licença OFL), sem Google Fonts. A página leva uma CSP numa `<meta>` (só
 carrega o que é do próprio site); o `deploy/Caddyfile-bloco` traz os cabeçalhos completos, para aplicar
 na VM (ver `deploy/ORACLE.md`). Desde 29/10/2026 o bloco deixa o próprio site pôr uma página dele num quadro
 (`frame-ancestors 'self'` e `X-Frame-Options SAMEORIGIN`), por causa do simulador; aplicado na VM em 29/10/2026 (a

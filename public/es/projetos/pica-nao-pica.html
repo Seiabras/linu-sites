@@ -39,8 +39,8 @@
   <!-- Os textos que os scripts escrevem (menu, luz), no idioma da página -->
   <script type="application/json" id="textos-js">{"menu_abrir":"Abrir el menú","menu_fechar":"Cerrar el menú","luz_apagar_aria":"Apagar la luz (modo oscuro)","luz_acender_aria":"Encender la luz (modo claro)","luz_apagar":"Apagar la luz","luz_acender":"Encender la luz","fechar":"Cerrar","escolha":"Elige el tipo para ver una estimación","sem_tipo":"Sin problema: la conversación ayuda a elegir el tipo.","um_item":"un elemento","n_itens":"{n} elementos","extra":" + {itens} en la propuesta","por_ano":"{valor} al año","por_mes":"{valor} al mes","estimativa":"Estimación: desde {valor}{extra}","linha_tipo":"Tipo: {nome}","linha_itens":"Necesita tener:","linha_depois":"Una vez lista: {nome}{anual}","anual":", pagando el año","linha_estimativa":"Estimación de la web: desde {valor}{extra}","ola":"¡Hola! Quiero una web.","sobre":"Sobre mi negocio: ","assunto":"Quiero una web","ola_conversa":"¡Hola! Quiero hablar sobre una web.","area_vazia":"Ningún proyecto de este sector aquí.","conversa_aberta":"Ahora podemos hablar, hasta {fim} en tu hora.","conversa_fechada":"Ahora estamos fuera de horario. La próxima franja abre {inicio} en tu hora."}</script>
   <script src="../../js/tema-inicio.js?v=6"></script>
-  <link rel="stylesheet" href="../../css/estilo.css?v=30">
-  <script src="../../js/tema.js?v=8" defer></script>
+  <link rel="stylesheet" href="../../css/estilo.css?v=31">
+  <script src="../../js/tema.js?v=9" defer></script>
   <script src="../../js/menu.js?v=7" defer></script>
 </head>
 <body>
@@ -85,11 +85,7 @@
           </div>
         </details>
         <button class="luz" type="button" data-luz aria-label="Apagar la luz (modo oscuro)" title="Apagar la luz">
-          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
-            <path class="luz-raios" d="M12 1.5v2M4.6 4.6l1.4 1.4M1.5 12h2M20.5 12h2M19.4 4.6 18 6" />
-            <path class="luz-bulbo" d="M12 6a5.5 5.5 0 0 0-3.2 10c.5.4.8.9.8 1.5v.5h4.8v-.5c0-.6.3-1.1.8-1.5A5.5 5.5 0 0 0 12 6Z" />
-            <path class="luz-base" d="M9.8 20.5h4.4M10.5 22.5h3" />
-          </svg>
+          <svg class="luz-lampiao" viewBox="0 0 16 16" width="32" height="32" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path class="luz-vidro" d="M5 3h6v7h-6z"/><path fill="currentColor" d="M7 0h2v1h-2zM6 1h1v1h-1zM9 1h1v1h-1zM5 2h6v1h-6zM4 3h1v1h-1zM11 3h1v1h-1zM4 4h1v1h-1zM11 4h1v1h-1zM4 5h1v1h-1zM11 5h1v1h-1zM4 6h1v1h-1zM11 6h1v1h-1zM4 7h1v1h-1zM11 7h1v1h-1zM4 8h1v1h-1zM11 8h1v1h-1zM4 9h1v1h-1zM11 9h1v1h-1zM5 10h6v1h-6zM4 11h8v1h-8zM6 12h1v1h-1zM9 12h1v1h-1zM5 13h6v1h-6z"/><path class="luz-chama" d="M8 4h1v1h-1zM7 5h2v1h-2zM7 6h3v1h-3zM6 7h4v1h-4zM6 8h4v1h-4zM7 9h2v1h-2z"/></svg>
         </button>
         <a class="botao botao-pequeno menu-orcamento" href="#contato">Pedir presupuesto</a>
         <button class="menu-abrir" type="button" aria-expanded="false" aria-controls="menu-links" aria-label="Abrir el menú">

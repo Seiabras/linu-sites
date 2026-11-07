@@ -56,8 +56,8 @@
   <!-- Os textos que os scripts escrevem (menu, luz, Monte o seu site), no idioma da página -->
   <script type="application/json" id="textos-js">{"menu_abrir":"Obrir el menú","menu_fechar":"Tancar el menú","luz_apagar_aria":"Apagar el llum (mode fosc)","luz_acender_aria":"Encendre el llum (mode clar)","luz_apagar":"Apagar el llum","luz_acender":"Encendre el llum","fechar":"Tancar","escolha":"Tria el tipus per veure una estimació","sem_tipo":"Cap problema: la conversa ajuda a triar el tipus.","um_item":"un element","n_itens":"{n} elements","extra":" + {itens} a la proposta","por_ano":"{valor} l'any","por_mes":"{valor} al mes","estimativa":"Estimació: des de {valor}{extra}","linha_tipo":"Tipus: {nome}","linha_itens":"Ha de tenir:","linha_depois":"Un cop feta: {nome}{anual}","anual":", pagant l'any","linha_estimativa":"Estimació de la web: des de {valor}{extra}","ola":"Hola! Vull una web.","sobre":"Sobre el meu negoci: ","assunto":"Vull una web","ola_conversa":"Hola! Vull parlar d'una web.","area_vazia":"Cap projecte d'aquest sector aquí.","conversa_aberta":"Ara podem parlar, fins a {fim} a la teva hora.","conversa_fechada":"Ara estem fora d'horari. La propera franja obre {inicio} a la teva hora."}</script>
   <script src="../js/tema-inicio.js?v=6"></script>
-  <link rel="stylesheet" href="../css/estilo.css?v=30">
-  <script src="../js/tema.js?v=8" defer></script>
+  <link rel="stylesheet" href="../css/estilo.css?v=31">
+  <script src="../js/tema.js?v=9" defer></script>
   <script src="../js/menu.js?v=7" defer></script>
   <script src="../js/movimento.js?v=10" defer></script>
   <script src="../js/simulador.js?v=6" defer></script>
@@ -106,11 +106,7 @@
           </div>
         </details>
         <button class="luz" type="button" data-luz aria-label="Apagar el llum (mode fosc)" title="Apagar el llum">
-          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
-            <path class="luz-raios" d="M12 1.5v2M4.6 4.6l1.4 1.4M1.5 12h2M20.5 12h2M19.4 4.6 18 6" />
-            <path class="luz-bulbo" d="M12 6a5.5 5.5 0 0 0-3.2 10c.5.4.8.9.8 1.5v.5h4.8v-.5c0-.6.3-1.1.8-1.5A5.5 5.5 0 0 0 12 6Z" />
-            <path class="luz-base" d="M9.8 20.5h4.4M10.5 22.5h3" />
-          </svg>
+          <svg class="luz-lampiao" viewBox="0 0 16 16" width="32" height="32" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path class="luz-vidro" d="M5 3h6v7h-6z"/><path fill="currentColor" d="M7 0h2v1h-2zM6 1h1v1h-1zM9 1h1v1h-1zM5 2h6v1h-6zM4 3h1v1h-1zM11 3h1v1h-1zM4 4h1v1h-1zM11 4h1v1h-1zM4 5h1v1h-1zM11 5h1v1h-1zM4 6h1v1h-1zM11 6h1v1h-1zM4 7h1v1h-1zM11 7h1v1h-1zM4 8h1v1h-1zM11 8h1v1h-1zM4 9h1v1h-1zM11 9h1v1h-1zM5 10h6v1h-6zM4 11h8v1h-8zM6 12h1v1h-1zM9 12h1v1h-1zM5 13h6v1h-6z"/><path class="luz-chama" d="M8 4h1v1h-1zM7 5h2v1h-2zM7 6h3v1h-3zM6 7h4v1h-4zM6 8h4v1h-4zM7 9h2v1h-2z"/></svg>
         </button>
         <a class="botao botao-pequeno menu-orcamento" href="#contato">Demanar pressupost</a>
         <button class="menu-abrir" type="button" aria-expanded="false" aria-controls="menu-links" aria-label="Obrir el menú">
@@ -121,60 +117,79 @@
   </header>
 
   <main>
-    <section class="abertura">
+    <!-- A abertura é a própria estação (07/11/2026): a cena em escala inteira (3× no computador, 2× no tablet e no
+         celular, onde vira um recorte em volta da mesa), nunca esticada. As plaquinhas de papel presas nos objetos
+         levam às seções, com os textos do menu: o monitor → O que fazemos, o quadro de cortiça → Projetos, a mesa →
+         Exemplo, o caderno aberto → Como funciona, o rádio → orçamento e a estante → Dúvidas. As posições são as da
+         imagem (344 × 192), no css/estilo.css. -->
+    <section class="abertura abertura-estacao">
       <div class="dentro abertura-dentro">
         <div class="abertura-texto">
           <p class="sobretitulo">Webs i aplicacions web a mida</p>
           <h1>Una web que treballa per al <span class="marca-texto">teu negoci</span>.</h1>
+        </div>
+        <div class="abertura-lado">
           <p class="abertura-sub">De la web de presentació a l'eina amb tauler i inici de sessió: dissenyem, programem, publiquem i ens ocupem del servidor. Parles directament amb qui la fa.</p>
           <div class="botoes">
             <a class="botao" href="#contato">Demanar un pressupost</a>
             <a class="botao botao-linha" href="#projetos">Veure projectes</a>
           </div>
         </div>
-        <figure class="janela">
-          <div class="cena" data-cena>
-            <img class="pixel cena-dia" src="../img/abrigo-estacao-dia.png" alt="Il·lustració en pixel art d'una estació de recerca a l'Antàrtida, amb taula, ordinador i mapes a la paret" width="344" height="192">
-            <img class="pixel cena-acesa" src="../img/abrigo-estacao-noite.png" alt="" width="344" height="192">
-            <img class="pixel cena-apagada" src="../img/abrigo-estacao-apagada.png" alt="" width="344" height="192">
-            <span class="cena-linu" data-pose="frente">
-              <img class="pixel linu-frente" src="../img/linu/linu-frente.png?v=2" alt="" width="172" height="190">
-              <span class="linu-lado"><img class="pixel" src="../img/linu/linu-lado.png?v=2" alt="" width="688" height="190"></span>
-              <img class="pixel linu-costas" src="../img/linu/linu-costas.png?v=2" alt="" width="172" height="190">
-            </span>
-          </div>
-          <figcaption>L'estació del Linu, on es fan les webs.</figcaption>
-        </figure>
       </div>
+      <figure class="estacao">
+        <div class="estacao-quadro">
+          <div class="estacao-moldura">
+            <div class="cena" data-cena>
+              <img class="pixel cena-dia" src="../img/abrigo-estacao-dia.png" alt="Il·lustració en pixel art d'una estació de recerca a l'Antàrtida, amb taula, ordinador i mapes a la paret" width="344" height="192">
+              <img class="pixel cena-acesa" src="../img/abrigo-estacao-noite.png" alt="" width="344" height="192">
+              <img class="pixel cena-apagada" src="../img/abrigo-estacao-apagada.png" alt="" width="344" height="192">
+              <ul class="plaquinhas">
+                <li class="plaquinha plaquinha-servicos"><a href="#servicos">Què fem</a></li>
+                <li class="plaquinha plaquinha-projetos"><a href="#projetos">Projectes</a></li>
+                <li class="plaquinha plaquinha-exemplo"><a href="#exemplo">Exemple</a></li>
+                <li class="plaquinha plaquinha-como"><a href="#como">Com funciona</a></li>
+                <li class="plaquinha plaquinha-duvidas"><a href="#duvidas">Preguntes</a></li>
+                <li class="plaquinha plaquinha-contato"><a href="#contato">Demanar pressupost</a></li>
+              </ul>
+              <span class="cena-linu" data-pose="frente">
+                <img class="pixel linu-frente" src="../img/linu/linu-frente.png?v=2" alt="" width="172" height="190">
+                <span class="linu-lado"><img class="pixel" src="../img/linu/linu-lado.png?v=2" alt="" width="688" height="190"></span>
+                <img class="pixel linu-costas" src="../img/linu/linu-costas.png?v=2" alt="" width="172" height="190">
+              </span>
+            </div>
+          </div>
+        </div>
+        <figcaption>L'estació del Linu, on es fan les webs.</figcaption>
+      </figure>
     </section>
 
     <section class="secao" id="servicos">
       <div class="dentro">
         <h2>Què fem</h2>
         <p class="secao-sub" data-deslize="Llisca cap al costat →">Cada projecte es fa des de zero, a la mida de com funciona el teu negoci.</p>
-        <!-- Ícones em pixel art (07/11/2026), desenhados numa grade de 16 × 16, no lugar dos emojis: a janela do site, o
-             painel com gráfico, o celular e o lampião da estação (o que fica aceso cuidando do site) -->
+        <!-- As fichas técnicas presas na parede da estação (07/11/2026): papel com clipe, o número datilografado e o ícone
+             em pixel art (grade de 16 × 16: a janela do site, o painel com gráfico, o celular e o lampião da estação) -->
         <div class="cartoes">
           <article class="cartao">
-            <span class="cartao-icone"><svg class="pixel-icone" viewBox="0 0 16 16" width="32" height="32" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path fill="currentColor" d="M1 1h14v1h-14zM1 2h1v1h-1zM14 2h1v1h-1zM1 3h14v1h-14zM1 4h1v1h-1zM14 4h1v1h-1zM1 5h1v1h-1zM3 5h8v1h-8zM14 5h1v1h-1zM1 6h1v1h-1zM14 6h1v1h-1zM1 7h1v1h-1zM3 7h4v1h-4zM8 7h4v1h-4zM14 7h1v1h-1zM1 8h1v1h-1zM3 8h1v1h-1zM6 8h1v1h-1zM8 8h1v1h-1zM11 8h1v1h-1zM14 8h1v1h-1zM1 9h1v1h-1zM3 9h4v1h-4zM8 9h4v1h-4zM14 9h1v1h-1zM1 10h1v1h-1zM14 10h1v1h-1zM1 11h1v1h-1zM3 11h9v1h-9zM14 11h1v1h-1zM1 12h1v1h-1zM14 12h1v1h-1zM1 13h14v1h-14z"/><path class="pixel-acento" d="M2 2h1v1h-1zM4 2h1v1h-1zM6 2h1v1h-1zM4 8h2v1h-2z"/></svg></span>
+            <span class="ficha-topo" aria-hidden="true"><span class="ficha-numero">01/04</span><span class="cartao-icone"><svg class="pixel-icone" viewBox="0 0 16 16" width="32" height="32" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path fill="currentColor" d="M1 1h14v1h-14zM1 2h1v1h-1zM14 2h1v1h-1zM1 3h14v1h-14zM1 4h1v1h-1zM14 4h1v1h-1zM1 5h1v1h-1zM3 5h8v1h-8zM14 5h1v1h-1zM1 6h1v1h-1zM14 6h1v1h-1zM1 7h1v1h-1zM3 7h4v1h-4zM8 7h4v1h-4zM14 7h1v1h-1zM1 8h1v1h-1zM3 8h1v1h-1zM6 8h1v1h-1zM8 8h1v1h-1zM11 8h1v1h-1zM14 8h1v1h-1zM1 9h1v1h-1zM3 9h4v1h-4zM8 9h4v1h-4zM14 9h1v1h-1zM1 10h1v1h-1zM14 10h1v1h-1zM1 11h1v1h-1zM3 11h9v1h-9zM14 11h1v1h-1zM1 12h1v1h-1zM14 12h1v1h-1zM1 13h14v1h-14z"/><path class="pixel-acento" d="M2 2h1v1h-1zM4 2h1v1h-1zM6 2h1v1h-1zM4 8h2v1h-2z"/></svg></span></span>
             <h3><a class="cartao-link" href="#contato" data-escolher="tipo=apresentacao" aria-describedby="preco-apresentacao">Webs de presentació</a></h3>
             <p>Per explicar qui ets, què ofereixes i com contactar-te. Ràpides, boniques al mòbil i fàcils de trobar a Google.</p>
             <p class="cartao-preco" id="preco-apresentacao">des de <b>700 €</b> <span class="cartao-seta" aria-hidden="true">→</span><span class="so-leitor">: preparar el pressupost</span></p>
           </article>
           <article class="cartao">
-            <span class="cartao-icone"><svg class="pixel-icone" viewBox="0 0 16 16" width="32" height="32" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path fill="currentColor" d="M1 1h14v1h-14zM1 2h1v1h-1zM14 2h1v1h-1zM1 3h1v1h-1zM14 3h1v1h-1zM1 4h1v1h-1zM14 4h1v1h-1zM1 5h1v1h-1zM8 5h2v1h-2zM14 5h1v1h-1zM1 6h1v1h-1zM8 6h2v1h-2zM14 6h1v1h-1zM1 7h1v1h-1zM5 7h2v1h-2zM8 7h2v1h-2zM14 7h1v1h-1zM1 8h1v1h-1zM5 8h2v1h-2zM8 8h2v1h-2zM14 8h1v1h-1zM1 9h1v1h-1zM3 9h1v1h-1zM5 9h2v1h-2zM8 9h2v1h-2zM14 9h1v1h-1zM1 10h1v1h-1zM3 10h1v1h-1zM5 10h2v1h-2zM8 10h2v1h-2zM14 10h1v1h-1zM1 11h1v1h-1zM14 11h1v1h-1zM1 12h1v1h-1zM3 12h10v1h-10zM14 12h1v1h-1zM1 13h14v1h-14z"/><path class="pixel-acento" d="M11 3h2v1h-2zM11 4h2v1h-2zM11 5h2v1h-2zM11 6h2v1h-2zM11 7h2v1h-2zM11 8h2v1h-2zM11 9h2v1h-2zM11 10h2v1h-2z"/></svg></span>
+            <span class="ficha-topo" aria-hidden="true"><span class="ficha-numero">02/04</span><span class="cartao-icone"><svg class="pixel-icone" viewBox="0 0 16 16" width="32" height="32" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path fill="currentColor" d="M1 1h14v1h-14zM1 2h1v1h-1zM14 2h1v1h-1zM1 3h1v1h-1zM14 3h1v1h-1zM1 4h1v1h-1zM14 4h1v1h-1zM1 5h1v1h-1zM8 5h2v1h-2zM14 5h1v1h-1zM1 6h1v1h-1zM8 6h2v1h-2zM14 6h1v1h-1zM1 7h1v1h-1zM5 7h2v1h-2zM8 7h2v1h-2zM14 7h1v1h-1zM1 8h1v1h-1zM5 8h2v1h-2zM8 8h2v1h-2zM14 8h1v1h-1zM1 9h1v1h-1zM3 9h1v1h-1zM5 9h2v1h-2zM8 9h2v1h-2zM14 9h1v1h-1zM1 10h1v1h-1zM3 10h1v1h-1zM5 10h2v1h-2zM8 10h2v1h-2zM14 10h1v1h-1zM1 11h1v1h-1zM14 11h1v1h-1zM1 12h1v1h-1zM3 12h10v1h-10zM14 12h1v1h-1zM1 13h14v1h-14z"/><path class="pixel-acento" d="M11 3h2v1h-2zM11 4h2v1h-2zM11 5h2v1h-2zM11 6h2v1h-2zM11 7h2v1h-2zM11 8h2v1h-2zM11 9h2v1h-2zM11 10h2v1h-2z"/></svg></span></span>
             <h3><a class="cartao-link" href="#contato" data-escolher="tipo=ferramenta" aria-describedby="preco-ferramenta">Eines i taulers</a></h3>
             <p>Formularis de comanda, càlculs, àrea amb inici de sessió i un tauler per seguir-ho tot. La web deixa de ser un aparador i passa a formar part de la feina.</p>
             <p class="cartao-preco" id="preco-ferramenta">des de <b>2.000 €</b> <span class="cartao-seta" aria-hidden="true">→</span><span class="so-leitor">: preparar el pressupost</span></p>
           </article>
           <article class="cartao">
-            <span class="cartao-icone"><svg class="pixel-icone" viewBox="0 0 16 16" width="32" height="32" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path fill="currentColor" d="M5 1h6v1h-6zM4 2h1v1h-1zM11 2h1v1h-1zM4 3h1v1h-1zM6 3h4v1h-4zM11 3h1v1h-1zM4 4h1v1h-1zM11 4h1v1h-1zM4 5h1v1h-1zM11 5h1v1h-1zM4 6h1v1h-1zM11 6h1v1h-1zM4 7h1v1h-1zM11 7h1v1h-1zM4 8h1v1h-1zM11 8h1v1h-1zM4 9h1v1h-1zM11 9h1v1h-1zM4 10h1v1h-1zM11 10h1v1h-1zM4 11h1v1h-1zM11 11h1v1h-1zM4 12h1v1h-1zM7 12h2v1h-2zM11 12h1v1h-1zM4 13h1v1h-1zM11 13h1v1h-1zM5 14h6v1h-6z"/><path class="pixel-acento" d="M6 5h2v1h-2zM9 5h2v1h-2zM6 6h2v1h-2zM9 6h2v1h-2zM6 8h2v1h-2zM9 8h2v1h-2zM6 9h2v1h-2zM9 9h2v1h-2z"/></svg></span>
+            <span class="ficha-topo" aria-hidden="true"><span class="ficha-numero">03/04</span><span class="cartao-icone"><svg class="pixel-icone" viewBox="0 0 16 16" width="32" height="32" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path fill="currentColor" d="M5 1h6v1h-6zM4 2h1v1h-1zM11 2h1v1h-1zM4 3h1v1h-1zM6 3h4v1h-4zM11 3h1v1h-1zM4 4h1v1h-1zM11 4h1v1h-1zM4 5h1v1h-1zM11 5h1v1h-1zM4 6h1v1h-1zM11 6h1v1h-1zM4 7h1v1h-1zM11 7h1v1h-1zM4 8h1v1h-1zM11 8h1v1h-1zM4 9h1v1h-1zM11 9h1v1h-1zM4 10h1v1h-1zM11 10h1v1h-1zM4 11h1v1h-1zM11 11h1v1h-1zM4 12h1v1h-1zM7 12h2v1h-2zM11 12h1v1h-1zM4 13h1v1h-1zM11 13h1v1h-1zM5 14h6v1h-6z"/><path class="pixel-acento" d="M6 5h2v1h-2zM9 5h2v1h-2zM6 6h2v1h-2zM9 6h2v1h-2zM6 8h2v1h-2zM9 8h2v1h-2zM6 9h2v1h-2zM9 9h2v1h-2z"/></svg></span></span>
             <h3><a class="cartao-link" href="#contato" data-escolher="tipo=app" aria-describedby="preco-app">Apps que s'instal·len</a></h3>
             <p>Aplicacions web que es queden a la pantalla del mòbil com qualsevol app i s'obren fins i tot sense internet, sense passar per cap botiga.</p>
             <p class="cartao-preco" id="preco-app">des de <b>3.500 €</b> <span class="cartao-seta" aria-hidden="true">→</span><span class="so-leitor">: preparar el pressupost</span></p>
           </article>
           <article class="cartao">
-            <span class="cartao-icone"><svg class="pixel-icone" viewBox="0 0 16 16" width="32" height="32" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path fill="currentColor" d="M7 0h2v1h-2zM6 1h1v1h-1zM9 1h1v1h-1zM5 2h6v1h-6zM4 3h1v1h-1zM11 3h1v1h-1zM4 4h1v1h-1zM11 4h1v1h-1zM4 5h1v1h-1zM11 5h1v1h-1zM4 6h1v1h-1zM11 6h1v1h-1zM4 7h1v1h-1zM11 7h1v1h-1zM4 8h1v1h-1zM11 8h1v1h-1zM4 9h1v1h-1zM11 9h1v1h-1zM5 10h6v1h-6zM4 11h8v1h-8zM6 12h1v1h-1zM9 12h1v1h-1zM5 13h6v1h-6z"/><path class="pixel-acento" d="M8 4h1v1h-1zM7 5h2v1h-2zM7 6h3v1h-3zM6 7h4v1h-4zM6 8h4v1h-4zM7 9h2v1h-2z"/></svg></span>
+            <span class="ficha-topo" aria-hidden="true"><span class="ficha-numero">04/04</span><span class="cartao-icone"><svg class="pixel-icone" viewBox="0 0 16 16" width="32" height="32" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path fill="currentColor" d="M7 0h2v1h-2zM6 1h1v1h-1zM9 1h1v1h-1zM5 2h6v1h-6zM4 3h1v1h-1zM11 3h1v1h-1zM4 4h1v1h-1zM11 4h1v1h-1zM4 5h1v1h-1zM11 5h1v1h-1zM4 6h1v1h-1zM11 6h1v1h-1zM4 7h1v1h-1zM11 7h1v1h-1zM4 8h1v1h-1zM11 8h1v1h-1zM4 9h1v1h-1zM11 9h1v1h-1zM5 10h6v1h-6zM4 11h8v1h-8zM6 12h1v1h-1zM9 12h1v1h-1zM5 13h6v1h-6z"/><path class="pixel-acento" d="M8 4h1v1h-1zM7 5h2v1h-2zM7 6h3v1h-3zM6 7h4v1h-4zM6 8h4v1h-4zM7 9h2v1h-2z"/></svg></span></span>
             <h3>En línia i ben cuidada</h3>
             <p>Domini, cadenat de seguretat (HTTPS), servidor i còpies de seguretat. No cal que entenguis res d'això.</p>
             <ul class="planos">
@@ -190,21 +205,25 @@
 
     <section class="secao secao-gelo" id="projetos">
       <div class="dentro">
-        <h2>Projectes</h2>
-        <!-- As áreas filtram as duas listas, e as abas separam o que está no ar do que é de estudo (js/movimento.js);
-             sem JavaScript, as áreas não aparecem e as duas listas ficam uma embaixo da outra.
-             Cada projeto diz as suas áreas no data-areas (pode ter mais de uma). -->
-        <div class="areas" role="group" aria-label="Filtrar per sector" hidden>
-          <button class="area" type="button" data-area="" aria-pressed="true">Tots</button>
-          <button class="area" type="button" data-area="educacao" aria-pressed="false">Educació i cultura</button>
-          <button class="area" type="button" data-area="servicos" aria-pressed="false">Salut i serveis</button>
-          <button class="area" type="button" data-area="comercio" aria-pressed="false">Comerç i turisme</button>
-          <button class="area" type="button" data-area="industria" aria-pressed="false">Indústria</button>
-          <button class="area" type="button" data-area="jogos" aria-pressed="false">Jocs</button>
-        </div>
-        <div class="abas" role="tablist" aria-label="Quins projectes mostrar" hidden>
-          <button class="aba" type="button" role="tab" id="aba-no-ar" aria-controls="no-ar" aria-selected="true">En línia <span class="aba-conta">11</span></button>
-          <button class="aba" type="button" role="tab" id="aba-estudo" aria-controls="estudo" aria-selected="false" tabindex="-1">D'estudi <span class="aba-conta">3</span></button>
+        <!-- O quadro de cortiça da estação (07/11/2026): as capturas presas com tachinha, cada uma um pouco torta. No
+             computador, o título, as abas e as áreas ficam parados numa coluna ao lado do quadro. -->
+        <div class="projetos-lado">
+          <h2>Projectes</h2>
+          <!-- As áreas filtram as duas listas, e as abas separam o que está no ar do que é de estudo (js/movimento.js);
+               sem JavaScript, as áreas não aparecem e as duas listas ficam uma embaixo da outra.
+               Cada projeto diz as suas áreas no data-areas (pode ter mais de uma). -->
+          <div class="areas" role="group" aria-label="Filtrar per sector" hidden>
+            <button class="area" type="button" data-area="" aria-pressed="true">Tots</button>
+            <button class="area" type="button" data-area="educacao" aria-pressed="false">Educació i cultura</button>
+            <button class="area" type="button" data-area="servicos" aria-pressed="false">Salut i serveis</button>
+            <button class="area" type="button" data-area="comercio" aria-pressed="false">Comerç i turisme</button>
+            <button class="area" type="button" data-area="industria" aria-pressed="false">Indústria</button>
+            <button class="area" type="button" data-area="jogos" aria-pressed="false">Jocs</button>
+          </div>
+          <div class="abas" role="tablist" aria-label="Quins projectes mostrar" hidden>
+            <button class="aba" type="button" role="tab" id="aba-no-ar" aria-controls="no-ar" aria-selected="true">En línia <span class="aba-conta">11</span></button>
+            <button class="aba" type="button" role="tab" id="aba-estudo" aria-controls="estudo" aria-selected="false" tabindex="-1">D'estudi <span class="aba-conta">3</span></button>
+          </div>
         </div>
         <div class="painel" id="no-ar" role="tabpanel" aria-labelledby="aba-no-ar">
           <h3 class="painel-titulo">En línia</h3>
@@ -520,9 +539,26 @@
     </section>
 
     <section class="secao contato" id="contato">
+      <!-- O rádio da estação (07/11/2026): o alto-falante com o Linu e o mostrador com a hora de conversar ficam de um
+           lado (parados à vista no computador); o Monte o seu site e os botões, do outro -->
       <div class="dentro contato-dentro">
-        <span class="contato-linu" data-pose="acenando" aria-hidden="true"><img class="pixel" src="../img/linu/linu-contato.png?v=2" alt="" width="552" height="190"></span>
-        <div>
+        <div class="radio">
+          <span class="radio-alto" aria-hidden="true"></span>
+          <span class="contato-linu" data-pose="acenando" aria-hidden="true"><img class="pixel" src="../img/linu/linu-contato.png?v=2" alt="" width="552" height="190"></span>
+          <!-- A janela em horário de Brasília vale sem JavaScript; as duas horas e o “agora” saem do js/movimento.js -->
+          <div class="conversa" data-conversa>
+            <h3>Quan parlem</h3>
+            <p>De dilluns a divendres, de 9.00 a 21.00, hora de Brasília (UTC−3).</p>
+            <div class="conversa-agora" hidden>
+              <dl>
+                <div><dt>La teva hora</dt><dd data-hora-visita>—</dd></div>
+                <div><dt>Brasília</dt><dd data-hora-brasilia>—</dd></div>
+              </dl>
+              <p data-conversa-estado>—</p>
+            </div>
+          </div>
+        </div>
+        <div class="contato-corpo">
           <h2>Explica'ns la teva web</h2>
           <p>Dissenya la teva web i mira a l'instant una estimació de preu i de termini. Després només cal enviar-la per WhatsApp o correu: el missatge ja surt escrit. Pot ser només una idea: la resposta arriba amb preguntes i propers passos.</p>
           <div class="monte" role="group" aria-label="Dissenya la teva web" aria-describedby="monte-nota">
@@ -570,18 +606,6 @@
               <span>WhatsApp <span class="sem-quebra">+55 61 99667-2610</span></span>
             </a>
             <a class="botao botao-grande botao-contorno-claro monte-enviar" href="mailto:contato@linupedia.com.br?subject=Vull%20una%20web">contato@linupedia.com.br</a>
-          </div>
-          <!-- A janela em horário de Brasília vale sem JavaScript; as duas horas e o “agora” saem do js/movimento.js -->
-          <div class="conversa" data-conversa>
-            <h3>Quan parlem</h3>
-            <p>De dilluns a divendres, de 9.00 a 21.00, hora de Brasília (UTC−3).</p>
-            <div class="conversa-agora" hidden>
-              <dl>
-                <div><dt>La teva hora</dt><dd data-hora-visita>—</dd></div>
-                <div><dt>Brasília</dt><dd data-hora-brasilia>—</dd></div>
-              </dl>
-              <p data-conversa-estado>—</p>
-            </div>
           </div>
         </div>
       </div>

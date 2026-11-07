@@ -38,6 +38,21 @@ jobs:
           test -f public/index.html
           npx --yes html-validate@10.1.2 public/*.html public/*/index.html public/projetos/*.html public/*/projetos/*.html
           python3 deploy/conferir-pagina.py
+      # A conferência visual (07/11/2026): 390, 820 e 1280 px, claro e escuro, na inicial, num idioma CJK e numa página de
+      # projeto; reprova com rolagem lateral, erro no console, arquivo faltando ou falha séria de acessibilidade (axe).
+      # O quadro do Café só aceita ser aberto pelo endereço real, então o aviso de frame-ancestors não reprova.
+      - name: Conferência visual
+        run: |
+          npm i --no-save --no-audit --no-fund playwright@1.63.0 axe-core@4.10.3
+          npx playwright install --with-deps chromium
+          node ferramentas/conferir-visual.mjs --raiz public --paginas /,/ja/,/projetos/linupedia --ignorar frame-ancestors --saida capturas
+      - name: Guardar as capturas
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: capturas
+          path: capturas
+          retention-days: 14
       - name: Entregar na VM
         if: steps.check.outputs.tem == 'sim'
         env:

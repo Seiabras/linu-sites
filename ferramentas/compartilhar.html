@@ -5,34 +5,45 @@
 <title>Imagem de compartilhamento</title>
 <style>
   @font-face { font-family: "Nunito"; font-weight: 200 1000; src: url(../public/fontes/nunito-latin.woff2) format("woff2"); }
-  /* 1200 × 630: a imagem que aparece quando alguém manda o link (WhatsApp, redes). Gerada por gerar-imagens.mjs. */
+  @font-face { font-family: "Courier Prime"; font-weight: 400; src: url(../public/fontes/courier-prime-latin-400.woff2) format("woff2"); }
+  /* 1200 × 630: a imagem que aparece quando alguém manda o link (WhatsApp, redes). Gerada por gerar-imagens.mjs.
+     Na identidade de 07/11/2026, a estação por dentro: a lona da parede, a viga de madeira com a faixa laranja, a cena
+     em 2× (688 × 384) na moldura de madeira, o Linu em 1× e o endereço numa etiqueta de papel datilografada. */
   html, body { margin: 0; }
-  body { width: 1200px; height: 630px; background: #1F2A44; font-family: "Nunito", sans-serif; color: #FFFFFF; display: grid; grid-template-columns: 500px 1fr; align-items: center; gap: 40px; padding: 0 56px; box-sizing: border-box; overflow: hidden; }
-  .marca { display: flex; align-items: center; gap: 16px; font-size: 40px; font-weight: 800; }
-  .marca img { width: 72px; height: 72px; border-radius: 20px; }
-  .marca b { color: #7DD3FC; font-weight: 900; }
-  h1 { margin: 34px 0 0; font-size: 62px; line-height: 1.04; font-weight: 900; letter-spacing: -.02em; }
-  h1 span { color: #60A5FA; }
-  p { margin: 24px 0 0; font-size: 26px; color: #CBD5E1; font-weight: 700; }
-  .url { margin-top: 30px; display: inline-block; padding: 10px 22px; border-radius: 999px; background: #2563EB; font-size: 24px; font-weight: 800; }
-  .cena { position: relative; width: 100%; aspect-ratio: 344 / 192; border-radius: 22px; overflow: hidden; outline: 10px solid #FFFFFF; transform: rotate(1.5deg); box-shadow: 0 30px 60px -20px rgba(0, 0, 0, .6); }
+  body { width: 1200px; height: 630px; box-sizing: border-box; overflow: hidden; background-color: #EADFCD; background-image: repeating-linear-gradient(90deg, transparent 0 158px, rgba(94, 76, 67, .10) 158px 160px); font-family: "Nunito", sans-serif; color: #2A211D; }
+  .viga { height: 26px; background: #2E2420; border-bottom: 5px solid #C06635; }
+  .dentro { display: grid; grid-template-columns: 1fr 708px; align-items: center; gap: 30px; height: 599px; padding: 0 36px 0 52px; box-sizing: border-box; }
+  .marca { display: flex; align-items: center; gap: 14px; font-size: 36px; font-weight: 800; }
+  .marca img { width: 64px; height: 64px; border-radius: 6px; image-rendering: pixelated; }
+  .marca b { color: #C2410C; font-weight: 900; }
+  h1 { margin: 30px 0 0; font-size: 58px; line-height: 1.04; font-weight: 900; letter-spacing: -.02em; }
+  h1 span { color: #0B5F58; }
+  p { margin: 20px 0 0; font-size: 24px; color: #5A4A40; font-weight: 700; }
+  .url { position: relative; display: inline-block; margin-top: 30px; padding: 12px 20px 10px; background: #FBF3E3; font-family: "Courier Prime", monospace; font-size: 24px; font-weight: 400; font-synthesis: none; rotate: -2deg; box-shadow: 0 2px 2px rgba(60, 40, 20, .2), 0 12px 18px -8px rgba(60, 40, 20, .55); }
+  .url::before { content: ""; position: absolute; left: 50%; top: -10px; width: 64px; height: 20px; margin-left: -32px; background: rgba(236, 226, 196, .8); rotate: 5deg; }
+  .quadro { width: 688px; height: 384px; border: 10px solid #4A3830; border-top-color: #5E4C43; border-bottom-color: #3A2C24; box-shadow: 0 30px 50px -26px rgba(30, 18, 8, .75); }
+  .cena { position: relative; width: 688px; height: 384px; overflow: hidden; }
   .cena img { position: absolute; image-rendering: pixelated; }
-  .fundo { inset: 0; width: 100%; height: 100%; }
-  .linu { left: calc((150 - 27.6) / 344 * 100%); top: 63.02%; width: 16.05%; height: 31.77%; }
-  .sombra { position: absolute; left: calc((150 - 27.6) / 344 * 100% + 16.05% * .18); width: calc(16.05% * .64); top: calc(63.02% + 31.77% * .92); height: calc(31.77% * .11); border-radius: 50%; background: rgba(40, 48, 66, .47); }
+  .fundo { left: 0; top: 0; width: 688px; height: 384px; }
+  /* o Linu em 1× (172 × 190), com os pés na linha 182 da cena (364 em 2×), embaixo do lampião */
+  .linu { left: 284px; top: 174px; width: 172px; height: 190px; }
 </style>
 </head>
 <body>
-  <div>
-    <div class="marca"><img src="../public/img/linu-logo.png" alt=""><span>Linu <b>Sites</b></span></div>
-    <h1>Sites e apps web <span>sob medida</span></h1>
-    <p>Do desenho ao servidor, direto com quem faz.</p>
-    <div class="url">sites.linupedia.com.br</div>
-  </div>
-  <div class="cena">
-    <img class="fundo" src="../public/img/abrigo-estacao-dia.png" alt="">
-    <span class="sombra"></span>
-    <img class="linu" src="../public/img/linu/linu-frente.png" alt="">
+  <div class="viga"></div>
+  <div class="dentro">
+    <div>
+      <div class="marca"><img src="../public/img/linu-logo.png" alt=""><span>Linu <b>Sites</b></span></div>
+      <h1>Sites e apps web <span>sob medida</span></h1>
+      <p>Do desenho ao servidor, direto com quem faz.</p>
+      <div class="url">sites.linupedia.com.br</div>
+    </div>
+    <div class="quadro">
+      <div class="cena">
+        <img class="fundo" src="../public/img/abrigo-estacao-dia.png" alt="">
+        <img class="linu" src="../public/img/linu/linu-frente.png" alt="">
+      </div>
+    </div>
   </div>
 </body>
 </html>
