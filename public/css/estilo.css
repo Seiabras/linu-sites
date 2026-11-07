@@ -103,7 +103,7 @@ a { color: var(--azul); }
 .idiomas summary svg { fill: none; stroke: currentColor; stroke-width: 1.8; }
 .idiomas-lista { position: absolute; right: 0; top: calc(100% + 8px); z-index: 20; min-width: 230px; margin: 0; padding: 6px; background: var(--grafite); border: 1px solid rgba(255, 255, 255, .12); border-radius: 14px; box-shadow: 0 18px 30px -12px rgba(0, 0, 0, .6); max-height: calc(100vh - 96px); overflow-y: auto; }
 .idiomas-lista ul { margin: 0 0 4px; padding: 0; list-style: none; }
-.idiomas-regiao { margin: 6px 12px 2px; color: #94A3B8; font-size: .72rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.idiomas-regiao { margin: 6px 12px 2px; color: #94A3B8; font-size: .82rem; font-weight: 800; }
 .idiomas-lista a { display: block; padding: 9px 12px; border-radius: 10px; }
 .menu .idiomas-lista a::after { display: none; }
 .idiomas-lista a:hover, .idiomas-lista a:focus-visible { background: rgba(255, 255, 255, .08); }
@@ -154,7 +154,7 @@ a { color: var(--azul); }
 /* Abertura */
 .abertura { background: var(--gelo); padding: 64px 0 72px; border-bottom: 1px solid var(--linha); }
 .abertura-dentro { display: grid; grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr); gap: 48px; align-items: center; }
-.sobretitulo { margin: 0 0 12px; color: var(--aurora); font-weight: 800; text-transform: uppercase; letter-spacing: .08em; font-size: .85rem; }
+.sobretitulo { margin: 0 0 12px; color: var(--aurora); font-weight: 800; font-size: 1.05rem; }
 h1 { margin: 0; font-size: clamp(2.3rem, 5.5vw, 3.8rem); line-height: 1.05; font-weight: 900; letter-spacing: -.02em; }
 .marca-texto { color: var(--azul); }
 .abertura-sub { margin: 20px 0 0; font-size: 1.15rem; color: var(--tinta-suave); max-width: 32em; }
@@ -217,6 +217,8 @@ h2 { margin: 0; font-size: clamp(1.8rem, 3.6vw, 2.4rem); font-weight: 900; lette
 h3 { margin: 0 0 6px; font-size: 1.2rem; font-weight: 800; }
 
 .cartoes { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 18px; }
+/* tablet (700 a 1099 px): os quatro serviços em 2 × 2, nunca três e um sobrando */
+@media (min-width: 700px) and (max-width: 1099px) { .cartoes { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .cartao { background: var(--cartao); border: 1px solid var(--linha); border-radius: var(--raio); padding: 24px; }
 .cartao { display: flex; flex-direction: column; }
 .cartao p { margin: 0; color: var(--tinta-suave); }
@@ -236,7 +238,11 @@ h3 { margin: 0 0 6px; font-size: 1.2rem; font-weight: 800; }
 .cartao:hover .cartao-seta, .cartao:has(.cartao-link:focus-visible) .cartao-seta { transform: translateX(4px); }
 .so-leitor { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .precos-nota { margin: 18px 0 0; color: var(--tinta-suave); font-size: .92rem; }
-.cartao-icone { display: inline-flex; align-items: center; justify-content: center; width: 52px; height: 52px; border-radius: 16px; background: var(--azul-claro); font-size: 1.6rem; margin-bottom: 14px; }
+.cartao-icone { display: inline-flex; align-items: center; justify-content: center; width: 64px; height: 64px; border-radius: 16px; background: var(--azul-claro); color: var(--azul); margin-bottom: 14px; }
+/* Os ícones dos serviços em pixel art (07/11/2026), no traço da estação e do Linu, no lugar dos emojis: o contorno na cor do
+   texto do ícone e o detalhe no fogo do lampião */
+.pixel-icone { display: block; width: 48px; height: 48px; }
+.pixel-acento { fill: var(--fogo); }
 
 /* Projetos: "No ar" e "De estudo" em abas (js/movimento.js). Sem JavaScript, as abas ficam escondidas e as duas
    listas aparecem com o título de cada uma. */
@@ -271,7 +277,7 @@ h3 { margin: 0 0 6px; font-size: 1.2rem; font-weight: 800; }
 .projeto > a:hover img { transform: scale(1.03); }
 .projeto-texto { padding: 20px 22px 24px; display: flex; flex-direction: column; flex: 1; }
 .projeto-texto p { margin: 0 0 14px; color: var(--tinta-suave); }
-.etiqueta { align-self: flex-start; background: var(--aurora-claro); color: var(--aurora) !important; font-weight: 800; font-size: .78rem; text-transform: uppercase; letter-spacing: .06em; padding: 3px 10px; border-radius: 999px; margin-bottom: 10px !important; }
+.etiqueta { align-self: flex-start; background: var(--aurora-claro); color: var(--aurora) !important; font-weight: 800; font-size: .85rem; padding: 3px 10px; border-radius: 999px; margin-bottom: 10px !important; }
 .projeto-link { margin-top: auto; font-weight: 800; text-decoration: none; }
 .projeto-link::after { content: " →"; }
 .projeto-link:hover { text-decoration: underline; }
@@ -366,7 +372,7 @@ h3 { margin: 0 0 6px; font-size: 1.2rem; font-weight: 800; }
 .conversa-agora { margin-top: 12px; }
 .conversa-agora[hidden] { display: none; }
 .conversa dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; margin: 0 0 8px; }
-.conversa dt { font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; color: #94A3B8; font-weight: 800; }
+.conversa dt { font-size: .88rem; color: #94A3B8; font-weight: 800; }
 .conversa dd { margin: 2px 0 0; color: #FFFFFF; font-size: 1.15rem; font-weight: 900; font-variant-numeric: tabular-nums; }
 .contato .conversa [data-conversa-estado] { display: flex; align-items: flex-start; gap: 8px; color: #E2E8F0; font-weight: 700; }
 [data-conversa-estado]::before { content: ""; flex: none; width: 10px; height: 10px; margin-top: .45em; border-radius: 50%; background: #FBBF24; }
@@ -437,7 +443,7 @@ span.contato-linu { display: block; position: relative; aspect-ratio: 138 / 190;
 .monte-total { background: rgba(15, 23, 42, .45); border: 1px solid rgba(255, 255, 255, .14); border-radius: var(--raio); padding: 14px 16px; }
 .contato .monte-resumo { margin: 0 0 6px; max-width: none; font-weight: 800; font-size: 1.05rem; color: #FFFFFF; }
 .monte-numeros { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; margin: 6px 0 8px; }
-.monte-numeros dt { font-size: .8rem; text-transform: uppercase; letter-spacing: .04em; color: #94A3B8; font-weight: 800; }
+.monte-numeros dt { font-size: .88rem; color: #94A3B8; font-weight: 800; }
 .monte-numeros dd { margin: 2px 0 0; font-weight: 900; color: #FFFFFF; font-variant-numeric: tabular-nums; }
 .monte-numeros[hidden] { display: none; }
 .monte-numeros:not([hidden]) { animation: entra .22s ease-out; }

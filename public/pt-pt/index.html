@@ -56,7 +56,7 @@
   <!-- Os textos que os scripts escrevem (menu, luz, Monte o seu site), no idioma da página -->
   <script type="application/json" id="textos-js">{"menu_abrir":"Abrir o menu","menu_fechar":"Fechar o menu","luz_apagar_aria":"Apagar a luz (modo escuro)","luz_acender_aria":"Acender a luz (modo claro)","luz_apagar":"Apagar a luz","luz_acender":"Acender a luz","fechar":"Fechar","escolha":"Escolha o tipo para ver uma estimativa","sem_tipo":"Sem problema: a conversa ajuda a escolher o tipo.","um_item":"um item","n_itens":"{n} itens","extra":" + {itens} na proposta","por_ano":"{valor} por ano","por_mes":"{valor} por mês","estimativa":"Estimativa: a partir de {valor}{extra}","linha_tipo":"Tipo: {nome}","linha_itens":"Precisa de ter:","linha_depois":"Depois de pronto: {nome}{anual}","anual":", pagando o ano","linha_estimativa":"Estimativa do site: a partir de {valor}{extra}","ola":"Olá! Quero um site.","sobre":"Sobre o meu negócio: ","assunto":"Quero um site","ola_conversa":"Olá! Gostava de falar sobre um site.","area_vazia":"Nenhum projeto desta área aqui.","conversa_aberta":"Agora podemos falar, até {fim} na sua hora.","conversa_fechada":"Agora estamos fora do horário. A próxima janela abre {inicio} na sua hora."}</script>
   <script src="../js/tema-inicio.js?v=6"></script>
-  <link rel="stylesheet" href="../css/estilo.css?v=29">
+  <link rel="stylesheet" href="../css/estilo.css?v=30">
   <script src="../js/tema.js?v=8" defer></script>
   <script src="../js/menu.js?v=7" defer></script>
   <script src="../js/movimento.js?v=10" defer></script>
@@ -152,27 +152,29 @@
       <div class="dentro">
         <h2>O que fazemos</h2>
         <p class="secao-sub" data-deslize="Deslize para o lado →">Cada projeto é feito de raiz, à medida da forma como o seu negócio funciona.</p>
+        <!-- Ícones em pixel art (07/11/2026), desenhados numa grade de 16 × 16, no lugar dos emojis: a janela do site, o
+             painel com gráfico, o celular e o lampião da estação (o que fica aceso cuidando do site) -->
         <div class="cartoes">
           <article class="cartao">
-            <span class="cartao-icone" aria-hidden="true">🧭</span>
+            <span class="cartao-icone"><svg class="pixel-icone" viewBox="0 0 16 16" width="32" height="32" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path fill="currentColor" d="M1 1h14v1h-14zM1 2h1v1h-1zM14 2h1v1h-1zM1 3h14v1h-14zM1 4h1v1h-1zM14 4h1v1h-1zM1 5h1v1h-1zM3 5h8v1h-8zM14 5h1v1h-1zM1 6h1v1h-1zM14 6h1v1h-1zM1 7h1v1h-1zM3 7h4v1h-4zM8 7h4v1h-4zM14 7h1v1h-1zM1 8h1v1h-1zM3 8h1v1h-1zM6 8h1v1h-1zM8 8h1v1h-1zM11 8h1v1h-1zM14 8h1v1h-1zM1 9h1v1h-1zM3 9h4v1h-4zM8 9h4v1h-4zM14 9h1v1h-1zM1 10h1v1h-1zM14 10h1v1h-1zM1 11h1v1h-1zM3 11h9v1h-9zM14 11h1v1h-1zM1 12h1v1h-1zM14 12h1v1h-1zM1 13h14v1h-14z"/><path class="pixel-acento" d="M2 2h1v1h-1zM4 2h1v1h-1zM6 2h1v1h-1zM4 8h2v1h-2z"/></svg></span>
             <h3><a class="cartao-link" href="#contato" data-escolher="tipo=apresentacao" aria-describedby="preco-apresentacao">Sites de apresentação</a></h3>
             <p>Para dizer quem é, o que oferece e como o podem contactar. Rápidos, bonitos no telemóvel e fáceis de encontrar no Google.</p>
             <p class="cartao-preco" id="preco-apresentacao">a partir de <b>700 €</b> <span class="cartao-seta" aria-hidden="true">→</span><span class="so-leitor">: montar o orçamento</span></p>
           </article>
           <article class="cartao">
-            <span class="cartao-icone" aria-hidden="true">🛠️</span>
+            <span class="cartao-icone"><svg class="pixel-icone" viewBox="0 0 16 16" width="32" height="32" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path fill="currentColor" d="M1 1h14v1h-14zM1 2h1v1h-1zM14 2h1v1h-1zM1 3h1v1h-1zM14 3h1v1h-1zM1 4h1v1h-1zM14 4h1v1h-1zM1 5h1v1h-1zM8 5h2v1h-2zM14 5h1v1h-1zM1 6h1v1h-1zM8 6h2v1h-2zM14 6h1v1h-1zM1 7h1v1h-1zM5 7h2v1h-2zM8 7h2v1h-2zM14 7h1v1h-1zM1 8h1v1h-1zM5 8h2v1h-2zM8 8h2v1h-2zM14 8h1v1h-1zM1 9h1v1h-1zM3 9h1v1h-1zM5 9h2v1h-2zM8 9h2v1h-2zM14 9h1v1h-1zM1 10h1v1h-1zM3 10h1v1h-1zM5 10h2v1h-2zM8 10h2v1h-2zM14 10h1v1h-1zM1 11h1v1h-1zM14 11h1v1h-1zM1 12h1v1h-1zM3 12h10v1h-10zM14 12h1v1h-1zM1 13h14v1h-14z"/><path class="pixel-acento" d="M11 3h2v1h-2zM11 4h2v1h-2zM11 5h2v1h-2zM11 6h2v1h-2zM11 7h2v1h-2zM11 8h2v1h-2zM11 9h2v1h-2zM11 10h2v1h-2z"/></svg></span>
             <h3><a class="cartao-link" href="#contato" data-escolher="tipo=ferramenta" aria-describedby="preco-ferramenta">Ferramentas e painéis</a></h3>
             <p>Formulários de encomenda, cálculos, área com login e um painel para acompanhar tudo. O site deixa de ser montra e passa a fazer parte do trabalho.</p>
             <p class="cartao-preco" id="preco-ferramenta">a partir de <b>2000 €</b> <span class="cartao-seta" aria-hidden="true">→</span><span class="so-leitor">: montar o orçamento</span></p>
           </article>
           <article class="cartao">
-            <span class="cartao-icone" aria-hidden="true">📱</span>
+            <span class="cartao-icone"><svg class="pixel-icone" viewBox="0 0 16 16" width="32" height="32" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path fill="currentColor" d="M5 1h6v1h-6zM4 2h1v1h-1zM11 2h1v1h-1zM4 3h1v1h-1zM6 3h4v1h-4zM11 3h1v1h-1zM4 4h1v1h-1zM11 4h1v1h-1zM4 5h1v1h-1zM11 5h1v1h-1zM4 6h1v1h-1zM11 6h1v1h-1zM4 7h1v1h-1zM11 7h1v1h-1zM4 8h1v1h-1zM11 8h1v1h-1zM4 9h1v1h-1zM11 9h1v1h-1zM4 10h1v1h-1zM11 10h1v1h-1zM4 11h1v1h-1zM11 11h1v1h-1zM4 12h1v1h-1zM7 12h2v1h-2zM11 12h1v1h-1zM4 13h1v1h-1zM11 13h1v1h-1zM5 14h6v1h-6z"/><path class="pixel-acento" d="M6 5h2v1h-2zM9 5h2v1h-2zM6 6h2v1h-2zM9 6h2v1h-2zM6 8h2v1h-2zM9 8h2v1h-2zM6 9h2v1h-2zM9 9h2v1h-2z"/></svg></span>
             <h3><a class="cartao-link" href="#contato" data-escolher="tipo=app" aria-describedby="preco-app">Aplicações que se instalam</a></h3>
             <p>Aplicações web que ficam no ecrã do telemóvel como uma app normal e abrem até sem internet, sem passar por loja.</p>
             <p class="cartao-preco" id="preco-app">a partir de <b>3500 €</b> <span class="cartao-seta" aria-hidden="true">→</span><span class="so-leitor">: montar o orçamento</span></p>
           </article>
           <article class="cartao">
-            <span class="cartao-icone" aria-hidden="true">🛰️</span>
+            <span class="cartao-icone"><svg class="pixel-icone" viewBox="0 0 16 16" width="32" height="32" aria-hidden="true" focusable="false" shape-rendering="crispEdges"><path fill="currentColor" d="M7 0h2v1h-2zM6 1h1v1h-1zM9 1h1v1h-1zM5 2h6v1h-6zM4 3h1v1h-1zM11 3h1v1h-1zM4 4h1v1h-1zM11 4h1v1h-1zM4 5h1v1h-1zM11 5h1v1h-1zM4 6h1v1h-1zM11 6h1v1h-1zM4 7h1v1h-1zM11 7h1v1h-1zM4 8h1v1h-1zM11 8h1v1h-1zM4 9h1v1h-1zM11 9h1v1h-1zM5 10h6v1h-6zM4 11h8v1h-8zM6 12h1v1h-1zM9 12h1v1h-1zM5 13h6v1h-6z"/><path class="pixel-acento" d="M8 4h1v1h-1zM7 5h2v1h-2zM7 6h3v1h-3zM6 7h4v1h-4zM6 8h4v1h-4zM7 9h2v1h-2z"/></svg></span>
             <h3>Online e bem cuidado</h3>
             <p>Domínio, cadeado de segurança (HTTPS), servidor e cópias de segurança. Não precisa de perceber nada disto.</p>
             <ul class="planos">

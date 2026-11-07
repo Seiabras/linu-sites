@@ -390,7 +390,11 @@ node ferramentas/gerar-estudo.mjs pica-nao-pica
   de cada site (LinuPedia, Linu Sites, Digital Linu) e o que nunca entra. A fonte das decisões é o
   `IDENTIDADE-LINU.md` do linuarquivos: mudou lá, muda aqui e no Digital Linu.
 - **Abertura:** o que o estúdio faz e o botão de orçamento.
-- **O que fazemos:** sites de apresentação, ferramentas e painéis, apps que instalam, hospedagem.
+- **O que fazemos:** sites de apresentação, ferramentas e painéis, apps que instalam, hospedagem. Desde 07/11/2026,
+  cada cartão tem um ícone em pixel art desenhado para o site (a janela, o painel, o celular e o lampião da estação, numa
+  grade de 16 × 16, em SVG no `ferramentas/pagina/modelo.html`), no lugar dos emojis; no tablet, os quatro ficam em 2 × 2.
+  Também saíram as maiúsculas espaçadas (sobretítulo, etiquetas, regiões do menu de idiomas e rótulos do Monte o seu
+  site e da conversa): os textos aparecem como estão escritos, seguindo o `IDENTIDADE-LINU.md` do linuarquivos.
 - **Página de cada projeto** (`/projetos/linupedia`, `/v2tech`, `/losvega`, `/marginalia`, `/minhocao`, `/trupe`, `/iconvet`,
   `/ajoriente`, `/dojo-legacy`, `/omega`, `/barreto` e, desde 31/10/2026, os de estudo: `/cafe-aurora`,
   `/fotografia-do-cerrado` e `/pica-nao-pica`): o desafio, o que foi feito e como funciona por dentro, com os fatos
