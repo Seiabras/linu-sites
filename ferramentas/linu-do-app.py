@@ -9,7 +9,7 @@ fez em 24/10/2026 (“O Linu novo em todo lugar”). Rode de novo quando o Linu 
 - img/linu-logo.png (128 px), icone-180.png e icone-32.png: a logo e os ícones do app.
 Tudo na cor padrão. Desde a identidade “a planta” (07/11/2026), o Linu de capacete (img/linu/linu-planta.png) não
 vem do app: saiu da API de imagens (arte/linu-planta/) e do pixelar.py do linuarquivos; as poses de costas e de lado, da
-estação antiga, saíram. Depois, rode o ferramentas/gerar-imagens.mjs para refazer a imagem de compartilhar.
+estação, ficam como estão (voltaram para a obra pronta e este script não as refaz). Depois, rode o ferramentas/gerar-imagens.mjs para refazer a imagem de compartilhar.
 
 Os quadros do Linu saem sem a sobra do fundo antigo na borda (sem_halo). Para só limpar as imagens que já estão no
 site, sem trazer nada do app:

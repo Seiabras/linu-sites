@@ -310,6 +310,50 @@ p { margin: 0 0 14px; }
   .carimbo-indice a { min-height: 48px; padding: 4px 14px; white-space: nowrap; }
 }
 
+/* ---- A planta vira obra (07/11/2026, só na página em português): as abas em cima da folha trocam a planta pela
+   cabana em pixel art, a obra pronta. A cabana fica sempre em 2× (688 × 384) e, onde não cabe inteira, a moldura
+   recorta em volta da mesa (--centro, em px da imagem). O Linu que entra para trocar a luz fica em 1× (172 × 190), com
+   os pés na linha 182 da imagem; o js/tema.js põe o left dele. ---- */
+.vistas { display: flex; gap: 4px; margin: 0 0 -1.5px 14px; position: relative; z-index: 3; }
+.vistas[hidden] { display: none; }
+.vista-botao { min-height: 44px; padding: 0 16px; border: 1.5px solid var(--traco); border-bottom: 0; border-radius: 4px 4px 0 0; background: var(--papel-2); color: var(--tinta-suave); font: inherit; font-family: var(--titulo); font-weight: 600; font-size: .92rem; cursor: pointer; transition: background-color .18s ease-out, color .18s ease-out; }
+.vista-botao:hover { color: var(--tinta); }
+.vista-botao[aria-pressed="true"] { background: var(--folha); color: var(--traco); box-shadow: 0 1.5px 0 var(--folha); }
+.vista[hidden] { display: none; }
+.vista-obra { --k: 2; --centro: 172; }
+.obra-moldura { position: relative; height: calc(192px * var(--k)); overflow: hidden; border: 1.5px solid var(--traco); background: var(--papel-2); }
+.cena { position: relative; width: calc(344px * var(--k)); height: calc(192px * var(--k)); left: 50%; margin-left: calc(-1px * var(--centro) * var(--k)); }
+.cena > img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.cena-acesa, .cena-apagada { opacity: 0; }
+:root[data-hora="noite"] .cena-acesa { opacity: 1; }
+:root[data-theme="dark"] .cena-apagada { opacity: 1; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .cena-apagada { opacity: 1; } }
+.cena-linu { position: absolute; z-index: 2; left: 0; top: calc(182px * var(--k) - 190px); width: 172px; height: 190px; opacity: 0; pointer-events: none; transform-origin: 50% 100%; }
+.cena-linu[data-parado] { opacity: 1; pointer-events: auto; cursor: pointer; }
+.linu-frente, .linu-costas, .linu-lado { position: absolute; inset: 0; width: 100%; height: 100%; display: none; }
+.cena-linu[data-pose="frente"] .linu-frente, .cena-linu[data-pose="costas"] .linu-costas,
+.cena-linu[data-pose="direita"] .linu-lado, .cena-linu[data-pose="esquerda"] .linu-lado { display: block; }
+.linu-lado { overflow: hidden; }
+.linu-lado img { width: 688px; max-width: none; height: 190px; }
+.cena-linu[data-pose="esquerda"] .linu-lado { transform: scaleX(-1); }
+.cena-linu[data-andando] .linu-lado img { animation: linu-anda .6s steps(4) infinite; }
+@keyframes linu-anda { to { transform: translateX(-100%); } }
+:root[data-theme="dark"] .cena-linu { filter: brightness(.72); }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .cena-linu { filter: brightness(.72); } }
+.obra-legenda { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px 14px; margin: 12px 0 0; color: var(--tinta-suave); font-size: .9rem; }
+.obra-luz { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 14px; border: 1.5px solid var(--traco); border-radius: 3px; background: transparent; color: var(--tinta); font: inherit; font-family: var(--titulo); font-weight: 600; cursor: pointer; transition: background-color .18s ease-out; }
+.obra-luz:hover { background: var(--grade-forte); }
+.obra-luz:active { transform: scale(.97); }
+.obra-luz svg { flex: none; }
+/* com a obra à vista, o carimbo desce e deixa o “Apagar o lampião” livre */
+.prancha:has(.prancha-folha[data-vista="obra"]) .carimbo { margin-top: 12px; }
+.obra-luz:disabled { opacity: .6; cursor: progress; }
+@media (max-width: 699px) {
+  .vista-obra { --centro: 160; }
+  .prancha:has(.prancha-folha[data-vista="obra"]) { margin-top: 0; }
+  .vistas { margin-left: 8px; }
+}
+
 /* ---- As seções são as pranchas: a cota no alto, o número antes do título ---- */
 .pranchas { counter-reset: prancha; }
 .secao { position: relative; padding: 76px 0 88px; }

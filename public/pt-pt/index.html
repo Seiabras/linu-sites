@@ -56,10 +56,10 @@
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfessionalService","name":"Linu Sites","url":"https://sites.linupedia.com.br/pt-pt/","logo":"https://sites.linupedia.com.br/img/linu-logo.png","image":"https://sites.linupedia.com.br/img/compartilhar.png","description":"Sites de apresentação, ferramentas com painel e aplicações que se instalam no telemóvel. Desenhamos, programamos, publicamos e tratamos do servidor.","inLanguage":"pt-PT","email":"contato@linupedia.com.br","telephone":"+55 61 99667-2610","areaServed":"PT","availableLanguage":["pt-BR","pt-PT","es-ES","ca","nl","en-GB","fr-FR","de-DE","it-IT","en","ja-JP","ko-KR","zh-Hant"],"parentOrganization":{"@type":"Organization","name":"LinuPedia","url":"https://linupedia.com.br"}}</script>
   <!-- Os textos que os scripts escrevem (menu, luz, Monte o seu site), no idioma da página -->
   <script type="application/json" id="textos-js">{"menu_abrir":"Abrir o menu","menu_fechar":"Fechar o menu","luz_apagar_aria":"Apagar a luz (modo escuro)","luz_acender_aria":"Acender a luz (modo claro)","luz_apagar":"Apagar a luz","luz_acender":"Acender a luz","fechar":"Fechar","escolha":"Escolha o tipo para ver uma estimativa","sem_tipo":"Sem problema: a conversa ajuda a escolher o tipo.","um_item":"um item","n_itens":"{n} itens","extra":" + {itens} na proposta","por_ano":"{valor} por ano","por_mes":"{valor} por mês","estimativa":"Estimativa: a partir de {valor}{extra}","linha_tipo":"Tipo: {nome}","linha_itens":"Precisa de ter:","linha_depois":"Depois de pronto: {nome}{anual}","anual":", pagando o ano","linha_estimativa":"Estimativa do site: a partir de {valor}{extra}","ola":"Olá! Quero um site.","sobre":"Sobre o meu negócio: ","assunto":"Quero um site","ola_conversa":"Olá! Gostava de falar sobre um site.","area_vazia":"Nenhum projeto desta área aqui.","conversa_aberta":"Agora podemos falar, até {fim} na sua hora.","conversa_fechada":"Agora estamos fora do horário. A próxima janela abre {inicio} na sua hora."}</script>
-  <script src="../js/tema-inicio.js?v=e843eba7"></script>
-  <link rel="stylesheet" href="../css/estilo.css?v=14110402">
+  <script src="../js/tema-inicio.js?v=c760bbc1"></script>
+  <link rel="stylesheet" href="../css/estilo.css?v=678c0f68">
   <script src="../js/linu-vivo.js?v=daf0f399" defer></script>
-  <script src="../js/tema.js?v=cddc4fbc" defer></script>
+  <script src="../js/tema.js?v=ed6d91c2" defer></script>
   <script src="../js/menu.js?v=ebf40e9a" defer></script>
   <script src="../js/movimento.js?v=c8733e00" defer></script>
   <script src="../js/simulador.js?v=3843e85a" defer></script>
@@ -136,7 +136,11 @@
           </div>
         </div>
         <figure class="prancha" data-prancha>
-          <div class="prancha-folha">
+          <!-- A planta vira obra (07/11/2026, só em português por enquanto, regra 8): o seletor troca a planta pela cabana
+               em pixel art, a obra pronta; ali o Linu entra pela porta e apaga o lampião quando a luz troca (js/tema.js).
+               Sem JavaScript, o seletor não aparece e fica a planta. -->
+          <div class="prancha-folha" data-vista="planta">
+            <div class="vista vista-planta">
             <svg class="planta" viewBox="0 0 640 360" role="img" aria-label="Planta de um site desenhada em três vistas, computador, tablet e telemóvel, com as medidas, e o Linu de capacete a segurar o rolo da planta">
               <g class="planta-cotas">
                 <path d="M24 30h372M24 24v12M396 24v12M424 74h150M424 68v12M574 68v12M592 128h40M592 122v12M632 122v12" />
@@ -169,6 +173,7 @@
               </g>
             </svg>
             <img class="pixel prancha-linu" data-linu-vivo data-piscar="../img/linu/linu-planta-piscando.png?v=09fc25ba" src="../img/linu/linu-planta.png?v=62ba3ec5" alt="" width="120" height="194">
+            </div>
           </div>
           <figcaption class="carimbo">
             <p class="carimbo-topo"><b>Linu Sites</b><span>A planta de cada site, em três vistas.</span></p>

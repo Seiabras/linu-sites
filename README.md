@@ -488,6 +488,16 @@ a torre, a Família a carta náutica), e o azul do traço é o azul da família.
   390, com as cotas e as notas 1, 2 e 3), que se desenha uma vez ao abrir como num plotter (`js/planta.js`, uns 2 s; sem
   JavaScript, com “menos movimento” ou com `?static=1`, já vem pronta). Na frente, **o Linu de capacete** com o rolo da
   planta (`img/linu/linu-planta.png`, 120 × 194, sempre em 1×), que respira e pisca (`linu-vivo.js`).
+- **A planta vira obra** (07/11/2026, à noite; só na página em português por enquanto, regra 8). Em cima da prancha,
+  as abas “Planta” e “Obra pronta”: a obra é a cabana da identidade anterior (`abrigo-estacao-*.png`, de volta), sempre
+  em 2× (688 × 384), inteira no tablet e recortada em volta da mesa no computador e no celular (`--centro`). Ela
+  “imprime” de cima para baixo, em faixas, como saindo do plotter (só depois de as imagens carregarem, que baixam
+  quando a pessoa passa o mouse, foca ou toca na aba), e o Linu entra pela porta e fica no quarto (tocar nele dá um
+  pulinho). Com a obra na tela, trocar a luz (pelo botão do topo ou pelo “Apagar o lampião” embaixo da cena) volta a
+  ser o lampião da estação: o Linu anda até ele, pula para puxar a cordinha, o lampião falha e apaga (ou acende) e a
+  página troca de cor junto; de noite no relógio de quem visita, o quarto claro já é a noite com o lampião aceso
+  (`data-hora`, do `tema-inicio.js`). Com a planta na tela, a troca é o círculo que sai da luminária. Tudo no
+  `js/tema.js`; com “menos movimento”, nada anda e a troca é na hora.
 - **O carimbo é o índice.** O quadro de legenda no canto da prancha lista as seis pranchas (01 O que fazemos a 06 Pedir
   orçamento) com os textos do menu. Computador: no canto da folha, 2 × 3. Tablet: uma faixa de seis casas embaixo da
   prancha. Celular: uma faixa que rola de lado.
@@ -542,8 +552,10 @@ VM, use outra (a do celular serviu).
   `python3 ferramentas/linu-do-app.py --so-limpar`).
 - **O Linu de frente** (`img/linu/linu-frente.png`) fica só para a capa da LinuPedia (`ferramentas/capas/`).
 
-A cena da estação (`abrigo-estacao-*.png`), as poses de costas e de lado e os scripts dela (`cena-apagada.py`,
-`corrigir-porta-estacao.py`) saíram com a identidade da planta; estão no histórico do git.
+- **A cabana da obra pronta** (`img/abrigo-estacao-dia.png`, `-noite.png` e `-apagada.png`, 344 × 192) e o Linu que
+  anda nela (`linu/linu-frente.png`, `linu-costas.png` e os 4 passos de lado em `linu-lado.png`) voltaram em 07/11/2026,
+  à noite, para a obra pronta. Os scripts que fizeram a cena da noite (`cena-apagada.py`, `corrigir-porta-estacao.py`)
+  ficaram só no histórico do git (commit 46304cee), já que as imagens não mudam.
 
 ## Versão dos arquivos
 
