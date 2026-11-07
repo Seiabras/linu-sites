@@ -19,6 +19,9 @@ paisagem = (B - R >= 6) & ((R + G + B) / 3 > 120)
 fora = np.zeros((H, W), bool)
 for x0, y0, x1, y1 in [(33, 38, 67, 178), (71, 48, 95, 89)]:  # porta e escotilha
     fora |= (xs >= x0) & (xs < x1) & (ys >= y0) & (ys < y1) & paisagem
+# o vidro da parede da esquerda (a geleira): as sombras da geleira de dia são escuras e enganariam a busca abaixo,
+# que pararia cedo e recoloriria a geleira do dia; com outra geleira, ela piscava quando o lampião falha (07/11/2026)
+fora |= (xs < 23) & (ys < 135)
 for y in range(H):  # do lado de fora da barraca, até a primeira linha escura da parede
     for x in range(40):
         if d[y, x].mean() < 70:
