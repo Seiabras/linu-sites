@@ -1,5 +1,7 @@
 # Linu Sites (repositório linu-sites): só arquivos, em /opt/linu-sites/app
 sites.linupedia.com.br {
+	# a identidade mora na Família Linu desde 07/11/2026
+	redir /identidade https://familia.linupedia.com.br/identidade 301
 	encode zstd gzip
 	header {
 		X-Content-Type-Options nosniff

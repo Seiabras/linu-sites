@@ -26,7 +26,7 @@ O visual segue a LinuPedia: o azul do app, o gelo e o pergaminho da expedição 
 | `public/404.html` | Página de erro com o código E404, mostrada pelo Caddy em qualquer endereço que não existe (`handle_errors` no `deploy/Caddyfile-bloco`; liga no servidor pelo `endurecer.sh` do linuarquivos). |
 | `public/projetos/*.html` | Página de cada projeto em português; nos outros idiomas, em `public/<pasta>/projetos/`. Geradas pelo `ferramentas/gerar-idiomas.mjs`. |
 | `public/css/estilo.css` | Visual (cores da LinuPedia, modo claro e escuro). |
-| `public/js/` | `tema-inicio.js` (aplica o tema antes de pintar), `tema.js` (o Linu e o lampião; com “menos movimento” ligado ele não anda, só aparece embaixo do lampião), `menu.js` (menu do celular), `movimento.js` (animações), `simulador.js` (o simulador do Café Aurora), `identidade.js` (copiar as cores da seção Identidade visual). |
+| `public/js/` | `tema-inicio.js` (aplica o tema antes de pintar), `tema.js` (o Linu e o lampião; com “menos movimento” ligado ele não anda, só aparece embaixo do lampião), `menu.js` (menu do celular), `movimento.js` (animações) e `simulador.js` (o simulador do Café Aurora). |
 | `public/img/` | Cena da estação, o Linu (`linu/`, `linu-pixel.png`), a logo (`linu-logo.png`), capturas dos projetos (`projetos/`), ícones e imagem de compartilhar. |
 | `public/fontes/` | Nunito e as Noto de japonês, coreano e chinês (licença OFL), servidas pelo próprio site. |
 | `sitios/` | Os sites dos subdomínios, fora de `public/`: `cafe-aurora/` (cafe.linupedia.com.br, também com `/bootstrap/`, `/tailwind/`, `/bulma/` e `/pico/`), `fotografia-do-cerrado/` (cerrado.linupedia.com.br), `pica-nao-pica/` (picanaopica.linupedia.com.br). O Digital Linu não entra aqui: é o serviço irmão, com repositório e publicação próprios (`Seiabras/digital-linu`). Cada um tem o seu repositório público no GitHub (`Seiabras/cafe-aurora`, `Seiabras/fotografia-do-cerrado`, `Seiabras/pica-nao-pica`); mudou aqui, leve a mudança para lá. |
@@ -385,10 +385,9 @@ node ferramentas/gerar-estudo.mjs pica-nao-pica
 - **A faixa do Digital Linu** (6/11/2026, só em pt-BR, regra 8): uma linha acima do topo, “Procurando vídeo, redes
   sociais ou anúncios? Conheça o Digital Linu”, com o link em `digital.linupedia.com.br`. O Digital Linu tem a mesma
   faixa apontando para cá. Fica no bloco `{{?pt-BR}}` do `ferramentas/pagina/modelo.html`; o estilo é o `.faixa-irma`.
-- **Identidade visual** (6/11/2026, só em pt-BR): a última seção, a mesma do Digital Linu, cada uma marcando onde a
-  pessoa está. Mostra o Linu, as sete cores da família (tocar copia o código, `js/identidade.js`), as letras, o objeto
-  de cada site (LinuPedia, Linu Sites, Digital Linu) e o que nunca entra. A fonte das decisões é o
-  `IDENTIDADE-LINU.md` do linuarquivos: mudou lá, muda aqui e no Digital Linu.
+- **Identidade visual** (desde 07/11/2026): mora na Família Linu (https://familia.linupedia.com.br/identidade). O
+  `/identidade` daqui leva para lá (um `redir` no `deploy/Caddyfile-bloco`), e o rodapé em pt-BR tem a nota “Da
+  Família Linu · Identidade visual”. A fonte das decisões continua o `IDENTIDADE-LINU.md` do linuarquivos.
 - **Abertura:** o que o estúdio faz e o botão de orçamento.
 - **O que fazemos:** sites de apresentação, ferramentas e painéis, apps que instalam, hospedagem. Desde 07/11/2026,
   cada cartão tem um ícone em pixel art desenhado para o site (a janela, o painel, o celular e o lampião da estação, numa

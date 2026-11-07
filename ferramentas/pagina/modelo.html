@@ -585,75 +585,16 @@
         </div>
       </div>
     </section>
-    {{?pt-BR}}
-    <!-- Identidade visual (6/11/2026), por enquanto só em português (regra 8): a mesma seção do Digital Linu, cada uma
-         marcando onde a pessoa está; o copiar das cores fica em js/identidade.js -->
-    <section class="secao secao-gelo identidade" id="identidade">
-      <div class="dentro">
-        <h2>Identidade visual</h2>
-        <p class="secao-sub">O Linu Sites é da família Linu, com a LinuPedia e o Digital Linu. O Linu, o azul e o grafite são
-          de todos; cada um tem o seu objeto e a sua cor.</p>
-        <div class="identidade-grade">
-          <figure class="identidade-linu">
-            <img class="pixel" src="{{raiz}}img/linu/linu-frente.png?v=2" alt="O Linu em pixel art, de frente" width="172" height="190" loading="lazy">
-            <figcaption><b>O Linu</b>Um pinguim-de-barbicha em pixel art, que sai da Antártica e viaja pelo mundo na
-              LinuPedia. Aparece em todos os sites da família, sempre no traço de pixel, nunca redesenhado liso.</figcaption>
-          </figure>
-
-          <div class="identidade-bloco">
-            <h3>Cores</h3>
-            <p class="identidade-dica">Toque numa cor para copiar o código.</p>
-            <ul class="cores">
-              <li><button type="button" class="cor" data-copiar="#2563EB"><span class="cor-amostra cor-azul"></span><b>Azul da marca</b><code>#2563EB</code><small>Toda a família: logo, botões da LinuPedia e do Linu Sites</small></button></li>
-              <li><button type="button" class="cor" data-copiar="#1F2A44"><span class="cor-amostra cor-grafite"></span><b>Grafite</b><code>#1F2A44</code><small>Toda a família: o topo, o rodapé, o modo escuro</small></button></li>
-              <li><button type="button" class="cor" data-copiar="#EA580C"><span class="cor-amostra cor-fogo"></span><b>Fogo</b><code>#EA580C</code><small>O lampião do Linu Sites; a cor dominante do Digital Linu</small></button></li>
-              <li><button type="button" class="cor" data-copiar="#C2410C"><span class="cor-amostra cor-fogo-escuro"></span><b>Fogo escuro</b><code>#C2410C</code><small>Os botões do Digital Linu (contraste AA sobre o branco)</small></button></li>
-              <li><button type="button" class="cor" data-copiar="#0F766E"><span class="cor-amostra cor-aurora"></span><b>Aurora</b><code>#0F766E</code><small>A expedição: o acento do Linu Sites</small></button></li>
-              <li><button type="button" class="cor" data-copiar="#EFF8FF"><span class="cor-amostra cor-gelo"></span><b>Gelo</b><code>#EFF8FF</code><small>O fundo das seções do Linu Sites</small></button></li>
-              <li><button type="button" class="cor" data-copiar="#FBF3E3"><span class="cor-amostra cor-pergaminho"></span><b>Pergaminho</b><code>#FBF3E3</code><small>O papel da expedição, na LinuPedia e no Linu Sites</small></button></li>
-            </ul>
-            <p class="identidade-copiado" data-copiado aria-live="polite"></p>
-          </div>
-
-          <div class="identidade-bloco">
-            <h3>Letras</h3>
-            <p class="letra-amostra">Aa Bb Cc 123</p>
-            <p><b>Nunito</b>, no Linu Sites e no Digital Linu: redonda como o Linu, fácil de ler no celular. Servida pelo
-              próprio site, sem Google Fonts.</p>
-            <p><b>Kalam</b> e <b>Atkinson Hyperlegible Next</b>, na LinuPedia: a letra à mão do caderno nos títulos e a
-              letra feita para baixa visão no texto.</p>
-          </div>
-
-          <div class="identidade-bloco identidade-familia">
-            <h3>Cada um com o seu objeto</h3>
-            <ul class="familia">
-              <li><b>LinuPedia</b><span>O caderno de expedição: papel, letra à mão, fita e carimbos de cada lugar.</span><a href="https://linupedia.com.br/">linupedia.com.br</a></li>
-              <li class="familia-aqui"><b>Linu Sites <em>você está aqui</em></b><span>A estação em pixel art, com o lampião que o Linu apaga à noite.</span><a href="./">sites.linupedia.com.br</a></li>
-              <li><b>Digital Linu</b><span>A ilha de edição: o Linu no visor da câmera, o REC e a linha do tempo.</span><a href="https://digital.linupedia.com.br/">digital.linupedia.com.br</a></li>
-            </ul>
-          </div>
-
-          <div class="identidade-bloco">
-            <h3>O que nunca entra</h3>
-            <ul class="nunca">
-              <li><span class="nunca-x" aria-hidden="true">✗</span>Emoji no lugar de ícone: os ícones são desenhados para cada site.</li>
-              <li><span class="nunca-x" aria-hidden="true">✗</span>Rótulos em maiúsculas espaçadas.</li>
-              <li><span class="nunca-x" aria-hidden="true">✗</span>Gradiente roxo, brilho colorido, foto de banco de imagens.</li>
-              <li><span class="nunca-x" aria-hidden="true">✗</span>Fontes da “lista de IA”, como Inter e Poppins.</li>
-              <li><span class="nunca-x" aria-hidden="true">✗</span>Frases que servem para qualquer um: “transforme”, “eleve”, “simples, rápido e seguro”.</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-    <script src="{{raiz}}js/identidade.js?v=1" defer></script>
-    {{/pt-BR}}
   </main>
 
   <footer class="rodape">
     <div class="dentro rodape-dentro">
       <p><b>Linu Sites</b> · {{rodape_slogan}}</p>
       <p>{{rodape_estudio}} <a href="https://linupedia.com.br">LinuPedia</a></p>
+      {{?pt-BR}}
+      <!-- A identidade visual mora na Família Linu desde 07/11/2026 (o /identidade daqui leva para lá); só em pt-BR, regra 8 -->
+      <p>Da <a href="https://familia.linupedia.com.br/">Família Linu</a> · <a href="https://familia.linupedia.com.br/identidade">Identidade visual</a></p>
+      {{/pt-BR}}
     </div>
   </footer>
 </body>
