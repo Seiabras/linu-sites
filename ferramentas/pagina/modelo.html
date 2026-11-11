@@ -223,7 +223,7 @@
             <button class="area" type="button" data-area="jogos" aria-pressed="false">{{area_jogos}}</button>
           </div>
           <div class="abas" role="tablist" aria-label="{{abas_aria}}" hidden>
-            <button class="aba" type="button" role="tab" id="aba-no-ar" aria-controls="no-ar" aria-selected="true">{{aba_no_ar}} <span class="aba-conta">11</span></button>
+            <button class="aba" type="button" role="tab" id="aba-no-ar" aria-controls="no-ar" aria-selected="true">{{aba_no_ar}} <span class="aba-conta">{{conta_no_ar}}</span></button>
             <button class="aba" type="button" role="tab" id="aba-estudo" aria-controls="estudo" aria-selected="false" tabindex="-1">{{aba_estudo}} <span class="aba-conta">3</span></button>
           </div>
         </div>
@@ -363,6 +363,58 @@
                 </p>
               </div>
             </article>
+            {{?pt-BR}}
+            <!-- Os irmãos da Família Linu (11/11/2026), feitos aqui e no ar: só em português, como os próprios sites (regra 8;
+                 "so": ["pt-BR"] no projetos.json) -->
+            <article class="projeto" data-areas="servicos">
+              <a href="https://familia.linupedia.com.br/" target="_blank" rel="noopener"><img src="{{raiz}}img/projetos/familia-linu.webp" srcset="{{raiz}}img/projetos/familia-linu-480.webp 480w, {{raiz}}img/projetos/familia-linu.webp 960w" sizes="(max-width: 699px) 130px, 320px" alt="Página inicial da Família Linu: o mapa em pixel art com uma ilha para cada irmão" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">Da Família Linu</p>
+                <h3>Família Linu</h3>
+                <p>A casa dos irmãos: um mapa em pixel art onde cada serviço é uma ilha, e rotas que juntam vários numa conversa só.</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="projetos/familia-linu">{{como_foi_feito}}</a>
+                  <a class="projeto-link" href="https://familia.linupedia.com.br/" target="_blank" rel="noopener">familia.linupedia.com.br</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="servicos">
+              <a href="https://digital.linupedia.com.br/" target="_blank" rel="noopener"><img src="{{raiz}}img/projetos/digital-linu.webp" srcset="{{raiz}}img/projetos/digital-linu-480.webp 480w, {{raiz}}img/projetos/digital-linu.webp 960w" sizes="(max-width: 699px) 130px, 320px" alt="Página inicial do Digital Linu, montada como um programa de edição de vídeo" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">Da Família Linu</p>
+                <h3>Digital Linu</h3>
+                <p>Vídeo, redes sociais e anúncios para pequenos negócios, num site montado como um programa de edição de vídeo.</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="projetos/digital-linu">{{como_foi_feito}}</a>
+                  <a class="projeto-link" href="https://digital.linupedia.com.br/" target="_blank" rel="noopener">digital.linupedia.com.br</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="servicos">
+              <a href="https://seguro.linupedia.com.br/" target="_blank" rel="noopener"><img src="{{raiz}}img/projetos/linu-seguro.webp" srcset="{{raiz}}img/projetos/linu-seguro-480.webp 480w, {{raiz}}img/projetos/linu-seguro.webp 960w" sizes="(max-width: 699px) 130px, 320px" alt="Página inicial do Linu Seguro: o Linu com a chave ao lado do iglu" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">Da Família Linu</p>
+                <h3>Linu Seguro</h3>
+                <p>Segurança digital para pequenos negócios: o iglu do Linu, em que cada proteção é um bloco de gelo.</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="projetos/linu-seguro">{{como_foi_feito}}</a>
+                  <a class="projeto-link" href="https://seguro.linupedia.com.br/" target="_blank" rel="noopener">seguro.linupedia.com.br</a>
+                </p>
+              </div>
+            </article>
+            <article class="projeto" data-areas="servicos">
+              <a href="https://farol.linupedia.com.br/" target="_blank" rel="noopener"><img src="{{raiz}}img/projetos/linu-farol.webp" srcset="{{raiz}}img/projetos/linu-farol-480.webp 480w, {{raiz}}img/projetos/linu-farol.webp 960w" sizes="(max-width: 699px) 130px, 320px" alt="Página inicial do Linu Farol: o farol listrado e o Linu de luneta" width="960" height="600" loading="lazy"></a>
+              <div class="projeto-texto">
+                <p class="etiqueta">Da Família Linu</p>
+                <h3>Linu Farol</h3>
+                <p>O painel do mês para pequenos negócios: se o site está no ar, com o cadeado em dia, rápido e trancado, e o que fazer em seguida.</p>
+                <p class="projeto-links">
+                  <a class="projeto-link" href="projetos/linu-farol">{{como_foi_feito}}</a>
+                  <a class="projeto-link" href="https://farol.linupedia.com.br/" target="_blank" rel="noopener">farol.linupedia.com.br</a>
+                </p>
+              </div>
+            </article>
+            {{/pt-BR}}
           </div>
         </div>
         <div class="painel" id="estudo" role="tabpanel" aria-labelledby="aba-estudo">

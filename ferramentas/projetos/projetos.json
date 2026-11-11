@@ -11,6 +11,10 @@
     "barreto",
     "minhocao",
     "trupe",
+    "familia-linu",
+    "digital-linu",
+    "linu-seguro",
+    "linu-farol",
     "cafe-aurora",
     "fotografia-do-cerrado",
     "pica-nao-pica"
@@ -102,6 +106,42 @@
       "endereco": "picanaopica.linupedia.com.br",
       "imagem": "pica-nao-pica.webp",
       "codigo": "https://github.com/Seiabras/pica-nao-pica"
+    },
+    "familia-linu": {
+      "nome": "Família Linu",
+      "url": "https://familia.linupedia.com.br/",
+      "endereco": "familia.linupedia.com.br",
+      "imagem": "familia-linu.webp",
+      "so": [
+        "pt-BR"
+      ]
+    },
+    "digital-linu": {
+      "nome": "Digital Linu",
+      "url": "https://digital.linupedia.com.br/",
+      "endereco": "digital.linupedia.com.br",
+      "imagem": "digital-linu.webp",
+      "so": [
+        "pt-BR"
+      ]
+    },
+    "linu-seguro": {
+      "nome": "Linu Seguro",
+      "url": "https://seguro.linupedia.com.br/",
+      "endereco": "seguro.linupedia.com.br",
+      "imagem": "linu-seguro.webp",
+      "so": [
+        "pt-BR"
+      ]
+    },
+    "linu-farol": {
+      "nome": "Linu Farol",
+      "url": "https://farol.linupedia.com.br/",
+      "endereco": "farol.linupedia.com.br",
+      "imagem": "linu-farol.webp",
+      "so": [
+        "pt-BR"
+      ]
     }
   }
 }

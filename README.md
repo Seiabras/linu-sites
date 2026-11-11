@@ -415,12 +415,17 @@ node ferramentas/gerar-estudo.mjs pica-nao-pica
   Iconvet (iconvet.com.br), Administração Judicial Oriente (ajoriente.com), Dojo Legacy (bjj-link.com) e Ômega
   Imóveis (omega-site-vert.vercel.app, ainda sem domínio); desde 30/10/2026, o Minhocão (minhocao.linupedia.com.br) e a Trupehh (trupehh.com.br, no ar desde 11/11/2026); e a Barreto Jiu-Jitsu (barreto-site-ashy.vercel.app, em prévia, ainda sem domínio), na área
   Saúde e serviços.
-  Capturas em `public/img/projetos/` (960×600, WebP). A LinuPedia, o Minhocão e a Trupehh não têm uma página de abertura que
+  Capturas em `public/img/projetos/` (960×600, WebP). Cada uma tem a irmã de 480 px (`<nome>-480.webp`, 11/11/2026), servida pelo `srcset` do cartão: `node ferramentas/gerar-imagens.mjs` refaz todas. A LinuPedia, o Minhocão e a Trupehh não têm uma página de abertura que
   sirva de capa, então desde 31/10/2026 usam uma capa feita para o portfólio: o abrigo do Linu, a imagem de compartilhar
   do jogo e o cartaz com o logo de cinco bolinhas e os bilhetes do mural (desde 11/11/2026, sem o crédito que a imagem da Trupehh leva). As fontes dessas capas ficam em
   `ferramentas/capas/`, com a arte dos repositórios vizinhos: `node ferramentas/gerar-imagens.mjs capas` refaz. Trocou a
   imagem, suba o `?v=` dela no modelo da página e no `projetos.json` (imagem fica 7 dias em cache) e troque o texto
   alternativo nos 13 idiomas.
+  Desde 11/11/2026 também os quatro irmãos da Família Linu (Família Linu, Digital Linu, Linu Seguro e Linu Farol), com a
+  etiqueta “Da Família Linu”, na área Saúde e serviços, **só em português** (como os próprios sites; regra 8): cartão
+  dentro de um bloco `{{?pt-BR}}` do modelo e `"so": ["pt-BR"]` no `projetos.json`, que faz o gerador pular o texto, a
+  página, as alternativas e o sitemap nas outras línguas (o seletor leva à inicial daquela língua). A conta da aba “No ar”
+  sai do gerador (`{{conta_no_ar}}`): 15 em português, 11 nas outras. As capturas são da tela principal de cada um.
   O NeuroSim fica de fora por enquanto, até sair do começo.
 - **De estudo** (`#estudo`, 29/10/2026): os sites que fiz na disciplina Desenvolvimento de Interfaces, com
   empresas fictícias: Café Aurora, Fotografia do Cerrado e Abelhas sem Ferrão. Cada cartão leva à página “Como foi

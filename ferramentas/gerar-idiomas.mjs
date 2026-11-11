@@ -65,11 +65,16 @@ for (const i of idiomas.slice(1)) {
 // ferramentas/projetos/modelo.html, os dados fixos em projetos.json e os textos em projetos/textos/<código>.json
 const modeloProjeto = fs.readFileSync(path.join(aqui, 'projetos', 'modelo.html'), 'utf8');
 const { ordem: PROJETOS, fixos } = JSON.parse(fs.readFileSync(path.join(aqui, 'projetos', 'projetos.json'), 'utf8'));
+// Um projeto com "so": ["pt-BR"] no projetos.json existe só nesses idiomas (regra 8: parte nova nasce em português; os
+// irmãos da Família Linu, 11/11/2026). Nos outros, não tem texto, página, alternativa nem linha no sitemap, e o seletor
+// de idioma leva à página inicial daquele idioma.
+const temProjeto = (id, o) => !id || !fixos[id].so || fixos[id].so.includes(o.codigo);
+const idDoSufixo = (sufixo) => sufixo.startsWith('projetos/') ? sufixo.slice(9) : '';
 const textosProjetos = Object.fromEntries(idiomas.map((i) => {
   const arquivo = path.join(aqui, 'projetos', 'textos', i.codigo + '.json');
   if (!fs.existsSync(arquivo)) { erros.push(`${i.codigo}: falta ferramentas/projetos/textos/${i.codigo}.json`); return [i.codigo, {}]; }
   const t = JSON.parse(fs.readFileSync(arquivo, 'utf8'));
-  for (const id of PROJETOS) if (!t[id]) erros.push(`${i.codigo}: falta o projeto ${id}`);
+  for (const id of PROJETOS) if (temProjeto(id, i) && !t[id]) erros.push(`${i.codigo}: falta o projeto ${id}`);
   return [i.codigo, t];
 }));
 const lista = (itens) => itens.map((t) => `          <li>${eComercial(t)}</li>`).join('\n');
@@ -82,7 +87,7 @@ const seletorPara = (i, raiz, sufixo) => [
   ...REGIOES.filter((r) => idiomas.some((o) => o.regiao === r)).flatMap((r) => [
     `            <p class="idiomas-regiao" id="regiao-${r}">${eComercial(i.textos['regiao_' + r])}</p>`,
     `            <ul aria-labelledby="regiao-${r}">`,
-    ...idiomas.filter((o) => o.regiao === r).map((o) => `              <li><a href="${(raiz + (o.pasta ? o.pasta + '/' : '') + sufixo) || './'}" hreflang="${o.lang}" lang="${o.lang}" data-regiao="${o.regiao}"${o.padrao ? ' data-padrao' : ''} data-sugestao="${aspas(o.sugestao)}" data-fechar="${aspas(o.js.fechar)}"${o === i ? ' aria-current="true"' : ''}>${eComercial(o.nome)}</a></li>`),
+    ...idiomas.filter((o) => o.regiao === r).map((o) => `              <li><a href="${(raiz + (o.pasta ? o.pasta + '/' : '') + (temProjeto(idDoSufixo(sufixo), o) ? sufixo : '')) || './'}" hreflang="${o.lang}" lang="${o.lang}" data-regiao="${o.regiao}"${o.padrao ? ' data-padrao' : ''} data-sugestao="${aspas(o.sugestao)}" data-fechar="${aspas(o.js.fechar)}"${o === i ? ' aria-current="true"' : ''}>${eComercial(o.nome)}</a></li>`),
     '            </ul>',
   ]),
   '          </div>',
@@ -90,9 +95,10 @@ const seletorPara = (i, raiz, sufixo) => [
 ].join('\n');
 const urlDe = (o, sufixo) => enderecoDe(o) + sufixo;
 const padrao = idiomas.find((o) => o.codigo === PADRAO);
+const comProjeto = (sufixo) => idiomas.filter((o) => temProjeto(idDoSufixo(sufixo), o));
 const alternativasPara = (sufixo) => [
-  ...idiomas.flatMap((o) => hreflangs(o).map((h) => `  <link rel="alternate" hreflang="${h}" href="${urlDe(o, sufixo)}">`)),
-  `  <link rel="alternate" hreflang="x-default" href="${urlDe(padrao, sufixo)}">`,
+  ...comProjeto(sufixo).flatMap((o) => hreflangs(o).map((h) => `  <link rel="alternate" hreflang="${h}" href="${urlDe(o, sufixo)}">`)),
+  `  <link rel="alternate" hreflang="x-default" href="${urlDe(comProjeto(sufixo).includes(padrao) ? padrao : comProjeto(sufixo)[0], sufixo)}">`,
 ].join('\n');
 
 // Os blocos que só entram em algumas páginas. As chaves de texto deles existem em todos os idiomas, vazias onde o bloco
@@ -143,8 +149,12 @@ for (const i of idiomas) {
     email_assunto: encodeURIComponent(js.assunto),
   };
 
+  // a conta da aba “No ar”: os cartões que entram nesta página (os irmãos só em português)
+  const doIdioma = soNestas(modelo, i);
+  const painelNoAr = doIdioma.slice(doIdioma.indexOf('id="no-ar"'), doIdioma.indexOf('id="estudo"'));
   const extras = {
     ...comuns,
+    conta_no_ar: String((painelNoAr.match(/<article class="projeto"/g) || []).length),
     raiz,
     url: enderecoDe(i),
     alternativas: alternativasPara(''),
@@ -177,6 +187,7 @@ for (const i of idiomas) {
   // as páginas dos projetos, um nível abaixo (projetos/), com o seletor levando ao mesmo projeto em cada idioma
   const raizProjeto = raiz + '../';
   for (const id of PROJETOS) {
+    if (!temProjeto(id, i)) continue;
     const p = { ...fixos[id], ...(textosProjetos[i.codigo][id] || {}) };
     if (!p.feito) continue;
     const sufixo = 'projetos/' + id;
@@ -231,12 +242,12 @@ console.log(`${gravados} páginas gravadas (${saidas.length} no total: a inicial
 
 // O sitemap: cada página em cada idioma, com todas as alternativas
 const sufixos = ['', ...PROJETOS.map((id) => 'projetos/' + id)];
-const linksDe = (sufixo) => idiomas.flatMap((o) => hreflangs(o).map((h) => `    <xhtml:link rel="alternate" hreflang="${h}" href="${urlDe(o, sufixo)}"/>`)).join('\n')
-  + `\n    <xhtml:link rel="alternate" hreflang="x-default" href="${urlDe(padrao, sufixo)}"/>`;
+const linksDe = (sufixo) => comProjeto(sufixo).flatMap((o) => hreflangs(o).map((h) => `    <xhtml:link rel="alternate" hreflang="${h}" href="${urlDe(o, sufixo)}"/>`)).join('\n')
+  + `\n    <xhtml:link rel="alternate" hreflang="x-default" href="${urlDe(comProjeto(sufixo).includes(padrao) ? padrao : comProjeto(sufixo)[0], sufixo)}"/>`;
 const sitemap = [
   '<?xml version="1.0" encoding="UTF-8"?>',
   '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">',
-  ...sufixos.flatMap((sufixo) => idiomas.map((i) => `  <url>\n    <loc>${urlDe(i, sufixo)}</loc>\n${linksDe(sufixo)}\n    <lastmod>${datas[urlDe(i, sufixo)]}</lastmod>\n  </url>`)),
+  ...sufixos.flatMap((sufixo) => comProjeto(sufixo).map((i) => `  <url>\n    <loc>${urlDe(i, sufixo)}</loc>\n${linksDe(sufixo)}\n    <lastmod>${datas[urlDe(i, sufixo)]}</lastmod>\n  </url>`)),
   '</urlset>',
   '',
 ].join('\n');

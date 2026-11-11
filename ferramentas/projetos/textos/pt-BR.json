@@ -254,5 +254,73 @@
       "O foco vai para o título de cada tela e o leitor de tela ouve cada mudança; o texto principal tem contraste de 13,56:1.",
       "13 idiomas, modo claro e escuro e fotos livres, com os créditos de cada uma."
     ]
+  },
+  "familia-linu": {
+    "etiqueta": "Da Família Linu",
+    "alt": "Página inicial da Família Linu: o mapa em pixel art com uma ilha para cada irmão",
+    "resumo": "A casa dos irmãos: um mapa em pixel art onde cada serviço é uma ilha, e rotas que juntam vários numa conversa só.",
+    "desafio": "Apresentar quatro serviços diferentes sem confundir: quem chega precisa entender quem faz o quê e por onde começar.",
+    "feito": [
+      "O mapa das ilhas na abertura, em pixel art, com o Linu no cais da casa da família e uma legenda que leva a cada irmão.",
+      "“Para onde ir”: quatro frases do jeito que o dono do negócio fala, cada uma levando ao irmão certo.",
+      "As rotas: pacotes que passam por mais de uma ilha, com o preço de cada parte, quem faz e o total, e o pedido já escrito no WhatsApp.",
+      "Uma página com a identidade da família: o Linu, as cores, as letras e a casa de cada irmão."
+    ],
+    "dentro": [
+      "Feito à mão, sem framework: a página inteira tem cerca de 400 KB.",
+      "No celular, a barra de baixo traz o menu e o “Falar com o Linu” ao alcance do polegar.",
+      "Modo claro e escuro, com o mapa trocando de dia para noite."
+    ]
+  },
+  "digital-linu": {
+    "etiqueta": "Da Família Linu",
+    "alt": "Página inicial do Digital Linu, montada como um programa de edição de vídeo",
+    "resumo": "Vídeo, redes sociais e anúncios para pequenos negócios, num site montado como um programa de edição de vídeo.",
+    "desafio": "Vender serviços que o cliente nem sempre sabe que precisa, e deixar o orçamento claro antes da primeira conversa.",
+    "feito": [
+      "O Raio-X do negócio: oito perguntas de sim ou não que mostram o que falta e por quê, e levam ao pacote com um toque.",
+      "Os serviços como clipes numa linha do tempo, 17 em seis trilhas, cada um com o preço “a partir de”.",
+      "A sequência do pacote soma a estimativa na hora, e a mensagem do orçamento sai pronta para o WhatsApp ou o e-mail.",
+      "Pacotes prontos para quem prefere não montar."
+    ],
+    "dentro": [
+      "Os preços ficam num arquivo só e mudam a página inteira juntos.",
+      "Cada pedido fica guardado e chega por e-mail na hora, mesmo se a pessoa desistir antes de mandar no WhatsApp.",
+      "A régua do editor, no alto, marca a seção em que a pessoa está."
+    ]
+  },
+  "linu-seguro": {
+    "etiqueta": "Da Família Linu",
+    "alt": "Página inicial do Linu Seguro: o Linu com a chave ao lado do iglu",
+    "resumo": "Segurança digital para pequenos negócios: o iglu do Linu, em que cada proteção é um bloco de gelo.",
+    "desafio": "Falar de golpe, senha e LGPD sem assustar nem usar palavra difícil, para quem acha que segurança é coisa de empresa grande.",
+    "feito": [
+      "O Raio-X de segurança: a cada “sim” um bloco assenta na cúpula do iglu; cada “não” deixa o lugar vazio e diz o que falta.",
+      "Os serviços em quatro áreas, com preço, e o pacote que vira uma parede de blocos.",
+      "Pacotes prontos e o pedido já escrito para o WhatsApp ou o e-mail.",
+      "As dúvidas que são compromisso escritas com todas as letras, como “as senhas ficam com você”."
+    ],
+    "dentro": [
+      "Os preços ficam num arquivo só.",
+      "À noite o iglu acende por dentro.",
+      "Cada pedido fica guardado e chega por e-mail na hora."
+    ]
+  },
+  "linu-farol": {
+    "etiqueta": "Da Família Linu",
+    "alt": "Página inicial do Linu Farol: o farol listrado e o Linu de luneta",
+    "resumo": "O painel do mês para pequenos negócios: se o site está no ar, com o cadeado em dia, rápido e trancado, e o que fazer em seguida.",
+    "desafio": "Mostrar ao cliente, sem planilha nem termo técnico, que o site dele está bem cuidado, e avisar quando não está.",
+    "feito": [
+      "A ronda de 6 em 6 horas confere quatro luzes em cada site: no ar, cadeado, rapidez e trancas.",
+      "A lista pública dos sites da família, com as luzes de agora.",
+      "O painel de cada cliente num endereço só dele: as luzes, os últimos 30 dias, os números do mês, o rumo e o “Salvar em PDF”.",
+      "Um painel de exemplo aberto, para ver como fica antes de pedir."
+    ],
+    "dentro": [
+      "A ronda e a publicação rodam sozinhas no GitHub Actions.",
+      "O endereço do painel é sorteado, fica fora da busca e não passa adiante para outros sites.",
+      "Os dados dos clientes ficam num segredo, nunca no código, que é aberto."
+    ]
   }
 }
