@@ -1,5 +1,5 @@
-"""A versão de cada arquivo pelo conteúdo (07/11/2026): põe ?v=<8 letras do hash> em todo src, href e data-piscar
-local das páginas (menos nas fontes, que o CSS pede sem versão), para o navegador baixar de novo só o que mudou.
+"""A versão de cada arquivo pelo conteúdo (07/11/2026): põe ?v=<8 letras do hash> em todo src, href, data-piscar e
+srcset (11/11/2026) local das páginas (menos nas fontes, que o CSS pede sem versão), para o navegador baixar de novo só o que mudou.
 
     python3 versao-arquivos.py <pasta do site> [página.html ...] [--conferir]
 
@@ -17,6 +17,7 @@ from pathlib import Path
 # As fontes (.woff2) ficam de fora: o CSS pede a fonte sem versão (url(...) não passa por aqui), e o <link rel="preload">
 # tem de pedir o mesmo endereço, senão o navegador baixa a fonte duas vezes. Uma ?v= que já esteja numa fonte sai.
 ATRIBUTO = re.compile(r'\b(src|href|data-piscar)="([^"#?]+?\.(?:png|jpg|jpeg|webp|gif|svg|css|js|ico))(\?v=[^"]*)?"')
+SRCSET = re.compile(r'\bsrcset="([^"]*)"')
 FONTE = re.compile(r'\b(href)="([^"#?]+?\.woff2)\?v=[^"]*"')
 
 
@@ -38,7 +39,16 @@ def carimbar(pasta, pagina):
             return m.group(0)
         return f'{attr}="{caminho}?v={versao(alvo)}"'
 
-    return texto, FONTE.sub(r'\1="\2"', ATRIBUTO.sub(trocar, texto)), faltam
+    def trocar_srcset(m):
+        # cada candidato do srcset ("img/a-480.webp 480w, img/a.webp 960w") passa pela mesma troca do src
+        partes = []
+        for candidato in m.group(1).split(','):
+            caminho, _, descritor = candidato.strip().partition(' ')
+            novo = trocar(re.match(r'(src)="(.*?)(\?v=[^"]*)?"$', f'src="{caminho}"'))
+            partes.append((novo[5:-1] + (' ' + descritor if descritor else '')).strip())
+        return f'srcset="{", ".join(partes)}"'
+
+    return texto, FONTE.sub(r'\1="\2"', SRCSET.sub(trocar_srcset, ATRIBUTO.sub(trocar, texto))), faltam
 
 
 def main():

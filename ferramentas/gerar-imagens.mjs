@@ -8,6 +8,7 @@
 import { chromium } from 'playwright';
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath, pathToFileURL } from 'node:url';
+import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 
@@ -34,4 +35,14 @@ for (const [nome, opcoes] of Object.entries(CAPAS)) {
 }
 
 await navegador.close();
+
+// As versões de 480 px de todas as capturas do portfólio (11/11/2026): no cartão a imagem aparece com 100 a 300 px, então
+// o srcset dá a de 480 e só a tela de alta densidade no computador pega a de 960. Captura nova entra aqui sozinha.
+for (const arquivo of fs.readdirSync(path.join(img, 'projetos'))) {
+  if (!arquivo.endsWith('.webp') || arquivo.endsWith('-480.webp')) continue;
+  const nome = arquivo.slice(0, -5);
+  const nitido = nome in CAPAS && CAPAS[nome].includes('webp:lossless=true');
+  execFileSync('magick', [path.join(img, 'projetos', arquivo), '-resize', '480x300', ...(nitido ? ['-quality', '90'] : ['-quality', '78']),
+    '-define', 'webp:method=6', path.join(img, 'projetos', nome + '-480.webp')]);
+}
 console.log('imagens geradas em', img);
