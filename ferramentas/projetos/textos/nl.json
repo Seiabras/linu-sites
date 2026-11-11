@@ -181,7 +181,7 @@
   },
   "trupe": {
     "etiqueta": "Netwerk voor artiesten",
-    "alt": "Omslag van Trupe: de naam in rood, de zin ‘Ben je iets aan het opzetten en kom je mensen tekort? Hang het hier op.’ en twee projectbriefjes met plakband",
+    "alt": "Omslag van Trupehh: het logo met de vijf gekleurde bolletjes, de zin ‘Ben je iets aan het opzetten en kom je mensen tekort? Hang het hier op.’ en twee projectbriefjes met plakband",
     "resumo": "Artiesten uit alle disciplines vinden elkaar om samen projecten te maken: een projectenbord, een verkenner met profielkaart en filters, community’s en gesprekken op de site zelf.",
     "desafio": "Mensen met een project koppelen aan mensen die willen werken, van acteurs tot geluidstechnici, en de piek van een grote aankondiging aankunnen zonder afhankelijk te zijn van sociale media.",
     "feito": [
@@ -192,8 +192,8 @@
     ],
     "dentro": [
       "Gebouwd in Node, zonder afhankelijkheden en met SQLite, en getest met 100.000 mensen in een database op ware grootte.",
-      "Inloggen zonder wachtwoord, met een code per e-mail of met Google, en meldingen op de telefoon terwijl Trupe dicht is.",
-      "Meer dan 80 geautomatiseerde tests, dagelijkse versleutelde back-up en installatie op de telefoon als app."
+      "Inloggen zonder wachtwoord, met een code per e-mail of met Google, en meldingen op de telefoon terwijl Trupehh dicht is.",
+      "Meer dan 250 geautomatiseerde tests, dagelijkse versleutelde back-up en installatie op de telefoon als app."
     ]
   },
   "cafe-aurora": {

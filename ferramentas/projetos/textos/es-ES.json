@@ -181,7 +181,7 @@
   },
   "trupe": {
     "etiqueta": "Red de artistas",
-    "alt": "Portada de Trupe: el nombre en rojo, la frase «¿Estás montando algo y falta gente? Cuélgalo aquí.» y dos notas de proyecto sujetas con cinta",
+    "alt": "Portada de Trupehh: el logotipo con las cinco bolitas de colores, la frase «¿Estás montando algo y falta gente? Cuélgalo aquí.» y dos notas de proyecto sujetas con cinta",
     "resumo": "Artistas de todas las áreas se encuentran para hacer proyectos juntos: un tablón de proyectos, un explorador con ficha y filtros, comunidades y conversaciones en el propio sitio.",
     "desafio": "Unir a quien tiene un proyecto con quien quiere trabajar, desde actores hasta técnicos de sonido, y aguantar el pico de un gran anuncio sin depender de ninguna red social.",
     "feito": [
@@ -192,8 +192,8 @@
     ],
     "dentro": [
       "Hecha en Node, sin dependencias y con SQLite, y probada con 100 000 personas en una base de datos de tamaño real.",
-      "Acceso sin contraseña, con un código por correo o con Google, y avisos en el móvil con Trupe cerrada.",
-      "Más de 80 pruebas automáticas, copia diaria cifrada e instalación en el móvil como app."
+      "Acceso sin contraseña, con un código por correo o con Google, y avisos en el móvil con Trupehh cerrada.",
+      "Más de 250 pruebas automáticas, copia diaria cifrada e instalación en el móvil como app."
     ]
   },
   "cafe-aurora": {

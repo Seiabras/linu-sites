@@ -181,7 +181,7 @@
   },
   "trupe": {
     "etiqueta": "Xarxa d’artistes",
-    "alt": "Portada de Trupe: el nom en vermell, la frase «Muntes alguna cosa i falta gent? Penja-ho aquí.» i dues notes de projecte subjectes amb cinta",
+    "alt": "Portada de Trupehh: el logotip amb les cinc boletes de colors, la frase «Muntes alguna cosa i falta gent? Penja-ho aquí.» i dues notes de projecte subjectes amb cinta",
     "resumo": "Artistes de totes les àrees es troben per fer projectes junts: un tauler de projectes, un explorador amb fitxa i filtres, comunitats i converses al mateix lloc web.",
     "desafio": "Unir qui té un projecte amb qui vol treballar, des d’actors fins a tècnics de so, i aguantar el pic d’un gran anunci sense dependre de cap xarxa social.",
     "feito": [
@@ -192,8 +192,8 @@
     ],
     "dentro": [
       "Feta amb Node, sense dependències i amb SQLite, i provada amb 100.000 persones en una base de dades de mida real.",
-      "Accés sense contrasenya, amb un codi per correu o amb Google, i avisos al mòbil amb Trupe tancada.",
-      "Més de 80 proves automàtiques, còpia diària xifrada i instal·lació al mòbil com a app."
+      "Accés sense contrasenya, amb un codi per correu o amb Google, i avisos al mòbil amb Trupehh tancada.",
+      "Més de 250 proves automàtiques, còpia diària xifrada i instal·lació al mòbil com a app."
     ]
   },
   "cafe-aurora": {

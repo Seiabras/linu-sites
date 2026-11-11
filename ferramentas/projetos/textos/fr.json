@@ -181,7 +181,7 @@
   },
   "trupe": {
     "etiqueta": "Réseau d’artistes",
-    "alt": "Couverture de Trupe : le nom en rouge, la phrase « Tu montes un projet et il manque du monde ? Accroche-le ici. » et deux billets de projet fixés au ruban adhésif",
+    "alt": "Couverture de Trupehh : le logo avec les cinq points de couleur, la phrase « Tu montes un projet et il manque du monde ? Accroche-le ici. » et deux billets de projet fixés au ruban adhésif",
     "resumo": "Des artistes de toutes les disciplines se trouvent pour monter des projets ensemble : un tableau de projets, un explorateur avec fiche et filtres, des communautés et des conversations sur le site même.",
     "desafio": "Rapprocher ceux qui ont un projet de ceux qui veulent travailler, des comédiens aux techniciens du son, et tenir le pic d’une grande annonce sans dépendre d’aucun réseau social.",
     "feito": [
@@ -192,8 +192,8 @@
     ],
     "dentro": [
       "Réalisée en Node, sans dépendances et avec SQLite, et testée avec 100 000 personnes sur une base de données de taille réelle.",
-      "Connexion sans mot de passe, par code e-mail ou avec Google, et notifications sur le téléphone quand Trupe est fermée.",
-      "Plus de 80 tests automatisés, sauvegarde quotidienne chiffrée et installation sur le téléphone comme une application."
+      "Connexion sans mot de passe, par code e-mail ou avec Google, et notifications sur le téléphone quand Trupehh est fermée.",
+      "Plus de 250 tests automatisés, sauvegarde quotidienne chiffrée et installation sur le téléphone comme une application."
     ]
   },
   "cafe-aurora": {

@@ -181,7 +181,7 @@
   },
   "trupe": {
     "etiqueta": "Network for artists",
-    "alt": "Trupe cover: the name in red, the line “Putting something together and short of people? Pin it up here.” and two project notes held up with tape",
+    "alt": "Trupehh cover: the logo with the five coloured dots, the line “Putting something together and short of people? Pin it up here.” and two project notes held up with tape",
     "resumo": "Artists from every discipline find each other to make projects together: a project board, an explorer with profiles and filters, communities and conversations on the site itself.",
     "desafio": "To connect people who have a project with people who want to work, from actors to sound technicians, and to withstand the peak of a big announcement without depending on any social network.",
     "feito": [
@@ -192,8 +192,8 @@
     ],
     "dentro": [
       "Built in Node, with no dependencies and with SQLite, and tested with 100,000 people in a full-size database.",
-      "Password-free sign-in, by email code or with Google, and phone notifications with Trupe closed.",
-      "More than 80 automated tests, encrypted daily backups and installation on the phone as an app."
+      "Password-free sign-in, by email code or with Google, and phone notifications with Trupehh closed.",
+      "More than 250 automated tests, encrypted daily backups and installation on the phone as an app."
     ]
   },
   "cafe-aurora": {

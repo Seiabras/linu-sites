@@ -413,11 +413,11 @@ node ferramentas/gerar-estudo.mjs pica-nao-pica
   áreas de cada projeto ficam no `data-areas` do `ferramentas/pagina/modelo.html` (pode ter mais de uma).
 - **No ar:** LinuPedia, V²Tech COMBUSTÍVEL, Los Vega na Estrada e Marginalia; desde 29/10/2026 também
   Iconvet (iconvet.com.br), Administração Judicial Oriente (ajoriente.com), Dojo Legacy (bjj-link.com) e Ômega
-  Imóveis (omega-site-vert.vercel.app, ainda sem domínio); desde 30/10/2026, o Minhocão (minhocao.linupedia.com.br) e a Trupe (em prévia, ainda sem domínio); e a Barreto Jiu-Jitsu (barreto-site-ashy.vercel.app, em prévia, ainda sem domínio), na área
+  Imóveis (omega-site-vert.vercel.app, ainda sem domínio); desde 30/10/2026, o Minhocão (minhocao.linupedia.com.br) e a Trupehh (trupehh.com.br, no ar desde 11/11/2026); e a Barreto Jiu-Jitsu (barreto-site-ashy.vercel.app, em prévia, ainda sem domínio), na área
   Saúde e serviços.
-  Capturas em `public/img/projetos/` (960×600, WebP). A LinuPedia, o Minhocão e a Trupe não têm uma página de abertura que
+  Capturas em `public/img/projetos/` (960×600, WebP). A LinuPedia, o Minhocão e a Trupehh não têm uma página de abertura que
   sirva de capa, então desde 31/10/2026 usam uma capa feita para o portfólio: o abrigo do Linu, a imagem de compartilhar
-  do jogo e o cartaz com os bilhetes do mural (sem o crédito que a imagem da Trupe leva). As fontes dessas capas ficam em
+  do jogo e o cartaz com o logo de cinco bolinhas e os bilhetes do mural (desde 11/11/2026, sem o crédito que a imagem da Trupehh leva). As fontes dessas capas ficam em
   `ferramentas/capas/`, com a arte dos repositórios vizinhos: `node ferramentas/gerar-imagens.mjs capas` refaz. Trocou a
   imagem, suba o `?v=` dela no modelo da página e no `projetos.json` (imagem fica 7 dias em cache) e troque o texto
   alternativo nos 13 idiomas.

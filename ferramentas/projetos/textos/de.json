@@ -181,7 +181,7 @@
   },
   "trupe": {
     "etiqueta": "Netzwerk für Kunstschaffende",
-    "alt": "Titelbild von Trupe: der Name in Rot, der Satz „Du stellst etwas auf die Beine und es fehlen Leute? Häng es hier auf.“ und zwei festgeklebte Projektzettel",
+    "alt": "Titelbild von Trupehh: das Logo mit den fünf bunten Punkten, der Satz „Du stellst etwas auf die Beine und es fehlen Leute? Häng es hier auf.“ und zwei festgeklebte Projektzettel",
     "resumo": "Kunstschaffende aller Bereiche finden sich für gemeinsame Projekte: eine Projektwand, ein Entdecker mit Steckbrief und Filtern, Communitys und Gespräche direkt auf der Website.",
     "desafio": "Menschen mit einem Projekt und Menschen, die mitarbeiten wollen, zusammenzubringen, von Schauspielern bis zu Tontechnikern, und die Spitze einer großen Ankündigung ohne Abhängigkeit von sozialen Netzwerken zu verkraften.",
     "feito": [
@@ -192,8 +192,8 @@
     ],
     "dentro": [
       "In Node gebaut, ohne Abhängigkeiten und mit SQLite, und mit 100.000 Personen in einer Datenbank in realer Größe getestet.",
-      "Anmeldung ohne Passwort, per E-Mail-Code oder mit Google, und Benachrichtigungen auf dem Handy bei geschlossener Trupe.",
-      "Mehr als 80 automatische Tests, tägliche verschlüsselte Sicherung und Installation auf dem Handy als App."
+      "Anmeldung ohne Passwort, per E-Mail-Code oder mit Google, und Benachrichtigungen auf dem Handy bei geschlossener Trupehh.",
+      "Mehr als 250 automatische Tests, tägliche verschlüsselte Sicherung und Installation auf dem Handy als App."
     ]
   },
   "cafe-aurora": {
