@@ -212,6 +212,7 @@
     const quem = monte.querySelector('[data-quem]');
     const campos = quem ? [quem.querySelector('#pedido-nome'), quem.querySelector('#pedido-negocio')] : [];
     const email = quem ? quem.querySelector('#pedido-email') : null;
+    const telefone = quem ? quem.querySelector('#pedido-telefone') : null;
     const formulario = document.querySelector('.monte-formulario');
     const status = document.querySelector('[data-monte-status]');
     const mensagem = quem ? quem.querySelector('#pedido-mensagem') : null;
@@ -321,7 +322,7 @@
           const ok = [conferir(campos[0], true), conferir(email, true), conferir(campos[1], true)].every(Boolean);
           if (!ok) { quem.querySelector('[aria-invalid="true"]').focus(); return; }
           const robo = quem.querySelector('[name="site_extra"]');
-          const dados = { nome: campos[0].value.trim(), email: email.value.trim(), negocio: campos[1].value.trim(),
+          const dados = { nome: campos[0].value.trim(), email: email.value.trim(), telefone: telefone ? telefone.value.trim() : '', negocio: campos[1].value.trim(),
             pacote: ultimo.pacote, estimativa: ultimo.estimativa, mensagem: mensagem.value.trim(), canal: 'formulario',
             site_extra: robo ? robo.value : '' };
           formulario.disabled = true;
