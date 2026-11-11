@@ -175,7 +175,7 @@ for (const i of idiomas) {
       description: i.textos.descricao,
       inLanguage: i.lang,
       email: 'contato@linupedia.com.br',
-      telephone: '+55 61 99667-2610',
+      telephone: '+55 24 98101-3398',
       areaServed: i.area_servida,
       availableLanguage: idiomas.map((o) => o.lang),
       parentOrganization: { '@type': 'Organization', name: 'LinuPedia', url: 'https://linupedia.com.br' },

@@ -701,6 +701,11 @@
                   <p class="campo-erro" id="pedido-nome-erro" aria-live="polite"></p>
                 </div>
                 <div class="monte-campo">
+                  <label for="pedido-email">Seu e-mail <span class="campo-opcional">(para a resposta pelo formulário)</span></label>
+                  <input type="email" id="pedido-email" name="email" autocomplete="email" inputmode="email" maxlength="160" aria-describedby="pedido-email-erro" data-rotulo="E-mail" data-aviso="Escreva um e-mail válido, como nome@exemplo.com.">
+                  <p class="campo-erro" id="pedido-email-erro" aria-live="polite"></p>
+                </div>
+                <div class="monte-campo">
                   <label for="pedido-negocio">Negócio e cidade</label>
                   <input type="text" id="pedido-negocio" name="negocio" autocomplete="organization" maxlength="120" placeholder="Ex.: padaria em Taguatinga" required aria-describedby="pedido-negocio-erro" data-rotulo="Negócio" data-aviso="Conte qual é o negócio, mesmo que seja só uma ideia.">
                   <p class="campo-erro" id="pedido-negocio-erro" aria-live="polite"></p>
@@ -724,14 +729,25 @@
             </div>
           </div>
           <div class="botoes contato-botoes">
-            <a class="botao botao-grande botao-whatsapp monte-whats" href="https://wa.me/5561996672610?text={{whats_inicial}}" target="_blank" rel="noopener">
+            <a class="botao botao-grande botao-whatsapp monte-whats" href="https://wa.me/5524981013398?text={{whats_inicial}}" target="_blank" rel="noopener">
               <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.2 5.2 5.2 0 0 0 1.1 2.7 11.8 11.8 0 0 0 4.5 4c1.7.7 2.3.8 3.2.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z" /></svg>
               <span>WhatsApp <span class="sem-quebra">{{telefone}}</span></span>
             </a>
+            {{?pt-BR}}
+            <!-- o formulário (11/11/2026, só em português, regra 8): manda daqui mesmo, e o pedido chega no e-mail e no
+                 /admin da Família; nas outras línguas continua o e-mail -->
+            <button type="button" class="botao botao-grande botao-contorno-claro monte-formulario">Enviar pelo formulário</button>
+            {{/pt-BR}}
+            {{?europa}}
             <a class="botao botao-grande botao-contorno-claro monte-enviar" href="mailto:contato@linupedia.com.br?subject={{email_assunto}}">contato@linupedia.com.br</a>
+            {{/europa}}
+            {{?asia}}
+            <a class="botao botao-grande botao-contorno-claro monte-enviar" href="mailto:contato@linupedia.com.br?subject={{email_assunto}}">contato@linupedia.com.br</a>
+            {{/asia}}
           </div>
           {{?pt-BR}}
-          <p class="monte-privacidade">Ao mandar, o pedido (nome, negócio, o que você escolheu e a mensagem) fica guardado por 12 meses só para a gente responder, e depois é apagado. Para ver ou apagar antes: contato@linupedia.com.br.</p>
+          <p class="monte-status" data-monte-status role="status" aria-live="polite"></p>
+          <p class="monte-privacidade">Ao mandar, o pedido (nome, e-mail, negócio, o que você escolheu e a mensagem) fica guardado por 12 meses só para a gente responder, e depois é apagado. Para ver ou apagar antes: contato@linupedia.com.br.</p>
           {{/pt-BR}}
         </div>
       </div>

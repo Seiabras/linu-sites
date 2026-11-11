@@ -14,7 +14,7 @@ cotas e carimbo, e de noite vira o cianotipo (ver “Identidade: a planta”).
 - **Repositório:** `Seiabras/linu-sites` (**público**: nada de senha, chave ou relatório interno aqui; isso vai
   para o `Seiabras/linuarquivos`, que é privado), branch `main`
 - **Contato do estúdio:** contato@linupedia.com.br (Zoho Mail, caixa linu@linupedia.com.br) e WhatsApp
-  (61) 99667-2610
+  (24) 98101-3398
 - **Crédito nos projetos:** todo site feito pelo estúdio leva "Site feito por Linu Sites" no rodapé, com
   link para cá (V²Tech, Los Vega, Marginalia e, no Perfil, a LinuPedia).
 
@@ -430,7 +430,7 @@ node ferramentas/gerar-estudo.mjs pica-nao-pica
 - **De estudo** (`#estudo`, 29/10/2026): os sites que fiz na disciplina Desenvolvimento de Interfaces, com
   empresas fictícias: Café Aurora, Fotografia do Cerrado e Abelhas sem Ferrão. Cada cartão leva à página “Como foi
   feito” (desde 31/10/2026), ao subdomínio e ao código no GitHub; as capturas também ficam em `public/img/projetos/`.
-- **Como funciona** e **contato**: WhatsApp (61) 99667-2610 e `contato@linupedia.com.br`.
+- **Como funciona** e **contato**: WhatsApp (24) 98101-3398 e `contato@linupedia.com.br`.
 - **Como funciona mais detalhado, só em japonês, coreano e chinês** (bloco `{{?cjk}}` do modelo, 30/10/2026): as quatro
   etapas, os prazos e o orçamento em PDF. As chaves `detalhe_*` ficam vazias nos outros 10 idiomas. Os prazos vêm das
   chaves `prazo_*`, as mesmas do Monte o seu site, e o pagamento repete a dúvida frequente; o “1 dia útil” para responder
@@ -594,3 +594,5 @@ respondeu. A versão anterior fica em `/opt/linu-sites/app.anterior`. Detalhes e
 - [`DIRETRIZES-UX.md`](DIRETRIZES-UX.md): regras de interface e desempenho (iguais em todos os projetos).
 
 - **Contador de visitas do Farol (11/11/2026):** `js/farol-visitas.js` é cópia do `linu-farol/v.js` (mudou lá, muda aqui). Conta as visitas sem cookie; o CSP libera `https://farol.linupedia.com.br` no `connect-src` (na página e no Caddy). Os números ficam no painel da casa: https://farol.linupedia.com.br/p/casa-sites/.
+
+- **Contato (11/11/2026):** WhatsApp (24) 98101-3398; o “Mandar por e-mail” virou “Enviar pelo formulário” (só em português; nas outras línguas segue o e-mail), que manda o pedido a `/api/pedido` com o e-mail da pessoa (chega no contato@ e no `/admin` da Família Linu; servidor em `linuarquivos/servidor/linu-pedidos`).

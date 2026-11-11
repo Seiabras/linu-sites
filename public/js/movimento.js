@@ -211,6 +211,9 @@
     const mensal = monte.querySelector('[data-mensal]');
     const quem = monte.querySelector('[data-quem]');
     const campos = quem ? [quem.querySelector('#pedido-nome'), quem.querySelector('#pedido-negocio')] : [];
+    const email = quem ? quem.querySelector('#pedido-email') : null;
+    const formulario = document.querySelector('.monte-formulario');
+    const status = document.querySelector('[data-monte-status]');
     const mensagem = quem ? quem.querySelector('#pedido-mensagem') : null;
     let ultimo = { pacote: '', estimativa: '' };
     const raiz = document.documentElement;
@@ -265,6 +268,7 @@
       ultimo = { pacote: [tipo && tipo.dataset.nome, ...itens.map((i) => i.value), plano && plano.dataset.nome + (anual ? t('anual') : '')].filter(Boolean).join(', '), estimativa: valor ? t('linha_estimativa', { valor: reais(valor), extra }) : '' };
       if (enviar) enviar.href = 'mailto:contato@linupedia.com.br?subject=' + encodeURIComponent(t('assunto')) + '&body=' + encodeURIComponent(corpo);
       if (whats) whats.href = whats.href.split('?')[0] + '?text=' + encodeURIComponent(inicio);
+      ultimo.mensagem = nota;
       if (ev && ev.type === 'input') return; // escrevendo nos campos, só a mensagem muda
       resumo.classList.remove('pulso');
       void resumo.offsetWidth; // reinicia a animação
@@ -278,15 +282,16 @@
     // abrir o WhatsApp ou o e-mail, e o sendBeacon manda o pedido a /api/pedido sem atrasar nada; se falhar, a conversa
     // segue igual. O campo escondido site_extra separa os robôs.
     if (quem) {
+      const EMAIL = /^[^\s@<>"]+@[^\s@<>"]+\.[a-z]{2,}$/i;
       const conferir = (c, mostrar) => {
-        const ok = c.value.trim().length >= 2;
+        const ok = c === email ? EMAIL.test(c.value.trim()) : c.value.trim().length >= 2;
         if (mostrar || ok) {
           document.getElementById(c.id + '-erro').textContent = ok ? '' : c.dataset.aviso;
           c.setAttribute('aria-invalid', String(!ok));
         }
         return ok;
       };
-      campos.forEach((c) => {
+      [...campos, email].filter(Boolean).forEach((c) => {
         c.addEventListener('blur', () => { if (c.value) conferir(c, true); });
         c.addEventListener('input', () => conferir(c, false));
       });
@@ -308,6 +313,37 @@
           } catch (erro) { /* a conversa segue mesmo sem o registro */ }
         });
       });
+      // O formulário (11/11/2026): o e-mail passa a ser obrigatório; manda daqui mesmo e mostra a confirmação; se falhar,
+      // o que foi digitado continua e o WhatsApp segue como saída
+      if (formulario && email) {
+        const rotulo = formulario.textContent;
+        formulario.addEventListener('click', () => {
+          const ok = [conferir(campos[0], true), conferir(email, true), conferir(campos[1], true)].every(Boolean);
+          if (!ok) { quem.querySelector('[aria-invalid="true"]').focus(); return; }
+          const robo = quem.querySelector('[name="site_extra"]');
+          const dados = { nome: campos[0].value.trim(), email: email.value.trim(), negocio: campos[1].value.trim(),
+            pacote: ultimo.pacote, estimativa: ultimo.estimativa, mensagem: mensagem.value.trim(), canal: 'formulario',
+            site_extra: robo ? robo.value : '' };
+          formulario.disabled = true;
+          formulario.textContent = 'Enviando…';
+          status.className = 'monte-status';
+          status.textContent = '';
+          fetch('/api/pedido', { method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(dados) })
+            .then((r) => {
+              if (!r.ok) throw new Error(String(r.status));
+              formulario.textContent = 'Enviado';
+              status.className = 'monte-status ok';
+              status.textContent = `Recebido! A resposta chega no seu e-mail (${dados.email}) em até 1 dia útil.`;
+              setTimeout(() => { formulario.disabled = false; formulario.textContent = rotulo; }, 4000);
+            })
+            .catch(() => {
+              formulario.disabled = false;
+              formulario.textContent = rotulo;
+              status.className = 'monte-status erro';
+              status.textContent = 'Não deu para enviar agora. Tente de novo em instantes ou mande pelo WhatsApp.';
+            });
+        });
+      }
     }
 
     // Os preços de “O que fazemos” levam até aqui com a opção já marcada (tipo=… ou plano=…)

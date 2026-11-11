@@ -762,3 +762,10 @@ img.contato-linu { flex: none; width: 120px; height: 194px; }
   *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; }
   .revelar { opacity: 1; transform: none; }
 }
+
+/* a confirmação do formulário do Monte o seu site (11/11/2026, só em português) */
+.monte-status { margin: 14px 0 0; font-weight: 700; }
+.monte-status:empty { display: none; }
+.monte-status.ok { color: var(--ok); }
+.monte-status.erro { color: var(--erro); }
+.monte-formulario[disabled] { opacity: .7; cursor: progress; }
