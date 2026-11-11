@@ -386,6 +386,8 @@ node ferramentas/gerar-estudo.mjs pica-nao-pica
 
 - **A faixa da família (07/11/2026):** no alto, “Parte da família Linu, com …”, levando para a Família Linu
   (https://familia.linupedia.com.br). Todos os irmãos apontam para lá, e não mais um para o outro.
+  Desde 11/11/2026 a faixa e a linha do rodapé (Família Linu e Identidade visual) existem nos 13 idiomas (chaves
+  `faixa_rotulo`, `faixa_texto`, `faixa_link` e `rodape_familia`); a Família Linu em si continua em português.
 - **Identidade visual** (desde 07/11/2026): mora na Família Linu (https://familia.linupedia.com.br/identidade). O
   `/identidade` daqui leva para lá (um `redir` no `deploy/Caddyfile-bloco`), e o rodapé em pt-BR tem a nota “Da
   Família Linu · Identidade visual”. A fonte das decisões continua o `IDENTIDADE-LINU.md` do linuarquivos.

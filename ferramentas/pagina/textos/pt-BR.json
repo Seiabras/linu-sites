@@ -236,7 +236,11 @@
     "proj_cta_texto": "Conte o que você faz e o que imagina. Pode ser só uma ideia: a resposta vem com perguntas e próximos passos.",
     "proj_og_titulo": "{nome}, por Linu Sites",
     "proj_whats": "Olá! Vi o projeto {nome} e quero conversar sobre um site.",
-    "cerrado_nome": "Guia do Cerrado"
+    "cerrado_nome": "Guia do Cerrado",
+    "faixa_rotulo": "Família Linu",
+    "faixa_texto": "Parte da família Linu, com o Digital Linu, o Linu Seguro e o Linu Farol.",
+    "faixa_link": "Conheça a Família Linu",
+    "rodape_familia": "Da <a href=\"https://familia.linupedia.com.br/\">Família Linu</a> · <a href=\"https://familia.linupedia.com.br/identidade\">Identidade visual</a>"
   },
   "js": {
     "menu_abrir": "Abrir o menu",

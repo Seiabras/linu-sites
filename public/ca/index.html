@@ -57,7 +57,7 @@
   <!-- Os textos que os scripts escrevem (menu, luz, Monte o seu site), no idioma da página -->
   <script type="application/json" id="textos-js">{"menu_abrir":"Obrir el menú","menu_fechar":"Tancar el menú","luz_apagar_aria":"Apagar el llum (mode fosc)","luz_acender_aria":"Encendre el llum (mode clar)","luz_apagar":"Apagar el llum","luz_acender":"Encendre el llum","lampiao_apagar":"Apagar el fanal","lampiao_acender":"Encendre el fanal","fechar":"Tancar","escolha":"Tria el tipus per veure una estimació","sem_tipo":"Cap problema: la conversa ajuda a triar el tipus.","um_item":"un element","n_itens":"{n} elements","extra":" + {itens} a la proposta","por_ano":"{valor} l'any","por_mes":"{valor} al mes","estimativa":"Estimació: des de {valor}{extra}","linha_tipo":"Tipus: {nome}","linha_itens":"Ha de tenir:","linha_depois":"Un cop feta: {nome}{anual}","anual":", pagant l'any","linha_estimativa":"Estimació de la web: des de {valor}{extra}","ola":"Hola! Vull una web.","sobre":"Sobre el meu negoci: ","assunto":"Vull una web","ola_conversa":"Hola! Vull parlar d'una web.","area_vazia":"Cap projecte d'aquest sector aquí.","conversa_aberta":"Ara podem parlar, fins a {fim} a la teva hora.","conversa_fechada":"Ara estem fora d'horari. La propera franja obre {inicio} a la teva hora."}</script>
   <script src="../js/tema-inicio.js?v=c760bbc1"></script>
-  <link rel="stylesheet" href="../css/estilo.css?v=af89c0f2">
+  <link rel="stylesheet" href="../css/estilo.css?v=c3cd1dc2">
   <script src="../js/linu-vivo.js?v=daf0f399" defer></script>
   <script src="../js/tema.js?v=8d44bc65" defer></script>
   <script src="../js/menu.js?v=ebf40e9a" defer></script>
@@ -67,6 +67,11 @@
   <script src="../js/farol-visitas.js?v=56fa18e5" defer></script>
 </head>
 <body>
+  <!-- A faixa da família (07/11/2026): todos os irmãos apontam para a Família Linu; em todos os idiomas desde 11/11/2026 -->
+  <aside class="faixa-irma" aria-label="Família Linu">
+    <span>Part de la família Linu, amb Digital Linu, Linu Seguro i Linu Farol.</span>
+    <a href="https://familia.linupedia.com.br/">Coneix la família Linu <span aria-hidden="true">→</span></a>
+  </aside>
   <header class="topo">
     <div class="dentro topo-dentro">
       <a class="marca" href="./" aria-label="Linu Sites, inici">
@@ -672,6 +677,8 @@
     <div class="dentro rodape-dentro">
       <p><b>Linu Sites</b> · webs i aplicacions web a mida</p>
       <p>Un estudi de <a href="https://linupedia.com.br">LinuPedia</a></p>
+      <!-- A identidade visual mora na Família Linu desde 07/11/2026 (o /identidade daqui leva para lá) -->
+      <p><a href="https://familia.linupedia.com.br/">Família Linu</a> · <a href="https://familia.linupedia.com.br/identidade">Identitat visual</a></p>
     </div>
   </footer>
 </body>

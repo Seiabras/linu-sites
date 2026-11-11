@@ -40,13 +40,11 @@
   <script src="{{raiz}}js/farol-visitas.js" defer></script>
 </head>
 <body>
-  {{?pt-BR}}
-  <!-- A faixa da família (07/11/2026): todos os irmãos apontam para a Família Linu; por enquanto só em português (regra 8) -->
-  <aside class="faixa-irma" aria-label="Família Linu">
-    <span>Parte da família Linu, com o Digital Linu, o Linu Seguro e o Linu Farol.</span>
-    <a href="https://familia.linupedia.com.br/">Conheça a Família Linu <span aria-hidden="true">→</span></a>
+  <!-- A faixa da família (07/11/2026): todos os irmãos apontam para a Família Linu; em todos os idiomas desde 11/11/2026 -->
+  <aside class="faixa-irma" aria-label="{{faixa_rotulo}}">
+    <span>{{faixa_texto}}</span>
+    <a href="https://familia.linupedia.com.br/">{{faixa_link}} <span aria-hidden="true">→</span></a>
   </aside>
-  {{/pt-BR}}
   <header class="topo">
     <div class="dentro topo-dentro">
       <a class="marca" href="./" aria-label="{{marca_aria}}">
@@ -765,10 +763,8 @@
     <div class="dentro rodape-dentro">
       <p><b>Linu Sites</b> · {{rodape_slogan}}</p>
       <p>{{rodape_estudio}} <a href="https://linupedia.com.br">LinuPedia</a></p>
-      {{?pt-BR}}
-      <!-- A identidade visual mora na Família Linu desde 07/11/2026 (o /identidade daqui leva para lá); só em pt-BR, regra 8 -->
-      <p>Da <a href="https://familia.linupedia.com.br/">Família Linu</a> · <a href="https://familia.linupedia.com.br/identidade">Identidade visual</a></p>
-      {{/pt-BR}}
+      <!-- A identidade visual mora na Família Linu desde 07/11/2026 (o /identidade daqui leva para lá) -->
+      <p>{{rodape_familia}}</p>
     </div>
   </footer>
 </body>

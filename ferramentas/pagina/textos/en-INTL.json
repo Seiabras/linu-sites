@@ -252,7 +252,11 @@
     "proj_cta_texto": "Tell us what you do and what you have in mind. It can be just an idea: the reply comes with questions and next steps.",
     "proj_og_titulo": "{nome}, by Linu Sites",
     "proj_whats": "Hello! I saw the {nome} project and would like to talk about a website.",
-    "cerrado_nome": "Fotografia do Cerrado"
+    "cerrado_nome": "Fotografia do Cerrado",
+    "faixa_rotulo": "Linu family",
+    "faixa_texto": "Part of the Linu family, with Digital Linu, Linu Seguro and Linu Farol.",
+    "faixa_link": "Meet the Linu family",
+    "rodape_familia": "<a href=\"https://familia.linupedia.com.br/\">Linu family</a> · <a href=\"https://familia.linupedia.com.br/identidade\">Visual identity</a>"
   },
   "js": {
     "menu_abrir": "Open the menu",

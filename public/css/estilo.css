@@ -19,8 +19,8 @@
 @font-face { font-family: "Noto Sans JP"; font-style: normal; font-weight: 600 1000; font-display: swap; src: url(../fontes/noto-ja-700.woff2?v=9) format("woff2"); }
 @font-face { font-family: "Noto Sans KR"; font-style: normal; font-weight: 100 500; font-display: swap; src: url(../fontes/noto-ko-400.woff2?v=8) format("woff2"); }
 @font-face { font-family: "Noto Sans KR"; font-style: normal; font-weight: 600 1000; font-display: swap; src: url(../fontes/noto-ko-700.woff2?v=8) format("woff2"); }
-@font-face { font-family: "Noto Sans TC"; font-style: normal; font-weight: 100 500; font-display: swap; src: url(../fontes/noto-zh-hant-400.woff2?v=10) format("woff2"); }
-@font-face { font-family: "Noto Sans TC"; font-style: normal; font-weight: 600 1000; font-display: swap; src: url(../fontes/noto-zh-hant-700.woff2?v=10) format("woff2"); }
+@font-face { font-family: "Noto Sans TC"; font-style: normal; font-weight: 100 500; font-display: swap; src: url(../fontes/noto-zh-hant-400.woff2?v=11) format("woff2"); }
+@font-face { font-family: "Noto Sans TC"; font-style: normal; font-weight: 600 1000; font-display: swap; src: url(../fontes/noto-zh-hant-700.woff2?v=11) format("woff2"); }
 
 /* ---- As cores. O azul do traço é o azul da família (#2563EB); o botão usa o mais fundo (#1D4ED8, 6,7:1 com o branco).
    O texto é o azul-tinta (#0F2547, 14:1 no papel). No cianotipo, o fundo é o azul da planta (#0C2A5B) e o texto,

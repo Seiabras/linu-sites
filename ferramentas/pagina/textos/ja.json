@@ -235,7 +235,11 @@
     "proj_cta_texto": "どんなお仕事か、どんなものを考えているかをお聞かせください。アイデアだけでも大丈夫です。質問と次のステップをお返しします。",
     "proj_og_titulo": "{nome} — Linu Sites の実績",
     "proj_whats": "こんにちは。{nome}の実績を見て、ウェブサイトについて相談したいと思いました。",
-    "cerrado_nome": "Fotografia do Cerrado"
+    "cerrado_nome": "Fotografia do Cerrado",
+    "faixa_rotulo": "Linuファミリー",
+    "faixa_texto": "Digital Linu、Linu Seguro、Linu Farolと並ぶ、Linuファミリーの一員です。",
+    "faixa_link": "Linuファミリーを見る",
+    "rodape_familia": "<a href=\"https://familia.linupedia.com.br/\">Linuファミリー</a> · <a href=\"https://familia.linupedia.com.br/identidade\">ブランドデザイン</a>"
   },
   "js": {
     "menu_abrir": "メニューを開く",

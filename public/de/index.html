@@ -57,7 +57,7 @@
   <!-- Os textos que os scripts escrevem (menu, luz, Monte o seu site), no idioma da página -->
   <script type="application/json" id="textos-js">{"menu_abrir":"Menü öffnen","menu_fechar":"Menü schließen","luz_apagar_aria":"Licht ausschalten (dunkler Modus)","luz_acender_aria":"Licht einschalten (heller Modus)","luz_apagar":"Licht ausschalten","luz_acender":"Licht einschalten","lampiao_apagar":"Laterne ausschalten","lampiao_acender":"Laterne anzünden","fechar":"Schließen","escolha":"Wählen Sie die Art für eine Schätzung","sem_tipo":"Kein Problem: Im Gespräch finden wir die passende Art.","um_item":"ein Punkt","n_itens":"{n} Punkte","extra":" + {itens} im Angebot","por_ano":"{valor} pro Jahr","por_mes":"{valor} pro Monat","estimativa":"Schätzung: ab {valor}{extra}","linha_tipo":"Art: {nome}","linha_itens":"Soll haben:","linha_depois":"Nach dem Start: {nome}{anual}","anual":", jährlich bezahlt","linha_estimativa":"Schätzung der Website: ab {valor}{extra}","ola":"Hallo! Ich möchte eine Website.","sobre":"Über mein Unternehmen: ","assunto":"Ich möchte eine Website","ola_conversa":"Hallo! Ich möchte über eine Website sprechen.","area_vazia":"Hier kein Projekt aus dieser Branche.","conversa_aberta":"Wir sind jetzt erreichbar, bis {fim} Ihrer Zeit.","conversa_fechada":"Wir sind gerade nicht erreichbar. Das nächste Zeitfenster beginnt {inicio} Ihrer Zeit."}</script>
   <script src="../js/tema-inicio.js?v=c760bbc1"></script>
-  <link rel="stylesheet" href="../css/estilo.css?v=af89c0f2">
+  <link rel="stylesheet" href="../css/estilo.css?v=c3cd1dc2">
   <script src="../js/linu-vivo.js?v=daf0f399" defer></script>
   <script src="../js/tema.js?v=8d44bc65" defer></script>
   <script src="../js/menu.js?v=ebf40e9a" defer></script>
@@ -67,6 +67,11 @@
   <script src="../js/farol-visitas.js?v=56fa18e5" defer></script>
 </head>
 <body>
+  <!-- A faixa da família (07/11/2026): todos os irmãos apontam para a Família Linu; em todos os idiomas desde 11/11/2026 -->
+  <aside class="faixa-irma" aria-label="Linu-Familie">
+    <span>Teil der Linu-Familie, mit Digital Linu, Linu Seguro und Linu Farol.</span>
+    <a href="https://familia.linupedia.com.br/">Die Linu-Familie kennenlernen <span aria-hidden="true">→</span></a>
+  </aside>
   <header class="topo">
     <div class="dentro topo-dentro">
       <a class="marca" href="./" aria-label="Linu Sites, Startseite">
@@ -672,6 +677,8 @@
     <div class="dentro rodape-dentro">
       <p><b>Linu Sites</b> · Websites und Web-Apps nach Maß</p>
       <p>Ein Studio der <a href="https://linupedia.com.br">LinuPedia</a></p>
+      <!-- A identidade visual mora na Família Linu desde 07/11/2026 (o /identidade daqui leva para lá) -->
+      <p><a href="https://familia.linupedia.com.br/">Linu-Familie</a> · <a href="https://familia.linupedia.com.br/identidade">Visuelle Identität</a></p>
     </div>
   </footer>
 </body>
