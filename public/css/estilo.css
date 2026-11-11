@@ -769,3 +769,4 @@ img.contato-linu { flex: none; width: 120px; height: 194px; }
 .monte-status.ok { color: var(--ok); }
 .monte-status.erro { color: var(--erro); }
 .monte-formulario[disabled] { opacity: .7; cursor: progress; }
+.monte-email { margin: 12px 0 0; font-weight: 600; }

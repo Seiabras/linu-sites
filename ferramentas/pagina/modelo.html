@@ -706,6 +706,10 @@
                   <p class="campo-erro" id="pedido-email-erro" aria-live="polite"></p>
                 </div>
                 <div class="monte-campo">
+                  <label for="pedido-telefone">Seu WhatsApp <span class="campo-opcional">(opcional, para a gente responder por lá)</span></label>
+                  <input type="tel" id="pedido-telefone" name="telefone" autocomplete="tel" inputmode="tel" maxlength="30" placeholder="Ex.: +55 (24) 99999-9999">
+                </div>
+                <div class="monte-campo">
                   <label for="pedido-negocio">Negócio e cidade</label>
                   <input type="text" id="pedido-negocio" name="negocio" autocomplete="organization" maxlength="120" placeholder="Ex.: padaria em Taguatinga" required aria-describedby="pedido-negocio-erro" data-rotulo="Negócio" data-aviso="Conte qual é o negócio, mesmo que seja só uma ideia.">
                   <p class="campo-erro" id="pedido-negocio-erro" aria-live="polite"></p>
@@ -746,8 +750,9 @@
             {{/asia}}
           </div>
           {{?pt-BR}}
+          <p class="monte-email">Ou escreva para <a href="mailto:contato@linupedia.com.br">contato@linupedia.com.br</a></p>
           <p class="monte-status" data-monte-status role="status" aria-live="polite"></p>
-          <p class="monte-privacidade">Ao mandar, o pedido (nome, e-mail, negócio, o que você escolheu e a mensagem) fica guardado por 12 meses só para a gente responder, e depois é apagado. Para ver ou apagar antes: contato@linupedia.com.br.</p>
+          <p class="monte-privacidade">Ao mandar, o pedido (nome, e-mail, WhatsApp, negócio, o que você escolheu e a mensagem) fica guardado por 12 meses só para a gente responder, e depois é apagado. Para ver ou apagar antes: contato@linupedia.com.br.</p>
           {{/pt-BR}}
         </div>
       </div>
