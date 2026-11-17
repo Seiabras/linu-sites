@@ -1,4 +1,4 @@
-"""Traz o Linu novo do app (linupedia, em ~/Documentos/projetos/LinuPedia/meu-app-idiomas) para o site, como o app
+"""Traz o Linu novo do app (linupedia, em ~/Documentos/projetos/LinuPedia/app) para o site, como o app
 fez em 24/10/2026 (“O Linu novo em todo lugar”). Rode de novo quando o Linu mudar no app:
 
     python3 ferramentas/linu-do-app.py [pasta do app]
@@ -21,7 +21,7 @@ from pathlib import Path
 from PIL import Image
 
 argumentos = [a for a in sys.argv[1:] if not a.startswith('--')]
-APP = Path(argumentos[0]) if argumentos else Path.home() / 'Documentos/projetos/LinuPedia/meu-app-idiomas'
+APP = Path(argumentos[0]) if argumentos else Path.home() / 'Documentos/projetos/LinuPedia/app'
 IMG = Path(__file__).resolve().parent.parent / 'public/img'
 HUB = APP / 'assets/pixel/linuhub/linu-novo'
 
