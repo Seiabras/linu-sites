@@ -19,6 +19,15 @@
   }
   raiz.setAttribute('data-modo', modo);
 
+  // As escolhas do painel de acessibilidade (recursos.js, 18/11/2026) valem antes de pintar, sem piscar
+  try {
+    var a = JSON.parse(localStorage.getItem('aurora-acessibilidade'));
+    if (a) {
+      raiz.setAttribute('data-texto', String(a.texto || 0));
+      ['contraste', 'links', 'fonte', 'espaco', 'parado'].forEach(function (k) { if (a[k]) raiz.classList.add('a11y-' + k); });
+    }
+  } catch (e) {}
+
   var jaAbriu = false;
   try {
     jaAbriu = sessionStorage.getItem('aurora-abertura') === '1';

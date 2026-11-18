@@ -123,7 +123,7 @@ vazia dentro de um bloco que entra faz o gerador recusar a gravação.
   geradas (o único endereço de fora que carrega é o `cafe.linupedia.com.br`, no quadro do simulador, na mesma VM); o DNS
   aponta direto para a VM, sem CDN; e a CSP, na `<meta>` e no cabeçalho do Caddy, só libera o próprio site e o Café.
   O que fica no navegador é o `localStorage` (`tema`, `idioma`, `idioma-aviso` e, no Café do simulador, `aurora-modo`; o
-  Café aberto no próprio endereço guarda também o pedido, as reservas e os carimbos, ver “O Café Aurora em cada idioma”). Antes de pôr
+  Café aberto no próprio endereço guarda também o pedido, as reservas, os carimbos, as escolhas do painel de acessibilidade e a conta de exemplo do login, ver “O Café Aurora em cada idioma”). Antes de pôr
   qualquer coisa de terceiro no site, mude esse texto nos 8 idiomas. Ele fala **deste site**, não dos sites dos clientes.
 
 ## Fontes de japonês, coreano e chinês (30/10/2026)
@@ -220,6 +220,11 @@ node ferramentas/gerar-cafe.mjs
   Café também troca o título da aba, o rodapé (“Padaria fictícia”) e a dica do painel de cores de dia (`d_titulo`,
   `d_ficticia`, `d_dim_hint`).
 - `IDIOMAS=pt-BR node ferramentas/gerar-cafe.mjs` gera só os idiomas pedidos, para ver um texto novo antes de traduzir.
+- **Projeto final de Desenvolvimento de Interfaces (18/11/2026):** a versão principal ganhou, só em pt-BR, o painel
+  de acessibilidade, a busca no cardápio, o carrossel dos depoimentos (`sitios/cafe-aurora/recursos.js` e
+  `recursos.css`) e a página de login (`ferramentas/cafe/entrar.html`, gerada só em pt-BR como `entrar.html`, com o
+  `entrar.js`). Os textos estão na chave `js.ux` do `textos/pt-BR.json`; nos outros idiomas ela fica vazia (`{}`) e
+  nada disso aparece, até a tradução. Detalhes no README do `Seiabras/cafe-aurora`.
 
 ## De dia, a Padaria Aurora (30/10/2026)
 

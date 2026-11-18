@@ -33,6 +33,7 @@ const DO_SCRIPT = ['expresso', 'coldbrew', 'matcha', 'estelar', 'nivel', 'editar
 
 const ler = (p) => JSON.parse(fs.readFileSync(p, 'utf8'));
 const modelo = fs.readFileSync(path.join(aqui, 'cafe', 'modelo.html'), 'utf8');
+const entrar = fs.readFileSync(path.join(aqui, 'cafe', 'entrar.html'), 'utf8');
 const VERSOES = ['bootstrap', 'tailwind', 'bulma', 'pico'];
 const modeloDe = Object.fromEntries(VERSOES.map((v) => [v, fs.readFileSync(path.join(aqui, 'cafe', `modelo-${v}.html`), 'utf8')]));
 // no Bootstrap, o negrito e o itálico dos textos têm classe própria (o gradiente do tema)
@@ -96,6 +97,8 @@ for (const i of idiomas) {
     return tag.split('"').length % 2 === 0 ? texto.replaceAll('"', '&quot;') : texto;
   });
   saidas.push([path.join(i.pasta, 'index.html'), html]);
+  // a página de login (projeto final de Desenvolvimento de Interfaces, 18/11/2026): por enquanto só em pt-BR
+  if (i.codigo === 'pt-BR') saidas.push(['entrar.html', entrar.replace(/\{\{(lang|textos_js)\}\}/g, (_, k) => extras[k])]);
   for (const v of VERSOES) {
     const end = (o) => CAFE + (o.pasta ? o.pasta + '/' : '') + v + '/';
     const extrasV = {
@@ -140,7 +143,7 @@ for (const [arquivo, html] of saidas) {
 
 // O Café sem internet (1/11/2026): o sw.js guarda a página principal e o que ela usa; os outros idiomas e as versões
 // Bootstrap e Tailwind entram na cache quando a pessoa os abre. A versão da cache muda quando muda qualquer arquivo.
-const BASE_OFF = ['./', 'index.html', 'estilo.css?v=21', 'script.js?v=16', 'inicio.js?v=4', 'icone.png', 'img/icone-192.png', 'img/icone-512.png',
+const BASE_OFF = ['./', 'index.html', 'estilo.css?v=21', 'script.js?v=16', 'inicio.js?v=5', 'recursos.css?v=1', 'recursos.js?v=1', 'icone.png', 'img/icone-192.png', 'img/icone-512.png',
   'manifest.webmanifest', 'fontes/orbitron.woff2', 'fontes/rajdhani-400.woff2', 'fontes/rajdhani-500.woff2', 'fontes/rajdhani-600.woff2', 'fontes/rajdhani-700.woff2'];
 const hash = crypto.createHash('sha256');
 for (const a of BASE_OFF.filter((a) => !a.endsWith('/'))) hash.update(fs.readFileSync(path.join(cafe, a.split('?')[0])));

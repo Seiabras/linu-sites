@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="{{lang}}">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Entrar — Café Aurora</title>
+<meta name="description" content="Entre na sua conta do Café Aurora ou crie uma, para guardar pedidos, reservas e o cartão de carimbos.">
+<meta name="theme-color" content="#05030a">
+<meta name="robots" content="noindex">
+<!-- Página de login do projeto final de Desenvolvimento de Interfaces (18/11/2026). Gerada pelo
+     ferramentas/gerar-cafe.mjs do linu-sites, só em pt-BR. O Café é fictício: nada do formulário sai do navegador. -->
+<script type="application/json" id="textos-cafe">{{textos_js}}</script>
+<script type="application/json" id="textos-entrar">{"ola":"Olá, {nome}!","ok_texto":"Você entrou como {email}. Seus pedidos, reservas e carimbos ficam ligados a esta conta neste navegador.","ok_criada":"Conta criada.","saiu":"Você saiu da conta.","corrija":"Confira os campos marcados.","e_nome":"Diga o seu nome.","e_email":"Digite um e-mail válido, como nome@exemplo.com.","e_senha":"A senha precisa de 8 caracteres ou mais, com letras e números.","e_confirma":"As duas senhas não são iguais.","e_existe":"Já existe uma conta com este e-mail. Use a aba Entrar.","e_vazia":"Digite a senha.","e_login":"E-mail ou senha incorretos."}</script>
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; font-src 'self'; style-src 'self'; script-src 'self'; connect-src 'self'; object-src 'none'; base-uri 'self'; form-action 'self'">
+<link rel="icon" href="icone.png" type="image/png" sizes="128x128">
+<script src="inicio.js?v=5"></script>
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="stylesheet" href="estilo.css?v=21">
+<link rel="stylesheet" href="recursos.css?v=1">
+<script src="recursos.js?v=1" defer></script>
+<script src="entrar.js?v=1" defer></script>
+</head>
+
+<body class="entrar-pagina">
+<a class="skip" href="#conteudo">Pular para o conteúdo</a>
+<div class="bg-veil" aria-hidden="true"></div>
+<div class="bg-grid" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <a href="./" class="brand" aria-label="Café Aurora — voltar ao início" data-aria-dia="Padaria Aurora — voltar ao início">
+    <span class="brand__orb" aria-hidden="true"></span>
+    <span class="so-noite">CAFÉ&nbsp;AURORA</span><span class="so-dia">PADARIA AURORA</span>
+  </a>
+  <div class="nav__right">
+    <a href="./" class="btn btn--ghost">← <span class="so-noite">Voltar ao café</span><span class="so-dia">Voltar à padaria</span></a>
+  </div>
+</header>
+
+<main id="conteudo" class="entrar">
+  <aside class="entrar__lado" aria-labelledby="ladoTitulo">
+    <h2 id="ladoTitulo"><span class="so-noite">Sua conta guarda a fenda aberta.</span><span class="so-dia">Sua conta guarda o pão quentinho.</span></h2>
+    <ul>
+      <li>Os pedidos que você montou, para repetir com um toque.</li>
+      <li>As reservas de mesa, com dia e hora.</li>
+      <li>O cartão de carimbos: a cada 10 pedidos, um é por conta da casa.</li>
+    </ul>
+  </aside>
+
+  <div class="entrar__caixa">
+    <div id="entrarArea">
+      <h1><span class="so-noite">Entrar no Café Aurora</span><span class="so-dia">Entrar na Padaria Aurora</span></h1>
+      <p class="entrar__lead">Use o seu e-mail e a sua senha, ou crie uma conta em menos de um minuto.</p>
+
+      <div class="abas" role="tablist" aria-label="Entrar ou criar conta">
+        <button type="button" role="tab" id="abaEntrar" aria-selected="true" aria-controls="painelEntrar">Entrar</button>
+        <button type="button" role="tab" id="abaCriar" aria-selected="false" aria-controls="painelCriar" tabindex="-1">Criar conta</button>
+      </div>
+
+      <section id="painelEntrar" role="tabpanel" aria-labelledby="abaEntrar">
+        <form id="formEntrar" novalidate>
+          <div class="campo"><label for="eEmail">E-mail</label>
+            <input id="eEmail" type="email" name="email" autocomplete="username" inputmode="email" required aria-describedby="eEmailErro">
+            <p class="erro" id="eEmailErro" hidden></p></div>
+          <div class="campo"><label for="eSenha">Senha</label>
+            <div class="senha"><input id="eSenha" type="password" name="senha" autocomplete="current-password" required aria-describedby="eSenhaErro">
+              <button type="button" aria-pressed="false" aria-controls="eSenha" data-mostrar="Mostrar" data-esconder="Esconder">Mostrar</button></div>
+            <p class="erro" id="eSenhaErro" hidden></p></div>
+          <label class="lembrar"><input type="checkbox" id="eLembrar" checked> Continuar conectado neste aparelho</label>
+          <button type="submit" class="btn btn--magenta">Entrar</button>
+          <p class="campo__dica">Ainda não tem conta? <button type="button" class="link-botao" data-ir-aba="abaCriar">Criar conta</button></p>
+        </form>
+      </section>
+
+      <section id="painelCriar" role="tabpanel" aria-labelledby="abaCriar" hidden>
+        <form id="formCadastro" novalidate>
+          <div class="campo"><label for="cNome">Nome</label>
+            <input id="cNome" type="text" name="nome" autocomplete="name" required aria-describedby="cNomeErro">
+            <p class="erro" id="cNomeErro" hidden></p></div>
+          <div class="campo"><label for="cEmail">E-mail</label>
+            <input id="cEmail" type="email" name="email" autocomplete="email" inputmode="email" required aria-describedby="cEmailErro">
+            <p class="erro" id="cEmailErro" hidden></p></div>
+          <div class="campo"><label for="cSenha">Senha</label>
+            <div class="senha"><input id="cSenha" type="password" name="senha" autocomplete="new-password" required aria-describedby="cSenhaDica cSenhaErro">
+              <button type="button" aria-pressed="false" aria-controls="cSenha" data-mostrar="Mostrar" data-esconder="Esconder">Mostrar</button></div>
+            <p class="campo__dica" id="cSenhaDica">Pelo menos 8 caracteres, com letras e números.</p>
+            <p class="erro" id="cSenhaErro" hidden></p></div>
+          <div class="campo"><label for="cConfirma">Repita a senha</label>
+            <input id="cConfirma" type="password" name="confirma" autocomplete="new-password" required aria-describedby="cConfirmaErro">
+            <p class="erro" id="cConfirmaErro" hidden></p></div>
+          <button type="submit" class="btn btn--magenta">Criar conta</button>
+        </form>
+      </section>
+
+      <p class="entrar__msg" id="entrarMsg" role="status" aria-live="polite"></p>
+    </div>
+
+    <div class="entrar__ok" id="entrarOk" hidden>
+      <h2 id="okTitulo" tabindex="-1"></h2>
+      <p id="okTexto"></p>
+      <div class="entrar__acoes">
+        <a href="./#menu" class="btn btn--magenta"><span class="so-noite">Ver o cardápio</span><span class="so-dia">Ver as fornadas</span></a>
+        <button type="button" class="btn btn--ghost" id="sair">Sair da conta</button>
+      </div>
+    </div>
+
+    <p class="entrar__aviso">Site de estudo: o Café Aurora não existe. A conta fica só neste navegador e nada é enviado
+      pela internet; da senha, guarda-se apenas um resumo (SHA-256).</p>
+  </div>
+</main>
+</body>
+</html>
