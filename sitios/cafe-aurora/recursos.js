@@ -2,7 +2,8 @@
    1. o painel de acessibilidade (tema claro ou escuro, tamanho do texto, alto contraste, links sublinhados,
       fonte simples, mais espaço entre linhas e animações paradas), guardado no navegador;
    2. a busca no cardápio, que soma com os filtros que já existiam;
-   3. o carrossel dos depoimentos (Transmissões, de dia Recados), com setas, bolinhas e pausa;
+   3. dois carrosséis, com setas, bolinhas, teclado e pausa: as fotos da casa (galeria, na seção Origem) e os
+      depoimentos (Transmissões, de dia Recados);
    4. o link "Entrar" no menu, para a página de login (entrar.html).
    Os textos vêm do bloco #textos-cafe (chave "ux"). Um idioma que ainda não tem esses textos fica como estava. */
 (() => {
@@ -147,16 +148,15 @@
     new MutationObserver(() => setTimeout(buscar, 0)).observe(raiz, { attributes: true, attributeFilter: ['data-modo'] });
   }
 
-  /* ---------- 3. Carrossel dos depoimentos ---------- */
-  const trilho = $('.trans-grid');
-  const slides = trilho ? $$('.trans', trilho) : [];
-  if (trilho && slides.length > 1) {
-    const secao = trilho.closest('section');
+  /* ---------- 3. Carrosséis: as fotos da casa (galeria) e os depoimentos ---------- */
+  // Um carrossel só, usado duas vezes. "txt" traz os rótulos de cada um (nome, anterior, próximo, ir para).
+  let carrosseis = 0;
+  function carrossel(trilho, slides, txt) {
+    const id = 'carrossel' + (++carrosseis);
     trilho.classList.add('carrossel__trilho');
-    trilho.id = 'carrosselTrilho';
-    trilho.setAttribute('aria-live', 'off');
-    trilho.tabIndex = 0; // quem usa o teclado também rola o trilho (as setas do teclado trocam o depoimento)
-    const quadro = el('div', { class: 'carrossel', role: 'region', 'aria-roledescription': 'carrossel', 'aria-label': T.car_rotulo });
+    trilho.id = id;
+    trilho.tabIndex = 0; // quem usa o teclado também rola o trilho (as setas do teclado trocam o slide)
+    const quadro = el('div', { class: 'carrossel', role: 'region', 'aria-roledescription': 'carrossel', 'aria-label': txt.rotulo });
     trilho.before(quadro);
     quadro.append(trilho);
     slides.forEach((s, i) => {
@@ -165,12 +165,12 @@
       s.setAttribute('aria-roledescription', 'slide');
       s.setAttribute('aria-label', f(T.car_pos, { n: i + 1, total: slides.length }));
     });
-    const ant = el('button', { type: 'button', class: 'carrossel__seta carrossel__seta--ant', 'aria-controls': trilho.id, 'aria-label': T.car_ant }, '‹');
-    const prox = el('button', { type: 'button', class: 'carrossel__seta carrossel__seta--prox', 'aria-controls': trilho.id, 'aria-label': T.car_prox }, '›');
+    const ant = el('button', { type: 'button', class: 'carrossel__seta carrossel__seta--ant', 'aria-controls': id, 'aria-label': txt.ant }, '‹');
+    const prox = el('button', { type: 'button', class: 'carrossel__seta carrossel__seta--prox', 'aria-controls': id, 'aria-label': txt.prox }, '›');
     const pausa = el('button', { type: 'button', class: 'carrossel__pausa', 'aria-pressed': 'false' });
     const bolas = el('div', { class: 'carrossel__bolas' });
     const pontos = slides.map((s, i) => {
-      const b = el('button', { type: 'button', class: 'carrossel__bola', 'aria-label': f(T.car_ir, { n: i + 1 }) });
+      const b = el('button', { type: 'button', class: 'carrossel__bola', 'aria-label': f(txt.ir, { n: i + 1 }) });
       b.addEventListener('click', () => { parar(); ir(i); });
       bolas.append(b);
       return b;
@@ -180,11 +180,11 @@
     quadro.append(controles);
 
     let atual = 0, relogio = 0, pausado = false;
+    const semMovimento = () => raiz.classList.contains('a11y-parado') || matchMedia('(prefers-reduced-motion: reduce)').matches;
     const centro = (s) => s.offsetLeft + s.offsetWidth / 2 - trilho.clientWidth / 2;
     function ir(i, suave = true) {
       atual = (i + slides.length) % slides.length;
-      const movimento = suave && !raiz.classList.contains('a11y-parado') && !matchMedia('(prefers-reduced-motion: reduce)').matches;
-      trilho.scrollTo({ left: centro(slides[atual]), behavior: movimento ? 'smooth' : 'auto' });
+      trilho.scrollTo({ left: centro(slides[atual]), behavior: suave && !semMovimento() ? 'smooth' : 'auto' });
       marcar();
     }
     function marcar() {
@@ -197,14 +197,14 @@
       clearTimeout(espera);
       espera = setTimeout(() => {
         const meio = trilho.scrollLeft + trilho.clientWidth / 2;
-        let melhor = 0;
-        slides.forEach((s, k) => { if (Math.abs(s.offsetLeft + s.offsetWidth / 2 - meio) < Math.abs(slides[melhor].offsetLeft + slides[melhor].offsetWidth / 2 - meio)) melhor = k; });
+        const dist = (s) => Math.abs(s.offsetLeft + s.offsetWidth / 2 - meio);
+        const melhor = slides.reduce((m, s, k) => (dist(s) < dist(slides[m]) ? k : m), 0);
         if (melhor !== atual) { atual = melhor; marcar(); }
       }, 120);
     }, { passive: true });
     // passa sozinho a cada 7 s; para com o botão, com o mouse em cima, com o foco dentro ou com "Parar animações"
-    const podeTocar = () => !pausado && !raiz.classList.contains('a11y-parado') && !matchMedia('(prefers-reduced-motion: reduce)').matches;
-    function tocar() { clearInterval(relogio); relogio = podeTocar() ? setInterval(() => ir(atual + 1), 7000) : 0; desenharPausa(); }
+    function tocar() { clearInterval(relogio); relogio = !pausado && !semMovimento() ? setInterval(() => ir(atual + 1), 7000) : 0; desenharPausa(); }
+    function segurar() { clearInterval(relogio); relogio = 0; desenharPausa(); }
     function parar() { pausado = true; tocar(); }
     function desenharPausa() {
       const rodando = !!relogio;
@@ -214,20 +214,56 @@
     }
     ant.addEventListener('click', () => { parar(); ir(atual - 1); });
     prox.addEventListener('click', () => { parar(); ir(atual + 1); });
-    pausa.addEventListener('click', () => { pausado = !!relogio; if (!pausado && raiz.classList.contains('a11y-parado')) pausado = true; tocar(); });
+    pausa.addEventListener('click', () => { pausado = !!relogio || semMovimento(); tocar(); });
     quadro.addEventListener('keydown', (e) => {
       if (e.key === 'ArrowLeft') { e.preventDefault(); parar(); ir(atual - 1); }
       if (e.key === 'ArrowRight') { e.preventDefault(); parar(); ir(atual + 1); }
     });
-    quadro.addEventListener('mouseenter', () => { clearInterval(relogio); relogio = 0; desenharPausa(); });
+    quadro.addEventListener('mouseenter', segurar);
     quadro.addEventListener('mouseleave', tocar);
-    quadro.addEventListener('focusin', () => { clearInterval(relogio); relogio = 0; desenharPausa(); });
+    quadro.addEventListener('focusin', segurar);
     quadro.addEventListener('focusout', (e) => { if (!quadro.contains(e.relatedTarget)) tocar(); });
-    document.addEventListener('visibilitychange', () => (document.hidden ? (clearInterval(relogio), relogio = 0) : tocar()));
+    document.addEventListener('visibilitychange', () => (document.hidden ? segurar() : tocar()));
     raiz.addEventListener('acessibilidade', tocar);
     addEventListener('resize', () => ir(atual, false));
-    if (secao) secao.classList.add('com-carrossel');
     marcar();
     tocar();
+  }
+
+  // A galeria: as fotos que o site já tem (a rua, o balcão e dois itens do cardápio), de noite as do café e de dia as
+  // da padaria, agora com texto alternativo e legenda. Fica no fim da seção Origem.
+  const origem = $('#sobre');
+  const fontes = [$('.hero__foto'), $('.origem-foto'), $('.card[data-item="2"] .card__foto'), $('.card[data-item="5"] .card__foto')];
+  if (origem && T.gal_fotos && fontes.every(Boolean)) {
+    const bloco = el('div', { class: 'galeria' });
+    const titulo = el('h3', { class: 'galeria__titulo' });
+    titulo.append(el('span', { class: 'so-noite' }, T.gal_titulo_noite), el('span', { class: 'so-dia' }, T.gal_titulo_dia));
+    const trilho = el('div', { class: 'galeria__trilho' });
+    const slides = fontes.map((fonte, i) => {
+      const fig = el('figure', { class: 'galeria__foto' });
+      ['noite', 'dia'].forEach((m, k) => {
+        const img = fonte.querySelector('img.so-' + m).cloneNode();
+        img.alt = T.gal_fotos[i][k];
+        img.loading = 'lazy';
+        img.sizes = '(min-width: 1100px) 640px, (min-width: 700px) 68vw, 86vw';
+        fig.append(img);
+      });
+      const leg = el('figcaption');
+      leg.append(el('span', { class: 'so-noite' }, T.gal_fotos[i][0]), el('span', { class: 'so-dia' }, T.gal_fotos[i][1]));
+      fig.append(leg);
+      trilho.append(fig);
+      return fig;
+    });
+    bloco.append(titulo, trilho);
+    origem.append(bloco);
+    carrossel(trilho, slides, { rotulo: T.gal_rotulo, ant: T.gal_ant, prox: T.gal_prox, ir: T.gal_ir });
+  }
+
+  // Os depoimentos (Transmissões; de dia, Recados)
+  const trans = $('.trans-grid');
+  const depoimentos = trans ? $$('.trans', trans) : [];
+  if (trans && depoimentos.length > 1) {
+    trans.setAttribute('aria-live', 'off');
+    carrossel(trans, depoimentos, { rotulo: T.car_rotulo, ant: T.car_ant, prox: T.car_prox, ir: T.car_ir });
   }
 })();

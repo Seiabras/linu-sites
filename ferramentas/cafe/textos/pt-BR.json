@@ -413,7 +413,31 @@
       "car_pausar": "Pausar a troca automática",
       "car_tocar": "Retomar a troca automática",
       "entrar": "Entrar",
-      "ola": "Olá, {nome}"
+      "ola": "Olá, {nome}",
+      "gal_titulo_noite": "Por dentro do café",
+      "gal_titulo_dia": "Por dentro da padaria",
+      "gal_rotulo": "Galeria de fotos",
+      "gal_ant": "Foto anterior",
+      "gal_prox": "Próxima foto",
+      "gal_ir": "Ir para a foto {n}",
+      "gal_fotos": [
+        [
+          "A rua do Café Aurora à noite, com letreiros de neon e vapor saindo da porta.",
+          "A rua da Padaria Aurora de manhã, com a vitrine cheia de pães e o vapor do forno."
+        ],
+        [
+          "O balcão do café, com a máquina de expresso e um raio preso num tubo de vidro.",
+          "A cozinha da padaria, com o forno a lenha, a máquina de café e a cidade na janela."
+        ],
+        [
+          "Latte de Plasma: um copo de vidro com camadas de café e espuma rosa, num balcão molhado.",
+          "Pão de Gravidade Zero: um pão redondo flutuando acima do prato, numa mesa de madeira."
+        ],
+        [
+          "Leite de Estrela: uma xícara com espuma em espiral, como uma galáxia, entre luzes de neon.",
+          "Rosca do Eclipse: uma rosca escura cortada ao meio, sobre um pano, ao lado da janela."
+        ]
+      ]
     }
   }
 }

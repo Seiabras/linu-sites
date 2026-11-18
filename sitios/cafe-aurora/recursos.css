@@ -108,14 +108,14 @@ html.a11y-parado body{cursor:auto !important}
 
 /* ============ 3. O carrossel dos depoimentos ============ */
 .carrossel{position:relative;margin-top:3rem;container-type:inline-size}
-.trans-grid.carrossel__trilho{
+.carrossel > .carrossel__trilho{
   display:flex;gap:1.3rem;margin-top:0;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;
   padding-block:.6rem;padding-inline:6cqi;overscroll-behavior-x:contain;
 }
 .carrossel__trilho::-webkit-scrollbar{display:none}
 .carrossel__trilho:focus-visible{outline:3px solid var(--cyan);outline-offset:4px}
-.carrossel__trilho > .trans{flex:0 0 88cqi;scroll-snap-align:center;opacity:.55;transition:opacity .35s var(--ease),transform .35s var(--ease)}
-.carrossel__trilho > .trans.carrossel__atual{opacity:1}
+.carrossel__trilho > *{flex:0 0 88cqi;scroll-snap-align:center;opacity:.55;transition:opacity .35s var(--ease),transform .35s var(--ease)}
+.carrossel__trilho > .carrossel__atual{opacity:1}
 .carrossel__trilho > .trans:hover{transform:none}
 .carrossel__trilho > .trans q{font-size:1.1rem}
 .carrossel__controles{display:flex;align-items:center;justify-content:center;gap:.8rem;margin-top:1.1rem}
@@ -133,23 +133,33 @@ html.a11y-parado body{cursor:auto !important}
 
 /* celular: um depoimento por vez, quase a tela toda; as setas embaixo, junto das bolinhas */
 @media (max-width:699px){
-  .trans-grid.carrossel__trilho{padding-inline:7cqi}
-  .carrossel__trilho > .trans{flex-basis:86cqi;padding:1.3rem}
+  .carrossel > .carrossel__trilho{padding-inline:7cqi}
+  .carrossel__trilho > *{flex-basis:86cqi}
+  .carrossel__trilho > .trans{padding:1.3rem}
 }
 /* tablet: o atual no meio e as pontas dos vizinhos à vista */
 @media (min-width:700px) and (max-width:1099px){
-  .trans-grid.carrossel__trilho{padding-inline:16cqi}
-  .carrossel__trilho > .trans{flex-basis:68cqi}
+  .carrossel > .carrossel__trilho{padding-inline:16cqi}
+  .carrossel__trilho > *{flex-basis:68cqi}
 }
 /* computador: as setas vão para as laterais, por cima das pontas dos vizinhos */
 @media (min-width:1100px){
-  .trans-grid.carrossel__trilho{padding-inline:22cqi}
-  .carrossel__trilho > .trans{flex-basis:56cqi;padding:2.2rem 2.4rem}
+  .carrossel > .carrossel__trilho{padding-inline:22cqi}
+  .carrossel__trilho > *{flex-basis:56cqi}
+  .carrossel__trilho > .trans{padding:2.2rem 2.4rem}
   .carrossel__trilho > .trans q{font-size:1.25rem}
   .carrossel__seta{position:absolute;top:calc(50% - 40px);width:56px;height:56px;z-index:2}
   .carrossel__seta--ant{left:4%}
   .carrossel__seta--prox{right:4%}
 }
+
+/* a galeria de fotos (no fim da seção Origem) */
+.galeria{margin-top:4rem}
+.galeria__titulo{font-family:var(--font-display);font-size:1.15rem;letter-spacing:.06em;margin-bottom:-1.6rem}
+.galeria__foto{margin:0;border:1px solid var(--stroke);border-radius:4px;overflow:hidden;background:var(--bg-2)}
+.galeria__foto img{display:block;width:100%;height:auto;aspect-ratio:4 / 3;object-fit:cover}
+.galeria__foto figcaption{padding:.8rem 1rem;font-size:.95rem;color:var(--muted)}
+@media (min-width:1100px){ .galeria__foto img{aspect-ratio:16 / 9} }
 
 /* ============ 4. O link Entrar e a página de login ============ */
 .nav__entrar{font-weight:700}
