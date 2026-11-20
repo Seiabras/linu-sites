@@ -48,7 +48,9 @@ and variables → Actions). **Para cortar o acesso do GitHub:** apagar `/home/li
 ### A chave da VM fixada (segredo `ORACLE_HOST_KEY`)
 
 Para o GitHub ter certeza de que está falando com a VM de verdade, e não com alguém no caminho, a chave
-pública do servidor fica num segredo. Sem ele, a publicação continua funcionando, com um aviso.
+pública do servidor fica num segredo. Sem ele, a publicação para com erro e nada vai para a VM (desde
+20/11/2026; antes ela aceitava, com um aviso, a chave de quem respondesse). As Actions do GitHub ficam
+fixadas por SHA (o código exato de cada versão), para uma etiqueta trocada não rodar código novo com a chave.
 
 Na VM (pelo seu acesso de sempre), rode:
 

@@ -37,7 +37,7 @@ cotas e carimbo, e de noite vira o cianotipo (ver “Identidade: a planta”).
 | `ferramentas/fontes/` | Os caracteres que estão em cada fonte Noto (`ja.txt`, `ko.txt`, `zh-hant.txt`), escritos pelo `gerar-fontes.mjs`. |
 | `ferramentas/` | Geradores: a página em cada idioma (`gerar-idiomas.mjs`), as fontes Noto (`gerar-fontes.mjs`), páginas de projeto, imagem de compartilhar e capas do portfólio (`capas/`), cena noturna e o Linu trazido do app (`linu-do-app.py`). |
 | `deploy/` | Instalação na VM (`instalar-uma-vez.sh`), recebimento (`receber.sh`), conferência antes de publicar (`conferir-pagina.py`), bloco do Caddy e o manual `ORACLE.md`. |
-| `.github/workflows/oracle.yml` | Publicação automática (confere a página, entrega e testa se o site respondeu). |
+| `.github/workflows/oracle.yml` | Publicação automática (confere a página, entrega e testa se o site respondeu). Para com erro sem o segredo `ORACLE_HOST_KEY` (a chave da VM) e usa as Actions fixadas por SHA (20/11/2026). |
 
 ## Ver no computador
 

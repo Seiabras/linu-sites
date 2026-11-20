@@ -21,22 +21,22 @@ jobs:
     if: github.event_name != 'schedule'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
       # cada site com a sua raiz, para os caminhos que começam em "/" acharem o arquivo certo
       - name: Página principal
-        uses: lycheeverse/lychee-action@v2.9.0
+        uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
         with:
           args: --offline --no-progress --fallback-extensions html --index-files index.html --root-dir ${{ github.workspace }}/public 'public/**/*.html'
       - name: Café Aurora
-        uses: lycheeverse/lychee-action@v2.9.0
+        uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
         with:
           args: --offline --no-progress --fallback-extensions html --index-files index.html --root-dir ${{ github.workspace }}/sitios/cafe-aurora 'sitios/cafe-aurora/**/*.html'
       - name: Guia do Cerrado
-        uses: lycheeverse/lychee-action@v2.9.0
+        uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
         with:
           args: --offline --no-progress --fallback-extensions html --index-files index.html --root-dir ${{ github.workspace }}/sitios/fotografia-do-cerrado 'sitios/fotografia-do-cerrado/**/*.html'
       - name: Pica ou Não Pica?
-        uses: lycheeverse/lychee-action@v2.9.0
+        uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
         with:
           args: --offline --no-progress --fallback-extensions html --index-files index.html --root-dir ${{ github.workspace }}/sitios/pica-nao-pica 'sitios/pica-nao-pica/**/*.html'
 
@@ -44,8 +44,8 @@ jobs:
     if: github.event_name != 'push'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
-      - uses: lycheeverse/lychee-action@v2.9.0
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      - uses: lycheeverse/lychee-action@e7477775783ea5526144ba13e8db5eec57747ce8 # v2.9.0
         with:
           fail: false
           args: >-

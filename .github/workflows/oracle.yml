@@ -29,8 +29,8 @@ jobs:
           else
             echo "tem=sim" >> "$GITHUB_OUTPUT"
           fi
-      - uses: actions/checkout@v5
-      - uses: actions/setup-node@v5
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+      - uses: actions/setup-node@a0853c24544627f65ddf259abe73b1d18a591444 # v5
         with:
           node-version: 22
       - name: Conferir a página
@@ -54,7 +54,7 @@ jobs:
           node ferramentas/conferir-visual.mjs --raiz public --paginas /,/ja/,/projetos/linupedia --ignorar frame-ancestors --saida capturas
       - name: Guardar as capturas
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         with:
           name: capturas
           path: capturas
@@ -67,14 +67,13 @@ jobs:
         run: |
           mkdir -p ~/.ssh && chmod 700 ~/.ssh
           printf '%s\n' "$KEY" > ~/.ssh/id_ed25519 && chmod 600 ~/.ssh/id_ed25519
-          # A chave da VM fica fixada no segredo ORACLE_HOST_KEY (ver deploy/ORACLE.md): assim ninguém no
-          # caminho consegue se passar pela VM. Sem o segredo, aceita a que a VM mostrar, com um aviso.
-          if [ -n "$HOST_KEY" ]; then
-            printf '%s\n' "$HOST_KEY" > ~/.ssh/known_hosts
-          else
-            echo "::warning::O segredo ORACLE_HOST_KEY não existe: a chave da VM foi aceita sem conferir."
-            ssh-keyscan -T 15 "$VM_HOST" >> ~/.ssh/known_hosts 2>/dev/null
+          # A chave da VM fixada no segredo ORACLE_HOST_KEY (deploy/ORACLE.md): ninguém no caminho se passa pela VM.
+          # Sem o segredo, para com erro (20/11/2026): o ssh-keyscan de reserva aceitava a chave de quem respondesse.
+          if [ -z "$HOST_KEY" ]; then
+            echo "::error::Falta o segredo ORACLE_HOST_KEY (a chave da VM); nada foi publicado. Ver deploy/ORACLE.md."
+            exit 1
           fi
+          printf '%s\n' "$HOST_KEY" > ~/.ssh/known_hosts
           chmod 600 ~/.ssh/known_hosts
           # Os sites dos subdomínios (cafe, cerrado, picanaopica) vão no mesmo pacote, em _sitios/; o Caddy esconde
           # essa pasta em sites.linupedia.com.br e serve cada subdomínio da sua subpasta.
