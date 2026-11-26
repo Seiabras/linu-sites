@@ -146,7 +146,7 @@
       janela.close();
       if (window.AuroraDepurar) { window.AuroraDepurar.ligar(T); return; }
       if (dep.script) return;
-      dep.script = el('script', { src: new URL('depurar.js?v=1', base).href });
+      dep.script = el('script', { src: new URL('depurar.js?v=2', base).href });
       dep.script.addEventListener('load', () => window.AuroraDepurar && window.AuroraDepurar.ligar(T));
       document.head.append(dep.script);
     };

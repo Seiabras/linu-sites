@@ -214,6 +214,14 @@
 
     insp.hidden = false;
     escolha.hidden = false;
+    // no celular o inspetor sobe de baixo: a página rola para a parte escolhida ficar à vista, acima dele
+    if (matchMedia('(max-width: 699px)').matches) {
+      const parte = n.getBoundingClientRect(), topo = insp.getBoundingClientRect().top, barra = 70;
+      if (parte.bottom > topo - 12 || parte.top < barra) {
+        const meio = barra + (topo - barra) / 2 - Math.min(parte.height, topo - barra) / 2;
+        scrollBy({ top: parte.top - meio, behavior: 'auto' });
+      }
+    }
     posicionar();
   }
 

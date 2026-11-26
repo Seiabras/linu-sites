@@ -364,3 +364,6 @@ html,body{overflow-x:clip}
 .dim__agora:hover:not(:disabled){background:rgb(127 127 127 / .15)}
 .dim__agora:focus-visible{outline:2px solid currentColor;outline-offset:2px}
 .dim__agora:disabled{opacity:.45;cursor:default}
+/* na Bootstrap, a trilha própria do form-range cobria o degradê do dia no Sintonizar a luz */
+[data-modo="dia"] #hue.form-range::-webkit-slider-runnable-track{background:transparent}
+[data-modo="dia"] #hue.form-range::-moz-range-track{background:transparent}
