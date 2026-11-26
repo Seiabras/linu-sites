@@ -762,7 +762,9 @@
           99,
           "Spätnachmittag"
         ]
-      ]
+      ],
+      "agora": "Jetzt",
+      "zero": "Ursprung"
     },
     "fmt_hora": "{hh}:{mm} Uhr",
     "fmt_hora_cheia": "{h} Uhr",

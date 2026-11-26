@@ -1509,3 +1509,10 @@ html.previa-abertura .boot{display:grid !important}
 }
 /* a trilha do controle é o próprio dia: amanhecer rosado, meio-dia claro, fim de tarde dourado */
 [data-modo="dia"] #hue{background:linear-gradient(90deg,#d98f86,#f3e2c4 50%,#d9962f)}
+/* o botão de voltar do Sintonizar (26/11/2026): "Agora" de dia, "Origem" de noite (inicio.js) */
+.dim__agora{display:inline-flex;align-items:center;gap:.2rem;margin-top:.6rem;min-height:32px;padding:.2rem .7rem;
+  border:1px solid currentColor;border-radius:2px;background:transparent;color:inherit;font:inherit;font-size:.75rem;
+  letter-spacing:.08em;cursor:pointer;transition:opacity .2s ease-out,background-color .2s ease-out}
+.dim__agora:hover:not(:disabled){background:rgb(127 127 127 / .15)}
+.dim__agora:focus-visible{outline:2px solid currentColor;outline-offset:2px}
+.dim__agora:disabled{opacity:.45;cursor:default}

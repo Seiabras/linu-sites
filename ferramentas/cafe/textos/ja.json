@@ -762,7 +762,9 @@
           99,
           "夕方"
         ]
-      ]
+      ],
+      "agora": "今",
+      "zero": "原点"
     },
     "fmt_hora": "{h}:{mm}",
     "fmt_hora_cheia": "{h}時",

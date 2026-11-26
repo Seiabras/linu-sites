@@ -762,7 +762,9 @@
           99,
           "late middag"
         ]
-      ]
+      ],
+      "agora": "Nu",
+      "zero": "Oorsprong"
     },
     "fmt_hora": "{h}.{mm}",
     "fmt_hora_cheia": "{h}.00",

@@ -159,5 +159,29 @@
     }
     new MutationObserver(trocouModo).observe(raiz, { attributes: true, attributeFilter: ['data-modo'] });
     if (modo() === 'dia') { hue.value = valores.dia; hue.dispatchEvent(new Event('input', { bubbles: true })); }
+
+    // O botão de voltar (26/11/2026): de dia, "Agora" volta à hora de verdade; de noite, "Origem" volta a 0°. Fica
+    // desligado quando o controle já está lá.
+    if (!L.agora || !L.zero) return;
+    var volta = document.createElement('button'), seta = document.createElement('span'), rotulo = document.createElement('span');
+    volta.type = 'button';
+    volta.className = 'dim__agora';
+    seta.setAttribute('aria-hidden', 'true');
+    seta.textContent = '↺ ';
+    volta.append(seta, rotulo);
+    hue.after(volta);
+    function alvo() { return modo() === 'dia' ? agora() : 0; }
+    function desenharVolta() {
+      rotulo.textContent = modo() === 'dia' ? L.agora : L.zero;
+      volta.disabled = Number(hue.value) === alvo();
+    }
+    volta.addEventListener('click', function () {
+      hue.value = alvo();
+      hue.dispatchEvent(new Event('input', { bubbles: true }));
+      hue.focus();
+    });
+    hue.addEventListener('input', desenharVolta);
+    new MutationObserver(desenharVolta).observe(raiz, { attributes: true, attributeFilter: ['data-modo'] });
+    desenharVolta();
   });
 })();

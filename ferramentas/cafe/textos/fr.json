@@ -762,7 +762,9 @@
           99,
           "fin d’après-midi"
         ]
-      ]
+      ],
+      "agora": "Maintenant",
+      "zero": "Origine"
     },
     "fmt_hora": "{h} h {mm}",
     "fmt_hora_cheia": "{h} h",

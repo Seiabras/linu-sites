@@ -762,7 +762,9 @@
           99,
           "늦은 오후"
         ]
-      ]
+      ],
+      "agora": "지금",
+      "zero": "원점"
     },
     "fmt_hora": "{hh}:{mm}",
     "fmt_hora_cheia": "{h}시",
