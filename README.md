@@ -225,15 +225,27 @@ node ferramentas/gerar-cafe.mjs
   `recursos.css`) e a página de login (`ferramentas/cafe/entrar.html`, gerada só em pt-BR como `entrar.html`, com o
   `entrar.js`). Os textos estão na chave `js.ux` do `textos/pt-BR.json`; nos outros idiomas ela fica vazia (`{}`) e
   nada disso aparece, até a tradução. Detalhes no README do `Seiabras/cafe-aurora`.
-- **Depuração, idiomas e a luz da padaria (26/11/2026, só em pt-BR por enquanto, regra 8):** o painel de
-  acessibilidade ganhou o visual de terminal (`recursos.css`, bloco 5), a lista das 13 línguas (pelos
-  `<link rel="alternate">`, com um atalho no menu) e a depuração (`sitios/cafe-aurora/depurar.js`, baixado só quando
-  alguém liga: clicar numa parte mostra como ela foi feita). Os textos novos estão no `js.ux` do `textos/pt-BR.json`
-  (a lista `dep_partes` explica 45 partes). De dia, o “Sintonizar dimensão” virou “Sintonizar a luz”: a hora do sol de
-  6h a 18h, em vez de girar o matiz (`inicio.js`, para as cinco versões; as cores do dia usam as `--luz-*` no
-  `estilo.css` e no `padaria.css`). O título e o rótulo de dia vêm do `js.luz` pelos `data-luz` dos modelos; nos outros
-  idiomas o `js.luz` fica `{}` e o texto de sempre continua, mas as cores já seguem a luz. Conferido com axe 4.10 nas
-  cinco versões e no `/en/` e `/ja/`, inclusive com o painel aberto, a depuração e a luz às 6h e às 18h.
+- **Depuração, idiomas e a luz da padaria (26/11/2026), nas 13 línguas:** o painel de acessibilidade ganhou o
+  visual de terminal (`recursos.css`, bloco 5), a lista das línguas (pelos `<link rel="alternate">`, com um atalho no
+  menu) e a depuração (`sitios/cafe-aurora/depurar.js`, baixado só quando alguém liga: clicar numa parte mostra como
+  ela foi feita, com 45 partes explicadas em `dep_partes`). De dia, o “Sintonizar dimensão” virou “Sintonizar a luz”:
+  a hora do sol de 6h a 18h, em vez de girar o matiz (`inicio.js`, nas cinco versões; as cores do dia usam as
+  `--luz-*` no `estilo.css` e no `padaria.css`), com um botão de voltar (“Agora” de dia, “Origem” de noite). O título e
+  o rótulo de dia vêm do `js.luz` pelos `data-luz` dos modelos.
+- **A leva das 13 línguas (26/11/2026, regra 8, pt-BR aprovado):** entraram nas outras 12 o `js.ux` (painel, busca,
+  carrosséis, galeria, depuração), o `js.luz`, o que tinha mudado em pt-BR em 04/11 (horários, “das 18h às 6h”, a
+  Origem, os botões de modo, as mensagens da reserva e o relógio de turno, que voltou a aparecer) e o login: o
+  `ferramentas/cafe/entrar.html` virou modelo (chaves `l_*` no HTML, `lj_*` nas mensagens do `entrar.js`) e sai em
+  cada idioma (`/<pasta>/entrar.html`). A hora sai no jeito de cada língua pelas chaves `fmt_hora`, `fmt_hora_cheia`,
+  `fmt_dur` e `fmt_ap` (“18h05”, “18:05”, “6:05 p.m.”, “18時”).
+- **Troca de idioma no rodapé (26/11/2026):** as cinco versões têm, abaixo da troca de versão e com o mesmo estilo, as
+  13 línguas com o próprio nome, levando à mesma versão (`trocaIdioma` no `gerar-cafe.mjs`, `{{idiomas_troca}}` nos
+  modelos); as versões com framework não tinham como trocar de língua. A peça genérica (depuração e seletor) ficou em
+  `linuarquivos/modelos/ferramentas/depuracao/`.
+- **Conferido em 26/11/2026:** as 13 línguas (painel, relógio, luz, depuração e login), axe 4.10 em 390, 820 e
+  1280 px, claro e escuro, mais 132 estados abertos (painel, depuração, luz às 6h e às 18h), sem falha séria ou crítica;
+  845 links da troca de idioma com destino; e em celulares emulados com toque (iPhone 13 e Pixel 7): a depuração no
+  toque só inspeciona, a página rola e a parte escolhida fica à vista acima do inspetor.
 
 ## De dia, a Padaria Aurora (30/10/2026)
 
