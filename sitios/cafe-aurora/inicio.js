@@ -65,4 +65,92 @@
     ligar();
     document.addEventListener('visibilitychange', ligar);
   });
+
+  // A luz da padaria (26/11/2026). De noite, o “Sintonizar dimensão” gira o matiz de tudo (o script de cada versão
+  // escreve o --desvio). De dia, o mesmo controle vira “Sintonizar a luz”: a hora do sol no turno da padaria, de -70
+  // (6h, amanhecer rosado) a 0 (meio-dia, luz neutra) e 70 (18h, fim de tarde dourado). Aqui saem as --luz-* que o
+  // CSS do modo dia usa (estilo.css bloco 17 e padaria.css), e o --desvio fica com o valor da noite. Cada modo guarda
+  // o seu valor; de dia, o controle começa na hora de agora. Serve às cinco versões, porque todas carregam este arquivo.
+  document.addEventListener('DOMContentLoaded', function () {
+    var hue = document.getElementById('hue'), val = document.getElementById('hueVal'), dim = document.getElementById('dim');
+    if (!hue) return;
+    var L = {};
+    try { L = JSON.parse(document.getElementById('textos-cafe').textContent).luz || {}; } catch (e) {}
+    // amanhecer, meio-dia e fim de tarde; entre eles, a mistura
+    var PONTOS = [
+      { h: -14, s: -12, l: 4, tinta: [249, 230, 229], p: 0.7, sepia: 0.06, foto: -12, sat: 0.9, bri: 1.04 },
+      { h: 0, s: 0, l: 0, tinta: [251, 243, 228], p: 0, sepia: 0, foto: 0, sat: 1, bri: 1 },
+      { h: 6, s: 12, l: -8, tinta: [245, 216, 172], p: 0.75, sepia: 0.32, foto: -6, sat: 1.25, bri: 0.97 }
+    ];
+    var FUNDO = [251, 243, 228], FUNDO2 = [244, 230, 204];
+    var PROPS = ['--luz-h', '--luz-s', '--luz-l', '--luz-bg', '--luz-bg2', '--luz-sepia', '--luz-foto', '--luz-sat', '--luz-bri'];
+    var ariaDim = dim && dim.getAttribute('aria-label'), ariaHue = hue.getAttribute('aria-label');
+    // o título e o rótulo (data-luz="titulo" e "rotulo" no modelo): de dia, o texto do js.luz; de noite, o de sempre
+    var trocas = Array.prototype.map.call(document.querySelectorAll('[data-luz]'), function (n) {
+      return { n: n, noite: n.textContent, dia: L[n.getAttribute('data-luz')] };
+    });
+    function textos(dia) { trocas.forEach(function (t) { if (t.dia) t.n.textContent = dia ? t.dia : t.noite; }); }
+    function modo() { return raiz.getAttribute('data-modo') === 'dia' ? 'dia' : 'noite'; }
+    function agora() {
+      var d = new Date(), h = d.getHours() + d.getMinutes() / 60;
+      return h >= 6 && h <= 18 ? Math.round((h - 12) / 6 * 70) : 0;
+    }
+    var valores = { noite: Number(hue.value) || 0, dia: agora() }, atual = modo();
+    function mistura(a, b, k) { return a + (b - a) * k; }
+    function rgb(base, tinta, p) {
+      return 'rgb(' + base.map(function (c, i) { return Math.round(mistura(c, tinta[i], p)); }).join(' ') + ')';
+    }
+    function hora(v) {
+      var h = 12 + v / 70 * 6, inteira = Math.floor(h), min = Math.round((h - inteira) * 4) * 15;
+      if (min === 60) { inteira++; min = 0; }
+      return { h: h, texto: inteira + 'h' + (min ? min : '') };
+    }
+    function momento(h) {
+      var m = L.momentos || [];
+      for (var i = 0; i < m.length; i++) if (h < m[i][0]) return m[i][1];
+      return m.length ? m[m.length - 1][1] : '';
+    }
+    function aplicar() {
+      var v = Number(hue.value) || 0;
+      valores[modo()] = v;
+      if (modo() !== 'dia') {
+        PROPS.forEach(function (p) { raiz.style.removeProperty(p); });
+        if (ariaDim) dim.setAttribute('aria-label', ariaDim);
+        if (ariaHue) hue.setAttribute('aria-label', ariaHue);
+        hue.removeAttribute('aria-valuetext');
+        textos(false);
+        return;
+      }
+      textos(true);
+      var t = v / 70, a = t < 0 ? PONTOS[0] : PONTOS[2], k = Math.abs(t), z = PONTOS[1];
+      function q(nome) { return mistura(z[nome], a[nome], k); }
+      raiz.style.setProperty('--desvio', valores.noite); // a dimensão da noite fica como estava
+      raiz.style.setProperty('--luz-h', q('h').toFixed(1));
+      raiz.style.setProperty('--luz-s', q('s').toFixed(1) + '%');
+      raiz.style.setProperty('--luz-l', q('l').toFixed(1) + '%');
+      raiz.style.setProperty('--luz-bg', rgb(FUNDO, a.tinta, a.p * k));
+      raiz.style.setProperty('--luz-bg2', rgb(FUNDO2, a.tinta, a.p * k * 0.8));
+      raiz.style.setProperty('--luz-sepia', q('sepia').toFixed(3));
+      raiz.style.setProperty('--luz-foto', q('foto').toFixed(1) + 'deg');
+      raiz.style.setProperty('--luz-sat', q('sat').toFixed(3));
+      raiz.style.setProperty('--luz-bri', q('bri').toFixed(3));
+      var hr = hora(v), nome = momento(hr.h), texto = nome ? hr.texto + ' · ' + nome : hr.texto;
+      if (val) val.textContent = texto;
+      hue.setAttribute('aria-valuetext', texto);
+      if (L.aria) hue.setAttribute('aria-label', L.aria);
+      if (L.aria_dim && dim) dim.setAttribute('aria-label', L.aria_dim);
+      raiz.dispatchEvent(new CustomEvent('luz', { detail: q('h') }));
+    }
+    // o script de cada versão também ouve o "input" e escreve o --desvio: este ouvinte vem depois e corrige de dia
+    hue.addEventListener('input', aplicar);
+    function trocouModo() {
+      var m = modo();
+      if (m === atual) return;
+      atual = m;
+      hue.value = valores[m];
+      hue.dispatchEvent(new Event('input', { bubbles: true }));
+    }
+    new MutationObserver(trocouModo).observe(raiz, { attributes: true, attributeFilter: ['data-modo'] });
+    if (modo() === 'dia') { hue.value = valores.dia; hue.dispatchEvent(new Event('input', { bubbles: true })); }
+  });
 })();

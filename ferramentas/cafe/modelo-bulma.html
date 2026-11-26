@@ -13,10 +13,10 @@
 
 <link rel="preload" href="{{up}}fontes/orbitron.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="icon" href="{{up}}icone.png" type="image/png" sizes="128x128">
-<script src="{{up}}inicio.js?v=5"></script>
+<script src="{{up}}inicio.js?v=6"></script>
 <link rel="stylesheet" href="{{base}}vendor/bulma.min.css">
 <link rel="stylesheet" href="{{base}}estilo.css?v=11">
-<link rel="stylesheet" href="{{up}}padaria.css?v=8">
+<link rel="stylesheet" href="{{up}}padaria.css?v=9">
 </head>
 
 <body>
@@ -435,11 +435,11 @@
 <!-- PAINEL DE DIMENSÃO -->
 <aside class="dim" id="dim" aria-label="{{dim_aria}}">
   <button type="button" class="dim__head" id="dimHead" aria-expanded="true" aria-controls="dimBody">
-    <span class="e-fd99b2"><i aria-hidden="true"></i>{{dim_titulo}}</span>
+    <span class="e-fd99b2"><i aria-hidden="true"></i><span data-luz="titulo">{{dim_titulo}}</span></span>
     <span aria-hidden="true" id="dimChevron">▾</span>
   </button>
   <div class="dim__body" id="dimBody">
-    <label for="hue">{{desvio}} · <span id="hueVal">0°</span></label>
+    <label for="hue"><span data-luz="rotulo">{{desvio}}</span> · <span id="hueVal">0°</span></label>
     <input type="range" id="hue" min="-70" max="70" value="0" aria-label="{{desvio_aria}}">
     <p class="dim__hint"><span class="so-noite">{{dim_hint}}</span><span class="so-dia">{{d_dim_hint}}</span></p>
   </div>
@@ -447,6 +447,6 @@
 
 <!-- o mesmo script da versão Tailwind: JavaScript puro, que não depende do CSS -->
 <script src="{{up}}tailwind/script.js?v=8" defer></script>
-<script src="{{up}}padaria.js?v=5" defer></script>
+<script src="{{up}}padaria.js?v=6" defer></script>
 </body>
 </html>

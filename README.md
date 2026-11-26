@@ -225,6 +225,15 @@ node ferramentas/gerar-cafe.mjs
   `recursos.css`) e a página de login (`ferramentas/cafe/entrar.html`, gerada só em pt-BR como `entrar.html`, com o
   `entrar.js`). Os textos estão na chave `js.ux` do `textos/pt-BR.json`; nos outros idiomas ela fica vazia (`{}`) e
   nada disso aparece, até a tradução. Detalhes no README do `Seiabras/cafe-aurora`.
+- **Depuração, idiomas e a luz da padaria (26/11/2026, só em pt-BR por enquanto, regra 8):** o painel de
+  acessibilidade ganhou o visual de terminal (`recursos.css`, bloco 5), a lista das 13 línguas (pelos
+  `<link rel="alternate">`, com um atalho no menu) e a depuração (`sitios/cafe-aurora/depurar.js`, baixado só quando
+  alguém liga: clicar numa parte mostra como ela foi feita). Os textos novos estão no `js.ux` do `textos/pt-BR.json`
+  (a lista `dep_partes` explica 45 partes). De dia, o “Sintonizar dimensão” virou “Sintonizar a luz”: a hora do sol de
+  6h a 18h, em vez de girar o matiz (`inicio.js`, para as cinco versões; as cores do dia usam as `--luz-*` no
+  `estilo.css` e no `padaria.css`). O título e o rótulo de dia vêm do `js.luz` pelos `data-luz` dos modelos; nos outros
+  idiomas o `js.luz` fica `{}` e o texto de sempre continua, mas as cores já seguem a luz. Conferido com axe 4.10 nas
+  cinco versões e no `/en/` e `/ja/`, inclusive com o painel aberto, a depuração e a luz às 6h e às 18h.
 
 ## De dia, a Padaria Aurora (30/10/2026)
 

@@ -5,6 +5,7 @@
    3. dois carrosséis, com setas, bolinhas, teclado e pausa: as fotos da casa (galeria, na seção Origem) e os
       depoimentos (Transmissões, de dia Recados);
    4. o link "Entrar" no menu, para a página de login (entrar.html).
+   Em 26/11/2026: o painel ganhou o visual de terminal, os idiomas (com um atalho no menu) e a depuração (depurar.js).
    Os textos vêm do bloco #textos-cafe (chave "ux"). Um idioma que ainda não tem esses textos fica como estava. */
 (() => {
   'use strict';
@@ -45,9 +46,18 @@
   const abrir = el('button', { type: 'button', class: 'a11y-abrir', 'aria-haspopup': 'dialog', 'aria-controls': 'a11y' });
   abrir.append(el('span', { class: 'a11y-abrir__icone', 'aria-hidden': 'true' }, '♿'), el('span', { class: 'a11y-abrir__texto' }, T.a11y_botao));
 
-  const janela = el('dialog', { class: 'janela a11y', id: 'a11y', 'aria-labelledby': 'a11yTitulo' });
+  // O visual de terminal (26/11/2026): o painel é um "módulo do sistema" da fenda (de dia, do forno). As linhas de
+  // sistema, os números dos grupos e os cantos são só decoração (aria-hidden ou CSS); o que se lê é o mesmo de antes.
+  const janela = el('dialog', { class: 'janela a11y hud', id: 'a11y', 'aria-labelledby': 'a11yTitulo' });
   janela.innerHTML = `
-    <div class="janela__topo"><h2 id="a11yTitulo"></h2><button type="button" class="janela__fechar" data-fechar>✕</button></div>
+    <span class="hud__canto hud__canto--1" aria-hidden="true"></span><span class="hud__canto hud__canto--2" aria-hidden="true"></span>
+    <div class="janela__topo hud__topo"><div>
+      <p class="hud__sistema" aria-hidden="true"><span class="so-noite" data-t="a11y_sys_noite"></span><span class="so-dia" data-t="a11y_sys_dia"></span></p>
+      <h2 id="a11yTitulo" class="hud__titulo"></h2></div>
+      <button type="button" class="janela__fechar" data-fechar>✕</button></div>
+    <fieldset class="a11y__grupo" data-grupo="idioma" hidden><legend data-t="a11y_idioma"></legend>
+      <ul class="a11y__idiomas"></ul>
+      <p class="a11y__nota" data-t="a11y_idioma_nota"></p></fieldset>
     <fieldset class="a11y__grupo"><legend data-t="a11y_tema"></legend>
       <div class="chips"><button type="button" class="filtro" data-tema="noite" data-t="a11y_escuro"></button>
       <button type="button" class="filtro" data-tema="dia" data-t="a11y_claro"></button></div>
@@ -55,7 +65,8 @@
     <fieldset class="a11y__grupo"><legend data-t="a11y_texto"></legend>
       <div class="a11y__tamanho"><button type="button" class="filtro" data-tamanho="-1">A−</button>
       <output id="a11yTamanho" aria-live="polite"></output>
-      <button type="button" class="filtro" data-tamanho="1">A+</button></div></fieldset>
+      <button type="button" class="filtro" data-tamanho="1">A+</button>
+      <span class="a11y__medidor" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span></div></fieldset>
     <fieldset class="a11y__grupo"><legend data-t="a11y_leitura"></legend>
       <div class="a11y__opcoes">
         <button type="button" class="filtro" data-opcao="contraste" data-t="a11y_contraste"></button>
@@ -64,6 +75,9 @@
         <button type="button" class="filtro" data-opcao="espaco" data-t="a11y_espaco"></button>
         <button type="button" class="filtro" data-opcao="parado" data-t="a11y_parado"></button>
       </div></fieldset>
+    <fieldset class="a11y__grupo" data-grupo="depurar" hidden><legend data-t="dep_grupo"></legend>
+      <button type="button" class="btn dep__ligar" data-depurar data-t="dep_ligar"></button>
+      <p class="a11y__nota" data-t="dep_nota"></p></fieldset>
     <p class="a11y__rodape"><button type="button" class="btn btn--ghost" data-padrao data-t="a11y_padrao"></button>
       <span class="a11y__nota" data-t="a11y_nota"></span></p>`;
   $('#a11yTitulo', janela).textContent = T.a11y_titulo;
@@ -73,12 +87,78 @@
   $('[data-tamanho="1"]', janela).setAttribute('aria-label', T.a11y_maior);
   document.body.append(abrir, janela);
 
+  /* ---------- 1b. Idioma (26/11/2026) ----------
+     As 13 línguas, cada uma com o próprio nome. Os endereços vêm dos <link rel="alternate" hreflang> da página, que já
+     apontam para a mesma versão em cada idioma; a página sem eles (o login) não mostra o grupo. */
+  const NOMES = {
+    'pt-BR': ['PT', 'Português (Brasil)'], 'pt-PT': ['PT', 'Português (Portugal)'], 'es-ES': ['ES', 'Español'],
+    ca: ['CA', 'Català'], nl: ['NL', 'Nederlands'], 'en-GB': ['EN', 'English (UK)'], 'fr-FR': ['FR', 'Français'],
+    'de-DE': ['DE', 'Deutsch'], 'it-IT': ['IT', 'Italiano'], en: ['EN', 'English (international)'],
+    'ja-JP': ['JA', '日本語'], 'ko-KR': ['KO', '한국어'], 'zh-Hant': ['繁', '繁體中文'],
+  };
+  const semIndex = (u) => u.replace(/index\.html$/, '');
+  const alternativas = $$('link[rel="alternate"][hreflang]').filter((l) => NOMES[l.hreflang]);
+  let idiomaAtual = null;
+  if (alternativas.length > 1 && !embutido) {
+    const lista = $('.a11y__idiomas', janela);
+    const local = /^https?:$/.test(location.protocol);
+    alternativas.forEach((l) => {
+      const url = new URL(l.href);
+      // no próprio endereço (ou num servidor local) o link fica relativo à raiz; aberto do disco, vai para o site no ar
+      const href = local ? url.pathname : l.href;
+      const atual = local ? semIndex(url.pathname) === semIndex(location.pathname) : l.hreflang.toLowerCase() === raiz.lang.toLowerCase();
+      const [cod, nome] = NOMES[l.hreflang];
+      const a = el('a', { href, hreflang: l.hreflang, lang: l.hreflang, class: 'a11y__idioma' });
+      a.append(el('span', { class: 'a11y__idioma-cod', 'aria-hidden': 'true' }, cod), el('span', {}, nome));
+      if (atual) { a.setAttribute('aria-current', 'page'); idiomaAtual = { cod, nome, a }; }
+      const li = el('li');
+      li.append(a);
+      lista.append(li);
+    });
+    $('[data-grupo="idioma"]', janela).hidden = false;
+  }
+
+  // O atalho no menu: "PT" (o idioma de agora) abre o painel já no grupo dos idiomas
+  const linksMenu = $('#navLinks');
+  if (linksMenu && idiomaAtual) {
+    const b = el('button', { type: 'button', class: 'nav__idioma', 'aria-haspopup': 'dialog', 'aria-controls': 'a11y',
+      'aria-label': f(T.a11y_idioma_menu, { nome: idiomaAtual.nome }) });
+    b.append(el('span', { class: 'nav__idioma-globo', 'aria-hidden': 'true' }, '◍'), el('span', { 'aria-hidden': 'true' }, idiomaAtual.cod));
+    b.addEventListener('click', () => {
+      linksMenu.classList.remove('open'); // no celular, fecha a gaveta do menu
+      const burger = $('#burger');
+      if (burger) { burger.classList.remove('open'); burger.setAttribute('aria-expanded', 'false'); }
+      desenharPainel();
+      janela.showModal();
+      idiomaAtual.a.focus();
+    });
+    linksMenu.append(b);
+  }
+
+  /* ---------- 1c. Depuração (26/11/2026) ----------
+     "Ligar a depuração" fecha o painel e deixa tocar ou clicar em qualquer parte da tela para ver como foi feita. O
+     inspetor fica no depurar.js, que só é baixado na primeira vez que alguém liga. */
+  const dep = {};
+  if (T.dep_ligar && !embutido) {
+    $('[data-grupo="depurar"]', janela).hidden = false;
+    const base = ($('script[src*="recursos.js"]') || {}).src || location.href;
+    dep.ligar = () => {
+      janela.close();
+      if (window.AuroraDepurar) { window.AuroraDepurar.ligar(T); return; }
+      if (dep.script) return;
+      dep.script = el('script', { src: new URL('depurar.js?v=1', base).href });
+      dep.script.addEventListener('load', () => window.AuroraDepurar && window.AuroraDepurar.ligar(T));
+      document.head.append(dep.script);
+    };
+  }
+
   function desenharPainel() {
     $$('[data-tema]', janela).forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.tema === modo())));
     $$('[data-opcao]', janela).forEach((b) => b.setAttribute('aria-pressed', String(!!pref[b.dataset.opcao])));
     $('#a11yTamanho', janela).textContent = String(PORCENTO[pref.texto]).replace('.', ',') + '%';
     $('[data-tamanho="-1"]', janela).disabled = pref.texto <= TAMANHOS[0];
     $('[data-tamanho="1"]', janela).disabled = pref.texto >= TAMANHOS[TAMANHOS.length - 1];
+    $$('.a11y__medidor i', janela).forEach((i, k) => i.classList.toggle('aceso', k <= pref.texto + 1));
   }
   function trocarTema(novo) {
     if (novo === modo()) return;
@@ -96,6 +176,7 @@
     if (b.dataset.tamanho) pref.texto = Math.min(3, Math.max(-1, pref.texto + Number(b.dataset.tamanho)));
     if (b.dataset.opcao) pref[b.dataset.opcao] = !pref[b.dataset.opcao];
     if (b.hasAttribute('data-padrao')) pref = { ...PADRAO };
+    if (b.hasAttribute('data-depurar')) { dep.ligar(); return; }
     aplicar();
     desenharPainel();
   });
@@ -104,12 +185,12 @@
   aplicar();
 
   /* ---------- 4. Entrar (login) no menu ---------- */
-  const links = $('#navLinks');
+  const links = linksMenu;
   if (links && !embutido) {
     let sessao = null;
     try { sessao = JSON.parse(localStorage.getItem('aurora-sessao')); } catch (e) {}
     const a = el('a', { href: 'entrar.html', class: 'nav__entrar' }, sessao ? f(T.ola, { nome: sessao.nome.split(' ')[0] }) : T.entrar);
-    links.append(a);
+    links.insertBefore(a, $('.nav__idioma', links)); // o idioma fica por último
   }
 
   /* ---------- 2. Busca no cardápio ---------- */

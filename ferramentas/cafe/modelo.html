@@ -16,12 +16,12 @@
 <!-- Site de exemplo do Linu Sites: o Café Aurora não existe. De dia (6h–18h) ele vira a Padaria Aurora: cada texto
      que muda tem as duas versões, .so-noite e .so-dia, e o data-modo do <html> esconde uma delas (ver inicio.js). Na página principal, ele aparece embutido
      (iframe) no simulador de preço, que liga e desliga as partes dele (ver script.js, "módulos"). -->
-<script src="{{raiz}}inicio.js?v=5"></script>
+<script src="{{raiz}}inicio.js?v=6"></script>
 <link rel="manifest" href="{{raiz}}manifest.webmanifest">
-<link rel="stylesheet" href="{{raiz}}estilo.css?v=21">
-<link rel="stylesheet" href="{{raiz}}recursos.css?v=1">
-<script src="{{raiz}}script.js?v=16" defer></script>
-<script src="{{raiz}}recursos.js?v=1" defer></script>
+<link rel="stylesheet" href="{{raiz}}estilo.css?v=22">
+<link rel="stylesheet" href="{{raiz}}recursos.css?v=2">
+<script src="{{raiz}}script.js?v=17" defer></script>
+<script src="{{raiz}}recursos.js?v=2" defer></script>
 </head>
 
 <body>
@@ -533,11 +533,11 @@
 <!-- PAINEL DE DIMENSÃO -->
 <aside class="dim" id="dim" aria-label="{{dim_aria}}">
   <button type="button" class="dim__head" id="dimHead" aria-expanded="true" aria-controls="dimBody">
-    <span class="dim__titulo"><i aria-hidden="true"></i>{{dim_titulo}}</span>
+    <span class="dim__titulo"><i aria-hidden="true"></i><span data-luz="titulo">{{dim_titulo}}</span></span>
     <span aria-hidden="true" id="dimChevron">▾</span>
   </button>
   <div class="dim__body" id="dimBody">
-    <label for="hue">{{desvio}} · <span id="hueVal">0°</span></label>
+    <label for="hue"><span data-luz="rotulo">{{desvio}}</span> · <span id="hueVal">0°</span></label>
     <input type="range" id="hue" min="-70" max="70" value="0" aria-label="{{desvio_aria}}">
     <p class="dim__hint"><span class="so-noite">{{dim_hint}}</span><span class="so-dia">{{d_dim_hint}}</span></p>
   </div>

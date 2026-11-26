@@ -382,6 +382,7 @@
     "d_titulo": "Bakkerij Aurora — Een Cyberpunkbakkerij in een Andere Dimensie",
     "turno_cafe": "",
     "turno_padaria": "",
-    "ux": {}
+    "ux": {},
+    "luz": {}
   }
 }

@@ -382,6 +382,7 @@
     "d_titulo": "Boulangerie Aurora — Une Boulangerie Cyberpunk dans une Autre Dimension",
     "turno_cafe": "",
     "turno_padaria": "",
-    "ux": {}
+    "ux": {},
+    "luz": {}
   }
 }

@@ -382,6 +382,7 @@
     "d_titulo": "Aurora Bakery — A Cyberpunk Bakery in Another Dimension",
     "turno_cafe": "",
     "turno_padaria": "",
-    "ux": {}
+    "ux": {},
+    "luz": {}
   }
 }

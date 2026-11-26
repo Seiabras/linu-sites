@@ -212,6 +212,11 @@
   let t = 0;
 
   // de dia, a mesma grade em cobre e bem mais fraca (4/11/2026: “o fundo da padaria não tá muito cyberpunk”)
+  // de dia a grade segue a luz da hora, não o desvio da noite (o inicio.js avisa, 26/11/2026)
+  let luzH = 0;
+  document.documentElement.addEventListener('luz', (e) => { luzH = Number(e.detail) || 0; });
+  const luzFundo = () => luzH;
+
   function drawGrid(horizon, speed, dia = false) {
     const rows = 16;
     const cols = 22;
@@ -223,7 +228,7 @@
       const f = (i + (t * speed) % 1) / rows;
       const y = horizon + (H - horizon) * Math.pow(f, 2.1);
       const alpha = 0.05 + f * 0.20;
-      ctx.strokeStyle = dia ? `hsla(${24 + desvioFundo}, 60%, 42%, ${alpha * 0.55})` : `hsla(${185 + desvioFundo}, 100%, 58%, ${alpha})`;
+      ctx.strokeStyle = dia ? `hsla(${24 + luzFundo()}, 60%, 42%, ${alpha * 0.55})` : `hsla(${185 + desvioFundo}, 100%, 58%, ${alpha})`;
       ctx.beginPath();
       ctx.moveTo(0, y);
       ctx.lineTo(W, y);
@@ -235,7 +240,7 @@
       const f = i / cols;
       const x = f * W * 2 - W * 0.5;
       const alpha = 0.03 + Math.sin(f * Math.PI) * 0.10;
-      ctx.strokeStyle = dia ? `hsla(${195 + desvioFundo}, 45%, 38%, ${alpha * 0.5})` : `hsla(${275 + desvioFundo}, 95%, 68%, ${alpha})`;
+      ctx.strokeStyle = dia ? `hsla(${195 + luzFundo()}, 45%, 38%, ${alpha * 0.5})` : `hsla(${275 + desvioFundo}, 95%, 68%, ${alpha})`;
       ctx.beginPath();
       ctx.moveTo(cx, horizon);
       ctx.lineTo(x, H);

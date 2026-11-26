@@ -67,7 +67,7 @@
   // a grade do café, de dia em cobre e bem fraca: a padaria continua no mesmo mundo (4/11/2026)
   function grade(vel) {
     const W = tela.width, H = tela.height, hz = H * 0.62, cx = W / 2;
-    const dv = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--desvio')) || 0; // gira com o “Sintonizar dimensão”
+    const dv = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--luz-h')) || 0; // segue a luz da hora (“Sintonizar a luz”, 26/11/2026)
     ctx.lineWidth = 1;
     for (let i = 0; i < 16; i++) {
       const f = (i + (t * vel) % 1) / 16, y = hz + (H - hz) * Math.pow(f, 2.1);

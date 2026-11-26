@@ -885,16 +885,18 @@ input[type=range]::-moz-range-thumb{
 html:not([data-modo="dia"]) .so-dia,[data-modo="dia"] .so-noite{display:none !important}
 
 [data-modo="dia"]{
-  --bg:#fbf3e4;
-  --bg-2:#f4e6cc;
+  /* a luz da hora (26/11/2026): o inicio.js escreve as --luz-* conforme o “Sintonizar a luz” */
+  --luz-h:0;--luz-s:0%;--luz-l:0%;
+  --bg:var(--luz-bg,#fbf3e4);
+  --bg-2:var(--luz-bg2,#f4e6cc);
   --panel:rgba(255,250,240,.8);
   --stroke:rgba(122,74,34,.22);
   --text:#3a2414;
   --muted:#6e5038;
-  --cyan:hsl(calc(24 + var(--desvio)) 70% 34%);
-  --magenta:hsl(calc(345 + var(--desvio)) 62% 40%);
-  --violet:hsl(calc(205 + var(--desvio)) 55% 34%);
-  --amber:hsl(calc(36 + var(--desvio)) 90% 30%);
+  --cyan:hsl(calc(24 + var(--luz-h)) calc(70% + var(--luz-s)) calc(34% + var(--luz-l)));
+  --magenta:hsl(calc(345 + var(--luz-h)) calc(62% + var(--luz-s)) calc(40% + var(--luz-l)));
+  --violet:hsl(calc(205 + var(--luz-h)) calc(55% + var(--luz-s)) calc(34% + var(--luz-l)));
+  --amber:hsl(calc(36 + var(--luz-h)) calc(90% + var(--luz-s)) calc(30% + var(--luz-l)));
   --glow-c:none;
   --glow-m:none;
   color-scheme:light;
@@ -915,7 +917,7 @@ html:not([data-modo="dia"]) .so-dia,[data-modo="dia"] .so-noite{display:none !im
 [data-modo="dia"] .scanlines{display:none}
 [data-modo="dia"] .boot{background:#fbf3e4}
 [data-modo="dia"] .boot__logo{animation:none}
-[data-modo="dia"] .boot__fill{background:linear-gradient(90deg,hsl(calc(40 + var(--desvio)) 90% 50%),hsl(calc(22 + var(--desvio)) 75% 40%));box-shadow:none}
+[data-modo="dia"] .boot__fill{background:linear-gradient(90deg,hsl(calc(40 + var(--luz-h)) 90% 50%),hsl(calc(22 + var(--luz-h)) 75% 40%));box-shadow:none}
 [data-modo="dia"] .boot__bar{background:rgba(122,74,34,.14)}
 
 [data-modo="dia"] .cur,[data-modo="dia"] .cur-dot{mix-blend-mode:normal;box-shadow:none}
@@ -936,11 +938,11 @@ html:not([data-modo="dia"]) .so-dia,[data-modo="dia"] .so-noite{display:none !im
 
 /* Abertura: o nome em casca e mel, o halo vira sol */
 [data-modo="dia"] .glitch>span:first-child{
-  background:linear-gradient(180deg,hsl(calc(30 + var(--desvio)) 60% 30%),hsl(calc(24 + var(--desvio)) 72% 38%) 55%,hsl(calc(18 + var(--desvio)) 70% 28%));
+  background:linear-gradient(180deg,hsl(calc(30 + var(--luz-h)) 60% 30%),hsl(calc(24 + var(--luz-h)) 72% 38%) 55%,hsl(calc(18 + var(--luz-h)) 70% 28%));
   -webkit-background-clip:text;background-clip:text;filter:none;
 }
 [data-modo="dia"] .glitch>span:last-child{
-  background:linear-gradient(180deg,hsl(calc(42 + var(--desvio)) 92% 46%),hsl(calc(32 + var(--desvio)) 88% 40%) 70%,hsl(calc(22 + var(--desvio)) 72% 30%));
+  background:linear-gradient(180deg,hsl(calc(42 + var(--luz-h)) 92% 46%),hsl(calc(32 + var(--luz-h)) 88% 40%) 70%,hsl(calc(22 + var(--luz-h)) 72% 30%));
   -webkit-background-clip:text;background-clip:text;filter:none;
 }
 [data-modo="dia"] .glitch::before,[data-modo="dia"] .glitch::after{display:none}
@@ -950,15 +952,15 @@ html:not([data-modo="dia"]) .so-dia,[data-modo="dia"] .so-noite{display:none !im
 @media(max-width:480px){[data-modo="dia"] .nav .brand{font-size:.72rem;letter-spacing:.07em;gap:.45rem;min-width:0}}
 [data-modo="dia"] .hero__halo{
   background:conic-gradient(from 0deg,
-    hsl(calc(46 + var(--desvio)) 100% 66% / .45), hsl(calc(30 + var(--desvio)) 95% 62% / .25),
-    hsl(calc(40 + var(--desvio)) 100% 70% / .4), hsl(calc(200 + var(--desvio)) 70% 80% / .25),
-    hsl(calc(46 + var(--desvio)) 100% 66% / .45));
+    hsl(calc(46 + var(--luz-h)) 100% 66% / .45), hsl(calc(30 + var(--luz-h)) 95% 62% / .25),
+    hsl(calc(40 + var(--luz-h)) 100% 70% / .4), hsl(calc(200 + var(--luz-h)) 70% 80% / .25),
+    hsl(calc(46 + var(--luz-h)) 100% 66% / .45));
 }
-[data-modo="dia"] .hero__rings i{border-color:hsl(calc(30 + var(--desvio)) 60% 40% / .16)}
+[data-modo="dia"] .hero__rings i{border-color:hsl(calc(30 + var(--luz-h)) 60% 40% / .16)}
 [data-modo="dia"] .hero__tag{background:rgba(255,255,255,.55)}
 [data-modo="dia"] .scroll-hint i{background:linear-gradient(var(--cyan),transparent)}
 
-[data-modo="dia"] .marquee{background:linear-gradient(90deg,hsl(calc(42 + var(--desvio)) 90% 60% / .14),hsl(calc(22 + var(--desvio)) 80% 55% / .1))}
+[data-modo="dia"] .marquee{background:linear-gradient(90deg,hsl(calc(42 + var(--luz-h)) 90% 60% / .14),hsl(calc(22 + var(--luz-h)) 80% 55% / .1))}
 [data-modo="dia"] .marquee span::after{content:'✦';color:var(--amber)}
 
 /* A origem: o portal vira o sol que também é a boca do forno */
@@ -970,19 +972,19 @@ html:not([data-modo="dia"]) .so-dia,[data-modo="dia"] .so-noite{display:none !im
 
 /* Vitrine */
 [data-modo="dia"] .card{background:linear-gradient(160deg,rgba(255,252,245,.94),rgba(250,236,214,.88))}
-[data-modo="dia"] .card::before{background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),hsl(calc(44 + var(--desvio)) 100% 62% / .22),transparent 62%)}
+[data-modo="dia"] .card::before{background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),hsl(calc(44 + var(--luz-h)) 100% 62% / .22),transparent 62%)}
 [data-modo="dia"] .card:hover,[data-modo="dia"] .card--m:hover,[data-modo="dia"] .card--v:hover,[data-modo="dia"] .card--a:hover{
   border-color:hsl(30 60% 40% / .45);
   box-shadow:0 22px 50px -24px hsl(24 60% 30% / .45);
 }
-[data-modo="dia"] .card__icon{background:radial-gradient(circle at 30% 25%,#fff,hsl(calc(40 + var(--desvio)) 80% 90%) 70%)}
+[data-modo="dia"] .card__icon{background:radial-gradient(circle at 30% 25%,#fff,hsl(calc(40 + var(--luz-h)) 80% 90%) 70%)}
 
 /* Forno (o laboratório de dia) */
 [data-modo="dia"] .lab__panel{background:linear-gradient(160deg,rgba(255,252,245,.92),rgba(248,234,210,.8))}
 [data-modo="dia"] .chip>span{background:rgba(255,255,255,.5)}
 [data-modo="dia"] .chip:hover>span{border-color:hsl(30 60% 40% / .5)}
 [data-modo="dia"] .chip input:checked+span{color:#fff8ee;box-shadow:0 6px 16px -8px hsl(24 70% 34% / .7)}
-[data-modo="dia"] input[type=range]{background:linear-gradient(90deg,hsl(calc(44 + var(--desvio)) 90% 62%),hsl(calc(28 + var(--desvio)) 80% 42%),hsl(calc(18 + var(--desvio)) 70% 24%))}
+[data-modo="dia"] input[type=range]{background:linear-gradient(90deg,hsl(calc(44 + var(--luz-h)) 90% 62%),hsl(calc(28 + var(--luz-h)) 80% 42%),hsl(calc(18 + var(--luz-h)) 70% 24%))}
 [data-modo="dia"] input[type=range]::-webkit-slider-thumb{background:#fffaf0;box-shadow:0 2px 8px rgba(80,40,10,.3)}
 [data-modo="dia"] input[type=range]::-moz-range-thumb{background:#fffaf0;box-shadow:0 2px 8px rgba(80,40,10,.3)}
 [data-modo="dia"] .lab__result{background:rgba(122,74,34,.06)}
@@ -1495,3 +1497,15 @@ html.previa-abertura .boot{display:grid !important}
 
 /* 4/11/2026: “o texto de aberto… também”: a etiqueta era pequena, fina e espaçada demais para ler sobre a foto */
 .hero__tag{font-size:.78rem;letter-spacing:.2em;font-weight:500;color:var(--text)}
+
+/* ============ A luz da padaria (26/11/2026) ============
+   De noite o “Sintonizar dimensão” gira o matiz de tudo (é neon de outra dimensão). De dia isso deixava a casca
+   verde e as fotos dos pães esquisitas, então de dia o mesmo controle é “Sintonizar a luz”: a hora do sol no turno
+   da padaria, do amanhecer rosado (6h) à luz neutra do meio-dia e ao fim de tarde dourado (18h). O inicio.js
+   escreve as variáveis --luz-*: um desvio pequeno de matiz, saturação e claridade nas cores de destaque, o tom do
+   fundo e, nas fotos, sépia, saturação e brilho em vez de girar o matiz. */
+[data-modo="dia"] :is(.hero__foto img,.card__foto img,.origem-foto img,.galeria__foto img){
+  filter:sepia(var(--luz-sepia,0)) hue-rotate(var(--luz-foto,0deg)) saturate(var(--luz-sat,1)) brightness(var(--luz-bri,1));
+}
+/* a trilha do controle é o próprio dia: amanhecer rosado, meio-dia claro, fim de tarde dourado */
+[data-modo="dia"] #hue{background:linear-gradient(90deg,#d98f86,#f3e2c4 50%,#d9962f)}
