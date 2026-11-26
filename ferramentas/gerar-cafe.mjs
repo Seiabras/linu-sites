@@ -63,6 +63,23 @@ const enderecoDe = (i) => CAFE + (i.pasta ? i.pasta + '/' : '');
 // um & solto vira &amp; (as entidades já escritas ficam); dentro de atributo, as aspas retas também
 const eComercial = (s) => String(s).replace(/&(?![a-zA-Z]+;|#\d+;)/g, '&amp;');
 const alternativas = NO_SITE.map((o) => `<link rel="alternate" hreflang="${o.lang}" href="${enderecoDe(o)}">`).join('\n');
+// A troca de idioma no rodapé (26/11/2026), nas cinco versões, ao lado da troca de versão e com o mesmo estilo: cada
+// língua com o próprio nome, levando à mesma versão. HTML puro, funciona sem JavaScript.
+const NOMES = { 'pt-BR': 'Português (Brasil)', 'pt-PT': 'Português (Portugal)', 'es-ES': 'Español', ca: 'Català',
+  nl: 'Nederlands', 'en-GB': 'English (UK)', 'fr-FR': 'Français', 'de-DE': 'Deutsch', 'it-IT': 'Italiano',
+  en: 'English (international)', 'ja-JP': '日本語', 'ko-KR': '한국어', 'zh-Hant': '繁體中文' };
+const trocaIdioma = (i, versao) => {
+  const subir = '../'.repeat([i.pasta, versao].filter(Boolean).length);
+  const links = NO_SITE.map((o) => {
+    const alvo = [o.pasta, versao].filter(Boolean).join('/');
+    const href = subir + (alvo ? alvo + '/' : '') || './';
+    const atual = o.lang === i.lang ? ' aria-current="page"' : '';
+    if (!NOMES[o.lang]) erros.push(`sem nome para o idioma ${o.lang}`);
+    return `<a href="${href}" hreflang="${o.lang}" lang="${o.lang}"${atual}>${NOMES[o.lang]}</a>`;
+  });
+  const rotulo = eComercial(i.js.ux.a11y_idioma || 'Idioma');
+  return `<nav class="versoes-troca idiomas-troca" aria-label="${rotulo}">\n      <span>${rotulo}:</span>\n      ${links.join(' · ')}\n    </nav>`;
+};
 
 const saidas = [];
 const preencher = (molde, i, extras, marcas = []) => molde.replace(/\{\{([a-z0-9_]+)\}\}/g, (_, k, onde, todo) => {
@@ -86,6 +103,7 @@ for (const i of idiomas) {
     preco_ini: (21.5).toLocaleString(i.lang, { minimumFractionDigits: 2, maximumFractionDigits: 2 }),
     stat2_num: new Intl.NumberFormat(i.lang, { style: 'percent', minimumFractionDigits: 1 }).format(0.984),
     up: i.pasta ? '../' : '',
+    idiomas_troca: trocaIdioma(i, ''),
     ...troca('puro', false),
   };
   const html = modelo.replace(/\{\{([a-z0-9_]+)\}\}/g, (_, k, onde, todo) => {
@@ -113,6 +131,7 @@ for (const i of idiomas) {
       alternativas: NO_SITE.map((o) => `<link rel="alternate" hreflang="${o.lang}" href="${end(o)}">`).join('\n'),
       base: i.pasta ? `../../${v}/` : '',
       up: i.pasta ? '../../' : '../',
+      idiomas_troca: trocaIdioma(i, v),
       ...troca(v, true),
     };
     saidas.push([path.join(i.pasta, v, 'index.html'), preencher(modeloDe[v], i, extrasV, MARCAS[v])]);
