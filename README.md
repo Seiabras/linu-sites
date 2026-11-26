@@ -220,9 +220,9 @@ node ferramentas/gerar-cafe.mjs
   Café também troca o título da aba, o rodapé (“Padaria fictícia”) e a dica do painel de cores de dia (`d_titulo`,
   `d_ficticia`, `d_dim_hint`).
 - `IDIOMAS=pt-BR node ferramentas/gerar-cafe.mjs` gera só os idiomas pedidos, para ver um texto novo antes de traduzir.
-- **Projeto final de Desenvolvimento de Interfaces (18/11/2026):** a versão principal ganhou, só em pt-BR, o painel
+- **Projeto final de Desenvolvimento de Interfaces (18/11/2026):** a versão principal ganhou (em pt-BR; nas 13 línguas desde 26/11) o painel
   de acessibilidade, a busca no cardápio, o carrossel dos depoimentos (`sitios/cafe-aurora/recursos.js` e
-  `recursos.css`) e a página de login (`ferramentas/cafe/entrar.html`, gerada só em pt-BR como `entrar.html`, com o
+  `recursos.css`) e a página de login (`ferramentas/cafe/entrar.html`, em cada idioma desde 26/11 como `<pasta>/entrar.html`, com o
   `entrar.js`). Os textos estão na chave `js.ux` de cada `textos/<código>.json`; desde 26/11/2026, nas 13 línguas. Detalhes no README do `Seiabras/cafe-aurora`.
 - **Depuração, idiomas e a luz da padaria (26/11/2026), nas 13 línguas:** o painel de acessibilidade ganhou o
   visual de terminal (`recursos.css`, bloco 5), a lista das línguas (pelos `<link rel="alternate">`, com um atalho no
