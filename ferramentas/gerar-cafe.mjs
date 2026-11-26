@@ -97,8 +97,14 @@ for (const i of idiomas) {
     return tag.split('"').length % 2 === 0 ? texto.replaceAll('"', '&quot;') : texto;
   });
   saidas.push([path.join(i.pasta, 'index.html'), html]);
-  // a página de login (projeto final de Desenvolvimento de Interfaces, 18/11/2026): por enquanto só em pt-BR
-  if (i.codigo === 'pt-BR') saidas.push(['entrar.html', entrar.replace(/\{\{(lang|textos_js)\}\}/g, (_, k) => extras[k])]);
+  // a página de login (projeto final de Desenvolvimento de Interfaces, 18/11/2026), em cada idioma desde 26/11/2026:
+  // os textos do HTML são as chaves l_* e as mensagens do entrar.js, as lj_* (num bloco só, o #textos-entrar)
+  const doLogin = Object.fromEntries(Object.entries(i.textos).filter(([k]) => k.startsWith('lj_')).map(([k, v]) => [k.slice(3), v]));
+  saidas.push([path.join(i.pasta, 'entrar.html'), preencher(entrar, i, {
+    ...extras,
+    alternativas: NO_SITE.map((o) => `<link rel="alternate" hreflang="${o.lang}" href="${enderecoDe(o)}entrar.html">`).join('\n'),
+    entrar_js: JSON.stringify(doLogin).replaceAll('</', '<\\/'),
+  })]);
   for (const v of VERSOES) {
     const end = (o) => CAFE + (o.pasta ? o.pasta + '/' : '') + v + '/';
     const extrasV = {
@@ -143,7 +149,7 @@ for (const [arquivo, html] of saidas) {
 
 // O Café sem internet (1/11/2026): o sw.js guarda a página principal e o que ela usa; os outros idiomas e as versões
 // Bootstrap e Tailwind entram na cache quando a pessoa os abre. A versão da cache muda quando muda qualquer arquivo.
-const BASE_OFF = ['./', 'index.html', 'estilo.css?v=22', 'script.js?v=17', 'inicio.js?v=6', 'recursos.css?v=2', 'recursos.js?v=2', 'icone.png', 'img/icone-192.png', 'img/icone-512.png',
+const BASE_OFF = ['./', 'index.html', 'estilo.css?v=22', 'script.js?v=17', 'inicio.js?v=7', 'recursos.css?v=2', 'recursos.js?v=2', 'icone.png', 'img/icone-192.png', 'img/icone-512.png',
   'manifest.webmanifest', 'fontes/orbitron.woff2', 'fontes/rajdhani-400.woff2', 'fontes/rajdhani-500.woff2', 'fontes/rajdhani-600.woff2', 'fontes/rajdhani-700.woff2'];
 const hash = crypto.createHash('sha256');
 for (const a of BASE_OFF.filter((a) => !a.endsWith('/'))) hash.update(fs.readFileSync(path.join(cafe, a.split('?')[0])));

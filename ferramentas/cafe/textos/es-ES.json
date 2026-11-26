@@ -1,6 +1,6 @@
 {
   "textos": {
-    "tag": "<b>ABIERTO</b> 24H · SECTOR NEÓN-07 · DIMENSIÓN Ω",
+    "tag": "<b>ABIERTO</b> DE 18:00 A 6:00 · SECTOR NEÓN-07 · DIMENSIÓN Ω",
     "chip_expresso": "Expreso",
     "chip_coldbrew": "Cold Brew",
     "chip_matcha": "Matcha",
@@ -37,7 +37,7 @@
     "sobre_h2": "Nacimos de un <em>cortocircuito</em> entre dos mundos",
     "sobre_p1": "En 2087, una barista llamada <strong>Aurora Vex</strong> derramó café sobre un reactor de curvatura. El resultado no fue una explosión — fue un aroma.",
     "sobre_p2": "El aroma abrió una grieta. Al otro lado había una ciudad igual a la nuestra, pero con luces que pensaban y lluvia que recordaba. Allí encontramos los granos que hoy servimos.",
-    "sobre_p3": "<strong>Café Aurora</strong> es el único punto de encuentro entre las dos metrópolis. Aquí el vapor sube despacio y el tiempo acepta detenerse unos minutos — siempre que pidas la segunda taza.",
+    "sobre_p3": "El <strong>Café Aurora</strong> es el único punto de encuentro entre las dos metrópolis, y solo existe de noche: a las 18:00, cuando el horno se enfría, la grieta vuelve a abrirse y el mostrador de la panadería se convierte en café hasta las 6:00. Aquí el vapor sube despacio y el tiempo acepta detenerse unos minutos, siempre que pidas la segunda taza.",
     "portal": "Grieta estable · 3.2 nm",
     "menu_h2": "Mezclas que <em>no existen</em> en ningún otro sitio",
     "menu_lead": "Seis recetas calibradas para distintas frecuencias cerebrales. Todas servidas en tazas autorregenerativas.",
@@ -71,7 +71,7 @@
     "f2": "Clínica de Recuerdos",
     "f3n": "Anónima",
     "f3": "Dimensión Ω-11",
-    "cta_h2": "La grieta está abierta <em>hasta tarde</em>",
+    "cta_h2": "La grieta está abierta <em>hasta las 6:00</em>",
     "cta_p": "No hace falta reservar. Solo valor para cruzar la puerta equivocada.",
     "ver_cardapio": "Ver la carta completa",
     "voltar": "Volver al inicio",
@@ -83,9 +83,9 @@
     "addr2": "Metrópolis Baja · Sótano 3",
     "addr3": "Entrada por la puerta que no estaba ahí",
     "horario": "Horario",
-    "hora1": "Lun–Vie · 06h — 04h",
-    "hora2": "Sáb–Dom · siempre",
-    "hora3": "Festivos dimensionales · cerrado",
+    "hora1": "Todos los días · 18:00 — 06:00",
+    "hora2": "Última taza · 05:45",
+    "hora3": "Al amanecer · abre la panadería",
     "sinal": "Señal",
     "direitos": "Todos los universos reservados",
     "ficticia": "Cafetería ficticia · web de ejemplo hecha por",
@@ -96,8 +96,8 @@
     "editar": "✎ Editar textos",
     "desvio": "Desvío cromático",
     "nivel": "Nivel",
-    "modo_para_dia": "Abrir la panadería (modo día)",
-    "modo_para_noite": "Volver al café (modo noche)",
+    "modo_para_dia": "Ver la panadería (de 6:00 a 18:00)",
+    "modo_para_noite": "Ver el café (de 18:00 a 6:00)",
     "d_marca": "PANADERÍA AURORA",
     "d_nome": "Panadería Aurora",
     "d_marca_aria": "Panadería Aurora — inicio",
@@ -122,7 +122,7 @@
     "d_sobre_h2": "De día, la grieta se vuelve <em>horno</em>",
     "d_sobre_p1": "Cada mañana, cuando nuestro sol y el de Ω-11 salen a la vez, la grieta que <strong>Aurora Vex</strong> abrió con café se encoge hasta quedar del tamaño de la puerta de un horno.",
     "d_sobre_p2": "El calor que se escapa del otro lado no se pierde: hornea pan. La primera hornada sale a las seis, y el olor cruza las dos ciudades antes que cualquier despertador.",
-    "d_sobre_p3": "La <strong>Panadería Aurora</strong> es el mismo local del café, con luz de día. Los baristas de la noche se vuelven panaderos, la barra se convierte en escaparate y el neón descansa hasta que se pone el sol.",
+    "d_sobre_p3": "La <strong>Panadería Aurora</strong> es el mismo local del café, de 6:00 a 18:00. En el cambio de turno, los baristas de la noche se vuelven panaderos, el mostrador se vuelve escaparate y el neón descansa hasta las 18:00, cuando la grieta se abre de nuevo y vuelve el café.",
     "d_portal": "Horno estable · 220 °C",
     "d_menu_h2": "Hornadas que <em>no esperan</em> a que pase el tiempo",
     "d_menu_lead": "Seis recetas que salen del horno varias veces al día. Todas envueltas en un papel que guarda el calor durante unas horas, o dimensiones.",
@@ -167,7 +167,7 @@
     "d_foot_p": "Panadería interdimensional desde 2087. Harina molida con ética en universos que dieron su consentimiento.",
     "d_hora1": "Todos los días · 06:00 — 18:00",
     "d_hora2": "Primera hornada · a las 06:00 en punto",
-    "d_hora3": "Tras la puesta de sol · abre el café",
+    "d_hora3": "Al atardecer, a las 18:00 · abre el café",
     "add": "Pedido",
     "lab_add": "Añadir al pedido",
     "detalhes": "Detalles",
@@ -238,10 +238,53 @@
     "d_f_vegano": "Vegano",
     "d_p_vazio": "El pedido está vacío. Toca «+ Pedido» en un pan de la carta o en «Haz tu pan».",
     "d_p_nota": "La panadería es ficticia: WhatsApp se abre sin número, para que elijas a quién enviarlo. En una web de verdad, el pedido iría directo a la tienda.",
-    "d_dim_hint": "Arrastra para desplazar el espectro de la panadería. Nada se quema — probablemente.",
+    "d_dim_hint": "Arrastra para cambiar la hora del sol en la panadería: amanecer rosado a las 6:00, luz clara a mediodía, atardecer dorado a las 18:00.",
     "d_ficticia": "Panadería ficticia · web de ejemplo hecha por",
     "v_rotulo": "Las cinco versiones",
-    "css_puro": "CSS puro"
+    "css_puro": "CSS puro",
+    "l_titulo": "Iniciar sesión — Café Aurora",
+    "l_desc": "Entra en tu cuenta del Café Aurora o crea una, para guardar pedidos, reservas y la tarjeta de sellos.",
+    "l_marca_aria": "Café Aurora — volver al inicio",
+    "l_d_marca_aria": "Panadería Aurora — volver al inicio",
+    "l_voltar": "Volver al café",
+    "l_d_voltar": "Volver a la panadería",
+    "l_lado": "Tu cuenta mantiene la grieta abierta.",
+    "l_d_lado": "Tu cuenta mantiene el pan calentito.",
+    "l_lado1": "Los pedidos que montaste, para repetirlos con un toque.",
+    "l_lado2": "Las reservas de mesa, con día y hora.",
+    "l_lado3": "La tarjeta de sellos: cada 10 pedidos, uno corre a cuenta de la casa.",
+    "l_h1": "Entrar en el Café Aurora",
+    "l_d_h1": "Entrar en la Panadería Aurora",
+    "l_lead": "Usa tu correo y tu contraseña, o crea una cuenta en menos de un minuto.",
+    "l_abas": "Iniciar sesión o crear cuenta",
+    "l_aba_entrar": "Iniciar sesión",
+    "l_aba_criar": "Crear cuenta",
+    "l_email": "Correo electrónico",
+    "l_senha": "Contraseña",
+    "l_mostrar": "Mostrar",
+    "l_esconder": "Ocultar",
+    "l_lembrar": "Mantener la sesión en este dispositivo",
+    "l_entrar": "Entrar",
+    "l_sem_conta": "¿Aún no tienes cuenta?",
+    "l_nome": "Nombre",
+    "l_senha_dica": "Al menos 8 caracteres, con letras y números.",
+    "l_confirma": "Repite la contraseña",
+    "l_cardapio": "Ver la carta",
+    "l_d_cardapio": "Ver las hornadas",
+    "l_sair": "Cerrar sesión",
+    "l_aviso": "Web de estudio: el Café Aurora no existe. La cuenta se queda solo en este navegador y no se envía nada por internet; de la contraseña solo se guarda un resumen (SHA-256).",
+    "lj_ola": "¡Hola, {nome}!",
+    "lj_ok_texto": "Has entrado como {email}. Tus pedidos, reservas y sellos quedan vinculados a esta cuenta en este navegador.",
+    "lj_ok_criada": "Cuenta creada.",
+    "lj_saiu": "Has cerrado la sesión.",
+    "lj_corrija": "Revisa los campos marcados.",
+    "lj_e_nome": "Dinos tu nombre.",
+    "lj_e_email": "Escribe un correo válido, como nombre@ejemplo.com.",
+    "lj_e_senha": "La contraseña necesita 8 caracteres o más, con letras y números.",
+    "lj_e_confirma": "Las dos contraseñas no coinciden.",
+    "lj_e_existe": "Ya existe una cuenta con este correo. Usa la pestaña Iniciar sesión.",
+    "lj_e_vazia": "Escribe la contraseña.",
+    "lj_e_login": "Correo o contraseña incorrectos."
   },
   "js": {
     "boot": [
@@ -292,8 +335,8 @@
     "r_cancelar": "Cancelar",
     "r_msg": "Reserva en {loja}: {mesa}, {pessoas} personas, {data} a las {hora}, a nombre de {nome}.",
     "r_hora_erro": "Dinos la hora.",
-    "r_hora_noite": "De 04:00 a 06:00 el café cierra para limpiar la grieta.",
-    "r_hora_dia": "La panadería abre de 06:00 a 18:00.",
+    "r_hora_noite": "El café abre a las 18:00 y cierra a las 6:00. De día, el mismo mostrador es la panadería.",
+    "r_hora_dia": "La panadería atiende de 6:00 a 18:00. Después, el mismo mostrador se convierte en café.",
     "qz_passo": "Pregunta {n} de {total}",
     "qz_resultado": "Va contigo:",
     "qz_de_novo": "Repetir",
@@ -380,9 +423,353 @@
       ]
     ],
     "d_titulo": "Panadería Aurora — Una Panadería Cyberpunk en Otra Dimensión",
-    "turno_cafe": "",
-    "turno_padaria": "",
-    "ux": {},
-    "luz": {}
+    "turno_cafe": "Ahora, {h}: el café está abierto · la panadería abre en {falta}",
+    "turno_padaria": "Ahora, {h}: la panadería está abierta · el café abre en {falta}",
+    "ux": {
+      "a11y_botao": "Accesibilidad",
+      "a11y_titulo": "Accesibilidad",
+      "fechar": "Cerrar",
+      "a11y_tema": "Tema",
+      "a11y_escuro": "☾ Oscuro (café)",
+      "a11y_claro": "☀ Claro (panadería)",
+      "a11y_tema_nota": "El claro es la Panadería Aurora (de 6:00 a 18:00); el oscuro, el Café (de 18:00 a 6:00).",
+      "a11y_texto": "Tamaño del texto",
+      "a11y_menor": "Reducir el texto",
+      "a11y_maior": "Aumentar el texto",
+      "a11y_leitura": "Lectura",
+      "a11y_contraste": "Alto contraste",
+      "a11y_links": "Subrayar enlaces",
+      "a11y_fonte": "Letra sencilla",
+      "a11y_espaco": "Más espacio entre líneas",
+      "a11y_parado": "Detener animaciones",
+      "a11y_padrao": "Volver a lo predeterminado",
+      "a11y_nota": "Tus elecciones se guardan en este navegador.",
+      "busca_rotulo": "Buscar en la carta",
+      "busca_dica": "Nombre o ingrediente",
+      "busca_n": "{n} en la carta con «{q}»",
+      "busca_nada": "Nada en la carta con «{q}». Prueba otra palabra o quita el filtro.",
+      "car_rotulo": "Opiniones",
+      "car_ant": "Opinión anterior",
+      "car_prox": "Opinión siguiente",
+      "car_ir": "Ir a la opinión {n}",
+      "car_pos": "{n} de {total}",
+      "car_pausar": "Pausar el cambio automático",
+      "car_tocar": "Reanudar el cambio automático",
+      "entrar": "Entrar",
+      "ola": "Hola, {nome}",
+      "gal_titulo_noite": "Dentro del café",
+      "gal_titulo_dia": "Dentro de la panadería",
+      "gal_rotulo": "Galería de fotos",
+      "gal_ant": "Foto anterior",
+      "gal_prox": "Foto siguiente",
+      "gal_ir": "Ir a la foto {n}",
+      "gal_fotos": [
+        [
+          "La calle del Café Aurora de noche, con letreros de neón y vapor saliendo por la puerta.",
+          "La calle de la Panadería Aurora por la mañana, con el escaparate lleno de pan y el vapor del horno."
+        ],
+        [
+          "La barra del café, con la máquina de espresso y un rayo atrapado en un tubo de cristal.",
+          "La cocina de la panadería, con el horno de leña, la cafetera y la ciudad en la ventana."
+        ],
+        [
+          "Latte de Plasma: un vaso de cristal con capas de café y espuma rosa, sobre una barra mojada.",
+          "Pan de Gravedad Cero: un pan redondo flotando sobre el plato, en una mesa de madera."
+        ],
+        [
+          "Leche de Estrella: una taza con espuma en espiral, como una galaxia, entre luces de neón.",
+          "Rosca del Eclipse: una rosca oscura partida por la mitad, sobre un paño, junto a la ventana."
+        ]
+      ],
+      "a11y_sys_noite": "SYS://GRIETA.Ω-11 › módulo de acceso",
+      "a11y_sys_dia": "HORNO://SOL-07 › módulo de acceso",
+      "a11y_idioma": "Idioma",
+      "a11y_idioma_nota": "La página se abre en la misma versión, en el idioma que elijas.",
+      "a11y_idioma_menu": "Idioma: {nome}. Cambiar de idioma",
+      "dep_grupo": "Depuración",
+      "dep_ligar": "▶ Activar la depuración",
+      "dep_nota": "Toca o haz clic en cualquier parte de la pantalla para ver cómo está hecha: el HTML, las reglas del CSS, el estilo y el script. Mientras está activa, el clic solo inspecciona. Esc la desactiva.",
+      "dep_sys": "DEBUG://INSPECTOR › parte elegida",
+      "dep_ativa": "DEPURACIÓN",
+      "dep_dica": "Toca o haz clic en una parte de la pantalla (con el teclado: Tab hasta ella y Enter). Esc sale.",
+      "dep_sair": "Salir",
+      "dep_fechar": "Cerrar el inspector",
+      "dep_caminho": "Dónde está la parte en la página",
+      "dep_como": "Cómo está hecho",
+      "dep_parte_de": "Forma parte de {nome}:",
+      "dep_arquivos": "Archivos:",
+      "dep_generico": "Un {tag} sin explicación propia. Las reglas del CSS de abajo dicen de dónde sale cada color, tamaño y espacio.",
+      "dep_caixa": "Caja",
+      "dep_tamanho": "tamaño",
+      "dep_calculado": "Estilo calculado",
+      "dep_regras": "Reglas del CSS ({n})",
+      "dep_sem_regras": "Ninguna regla del sitio se aplica directamente a esta parte: hereda de lo que tiene alrededor.",
+      "dep_so_quando": "Parte de la regla solo vale en: {estados}",
+      "dep_mais": "Y {n} reglas más, más generales, que pierden frente a las de arriba.",
+      "dep_html": "HTML",
+      "dep_filhos": "… {n} elementos dentro …",
+      "dep_partes": [
+        [
+          ".dep-barra, .dep-insp",
+          "La propia depuración: depurar.js lee las reglas del CSS de la página (document.styleSheets), el estilo calculado (getComputedStyle) y la caja (getBoundingClientRect) de la parte elegida.",
+          "depurar.js · recursos.css (bloque 6)"
+        ],
+        [
+          "#boot",
+          "La pantalla de apertura: un <div> por encima de todo, con el logo, la barra que se llena y las líneas de registro. inicio.js la muestra solo en la primera página de la sesión (sessionStorage) y script.js llena la barra en 0,9 s; desaparece con un toque, Esc, Enter o espacio.",
+          "index.html · estilo.css (bloque 2) · inicio.js · script.js"
+        ],
+        [
+          "#a11y",
+          "El panel de accesibilidad: un <dialog> nativo abierto con showModal(), que mantiene el foco dentro y se cierra con Esc. Las elecciones se convierten en clases en el <html> (a11y-contraste, a11y-links…) y se guardan en localStorage; inicio.js las aplica antes de pintar, para que la página no parpadee.",
+          "recursos.js · recursos.css (bloques 1 y 5) · inicio.js"
+        ],
+        [
+          ".a11y-abrir",
+          "El botón del panel: lo crea recursos.js y queda fijo en la esquina con position: fixed. Las esquinas cortadas son un clip-path; el icono, un hexágono también hecho con clip-path.",
+          "recursos.js · recursos.css (bloque 5)"
+        ],
+        [
+          ".nav__idioma",
+          "El atajo del idioma: muestra el código del idioma actual y abre el panel directamente en la lista. La dirección de cada idioma sale de los <link rel=\"alternate\" hreflang> del <head>, los mismos que leen los buscadores.",
+          "recursos.js · recursos.css (bloque 5)"
+        ],
+        [
+          ".nav__entrar",
+          "El enlace Entrar: recursos.js lee la sesión en localStorage y escribe «Entrar» u «Hola, nombre».",
+          "recursos.js · entrar.html · entrar.js"
+        ],
+        [
+          "#modo",
+          "El botón de sol y luna: cambia el Café (noche) por la Panadería (día). Modifica el atributo data-modo del <html>; el CSS redefine las variables de color (bloque 17) y oculta los textos .so-noite o .so-dia. Antes, la pantalla parpadea como un neón y sale el sol (o baja la luna).",
+          "index.html · estilo.css (bloque 17) · script.js"
+        ],
+        [
+          "#turno",
+          "El reloj de turno: cada minuto inicio.js mira la hora de quien visita y dice qué está abierto (panadería de 6:00 a 18:00, café de 18:00 a 6:00) y cuánto falta para el cambio.",
+          "index.html · inicio.js"
+        ],
+        [
+          ".brand",
+          "El logo es solo texto y CSS: el punto (.brand__orb) es un círculo con degradado radial y brillo (box-shadow), que late en una animación (@keyframes pulse).",
+          "index.html · estilo.css (bloque 4)"
+        ],
+        [
+          "#burger",
+          "El botón de tres rayas (solo en móvil y tableta): script.js activa la clase open, que trae el cajón de enlaces con transform: translateX(0). aria-expanded le dice al lector de pantalla si está abierto.",
+          "index.html · estilo.css (bloque 4) · script.js"
+        ],
+        [
+          ".nav__links",
+          "Los enlaces del menú: el subrayado de neón es un ::after que crece de 0 a 100 % de ancho. Un IntersectionObserver enciende el enlace de la sección que está a la vista.",
+          "index.html · estilo.css (bloque 4) · script.js"
+        ],
+        [
+          ".nav",
+          "La barra superior: fija (position: fixed), con fondo de cristal esmerilado (backdrop-filter: blur) sobre el fondo animado.",
+          "index.html · estilo.css (bloque 4)"
+        ],
+        [
+          ".hero__foto",
+          "La foto de la fachada detrás del título: WebP en dos tamaños (srcset y sizes), una de noche y otra de día, hechas en pareja en el mismo lugar. La del modo que no está a la vista no se descarga.",
+          "index.html · img/ · estilo.css (bloque 6)"
+        ],
+        [
+          ".hero__rings",
+          "Los anillos del portal: tres <i> vacíos, cada uno un círculo con borde de neón (border-radius: 50%) que gira en una animación de CSS a distinta velocidad. Fuera de la pantalla se paran para ahorrar procesador.",
+          "index.html · estilo.css (bloque 6)"
+        ],
+        [
+          ".hero__halo",
+          "El halo: un degradado cónico (conic-gradient) con los cuatro colores, desenfocado con filter: blur(70px) y girando despacio detrás del título; el desenfoque se hace una vez y la capa solo gira (will-change: transform).",
+          "estilo.css (bloque 6)"
+        ],
+        [
+          ".magnetic",
+          "Botón magnético: script.js sigue el puntero (pointermove) y atrae el botón unos píxeles con transform; cuando el puntero se va, vuelve a su sitio. En pantallas táctiles y con menos movimiento, se queda quieto.",
+          "script.js (parte 7) · estilo.css"
+        ],
+        [
+          ".btn",
+          "El botón de neón: borde fino del color de acento (--c), texto en Orbitron en mayúsculas con letras espaciadas y un brillo de box-shadow al pasar el puntero.",
+          "estilo.css (bloque 4)"
+        ],
+        [
+          ".hero__stats",
+          "Las cifras de arriba: una lista en flex con el número en Orbitron y la leyenda más pequeña debajo.",
+          "index.html · estilo.css (bloque 6)"
+        ],
+        [
+          ".hero",
+          "La sección de apertura: el título en Orbitron (una fuente servida por el propio sitio), con un brillo de text-shadow en capas. Lo que tiene .reveal aparece al hacer scroll, con un IntersectionObserver.",
+          "index.html · estilo.css (bloque 6) · script.js"
+        ],
+        [
+          ".marquee",
+          "La franja que corre: el texto está dos veces seguidas y una animación lleva la franja hasta translateX(-50%), así el final se junta con el principio sin costura.",
+          "index.html · estilo.css (bloque 7)"
+        ],
+        [
+          ".busca",
+          "La búsqueda en la carta: un <input type=\"search\"> dentro de role=\"search\". recursos.js compara lo que escribes con el nombre y la descripción, sin distinguir tildes (normalize('NFD')), y anuncia el resultado con aria-live.",
+          "recursos.js · recursos.css (bloque 2)"
+        ],
+        [
+          "#menuFiltros",
+          "Los filtros: botones con aria-pressed. script.js oculta (hidden) las tarjetas que no encajan y cuenta cuántas quedan.",
+          "index.html · script.js · estilo.css (bloque 18)"
+        ],
+        [
+          ".card__info",
+          "Los detalles del producto: un <details> con <summary>, que se abre y se cierra sin JavaScript y funciona con el teclado.",
+          "index.html · estilo.css (bloque 18)"
+        ],
+        [
+          ".card__add",
+          "El «+ Pedido»: script.js mete el producto en el pedido (guardado en localStorage) y actualiza el número del botón Pedir.",
+          "index.html · script.js"
+        ],
+        [
+          ".card",
+          "La tarjeta de la carta: un <article> con la foto (WebP, que solo se descarga cuando se acerca, loading=\"lazy\"), etiqueta, precio y el botón de pedir. En el móvil las tarjetas se deslizan de lado (scroll-snap), en la tableta son 2 columnas y en el ordenador 3 (CSS Grid).",
+          "index.html · estilo.css (bloque 9)"
+        ],
+        [
+          ".cup-stage",
+          "La taza está dibujada solo con CSS: el cuerpo es un <div> con border-radius abajo, el asa un pseudoelemento con borde, el líquido (#liquid) cambia de altura y de color con script.js, y el vapor son franjas animadas. Los extras activan las clases com-1 a com-4.",
+          "index.html · estilo.css (bloque 10) · script.js (parte 8)"
+        ],
+        [
+          "#pao, .tabua",
+          "El pan también es solo CSS: una forma redondeada (border-radius con ocho medidas) y dos degradados. El tiempo de horno oscurece la corteza (las variables --casca y --miolo) y el pan crece un poco (su altura), todo escrito por script.js; los toppings activan las clases com-1 a com-4.",
+          "index.html · estilo.css (bloque 17) · script.js"
+        ],
+        [
+          "#labForm",
+          "El montador: grupos de botones y un control deslizante (<input type=\"range\">). Con cada cambio, script.js compone el nombre, el color, el precio y el dibujo.",
+          "index.html · script.js (parte 8) · estilo.css (bloque 10)"
+        ],
+        [
+          "#laboratorio",
+          "El laboratorio: dos columnas en CSS Grid (en el móvil, una debajo de la otra), el montador a un lado y el dibujo al otro.",
+          "index.html · estilo.css (bloque 10)"
+        ],
+        [
+          ".galeria",
+          "La galería: las fotos que ya tiene el sitio, de noche las del café y de día las de la panadería, cada una con texto alternativo y pie (<figure> y <figcaption>), en un carrusel.",
+          "recursos.js (parte 3) · recursos.css (bloque 3)"
+        ],
+        [
+          ".carrossel",
+          "El carrusel, hecho a mano: el riel es una franja con overflow-x y scroll-snap; las flechas y los puntos se desplazan hasta la diapositiva (scrollTo). Pasa solo cada 7 s y se para con el ratón encima, con el foco dentro o con «Detener animaciones».",
+          "recursos.js (parte 3) · recursos.css (bloque 3)"
+        ],
+        [
+          ".trans",
+          "Una opinión: <blockquote> con <q> (las comillas las pone el propio navegador) y un <footer> con quién lo dijo.",
+          "index.html · estilo.css (bloque 11)"
+        ],
+        [
+          "#sobre",
+          "El Origen: el texto y el portal uno al lado del otro en CSS Grid; el portal es un círculo con degradado radial y anillos que giran.",
+          "index.html · estilo.css (bloque 8)"
+        ],
+        [
+          ".fidelidade",
+          "La tarjeta de sellos: diez círculos discontinuos en una cuadrícula de cinco por fila; cada pedido enviado sella uno (degradado radial magenta), contado en localStorage.",
+          "index.html · script.js · estilo.css (bloque 18)"
+        ],
+        [
+          "#reservaForm",
+          "La reserva: un <form novalidate> que script.js comprueba al momento (nombre, personas, día y hora dentro del turno). El error aparece junto al campo y queda vinculado a él con aria-describedby.",
+          "index.html · script.js · estilo.css (bloque 18)"
+        ],
+        [
+          "#reservas",
+          "Las reservas: el formulario a un lado y la tarjeta de sellos y las reservas hechas al otro, guardadas en el navegador.",
+          "index.html · script.js · estilo.css (bloque 18)"
+        ],
+        [
+          "#newsForm",
+          "El boletín: script.js comprueba el correo y responde con un mensaje con role=\"status\". No envía nada a ningún sitio: el Café es ficticio.",
+          "index.html · script.js · estilo.css (bloque 13)"
+        ],
+        [
+          ".versoes-troca",
+          "El cambio de versión: los mismos enlaces en las cinco versiones (CSS puro, Bootstrap, Tailwind, Bulma y Pico), con la actual marcada con aria-current.",
+          "index.html · versoes.html"
+        ],
+        [
+          ".foot",
+          "El pie de página: tres columnas en CSS Grid, que pasan a dos en pantallas medianas y a una en el móvil.",
+          "index.html · estilo.css (bloque 13)"
+        ],
+        [
+          "#dim",
+          "El Sintonizar: un <input type=\"range\">. De noche cambia la variable --desvio del <html>, y los cuatro colores de acento, hsl(calc(tono + var(--desvio)) …), giran todos a la vez. De día se convierte en «Sintonizar la luz»: inicio.js escribe las variables --luz-* con la hora del sol, de 6:00 a 18:00, que cambian un poco el tono, el fondo y las fotos.",
+          "index.html · estilo.css (bloques 0, 14 y 17) · inicio.js · script.js"
+        ],
+        [
+          "#pedido",
+          "El pedido: un <dialog> con las cantidades, el total y el formulario. «Enviar por WhatsApp» abre el mensaje listo (wa.me) sin número, porque el Café es ficticio.",
+          "index.html · script.js · estilo.css (bloque 18)"
+        ],
+        [
+          "#quiz",
+          "El test: tres preguntas en un <dialog>; script.js suma las respuestas y elige el producto de la carta que mejor encaja.",
+          "index.html · script.js"
+        ],
+        [
+          ".cta",
+          "La llamada final: el título grande y dos botones magnéticos.",
+          "index.html · estilo.css (bloque 12)"
+        ],
+        [
+          "main",
+          "El contenido de la página. Detrás, el fondo: un <canvas> (#bg) que script.js dibuja a 30 fotogramas por segundo (20 en el móvil), de noche la cuadrícula en perspectiva y las partículas, de día la harina cayendo; encima, capas de CSS (velo, ruido y líneas de televisión) con pointer-events: none, para que no capturen el clic.",
+          "index.html · script.js · estilo.css (bloque 1)"
+        ],
+        [
+          "body",
+          "La página: fondo var(--bg), texto en Rajdhani y su propio cursor (dos <div> que siguen el puntero, con mix-blend-mode: screen). Detrás de todo, el <canvas> del fondo animado.",
+          "index.html · estilo.css (bloques 0, 1 y 3) · script.js"
+        ]
+      ]
+    },
+    "luz": {
+      "titulo": "Sintonizar la luz",
+      "rotulo": "Luz del día",
+      "aria": "Hora de la luz en la panadería",
+      "aria_dim": "Ajuste de la luz del día",
+      "momentos": [
+        [
+          7.5,
+          "amanecer"
+        ],
+        [
+          11,
+          "mañana"
+        ],
+        [
+          13.5,
+          "mediodía"
+        ],
+        [
+          16.5,
+          "tarde"
+        ],
+        [
+          99,
+          "atardecer"
+        ]
+      ]
+    },
+    "fmt_hora": "{h}:{mm}",
+    "fmt_hora_cheia": "{h}:00",
+    "fmt_dur": "{h} h {mm} min",
+    "fmt_ap": [
+      "",
+      ""
+    ]
   }
 }

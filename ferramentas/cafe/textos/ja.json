@@ -1,6 +1,6 @@
 {
   "textos": {
-    "tag": "<b>24時間営業</b> · セクター・ネオン07 · 次元Ω",
+    "tag": "<b>営業</b> 18:00〜翌6:00 · セクター・ネオン07 · 次元Ω",
     "chip_expresso": "エスプレッソ",
     "chip_coldbrew": "コールドブリュー",
     "chip_matcha": "抹茶",
@@ -37,7 +37,7 @@
     "sobre_h2": "ふたつの世界の<em>ショート</em>から生まれました",
     "sobre_p1": "2087年、<strong>アウロラ・ヴェックス</strong>というバリスタが、ワープ炉にコーヒーをこぼしました。起きたのは爆発ではなく——香りでした。",
     "sobre_p2": "その香りが裂け目を開きました。向こう側には私たちと同じような街がありましたが、そこでは光が考え、雨が覚えていました。今お出ししている豆は、そこで見つけたものです。",
-    "sobre_p3": "<strong>Café Aurora</strong>は、ふたつの都市が出会う唯一の場所です。ここでは湯気がゆっくりと立ちのぼり、時間も数分だけ止まってくれます——二杯目を頼んでくれるなら。",
+    "sobre_p3": "<strong>Café Aurora</strong>は、ふたつの都市が出会う唯一の場所で、夜にしか存在しません。18時、オーブンが冷めると裂け目がふたたび開き、ベーカリーのカウンターは翌6時までカフェに変わります。ここでは湯気がゆっくりと立ちのぼり、2杯目を頼めば、時間も数分だけ止まってくれます。",
     "portal": "安定した裂け目 · 3.2 nm",
     "menu_h2": "<em>ほかには存在しない</em>ブレンド",
     "menu_lead": "さまざまな脳波に合わせて調整した6つのレシピ。すべて自己再生するカップでお出しします。",
@@ -71,7 +71,7 @@
     "f2": "記憶クリニック",
     "f3n": "匿名",
     "f3": "次元Ω-11",
-    "cta_h2": "裂け目は<em>夜遅くまで</em>開いています",
+    "cta_h2": "裂け目は<em>朝6時まで</em>開いています",
     "cta_p": "予約は不要です。必要なのは、間違った扉をくぐる勇気だけ。",
     "ver_cardapio": "すべてのメニューを見る",
     "voltar": "トップへ戻る",
@@ -83,9 +83,9 @@
     "addr2": "ロウアー・メトロポリス · 地下3階",
     "addr3": "さっきまでなかった扉から入店",
     "horario": "営業時間",
-    "hora1": "月〜金 · 6:00〜翌4:00",
-    "hora2": "土・日 · いつでも",
-    "hora3": "次元の祝日 · 休業",
+    "hora1": "毎日 · 18:00〜翌6:00",
+    "hora2": "ラストオーダー · 5:45",
+    "hora3": "日の出とともに · ベーカリーが開きます",
     "sinal": "シグナル",
     "direitos": "すべての宇宙の権利を留保",
     "ficticia": "架空のカフェ · サンプルサイト制作：",
@@ -96,8 +96,8 @@
     "editar": "✎ テキストを編集",
     "desvio": "色相のずれ",
     "nivel": "レベル",
-    "modo_para_dia": "ベーカリーを開く（昼モード）",
-    "modo_para_noite": "カフェに戻る（夜モード）",
+    "modo_para_dia": "ベーカリーを見る（6時〜18時）",
+    "modo_para_noite": "カフェを見る（18時〜翌6時）",
     "d_marca": "AURORA BAKERY",
     "d_nome": "オーロラ・ベーカリー",
     "d_marca_aria": "オーロラ・ベーカリー — ホーム",
@@ -122,7 +122,7 @@
     "d_sobre_h2": "昼になると、裂け目は<em>オーブン</em>に",
     "d_sobre_p1": "毎朝、わたしたちの太陽とΩ-11の太陽が同時に昇ると、<strong>アウロラ・ヴェックス</strong>がコーヒーで開いた裂け目は、オーブンの扉ほどの大きさまで縮みます。",
     "d_sobre_p2": "向こう側から漏れてくる熱は無駄にしません。パンを焼くのです。最初の焼き上がりは6時。その香りは、どの目覚まし時計よりも早くふたつの街に届きます。",
-    "d_sobre_p3": "<strong>オーロラ・ベーカリー</strong>は、カフェと同じ場所の昼の顔。夜のバリスタはパン職人に、カウンターはショーケースに変わり、ネオンは日が沈むまでひと休みします。",
+    "d_sobre_p3": "<strong>オーロラ・ベーカリー</strong>は、6時から18時までのカフェと同じ場所です。交代の時間になると、夜のバリスタはパン職人に、カウンターはショーケースに変わり、ネオンは18時までひと休み。そして裂け目がふたたび開き、カフェが戻ってきます。",
     "d_portal": "オーブン安定 · 220 °C",
     "d_menu_h2": "時間を<em>待たない</em>焼き上がり",
     "d_menu_lead": "1日に何度もオーブンから出てくる6つのレシピ。どれも、数時間（あるいは数ディメンション）ぬくもりを保つ紙で包んでお渡しします。",
@@ -167,7 +167,7 @@
     "d_foot_p": "2087年創業の次元間ベーカリー。同意してくれた宇宙で、倫理的に挽いた小麦粉を使っています。",
     "d_hora1": "毎日 · 6:00 — 18:00",
     "d_hora2": "最初の焼き上がり · 6:00ちょうど",
-    "d_hora3": "日没後 · カフェが開きます",
+    "d_hora3": "日没の18時 · カフェが開きます",
     "add": "注文",
     "lab_add": "注文に追加",
     "detalhes": "詳細",
@@ -238,10 +238,53 @@
     "d_f_vegano": "ヴィーガン",
     "d_p_vazio": "注文は空です。メニューのパンか「自分だけのパンをつくる」の「+ 注文」をタップしてください。",
     "d_p_nota": "このベーカリーは架空です。WhatsAppは番号なしで開くので、送り先はあなたが選びます。本物のサイトなら、注文はそのままお店に届きます。",
-    "d_dim_hint": "ドラッグしてベーカリーの色を変えてみてください。何も焦げません——たぶん。",
+    "d_dim_hint": "ドラッグしてベーカリーの太陽の時刻を変えます。6時はばら色の夜明け、正午は澄んだ光、18時は金色の夕方。",
     "d_ficticia": "架空のベーカリー · サンプルサイト制作：",
     "v_rotulo": "5つのバージョン",
-    "css_puro": "素のCSS"
+    "css_puro": "素のCSS",
+    "l_titulo": "ログイン — Café Aurora",
+    "l_desc": "Café Auroraのアカウントにログインするか新しく作成して、注文・予約・スタンプカードを保存しましょう。",
+    "l_marca_aria": "Café Aurora — トップへ戻る",
+    "l_d_marca_aria": "オーロラ・ベーカリー — トップへ戻る",
+    "l_voltar": "カフェに戻る",
+    "l_d_voltar": "ベーカリーに戻る",
+    "l_lado": "アカウントが裂け目を開けたままにします。",
+    "l_d_lado": "アカウントがパンを温かいまま保ちます。",
+    "l_lado1": "組み立てた注文を、ワンタップでもう一度。",
+    "l_lado2": "テーブルの予約を、日時つきで。",
+    "l_lado3": "スタンプカード：10回の注文ごとに1回はお店のおごりです。",
+    "l_h1": "Café Auroraにログイン",
+    "l_d_h1": "オーロラ・ベーカリーにログイン",
+    "l_lead": "メールアドレスとパスワードを使うか、1分以内でアカウントを作成してください。",
+    "l_abas": "ログインまたはアカウント作成",
+    "l_aba_entrar": "ログイン",
+    "l_aba_criar": "アカウント作成",
+    "l_email": "メールアドレス",
+    "l_senha": "パスワード",
+    "l_mostrar": "表示",
+    "l_esconder": "隠す",
+    "l_lembrar": "この端末でログインしたままにする",
+    "l_entrar": "ログイン",
+    "l_sem_conta": "まだアカウントがありませんか？",
+    "l_nome": "名前",
+    "l_senha_dica": "8文字以上で、英字と数字を含めてください。",
+    "l_confirma": "パスワードをもう一度",
+    "l_cardapio": "メニューを見る",
+    "l_d_cardapio": "焼き上がりを見る",
+    "l_sair": "ログアウト",
+    "l_aviso": "学習用サイトです。Café Auroraは実在しません。アカウントはこのブラウザの中だけに残り、インターネットには何も送られません。パスワードは要約値（SHA-256）だけを保存します。",
+    "lj_ola": "こんにちは、{nome}さん！",
+    "lj_ok_texto": "{email} としてログインしました。注文・予約・スタンプは、このブラウザでこのアカウントにひもづきます。",
+    "lj_ok_criada": "アカウントを作成しました。",
+    "lj_saiu": "ログアウトしました。",
+    "lj_corrija": "印のついた欄を確認してください。",
+    "lj_e_nome": "名前を入力してください。",
+    "lj_e_email": "name@example.com のような有効なメールアドレスを入力してください。",
+    "lj_e_senha": "パスワードは8文字以上で、英字と数字を含めてください。",
+    "lj_e_confirma": "2つのパスワードが一致しません。",
+    "lj_e_existe": "このメールアドレスのアカウントはすでにあります。「ログイン」タブを使ってください。",
+    "lj_e_vazia": "パスワードを入力してください。",
+    "lj_e_login": "メールアドレスまたはパスワードが違います。"
   },
   "js": {
     "boot": [
@@ -292,8 +335,8 @@
     "r_cancelar": "キャンセル",
     "r_msg": "{loja}の予約：{mesa}、{pessoas}名、{data} {hora}、{nome}様。",
     "r_hora_erro": "時間を入力してください。",
-    "r_hora_noite": "4時〜6時は裂け目の清掃のため閉店です。",
-    "r_hora_dia": "ベーカリーの営業は6時〜18時です。",
+    "r_hora_noite": "カフェは18時に開き、翌6時に閉まります。昼間は同じカウンターがベーカリーです。",
+    "r_hora_dia": "ベーカリーの営業は6時から18時です。そのあと、同じカウンターがカフェになります。",
     "qz_passo": "質問 {n}/{total}",
     "qz_resultado": "あなたに合うのは：",
     "qz_de_novo": "もう一度",
@@ -380,9 +423,353 @@
       ]
     ],
     "d_titulo": "オーロラ・ベーカリー — 異次元のサイバーパンク・ベーカリー",
-    "turno_cafe": "",
-    "turno_padaria": "",
-    "ux": {},
-    "luz": {}
+    "turno_cafe": "いま{h}：カフェ営業中 · ベーカリーの開店まで{falta}",
+    "turno_padaria": "いま{h}：ベーカリー営業中 · カフェの開店まで{falta}",
+    "ux": {
+      "a11y_botao": "アクセシビリティ",
+      "a11y_titulo": "アクセシビリティ",
+      "fechar": "閉じる",
+      "a11y_tema": "テーマ",
+      "a11y_escuro": "☾ ダーク（カフェ）",
+      "a11y_claro": "☀ ライト（ベーカリー）",
+      "a11y_tema_nota": "ライトはオーロラ・ベーカリー（6時〜18時）、ダークはカフェ（18時〜翌6時）です。",
+      "a11y_texto": "文字の大きさ",
+      "a11y_menor": "文字を小さく",
+      "a11y_maior": "文字を大きく",
+      "a11y_leitura": "読みやすさ",
+      "a11y_contraste": "高コントラスト",
+      "a11y_links": "リンクに下線",
+      "a11y_fonte": "シンプルな書体",
+      "a11y_espaco": "行間を広く",
+      "a11y_parado": "アニメーションを止める",
+      "a11y_padrao": "初期設定に戻す",
+      "a11y_nota": "選んだ設定はこのブラウザに保存されます。",
+      "busca_rotulo": "メニューを検索",
+      "busca_dica": "名前または材料",
+      "busca_n": "「{q}」を含むメニュー：{n}件",
+      "busca_nada": "「{q}」を含むメニューはありません。別の言葉を試すか、絞り込みを外してください。",
+      "car_rotulo": "お客様の声",
+      "car_ant": "前の声",
+      "car_prox": "次の声",
+      "car_ir": "{n}番目の声へ",
+      "car_pos": "{n} / {total}",
+      "car_pausar": "自動切り替えを一時停止",
+      "car_tocar": "自動切り替えを再開",
+      "entrar": "ログイン",
+      "ola": "こんにちは、{nome}さん",
+      "gal_titulo_noite": "カフェの中",
+      "gal_titulo_dia": "ベーカリーの中",
+      "gal_rotulo": "写真ギャラリー",
+      "gal_ant": "前の写真",
+      "gal_prox": "次の写真",
+      "gal_ir": "{n}枚目の写真へ",
+      "gal_fotos": [
+        [
+          "夜のCafé Auroraの通り。ネオンの看板と、ドアから立ちのぼる湯気。",
+          "朝のオーロラ・ベーカリーの通り。パンでいっぱいのショーウィンドウと、オーブンの湯気。"
+        ],
+        [
+          "カフェのカウンター。エスプレッソマシンと、ガラス管に閉じこめられた稲妻。",
+          "ベーカリーの厨房。薪窯、コーヒーマシン、窓の向こうの街。"
+        ],
+        [
+          "プラズマ・ラテ：濡れたカウンターの上の、コーヒーとピンクの泡が層になったグラス。",
+          "無重力パン：木のテーブルで、皿の上に浮かぶ丸いパン。"
+        ],
+        [
+          "スター・ミルク：ネオンの光のなか、銀河のようならせん状の泡のカップ。",
+          "日食リング：窓辺の布の上の、半分に切った黒いリングパン。"
+        ]
+      ],
+      "a11y_sys_noite": "SYS://裂け目.Ω-11 › アクセスモジュール",
+      "a11y_sys_dia": "OVEN://太陽-07 › アクセスモジュール",
+      "a11y_idioma": "言語",
+      "a11y_idioma_nota": "同じバージョンのページが、選んだ言語で開きます。",
+      "a11y_idioma_menu": "言語：{nome}。言語を変更",
+      "dep_grupo": "デバッグ",
+      "dep_ligar": "▶ デバッグをオンにする",
+      "dep_nota": "画面のどこかをタップまたはクリックすると、その部分の作り方が見られます。HTML、CSSのルール、スタイル、スクリプト。オンのあいだ、クリックは調べるだけになります。Escでオフ。",
+      "dep_sys": "DEBUG://インスペクター › 選んだ部分",
+      "dep_ativa": "デバッグ中",
+      "dep_dica": "画面の部分をタップまたはクリック（キーボード：Tabで移動してEnter）。Escで終了。",
+      "dep_sair": "終了",
+      "dep_fechar": "インスペクターを閉じる",
+      "dep_caminho": "ページ内での部分の位置",
+      "dep_como": "作り方",
+      "dep_parte_de": "{nome} の一部：",
+      "dep_arquivos": "ファイル：",
+      "dep_generico": "専用の説明がない {tag} です。下のCSSのルールが、色・大きさ・余白の出どころを示します。",
+      "dep_caixa": "ボックス",
+      "dep_tamanho": "サイズ",
+      "dep_calculado": "計算済みスタイル",
+      "dep_regras": "CSSのルール（{n}）",
+      "dep_sem_regras": "この部分に直接かかるサイトのルールはありません。まわりから受け継いでいます。",
+      "dep_so_quando": "ルールの一部は次のときだけ有効：{estados}",
+      "dep_mais": "ほかに、より一般的なルールが{n}個あり、上のルールに負けています。",
+      "dep_html": "HTML",
+      "dep_filhos": "… 中に{n}個の要素 …",
+      "dep_partes": [
+        [
+          ".dep-barra, .dep-insp",
+          "デバッグそのもの：depurar.js が、ページのCSSのルール（document.styleSheets）、計算済みスタイル（getComputedStyle）、選んだ部分のボックス（getBoundingClientRect）を読みます。",
+          "depurar.js · recursos.css (ブロック 6)"
+        ],
+        [
+          "#boot",
+          "オープニング画面：すべての上にある <div> で、ロゴ、たまっていくバー、ログの行があります。inicio.js がセッションの最初のページだけで表示し（sessionStorage）、script.js が0.9秒でバーを満たします。タップ、Esc、Enter、スペースで消えます。",
+          "index.html · estilo.css (ブロック 2) · inicio.js · script.js"
+        ],
+        [
+          "#a11y",
+          "アクセシビリティパネル：showModal() で開くネイティブの <dialog> で、フォーカスを中に閉じこめ、Escで閉じます。選んだ設定は <html> のクラス（a11y-contraste、a11y-links…）になって localStorage に残り、inicio.js が描画の前に適用するので、ページがちらつきません。",
+          "recursos.js · recursos.css (ブロック 1 と 5) · inicio.js"
+        ],
+        [
+          ".a11y-abrir",
+          "パネルのボタン：recursos.js が作り、position: fixed で隅に固定しています。切り落とした角は clip-path、アイコンも clip-path の六角形です。",
+          "recursos.js · recursos.css (ブロック 5)"
+        ],
+        [
+          ".nav__idioma",
+          "言語のショートカット：いまの言語のコードを表示し、パネルをリストの位置で開きます。各言語のアドレスは <head> の <link rel=\"alternate\" hreflang> から取っていて、検索エンジンが読むものと同じです。",
+          "recursos.js · recursos.css (ブロック 5)"
+        ],
+        [
+          ".nav__entrar",
+          "ログインのリンク：recursos.js が localStorage のセッションを読み、「ログイン」または「こんにちは、名前さん」と書きます。",
+          "recursos.js · entrar.html · entrar.js"
+        ],
+        [
+          "#modo",
+          "太陽と月のボタン：カフェ（夜）とベーカリー（昼）を入れ替えます。<html> の data-modo 属性を変え、CSSが色の変数を定義しなおし（ブロック17）、.so-noite または .so-dia のテキストを隠します。その前に画面がネオンのように点滅し、太陽がのぼります（または月が沈みます）。",
+          "index.html · estilo.css (ブロック 17) · script.js"
+        ],
+        [
+          "#turno",
+          "交代の時計：inicio.js が1分ごとに訪問者の時刻を見て、いま開いている店（ベーカリーは6時〜18時、カフェは18時〜翌6時）と交代までの時間を表示します。",
+          "index.html · inicio.js"
+        ],
+        [
+          ".brand",
+          "ロゴはテキストとCSSだけ：点（.brand__orb）は放射グラデーションと光（box-shadow）の円で、アニメーション（@keyframes pulse）で脈打ちます。",
+          "index.html · estilo.css (ブロック 4)"
+        ],
+        [
+          "#burger",
+          "三本線のボタン（スマホとタブレットのみ）：script.js が open クラスをつけると、transform: translateX(0) でリンクの引き出しが現れます。aria-expanded が、開いているかをスクリーンリーダーに伝えます。",
+          "index.html · estilo.css (ブロック 4) · script.js"
+        ],
+        [
+          ".nav__links",
+          "メニューのリンク：ネオンの下線は幅0から100%に伸びる ::after です。IntersectionObserver が、見えているセクションのリンクを光らせます。",
+          "index.html · estilo.css (ブロック 4) · script.js"
+        ],
+        [
+          ".nav",
+          "上部のバー：固定（position: fixed）で、動く背景の上にすりガラスの背景（backdrop-filter: blur）があります。",
+          "index.html · estilo.css (ブロック 4)"
+        ],
+        [
+          ".hero__foto",
+          "タイトルの後ろの店先の写真：2サイズのWebP（srcset と sizes）で、夜と昼の1枚ずつを同じ場所で対にして作りました。表示されていないモードの写真はダウンロードされません。",
+          "index.html · img/ · estilo.css (ブロック 6)"
+        ],
+        [
+          ".hero__rings",
+          "ポータルのリング：空の <i> が3つ。それぞれネオンの縁の円（border-radius: 50%）で、CSSアニメーションで別々の速さで回ります。画面の外では止まり、プロセッサを節約します。",
+          "index.html · estilo.css (ブロック 6)"
+        ],
+        [
+          ".hero__halo",
+          "ハロー：4色の円錐グラデーション（conic-gradient）を filter: blur(70px) でぼかし、タイトルの後ろでゆっくり回します。ぼかしは1回だけ計算し、レイヤーは回転するだけです（will-change: transform）。",
+          "estilo.css (ブロック 6)"
+        ],
+        [
+          ".magnetic",
+          "マグネットボタン：script.js がポインター（pointermove）を追い、transform でボタンを数ピクセル引き寄せます。ポインターが離れると元に戻ります。タッチ画面や「視差効果を減らす」では動きません。",
+          "script.js (パート 7) · estilo.css"
+        ],
+        [
+          ".btn",
+          "ネオンのボタン：アクセントカラー（--c）の細い縁、字間を広げたOrbitronの大文字、ホバーでの box-shadow の光。",
+          "estilo.css (ブロック 4)"
+        ],
+        [
+          ".hero__stats",
+          "上部の数字：flex のリストで、数字はOrbitron、その下に小さな説明。",
+          "index.html · estilo.css (ブロック 6)"
+        ],
+        [
+          ".hero",
+          "オープニングのセクション：タイトルはOrbitron（サイト自身が配信する書体）で、text-shadow を重ねて光らせています。.reveal のついたものは、IntersectionObserver でスクロール時に現れます。",
+          "index.html · estilo.css (ブロック 6) · script.js"
+        ],
+        [
+          ".marquee",
+          "流れる帯：テキストが2回続けて入っていて、アニメーションが帯を translateX(-50%) まで動かすので、終わりと始まりが継ぎ目なくつながります。",
+          "index.html · estilo.css (ブロック 7)"
+        ],
+        [
+          ".busca",
+          "メニューの検索：role=\"search\" の中の <input type=\"search\">。recursos.js が入力を名前と説明と比べ（アクセントの違いは無視、normalize('NFD')）、結果を aria-live で知らせます。",
+          "recursos.js · recursos.css (ブロック 2)"
+        ],
+        [
+          "#menuFiltros",
+          "絞り込み：aria-pressed つきのボタン。script.js が合わないカードを隠し（hidden）、残りの数を数えます。",
+          "index.html · script.js · estilo.css (ブロック 18)"
+        ],
+        [
+          ".card__info",
+          "商品の詳細：<summary> つきの <details> で、JavaScriptなしで開閉でき、キーボードでも使えます。",
+          "index.html · estilo.css (ブロック 18)"
+        ],
+        [
+          ".card__add",
+          "「+ 注文」：script.js が商品を注文に入れ（localStorage に保存）、注文ボタンの数字を更新します。",
+          "index.html · script.js"
+        ],
+        [
+          ".card",
+          "メニューのカード：写真（WebP、近づいたときだけダウンロード、loading=\"lazy\"）、ラベル、値段、注文ボタンのある <article>。スマホではカードが横にスクロール（scroll-snap）、タブレットでは2列、パソコンでは3列（CSS Grid）です。",
+          "index.html · estilo.css (ブロック 9)"
+        ],
+        [
+          ".cup-stage",
+          "カップはCSSだけで描いています：本体は下に border-radius のある <div>、取っ手は縁つきの疑似要素、液体（#liquid）は script.js で高さと色が変わり、湯気はアニメーションする帯です。トッピングで com-1〜com-4 のクラスがつきます。",
+          "index.html · estilo.css (ブロック 10) · script.js (パート 8)"
+        ],
+        [
+          "#pao, .tabua",
+          "パンもCSSだけ：8つの値の border-radius で丸めた形と、2つのグラデーション。焼き時間で皮が濃くなり（変数 --casca と --miolo）、パンが少しふくらみます（高さ）。どれも script.js が書きます。トッピングで com-1〜com-4 のクラスがつきます。",
+          "index.html · estilo.css (ブロック 17) · script.js"
+        ],
+        [
+          "#labForm",
+          "組み立て部分：ボタンのグループとスライダー（<input type=\"range\">）。変えるたびに、script.js が名前・色・値段・絵を組み立てます。",
+          "index.html · script.js (パート 8) · estilo.css (ブロック 10)"
+        ],
+        [
+          "#laboratorio",
+          "ラボ：CSS Grid の2列（スマホでは上下）で、片側に組み立て部分、もう片側に絵。",
+          "index.html · estilo.css (ブロック 10)"
+        ],
+        [
+          ".galeria",
+          "ギャラリー：サイトにすでにある写真を、夜はカフェ、昼はベーカリーのものにして、それぞれ代替テキストと説明（<figure> と <figcaption>）つきでカルーセルに並べています。",
+          "recursos.js (パート 3) · recursos.css (ブロック 3)"
+        ],
+        [
+          ".carrossel",
+          "手作りのカルーセル：レールは overflow-x と scroll-snap の帯で、矢印と点でスライドまでスクロールします（scrollTo）。7秒ごとに自動で進み、マウスが上にあるとき、フォーカスが中にあるとき、「アニメーションを止める」のときは止まります。",
+          "recursos.js (パート 3) · recursos.css (ブロック 3)"
+        ],
+        [
+          ".trans",
+          "お客様の声：<q> の入った <blockquote>（かぎかっこはブラウザがつけます）と、話した人の <footer>。",
+          "index.html · estilo.css (ブロック 11)"
+        ],
+        [
+          "#sobre",
+          "オリジン：テキストとポータルを CSS Grid で横に並べています。ポータルは放射グラデーションの円で、リングが回ります。",
+          "index.html · estilo.css (ブロック 8)"
+        ],
+        [
+          ".fidelidade",
+          "スタンプカード：1列5つのグリッドに並んだ10個の点線の円。注文を送るたびに1つ押され（マゼンタの放射グラデーション）、localStorage で数えます。",
+          "index.html · script.js · estilo.css (ブロック 18)"
+        ],
+        [
+          "#reservaForm",
+          "予約：script.js が入力中にチェックする <form novalidate>（名前、人数、日、営業時間内の時刻）。エラーは欄の横に出て、aria-describedby で欄とつながります。",
+          "index.html · script.js · estilo.css (ブロック 18)"
+        ],
+        [
+          "#reservas",
+          "予約一覧：片側にフォーム、もう片側にスタンプカードと予約済みの一覧。ブラウザに保存されます。",
+          "index.html · script.js · estilo.css (ブロック 18)"
+        ],
+        [
+          "#newsForm",
+          "ニュースレター：script.js がメールアドレスを確認し、role=\"status\" のメッセージで答えます。どこにも何も送りません。カフェは架空です。",
+          "index.html · script.js · estilo.css (ブロック 13)"
+        ],
+        [
+          ".versoes-troca",
+          "バージョンの切り替え：5つのバージョン（素のCSS、Bootstrap、Tailwind、Bulma、Pico）に同じリンクがあり、いまのものは aria-current で示します。",
+          "index.html · versoes.html"
+        ],
+        [
+          ".foot",
+          "フッター：CSS Grid の3列で、中くらいの画面では2列、スマホでは1列になります。",
+          "index.html · estilo.css (ブロック 13)"
+        ],
+        [
+          "#dim",
+          "同調スライダー：<input type=\"range\">。夜は <html> の変数 --desvio を変え、4つのアクセントカラー hsl(calc(色相 + var(--desvio)) …) がいっせいに回ります。昼は「光を合わせる」になり、inicio.js が6時から18時までの太陽の時刻で --luz-* 変数を書き、色合い・背景・写真を少しだけ変えます。",
+          "index.html · estilo.css (ブロック 0, 14 と 17) · inicio.js · script.js"
+        ],
+        [
+          "#pedido",
+          "注文：数量、合計、フォームのある <dialog>。「WhatsAppで送る」は、できあがったメッセージ（wa.me）を番号なしで開きます。カフェが架空だからです。",
+          "index.html · script.js · estilo.css (ブロック 18)"
+        ],
+        [
+          "#quiz",
+          "診断：<dialog> の中の3つの質問。script.js が答えを合計し、いちばん合うメニューを選びます。",
+          "index.html · script.js"
+        ],
+        [
+          ".cta",
+          "締めくくり：大きなタイトルと、2つのマグネットボタン。",
+          "index.html · estilo.css (ブロック 12)"
+        ],
+        [
+          "main",
+          "ページの内容。その後ろの背景は、script.js が毎秒30フレーム（スマホでは20）で描く <canvas>（#bg）で、夜は遠近法のグリッドと粒子、昼は舞い落ちる小麦粉です。その上にCSSのレイヤー（ベール、ノイズ、テレビの走査線）があり、pointer-events: none でクリックを受けません。",
+          "index.html · script.js · estilo.css (ブロック 1)"
+        ],
+        [
+          "body",
+          "ページ：背景は var(--bg)、文字はRajdhani、独自のカーソル（mix-blend-mode: screen でポインターを追う2つの <div>）。いちばん後ろに、動く背景の <canvas>。",
+          "index.html · estilo.css (ブロック 0, 1 と 3) · script.js"
+        ]
+      ]
+    },
+    "luz": {
+      "titulo": "光を合わせる",
+      "rotulo": "日の光",
+      "aria": "ベーカリーの光の時刻",
+      "aria_dim": "日の光の調整",
+      "momentos": [
+        [
+          7.5,
+          "夜明け"
+        ],
+        [
+          11,
+          "朝"
+        ],
+        [
+          13.5,
+          "正午"
+        ],
+        [
+          16.5,
+          "午後"
+        ],
+        [
+          99,
+          "夕方"
+        ]
+      ]
+    },
+    "fmt_hora": "{h}:{mm}",
+    "fmt_hora_cheia": "{h}時",
+    "fmt_dur": "{h}時間{m}分",
+    "fmt_ap": [
+      "",
+      ""
+    ]
   }
 }

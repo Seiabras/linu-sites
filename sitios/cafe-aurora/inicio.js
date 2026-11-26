@@ -14,8 +14,8 @@
     try { modo = localStorage.getItem('aurora-modo'); } catch (e) {}
   }
   if (modo !== 'dia' && modo !== 'noite') {
-    var hora = new Date().getHours();
-    modo = hora >= 6 && hora < 18 ? 'dia' : 'noite';
+    var horaAgora = new Date().getHours();
+    modo = horaAgora >= 6 && horaAgora < 18 ? 'dia' : 'noite';
   }
   raiz.setAttribute('data-modo', modo);
 
@@ -46,18 +46,25 @@
     document.addEventListener('keydown', tecla);
   });
 
+  // A hora no jeito de cada língua (26/11/2026): fmt_hora ("{h}h{mm}", "{hh}:{mm}", "{h12} {ap}"…), fmt_hora_cheia
+  // (a hora redonda), fmt_dur (quanto falta) e fmt_ap (AM e PM, só onde se usa) vêm do #textos-cafe.
+  function hora(tpl, h, m, T) {
+    var d = function (n) { return (n < 10 ? '0' : '') + n; }, ap = T.fmt_ap || ['', ''];
+    return String(tpl || '{h}h{mm}').replace('{hh}', d(h)).replace('{h12}', h % 12 || 12).replace('{h}', h)
+      .replace('{mm}', d(m)).replace('{m}', m).replace('{ap}', h < 12 ? ap[0] : ap[1]);
+  }
+
   // O relógio de turno (4/11/2026): é o mesmo lugar, padaria das 6h às 18h e café das 18h às 6h. Diz o que está
   // aberto agora, pelo relógio de quem visita, e quanto falta para a troca. Só aparece no idioma que já tem o texto.
   document.addEventListener('DOMContentLoaded', function () {
     var el = document.getElementById('turno'), bloco = document.getElementById('textos-cafe'), T = {};
     try { T = JSON.parse(bloco.textContent); } catch (e) {}
     if (!el || !T.turno_cafe || !T.turno_padaria) return;
-    function dois(n) { return (n < 10 ? '0' : '') + n; }
     function atualizar() {
       var d = new Date(), h = d.getHours(), m = d.getMinutes(), padaria = h >= 6 && h < 18;
       var falta = ((padaria ? 18 : 6) * 60 - (h * 60 + m) + 1440) % 1440;
-      var f = falta >= 60 ? Math.floor(falta / 60) + 'h' + dois(falta % 60) : falta + ' min';
-      el.textContent = (padaria ? T.turno_padaria : T.turno_cafe).replace('{h}', h + 'h' + dois(m)).replace('{falta}', f);
+      var f = falta >= 60 ? hora(T.fmt_dur, Math.floor(falta / 60), falta % 60, T) : (T.d_min || '{n} min').replace('{n}', falta);
+      el.textContent = (padaria ? T.turno_padaria : T.turno_cafe).replace('{h}', hora(T.fmt_hora, h, m, T)).replace('{falta}', f);
       el.hidden = false;
     }
     var relogio = 0;
@@ -74,8 +81,8 @@
   document.addEventListener('DOMContentLoaded', function () {
     var hue = document.getElementById('hue'), val = document.getElementById('hueVal'), dim = document.getElementById('dim');
     if (!hue) return;
-    var L = {};
-    try { L = JSON.parse(document.getElementById('textos-cafe').textContent).luz || {}; } catch (e) {}
+    var T = {}, L = {};
+    try { T = JSON.parse(document.getElementById('textos-cafe').textContent); L = T.luz || {}; } catch (e) {}
     // amanhecer, meio-dia e fim de tarde; entre eles, a mistura
     var PONTOS = [
       { h: -14, s: -12, l: 4, tinta: [249, 230, 229], p: 0.7, sepia: 0.06, foto: -12, sat: 0.9, bri: 1.04 },
@@ -100,10 +107,10 @@
     function rgb(base, tinta, p) {
       return 'rgb(' + base.map(function (c, i) { return Math.round(mistura(c, tinta[i], p)); }).join(' ') + ')';
     }
-    function hora(v) {
+    function horaDaLuz(v) {
       var h = 12 + v / 70 * 6, inteira = Math.floor(h), min = Math.round((h - inteira) * 4) * 15;
       if (min === 60) { inteira++; min = 0; }
-      return { h: h, texto: inteira + 'h' + (min ? min : '') };
+      return { h: h, texto: min ? hora(T.fmt_hora, inteira, min, T) : hora(T.fmt_hora_cheia || T.fmt_hora, inteira, 0, T) };
     }
     function momento(h) {
       var m = L.momentos || [];
@@ -134,7 +141,7 @@
       raiz.style.setProperty('--luz-foto', q('foto').toFixed(1) + 'deg');
       raiz.style.setProperty('--luz-sat', q('sat').toFixed(3));
       raiz.style.setProperty('--luz-bri', q('bri').toFixed(3));
-      var hr = hora(v), nome = momento(hr.h), texto = nome ? hr.texto + ' · ' + nome : hr.texto;
+      var hr = horaDaLuz(v), nome = momento(hr.h), texto = nome ? hr.texto + ' · ' + nome : hr.texto;
       if (val) val.textContent = texto;
       hue.setAttribute('aria-valuetext', texto);
       if (L.aria) hue.setAttribute('aria-label', L.aria);
