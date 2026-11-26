@@ -223,8 +223,7 @@ node ferramentas/gerar-cafe.mjs
 - **Projeto final de Desenvolvimento de Interfaces (18/11/2026):** a versão principal ganhou, só em pt-BR, o painel
   de acessibilidade, a busca no cardápio, o carrossel dos depoimentos (`sitios/cafe-aurora/recursos.js` e
   `recursos.css`) e a página de login (`ferramentas/cafe/entrar.html`, gerada só em pt-BR como `entrar.html`, com o
-  `entrar.js`). Os textos estão na chave `js.ux` do `textos/pt-BR.json`; nos outros idiomas ela fica vazia (`{}`) e
-  nada disso aparece, até a tradução. Detalhes no README do `Seiabras/cafe-aurora`.
+  `entrar.js`). Os textos estão na chave `js.ux` de cada `textos/<código>.json`; desde 26/11/2026, nas 13 línguas. Detalhes no README do `Seiabras/cafe-aurora`.
 - **Depuração, idiomas e a luz da padaria (26/11/2026), nas 13 línguas:** o painel de acessibilidade ganhou o
   visual de terminal (`recursos.css`, bloco 5), a lista das línguas (pelos `<link rel="alternate">`, com um atalho no
   menu) e a depuração (`sitios/cafe-aurora/depurar.js`, baixado só quando alguém liga: clicar numa parte mostra como
